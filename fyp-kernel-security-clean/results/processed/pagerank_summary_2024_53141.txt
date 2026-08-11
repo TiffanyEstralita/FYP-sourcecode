@@ -1,0 +1,78 @@
+======================================================================
+PAGERANK ANALYSIS SUMMARY
+======================================================================
+
+Total functions analyzed:  1818
+Mean PageRank score:       0.000550
+Max PageRank score:        0.025040
+Min PageRank score:        0.000228
+
+======================================================================
+TOP 50 FUNCTIONS BY PAGERANK
+======================================================================
+
+  1. ARRAY_SIZE                                    0.025040 (x_tables.c)
+  2. kfree                                         0.022359 (ip_vs_sync.c)
+  3. snprintf                                      0.021759 (ip_vs_ftp.c)
+  4. local_bh_enable                               0.019673 (xt_hashlimit.c)
+  5. mutex_unlock                                  0.019218 (ip_vs_sync.c)
+  6. mutex_lock                                    0.016768 (ip_vs_ctl.c)
+  7. free_percpu                                   0.013155 (nf_tables_api.c)
+  8. module_put                                    0.012954 (nf_tables_api.c)
+  9. rcu_read_unlock                               0.011713 (ip_vs_ctl.c)
+ 10. ntohl                                         0.009129 (nf_conntrack_pptp.c)
+ 11. ERR_PTR                                       0.008669 (nf_conntrack_bpf.c)
+ 12. nfnl_lock                                     0.008322 (nfnetlink.c)
+ 13. nfnl_unlock                                   0.007711 (ip_set_core.c)
+ 14. WARN_ON_ONCE                                  0.007205 (nf_tables_core.c)
+ 15. ntohs                                         0.006617 (ip_vs_ctl.c)
+ 16. pr_info_ratelimited                           0.006531 (xt_hashlimit.c)
+ 17. WRITE_ONCE                                    0.006426 (nf_conntrack_proto_tcp.c)
+ 18. atomic_read                                   0.005817 (ip_vs_ctl.c)
+ 19. kvfree                                        0.005642 (ip_set_core.c)
+ 20. nft_register_expr                             0.005626 (nf_tables_api.c)
+ 21. nf_ct_protonum                                0.005615 (nf_conntrack_netlink.c)
+ 22. atomic_inc                                    0.005610 (ip_vs_conn.c)
+ 23. nft_unregister_expr                           0.005572 (nf_tables_api.c)
+ 24. strcmp                                        0.005536 (nf_tables_api.c)
+ 25. NL_SET_BAD_ATTR                               0.005492 (nf_tables_api.c)
+ 26. spin_unlock_bh                                0.005450 (ip_vs_sync.c)
+ 27. tcp_state_active                              0.005210 (ip_vs_proto_tcp.c)
+ 28. READ_ONCE                                     0.005006 (ip_vs_sync.c)
+ 29. ip_vs_est_reload_start                        0.004971 (ip_vs_est.c)
+ 30. nft_ct_tmpl_alloc_pcpu                        0.004971 (nft_ct.c)
+ 31. list_del                                      0.004861 (nf_tables_api.c)
+ 32. list_del_rcu                                  0.004490 (nfnetlink_acct.c)
+ 33. xt_register_match                             0.004488 (x_tables.c)
+ 34. rcu_read_lock                                 0.004476 (nf_conntrack_core.c)
+ 35. this_cpu_inc                                  0.004370 (nf_synproxy_core.c)
+ 36. consume_skb                                   0.004370 (nf_synproxy_core.c)
+ 37. PTR_ERR                                       0.004287 (ip_vs_ftp.c)
+ 38. nf_ct_netns_put                               0.004180 (nf_conntrack_proto.c)
+ 39. spin_lock_bh                                  0.004112 (ip_vs_conn.c)
+ 40. IP_VS_DBG                                     0.003970 (ip_vs_app.c)
+ 41. memset                                        0.003892 (ip_vs_ctl.c)
+ 42. RCU_INIT_POINTER                              0.003875 (ip_vs_dh.c)
+ 43. already_closed                                0.003866 (nf_conncount.c)
+ 44. test_bit                                      0.003831 (nf_conntrack_proto_tcp.c)
+ 45. nf_ct_netns_do_put                            0.003782 (nf_conntrack_proto.c)
+ 46. list_add_tail                                 0.003524 (ip_vs_sync.c)
+ 47. INIT_LIST_HEAD                                0.003423 (nfnetlink_osf.c)
+ 48. request_module                                0.003408 (nfnetlink_log.c)
+ 49. for_each_possible_cpu                         0.003379 (ip_vs_est.c)
+ 50. kfree_rcu                                     0.003244 (ip_vs_est.c)
+
+======================================================================
+CVE-2024-53141 FILE ANALYSIS
+======================================================================
+
+Total CVE functions:       4
+Functions in top 10%:      0
+Functions in top 20%:      2
+
+Top 30 CVE functions:
+
+  1. ip_set_mask_from_to                           0.000437 (Overall rank: #277)
+  2. swap                                          0.000396 (Overall rank: #337)
+  3. adtfn                                         0.000228 (Overall rank: #728)
+  4. ip_set_free                                   0.000228 (Overall rank: #729)

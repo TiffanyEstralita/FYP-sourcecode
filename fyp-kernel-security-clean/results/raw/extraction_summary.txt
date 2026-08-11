@@ -1,0 +1,20 @@
+======================================================================
+NETFILTER FUNCTION EXTRACTION SUMMARY
+======================================================================
+
+Total C files analyzed:     7
+Total functions found:      23
+Unique function names:      23
+Average per file:           3.3
+
+======================================================================
+TOP 10 FILES BY FUNCTION COUNT
+======================================================================
+
+ 1. nft_chain_filter.c                         12 functions
+ 2. nft_masq.c                                  4 functions
+ 3. nf_hooks_lwtunnel.c                         2 functions
+ 4. nft_nat.c                                   2 functions
+ 5. nf_nat_masquerade.c                         1 functions
+ 6. nf_tables_core.c                            1 functions
+ 7. nft_redir.c                                 1 functions

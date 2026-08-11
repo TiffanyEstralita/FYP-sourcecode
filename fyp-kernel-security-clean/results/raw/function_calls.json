@@ -1,0 +1,2380 @@
+{
+  "core.c": {
+    "__nf_hook_entries_free": [],
+    "nf_hook_entries_free": [],
+    "hooks_validate": [],
+    "nf_static_key_inc": [],
+    "nf_static_key_dec": [],
+    "net_dec_egress_queue": [],
+    "nf_unregister_net_hook": [],
+    "__nf_unregister_net_hook": [],
+    "nf_register_net_hook": [],
+    "nf_ct_attach": [],
+    "nf_conntrack_destroy": [],
+    "nf_ct_set_closing": [],
+    "netfilter_net_init": [],
+    "netfilter_net_exit": [],
+    "netfilter_init": []
+  },
+  "nf_bpf_link.c": {
+    "bpf_prog_run_pin_on_cpu": [],
+    "bpf_nf_enable_defrag": [],
+    "bpf_nf_disable_defrag": [],
+    "bpf_nf_link_release": [],
+    "bpf_nf_link_dealloc": [],
+    "bpf_nf_link_detach": [],
+    "bpf_nf_check_pf_and_hooks": [],
+    "bpf_nf_link_attach": [],
+    "bpf_link_settle": [],
+    "nf_ptr_to_btf_id": [],
+    "bpf_base_func_proto": []
+  },
+  "nf_conncount.c": {
+    "already_closed": [
+      "nf_ct_put"
+    ],
+    "key_diff": [],
+    "nf_ct_zone_id": [],
+    "nf_ct_zone_equal": [
+      "nf_ct_put",
+      "already_closed"
+    ],
+    "nf_conncount_list_init": [],
+    "__tree_nodes_free": [],
+    "spin_lock": [],
+    "schedule_gc_worker": [],
+    "tree_gc_worker": [],
+    "nf_conncount_cache_free": [],
+    "destroy_tree": [],
+    "nf_conncount_destroy": [],
+    "nf_conncount_modinit": [],
+    "nf_conncount_modexit": []
+  },
+  "nf_conntrack_acct.c": {
+    "nf_conntrack_acct_pernet_init": []
+  },
+  "nf_conntrack_amanda.c": {
+    "nf_conntrack_amanda_fini": [],
+    "nf_conntrack_amanda_init": []
+  },
+  "nf_conntrack_bpf.c": {
+    "ERR_PTR": [],
+    "bpf_ct_release": [],
+    "bpf_ct_set_timeout": [],
+    "bpf_ct_change_timeout": [],
+    "bpf_ct_set_status": [],
+    "bpf_ct_change_status": [],
+    "register_nf_conntrack_bpf": [],
+    "cleanup_nf_conntrack_bpf": []
+  },
+  "nf_conntrack_broadcast.c": {
+    "in_dev_for_each_ifa_rcu": []
+  },
+  "nf_conntrack_core.c": {
+    "nf_conntrack_lock": [],
+    "nf_conntrack_double_unlock": [],
+    "nf_conntrack_all_lock": [],
+    "nf_conntrack_all_unlock": [],
+    "scale_hash": [],
+    "nf_ct_get_id": [],
+    "nf_conntrack_get_id": [],
+    "nf_ct_tmpl_free": [],
+    "destroy_gre_conntrack": [],
+    "nf_ct_destroy": [],
+    "__nf_ct_delete_from_lists": [],
+    "nf_ct_delete_from_lists": [],
+    "nf_ct_add_to_ecache_list": [],
+    "nf_ct_delete": [],
+    "nf_ct_gc_expired": [],
+    "nf_conntrack_get_ht": [],
+    "hlist_nulls_for_each_entry_rcu": [
+      "rcu_read_unlock",
+      "nf_ct_gc_expired",
+      "gc_worker_skip_ct",
+      "atomic_read",
+      "smp_acquire__after_ctrl_dep",
+      "nf_ct_put",
+      "gc_worker_can_early_drop",
+      "nf_ct_kill"
+    ],
+    "nf_ct_ext_valid_pre": [
+      "nf_ct_is_dying",
+      "hlist_nulls_for_each_entry",
+      "__nf_conntrack_insert_prepare",
+      "smp_mb__before_atomic",
+      "set_bit",
+      "nf_conntrack_double_unlock",
+      "local_bh_enable",
+      "nf_ct_ext_valid_post",
+      "nf_ct_kill",
+      "nf_conntrack_event_cache"
+    ],
+    "nf_ct_ext_valid_post": [],
+    "local_bh_disable": [],
+    "hlist_nulls_for_each_entry": [
+      "net_eq",
+      "spin_unlock",
+      "local_bh_enable"
+    ],
+    "__nf_conntrack_insert_prepare": [],
+    "nf_ct_resolve_clash_harder": [],
+    "early_drop": [
+      "ERR_PTR"
+    ],
+    "rcu_read_unlock": [],
+    "gc_worker_skip_ct": [],
+    "gc_worker_can_early_drop": [],
+    "gc_worker": [],
+    "rcu_read_lock": [],
+    "conntrack_gc_work_init": [],
+    "nf_conntrack_free": [],
+    "ERR_CAST": [],
+    "spin_lock_bh": [],
+    "__set_bit": [],
+    "nf_ct_port_nlattr_tuple_size": [],
+    "nf_conntrack_attach": [],
+    "nf_conntrack_update": [],
+    "nf_ct_iterate_cleanup": [
+      "int"
+    ],
+    "nf_ct_iterate_cleanup_net": [
+      "int"
+    ],
+    "kill_all": [],
+    "nf_conntrack_cleanup_start": [],
+    "nf_conntrack_cleanup_end": [],
+    "nf_conntrack_cleanup_net": [],
+    "nf_conntrack_cleanup_net_list": [],
+    "nf_conntrack_hash_resize": [],
+    "nf_conntrack_set_hashsize": [],
+    "nf_conntrack_init_start": [],
+    "spin_lock_init": [],
+    "nf_conntrack_set_closing": [],
+    "nf_conntrack_init_end": [],
+    "nf_conntrack_init_net": [],
+    "__nf_ct_change_timeout": [],
+    "__nf_ct_change_status": [],
+    "nf_ct_change_status_common": []
+  },
+  "nf_conntrack_ecache.c": {
+    "ecache_work_evict_list": [],
+    "hlist_nulls_del_rcu": [],
+    "hlist_nulls_add_head": [],
+    "ecache_work": [],
+    "nf_ct_ecache_tstamp_refresh": [],
+    "nf_ct_deliver_cached_events": [],
+    "nf_conntrack_unregister_notifier": [],
+    "nf_conntrack_ecache_work": [],
+    "schedule_delayed_work": [],
+    "nf_ct_ecache_tstamp_new": [],
+    "nf_ct_ecache_ext_add": [],
+    "nf_conntrack_ecache_pernet_init": [],
+    "nf_conntrack_ecache_pernet_fini": []
+  },
+  "nf_conntrack_expect.c": {
+    "nf_ct_expectation_timed_out": [],
+    "nf_ct_expect_dst_hash": [],
+    "nf_ct_remove_expect": [],
+    "nf_ct_exp_equal": [],
+    "refcount_inc": [],
+    "nf_ct_remove_expectations": [],
+    "nf_ct_unexpect_related": [],
+    "memset": [],
+    "nf_ct_expect_free_rcu": [],
+    "nf_ct_expect_put": [],
+    "nf_ct_expect_insert": [],
+    "expect_matches": [
+      "nf_ct_remove_expect"
+    ],
+    "evict_oldest_expect": [],
+    "bool": [],
+    "exp_seq_stop": [],
+    "exp_seq_show": [],
+    "nf_ct_l4proto_find": [],
+    "seq_puts": [],
+    "seq_printf": [],
+    "exp_proc_init": [],
+    "exp_proc_remove": [],
+    "nf_conntrack_expect_pernet_init": [],
+    "nf_conntrack_expect_pernet_fini": [],
+    "nf_conntrack_expect_init": [],
+    "nf_conntrack_expect_fini": []
+  },
+  "nf_conntrack_extend.c": {
+    "total_extension_size": [],
+    "nf_ct_ext_bump_genid": []
+  },
+  "nf_conntrack_ftp.c": {
+    "int": [],
+    "find_nl_seq": [
+      "ntohl",
+      "nf_ct_l3num",
+      "memcpy",
+      "ARRAY_SIZE",
+      "memcmp",
+      "nf_ct_expect_put",
+      "spin_unlock_bh"
+    ],
+    "nf_ct_ftp_from_nlattr": [],
+    "nf_conntrack_ftp_fini": [],
+    "nf_conntrack_ftp_init": []
+  },
+  "nf_conntrack_h323_asn1.c": {
+    "get_len": [],
+    "nf_h323_error_boundary": [],
+    "get_bit": [
+      "nf_h323_error_boundary",
+      "get_bits",
+      "BYTE_ALIGN",
+      "get_len"
+    ],
+    "get_bits": [],
+    "get_bitmap": [],
+    "get_uint": [],
+    "BYTE_ALIGN": [],
+    "DecodeRasMessage": [],
+    "DecodeQ931": []
+  },
+  "nf_conntrack_h323_main.c": {
+    "nf_ct_l3num": [],
+    "nf_ct_dump_tuple": [],
+    "memset": [],
+    "flowi4_to_flowi": [],
+    "flowi6_to_flowi": [],
+    "memcmp": [
+      "nf_ct_l3num",
+      "nf_ct_dump_tuple",
+      "nf_ct_expect_put"
+    ],
+    "spin_lock_bh": [],
+    "h323_helper_init": [],
+    "h323_helper_exit": [],
+    "nf_conntrack_h323_fini": [],
+    "nf_conntrack_h323_init": []
+  },
+  "nf_conntrack_h323_types.c": {
+    "offsetof": []
+  },
+  "nf_conntrack_helper.c": {
+    "helper_hash": [],
+    "hlist_for_each_entry_rcu": [
+      "strcmp"
+    ],
+    "rcu_read_unlock": [],
+    "rcu_read_lock": [],
+    "nf_conntrack_helper_put": [],
+    "nf_nat_helper_put": [],
+    "unhelp": [],
+    "nf_ct_helper_destroy": [],
+    "LIST_HEAD": [],
+    "nf_ct_helper_expectfn_register": [],
+    "nf_ct_helper_expectfn_unregister": [],
+    "nf_conntrack_helper_register": [],
+    "expect_iter_me": [],
+    "nf_conntrack_helper_unregister": [],
+    "int": [],
+    "nf_nat_helper_register": [],
+    "nf_nat_helper_unregister": [],
+    "nf_conntrack_helper_init": [],
+    "nf_conntrack_helper_fini": []
+  },
+  "nf_conntrack_irc.c": {
+    "nf_conntrack_irc_init": [],
+    "nf_conntrack_irc_fini": []
+  },
+  "nf_conntrack_labels.c": {
+    "replace_u32": [],
+    "nf_connlabels_get": [],
+    "nf_connlabels_put": []
+  },
+  "nf_conntrack_netbios_ns.c": {
+    "nf_conntrack_broadcast_help": [],
+    "nf_conntrack_netbios_ns_init": [],
+    "nf_conntrack_netbios_ns_fini": []
+  },
+  "nf_conntrack_netlink.c": {
+    "rcu_read_lock": [],
+    "ctnetlink_dump_status": [],
+    "ctnetlink_dump_timestamp": [],
+    "ctnetlink_dump_secctx": [],
+    "ctnetlink_label_size": [],
+    "ctnetlink_dump_master": [],
+    "ctnetlink_dump_ct_seq_adj": [],
+    "ctnetlink_dump_ct_synproxy": [],
+    "ctnetlink_dump_id": [],
+    "ctnetlink_dump_use": [],
+    "ctnetlink_dump_info": [],
+    "ctnetlink_proto_size": [],
+    "nf_ct_protonum": [],
+    "ctnetlink_acct_size": [],
+    "ctnetlink_secctx_size": [],
+    "ctnetlink_timestamp_size": [],
+    "ctnetlink_nlmsg_size": [],
+    "ctnetlink_dump_protoinfo": [],
+    "ctnetlink_done": [],
+    "ctnetlink_needs_filter": [
+      "PTR_ERR",
+      "nf_ct_iterate_cleanup_net",
+      "kfree"
+    ],
+    "ctnetlink_start": [],
+    "ctnetlink_filter_match": [],
+    "ctnetlink_get_id": [],
+    "nf_conntrack_lock": [],
+    "NFNL_MSG_TYPE": [],
+    "spin_unlock": [],
+    "CTA_FILTER_FLAG": [],
+    "ctnetlink_flush_iterate": [],
+    "ctnetlink_done_list": [],
+    "nf_ct_l3num": [],
+    "spin_lock_bh": [],
+    "rcu_read_unlock": [],
+    "nfnl_unlock": [],
+    "set_bit": [],
+    "ctnetlink_change_mark": [],
+    "sock_net": [],
+    "nfnetlink_unicast": [
+      "NETLINK_CB"
+    ],
+    "__ctnetlink_glue_build": [],
+    "nf_expect_get_id": [
+      "nf_ct_expect_put"
+    ],
+    "nla_put_be32": [
+      "htonl"
+    ],
+    "ctnetlink_exp_id": [],
+    "NETLINK_CB": [],
+    "nf_ct_expect_put": [],
+    "expect_iter_name": [],
+    "expect_iter_all": [],
+    "nlmsg_report": [],
+    "ERR_PTR": [],
+    "spin_unlock_bh": [],
+    "ctnetlink_net_init": [],
+    "ctnetlink_net_pre_exit": [],
+    "ctnetlink_init": [],
+    "ctnetlink_exit": []
+  },
+  "nf_conntrack_ovs.c": {
+    "nf_ct_skb_network_trim": [],
+    "memset": []
+  },
+  "nf_conntrack_pptp.c": {
+    "nf_ct_dump_tuple": [],
+    "nf_ct_unexpect_related": [],
+    "nf_ct_expect_put": [],
+    "nf_ct_kill": [],
+    "nf_ct_put": [],
+    "pptp_destroy_siblings": [],
+    "exp_gre": [],
+    "ntohs": [],
+    "ntohl": [
+      "ntohs",
+      "spin_lock_bh",
+      "spin_unlock_bh"
+    ],
+    "nf_conntrack_pptp_init": [],
+    "nf_conntrack_pptp_fini": []
+  },
+  "nf_conntrack_proto.c": {
+    "in_vrf_postrouting": [],
+    "nf_conntrack_confirm": [],
+    "copy_to_user": [],
+    "nf_conntrack_in": [],
+    "nf_ct_tcp_fixup": [],
+    "nf_ct_netns_do_get": [],
+    "nf_ct_netns_do_put": [],
+    "nf_ct_netns_inet_get": [],
+    "nf_ct_netns_get": [],
+    "nf_ct_netns_put": [],
+    "nf_ct_bridge_register": [],
+    "nf_ct_bridge_unregister": [],
+    "nf_conntrack_proto_init": [],
+    "nf_conntrack_proto_fini": [],
+    "nf_conntrack_proto_pernet_init": []
+  },
+  "nf_conntrack_proto_generic.c": {
+    "ntohl": [],
+    "nf_conntrack_generic_init_net": []
+  },
+  "nf_conntrack_proto_gre.c": {
+    "DEFINE_SPINLOCK": [],
+    "gre_keymap_lookup": [],
+    "nf_ct_gre_keymap_destroy": [],
+    "gre_print_conntrack": [],
+    "ntohl": [],
+    "nf_conntrack_gre_init_net": []
+  },
+  "nf_conntrack_proto_icmp.c": {
+    "nf_ip_checksum": [
+      "memset",
+      "ip_hdr"
+    ],
+    "icmp_nlattr_tuple_size": [],
+    "ntohl": [],
+    "nf_conntrack_icmp_init_net": []
+  },
+  "nf_conntrack_proto_icmpv6.c": {
+    "nf_ip6_checksum": [
+      "nf_ct_set",
+      "memcpy",
+      "ipv6_hdr"
+    ],
+    "icmpv6_nlattr_tuple_size": [],
+    "ntohl": [],
+    "nf_conntrack_icmpv6_init_net": []
+  },
+  "nf_conntrack_proto_sctp.c": {
+    "sctp_print_conntrack": [],
+    "nf_ct_is_confirmed": [
+      "test_bit",
+      "spin_lock_bh",
+      "nf_conntrack_event_cache",
+      "spin_unlock_bh"
+    ],
+    "sctp_can_early_drop": [],
+    "NLA_ALIGN": [],
+    "nlattr_to_sctp": [],
+    "nf_conntrack_sctp_init_net": []
+  },
+  "nf_conntrack_proto_tcp.c": {
+    "tcp_print_conntrack": [],
+    "get_conntrack_index": [],
+    "after": [],
+    "before": [],
+    "WRITE_ONCE": [],
+    "nf_checksum": [],
+    "tcp_options": [],
+    "tcp_can_early_drop": [],
+    "nf_conntrack_tcp_set_closing": [],
+    "test_bit": [
+      "set_bit",
+      "nf_conntrack_event_cache"
+    ],
+    "nf_ct_tcp_state_reset": [],
+    "ntohl": [],
+    "nf_conntrack_event_cache": [],
+    "nlattr_to_tcp": [],
+    "tcp_nlattr_tuple_size": [],
+    "nf_conntrack_tcp_init_net": []
+  },
+  "nf_conntrack_proto_udp.c": {
+    "nf_checksum": [],
+    "nf_conntrack_event_cache": [],
+    "ntohl": [],
+    "nf_conntrack_udp_init_net": []
+  },
+  "nf_conntrack_sane.c": {
+    "nf_conntrack_sane_fini": [],
+    "nf_conntrack_sane_init": []
+  },
+  "nf_conntrack_seqadj.c": {
+    "before": [
+      "ntohl",
+      "spin_unlock_bh"
+    ]
+  },
+  "nf_conntrack_sip.c": {
+    "iswordc": [],
+    "word_len": [],
+    "memset": [],
+    "flush_expectations": [],
+    "nf_inet_addr_cmp": [],
+    "memcpy": [],
+    "nf_conntrack_sip_fini": [],
+    "nf_conntrack_sip_init": []
+  },
+  "nf_conntrack_snmp.c": {
+    "nf_conntrack_snmp_init": [],
+    "nf_conntrack_snmp_fini": []
+  },
+  "nf_conntrack_standalone.c": {
+    "hlist_nulls_for_each_entry_rcu": [
+      "net_eq"
+    ],
+    "ct_seq_stop": [],
+    "ct_show_secctx": [],
+    "ct_show_delta_time": [],
+    "l3proto_name": [],
+    "l4proto_name": [],
+    "ct_seq_show": [],
+    "ct_cpu_seq_stop": [],
+    "ct_cpu_seq_show": [],
+    "nf_conntrack_standalone_init_proc": [],
+    "nf_conntrack_standalone_fini_proc": [],
+    "nf_conntrack_count": [],
+    "nf_conntrack_standalone_init_sysctl": [],
+    "nf_conntrack_standalone_fini_sysctl": [],
+    "nf_conntrack_fini_net": [],
+    "nf_conntrack_pernet_init": [],
+    "nf_conntrack_pernet_exit": [],
+    "nf_conntrack_standalone_init": [],
+    "register_net_sysctl": [],
+    "nf_conntrack_standalone_fini": []
+  },
+  "nf_conntrack_tftp.c": {
+    "nf_ct_dump_tuple": [],
+    "nf_conntrack_tftp_fini": [],
+    "nf_conntrack_tftp_init": []
+  },
+  "nf_conntrack_timeout.c": {
+    "untimeout": [],
+    "nf_ct_untimeout": [],
+    "__nf_ct_timeout_put": [],
+    "nf_ct_destroy_timeout": []
+  },
+  "nf_conntrack_timestamp.c": {
+    "nf_conntrack_tstamp_pernet_init": []
+  },
+  "nf_dup_netdev.c": {
+    "nf_fwd_netdev_egress": [],
+    "nf_dup_netdev_egress": []
+  },
+  "nf_flow_table_bpf.c": {
+    "nf_flow_register_bpf": []
+  },
+  "nf_flow_table_core.c": {
+    "flow_offload_dst_cookie": [],
+    "nf_flow_has_expired": [],
+    "flow_offload_fixup_tcp": [],
+    "flow_offload_fixup_ct": [],
+    "test_bit": [
+      "nf_ct_protonum",
+      "nf_flow_table_tcp_timeout",
+      "WARN_ON_ONCE",
+      "nf_ct_put"
+    ],
+    "flow_offload_route_release": [],
+    "flow_offload_free": [],
+    "flow_offload_hash": [],
+    "flow_offload_hash_obj": [],
+    "flow_offload_get_timeout": [],
+    "flow_offload_add": [],
+    "flow_offload_teardown": [],
+    "void": [],
+    "nf_flow_table_tcp_timeout": [],
+    "nf_flow_table_extend_ct_timeout": [],
+    "nf_ct_is_dying": [],
+    "nf_flow_custom_gc": [
+      "flow_offload_teardown",
+      "nf_flow_table_extend_ct_timeout",
+      "test_bit",
+      "nf_flow_offload_del",
+      "flow_offload_del"
+    ],
+    "nf_flow_table_gc_run": [],
+    "nf_flow_offload_work_gc": [],
+    "nf_flow_table_init": [],
+    "nf_flow_table_cleanup": [],
+    "nf_flow_table_free": [],
+    "nf_flow_table_init_net": [],
+    "nf_flow_table_fini_net": [],
+    "nf_flow_table_pernet_init": [],
+    "nf_flow_table_pernet_exit": [],
+    "nf_flow_table_module_init": [],
+    "nf_flow_table_module_exit": []
+  },
+  "nf_flow_table_inet.c": {
+    "nf_flow_inet_module_init": [],
+    "nf_flow_inet_module_exit": []
+  },
+  "nf_flow_table_ip.c": {
+    "nf_flow_snat_port": [],
+    "nf_flow_snat_ip": [],
+    "ip_has_options": [],
+    "nf_flow_exceeds_mtu": [],
+    "nf_flow_dst_check": [
+      "flow_offload_teardown",
+      "ipv6_hdr"
+    ],
+    "htons": [],
+    "__vlan_hwaccel_clear_tag": [],
+    "nf_flow_snat_ipv6": []
+  },
+  "nf_flow_table_offload.c": {
+    "BIT_ULL": [],
+    "flow_offload_l4proto": [],
+    "flow_offload_ipv4_snat": [],
+    "flow_offload_port_snat": [],
+    "flow_offload_ipv6_snat": [],
+    "__nf_flow_offload_destroy": [],
+    "nf_flow_offload_destroy": [],
+    "flow_offload_work_add": [],
+    "flow_offload_work_del": [],
+    "flow_offload_work_stats": [],
+    "flow_offload_work_handler": [],
+    "flow_offload_queue_work": [],
+    "NF_FLOW_TABLE_STAT_INC_ATOMIC": [],
+    "queue_work": [],
+    "nf_flow_table_offload_flush_cleanup": [],
+    "nf_flow_table_offload_flush": [],
+    "list_splice": [],
+    "nf_flow_table_indr_cleanup": [],
+    "nf_flow_table_offload_init": [],
+    "nf_flow_table_offload_exit": []
+  },
+  "nf_flow_table_procfs.c": {
+    "nf_flow_table_cpu_seq_stop": [],
+    "nf_flow_table_cpu_seq_show": [],
+    "nf_flow_table_init_proc": [],
+    "nf_flow_table_fini_proc": []
+  },
+  "nf_hooks_lwtunnel.c": {
+    "nf_hooks_lwtunnel_get": [],
+    "nf_hooks_lwtunnel_set": [],
+    "nf_lwtunnel_net_init": [],
+    "nf_lwtunnel_net_exit": [],
+    "kfree": [],
+    "netfilter_lwtunnel_init": [],
+    "netfilter_lwtunnel_fini": []
+  },
+  "nf_log.c": {
+    "nf_log_set": [],
+    "nf_log_unset": [],
+    "mutex_lock": [],
+    "nf_log_register": [],
+    "rcu_assign_pointer": [],
+    "nf_log_unregister": [],
+    "nf_log_is_registered": [],
+    "nf_log_unbind_pf": [],
+    "nf_logger_find_get": [],
+    "nf_logger_put": [],
+    "va_start": [],
+    "va_end": [],
+    "local_bh_disable": [],
+    "nf_log_buf_close": [],
+    "kfree": [],
+    "seq_stop": [],
+    "seq_show": [],
+    "mutex_unlock": [],
+    "netfilter_log_sysctl_init": [],
+    "netfilter_log_sysctl_exit": [],
+    "nf_log_net_init": [],
+    "nf_log_net_exit": [],
+    "netfilter_log_init": []
+  },
+  "nf_log_syslog.c": {
+    "nf_log_allowed": [],
+    "nf_log_dump_vlan": [],
+    "ntohs": [
+      "nf_log_buf_add"
+    ],
+    "nf_log_buf_add": [],
+    "nf_log_syslog_net_init": [],
+    "nf_log_syslog_net_exit": [],
+    "nf_log_syslog_init": [],
+    "nf_log_syslog_exit": []
+  },
+  "nf_nat_amanda.c": {
+    "nf_nat_amanda_fini": [],
+    "nf_nat_amanda_init": []
+  },
+  "nf_nat_bpf.c": {
+    "register_nf_nat_bpf": []
+  },
+  "nf_nat_core.c": {
+    "__nf_nat_decode_session": [],
+    "nf_nat_allow_clash": [],
+    "nf_nat_may_kill": [],
+    "nf_seq_has_advanced": [],
+    "net_eq": [],
+    "nf_ct_zone_equal": [],
+    "in_vrf_postrouting": [],
+    "nf_nat_proto_remove": [],
+    "nf_nat_cleanup_conntrack": [],
+    "nf_nat_proto_clean": [],
+    "nf_nat_l4proto_nlattr_to_range": [],
+    "nf_unregister_net_hooks": [],
+    "nf_nat_init": [],
+    "spin_lock_init": [],
+    "nf_nat_cleanup": []
+  },
+  "nf_nat_ftp.c": {
+    "nf_nat_ftp_fini": [],
+    "nf_nat_ftp_init": [],
+    "warn_set": []
+  },
+  "nf_nat_helper.c": {
+    "skb_put": [],
+    "__skb_trim": [],
+    "enlarge_skb": [],
+    "nf_nat_exp_find_port": []
+  },
+  "nf_nat_irc.c": {
+    "ntohs": [],
+    "nf_nat_irc_fini": [],
+    "nf_nat_irc_init": [],
+    "warn_set": []
+  },
+  "nf_nat_masquerade.c": {
+    "iterate_cleanup_work": [],
+    "int": [],
+    "device_cmp": [],
+    "inet_cmp": [],
+    "nf_nat_masquerade_ipv6_register_notifier": [],
+    "register_inet6addr_notifier": [],
+    "nf_nat_masquerade_inet_register_notifiers": [],
+    "nf_nat_masquerade_inet_unregister_notifiers": []
+  },
+  "nf_nat_ovs.c": {
+    "ip_hdr": [
+      "htons",
+      "ipv6_hdr",
+      "nf_nat_setup_info"
+    ]
+  },
+  "nf_nat_proto.c": {
+    "csum_replace4": [],
+    "nf_xfrm_me_harder": [],
+    "nf_nat_inet_port_was_mangled": [],
+    "nf_nat_ipv4_register_fn": [],
+    "nf_nat_ipv4_unregister_fn": [],
+    "nf_nat_ipv6_register_fn": [],
+    "nf_nat_ipv6_unregister_fn": [],
+    "nf_nat_inet_register_fn": [],
+    "nf_nat_inet_unregister_fn": []
+  },
+  "nf_nat_redirect.c": {
+    "nf_nat_redirect_ipv6_usable": [],
+    "read_lock_bh": []
+  },
+  "nf_nat_sip.c": {
+    "sprintf": [],
+    "nf_inet_addr_cmp": [],
+    "spin_lock_bh": [],
+    "nf_ct_unexpect_related": [],
+    "nf_nat_sip_fini": [],
+    "nf_nat_sip_init": []
+  },
+  "nf_nat_tftp.c": {
+    "nf_nat_tftp_fini": [],
+    "nf_nat_tftp_init": []
+  },
+  "nf_queue.c": {
+    "nf_register_queue_handler": [],
+    "nf_unregister_queue_handler": [],
+    "nf_queue_sock_put": [],
+    "nf_queue_entry_release_refs": [],
+    "nf_queue_entry_free": [],
+    "__nf_queue_entry_init_physdevs": [],
+    "nf_queue_entry_get_refs": [
+      "kfree",
+      "nf_queue_entry_free"
+    ],
+    "nf_queue_nf_hook_drop": []
+  },
+  "nf_sockopt.c": {
+    "overlap": [],
+    "nf_register_sockopt": [],
+    "nf_unregister_sockopt": []
+  },
+  "nf_synproxy_core.c": {
+    "CTINFO2DIR": [
+      "ntohl",
+      "this_cpu_inc",
+      "consume_skb",
+      "nf_conntrack_event_cache"
+    ],
+    "synproxy_cpu_seq_stop": [],
+    "synproxy_cpu_seq_show": [],
+    "synproxy_proc_init": [],
+    "synproxy_proc_exit": [],
+    "synproxy_net_init": [],
+    "synproxy_net_exit": [],
+    "synproxy_core_init": [],
+    "synproxy_core_exit": [],
+    "nf_synproxy_ipv4_init": [],
+    "nf_synproxy_ipv4_fini": [],
+    "flowi6_to_flowi_common": []
+  },
+  "nf_tables_api.c": {
+    "DEFINE_SPINLOCK": [],
+    "nft_objname_hash_obj": [],
+    "nft_objname_hash_cmp": [],
+    "nft_validate_state_update": [],
+    "nft_trans_list_del": [],
+    "nft_trans_destroy": [],
+    "nft_set_trans_bind": [],
+    "nft_set_trans_unbind": [],
+    "nf_tables_bind_chain": [],
+    "nf_tables_unbind_chain": [],
+    "nft_netdev_hook_free_ops": [],
+    "nft_netdev_hook_free": [],
+    "__nft_netdev_hook_free_rcu": [],
+    "nft_netdev_hook_free_rcu": [],
+    "nf_unregister_net_hook": [],
+    "nft_trans_collapse_set_elem_allowed": [],
+    "nft_trans_commit_list_add_tail": [],
+    "nft_trans_table_add": [],
+    "nft_deltable": [],
+    "ERR_PTR": [],
+    "nft_activate_next": [],
+    "nft_delchain": [],
+    "nft_rule_expr_activate": [],
+    "nft_delrule": [],
+    "nft_delrule_by_chain": [],
+    "nft_map_deactivate": [],
+    "nft_delset": [],
+    "nft_delobj": [],
+    "__nft_reg_track_clobber": [],
+    "nft_reg_track_cancel": [],
+    "__nft_reg_track_cancel": [],
+    "nft_active_genmask": [
+      "ERR_PTR"
+    ],
+    "nf_tables_alloc_handle": [],
+    "strcmp": [
+      "kfree"
+    ],
+    "lockdep_nfnl_nft_mutex_not_held": [],
+    "nft_base_seq": [],
+    "nft_base_seq_be16": [],
+    "htons": [
+      "nft_base_seq"
+    ],
+    "nla_put_be32": [
+      "htonl"
+    ],
+    "nf_tables_table_notify": [],
+    "nft_table_disable": [],
+    "nf_tables_table_enable": [],
+    "nf_tables_table_disable": [],
+    "nft_table_pending_update": [],
+    "nf_tables_updtable": [],
+    "nft_chain_hash": [],
+    "nft_chain_hash_obj": [],
+    "nft_objname_hash": [],
+    "nft_supported_family": [],
+    "NETLINK_CB": [],
+    "PTR_ERR": [],
+    "nft_flush_table": [],
+    "nft_flush": [],
+    "nf_tables_table_destroy": [],
+    "nft_register_chain_type": [],
+    "nft_unregister_chain_type": [],
+    "lockdep_commit_lock_is_held": [
+      "WARN_ON_ONCE"
+    ],
+    "rhl_for_each_entry_rcu": [
+      "nft_active_genmask",
+      "rcu_read_unlock",
+      "ERR_PTR"
+    ],
+    "nft_dump_stats": [],
+    "memset": [],
+    "hook_is_prefix": [],
+    "nft_nla_put_hook_dev": [],
+    "nft_is_base_chain": [],
+    "nft_chain_stats_replace": [],
+    "nf_tables_chain_free_chain_rules": [],
+    "nf_tables_chain_destroy": [],
+    "nla_for_each_nested": [
+      "NFNL_MSG_TYPE",
+      "NL_SET_BAD_ATTR"
+    ],
+    "list_add_tail": [],
+    "NL_SET_BAD_ATTR": [],
+    "module_put": [],
+    "nft_chain_release_hook": [],
+    "nft_last_rule": [],
+    "list_splice_init": [],
+    "nft_chain_add": [],
+    "static_branch_inc": [],
+    "list_empty": [
+      "mutex_unlock",
+      "nft_set_is_anonymous",
+      "nft_trans_chain_update",
+      "nft_chain_binding",
+      "nf_tables_validate",
+      "nft_flow_rule_offload_commit",
+      "nf_tables_commit_chain_prepare_cancel",
+      "nf_tables_commit_audit_free",
+      "nf_tables_commit_chain_prepare",
+      "nf_tables_commit_chain",
+      "nft_base_seq",
+      "nft_gc_seq_begin",
+      "nft_ctx_update",
+      "nf_tables_commit_audit_collect",
+      "nft_trans_destroy",
+      "nf_tables_table_disable",
+      "nft_clear",
+      "nf_tables_table_notify",
+      "list_del_rcu",
+      "nft_chain_commit_update",
+      "list_splice",
+      "nft_chain_commit_drop_policy",
+      "nft_chain_del",
+      "nft_flow_rule_destroy",
+      "list_del",
+      "WRITE_ONCE",
+      "nft_use_dec",
+      "nft_trans_elems_add",
+      "list_add_tail",
+      "nft_trans_elems_remove",
+      "nft_trans_obj",
+      "nft_obj_del",
+      "nft_trans_flowtable",
+      "nft_set_commit_update",
+      "nft_commit_notify",
+      "NETLINK_CB",
+      "nf_tables_commit_audit_log",
+      "nft_gc_seq_end",
+      "nf_tables_commit_release"
+    ],
+    "ntohl": [],
+    "nft_register_expr": [],
+    "nft_unregister_expr": [],
+    "nft_expr_clone": [],
+    "nft_expr_destroy": [],
+    "__nft_rule_lookup": [],
+    "nft_rule_for_each_expr": [
+      "WARN_ON_ONCE",
+      "memcpy"
+    ],
+    "kfree": [],
+    "nf_tables_dump_rules_start": [],
+    "nf_tables_dumpreset_rules_start": [],
+    "nf_tables_dump_rules_done": [],
+    "nf_tables_rule_destroy": [],
+    "nf_tables_rule_release": [],
+    "nft_chain_validate": [],
+    "nft_table_validate": [],
+    "nft_set_ext_data": [],
+    "nft_set_catchall_validate": [],
+    "nft_chain_binding": [
+      "nft_delrule",
+      "list_add_tail_rcu",
+      "list_add_rcu"
+    ],
+    "nft_set_ops_candidate": [],
+    "nf_msecs_to_jiffies64": [],
+    "nf_jiffies64_to_msecs": [],
+    "nft_set_userspace_size": [],
+    "nla_nest_end": [],
+    "nf_tables_dump_sets": [],
+    "nf_tables_dump_sets_start": [],
+    "nf_tables_dump_sets_done": [],
+    "nft_set_put": [],
+    "nft_set_destroy": [],
+    "atomic_read": [
+      "NL_SET_BAD_ATTR",
+      "nft_delset"
+    ],
+    "nft_set_is_anonymous": [
+      "nft_map_deactivate",
+      "nft_use_dec"
+    ],
+    "nft_map_activate": [],
+    "nf_tables_activate_set": [],
+    "nft_use_dec": [],
+    "nf_tables_destroy_set": [],
+    "nft_setelem_expr_foreach": [
+      "nla_nest_end"
+    ],
+    "htonl": [],
+    "nft_set_ext_exists": [],
+    "nf_tables_dump_set": [],
+    "nf_tables_dump_set_start": [],
+    "nf_tables_dump_set_done": [],
+    "nft_set_ext_check": [],
+    "nft_trans_set_elem_destroy": [],
+    "nft_clear": [],
+    "nft_setelem_catchall_destroy": [],
+    "nft_setelem_remove": [],
+    "nft_set_maxsize": [],
+    "nft_data_hold": [],
+    "nft_set_flush": [],
+    "nft_register_obj": [],
+    "nft_unregister_obj": [],
+    "nf_tables_dump_obj": [],
+    "nf_tables_dump_obj_start": [],
+    "nf_tables_dumpreset_obj_start": [],
+    "nf_tables_dump_obj_done": [],
+    "nft_obj_destroy": [],
+    "nft_register_flowtable_type": [],
+    "nft_unregister_flowtable_type": [],
+    "nft_unregister_flowtable_ops": [],
+    "nft_hooks_destroy": [],
+    "nft_flowtable_hook_release": [],
+    "nft_delflowtable_hook": [],
+    "nf_tables_dump_flowtable_start": [],
+    "nf_tables_dump_flowtable_done": [],
+    "nf_tables_flowtable_destroy": [],
+    "__nf_tables_flowtable_event": [],
+    "nf_tables_validate": [],
+    "nft_chain_commit_drop_policy": [],
+    "nft_chain_commit_update": [],
+    "nft_commit_release": [],
+    "nft_ctx_update": [],
+    "nf_tables_trans_destroy_work": [],
+    "nf_tables_trans_destroy_flush_work": [],
+    "nf_tables_commit_chain_prepare": [],
+    "nf_tables_commit_chain_prepare_cancel": [],
+    "__nf_tables_commit_chain_free_rules": [],
+    "nf_tables_commit_chain_free_rules_old": [],
+    "nf_tables_commit_chain": [],
+    "rcu_assign_pointer": [],
+    "nft_obj_del": [],
+    "nft_chain_del": [],
+    "nft_trans_gc_destroy": [],
+    "nft_trans_gc_trans_free": [],
+    "nft_trans_gc_work_done": [
+      "nft_trans_gc_destroy"
+    ],
+    "nft_trans_gc_work": [],
+    "list_del": [],
+    "nft_trans_gc_elem_add": [],
+    "nft_trans_gc_queue_work": [],
+    "nft_trans_gc_space": [],
+    "nft_trans_gc_queue_async_done": [],
+    "nft_trans_gc_queue_sync_done": [],
+    "nf_tables_module_autoload_cleanup": [],
+    "nf_tables_commit_release": [],
+    "nft_commit_notify": [],
+    "nf_tables_commit_audit_free": [],
+    "nf_tables_commit_audit_entrycount": [],
+    "nf_tables_commit_audit_log": [],
+    "nft_set_commit_update": [],
+    "nft_gc_seq_begin": [],
+    "nft_gc_seq_end": [],
+    "nf_tables_commit": [],
+    "nf_tables_module_autoload": [],
+    "nf_tables_abort_release": [],
+    "nft_set_abort_update": [],
+    "__nf_tables_abort": [],
+    "nft_trans_chain_update": [
+      "free_percpu",
+      "kfree",
+      "nft_trans_chain_name",
+      "nft_trans_destroy",
+      "nft_use_dec_restore",
+      "nft_chain_del",
+      "list_splice",
+      "nft_clear",
+      "list_del_rcu",
+      "nft_flow_rule_destroy",
+      "nft_rule_expr_activate",
+      "list_del",
+      "nft_map_activate",
+      "list_empty",
+      "list_add_tail",
+      "nft_trans_elems_destroy_abort",
+      "nft_obj_destroy",
+      "nft_obj_del",
+      "nft_trans_obj",
+      "nft_trans_flowtable"
+    ],
+    "nf_tables_valid_genid": [],
+    "nft_parse_u32_check": [],
+    "nft_parse_register": [],
+    "nft_dump_register": [],
+    "nft_validate_register_load": [],
+    "nft_verdict_uninit": [],
+    "nft_verdict_dump": [],
+    "nla_put": [],
+    "nft_data_release": [],
+    "__nft_release_hook": [],
+    "__nft_release_hooks": [],
+    "__nft_release_table": [],
+    "__nft_release_tables": [],
+    "nf_tables_init_net": [],
+    "nf_tables_pre_exit_net": [],
+    "nf_tables_exit_net": [],
+    "nf_tables_exit_batch": [],
+    "nf_tables_module_init": [],
+    "nf_tables_module_exit": []
+  },
+  "nf_tables_core.c": {
+    "nf_skip_indirect_calls": [],
+    "nf_skip_indirect_calls_enable": [],
+    "static_branch_enable": [],
+    "nft_rule_dp_for_each_expr": [],
+    "NF_DROP_REASON": [],
+    "WARN_ON_ONCE": [],
+    "nf_tables_core_module_init": [],
+    "nf_tables_core_module_exit": []
+  },
+  "nf_tables_offload.c": {
+    "offsetof": [],
+    "BIT_ULL": [],
+    "nft_flow_rule_destroy": [],
+    "nft_chain_offload_priority": [],
+    "nft_chain_offload_support": [],
+    "nft_setup_cb_call": [],
+    "nft_indr_block_cleanup": [],
+    "nft_flow_rule_offload_commit": [],
+    "nft_offload_init": [],
+    "nft_offload_exit": []
+  },
+  "nfnetlink.c": {
+    "DEFINE_SPINLOCK": [],
+    "nfnl_lock": [],
+    "nfnl_unlock": [],
+    "lockdep_nfnl_is_held": [],
+    "nfnetlink_subsys_register": [],
+    "nfnetlink_subsys_unregister": [],
+    "nfnetlink_find_client": [
+      "nfnl_unlock",
+      "rcu_read_unlock"
+    ],
+    "nfnetlink_has_listeners": [
+      "READ_ONCE",
+      "WRITE_ONCE",
+      "spin_unlock"
+    ],
+    "nfnetlink_set_err": [],
+    "nfnetlink_unicast": [],
+    "rcu_read_unlock": [],
+    "nfnl_err_del": [],
+    "nfnl_err_reset": [],
+    "nfnl_err_deliver": [],
+    "consume_skb": [],
+    "nfnl_err_add": [],
+    "nlmsg_len": [
+      "nfnl_err_reset",
+      "nfnetlink_find_client",
+      "NFNL_MSG_TYPE",
+      "nfnl_err_add",
+      "netlink_ack",
+      "skb_pull"
+    ],
+    "module_put": [],
+    "netlink_ack": [],
+    "memset": [],
+    "nfnetlink_rcv_skb_batch": [],
+    "nfnetlink_rcv": [],
+    "nfnetlink_bind_event": [],
+    "nfnetlink_bind": [],
+    "nfnetlink_unbind": [],
+    "nfnetlink_net_init": [],
+    "nfnetlink_net_exit_batch": [],
+    "nfnetlink_init": [],
+    "nfnetlink_exit": []
+  },
+  "nfnetlink_acct.c": {
+    "be64_to_cpu": [],
+    "smp_mb__before_atomic": [],
+    "clear_bit": [],
+    "nla_put_be32": [
+      "htonl"
+    ],
+    "NFNL_MSG_TYPE": [],
+    "nfnl_acct_done": [],
+    "nfnl_acct_start": [],
+    "nfnl_acct_try_del": [],
+    "list_del_rcu": [],
+    "kfree_rcu": [],
+    "nfnl_acct_put": [],
+    "nfnl_acct_update": [],
+    "nfnl_overquota_report": [],
+    "nfnl_acct_overquota": [],
+    "nfnl_acct_net_init": [],
+    "nfnl_acct_net_exit": [],
+    "nfnl_acct_init": [],
+    "nfnl_acct_exit": []
+  },
+  "nfnetlink_cthelper.c": {
+    "NF_QUEUE_NR": [],
+    "htonl": [],
+    "NETLINK_CB": [],
+    "NFNL_MSG_TYPE": [],
+    "list_del": [],
+    "kfree": [],
+    "nfnl_cthelper_init": [],
+    "nfnl_cthelper_exit": []
+  },
+  "nfnetlink_cttimeout.c": {
+    "NFNL_MSG_TYPE": [],
+    "ctnl_timeout_try_del": [],
+    "list_del_rcu": [],
+    "nf_ct_untimeout": [],
+    "kfree_rcu": [],
+    "ctnl_timeout_put": [],
+    "container_of": [],
+    "cttimeout_net_init": [],
+    "cttimeout_net_pre_exit": [],
+    "cttimeout_net_exit": [],
+    "cttimeout_init": [],
+    "untimeout": [],
+    "cttimeout_exit": []
+  },
+  "nfnetlink_hook.c": {
+    "nla_put_string": [],
+    "nla_put_u8": [
+      "nla_nest_end"
+    ],
+    "nfnl_hook_dump_start": [],
+    "nfnl_hook_dump_stop": [],
+    "nfnetlink_hook_init": [],
+    "nfnetlink_hook_exit": []
+  },
+  "nfnetlink_log.c": {
+    "instance_hashfn": [],
+    "nfulnl_instance_free_rcu": [],
+    "spin_lock_bh": [],
+    "nfulnl_set_nlbufsiz": [],
+    "nfulnl_set_timeout": [],
+    "__nfulnl_flush": [],
+    "nfulnl_get_bridge_size": [],
+    "skb_mac_header_was_set": [
+      "spin_lock_bh",
+      "nfulnl_get_bridge_size",
+      "__nfulnl_flush",
+      "spin_unlock_bh"
+    ],
+    "nfulnl_put_bridge": [],
+    "nla_nest_end": [],
+    "nla_put": [],
+    "htonl": [],
+    "skb_mac_header_len": [
+      "memset",
+      "htons",
+      "nla_put",
+      "skb_mac_header_was_set",
+      "read_lock_bh",
+      "htonl",
+      "nla_put_be32",
+      "nfulnl_put_bridge",
+      "skb_put",
+      "nla_data"
+    ],
+    "hlist_for_each_entry_safe": [],
+    "NETLINK_CB": [
+      "ntohs",
+      "nfnl_unlock",
+      "request_module",
+      "nfnl_lock",
+      "sk_user_ns",
+      "PTR_ERR",
+      "nla_data",
+      "ntohl",
+      "nfulnl_set_timeout",
+      "nfulnl_set_nlbufsiz"
+    ],
+    "seq_stop": [],
+    "seq_show": [],
+    "nfnl_log_net_init": [],
+    "nfnl_log_net_exit": [],
+    "WARN_ON_ONCE": [],
+    "nfnetlink_log_init": [],
+    "nfnetlink_log_fini": []
+  },
+  "nfnetlink_osf.c": {
+    "nfnl_osf_init": [],
+    "INIT_LIST_HEAD": [],
+    "nfnl_osf_fini": []
+  },
+  "nfnetlink_queue.c": {
+    "instance_hashfn": [],
+    "spin_lock": [],
+    "nf_ip_reroute": [],
+    "nf_reroute": [],
+    "nf_reinject": [],
+    "nfqnl_reinject": [],
+    "rcu_read_unlock": [],
+    "nfqnl_put_sk_uidgid": [],
+    "nfqnl_put_sk_classid": [],
+    "nfqnl_get_sk_secctx": [],
+    "nfqnl_get_bridge_size": [],
+    "nfqnl_put_bridge": [],
+    "skb_mac_header_was_set": [],
+    "nla_nest_end": [],
+    "nf_queue_checksum_help": [],
+    "nfnl_msg_type": [],
+    "htons": [],
+    "htonl": [],
+    "skb_mac_header_len": [
+      "memset",
+      "htons",
+      "nla_put",
+      "nfqnl_put_bridge",
+      "nfqnl_put_sk_uidgid",
+      "nfqnl_put_sk_classid",
+      "nla_put_be32",
+      "htonl",
+      "skb_put",
+      "kfree_skb"
+    ],
+    "nf_ct_drop_unconfirmed": [],
+    "nf_bridge_adjust_skb_data": [],
+    "nf_bridge_adjust_segmented_data": [],
+    "__skb_pull": [],
+    "kfree_skb": [],
+    "nfqnl_nf_hook_drop": [],
+    "hlist_for_each_entry_safe": [],
+    "nfq_id_after": [],
+    "ntohs": [],
+    "NETLINK_CB": [
+      "PTR_ERR",
+      "nla_data",
+      "ntohl",
+      "spin_lock_bh",
+      "spin_unlock_bh",
+      "rcu_read_unlock"
+    ],
+    "seq_stop": [],
+    "seq_show": [],
+    "nfnl_queue_net_init": [],
+    "nfnl_queue_net_exit": [],
+    "WARN_ON_ONCE": [],
+    "nfnetlink_queue_init": [],
+    "nfnetlink_queue_fini": []
+  },
+  "nft_bitwise.c": {
+    "nft_bitwise_eval_mask_xor": [],
+    "nft_bitwise_eval_lshift": [],
+    "nft_bitwise_eval_and": [],
+    "nft_bitwise_eval_or": []
+  },
+  "nft_chain_filter.c": {
+    "nft_do_chain": [],
+    "nft_chain_filter_ipv4_init": [],
+    "nft_chain_filter_ipv4_fini": [],
+    "nft_chain_filter_arp_init": [],
+    "nft_chain_filter_arp_fini": [],
+    "nft_chain_filter_ipv6_init": [],
+    "nft_chain_filter_ipv6_fini": [],
+    "nft_chain_filter_inet_init": [],
+    "nft_chain_filter_inet_fini": [],
+    "nft_chain_filter_bridge_init": [],
+    "nft_chain_filter_bridge_fini": [],
+    "nf_register_net_hook": [
+      "kfree",
+      "list_add_tail_rcu"
+    ],
+    "__nf_tables_netdev_event": [],
+    "nft_chain_filter_netdev_init": [],
+    "nft_chain_filter_netdev_fini": [],
+    "nft_chain_filter_init": [],
+    "nft_chain_filter_fini": []
+  },
+  "nft_chain_nat.c": {
+    "nft_nat_inet_reg": [],
+    "nft_nat_inet_unreg": [],
+    "nft_chain_nat_init": [],
+    "nft_chain_nat_exit": []
+  },
+  "nft_chain_route.c": {
+    "nft_do_chain": [],
+    "ipv6_hdr": [],
+    "nft_chain_route_init": [],
+    "nft_chain_route_fini": []
+  },
+  "nft_cmp.c": {
+    "nft_payload_n2h": [],
+    "__nft_cmp_offload": [],
+    "nft_cmp_fast_mask": [],
+    "nft_cmp_mask": [],
+    "nft_cmp16_fast_mask": [],
+    "ERR_PTR": []
+  },
+  "nft_compat.c": {
+    "target_compat_from_user": [
+      "nla_data"
+    ],
+    "memset": [],
+    "nft_parse_compat": [],
+    "nft_compat_wait_for_destructors": [],
+    "__nft_mt_tg_destroy": [],
+    "match_compat_from_user": [
+      "nla_data"
+    ],
+    "NFNL_MSG_TYPE": [],
+    "ERR_PTR": [],
+    "nft_match_release_ops": [],
+    "nft_target_release_ops": [],
+    "nft_compat_module_init": [],
+    "nft_compat_module_exit": []
+  },
+  "nft_connlimit.c": {
+    "nft_pf": [],
+    "nft_connlimit_do_dump": [],
+    "nft_connlimit_clone": [],
+    "nft_connlimit_gc": [],
+    "nft_connlimit_module_init": [],
+    "nft_connlimit_module_exit": []
+  },
+  "nft_counter.c": {
+    "be64_to_cpu": [],
+    "nft_counter_do_destroy": [],
+    "nft_counter_do_dump": [],
+    "nft_counter_clone": [],
+    "nft_counter_init_seqcount": []
+  },
+  "nft_ct.c": {
+    "strscpy_pad": [],
+    "memcpy": [],
+    "nft_reg_store8": [
+      "nf_ct_protonum"
+    ],
+    "nf_ct_zone_add": [],
+    "nft_ct_tmpl_put_pcpu": [],
+    "nft_ct_tmpl_alloc_pcpu": [
+      "mutex_unlock"
+    ],
+    "__nft_ct_set_destroy": [],
+    "mutex_lock": [],
+    "ERR_PTR": [],
+    "nft_ct_module_init": [],
+    "nft_ct_module_exit": []
+  },
+  "nft_dup_netdev.c": {
+    "nft_dup_netdev_offload_action": [],
+    "nft_dup_netdev_module_init": [],
+    "nft_dup_netdev_module_exit": []
+  },
+  "nft_dynset.c": {
+    "nft_set_ext_exists": [],
+    "READ_ONCE": [
+      "WRITE_ONCE"
+    ],
+    "nft_dynset_ext_add_expr": [],
+    "ERR_PTR": [],
+    "nla_for_each_nested": [
+      "PTR_ERR"
+    ],
+    "nf_jiffies64_to_msecs": []
+  },
+  "nft_exthdr.c": {
+    "optlen": [],
+    "nft_skb_copy_to_reg": [],
+    "nft_reg_store8": [],
+    "nft_exthdr_dump_common": [],
+    "nft_expr_reduce_bitwise": [],
+    "ERR_PTR": []
+  },
+  "nft_fib.c": {
+    "nft_fib_validate": [],
+    "nft_fib_dump": []
+  },
+  "nft_fib_inet.c": {
+    "nft_fib_inet_module_init": [],
+    "nft_fib_inet_module_exit": []
+  },
+  "nft_fib_netdev.c": {
+    "nft_fib_netdev_module_init": [],
+    "nft_fib_netdev_module_exit": []
+  },
+  "nft_flow_offload.c": {
+    "nft_xmit_type": [],
+    "nft_is_valid_ether_device": [],
+    "dev_fill_forward_path": [],
+    "memcpy": [],
+    "nft_flow_offload_skip": [],
+    "flow_offload_ct_tcp": [],
+    "nft_chain_validate_hooks": [],
+    "nft_flow_offload_module_init": [],
+    "nft_flow_offload_module_exit": []
+  },
+  "nft_fwd_netdev.c": {
+    "nft_fwd_netdev_offload_action": [],
+    "ERR_PTR": [],
+    "nft_fwd_netdev_module_init": [],
+    "nft_fwd_netdev_module_exit": []
+  },
+  "nft_hash.c": {
+    "ERR_PTR": [],
+    "nft_hash_module_init": [],
+    "nft_hash_module_exit": []
+  },
+  "nft_immediate.c": {
+    "nft_reg_to_type": [],
+    "nft_use_dec": [],
+    "nft_immediate_offload_action": []
+  },
+  "nft_inner.c": {
+    "DEFINE_PER_CPU": [
+      "htons",
+      "ntohs",
+      "nft_inner_parse_tunhdr",
+      "nft_inner_parse",
+      "local_bh_disable",
+      "local_bh_enable",
+      "nft_payload_inner_offset",
+      "WARN_ON_ONCE",
+      "ntohl",
+      "strcmp",
+      "nla_put_be32",
+      "htonl"
+    ]
+  },
+  "nft_last.c": {
+    "nft_last_clone": []
+  },
+  "nft_limit.c": {
+    "nft_limit_eval": [],
+    "nft_limit_clone": [],
+    "ERR_PTR": [],
+    "nft_limit_module_init": [],
+    "nft_limit_module_exit": []
+  },
+  "nft_log.c": {
+    "audit_ip4": [],
+    "audit_ip6": [],
+    "nft_log_eval_audit": [],
+    "nft_log_modprobe": [],
+    "nla_strscpy": [],
+    "ntohl": [],
+    "htonl": [],
+    "nft_log_module_init": [],
+    "nft_log_module_exit": []
+  },
+  "nft_lookup.c": {
+    "nft_base_seq": [],
+    "nft_lookup_should_retry": []
+  },
+  "nft_masq.c": {
+    "NLA_POLICY_MASK": [],
+    "nla_put_be32": [
+      "htonl"
+    ],
+    "nft_reg_load16": [],
+    "nft_masq_module_init_ipv6": [],
+    "nft_masq_module_exit_ipv6": [],
+    "nft_masq_module_init_inet": [],
+    "nft_masq_module_exit_inet": [],
+    "nft_masq_module_init": [],
+    "nft_masq_module_exit": []
+  },
+  "nft_meta.c": {
+    "nft_meta_weekday": [],
+    "nft_meta_hour": [],
+    "nft_reg_store8": [],
+    "htons": [
+      "nft_reg_store8",
+      "WARN_ON_ONCE"
+    ],
+    "nft_meta_store_ifindex": [],
+    "nft_meta_store_ifname": [],
+    "nft_meta_store_iftype": [],
+    "nft_meta_store_ifgroup": [],
+    "nft_meta_get_eval_sdif": [],
+    "nft_meta_get_validate_sdif": [],
+    "nft_meta_get_validate_xfrm": [],
+    "nft_secmark_compute_secid": [],
+    "nft_secmark_obj_destroy": []
+  },
+  "nft_nat.c": {
+    "nft_nat_eval": [],
+    "nft_nat_inet_module_init": [],
+    "nft_nat_inet_module_exit": [],
+    "nft_nat_module_init": [],
+    "nft_nat_module_exit": []
+  },
+  "nft_numgen.c": {
+    "nft_ng_inc_gen": [],
+    "nft_ng_random_gen": [],
+    "ERR_PTR": [],
+    "nft_ng_module_init": [],
+    "nft_ng_module_exit": []
+  },
+  "nft_objref.c": {
+    "ERR_PTR": []
+  },
+  "nft_osf.c": {
+    "strscpy_pad": [],
+    "nft_osf_module_init": [],
+    "nft_osf_module_exit": []
+  },
+  "nft_payload.c": {
+    "__nft_payload_inner_offset": [],
+    "nft_payload_inner_offset": [],
+    "nft_payload_need_vlan_adjust": [
+      "nft_payload_inner_offset",
+      "WARN_ON_ONCE"
+    ],
+    "memset": [],
+    "nft_csum_replace": [],
+    "nft_payload_udp_checksum": [],
+    "nft_payload_csum_sctp": [],
+    "offsetof": [
+      "ntohs"
+    ],
+    "ERR_PTR": []
+  },
+  "nft_queue.c": {
+    "nft_chain_validate_hooks": [],
+    "ERR_PTR": [],
+    "nft_queue_module_init": [],
+    "nft_queue_module_exit": []
+  },
+  "nft_quota.c": {
+    "nft_quota_invert": [],
+    "nla_put_be32": [
+      "htonl"
+    ],
+    "nft_quota_clone": [],
+    "nft_quota_module_init": [],
+    "nft_quota_module_exit": []
+  },
+  "nft_redir.c": {
+    "nft_reg_load16": [],
+    "nft_redir_module_init_inet": [],
+    "nft_register_expr": [],
+    "nft_redir_module_init": [],
+    "nft_redir_module_exit": []
+  },
+  "nft_reject.c": {
+    "nft_reject_icmp_code": [],
+    "nft_reject_icmpv6_code": []
+  },
+  "nft_reject_inet.c": {
+    "nft_reject_inet_module_init": [],
+    "nft_reject_inet_module_exit": []
+  },
+  "nft_reject_netdev.c": {
+    "nft_reject_queue_xmit": [],
+    "is_multicast_ether_addr": [],
+    "htons": [],
+    "nft_reject_netdev_module_init": [],
+    "nft_reject_netdev_module_exit": []
+  },
+  "nft_rt.c": {
+    "get_tcpmss": [],
+    "nft_rt_validate": [],
+    "nft_chain_validate_hooks": []
+  },
+  "nft_set_bitmap.c": {
+    "nft_bitmap_size": [],
+    "nft_bitmap_total_size": []
+  },
+  "nft_set_hash.c": {
+    "nft_rhash_key": [],
+    "nft_rhash_obj": [],
+    "PTR_ERR": [],
+    "nft_rhash_gc": [],
+    "nft_rhash_gc_init": [],
+    "nft_rhash_elem_destroy": [],
+    "nft_hash_buckets": [],
+    "nft_set_ext_key": [
+      "memcmp"
+    ],
+    "nft_set_elem_active": [],
+    "hlist_for_each_entry_safe": []
+  },
+  "nft_set_pipapo.c": {
+    "nft_pipapo_for_each_field": [
+      "rcu_assign_pointer",
+      "kfree"
+    ],
+    "memcpy": [],
+    "NFT_PIPAPO_LT_ALIGN": [],
+    "NFT_PIPAPO_BUCKETS": [
+      "NFT_PIPAPO_LT_ALIGN",
+      "test_bit"
+    ],
+    "pipapo_lt_bits_adjust": [],
+    "pipapo_bucket_set": [],
+    "pipapo_step_diff": [
+      "pipapo_base_sum"
+    ],
+    "pipapo_base_sum": [],
+    "pipapo_free_scratch": [],
+    "nft_pipapo_transaction_mutex_held": [],
+    "pipapo_rules_same_key": [
+      "nft_set_ext_exists",
+      "nft_pipapo_for_each_field",
+      "WARN_ON_ONCE"
+    ],
+    "pipapo_gc": [],
+    "pipapo_free_fields": [],
+    "pipapo_free_match": [],
+    "pipapo_reclaim_match": [],
+    "nft_pipapo_commit": [],
+    "nft_pipapo_abort": [],
+    "nft_set_pipapo_match_destroy": [],
+    "nft_pipapo_gc_init": []
+  },
+  "nft_set_pipapo_avx2.c": {
+    "nft_pipapo_avx2_prepare": [],
+    "nft_pipapo_avx2_fill": [],
+    "NFT_PIPAPO_AVX2_BUCKET_LOAD4": [],
+    "NFT_PIPAPO_AVX2_AND": [],
+    "NFT_PIPAPO_AVX2_BUCKET_LOAD8": [],
+    "pipapo_resmap_init": [],
+    "pipapo_resmap_init_avx2": [],
+    "NFT_SET_PIPAPO_AVX2_LOOKUP": []
+  },
+  "nft_set_rbtree.c": {
+    "nft_rbtree_interval_end": [
+      "nft_trans_gc_elem_add"
+    ],
+    "nft_rbtree_interval_start": [
+      "nft_rbtree_interval_end",
+      "nft_set_elem_active"
+    ],
+    "nft_rbtree_elem_expired": [],
+    "nft_set_elem_active": [
+      "PTR_ERR",
+      "nft_rbtree_interval_end",
+      "nft_rbtree_interval_start"
+    ],
+    "nft_rbtree_erase": [],
+    "nft_rbtree_gc": [],
+    "nft_rbtree_commit": [],
+    "nft_rbtree_gc_init": [],
+    "nft_rbtree_ksize": [],
+    "nft_rbtree_usize": [],
+    "nft_rbtree_adjust_maxsize": []
+  },
+  "nft_socket.c": {
+    "nft_socket_cgroup_subtree_level": [],
+    "nft_reg_store8": [],
+    "sock_gen_put": [],
+    "nft_socket_module_init": [],
+    "nft_socket_module_exit": []
+  },
+  "nft_synproxy.c": {
+    "synproxy_send_client_synack": [],
+    "consume_skb": [],
+    "ntohl": [
+      "consume_skb"
+    ],
+    "synproxy_send_client_synack_ipv6": [],
+    "nft_synproxy_do_destroy": [],
+    "nft_synproxy_do_dump": [],
+    "nft_synproxy_module_init": [],
+    "nft_synproxy_module_exit": []
+  },
+  "nft_tproxy.c": {
+    "nft_tproxy_module_init": [],
+    "nft_tproxy_module_exit": []
+  },
+  "nft_tunnel.c": {
+    "nft_reg_store8": [],
+    "nla_data": [],
+    "nft_tunnel_ip_dump": [],
+    "nla_nest_end": [],
+    "htonl": [],
+    "nft_tunnel_module_init": [],
+    "nft_tunnel_module_exit": []
+  },
+  "nft_xfrm.c": {
+    "xfrm_state_addr_ok": [],
+    "nft_xfrm_validate": [],
+    "nft_xfrm_module_init": [],
+    "nft_xfrm_module_exit": []
+  },
+  "utils.c": {
+    "nf_ip6_check_hbh_len": []
+  },
+  "x_tables.c": {
+    "xt_register_target": [],
+    "xt_register_match": [],
+    "ERR_PTR": [],
+    "strcmp": [],
+    "match_revfn": [],
+    "target_revfn": [],
+    "ARRAY_SIZE": [],
+    "xt_check_proc_name": [],
+    "xt_check_table_hooks": [],
+    "verdict_ok": [],
+    "xt_compat_add_offset": [],
+    "xt_compat_flush_offsets": [],
+    "xt_compat_calc_jump": [],
+    "xt_compat_init_offsets": [],
+    "xt_compat_match_offset": [],
+    "xt_compat_target_offset": [],
+    "xt_free_table_info": [],
+    "mutex_unlock": [],
+    "xt_table_unlock": [],
+    "xt_compat_lock": [],
+    "xt_compat_unlock": [],
+    "xt_jumpstack_alloc": [],
+    "for_each_possible_cpu": [],
+    "xt_table_seq_stop": [],
+    "xt_table_seq_show": [],
+    "xt_mttg_seq_stop": [],
+    "xt_match_seq_show": [],
+    "xt_target_seq_show": [],
+    "int": [],
+    "xt_unregister_template": [],
+    "xt_proto_init": [],
+    "xt_proto_fini": [],
+    "xt_percpu_counter_free": [],
+    "xt_net_init": [],
+    "xt_net_exit": [],
+    "WARN_ON_ONCE": [
+      "list_empty"
+    ],
+    "xt_init": [],
+    "xt_fini": []
+  },
+  "xt_AUDIT.c": {
+    "audit_ip4": [],
+    "audit_ip6": [],
+    "audit_tg_check": [],
+    "audit_tg_init": [],
+    "audit_tg_exit": []
+  },
+  "xt_CHECKSUM.c": {
+    "checksum_tg_check": [],
+    "checksum_tg_init": [],
+    "checksum_tg_exit": []
+  },
+  "xt_CLASSIFY.c": {
+    "classify_tg_init": [],
+    "classify_tg_exit": []
+  },
+  "xt_CONNSECMARK.c": {
+    "secmark_save": [],
+    "secmark_restore": [],
+    "connsecmark_tg_check": [],
+    "strcmp": [
+      "pr_info_ratelimited",
+      "nf_ct_netns_get"
+    ],
+    "connsecmark_tg_destroy": [],
+    "connsecmark_tg_init": [],
+    "connsecmark_tg_exit": []
+  },
+  "xt_CT.c": {
+    "xt_ct_target": [],
+    "refcount_inc": [],
+    "nf_ct_set": [],
+    "xt_ct_find_proto": [],
+    "xt_ct_flags_to_dir": [],
+    "xt_ct_put_helper": [],
+    "xt_ct_tg_check_v0": [],
+    "xt_ct_tg_check_v1": [],
+    "xt_ct_tg_check_v2": [],
+    "xt_ct_tg_destroy_v0": [],
+    "xt_ct_tg_destroy_v1": [],
+    "xt_ct_tg_init": [],
+    "xt_ct_tg_exit": []
+  },
+  "xt_DSCP.c": {
+    "dscp_tg_check": [],
+    "dscp_tg_init": [],
+    "dscp_tg_exit": []
+  },
+  "xt_HL.c": {
+    "ttl_tg_check": [],
+    "hl_tg6_check": [],
+    "hl_tg_init": [],
+    "hl_tg_exit": []
+  },
+  "xt_HMARK.c": {
+    "hmark_addr6_mask": [],
+    "get_inner6_hdr": [
+      "hmark_addr6_mask",
+      "XT_HMARK_FLAG"
+    ],
+    "XT_HMARK_FLAG": [
+      "pr_info_ratelimited"
+    ],
+    "get_inner_hdr": [],
+    "hmark_tg_check": [],
+    "hmark_tg_init": [],
+    "hmark_tg_exit": []
+  },
+  "xt_IDLETIMER.c": {
+    "idletimer_tg_work": [],
+    "idletimer_tg_expired": [],
+    "idletimer_tg_alarmproc": [],
+    "idletimer_check_sysfs_name": [],
+    "idletimer_tg_create": [],
+    "idletimer_tg_create_v1": [],
+    "alarm_start_relative": [],
+    "idletimer_tg_helper": [],
+    "idletimer_tg_checkentry": [],
+    "idletimer_tg_checkentry_v1": [],
+    "idletimer_tg_destroy": [],
+    "idletimer_tg_destroy_v1": [],
+    "alarm_cancel": [],
+    "idletimer_tg_init": [],
+    "MKDEV": [],
+    "idletimer_tg_exit": []
+  },
+  "xt_LED.c": {
+    "led_trigger_event": [],
+    "led_timeout_callback": [],
+    "led_tg_check": [],
+    "led_tg_destroy": [],
+    "led_tg_init": [],
+    "led_tg_exit": []
+  },
+  "xt_LOG.c": {
+    "log_tg_check": [],
+    "log_tg_destroy": [],
+    "log_tg_init": [],
+    "log_tg_exit": []
+  },
+  "xt_MASQUERADE.c": {
+    "masquerade_tg_check": [],
+    "masquerade_tg_destroy": [],
+    "masquerade_tg6_checkentry": [],
+    "masquerade_tg_init": [],
+    "masquerade_tg_exit": []
+  },
+  "xt_NETMAP.c": {
+    "netmap_tg6_checkentry": [],
+    "netmap_tg_destroy": [],
+    "netmap_tg4_check": [],
+    "nf_ct_netns_get": [],
+    "netmap_tg_init": [],
+    "netmap_tg_exit": []
+  },
+  "xt_NFLOG.c": {
+    "nflog_tg_check": [],
+    "nflog_tg_destroy": [],
+    "nflog_tg_init": [],
+    "nflog_tg_exit": []
+  },
+  "xt_NFQUEUE.c": {
+    "nfqueue_tg_check": [],
+    "nfqueue_tg_init": [],
+    "nfqueue_tg_exit": []
+  },
+  "xt_RATEEST.c": {
+    "xt_rateest_hash": [],
+    "xt_rateest_put": [],
+    "xt_rateest_tg_checkentry": [],
+    "xt_rateest_tg_destroy": [],
+    "xt_rateest_net_init": [],
+    "xt_rateest_tg_init": [],
+    "xt_rateest_tg_fini": []
+  },
+  "xt_REDIRECT.c": {
+    "redirect_tg6_checkentry": [],
+    "redirect_tg_destroy": [],
+    "redirect_tg4_check": [],
+    "nf_nat_redirect_ipv4": [],
+    "redirect_tg_init": [],
+    "redirect_tg_exit": []
+  },
+  "xt_SECMARK.c": {
+    "secmark_tg": [],
+    "checkentry_lsm": [],
+    "strcmp": [
+      "pr_info_ratelimited",
+      "checkentry_lsm"
+    ],
+    "secmark_tg_destroy": [],
+    "secmark_tg_check_v0": [],
+    "secmark_tg_check_v1": [],
+    "secmark_tg_init": [],
+    "secmark_tg_exit": []
+  },
+  "xt_TCPMSS.c": {
+    "memset": [],
+    "find_syn_match": [],
+    "tcpmss_tg4_check": [],
+    "tcpmss_tg6_check": [],
+    "tcpmss_tg_init": [],
+    "tcpmss_tg_exit": []
+  },
+  "xt_TCPOPTSTRIP.c": {
+    "optlen": [],
+    "tcpoptstrip_tg_init": [],
+    "tcpoptstrip_tg_exit": []
+  },
+  "xt_TEE.c": {
+    "tee_tg_check": [],
+    "tee_tg_destroy": [],
+    "tee_net_init": [],
+    "tee_tg_init": [],
+    "tee_tg_exit": []
+  },
+  "xt_TPROXY.c": {
+    "xt_in": [],
+    "tproxy_tg6_check": [],
+    "tproxy_tg6_destroy": [],
+    "tproxy_tg4_check": [],
+    "tproxy_tg4_destroy": [],
+    "tproxy_tg_init": [],
+    "tproxy_tg_exit": []
+  },
+  "xt_TRACE.c": {
+    "trace_tg_check": [],
+    "trace_tg_destroy": [],
+    "trace_tg_init": [],
+    "trace_tg_exit": []
+  },
+  "xt_addrtype.c": {
+    "addrtype_mt_checkentry_v1": [],
+    "addrtype_mt_init": [],
+    "addrtype_mt_exit": []
+  },
+  "xt_bpf.c": {
+    "__bpf_mt_check_fd": [],
+    "__bpf_mt_check_path": [],
+    "bpf_mt_check": [],
+    "bpf_mt_check_v1": [],
+    "bpf_mt": [],
+    "bpf_mt_v1": [],
+    "bpf_mt_destroy": [],
+    "bpf_mt_destroy_v1": [],
+    "bpf_mt_init": [],
+    "bpf_mt_exit": []
+  },
+  "xt_cgroup.c": {
+    "cgroup_mt_check_v0": [],
+    "cgroup_mt_check_v1": [],
+    "cgroup_mt_check_v2": [],
+    "cgroup_mt_v1": [],
+    "cgroup_mt_v2": [],
+    "cgroup_mt_destroy_v1": [],
+    "cgroup_mt_destroy_v2": [],
+    "cgroup_put": [],
+    "cgroup_mt_init": [],
+    "cgroup_mt_exit": []
+  },
+  "xt_cluster.c": {
+    "nf_ct_orig_ipv4_src": [],
+    "xt_cluster_mt_checkentry": [],
+    "xt_cluster_mt_destroy": [],
+    "xt_cluster_mt_init": [],
+    "xt_cluster_mt_fini": []
+  },
+  "xt_comment.c": {
+    "comment_mt_init": [],
+    "comment_mt_exit": []
+  },
+  "xt_connbytes.c": {
+    "connbytes_mt_check": [],
+    "connbytes_mt_destroy": [],
+    "connbytes_mt_init": [],
+    "connbytes_mt_exit": []
+  },
+  "xt_connlabel.c": {
+    "connlabel_mt_check": [],
+    "connlabel_mt_destroy": [],
+    "connlabel_mt_init": [],
+    "connlabel_mt_exit": []
+  },
+  "xt_connlimit.c": {
+    "xt_family": [
+      "ipv6_hdr",
+      "memcpy",
+      "ARRAY_SIZE",
+      "ip_hdr"
+    ],
+    "connlimit_mt_check": [],
+    "connlimit_mt_destroy": [],
+    "connlimit_mt_init": [],
+    "connlimit_mt_exit": []
+  },
+  "xt_connmark.c": {
+    "connmark_tg_check": [],
+    "connmark_tg_destroy": [],
+    "connmark_mt_check": [],
+    "connmark_mt_destroy": [],
+    "connmark_mt_init": [],
+    "connmark_mt_exit": []
+  },
+  "xt_conntrack.c": {
+    "conntrack_mt_check": [],
+    "conntrack_mt_destroy": [],
+    "conntrack_mt_init": [],
+    "conntrack_mt_exit": []
+  },
+  "xt_cpu.c": {
+    "cpu_mt_check": [],
+    "cpu_mt": [],
+    "cpu_mt_init": [],
+    "cpu_mt_exit": []
+  },
+  "xt_dccp.c": {
+    "dccp_mt_check": [],
+    "dccp_mt_init": [],
+    "dccp_mt_exit": []
+  },
+  "xt_devgroup.c": {
+    "devgroup_mt": [],
+    "devgroup_mt_checkentry": [],
+    "devgroup_mt_init": [],
+    "devgroup_mt_exit": []
+  },
+  "xt_dscp.c": {
+    "dscp_mt_check": [],
+    "tos_mt": [],
+    "dscp_mt_init": [],
+    "dscp_mt_exit": []
+  },
+  "xt_ecn.c": {
+    "match_tcp": [],
+    "ecn_mt4": [],
+    "ecn_mt_check4": [],
+    "ecn_mt6": [],
+    "ecn_mt_check6": [],
+    "ecn_mt_init": [],
+    "ecn_mt_exit": []
+  },
+  "xt_esp.c": {
+    "esp_mt": [],
+    "esp_mt_check": [],
+    "esp_mt_init": [],
+    "esp_mt_exit": []
+  },
+  "xt_hashlimit.c": {
+    "memcpy": [],
+    "hlist_for_each_entry_rcu": [],
+    "dsthash_free_rcu": [],
+    "htable_selective_cleanup": [],
+    "spin_lock_bh": [],
+    "hlist_for_each_entry_safe": [
+      "spin_unlock_bh"
+    ],
+    "htable_gc": [],
+    "htable_remove_proc_entry": [],
+    "htable_put": [],
+    "xt_hashlimit_len_to_chunks": [],
+    "user2credits": [
+      "pr_info_ratelimited",
+      "mutex_lock",
+      "mutex_unlock"
+    ],
+    "user2credits_byte": [
+      "pr_info_ratelimited"
+    ],
+    "user2rate": [],
+    "div64_u64": [],
+    "user2rate_bytes": [],
+    "maskl": [],
+    "hashlimit_ipv6_mask": [],
+    "hashlimit_byte_cost": [],
+    "local_bh_enable": [],
+    "rateinfo_recalc": [],
+    "rateinfo_init": [],
+    "spin_unlock": [],
+    "pr_info_ratelimited": [],
+    "hashlimit_mt_check_v1": [],
+    "hashlimit_mt_check_v2": [],
+    "hashlimit_mt_check": [],
+    "hashlimit_mt_destroy_v2": [],
+    "hashlimit_mt_destroy_v1": [],
+    "hashlimit_mt_destroy": [],
+    "dl_seq_stop": [],
+    "dl_seq_show_v2": [],
+    "dl_seq_show_v1": [],
+    "dl_seq_show": [],
+    "hashlimit_proc_net_init": [],
+    "hashlimit_proc_net_exit": [],
+    "hashlimit_net_init": [],
+    "hashlimit_net_exit": [],
+    "hashlimit_mt_init": [],
+    "hashlimit_mt_exit": []
+  },
+  "xt_helper.c": {
+    "helper_mt_check": [],
+    "helper_mt_destroy": [],
+    "helper_mt_init": [],
+    "helper_mt_exit": []
+  },
+  "xt_hl.c": {
+    "ttl_mt": [],
+    "hl_mt6": [],
+    "hl_mt_init": [],
+    "hl_mt_exit": []
+  },
+  "xt_ipcomp.c": {
+    "comp_mt": [],
+    "comp_mt_check": [],
+    "comp_mt_init": [],
+    "comp_mt_exit": []
+  },
+  "xt_iprange.c": {
+    "iprange_mt_init": [],
+    "iprange_mt_exit": []
+  },
+  "xt_ipvs.c": {
+    "ipvs_mt_check": [],
+    "ipvs_mt_init": [],
+    "ipvs_mt_exit": []
+  },
+  "xt_l2tp.c": {
+    "l2tp_match": [],
+    "l2tp_udp_mt": [],
+    "l2tp_ip_mt": [],
+    "l2tp_mt4": [],
+    "l2tp_mt6": [],
+    "l2tp_mt_check": [],
+    "l2tp_mt_check4": [],
+    "l2tp_mt_check6": [],
+    "l2tp_mt_init": [],
+    "l2tp_mt_exit": []
+  },
+  "xt_length.c": {
+    "length_mt_init": [],
+    "length_mt_exit": []
+  },
+  "xt_limit.c": {
+    "user2credits": [
+      "pr_info_ratelimited"
+    ],
+    "limit_mt_check": [],
+    "limit_mt_destroy": [],
+    "limit_mt_compat_from_user": [],
+    "limit_mt_compat_to_user": [],
+    "limit_mt_init": [],
+    "limit_mt_exit": []
+  },
+  "xt_mac.c": {
+    "mac_mt": [],
+    "mac_mt_init": [],
+    "mac_mt_exit": []
+  },
+  "xt_mark.c": {
+    "mark_mt_init": [],
+    "mark_mt_exit": []
+  },
+  "xt_multiport.c": {
+    "multiport_mt_check": [],
+    "multiport_mt6_check": [],
+    "multiport_mt_init": [],
+    "multiport_mt_exit": []
+  },
+  "xt_nat.c": {
+    "xt_nat_checkentry_v0": [],
+    "xt_nat_checkentry": [],
+    "xt_nat_destroy": [],
+    "nf_nat_setup_info": [],
+    "xt_nat_init": [],
+    "xt_nat_exit": []
+  },
+  "xt_nfacct.c": {
+    "nfacct_mt": [],
+    "nfacct_mt_init": [],
+    "nfacct_mt_exit": []
+  },
+  "xt_osf.c": {
+    "xt_out": [],
+    "xt_osf_init": [],
+    "xt_osf_fini": []
+  },
+  "xt_owner.c": {
+    "owner_check": [],
+    "uid_lt": [],
+    "gid_lt": [],
+    "uid_lte": [],
+    "gid_lte": [],
+    "owner_mt_init": [],
+    "owner_mt_exit": []
+  },
+  "xt_physdev.c": {
+    "physdev_mt_check": [],
+    "physdev_mt_init": [],
+    "physdev_mt_exit": []
+  },
+  "xt_pkttype.c": {
+    "pkttype_mt_init": [],
+    "pkttype_mt_exit": []
+  },
+  "xt_policy.c": {
+    "policy_mt_check": [],
+    "policy_mt_init": [],
+    "policy_mt_exit": []
+  },
+  "xt_quota.c": {
+    "quota_mt_check": [],
+    "quota_mt_destroy": [],
+    "quota_mt_init": [],
+    "quota_mt_exit": []
+  },
+  "xt_rateest.c": {
+    "gen_estimator_read": [],
+    "xt_rateest_mt_checkentry": [],
+    "xt_rateest_mt_destroy": [],
+    "xt_rateest_put": [],
+    "xt_rateest_mt_init": [],
+    "xt_rateest_mt_fini": []
+  },
+  "xt_realm.c": {
+    "realm_mt_init": [],
+    "realm_mt_exit": []
+  },
+  "xt_recent.c": {
+    "recent_entry_hash4": [],
+    "recent_entry_hash6": [],
+    "recent_entry_remove": [],
+    "recent_entry_update": [],
+    "recent_table_flush": [],
+    "recent_table_free": [],
+    "recent_mt_check_v0": [],
+    "recent_mt_check_v1": [],
+    "recent_mt_destroy": [],
+    "recent_seq_stop": [],
+    "recent_seq_show": [],
+    "recent_seq_open": [],
+    "recent_entry_init": [],
+    "recent_proc_net_init": [],
+    "recent_proc_net_exit": [],
+    "recent_net_init": [],
+    "recent_net_exit": [],
+    "recent_mt_init": [],
+    "recent_mt_exit": []
+  },
+  "xt_sctp.c": {
+    "SCTP_CHUNKMAP_COPY": [],
+    "sctp_mt_check": [],
+    "sctp_mt_init": [],
+    "sctp_mt_exit": []
+  },
+  "xt_set.c": {
+    "ip_set_add": [],
+    "ip_set_del": [],
+    "ip_set_nfnl_put": [],
+    "xt_set_init": [],
+    "xt_set_fini": []
+  },
+  "xt_socket.c": {
+    "socket_mt_enable_defrag": [],
+    "socket_mt_v1_check": [],
+    "socket_mt_v2_check": [],
+    "socket_mt_v3_check": [],
+    "socket_mt_destroy": [],
+    "socket_mt_init": [],
+    "socket_mt_exit": []
+  },
+  "xt_state.c": {
+    "state_mt_check": [],
+    "state_mt_destroy": [],
+    "state_mt_init": [],
+    "state_mt_exit": []
+  },
+  "xt_statistic.c": {
+    "statistic_mt_check": [],
+    "statistic_mt_destroy": [],
+    "statistic_mt_init": [],
+    "statistic_mt_exit": []
+  },
+  "xt_string.c": {
+    "string_mt_check": [],
+    "string_mt_destroy": [],
+    "string_mt_init": [],
+    "string_mt_exit": []
+  },
+  "xt_tcpmss.c": {
+    "tcpmss_mt_init": [],
+    "tcpmss_mt_exit": []
+  },
+  "xt_tcpudp.c": {
+    "tcp_mt": [],
+    "tcp_mt_check": [],
+    "udp_mt": [],
+    "udp_mt_check": [],
+    "icmp_checkentry": [],
+    "icmp6_checkentry": [],
+    "tcpudp_mt_init": [],
+    "tcpudp_mt_exit": []
+  },
+  "xt_time.c": {
+    "is_leap": [
+      "ARRAY_SIZE"
+    ],
+    "localtime_1": [],
+    "localtime_2": [],
+    "localtime_3": [],
+    "time_mt_check": [],
+    "time_mt_init": [],
+    "time_mt_exit": []
+  },
+  "xt_u32.c": {
+    "u32_mt": [],
+    "u32_mt_checkentry": [],
+    "u32_mt_init": [],
+    "u32_mt_exit": []
+  }
+}
