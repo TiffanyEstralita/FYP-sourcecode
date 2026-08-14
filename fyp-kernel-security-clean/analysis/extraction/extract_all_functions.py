@@ -9,9 +9,15 @@ import re
 import json
 from pathlib import Path
 
-KERNEL_PATH = Path.home() / "fyp-kernel-security/data/kernel/linux-shallow"
+# KERNEL_PATH = Path.home() / "fyp-kernel-security/data/kernel/linux-shallow"
+# NETFILTER_PATH = KERNEL_PATH / "net/netfilter"
+# OUTPUT_PATH = Path.home() / "fyp-kernel-security/results/raw"
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+KERNEL_PATH = PROJECT_ROOT / "data/kernel/linux-shallow"
 NETFILTER_PATH = KERNEL_PATH / "net/netfilter"
-OUTPUT_PATH = Path.home() / "fyp-kernel-security/results/raw"
+OUTPUT_PATH = PROJECT_ROOT / "results/raw"
 
 def is_function_definition(lines, index):
     """

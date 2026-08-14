@@ -17,10 +17,17 @@ from typing import Dict, List, Set
 import sys
 
 # Paths
-KERNEL_PATH = Path.home() / "fyp-kernel-security/data/kernel/linux-shallow"
+# KERNEL_PATH = Path.home() / "fyp-kernel-security/data/kernel/linux-shallow"
+# NETFILTER_PATH = KERNEL_PATH / "net/netfilter"
+# INPUT_FILE = Path.home() / "fyp-kernel-security/results/raw/functions_v2.json"
+# OUTPUT_PATH = Path.home() / "fyp-kernel-security/results/raw"
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+KERNEL_PATH = PROJECT_ROOT / "data/kernel/linux-shallow"
 NETFILTER_PATH = KERNEL_PATH / "net/netfilter"
-INPUT_FILE = Path.home() / "fyp-kernel-security/results/raw/functions_v2.json"
-OUTPUT_PATH = Path.home() / "fyp-kernel-security/results/raw"
+INPUT_FILE = PROJECT_ROOT / "results/raw/functions_v2.json"
+OUTPUT_PATH = PROJECT_ROOT / "results/raw"
 
 class ImprovedCallExtractor:
     """Extract ALL function calls including cross-file"""
