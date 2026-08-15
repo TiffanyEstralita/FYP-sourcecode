@@ -2,80 +2,80 @@
 NETFILTER CALL GRAPH ANALYSIS (IMPROVED)
 ======================================================================
 
-Functions that call others:        1268
-Functions that are called:         715
-Total call relationships (edges):  3003
-Unique functions in graph:         1493
-Average calls per function:        2.37
+Functions that call others:        1175
+Functions that are called:         651
+Total call relationships (edges):  2710
+Unique functions in graph:         1397
+Average calls per function:        2.31
 
 ======================================================================
 TOP 30 MOST CALLED FUNCTIONS (High In-Degree)
 ======================================================================
 These are the most critical/central functions
 
-  1. ARRAY_SIZE                                         called   144 times
-  2. kfree                                              called   112 times
-  3. mutex_unlock                                       called    77 times
-  4. mutex_lock                                         called    65 times
-  5. pr_info_ratelimited                                called    42 times
-  6. WARN_ON_ONCE                                       called    40 times
-  7. spin_unlock_bh                                     called    39 times
-  8. list_del                                           called    37 times
-  9. atomic_read                                        called    37 times
- 10. rcu_read_unlock                                    called    36 times
+  1. ARRAY_SIZE                                         called   112 times
+  2. kfree                                              called   103 times
+  3. mutex_unlock                                       called    70 times
+  4. mutex_lock                                         called    58 times
+  5. htonl                                              called    41 times
+  6. nla_put_be32                                       called    39 times
+  7. pr_info_ratelimited                                called    39 times
+  8. spin_unlock_bh                                     called    37 times
+  9. atomic_read                                        called    36 times
+ 10. nft_unregister_expr                                called    36 times
  11. spin_lock_bh                                       called    35 times
- 12. RCU_INIT_POINTER                                   called    35 times
- 13. nft_unregister_expr                                called    35 times
- 14. ntohs                                              called    34 times
- 15. ntohl                                              called    31 times
- 16. nft_register_expr                                  called    30 times
- 17. rcu_read_lock                                      called    29 times
- 18. spin_unlock                                        called    26 times
- 19. seq_printf                                         called    25 times
- 20. synchronize_rcu                                    called    25 times
- 21. IP_VS_DBG                                          called    24 times
- 22. list_del_rcu                                       called    24 times
- 23. net_eq                                             called    23 times
- 24. module_put                                         called    23 times
- 25. atomic_dec                                         called    23 times
- 26. htons                                              called    23 times
- 27. PTR_ERR                                            called    23 times
- 28. xt_register_match                                  called    23 times
- 29. kvfree                                             called    22 times
- 30. spin_lock                                          called    22 times
+ 12. list_del                                           called    33 times
+ 13. RCU_INIT_POINTER                                   called    33 times
+ 14. rcu_read_unlock                                    called    32 times
+ 15. ntohs                                              called    32 times
+ 16. ntohl                                              called    31 times
+ 17. nft_register_expr                                  called    31 times
+ 18. atomic_dec                                         called    27 times
+ 19. rcu_read_lock                                      called    26 times
+ 20. seq_printf                                         called    26 times
+ 21. nft_dump_register                                  called    26 times
+ 22. spin_unlock                                        called    25 times
+ 23. synchronize_rcu                                    called    25 times
+ 24. xt_register_match                                  called    25 times
+ 25. IP_VS_DBG                                          called    24 times
+ 26. WARN_ON_ONCE                                       called    24 times
+ 27. net_eq                                             called    22 times
+ 28. htons                                              called    22 times
+ 29. PTR_ERR                                            called    22 times
+ 30. list_del_rcu                                       called    22 times
 
 ======================================================================
 TOP 30 FUNCTIONS WITH HIGHEST OUT-DEGREE
 ======================================================================
 These functions call many others (high complexity)
 
-  1. nf_tables_commit                                   calls    41 functions
-  2. pipapo_base_sum                                    calls    33 functions
-  3. __nf_tables_abort                                  calls    30 functions
-  4. nft_ctx_update                                     calls    22 functions
-  5. nf_tables_commit_audit_collect                     calls    22 functions
-  6. ct_seq_show                                        calls    16 functions
-  7. WRITE_ONCE                                         calls    15 functions
-  8. nft_commit_release                                 calls    14 functions
-  9. __ip_vs_init                                       calls    13 functions
- 10. nf_tables_abort_release                            calls    13 functions
- 11. gc_worker                                          calls    12 functions
- 12. __nft_release_table                                calls    12 functions
- 13. ip_vs_dest_trash_expire                            calls    10 functions
- 14. ip_vs_est_calc_limits                              calls    10 functions
- 15. nf_conntrack_init_start                            calls    10 functions
- 16. NL_SET_BAD_ATTR                                    calls    10 functions
- 17. ip_vs_genl_set_cmd                                 calls     9 functions
- 18. ip_vs_stop_estimator                               calls     9 functions
- 19. ip_vs_sync_conn                                    calls     9 functions
- 20. stop_sync_thread                                   calls     9 functions
- 21. tree_gc_worker                                     calls     9 functions
- 22. nf_ct_delete                                       calls     9 functions
- 23. nf_conntrack_hash_resize                           calls     9 functions
- 24. __ctnetlink_glue_build                             calls     9 functions
- 25. nf_tables_dump_set                                 calls     9 functions
- 26. ip_vs_try_bind_dest                                calls     8 functions
- 27. ip_vs_check_template                               calls     8 functions
- 28. ip_vs_random_dropentry                             calls     8 functions
- 29. __ip_vs_cleanup_batch                              calls     8 functions
- 30. update_defense_level                               calls     8 functions
+  1. nf_tables_commit                                   calls    30 functions
+  2. pipapo_base_sum                                    calls    29 functions
+  3. __nf_tables_abort                                  calls    21 functions
+  4. ct_seq_show                                        calls    15 functions
+  5. __ip_vs_init                                       calls    13 functions
+  6. gc_worker                                          calls    11 functions
+  7. nf_conntrack_init_start                            calls    10 functions
+  8. __ctnetlink_glue_build                             calls    10 functions
+  9. WRITE_ONCE                                         calls    10 functions
+ 10. nft_commit_release                                 calls    10 functions
+ 11. ip_vs_dest_trash_expire                            calls     9 functions
+ 12. ip_vs_genl_set_cmd                                 calls     9 functions
+ 13. ip_vs_sync_conn                                    calls     9 functions
+ 14. stop_sync_thread                                   calls     9 functions
+ 15. nf_ct_delete                                       calls     9 functions
+ 16. nf_conntrack_hash_resize                           calls     9 functions
+ 17. nf_tables_dump_obj                                 calls     9 functions
+ 18. __nft_release_table                                calls     9 functions
+ 19. nft_trace_notify                                   calls     9 functions
+ 20. ip_vs_try_bind_dest                                calls     8 functions
+ 21. ip_vs_check_template                               calls     8 functions
+ 22. ip_vs_random_dropentry                             calls     8 functions
+ 23. __ip_vs_cleanup_batch                              calls     8 functions
+ 24. tree_gc_worker                                     calls     8 functions
+ 25. hlist_nulls_for_each_entry_rcu                     calls     8 functions
+ 26. nf_conntrack_proto_pernet_init                     calls     8 functions
+ 27. nf_tables_dump_set                                 calls     8 functions
+ 28. nf_tables_abort_release                            calls     8 functions
+ 29. nf_tables_module_init                              calls     8 functions
+ 30. ip_vs_conn_hash                                    calls     7 functions

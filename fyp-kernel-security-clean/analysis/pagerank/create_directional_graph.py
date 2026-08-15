@@ -18,10 +18,12 @@ from matplotlib.lines import Line2D
 from matplotlib.patches import FancyArrowPatch, Circle
 
 # Paths
-CALLS_FILE = Path.home() / "fyp-kernel-security/results/raw/function_calls_v2.json"
-PAGERANK_FILE = Path.home() / "fyp-kernel-security/results/processed/pagerank_scores.json"
-FUNCTIONS_FILE = Path.home() / "fyp-kernel-security/results/raw/functions_v2.json"
-OUTPUT_PATH = Path.home() / "fyp-kernel-security/results/visualizations"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+CALLS_FILE = PROJECT_ROOT / "results/raw/function_calls_v2.json"
+PAGERANK_FILE = PROJECT_ROOT / "results/processed/pagerank_scores.json"
+FUNCTIONS_FILE = PROJECT_ROOT / "results/raw/functions_v2.json"
+OUTPUT_PATH = PROJECT_ROOT / "results/visualizations"
 
 print("=" * 80)
 print("🎨 CREATING FINAL DIRECTIONAL GRAPH - TOP 30 FUNCTIONS")

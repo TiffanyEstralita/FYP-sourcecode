@@ -12,10 +12,12 @@ from openai import OpenAI
 import sys
 
 # Paths
-CONFIG_FILE = Path.home() / "fyp-kernel-security/config/api_keys.json"
-TOP_100_FILE = Path.home() / "fyp-kernel-security/results/processed/top_100_functions.json"
-KERNEL_PATH = Path.home() / "fyp-kernel-security/data/kernel/linux-shallow"
-OUTPUT_PATH = Path.home() / "fyp-kernel-security/results/processed"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+CONFIG_FILE = PROJECT_ROOT / "config/api_keys.json"
+TOP_100_FILE = PROJECT_ROOT / "results/processed/top_100_functions.json"
+KERNEL_PATH = PROJECT_ROOT / "data/kernel/linux-shallow"
+OUTPUT_PATH = PROJECT_ROOT / "results/processed"
 
 class LLMAnalyzer:
     """Use LLM to analyze security implications of functions"""
@@ -51,10 +53,25 @@ class LLMAnalyzer:
         """
         Send function to LLM for security analysis
         """
-        # Read the actual code
-        file_path = KERNEL_PATH / "net/netfilter" / file_name
-        function_code = self.read_function_code(file_path, function_name, line_number)
-        
+
+        file_path = next(KERNEL_PATH.rglob(file_name), None)
+
+        if file_path is None:
+            print(f"   ⚠️  Could not find {file_name} anywhere in kernel source")
+            return {
+                'function': function_name,
+                'file': file_name,
+                'line': line_number,
+                'pagerank': pagerank_score,
+                'error': f'Could not find source file: {file_name}'
+            }
+
+        function_code = self.read_function_code(
+            file_path,
+            function_name,
+            line_number
+        )
+
         if not function_code:
             return {
                 'function': function_name,

@@ -3,77 +3,72 @@
     {
       "name": "__nf_hook_entries_free",
       "file": "core.c",
-      "line": 64
+      "line": 67
     },
     {
       "name": "nf_hook_entries_free",
       "file": "core.c",
-      "line": 72
+      "line": 75
     },
     {
       "name": "hooks_validate",
       "file": "core.c",
-      "line": 173
+      "line": 164
     },
     {
       "name": "nf_static_key_inc",
       "file": "core.c",
-      "line": 363
+      "line": 354
     },
     {
       "name": "nf_static_key_dec",
       "file": "core.c",
-      "line": 378
+      "line": 369
     },
     {
       "name": "net_dec_egress_queue",
       "file": "core.c",
-      "line": 510
+      "line": 501
     },
     {
       "name": "nf_unregister_net_hook",
       "file": "core.c",
-      "line": 526
+      "line": 517
     },
     {
       "name": "__nf_unregister_net_hook",
       "file": "core.c",
-      "line": 530
+      "line": 521
     },
     {
       "name": "nf_register_net_hook",
       "file": "core.c",
-      "line": 554
+      "line": 545
     },
     {
       "name": "nf_ct_attach",
       "file": "core.c",
-      "line": 695
+      "line": 679
     },
     {
       "name": "nf_conntrack_destroy",
       "file": "core.c",
-      "line": 709
-    },
-    {
-      "name": "nf_ct_set_closing",
-      "file": "core.c",
-      "line": 723
+      "line": 693
     },
     {
       "name": "netfilter_net_init",
       "file": "core.c",
-      "line": 771
+      "line": 737
     },
     {
       "name": "netfilter_net_exit",
       "file": "core.c",
-      "line": 795
+      "line": 761
     },
     {
       "name": "netfilter_init",
       "file": "core.c",
-      "line": 805
+      "line": 771
     }
   ],
   "ip_set_bitmap_ip.c": [
@@ -83,19 +78,19 @@
       "line": 159
     },
     {
-      "name": "swap",
-      "file": "ip_set_bitmap_ip.c",
-      "line": 167
-    },
-    {
       "name": "ip_set_mask_from_to",
       "file": "ip_set_bitmap_ip.c",
-      "line": 173
+      "line": 176
+    },
+    {
+      "name": "swap",
+      "file": "ip_set_bitmap_ip.c",
+      "line": 276
     },
     {
       "name": "ip_set_free",
       "file": "ip_set_bitmap_ip.c",
-      "line": 326
+      "line": 329
     }
   ],
   "ip_set_bitmap_ipmac.c": [
@@ -151,89 +146,74 @@
     {
       "name": "be32_to_cpu",
       "file": "ip_set_core.c",
-      "line": 511
+      "line": 503
     },
     {
       "name": "ip_set_timeout_expired",
       "file": "ip_set_core.c",
-      "line": 642
+      "line": 634
     },
     {
       "name": "ip_set_unlock",
       "file": "ip_set_core.c",
-      "line": 760
+      "line": 751
     },
     {
       "name": "protocol",
       "file": "ip_set_core.c",
-      "line": 948
+      "line": 939
     },
     {
       "name": "kvfree",
       "file": "ip_set_core.c",
-      "line": 1150
-    },
-    {
-      "name": "rcu_barrier",
-      "file": "ip_set_core.c",
-      "line": 1215
-    },
-    {
-      "name": "read_lock_bh",
-      "file": "ip_set_core.c",
-      "line": 1249
-    },
-    {
-      "name": "_destroy_all_sets",
-      "file": "ip_set_core.c",
-      "line": 1259
+      "line": 1141
     },
     {
       "name": "read_unlock_bh",
       "file": "ip_set_core.c",
-      "line": 1279
+      "line": 1216
     },
     {
       "name": "ip_set_flush_set",
       "file": "ip_set_core.c",
-      "line": 1320
+      "line": 1275
     },
     {
       "name": "write_lock_bh",
       "file": "ip_set_core.c",
-      "line": 1593
+      "line": 1548
     },
     {
       "name": "write_unlock_bh",
       "file": "ip_set_core.c",
-      "line": 1597
+      "line": 1552
     },
     {
       "name": "nla_for_each_nested",
       "file": "ip_set_core.c",
-      "line": 1846
+      "line": 1793
     },
     {
       "name": "nfnl_unlock",
       "file": "ip_set_core.c",
-      "line": 2308
+      "line": 2255
     }
   ],
   "ip_set_hash_ip.c": [
     {
       "name": "adtfn",
       "file": "ip_set_hash_ip.c",
-      "line": 130
+      "line": 128
     },
     {
       "name": "swap",
       "file": "ip_set_hash_ip.c",
-      "line": 140
+      "line": 138
     },
     {
       "name": "ip_set_eexist",
       "file": "ip_set_hash_ip.c",
-      "line": 271
+      "line": 275
     }
   ],
   "ip_set_hash_ipmac.c": [
@@ -254,7 +234,7 @@
     {
       "name": "swap",
       "file": "ip_set_hash_ipport.c",
-      "line": 171
+      "line": 160
     }
   ],
   "ip_set_hash_ipportip.c": [
@@ -292,7 +272,7 @@
   ],
   "ip_set_hash_netiface.c": [
     {
-      "name": "STRSCPY",
+      "name": "STRLCPY",
       "file": "ip_set_hash_netiface.c",
       "line": 185
     },
@@ -311,22 +291,22 @@
     {
       "name": "swap",
       "file": "ip_set_hash_netnet.c",
-      "line": 231
+      "line": 228
     },
     {
       "name": "ip_set_mask_from_to",
       "file": "ip_set_hash_netnet.c",
-      "line": 248
+      "line": 245
     },
     {
       "name": "ip6_netmask",
       "file": "ip_set_hash_netnet.c",
-      "line": 333
+      "line": 330
     },
     {
       "name": "ip_set_eexist",
       "file": "ip_set_hash_netnet.c",
-      "line": 471
+      "line": 457
     }
   ],
   "ip_set_hash_netport.c": [
@@ -345,44 +325,49 @@
     {
       "name": "swap",
       "file": "ip_set_hash_netportnet.c",
-      "line": 272
+      "line": 271
     },
     {
       "name": "ip_set_mask_from_to",
       "file": "ip_set_hash_netportnet.c",
-      "line": 296
+      "line": 295
     },
     {
       "name": "ip6_netmask",
       "file": "ip_set_hash_netportnet.c",
-      "line": 394
+      "line": 393
     }
   ],
   "ip_set_list_set.c": [
     {
       "name": "ip_set_timeout_expired",
       "file": "ip_set_list_set.c",
-      "line": 196
+      "line": 195
     },
     {
       "name": "list_last_entry",
       "file": "ip_set_list_set.c",
-      "line": 281
+      "line": 277
     },
     {
       "name": "nla_data",
       "file": "ip_set_list_set.c",
-      "line": 392
+      "line": 388
+    },
+    {
+      "name": "del_timer_sync",
+      "file": "ip_set_list_set.c",
+      "line": 430
     },
     {
       "name": "nla_nest_cancel",
       "file": "ip_set_list_set.c",
-      "line": 520
+      "line": 525
     },
     {
       "name": "__alignof__",
       "file": "ip_set_list_set.c",
-      "line": 635
+      "line": 624
     }
   ],
   "ip_vs_app.c": [
@@ -609,7 +594,7 @@
       "line": 841
     },
     {
-      "name": "timer_delete",
+      "name": "del_timer",
       "file": "ip_vs_conn.c",
       "line": 863
     },
@@ -626,72 +611,77 @@
     {
       "name": "hlist_for_each_entry_rcu",
       "file": "ip_vs_conn.c",
-      "line": 1061
+      "line": 1059
+    },
+    {
+      "name": "hlist_entry",
+      "file": "ip_vs_conn.c",
+      "line": 1099
     },
     {
       "name": "ip_vs_conn_seq_stop",
       "file": "ip_vs_conn.c",
-      "line": 1119
+      "line": 1113
     },
     {
       "name": "ip_vs_conn_seq_show",
       "file": "ip_vs_conn.c",
-      "line": 1125
+      "line": 1119
     },
     {
       "name": "ip_vs_conn_sync_seq_show",
       "file": "ip_vs_conn.c",
-      "line": 1202
+      "line": 1196
     },
     {
       "name": "todrop_entry",
       "file": "ip_vs_conn.c",
-      "line": 1268
+      "line": 1262
     },
     {
       "name": "ip_vs_conn_ops_mode",
       "file": "ip_vs_conn.c",
-      "line": 1296
+      "line": 1290
     },
     {
       "name": "ip_vs_random_dropentry",
       "file": "ip_vs_conn.c",
-      "line": 1307
+      "line": 1301
     },
     {
       "name": "ip_vs_conn_flush",
       "file": "ip_vs_conn.c",
-      "line": 1377
+      "line": 1371
     },
     {
       "name": "ip_vs_expire_nodest_conn_flush",
       "file": "ip_vs_conn.c",
-      "line": 1412
+      "line": 1406
     },
     {
       "name": "ip_vs_conn_net_init",
       "file": "ip_vs_conn.c",
-      "line": 1452
+      "line": 1446
     },
     {
       "name": "ip_vs_conn_net_cleanup",
       "file": "ip_vs_conn.c",
-      "line": 1478
+      "line": 1472
     },
     {
       "name": "ip_vs_conn_init",
       "file": "ip_vs_conn.c",
-      "line": 1488
+      "line": 1482
     },
     {
       "name": "INIT_HLIST_HEAD",
       "file": "ip_vs_conn.c",
-      "line": 1532
+      "line": 1519
     },
     {
       "name": "ip_vs_conn_cleanup",
       "file": "ip_vs_conn.c",
-      "line": 1544
+      "line": 1531
     }
   ],
   "ip_vs_core.c": [
@@ -753,454 +743,419 @@
     {
       "name": "ip_vs_conn_put",
       "file": "ip_vs_core.c",
-      "line": 1193
+      "line": 1194
     },
     {
       "name": "ipv6_hdr",
       "file": "ip_vs_core.c",
-      "line": 1279
+      "line": 1281
     },
     {
       "name": "handle_response",
       "file": "ip_vs_core.c",
-      "line": 1404
+      "line": 1410
     },
     {
       "name": "is_new_conn_expected",
       "file": "ip_vs_core.c",
-      "line": 2006
+      "line": 2008
     },
     {
       "name": "ip_vs_in_icmp",
       "file": "ip_vs_core.c",
-      "line": 2130
+      "line": 2132
     },
     {
       "name": "ip_vs_register_hooks",
       "file": "ip_vs_core.c",
-      "line": 2231
+      "line": 2233
     },
     {
       "name": "ip_vs_unregister_hooks",
       "file": "ip_vs_core.c",
-      "line": 2260
+      "line": 2262
     },
     {
       "name": "__ip_vs_init",
       "file": "ip_vs_core.c",
-      "line": 2289
+      "line": 2291
     },
     {
       "name": "__ip_vs_cleanup_batch",
       "file": "ip_vs_core.c",
-      "line": 2343
+      "line": 2345
     },
     {
       "name": "__ip_vs_dev_cleanup_batch",
       "file": "ip_vs_core.c",
-      "line": 2361
+      "line": 2363
     },
     {
       "name": "ip_vs_init",
       "file": "ip_vs_core.c",
-      "line": 2390
+      "line": 2394
     },
     {
       "name": "ip_vs_cleanup",
       "file": "ip_vs_core.c",
-      "line": 2439
+      "line": 2443
     }
   ],
   "ip_vs_ctl.c": [
     {
       "name": "ip_vs_get_debug_level",
       "file": "ip_vs_ctl.c",
-      "line": 59
+      "line": 60
     },
     {
       "name": "update_defense_level",
       "file": "ip_vs_ctl.c",
-      "line": 93
+      "line": 94
     },
     {
       "name": "atomic_set",
       "file": "ip_vs_ctl.c",
-      "line": 118
+      "line": 117
     },
     {
       "name": "expire_nodest_conn_handler",
       "file": "ip_vs_ctl.c",
-      "line": 216
+      "line": 217
     },
     {
       "name": "defense_work_handler",
       "file": "ip_vs_ctl.c",
-      "line": 230
-    },
-    {
-      "name": "est_reload_work_handler",
-      "file": "ip_vs_ctl.c",
-      "line": 243
-    },
-    {
-      "name": "ip_vs_est_kthread_stop",
-      "file": "ip_vs_ctl.c",
-      "line": 265
+      "line": 231
     },
     {
       "name": "ip_vs_svc_fwm_hashkey",
       "file": "ip_vs_ctl.c",
-      "line": 336
+      "line": 296
     },
     {
       "name": "ip_vs_svc_hash",
       "file": "ip_vs_ctl.c",
-      "line": 346
+      "line": 306
     },
     {
       "name": "hlist_add_head_rcu",
       "file": "ip_vs_ctl.c",
-      "line": 362
+      "line": 322
     },
     {
       "name": "ip_vs_svc_unhash",
       "file": "ip_vs_ctl.c",
-      "line": 382
+      "line": 342
     },
     {
       "name": "hlist_del_rcu",
       "file": "ip_vs_ctl.c",
-      "line": 392
+      "line": 352
     },
     {
       "name": "atomic_read",
       "file": "ip_vs_ctl.c",
-      "line": 478
+      "line": 438
     },
     {
       "name": "ip_vs_service_free",
       "file": "ip_vs_ctl.c",
-      "line": 512
+      "line": 472
     },
     {
       "name": "ip_vs_service_rcu_free",
       "file": "ip_vs_ctl.c",
-      "line": 518
+      "line": 478
     },
     {
       "name": "__ip_vs_svc_put",
       "file": "ip_vs_ctl.c",
-      "line": 526
+      "line": 486
     },
     {
       "name": "ip_vs_rs_hash",
       "file": "ip_vs_ctl.c",
-      "line": 559
+      "line": 522
     },
     {
       "name": "ip_vs_rs_unhash",
       "file": "ip_vs_ctl.c",
-      "line": 599
+      "line": 562
     },
     {
       "name": "ip_vs_addr_equal",
       "file": "ip_vs_ctl.c",
-      "line": 623
+      "line": 586
     },
     {
       "name": "IP_VS_DFWD_METHOD",
       "file": "ip_vs_ctl.c",
-      "line": 625
+      "line": 588
     },
     {
       "name": "ip_vs_dest_dst_rcu_free",
       "file": "ip_vs_ctl.c",
-      "line": 748
+      "line": 711
     },
     {
       "name": "__ip_vs_dst_cache_reset",
       "file": "ip_vs_ctl.c",
-      "line": 759
-    },
-    {
-      "name": "ip_vs_dest_rcu_free",
-      "file": "ip_vs_ctl.c",
-      "line": 820
+      "line": 722
     },
     {
       "name": "ip_vs_dest_free",
       "file": "ip_vs_ctl.c",
-      "line": 829
+      "line": 783
     },
     {
       "name": "ip_vs_trash_cleanup",
       "file": "ip_vs_ctl.c",
-      "line": 847
-    },
-    {
-      "name": "ip_vs_stats_rcu_free",
-      "file": "ip_vs_ctl.c",
-      "line": 859
-    },
-    {
-      "name": "ip_vs_stats_init_alloc",
-      "file": "ip_vs_ctl.c",
-      "line": 923
-    },
-    {
-      "name": "ip_vs_stats_release",
-      "file": "ip_vs_ctl.c",
-      "line": 950
-    },
-    {
-      "name": "ip_vs_stats_free",
-      "file": "ip_vs_ctl.c",
-      "line": 955
+      "line": 802
     },
     {
       "name": "__ip_vs_bind_svc",
       "file": "ip_vs_ctl.c",
-      "line": 1017
+      "line": 921
     },
     {
       "name": "__ip_vs_update_dest",
       "file": "ip_vs_ctl.c",
-      "line": 1182
+      "line": 1090
     },
     {
       "name": "ip_vs_dest_trash_expire",
       "file": "ip_vs_ctl.c",
-      "line": 1332
+      "line": 1249
     },
     {
       "name": "ip_vs_unregister_hooks",
       "file": "ip_vs_ctl.c",
-      "line": 1499
+      "line": 1416
     },
     {
       "name": "synchronize_rcu",
       "file": "ip_vs_ctl.c",
-      "line": 1566
+      "line": 1483
     },
     {
       "name": "__ip_vs_del_service",
       "file": "ip_vs_ctl.c",
-      "line": 1608
+      "line": 1525
     },
     {
       "name": "ip_vs_unlink_service",
       "file": "ip_vs_ctl.c",
-      "line": 1666
+      "line": 1583
     },
     {
       "name": "ip_vs_del_service",
       "file": "ip_vs_ctl.c",
-      "line": 1682
+      "line": 1599
     },
     {
       "name": "ip_vs_flush",
       "file": "ip_vs_ctl.c",
-      "line": 1695
+      "line": 1612
     },
     {
       "name": "ip_vs_service_nets_cleanup",
       "file": "ip_vs_ctl.c",
-      "line": 1730
+      "line": 1647
     },
     {
       "name": "ip_vs_zero_service",
       "file": "ip_vs_ctl.c",
-      "line": 1813
+      "line": 1734
     },
     {
       "name": "ip_vs_zero_all",
       "file": "ip_vs_ctl.c",
-      "line": 1824
-    },
-    {
-      "name": "mutex_lock",
-      "file": "ip_vs_ctl.c",
-      "line": 2034
+      "line": 1745
     },
     {
       "name": "hlist_for_each_entry_rcu",
       "file": "ip_vs_ctl.c",
-      "line": 2310
+      "line": 2074
     },
     {
       "name": "hlist_entry",
       "file": "ip_vs_ctl.c",
-      "line": 2359
+      "line": 2123
     },
     {
       "name": "ip_vs_info_seq_stop",
       "file": "ip_vs_ctl.c",
-      "line": 2390
+      "line": 2154
     },
     {
       "name": "ip_vs_info_seq_show",
       "file": "ip_vs_ctl.c",
-      "line": 2397
+      "line": 2161
     },
     {
       "name": "ntohs",
       "file": "ip_vs_ctl.c",
-      "line": 2431
+      "line": 2195
     },
     {
       "name": "seq_putc",
       "file": "ip_vs_ctl.c",
-      "line": 2445
+      "line": 2209
     },
     {
       "name": "ip_vs_stats_show",
       "file": "ip_vs_ctl.c",
-      "line": 2483
+      "line": 2247
     },
     {
       "name": "ip_vs_stats_percpu_show",
       "file": "ip_vs_ctl.c",
-      "line": 2515
+      "line": 2279
     },
     {
       "name": "ip_vs_set_timeout",
       "file": "ip_vs_ctl.c",
-      "line": 2575
+      "line": 2339
     },
     {
       "name": "strnlen",
       "file": "ip_vs_ctl.c",
-      "line": 2772
+      "line": 2536
     },
     {
       "name": "memset",
       "file": "ip_vs_ctl.c",
-      "line": 2882
+      "line": 2641
     },
     {
       "name": "ip_vs_copy_service",
       "file": "ip_vs_ctl.c",
-      "line": 2883
+      "line": 2642
     },
     {
       "name": "ip_vs_copy_stats",
       "file": "ip_vs_ctl.c",
-      "line": 2957
+      "line": 2716
     },
     {
       "name": "ip_vs_export_stats_user",
       "file": "ip_vs_ctl.c",
-      "line": 2958
+      "line": 2717
+    },
+    {
+      "name": "mutex_lock",
+      "file": "ip_vs_ctl.c",
+      "line": 2805
     },
     {
       "name": "sprintf",
       "file": "ip_vs_ctl.c",
-      "line": 3071
+      "line": 2830
     },
     {
       "name": "NVERSION",
       "file": "ip_vs_ctl.c",
-      "line": 3072
+      "line": 2831
     },
     {
       "name": "rcu_read_unlock",
       "file": "ip_vs_ctl.c",
-      "line": 3123
+      "line": 2882
     },
     {
       "name": "ip_vs_is_af_valid",
       "file": "ip_vs_ctl.c",
-      "line": 3429
+      "line": 3188
     },
     {
       "name": "ip_vs_genl_fill_dest",
       "file": "ip_vs_ctl.c",
-      "line": 3532
+      "line": 3291
     },
     {
       "name": "nla_put_u8",
       "file": "ip_vs_ctl.c",
-      "line": 3718
+      "line": 3480
     },
     {
       "name": "ip_vs_genl_new_daemon",
       "file": "ip_vs_ctl.c",
-      "line": 3791
+      "line": 3553
     },
     {
       "name": "ip_vs_genl_del_daemon",
       "file": "ip_vs_ctl.c",
-      "line": 3852
+      "line": 3614
     },
     {
       "name": "ip_vs_genl_set_config",
       "file": "ip_vs_ctl.c",
-      "line": 3864
+      "line": 3626
     },
     {
       "name": "ip_vs_genl_set_daemon",
       "file": "ip_vs_ctl.c",
-      "line": 3883
+      "line": 3645
     },
     {
       "name": "ip_vs_genl_set_cmd",
       "file": "ip_vs_ctl.c",
-      "line": 3908
+      "line": 3670
     },
     {
       "name": "ip_vs_genl_get_cmd",
       "file": "ip_vs_ctl.c",
-      "line": 4037
+      "line": 3799
     },
     {
       "name": "ip_vs_genl_register",
       "file": "ip_vs_ctl.c",
-      "line": 4249
+      "line": 4011
     },
     {
       "name": "ip_vs_genl_unregister",
       "file": "ip_vs_ctl.c",
-      "line": 4254
+      "line": 4016
     },
     {
       "name": "ip_vs_control_net_init_sysctl",
       "file": "ip_vs_ctl.c",
-      "line": 4265
+      "line": 4027
     },
     {
       "name": "ip_vs_control_net_cleanup_sysctl",
       "file": "ip_vs_ctl.c",
-      "line": 4393
+      "line": 4124
     },
     {
       "name": "ip_vs_control_net_init",
       "file": "ip_vs_ctl.c",
-      "line": 4424
+      "line": 4152
     },
     {
       "name": "ip_vs_control_net_cleanup",
       "file": "ip_vs_ctl.c",
-      "line": 4489
+      "line": 4214
     },
     {
       "name": "ip_vs_register_nl_ioctl",
       "file": "ip_vs_ctl.c",
-      "line": 4502
+      "line": 4226
     },
     {
       "name": "ip_vs_unregister_nl_ioctl",
       "file": "ip_vs_ctl.c",
-      "line": 4525
+      "line": 4249
     },
     {
       "name": "ip_vs_control_init",
       "file": "ip_vs_ctl.c",
-      "line": 4531
+      "line": 4255
     },
     {
       "name": "ip_vs_control_cleanup",
       "file": "ip_vs_ctl.c",
-      "line": 4552
+      "line": 4279
     }
   ],
   "ip_vs_dh.c": [
@@ -1252,124 +1207,39 @@
   ],
   "ip_vs_est.c": [
     {
-      "name": "ip_vs_est_drain_temp_list",
+      "name": "estimation_timer",
       "file": "ip_vs_est.c",
-      "line": 77
-    },
-    {
-      "name": "ip_vs_chain_estimation",
-      "file": "ip_vs_est.c",
-      "line": 79
-    },
-    {
-      "name": "for_each_possible_cpu",
-      "file": "ip_vs_est.c",
-      "line": 97
-    },
-    {
-      "name": "ip_vs_tick_estimation",
-      "file": "ip_vs_est.c",
-      "line": 147
-    },
-    {
-      "name": "ip_vs_estimation_kthread",
-      "file": "ip_vs_est.c",
-      "line": 170
-    },
-    {
-      "name": "ip_vs_est_calc_phase",
-      "file": "ip_vs_est.c",
-      "line": 191
-    },
-    {
-      "name": "schedule_timeout",
-      "file": "ip_vs_est.c",
-      "line": 209
-    },
-    {
-      "name": "ip_vs_est_reload_start",
-      "file": "ip_vs_est.c",
-      "line": 231
-    },
-    {
-      "name": "ip_vs_est_kthread_stop",
-      "file": "ip_vs_est.c",
-      "line": 278
-    },
-    {
-      "name": "ip_vs_est_add_kthread",
-      "file": "ip_vs_est.c",
-      "line": 300
-    },
-    {
-      "name": "ip_vs_est_update_ktid",
-      "file": "ip_vs_est.c",
-      "line": 371
+      "line": 96
     },
     {
       "name": "ip_vs_start_estimator",
       "file": "ip_vs_est.c",
-      "line": 484
-    },
-    {
-      "name": "ip_vs_est_kthread_destroy",
-      "file": "ip_vs_est.c",
-      "line": 509
+      "line": 142
     },
     {
       "name": "ip_vs_stop_estimator",
       "file": "ip_vs_est.c",
-      "line": 522
-    },
-    {
-      "name": "__clear_bit",
-      "file": "ip_vs_est.c",
-      "line": 549
-    },
-    {
-      "name": "kfree_rcu",
-      "file": "ip_vs_est.c",
-      "line": 554
-    },
-    {
-      "name": "mutex_lock",
-      "file": "ip_vs_est.c",
-      "line": 565
-    },
-    {
-      "name": "ip_vs_est_calc_limits",
-      "file": "ip_vs_est.c",
-      "line": 635
-    },
-    {
-      "name": "cond_resched",
-      "file": "ip_vs_est.c",
-      "line": 686
-    },
-    {
-      "name": "do_div",
-      "file": "ip_vs_est.c",
-      "line": 697
+      "line": 153
     },
     {
       "name": "ip_vs_zero_estimator",
       "file": "ip_vs_est.c",
-      "line": 900
+      "line": 162
     },
     {
       "name": "ip_vs_read_estimator",
       "file": "ip_vs_est.c",
-      "line": 919
+      "line": 181
     },
     {
       "name": "ip_vs_estimator_net_init",
       "file": "ip_vs_est.c",
-      "line": 930
+      "line": 192
     },
     {
       "name": "ip_vs_estimator_net_cleanup",
       "file": "ip_vs_est.c",
-      "line": 945
+      "line": 201
     }
   ],
   "ip_vs_fo.c": [
@@ -1455,42 +1325,42 @@
     {
       "name": "ip_vs_lblc_rcu_free",
       "file": "ip_vs_lblc.c",
-      "line": 129
+      "line": 130
     },
     {
       "name": "ip_vs_lblc_del",
       "file": "ip_vs_lblc.c",
-      "line": 139
+      "line": 140
     },
     {
       "name": "ip_vs_lblc_flush",
       "file": "ip_vs_lblc.c",
-      "line": 228
+      "line": 229
     },
     {
       "name": "hlist_for_each_entry_safe",
       "file": "ip_vs_lblc.c",
-      "line": 238
+      "line": 239
     },
     {
       "name": "sysctl_lblc_expiration",
       "file": "ip_vs_lblc.c",
-      "line": 246
+      "line": 247
     },
     {
       "name": "ip_vs_lblc_full_check",
       "file": "ip_vs_lblc.c",
-      "line": 255
+      "line": 256
     },
     {
       "name": "spin_lock",
       "file": "ip_vs_lblc.c",
-      "line": 266
+      "line": 267
     },
     {
       "name": "ip_vs_lblc_check_expire",
       "file": "ip_vs_lblc.c",
-      "line": 293
+      "line": 294
     },
     {
       "name": "ip_vs_lblc_init_svc",
@@ -1508,19 +1378,24 @@
       "line": 550
     },
     {
+      "name": "register_net_sysctl",
+      "file": "ip_vs_lblc.c",
+      "line": 574
+    },
+    {
       "name": "__ip_vs_lblc_exit",
       "file": "ip_vs_lblc.c",
-      "line": 586
+      "line": 584
     },
     {
       "name": "ip_vs_lblc_init",
       "file": "ip_vs_lblc.c",
-      "line": 608
+      "line": 606
     },
     {
       "name": "ip_vs_lblc_cleanup",
       "file": "ip_vs_lblc.c",
-      "line": 622
+      "line": 620
     }
   ],
   "ip_vs_lblcr.c": [
@@ -1537,37 +1412,37 @@
     {
       "name": "ip_vs_lblcr_free",
       "file": "ip_vs_lblcr.c",
-      "line": 300
+      "line": 301
     },
     {
       "name": "ip_vs_lblcr_flush",
       "file": "ip_vs_lblcr.c",
-      "line": 394
+      "line": 395
     },
     {
       "name": "hlist_for_each_entry_safe",
       "file": "ip_vs_lblcr.c",
-      "line": 404
+      "line": 405
     },
     {
       "name": "sysctl_lblcr_expiration",
       "file": "ip_vs_lblcr.c",
-      "line": 411
+      "line": 412
     },
     {
       "name": "ip_vs_lblcr_full_check",
       "file": "ip_vs_lblcr.c",
-      "line": 420
+      "line": 421
     },
     {
       "name": "spin_lock",
       "file": "ip_vs_lblcr.c",
-      "line": 431
+      "line": 432
     },
     {
       "name": "ip_vs_lblcr_check_expire",
       "file": "ip_vs_lblcr.c",
-      "line": 457
+      "line": 458
     },
     {
       "name": "ip_vs_lblcr_init_svc",
@@ -1590,19 +1465,24 @@
       "line": 736
     },
     {
+      "name": "register_net_sysctl",
+      "file": "ip_vs_lblcr.c",
+      "line": 759
+    },
+    {
       "name": "__ip_vs_lblcr_exit",
       "file": "ip_vs_lblcr.c",
-      "line": 771
+      "line": 769
     },
     {
       "name": "ip_vs_lblcr_init",
       "file": "ip_vs_lblcr.c",
-      "line": 793
+      "line": 791
     },
     {
       "name": "ip_vs_lblcr_cleanup",
       "file": "ip_vs_lblcr.c",
-      "line": 807
+      "line": 805
     }
   ],
   "ip_vs_lc.c": [
@@ -1793,59 +1673,59 @@
     {
       "name": "ip_vs_protocol_cleanup",
       "file": "ip_vs_proto.c",
-      "line": 372
+      "line": 374
     }
   ],
   "ip_vs_proto_sctp.c": [
     {
       "name": "sctp_nat_csum",
       "file": "ip_vs_proto_sctp.c",
-      "line": 130
+      "line": 129
     },
     {
       "name": "sctp_state_name",
       "file": "ip_vs_proto_sctp.c",
-      "line": 450
+      "line": 448
     },
     {
       "name": "refcount_read",
       "file": "ip_vs_proto_sctp.c",
-      "line": 452
+      "line": 450
     },
     {
       "name": "atomic_inc",
       "file": "ip_vs_proto_sctp.c",
-      "line": 457
+      "line": 455
     },
     {
       "name": "sctp_app_hashkey",
       "file": "ip_vs_proto_sctp.c",
-      "line": 484
+      "line": 482
     },
     {
       "name": "sctp_register_app",
       "file": "ip_vs_proto_sctp.c",
-      "line": 490
+      "line": 488
     },
     {
       "name": "sctp_unregister_app",
       "file": "ip_vs_proto_sctp.c",
-      "line": 513
+      "line": 511
     },
     {
       "name": "sctp_app_conn_bind",
       "file": "ip_vs_proto_sctp.c",
-      "line": 521
+      "line": 519
     },
     {
       "name": "__ip_vs_sctp_init",
       "file": "ip_vs_proto_sctp.c",
-      "line": 561
+      "line": 559
     },
     {
       "name": "__ip_vs_sctp_exit",
       "file": "ip_vs_proto_sctp.c",
-      "line": 571
+      "line": 569
     }
   ],
   "ip_vs_proto_tcp.c": [
@@ -2199,67 +2079,67 @@
     {
       "name": "set_mcast_ttl",
       "file": "ip_vs_sync.c",
-      "line": 1313
+      "line": 1319
     },
     {
       "name": "set_mcast_pmtudisc",
       "file": "ip_vs_sync.c",
-      "line": 1332
+      "line": 1338
     },
     {
       "name": "set_mcast_if",
       "file": "ip_vs_sync.c",
-      "line": 1353
+      "line": 1359
     },
     {
       "name": "bind_mcastif_addr",
       "file": "ip_vs_sync.c",
-      "line": 1420
+      "line": 1426
     },
     {
       "name": "master_wakeup_work_handler",
       "file": "ip_vs_sync.c",
-      "line": 1619
+      "line": 1630
     },
     {
       "name": "sync_thread_master",
       "file": "ip_vs_sync.c",
-      "line": 1650
+      "line": 1661
     },
     {
       "name": "schedule_timeout",
       "file": "ip_vs_sync.c",
-      "line": 1667
+      "line": 1678
     },
     {
       "name": "sync_thread_backup",
       "file": "ip_vs_sync.c",
-      "line": 1702
+      "line": 1713
     },
     {
       "name": "mutex_unlock",
       "file": "ip_vs_sync.c",
-      "line": 1768
+      "line": 1779
     },
     {
       "name": "kthread_stop",
       "file": "ip_vs_sync.c",
-      "line": 1900
+      "line": 1911
     },
     {
       "name": "stop_sync_thread",
       "file": "ip_vs_sync.c",
-      "line": 1933
+      "line": 1944
     },
     {
       "name": "ip_vs_sync_net_init",
       "file": "ip_vs_sync.c",
-      "line": 2021
+      "line": 2032
     },
     {
       "name": "ip_vs_sync_net_cleanup",
       "file": "ip_vs_sync.c",
-      "line": 2029
+      "line": 2040
     }
   ],
   "ip_vs_twos.c": [
@@ -2332,129 +2212,52 @@
     {
       "name": "IP_VS_DBG_RL",
       "file": "ip_vs_xmit.c",
-      "line": 137
+      "line": 145
     },
     {
       "name": "__ip_vs_is_local_route6",
       "file": "ip_vs_xmit.c",
-      "line": 152
-    },
-    {
-      "name": "dst_rt6_info",
-      "file": "ip_vs_xmit.c",
-      "line": 176
+      "line": 159
     },
     {
       "name": "maybe_update_pmtu",
       "file": "ip_vs_xmit.c",
-      "line": 198
+      "line": 205
     },
     {
       "name": "ipv6_hdr",
       "file": "ip_vs_xmit.c",
-      "line": 276
+      "line": 283
     },
     {
       "name": "spin_lock_bh",
       "file": "ip_vs_xmit.c",
-      "line": 317
-    },
-    {
-      "name": "IP_TUNNEL_DECLARE_FLAGS",
-      "file": "ip_vs_xmit.c",
-      "line": 382
-    },
-    {
-      "name": "__set_bit",
-      "file": "ip_vs_xmit.c",
-      "line": 385
+      "line": 324
     },
     {
       "name": "ipv6_dev_get_saddr",
       "file": "ip_vs_xmit.c",
-      "line": 435
+      "line": 446
     },
     {
       "name": "ip_vs_drop_early_demux_sk",
       "file": "ip_vs_xmit.c",
-      "line": 613
+      "line": 624
     },
     {
       "name": "ip_vs_notrack",
       "file": "ip_vs_xmit.c",
-      "line": 661
+      "line": 672
     },
     {
       "name": "ipv6_addr_type",
       "file": "ip_vs_xmit.c",
-      "line": 875
+      "line": 900
     },
     {
       "name": "__tun_gso_type_mask",
       "file": "ip_vs_xmit.c",
-      "line": 982
-    },
-    {
-      "name": "htons",
-      "file": "ip_vs_xmit.c",
-      "line": 1073
-    }
-  ],
-  "nf_bpf_link.c": [
-    {
-      "name": "bpf_prog_run_pin_on_cpu",
-      "file": "nf_bpf_link.c",
-      "line": 20
-    },
-    {
-      "name": "bpf_nf_enable_defrag",
-      "file": "nf_bpf_link.c",
-      "line": 75
-    },
-    {
-      "name": "bpf_nf_disable_defrag",
-      "file": "nf_bpf_link.c",
-      "line": 103
-    },
-    {
-      "name": "bpf_nf_link_release",
-      "file": "nf_bpf_link.c",
-      "line": 113
-    },
-    {
-      "name": "bpf_nf_link_dealloc",
-      "file": "nf_bpf_link.c",
-      "line": 128
-    },
-    {
-      "name": "bpf_nf_link_detach",
-      "file": "nf_bpf_link.c",
-      "line": 135
-    },
-    {
-      "name": "bpf_nf_check_pf_and_hooks",
-      "file": "nf_bpf_link.c",
-      "line": 180
-    },
-    {
-      "name": "bpf_nf_link_attach",
-      "file": "nf_bpf_link.c",
-      "line": 210
-    },
-    {
-      "name": "bpf_link_settle",
-      "file": "nf_bpf_link.c",
-      "line": 266
-    },
-    {
-      "name": "nf_ptr_to_btf_id",
-      "file": "nf_bpf_link.c",
-      "line": 273
-    },
-    {
-      "name": "bpf_base_func_proto",
-      "file": "nf_bpf_link.c",
-      "line": 326
+      "line": 1009
     }
   ],
   "nf_conncount.c": [
@@ -2509,29 +2312,29 @@
       "line": 455
     },
     {
+      "name": "ERR_PTR",
+      "file": "nf_conncount.c",
+      "line": 542
+    },
+    {
       "name": "nf_conncount_cache_free",
       "file": "nf_conncount.c",
-      "line": 554
+      "line": 561
     },
     {
       "name": "destroy_tree",
       "file": "nf_conncount.c",
-      "line": 563
-    },
-    {
-      "name": "nf_conncount_destroy",
-      "file": "nf_conncount.c",
-      "line": 579
+      "line": 570
     },
     {
       "name": "nf_conncount_modinit",
       "file": "nf_conncount.c",
-      "line": 592
+      "line": 601
     },
     {
       "name": "nf_conncount_modexit",
       "file": "nf_conncount.c",
-      "line": 612
+      "line": 625
     }
   ],
   "nf_conntrack_acct.c": [
@@ -2557,42 +2360,42 @@
     {
       "name": "ERR_PTR",
       "file": "nf_conntrack_bpf.c",
-      "line": 118
+      "line": 124
     },
     {
       "name": "bpf_ct_release",
       "file": "nf_conntrack_bpf.c",
-      "line": 445
+      "line": 406
     },
     {
       "name": "bpf_ct_set_timeout",
       "file": "nf_conntrack_bpf.c",
-      "line": 460
+      "line": 423
     },
     {
       "name": "bpf_ct_change_timeout",
       "file": "nf_conntrack_bpf.c",
-      "line": 475
+      "line": 438
     },
     {
       "name": "bpf_ct_set_status",
       "file": "nf_conntrack_bpf.c",
-      "line": 490
+      "line": 453
     },
     {
       "name": "bpf_ct_change_status",
       "file": "nf_conntrack_bpf.c",
-      "line": 505
+      "line": 468
     },
     {
       "name": "register_nf_conntrack_bpf",
       "file": "nf_conntrack_bpf.c",
-      "line": 530
+      "line": 493
     },
     {
       "name": "cleanup_nf_conntrack_bpf",
       "file": "nf_conntrack_bpf.c",
-      "line": 545
+      "line": 508
     }
   ],
   "nf_conntrack_broadcast.c": [
@@ -2626,257 +2429,247 @@
     {
       "name": "scale_hash",
       "file": "nf_conntrack_core.c",
-      "line": 228
+      "line": 238
     },
     {
       "name": "nf_ct_get_id",
       "file": "nf_conntrack_core.c",
-      "line": 484
-    },
-    {
-      "name": "nf_conntrack_get_id",
-      "file": "nf_conntrack_core.c",
-      "line": 505
+      "line": 497
     },
     {
       "name": "nf_ct_tmpl_free",
       "file": "nf_conntrack_core.c",
-      "line": 553
+      "line": 564
     },
     {
       "name": "destroy_gre_conntrack",
       "file": "nf_conntrack_core.c",
-      "line": 564
+      "line": 575
     },
     {
       "name": "nf_ct_destroy",
       "file": "nf_conntrack_core.c",
-      "line": 574
+      "line": 585
     },
     {
       "name": "__nf_ct_delete_from_lists",
       "file": "nf_conntrack_core.c",
-      "line": 602
+      "line": 615
     },
     {
       "name": "nf_ct_delete_from_lists",
       "file": "nf_conntrack_core.c",
-      "line": 622
+      "line": 635
     },
     {
       "name": "nf_ct_add_to_ecache_list",
       "file": "nf_conntrack_core.c",
-      "line": 632
+      "line": 645
     },
     {
       "name": "nf_ct_delete",
       "file": "nf_conntrack_core.c",
-      "line": 644
+      "line": 657
     },
     {
       "name": "nf_ct_gc_expired",
       "file": "nf_conntrack_core.c",
-      "line": 715
+      "line": 728
     },
     {
       "name": "nf_ct_ext_valid_pre",
       "file": "nf_conntrack_core.c",
-      "line": 839
+      "line": 851
     },
     {
       "name": "nf_ct_ext_valid_post",
       "file": "nf_conntrack_core.c",
-      "line": 851
+      "line": 863
     },
     {
       "name": "__nf_conntrack_insert_prepare",
       "file": "nf_conntrack_core.c",
-      "line": 979
+      "line": 987
+    },
+    {
+      "name": "nf_ct_match",
+      "file": "nf_conntrack_core.c",
+      "line": 1014
     },
     {
       "name": "nf_ct_resolve_clash_harder",
       "file": "nf_conntrack_core.c",
-      "line": 1083
+      "line": 1045
     },
     {
       "name": "early_drop",
       "file": "nf_conntrack_core.c",
-      "line": 1466
+      "line": 1418
     },
     {
       "name": "rcu_read_unlock",
       "file": "nf_conntrack_core.c",
-      "line": 1482
+      "line": 1434
     },
     {
       "name": "gc_worker_skip_ct",
       "file": "nf_conntrack_core.c",
-      "line": 1493
+      "line": 1445
     },
     {
       "name": "gc_worker_can_early_drop",
       "file": "nf_conntrack_core.c",
-      "line": 1498
+      "line": 1450
     },
     {
       "name": "gc_worker",
       "file": "nf_conntrack_core.c",
-      "line": 1513
+      "line": 1464
     },
     {
       "name": "rcu_read_lock",
       "file": "nf_conntrack_core.c",
-      "line": 1546
+      "line": 1497
     },
     {
       "name": "nf_conntrack_get_ht",
       "file": "nf_conntrack_core.c",
-      "line": 1548
+      "line": 1499
     },
     {
       "name": "hlist_nulls_for_each_entry_rcu",
       "file": "nf_conntrack_core.c",
-      "line": 1554
+      "line": 1505
     },
     {
       "name": "smp_acquire__after_ctrl_dep",
       "file": "nf_conntrack_core.c",
-      "line": 1598
+      "line": 1554
     },
     {
       "name": "conntrack_gc_work_init",
       "file": "nf_conntrack_core.c",
-      "line": 1651
+      "line": 1607
     },
     {
       "name": "nf_conntrack_free",
       "file": "nf_conntrack_core.c",
-      "line": 1726
-    },
-    {
-      "name": "ERR_CAST",
-      "file": "nf_conntrack_core.c",
-      "line": 1783
+      "line": 1678
     },
     {
       "name": "spin_lock_bh",
       "file": "nf_conntrack_core.c",
-      "line": 1814
+      "line": 1768
     },
     {
       "name": "__set_bit",
       "file": "nf_conntrack_core.c",
-      "line": 1818
+      "line": 1774
     },
     {
       "name": "nf_ct_port_nlattr_tuple_size",
       "file": "nf_conntrack_core.c",
-      "line": 2176
+      "line": 2163
     },
     {
       "name": "nf_conntrack_attach",
       "file": "nf_conntrack_core.c",
-      "line": 2189
+      "line": 2176
     },
     {
       "name": "nf_conntrack_update",
       "file": "nf_conntrack_core.c",
-      "line": 2260
+      "line": 2312
     },
     {
       "name": "local_bh_disable",
       "file": "nf_conntrack_core.c",
-      "line": 2324
+      "line": 2385
     },
     {
       "name": "hlist_nulls_for_each_entry",
       "file": "nf_conntrack_core.c",
-      "line": 2326
+      "line": 2387
     },
     {
       "name": "nf_ct_iterate_cleanup",
       "file": "nf_conntrack_core.c",
-      "line": 2362
+      "line": 2423
     },
     {
       "name": "nf_ct_iterate_cleanup_net",
       "file": "nf_conntrack_core.c",
-      "line": 2381
+      "line": 2442
     },
     {
       "name": "kill_all",
       "file": "nf_conntrack_core.c",
-      "line": 2451
+      "line": 2512
     },
     {
       "name": "nf_conntrack_cleanup_start",
       "file": "nf_conntrack_core.c",
-      "line": 2456
+      "line": 2517
     },
     {
       "name": "nf_conntrack_cleanup_end",
       "file": "nf_conntrack_core.c",
-      "line": 2462
+      "line": 2523
     },
     {
       "name": "nf_conntrack_cleanup_net",
       "file": "nf_conntrack_core.c",
-      "line": 2479
+      "line": 2540
     },
     {
       "name": "nf_conntrack_cleanup_net_list",
       "file": "nf_conntrack_core.c",
-      "line": 2487
+      "line": 2548
     },
     {
       "name": "nf_conntrack_hash_resize",
       "file": "nf_conntrack_core.c",
-      "line": 2545
+      "line": 2603
     },
     {
       "name": "nf_conntrack_set_hashsize",
       "file": "nf_conntrack_core.c",
-      "line": 2609
+      "line": 2667
     },
     {
       "name": "nf_conntrack_init_start",
       "file": "nf_conntrack_core.c",
-      "line": 2628
+      "line": 2686
     },
     {
       "name": "spin_lock_init",
       "file": "nf_conntrack_core.c",
-      "line": 2639
-    },
-    {
-      "name": "nf_conntrack_set_closing",
-      "file": "nf_conntrack_core.c",
-      "line": 2710
+      "line": 2697
     },
     {
       "name": "nf_conntrack_init_end",
       "file": "nf_conntrack_core.c",
-      "line": 2731
+      "line": 2775
     },
     {
       "name": "nf_conntrack_init_net",
       "file": "nf_conntrack_core.c",
-      "line": 2741
+      "line": 2785
     },
     {
       "name": "__nf_ct_change_timeout",
       "file": "nf_conntrack_core.c",
-      "line": 2772
+      "line": 2816
     },
     {
       "name": "__nf_ct_change_status",
       "file": "nf_conntrack_core.c",
-      "line": 2786
+      "line": 2830
     },
     {
       "name": "nf_ct_change_status_common",
       "file": "nf_conntrack_core.c",
-      "line": 2803
+      "line": 2847
     }
   ],
   "nf_conntrack_ecache.c": [
@@ -2901,49 +2694,39 @@
       "line": 106
     },
     {
-      "name": "nf_ct_ecache_tstamp_refresh",
-      "file": "nf_conntrack_ecache.c",
-      "line": 165
-    },
-    {
       "name": "nf_ct_deliver_cached_events",
       "file": "nf_conntrack_ecache.c",
-      "line": 214
+      "line": 204
     },
     {
       "name": "nf_conntrack_unregister_notifier",
       "file": "nf_conntrack_ecache.c",
-      "line": 285
+      "line": 275
     },
     {
       "name": "nf_conntrack_ecache_work",
       "file": "nf_conntrack_ecache.c",
-      "line": 294
+      "line": 284
     },
     {
       "name": "schedule_delayed_work",
       "file": "nf_conntrack_ecache.c",
-      "line": 300
-    },
-    {
-      "name": "nf_ct_ecache_tstamp_new",
-      "file": "nf_conntrack_ecache.c",
-      "line": 310
+      "line": 290
     },
     {
       "name": "nf_ct_ecache_ext_add",
       "file": "nf_conntrack_ecache.c",
-      "line": 322
+      "line": 300
     },
     {
       "name": "nf_conntrack_ecache_pernet_init",
       "file": "nf_conntrack_ecache.c",
-      "line": 363
+      "line": 340
     },
     {
       "name": "nf_conntrack_ecache_pernet_fini",
       "file": "nf_conntrack_ecache.c",
-      "line": 376
+      "line": 353
     }
   ],
   "nf_conntrack_expect.c": [
@@ -3075,7 +2858,7 @@
     {
       "name": "nf_conntrack_expect_fini",
       "file": "nf_conntrack_expect.c",
-      "line": 738
+      "line": 740
     }
   ],
   "nf_conntrack_extend.c": [
@@ -3161,12 +2944,12 @@
     {
       "name": "DecodeRasMessage",
       "file": "nf_conntrack_h323_asn1.c",
-      "line": 825
+      "line": 821
     },
     {
       "name": "DecodeQ931",
       "file": "nf_conntrack_h323_asn1.c",
-      "line": 875
+      "line": 871
     }
   ],
   "nf_conntrack_h323_main.c": [
@@ -3237,62 +3020,62 @@
     {
       "name": "helper_hash",
       "file": "nf_conntrack_helper.c",
-      "line": 45
+      "line": 43
     },
     {
       "name": "hlist_for_each_entry_rcu",
       "file": "nf_conntrack_helper.c",
-      "line": 58
+      "line": 56
     },
     {
       "name": "rcu_read_unlock",
       "file": "nf_conntrack_helper.c",
-      "line": 84
+      "line": 82
     },
     {
       "name": "rcu_read_lock",
       "file": "nf_conntrack_helper.c",
-      "line": 86
+      "line": 84
     },
     {
       "name": "nf_conntrack_helper_put",
       "file": "nf_conntrack_helper.c",
-      "line": 106
+      "line": 104
     },
     {
       "name": "nf_nat_helper_put",
       "file": "nf_conntrack_helper.c",
-      "line": 165
+      "line": 163
     },
     {
       "name": "unhelp",
       "file": "nf_conntrack_helper.c",
-      "line": 241
+      "line": 244
     },
     {
       "name": "nf_ct_helper_destroy",
       "file": "nf_conntrack_helper.c",
-      "line": 254
+      "line": 257
     },
     {
       "name": "LIST_HEAD",
       "file": "nf_conntrack_helper.c",
-      "line": 268
+      "line": 271
     },
     {
       "name": "nf_ct_helper_expectfn_register",
       "file": "nf_conntrack_helper.c",
-      "line": 270
+      "line": 273
     },
     {
       "name": "nf_ct_helper_expectfn_unregister",
       "file": "nf_conntrack_helper.c",
-      "line": 278
+      "line": 281
     },
     {
       "name": "nf_conntrack_helper_register",
       "file": "nf_conntrack_helper.c",
-      "line": 347
+      "line": 350
     },
     {
       "name": "expect_iter_me",
@@ -3344,19 +3127,24 @@
   ],
   "nf_conntrack_labels.c": [
     {
-      "name": "replace_u32",
+      "name": "DEFINE_SPINLOCK",
       "file": "nf_conntrack_labels.c",
       "line": 14
     },
     {
+      "name": "replace_u32",
+      "file": "nf_conntrack_labels.c",
+      "line": 16
+    },
+    {
       "name": "nf_connlabels_get",
       "file": "nf_conntrack_labels.c",
-      "line": 59
+      "line": 61
     },
     {
       "name": "nf_connlabels_put",
       "file": "nf_conntrack_labels.c",
-      "line": 75
+      "line": 76
     }
   ],
   "nf_conntrack_netbios_ns.c": [
@@ -3380,274 +3168,267 @@
     {
       "name": "ctnetlink_dump_status",
       "file": "nf_conntrack_netlink.c",
-      "line": 167
+      "line": 166
+    },
+    {
+      "name": "ctnetlink_dump_mark",
+      "file": "nf_conntrack_netlink.c",
+      "line": 331
     },
     {
       "name": "ctnetlink_dump_secctx",
       "file": "nf_conntrack_netlink.c",
-      "line": 357
+      "line": 350
     },
     {
       "name": "ctnetlink_label_size",
       "file": "nf_conntrack_netlink.c",
-      "line": 403
+      "line": 379
     },
     {
       "name": "ctnetlink_dump_master",
       "file": "nf_conntrack_netlink.c",
-      "line": 435
+      "line": 414
     },
     {
       "name": "ctnetlink_dump_ct_seq_adj",
       "file": "nf_conntrack_netlink.c",
-      "line": 480
+      "line": 459
     },
     {
       "name": "ctnetlink_dump_ct_synproxy",
       "file": "nf_conntrack_netlink.c",
-      "line": 504
+      "line": 483
     },
     {
       "name": "ctnetlink_dump_id",
       "file": "nf_conntrack_netlink.c",
-      "line": 529
+      "line": 508
     },
     {
       "name": "ctnetlink_dump_use",
       "file": "nf_conntrack_netlink.c",
-      "line": 541
+      "line": 520
     },
     {
       "name": "ctnetlink_dump_info",
       "file": "nf_conntrack_netlink.c",
-      "line": 569
+      "line": 548
     },
     {
       "name": "ctnetlink_proto_size",
       "file": "nf_conntrack_netlink.c",
-      "line": 652
+      "line": 631
     },
     {
       "name": "ctnetlink_acct_size",
       "file": "nf_conntrack_netlink.c",
-      "line": 670
+      "line": 650
     },
     {
       "name": "ctnetlink_secctx_size",
       "file": "nf_conntrack_netlink.c",
-      "line": 680
+      "line": 660
     },
     {
       "name": "ctnetlink_timestamp_size",
       "file": "nf_conntrack_netlink.c",
-      "line": 696
+      "line": 676
     },
     {
       "name": "ctnetlink_nlmsg_size",
       "file": "nf_conntrack_netlink.c",
-      "line": 709
+      "line": 688
     },
     {
       "name": "ctnetlink_dump_timestamp",
       "file": "nf_conntrack_netlink.c",
-      "line": 820
+      "line": 796
     },
     {
       "name": "ctnetlink_dump_protoinfo",
       "file": "nf_conntrack_netlink.c",
-      "line": 821
+      "line": 797
     },
     {
       "name": "ctnetlink_done",
       "file": "nf_conntrack_netlink.c",
-      "line": 885
+      "line": 858
     },
     {
       "name": "ctnetlink_needs_filter",
       "file": "nf_conntrack_netlink.c",
-      "line": 1067
+      "line": 1038
     },
     {
       "name": "ctnetlink_start",
       "file": "nf_conntrack_netlink.c",
-      "line": 1072
+      "line": 1043
     },
     {
       "name": "ctnetlink_filter_match",
       "file": "nf_conntrack_netlink.c",
-      "line": 1158
-    },
-    {
-      "name": "ctnetlink_get_id",
-      "file": "nf_conntrack_netlink.c",
-      "line": 1209
+      "line": 1129
     },
     {
       "name": "nf_conntrack_lock",
       "file": "nf_conntrack_netlink.c",
-      "line": 1242
+      "line": 1202
     },
     {
       "name": "NFNL_MSG_TYPE",
       "file": "nf_conntrack_netlink.c",
-      "line": 1275
+      "line": 1235
     },
     {
       "name": "spin_unlock",
       "file": "nf_conntrack_netlink.c",
-      "line": 1283
+      "line": 1244
+    },
+    {
+      "name": "nf_ct_put",
+      "file": "nf_conntrack_netlink.c",
+      "line": 1257
     },
     {
       "name": "CTA_FILTER_FLAG",
       "file": "nf_conntrack_netlink.c",
-      "line": 1534
+      "line": 1501
     },
     {
       "name": "ctnetlink_flush_iterate",
       "file": "nf_conntrack_netlink.c",
-      "line": 1589
+      "line": 1555
     },
     {
       "name": "ctnetlink_done_list",
       "file": "nf_conntrack_netlink.c",
-      "line": 1736
+      "line": 1713
     },
     {
       "name": "rcu_read_unlock",
       "file": "nf_conntrack_netlink.c",
-      "line": 1886
+      "line": 1863
     },
     {
       "name": "nfnl_unlock",
       "file": "nf_conntrack_netlink.c",
-      "line": 1887
+      "line": 1864
     },
     {
       "name": "nf_ct_protonum",
       "file": "nf_conntrack_netlink.c",
-      "line": 1994
+      "line": 1971
     },
     {
       "name": "set_bit",
       "file": "nf_conntrack_netlink.c",
-      "line": 2119
+      "line": 2097
     },
     {
       "name": "ctnetlink_change_mark",
       "file": "nf_conntrack_netlink.c",
-      "line": 2233
+      "line": 2211
     },
     {
       "name": "nf_ct_l3num",
       "file": "nf_conntrack_netlink.c",
-      "line": 2299
+      "line": 2280
     },
     {
       "name": "sock_net",
       "file": "nf_conntrack_netlink.c",
-      "line": 2637
+      "line": 2612
     },
     {
       "name": "nfnetlink_unicast",
       "file": "nf_conntrack_netlink.c",
-      "line": 2643
+      "line": 2618
     },
     {
       "name": "__ctnetlink_glue_build",
       "file": "nf_conntrack_netlink.c",
-      "line": 2698
+      "line": 2673
     },
     {
       "name": "nf_expect_get_id",
       "file": "nf_conntrack_netlink.c",
-      "line": 3008
+      "line": 2981
     },
     {
       "name": "nla_put_be32",
       "file": "nf_conntrack_netlink.c",
-      "line": 3076
+      "line": 3049
     },
     {
-      "name": "ctnetlink_exp_id",
+      "name": "ctnetlink_exp_done",
       "file": "nf_conntrack_netlink.c",
-      "line": 3174
+      "line": 3146
     },
     {
       "name": "NETLINK_CB",
       "file": "nf_conntrack_netlink.c",
-      "line": 3210
+      "line": 3179
     },
     {
       "name": "expect_iter_name",
       "file": "nf_conntrack_netlink.c",
-      "line": 3388
+      "line": 3368
     },
     {
       "name": "expect_iter_all",
       "file": "nf_conntrack_netlink.c",
-      "line": 3403
+      "line": 3383
     },
     {
       "name": "spin_lock_bh",
       "file": "nf_conntrack_netlink.c",
-      "line": 3444
+      "line": 3423
     },
     {
       "name": "nf_ct_expect_put",
       "file": "nf_conntrack_netlink.c",
-      "line": 3453
+      "line": 3432
     },
     {
       "name": "nlmsg_report",
       "file": "nf_conntrack_netlink.c",
-      "line": 3459
+      "line": 3438
     },
     {
       "name": "ERR_PTR",
       "file": "nf_conntrack_netlink.c",
-      "line": 3538
+      "line": 3515
     },
     {
       "name": "rcu_read_lock",
       "file": "nf_conntrack_netlink.c",
-      "line": 3633
+      "line": 3610
     },
     {
       "name": "spin_unlock_bh",
       "file": "nf_conntrack_netlink.c",
-      "line": 3689
+      "line": 3666
     },
     {
       "name": "ctnetlink_net_init",
       "file": "nf_conntrack_netlink.c",
-      "line": 3868
+      "line": 3845
     },
     {
       "name": "ctnetlink_net_pre_exit",
       "file": "nf_conntrack_netlink.c",
-      "line": 3876
+      "line": 3853
     },
     {
       "name": "ctnetlink_init",
       "file": "nf_conntrack_netlink.c",
-      "line": 3888
+      "line": 3865
     },
     {
       "name": "ctnetlink_exit",
       "file": "nf_conntrack_netlink.c",
-      "line": 3925
-    }
-  ],
-  "nf_conntrack_ovs.c": [
-    {
-      "name": "nf_ct_skb_network_trim",
-      "file": "nf_conntrack_ovs.c",
-      "line": 115
-    },
-    {
-      "name": "memset",
-      "file": "nf_conntrack_ovs.c",
-      "line": 164
+      "line": 3902
     }
   ],
   "nf_conntrack_pptp.c": [
@@ -3711,77 +3492,104 @@
     {
       "name": "in_vrf_postrouting",
       "file": "nf_conntrack_proto.c",
-      "line": 121
-    },
-    {
-      "name": "nf_conntrack_confirm",
-      "file": "nf_conntrack_proto.c",
-      "line": 156
+      "line": 158
     },
     {
       "name": "copy_to_user",
       "file": "nf_conntrack_proto.c",
-      "line": 364
+      "line": 365
     },
     {
       "name": "nf_conntrack_in",
       "file": "nf_conntrack_proto.c",
-      "line": 386
+      "line": 414
     },
     {
       "name": "nf_ct_tcp_fixup",
       "file": "nf_conntrack_proto.c",
-      "line": 417
+      "line": 445
     },
     {
       "name": "nf_ct_netns_do_get",
       "file": "nf_conntrack_proto.c",
-      "line": 435
+      "line": 463
     },
     {
       "name": "nf_ct_netns_do_put",
       "file": "nf_conntrack_proto.c",
-      "line": 524
+      "line": 552
     },
     {
       "name": "nf_ct_netns_inet_get",
       "file": "nf_conntrack_proto.c",
-      "line": 559
+      "line": 587
     },
     {
       "name": "nf_ct_netns_get",
       "file": "nf_conntrack_proto.c",
-      "line": 579
+      "line": 607
     },
     {
       "name": "nf_ct_netns_put",
       "file": "nf_conntrack_proto.c",
-      "line": 606
+      "line": 634
     },
     {
       "name": "nf_ct_bridge_register",
       "file": "nf_conntrack_proto.c",
-      "line": 623
+      "line": 651
     },
     {
       "name": "nf_ct_bridge_unregister",
       "file": "nf_conntrack_proto.c",
-      "line": 632
+      "line": 660
     },
     {
       "name": "nf_conntrack_proto_init",
       "file": "nf_conntrack_proto.c",
-      "line": 641
+      "line": 669
     },
     {
       "name": "nf_conntrack_proto_fini",
       "file": "nf_conntrack_proto.c",
-      "line": 664
+      "line": 692
     },
     {
       "name": "nf_conntrack_proto_pernet_init",
       "file": "nf_conntrack_proto.c",
-      "line": 672
+      "line": 700
+    }
+  ],
+  "nf_conntrack_proto_dccp.c": [
+    {
+      "name": "dccp_ack_seq",
+      "file": "nf_conntrack_proto_dccp.c",
+      "line": 422
+    },
+    {
+      "name": "dccp_can_early_drop",
+      "file": "nf_conntrack_proto_dccp.c",
+      "line": 570
+    },
+    {
+      "name": "dccp_print_conntrack",
+      "file": "nf_conntrack_proto_dccp.c",
+      "line": 585
+    },
+    {
+      "name": "nlattr_to_dccp",
+      "file": "nf_conntrack_proto_dccp.c",
+      "line": 637
+    },
+    {
+      "name": "nla_get_u8",
+      "file": "nf_conntrack_proto_dccp.c",
+      "line": 653
+    },
+    {
+      "name": "nf_conntrack_dccp_init_net",
+      "file": "nf_conntrack_proto_dccp.c",
+      "line": 734
     }
   ],
   "nf_conntrack_proto_generic.c": [
@@ -3820,12 +3628,12 @@
     {
       "name": "ntohl",
       "file": "nf_conntrack_proto_gre.c",
-      "line": 262
+      "line": 254
     },
     {
       "name": "nf_conntrack_gre_init_net",
       "file": "nf_conntrack_proto_gre.c",
-      "line": 294
+      "line": 286
     }
   ],
   "nf_conntrack_proto_icmp.c": [
@@ -3854,54 +3662,49 @@
     {
       "name": "nf_ip6_checksum",
       "file": "nf_conntrack_proto_icmpv6.c",
-      "line": 202
+      "line": 200
     },
     {
       "name": "icmpv6_nlattr_tuple_size",
       "file": "nf_conntrack_proto_icmpv6.c",
-      "line": 283
+      "line": 281
     },
     {
       "name": "ntohl",
       "file": "nf_conntrack_proto_icmpv6.c",
-      "line": 309
+      "line": 307
     },
     {
       "name": "nf_conntrack_icmpv6_init_net",
       "file": "nf_conntrack_proto_icmpv6.c",
-      "line": 336
+      "line": 334
     }
   ],
   "nf_conntrack_proto_sctp.c": [
     {
       "name": "sctp_print_conntrack",
       "file": "nf_conntrack_proto_sctp.c",
-      "line": 134
-    },
-    {
-      "name": "nf_ct_is_confirmed",
-      "file": "nf_conntrack_proto_sctp.c",
-      "line": 482
+      "line": 150
     },
     {
       "name": "sctp_can_early_drop",
       "file": "nf_conntrack_proto_sctp.c",
-      "line": 532
+      "line": 535
     },
     {
       "name": "NLA_ALIGN",
       "file": "nf_conntrack_proto_sctp.c",
-      "line": 593
+      "line": 596
     },
     {
       "name": "nlattr_to_sctp",
       "file": "nf_conntrack_proto_sctp.c",
-      "line": 595
+      "line": 598
     },
     {
       "name": "nf_conntrack_sctp_init_net",
       "file": "nf_conntrack_proto_sctp.c",
-      "line": 687
+      "line": 690
     }
   ],
   "nf_conntrack_proto_tcp.c": [
@@ -3918,72 +3721,62 @@
     {
       "name": "after",
       "file": "nf_conntrack_proto_tcp.c",
-      "line": 577
+      "line": 575
     },
     {
       "name": "before",
       "file": "nf_conntrack_proto_tcp.c",
-      "line": 629
+      "line": 627
     },
     {
       "name": "WRITE_ONCE",
       "file": "nf_conntrack_proto_tcp.c",
-      "line": 771
+      "line": 769
     },
     {
       "name": "nf_checksum",
       "file": "nf_conntrack_proto_tcp.c",
-      "line": 823
+      "line": 821
     },
     {
       "name": "tcp_options",
       "file": "nf_conntrack_proto_tcp.c",
-      "line": 868
+      "line": 865
     },
     {
       "name": "tcp_can_early_drop",
       "file": "nf_conntrack_proto_tcp.c",
-      "line": 901
-    },
-    {
-      "name": "nf_conntrack_tcp_set_closing",
-      "file": "nf_conntrack_proto_tcp.c",
-      "line": 917
-    },
-    {
-      "name": "test_bit",
-      "file": "nf_conntrack_proto_tcp.c",
-      "line": 931
+      "line": 898
     },
     {
       "name": "nf_ct_tcp_state_reset",
       "file": "nf_conntrack_proto_tcp.c",
-      "line": 952
+      "line": 914
     },
     {
       "name": "nf_conntrack_event_cache",
       "file": "nf_conntrack_proto_tcp.c",
-      "line": 1297
+      "line": 1253
     },
     {
       "name": "nlattr_to_tcp",
       "file": "nf_conntrack_proto_tcp.c",
-      "line": 1401
+      "line": 1357
     },
     {
       "name": "tcp_nlattr_tuple_size",
       "file": "nf_conntrack_proto_tcp.c",
-      "line": 1453
+      "line": 1409
     },
     {
       "name": "ntohl",
       "file": "nf_conntrack_proto_tcp.c",
-      "line": 1484
+      "line": 1440
     },
     {
       "name": "nf_conntrack_tcp_init_net",
       "file": "nf_conntrack_proto_tcp.c",
-      "line": 1581
+      "line": 1537
     }
   ],
   "nf_conntrack_proto_udp.c": [
@@ -3995,17 +3788,17 @@
     {
       "name": "nf_conntrack_event_cache",
       "file": "nf_conntrack_proto_udp.c",
-      "line": 125
+      "line": 123
     },
     {
       "name": "ntohl",
       "file": "nf_conntrack_proto_udp.c",
-      "line": 237
+      "line": 235
     },
     {
       "name": "nf_conntrack_udp_init_net",
       "file": "nf_conntrack_proto_udp.c",
-      "line": 269
+      "line": 267
     }
   ],
   "nf_conntrack_sane.c": [
@@ -4083,104 +3876,99 @@
   ],
   "nf_conntrack_standalone.c": [
     {
-      "name": "hlist_nulls_for_each_entry_rcu",
-      "file": "nf_conntrack_standalone.c",
-      "line": 113
-    },
-    {
       "name": "ct_seq_stop",
       "file": "nf_conntrack_standalone.c",
-      "line": 180
+      "line": 169
     },
     {
       "name": "ct_show_secctx",
       "file": "nf_conntrack_standalone.c",
-      "line": 187
+      "line": 176
     },
     {
       "name": "ct_show_delta_time",
       "file": "nf_conntrack_standalone.c",
-      "line": 236
+      "line": 226
     },
     {
       "name": "l3proto_name",
       "file": "nf_conntrack_standalone.c",
-      "line": 262
+      "line": 252
     },
     {
       "name": "l4proto_name",
       "file": "nf_conntrack_standalone.c",
-      "line": 272
+      "line": 262
     },
     {
       "name": "ct_seq_show",
       "file": "nf_conntrack_standalone.c",
-      "line": 304
+      "line": 297
     },
     {
       "name": "ct_cpu_seq_stop",
       "file": "nf_conntrack_standalone.c",
-      "line": 432
+      "line": 427
     },
     {
       "name": "ct_cpu_seq_show",
       "file": "nf_conntrack_standalone.c",
-      "line": 436
+      "line": 431
     },
     {
       "name": "nf_conntrack_standalone_init_proc",
       "file": "nf_conntrack_standalone.c",
-      "line": 480
+      "line": 475
     },
     {
       "name": "nf_conntrack_standalone_fini_proc",
       "file": "nf_conntrack_standalone.c",
-      "line": 508
+      "line": 503
     },
     {
       "name": "nf_conntrack_count",
       "file": "nf_conntrack_standalone.c",
-      "line": 524
+      "line": 519
     },
     {
       "name": "nf_conntrack_standalone_init_sysctl",
       "file": "nf_conntrack_standalone.c",
-      "line": 1002
+      "line": 1077
     },
     {
       "name": "nf_conntrack_standalone_fini_sysctl",
       "file": "nf_conntrack_standalone.c",
-      "line": 1058
+      "line": 1132
     },
     {
       "name": "nf_conntrack_fini_net",
       "file": "nf_conntrack_standalone.c",
-      "line": 1078
+      "line": 1152
     },
     {
       "name": "nf_conntrack_pernet_init",
       "file": "nf_conntrack_standalone.c",
-      "line": 1087
+      "line": 1161
     },
     {
       "name": "nf_conntrack_pernet_exit",
       "file": "nf_conntrack_standalone.c",
-      "line": 1122
+      "line": 1196
     },
     {
       "name": "nf_conntrack_standalone_init",
       "file": "nf_conntrack_standalone.c",
-      "line": 1139
+      "line": 1213
     },
     {
       "name": "register_net_sysctl",
       "file": "nf_conntrack_standalone.c",
-      "line": 1149
+      "line": 1223
     },
     {
       "name": "nf_conntrack_standalone_fini",
       "file": "nf_conntrack_standalone.c",
-      "line": 1177
+      "line": 1250
     }
   ],
   "nf_conntrack_tftp.c": [
@@ -4233,19 +4021,12 @@
     {
       "name": "nf_fwd_netdev_egress",
       "file": "nf_dup_netdev.c",
-      "line": 57
+      "line": 43
     },
     {
       "name": "nf_dup_netdev_egress",
       "file": "nf_dup_netdev.c",
-      "line": 71
-    }
-  ],
-  "nf_flow_table_bpf.c": [
-    {
-      "name": "nf_flow_register_bpf",
-      "file": "nf_flow_table_bpf.c",
-      "line": 116
+      "line": 57
     }
   ],
   "nf_flow_table_core.c": [
@@ -4255,208 +4036,198 @@
       "line": 78
     },
     {
-      "name": "nf_flow_has_expired",
-      "file": "nf_flow_table_core.c",
-      "line": 164
-    },
-    {
       "name": "flow_offload_fixup_tcp",
       "file": "nf_flow_table_core.c",
-      "line": 169
+      "line": 175
     },
     {
       "name": "flow_offload_fixup_ct",
       "file": "nf_flow_table_core.c",
-      "line": 192
+      "line": 181
     },
     {
       "name": "flow_offload_route_release",
       "file": "nf_flow_table_core.c",
-      "line": 246
+      "line": 210
     },
     {
       "name": "flow_offload_free",
       "file": "nf_flow_table_core.c",
-      "line": 252
+      "line": 216
     },
     {
       "name": "flow_offload_hash",
       "file": "nf_flow_table_core.c",
-      "line": 266
+      "line": 230
     },
     {
       "name": "flow_offload_hash_obj",
       "file": "nf_flow_table_core.c",
-      "line": 273
+      "line": 237
     },
     {
       "name": "flow_offload_get_timeout",
       "file": "nf_flow_table_core.c",
-      "line": 300
+      "line": 264
     },
     {
       "name": "flow_offload_add",
       "file": "nf_flow_table_core.c",
-      "line": 319
+      "line": 283
+    },
+    {
+      "name": "nf_flow_has_expired",
+      "file": "nf_flow_table_core.c",
+      "line": 334
     },
     {
       "name": "flow_offload_teardown",
       "file": "nf_flow_table_core.c",
-      "line": 383
+      "line": 351
     },
     {
       "name": "void",
       "file": "nf_flow_table_core.c",
-      "line": 418
-    },
-    {
-      "name": "nf_flow_table_tcp_timeout",
-      "file": "nf_flow_table_core.c",
-      "line": 463
-    },
-    {
-      "name": "nf_flow_table_extend_ct_timeout",
-      "file": "nf_flow_table_core.c",
-      "line": 501
-    },
-    {
-      "name": "test_bit",
-      "file": "nf_flow_table_core.c",
-      "line": 520
+      "line": 386
     },
     {
       "name": "nf_ct_is_dying",
       "file": "nf_flow_table_core.c",
-      "line": 560
-    },
-    {
-      "name": "nf_flow_custom_gc",
-      "file": "nf_flow_table_core.c",
-      "line": 561
+      "line": 423
     },
     {
       "name": "nf_flow_offload_del",
       "file": "nf_flow_table_core.c",
-      "line": 571
+      "line": 429
     },
     {
       "name": "flow_offload_del",
       "file": "nf_flow_table_core.c",
-      "line": 573
+      "line": 431
     },
     {
       "name": "nf_flow_table_gc_run",
       "file": "nf_flow_table_core.c",
-      "line": 586
+      "line": 440
     },
     {
       "name": "nf_flow_offload_work_gc",
       "file": "nf_flow_table_core.c",
-      "line": 591
+      "line": 445
     },
     {
       "name": "nf_flow_table_init",
       "file": "nf_flow_table_core.c",
-      "line": 688
+      "line": 542
     },
     {
       "name": "nf_flow_table_cleanup",
       "file": "nf_flow_table_core.c",
-      "line": 736
+      "line": 590
     },
     {
       "name": "nf_flow_table_free",
       "file": "nf_flow_table_core.c",
-      "line": 747
+      "line": 601
     },
     {
       "name": "nf_flow_table_init_net",
       "file": "nf_flow_table_core.c",
-      "line": 763
+      "line": 617
     },
     {
       "name": "nf_flow_table_fini_net",
       "file": "nf_flow_table_core.c",
-      "line": 769
+      "line": 623
     },
     {
       "name": "nf_flow_table_pernet_init",
       "file": "nf_flow_table_core.c",
-      "line": 774
+      "line": 628
     },
     {
       "name": "nf_flow_table_pernet_exit",
       "file": "nf_flow_table_core.c",
-      "line": 793
+      "line": 647
     },
     {
       "name": "nf_flow_table_module_init",
       "file": "nf_flow_table_core.c",
-      "line": 808
+      "line": 662
     },
     {
       "name": "nf_flow_table_module_exit",
       "file": "nf_flow_table_core.c",
-      "line": 833
+      "line": 681
     }
   ],
   "nf_flow_table_inet.c": [
     {
       "name": "nf_flow_inet_module_init",
       "file": "nf_flow_table_inet.c",
-      "line": 98
+      "line": 94
     },
     {
       "name": "nf_flow_inet_module_exit",
       "file": "nf_flow_table_inet.c",
-      "line": 107
+      "line": 103
     }
   ],
   "nf_flow_table_ip.c": [
     {
       "name": "nf_flow_snat_port",
       "file": "nf_flow_table_ip.c",
-      "line": 131
+      "line": 126
     },
     {
       "name": "nf_flow_snat_ip",
       "file": "nf_flow_table_ip.c",
-      "line": 132
+      "line": 127
     },
     {
       "name": "ip_has_options",
       "file": "nf_flow_table_ip.c",
-      "line": 140
+      "line": 135
     },
     {
       "name": "nf_flow_exceeds_mtu",
       "file": "nf_flow_table_ip.c",
-      "line": 250
+      "line": 240
     },
     {
       "name": "nf_flow_dst_check",
       "file": "nf_flow_table_ip.c",
-      "line": 261
+      "line": 251
     },
     {
       "name": "htons",
       "file": "nf_flow_table_ip.c",
-      "line": 297
+      "line": 276
     },
     {
       "name": "__vlan_hwaccel_clear_tag",
       "file": "nf_flow_table_ip.c",
-      "line": 317
+      "line": 302
+    },
+    {
+      "name": "nf_ct_acct_update",
+      "file": "nf_flow_table_ip.c",
+      "line": 399
+    },
+    {
+      "name": "nf_flow_xmit_xfrm",
+      "file": "nf_flow_table_ip.c",
+      "line": 406
     },
     {
       "name": "nf_flow_snat_ipv6",
       "file": "nf_flow_table_ip.c",
-      "line": 575
+      "line": 526
     }
   ],
   "nf_flow_table_offload.c": [
     {
-      "name": "BIT_ULL",
+      "name": "BIT",
       "file": "nf_flow_table_offload.c",
       "line": 47
     },
@@ -4493,67 +4264,67 @@
     {
       "name": "flow_offload_work_add",
       "file": "nf_flow_table_offload.c",
-      "line": 907
+      "line": 906
     },
     {
       "name": "flow_offload_work_del",
       "file": "nf_flow_table_offload.c",
-      "line": 926
+      "line": 925
     },
     {
       "name": "flow_offload_work_stats",
       "file": "nf_flow_table_offload.c",
-      "line": 945
+      "line": 943
     },
     {
       "name": "flow_offload_work_handler",
       "file": "nf_flow_table_offload.c",
-      "line": 971
+      "line": 967
     },
     {
       "name": "flow_offload_queue_work",
       "file": "nf_flow_table_offload.c",
-      "line": 999
+      "line": 995
     },
     {
       "name": "NF_FLOW_TABLE_STAT_INC_ATOMIC",
       "file": "nf_flow_table_offload.c",
-      "line": 1004
+      "line": 1000
     },
     {
       "name": "queue_work",
       "file": "nf_flow_table_offload.c",
-      "line": 1005
+      "line": 1001
     },
     {
       "name": "nf_flow_table_offload_flush_cleanup",
       "file": "nf_flow_table_offload.c",
-      "line": 1081
+      "line": 1077
     },
     {
       "name": "nf_flow_table_offload_flush",
       "file": "nf_flow_table_offload.c",
-      "line": 1089
+      "line": 1085
     },
     {
       "name": "list_splice",
       "file": "nf_flow_table_offload.c",
-      "line": 1108
+      "line": 1104
     },
     {
       "name": "nf_flow_table_indr_cleanup",
       "file": "nf_flow_table_offload.c",
-      "line": 1141
+      "line": 1137
     },
     {
       "name": "nf_flow_table_offload_init",
       "file": "nf_flow_table_offload.c",
-      "line": 1210
+      "line": 1206
     },
     {
       "name": "nf_flow_table_offload_exit",
       "file": "nf_flow_table_offload.c",
-      "line": 1236
+      "line": 1232
     }
   ],
   "nf_flow_table_procfs.c": [
@@ -4582,37 +4353,12 @@
     {
       "name": "nf_hooks_lwtunnel_get",
       "file": "nf_hooks_lwtunnel.c",
-      "line": 10
+      "line": 7
     },
     {
       "name": "nf_hooks_lwtunnel_set",
       "file": "nf_hooks_lwtunnel.c",
-      "line": 18
-    },
-    {
-      "name": "nf_lwtunnel_net_init",
-      "file": "nf_hooks_lwtunnel.c",
-      "line": 67
-    },
-    {
-      "name": "nf_lwtunnel_net_exit",
-      "file": "nf_hooks_lwtunnel.c",
-      "line": 96
-    },
-    {
-      "name": "kfree",
-      "file": "nf_hooks_lwtunnel.c",
-      "line": 103
-    },
-    {
-      "name": "netfilter_lwtunnel_init",
-      "file": "nf_hooks_lwtunnel.c",
-      "line": 111
-    },
-    {
-      "name": "netfilter_lwtunnel_fini",
-      "file": "nf_hooks_lwtunnel.c",
-      "line": 116
+      "line": 15
     }
   ],
   "nf_log.c": [
@@ -4642,94 +4388,89 @@
       "line": 112
     },
     {
-      "name": "nf_log_is_registered",
-      "file": "nf_log.c",
-      "line": 136
-    },
-    {
       "name": "nf_log_unbind_pf",
       "file": "nf_log.c",
-      "line": 170
+      "line": 144
     },
     {
       "name": "nf_logger_find_get",
       "file": "nf_log.c",
-      "line": 180
+      "line": 154
     },
     {
       "name": "nf_logger_put",
       "file": "nf_log.c",
-      "line": 217
+      "line": 186
     },
     {
       "name": "va_start",
       "file": "nf_log.c",
-      "line": 304
+      "line": 272
     },
     {
       "name": "va_end",
       "file": "nf_log.c",
-      "line": 306
+      "line": 274
     },
     {
       "name": "local_bh_disable",
       "file": "nf_log.c",
-      "line": 323
+      "line": 291
     },
     {
       "name": "nf_log_buf_close",
       "file": "nf_log.c",
-      "line": 333
+      "line": 301
     },
     {
       "name": "kfree",
       "file": "nf_log.c",
-      "line": 339
+      "line": 307
     },
     {
       "name": "seq_stop",
       "file": "nf_log.c",
-      "line": 372
+      "line": 340
     },
     {
       "name": "seq_show",
       "file": "nf_log.c",
-      "line": 377
+      "line": 345
     },
     {
       "name": "mutex_lock",
       "file": "nf_log.c",
-      "line": 462
+      "line": 431
     },
     {
       "name": "mutex_unlock",
       "file": "nf_log.c",
-      "line": 469
+      "line": 438
     },
     {
       "name": "netfilter_log_sysctl_init",
       "file": "nf_log.c",
-      "line": 487
+      "line": 456
     },
     {
       "name": "netfilter_log_sysctl_exit",
       "file": "nf_log.c",
-      "line": 540
+      "line": 508
     },
     {
       "name": "nf_log_net_init",
       "file": "nf_log.c",
-      "line": 562
+      "line": 530
     },
     {
       "name": "nf_log_net_exit",
       "file": "nf_log.c",
-      "line": 584
+      "line": 552
     },
     {
       "name": "netfilter_log_init",
       "file": "nf_log.c",
-      "line": 597
+      "line": 565
     }
   ],
   "nf_log_syslog.c": [
@@ -4746,32 +4487,32 @@
     {
       "name": "ntohs",
       "file": "nf_log_syslog.c",
-      "line": 207
+      "line": 206
     },
     {
       "name": "nf_log_buf_add",
       "file": "nf_log_syslog.c",
-      "line": 341
+      "line": 338
     },
     {
       "name": "nf_log_syslog_net_init",
       "file": "nf_log_syslog.c",
-      "line": 969
+      "line": 966
     },
     {
       "name": "nf_log_syslog_net_exit",
       "file": "nf_log_syslog.c",
-      "line": 1003
+      "line": 1000
     },
     {
       "name": "nf_log_syslog_init",
       "file": "nf_log_syslog.c",
-      "line": 1017
+      "line": 1014
     },
     {
       "name": "nf_log_syslog_exit",
       "file": "nf_log_syslog.c",
-      "line": 1060
+      "line": 1057
     }
   ],
   "nf_nat_amanda.c": [
@@ -4790,84 +4531,69 @@
     {
       "name": "register_nf_nat_bpf",
       "file": "nf_nat_bpf.c",
-      "line": 66
+      "line": 68
     }
   ],
   "nf_nat_core.c": [
     {
       "name": "__nf_nat_decode_session",
       "file": "nf_nat_core.c",
-      "line": 120
-    },
-    {
-      "name": "nf_nat_allow_clash",
-      "file": "nf_nat_core.c",
-      "line": 227
-    },
-    {
-      "name": "nf_nat_may_kill",
-      "file": "nf_nat_core.c",
-      "line": 321
-    },
-    {
-      "name": "nf_seq_has_advanced",
-      "file": "nf_nat_core.c",
-      "line": 341
+      "line": 121
     },
     {
       "name": "net_eq",
       "file": "nf_nat_core.c",
-      "line": 489
+      "line": 287
     },
     {
       "name": "nf_ct_zone_equal",
       "file": "nf_nat_core.c",
-      "line": 490
+      "line": 288
     },
     {
       "name": "in_vrf_postrouting",
       "file": "nf_nat_core.c",
-      "line": 905
+      "line": 702
     },
     {
       "name": "nf_nat_proto_remove",
       "file": "nf_nat_core.c",
-      "line": 996
+      "line": 793
     },
     {
       "name": "nf_nat_cleanup_conntrack",
       "file": "nf_nat_core.c",
-      "line": 1007
+      "line": 804
     },
     {
       "name": "nf_nat_proto_clean",
       "file": "nf_nat_core.c",
-      "line": 1017
+      "line": 814
     },
     {
       "name": "nf_nat_l4proto_nlattr_to_range",
       "file": "nf_nat_core.c",
-      "line": 1074
+      "line": 871
     },
     {
       "name": "nf_unregister_net_hooks",
       "file": "nf_nat_core.c",
-      "line": 1301
+      "line": 1100
     },
     {
       "name": "nf_nat_init",
       "file": "nf_nat_core.c",
-      "line": 1328
+      "line": 1128
     },
     {
       "name": "spin_lock_init",
       "file": "nf_nat_core.c",
-      "line": 1342
+      "line": 1142
     },
     {
       "name": "nf_nat_cleanup",
       "file": "nf_nat_core.c",
-      "line": 1367
+      "line": 1167
     }
   ],
   "nf_nat_ftp.c": [
@@ -4973,70 +4699,53 @@
       "line": 353
     }
   ],
-  "nf_nat_ovs.c": [
-    {
-      "name": "ip_hdr",
-      "file": "nf_nat_ovs.c",
-      "line": 28
-    }
-  ],
   "nf_nat_proto.c": [
     {
       "name": "csum_replace4",
       "file": "nf_nat_proto.c",
-      "line": 329
+      "line": 372
     },
     {
       "name": "nf_xfrm_me_harder",
       "file": "nf_nat_proto.c",
-      "line": 620
-    },
-    {
-      "name": "nf_nat_inet_port_was_mangled",
-      "file": "nf_nat_proto.c",
-      "line": 657
+      "line": 663
     },
     {
       "name": "nf_nat_ipv4_register_fn",
       "file": "nf_nat_proto.c",
-      "line": 816
+      "line": 822
     },
     {
       "name": "nf_nat_ipv4_unregister_fn",
       "file": "nf_nat_proto.c",
-      "line": 823
+      "line": 829
     },
     {
       "name": "nf_nat_ipv6_register_fn",
       "file": "nf_nat_proto.c",
-      "line": 1077
+      "line": 1061
     },
     {
       "name": "nf_nat_ipv6_unregister_fn",
       "file": "nf_nat_proto.c",
-      "line": 1084
+      "line": 1068
     },
     {
       "name": "nf_nat_inet_register_fn",
       "file": "nf_nat_proto.c",
-      "line": 1092
+      "line": 1076
     },
     {
       "name": "nf_nat_inet_unregister_fn",
       "file": "nf_nat_proto.c",
-      "line": 1113
+      "line": 1097
     }
   ],
   "nf_nat_redirect.c": [
     {
-      "name": "nf_nat_redirect_ipv6_usable",
-      "file": "nf_nat_redirect.c",
-      "line": 83
-    },
-    {
       "name": "read_lock_bh",
       "file": "nf_nat_redirect.c",
-      "line": 120
+      "line": 99
     }
   ],
   "nf_nat_sip.c": [
@@ -5122,12 +4831,17 @@
     {
       "name": "nf_queue_entry_get_refs",
       "file": "nf_queue.c",
-      "line": 97
+      "line": 99
     },
     {
       "name": "nf_queue_nf_hook_drop",
       "file": "nf_queue.c",
-      "line": 115
+      "line": 117
+    },
+    {
+      "name": "nf_reinject",
+      "file": "nf_queue.c",
+      "line": 299
     }
   ],
   "nf_sockopt.c": [
@@ -5226,1121 +4940,861 @@
   ],
   "nf_tables_api.c": [
     {
+      "name": "LIST_HEAD",
+      "file": "nf_tables_api.c",
+      "line": 33
+    },
+    {
       "name": "DEFINE_SPINLOCK",
       "file": "nf_tables_api.c",
-      "line": 38
+      "line": 34
     },
     {
       "name": "nft_objname_hash_obj",
       "file": "nf_tables_api.c",
-      "line": 54
+      "line": 49
     },
     {
       "name": "nft_objname_hash_cmp",
       "file": "nf_tables_api.c",
-      "line": 55
+      "line": 50
     },
     {
       "name": "nft_validate_state_update",
       "file": "nf_tables_api.c",
-      "line": 111
-    },
-    {
-      "name": "nft_trans_list_del",
-      "file": "nf_tables_api.c",
-      "line": 192
+      "line": 105
     },
     {
       "name": "nft_trans_destroy",
       "file": "nf_tables_api.c",
-      "line": 203
+      "line": 168
     },
     {
       "name": "nft_set_trans_bind",
       "file": "nf_tables_api.c",
-      "line": 234
-    },
-    {
-      "name": "nft_set_trans_unbind",
-      "file": "nf_tables_api.c",
-      "line": 239
-    },
-    {
-      "name": "nf_tables_bind_chain",
-      "file": "nf_tables_api.c",
-      "line": 275
-    },
-    {
-      "name": "nf_tables_unbind_chain",
-      "file": "nf_tables_api.c",
-      "line": 295
-    },
-    {
-      "name": "nft_netdev_hook_free_ops",
-      "file": "nf_tables_api.c",
-      "line": 331
-    },
-    {
-      "name": "nft_netdev_hook_free",
-      "file": "nf_tables_api.c",
-      "line": 341
-    },
-    {
-      "name": "__nft_netdev_hook_free_rcu",
-      "file": "nf_tables_api.c",
-      "line": 347
-    },
-    {
-      "name": "nft_netdev_hook_free_rcu",
-      "file": "nf_tables_api.c",
-      "line": 354
+      "line": 174
     },
     {
       "name": "nf_unregister_net_hook",
       "file": "nf_tables_api.c",
-      "line": 368
-    },
-    {
-      "name": "nft_trans_collapse_set_elem_allowed",
-      "file": "nf_tables_api.c",
-      "line": 430
+      "line": 231
     },
     {
       "name": "nft_trans_commit_list_add_tail",
       "file": "nf_tables_api.c",
-      "line": 510
+      "line": 293
     },
     {
       "name": "nft_trans_table_add",
       "file": "nf_tables_api.c",
-      "line": 558
+      "line": 300
     },
     {
       "name": "nft_deltable",
       "file": "nf_tables_api.c",
-      "line": 573
+      "line": 315
     },
     {
       "name": "ERR_PTR",
       "file": "nf_tables_api.c",
-      "line": 608
+      "line": 333
     },
     {
       "name": "nft_activate_next",
       "file": "nf_tables_api.c",
-      "line": 611
+      "line": 336
     },
     {
       "name": "nft_delchain",
       "file": "nf_tables_api.c",
-      "line": 623
-    },
-    {
-      "name": "nft_rule_expr_activate",
-      "file": "nf_tables_api.c",
-      "line": 637
+      "line": 348
     },
     {
       "name": "nft_delrule",
       "file": "nf_tables_api.c",
-      "line": 696
+      "line": 422
     },
     {
       "name": "nft_delrule_by_chain",
       "file": "nf_tables_api.c",
-      "line": 726
-    },
-    {
-      "name": "nft_map_deactivate",
-      "file": "nf_tables_api.c",
-      "line": 820
+      "line": 452
     },
     {
       "name": "nft_delset",
       "file": "nf_tables_api.c",
-      "line": 834
+      "line": 500
     },
     {
       "name": "nft_delobj",
       "file": "nf_tables_api.c",
-      "line": 869
+      "line": 532
     },
     {
       "name": "__nft_reg_track_clobber",
       "file": "nf_tables_api.c",
-      "line": 919
+      "line": 581
     },
     {
       "name": "nft_reg_track_cancel",
       "file": "nf_tables_api.c",
-      "line": 950
+      "line": 612
     },
     {
       "name": "__nft_reg_track_cancel",
       "file": "nf_tables_api.c",
-      "line": 963
+      "line": 625
     },
     {
       "name": "nft_active_genmask",
       "file": "nf_tables_api.c",
-      "line": 990
+      "line": 652
     },
     {
       "name": "nf_tables_alloc_handle",
       "file": "nf_tables_api.c",
-      "line": 1025
+      "line": 686
     },
     {
       "name": "lockdep_nfnl_nft_mutex_not_held",
       "file": "nf_tables_api.c",
-      "line": 1104
+      "line": 765
     },
     {
       "name": "nft_base_seq",
       "file": "nf_tables_api.c",
-      "line": 1134
-    },
-    {
-      "name": "nft_base_seq_be16",
-      "file": "nf_tables_api.c",
-      "line": 1139
+      "line": 795
     },
     {
       "name": "htons",
       "file": "nf_tables_api.c",
-      "line": 1141
+      "line": 799
     },
     {
       "name": "nla_put_be32",
       "file": "nf_tables_api.c",
-      "line": 1182
+      "line": 831
     },
     {
       "name": "nf_tables_table_notify",
       "file": "nf_tables_api.c",
-      "line": 1210
+      "line": 859
     },
     {
       "name": "nft_table_disable",
       "file": "nf_tables_api.c",
-      "line": 1345
+      "line": 994
     },
     {
       "name": "nf_tables_table_enable",
       "file": "nf_tables_api.c",
-      "line": 1363
+      "line": 1012
     },
     {
       "name": "nf_tables_table_disable",
       "file": "nf_tables_api.c",
-      "line": 1388
-    },
-    {
-      "name": "nft_table_pending_update",
-      "file": "nf_tables_api.c",
-      "line": 1403
+      "line": 1037
     },
     {
       "name": "nf_tables_updtable",
       "file": "nf_tables_api.c",
-      "line": 1423
+      "line": 1050
     },
     {
       "name": "nft_chain_hash",
       "file": "nf_tables_api.c",
-      "line": 1492
+      "line": 1104
     },
     {
       "name": "nft_chain_hash_obj",
       "file": "nf_tables_api.c",
-      "line": 1499
+      "line": 1111
     },
     {
       "name": "nft_objname_hash",
       "file": "nf_tables_api.c",
-      "line": 1515
+      "line": 1127
     },
     {
       "name": "nft_supported_family",
       "file": "nf_tables_api.c",
-      "line": 1543
+      "line": 1155
     },
     {
       "name": "NETLINK_CB",
       "file": "nf_tables_api.c",
-      "line": 1587
+      "line": 1199
     },
     {
       "name": "PTR_ERR",
       "file": "nf_tables_api.c",
-      "line": 1590
+      "line": 1202
     },
     {
       "name": "nft_flush_table",
       "file": "nf_tables_api.c",
-      "line": 1661
+      "line": 1272
     },
     {
       "name": "nft_flush",
       "file": "nf_tables_api.c",
-      "line": 1732
+      "line": 1344
     },
     {
       "name": "nf_tables_table_destroy",
       "file": "nf_tables_api.c",
-      "line": 1810
+      "line": 1418
     },
     {
       "name": "nft_register_chain_type",
       "file": "nf_tables_api.c",
-      "line": 1821
+      "line": 1429
     },
     {
       "name": "nft_unregister_chain_type",
       "file": "nf_tables_api.c",
-      "line": 1833
+      "line": 1441
     },
     {
       "name": "lockdep_commit_lock_is_held",
       "file": "nf_tables_api.c",
-      "line": 1859
+      "line": 1467
     },
     {
       "name": "nft_dump_stats",
       "file": "nf_tables_api.c",
-      "line": 1926
+      "line": 1534
     },
     {
-      "name": "hook_is_prefix",
+      "name": "nf_tables_chain_notify",
       "file": "nf_tables_api.c",
-      "line": 1965
-    },
-    {
-      "name": "nft_nla_put_hook_dev",
-      "file": "nf_tables_api.c",
-      "line": 1970
+      "line": 1673
     },
     {
       "name": "nft_chain_stats_replace",
       "file": "nf_tables_api.c",
-      "line": 2260
+      "line": 1840
     },
     {
       "name": "nf_tables_chain_free_chain_rules",
       "file": "nf_tables_api.c",
-      "line": 2276
+      "line": 1855
     },
     {
       "name": "nf_tables_chain_destroy",
       "file": "nf_tables_api.c",
-      "line": 2290
+      "line": 1869
     },
     {
       "name": "module_put",
       "file": "nf_tables_api.c",
-      "line": 2311
+      "line": 1890
     },
     {
       "name": "kfree",
       "file": "nf_tables_api.c",
-      "line": 2316
+      "line": 1895
     },
     {
       "name": "list_add_tail",
       "file": "nf_tables_api.c",
-      "line": 2420
-    },
-    {
-      "name": "NL_SET_BAD_ATTR",
-      "file": "nf_tables_api.c",
-      "line": 2540
+      "line": 1976
     },
     {
       "name": "nft_chain_release_hook",
       "file": "nf_tables_api.c",
-      "line": 2571
+      "line": 2098
     },
     {
       "name": "nft_last_rule",
       "file": "nf_tables_api.c",
-      "line": 2582
-    },
-    {
-      "name": "list_splice_init",
-      "file": "nf_tables_api.c",
-      "line": 2638
+      "line": 2114
     },
     {
       "name": "nft_chain_add",
       "file": "nf_tables_api.c",
-      "line": 2659
+      "line": 2191
     },
     {
       "name": "static_branch_inc",
       "file": "nf_tables_api.c",
-      "line": 2728
-    },
-    {
-      "name": "nft_is_base_chain",
-      "file": "nf_tables_api.c",
-      "line": 2921
+      "line": 2262
     },
     {
       "name": "nft_trans_chain_policy",
       "file": "nf_tables_api.c",
-      "line": 2959
+      "line": 2329
+    },
+    {
+      "name": "NL_SET_BAD_ATTR",
+      "file": "nf_tables_api.c",
+      "line": 2405
     },
     {
       "name": "nft_trans_chain_update",
       "file": "nf_tables_api.c",
-      "line": 2976
+      "line": 2470
     },
     {
       "name": "nft_trans_chain_name",
       "file": "nf_tables_api.c",
-      "line": 2977
+      "line": 2471
     },
     {
       "name": "strcmp",
       "file": "nf_tables_api.c",
-      "line": 2978
+      "line": 2472
     },
     {
       "name": "nft_register_expr",
       "file": "nf_tables_api.c",
-      "line": 3283
+      "line": 2685
     },
     {
       "name": "nft_unregister_expr",
       "file": "nf_tables_api.c",
-      "line": 3304
+      "line": 2703
     },
     {
       "name": "memset",
       "file": "nf_tables_api.c",
-      "line": 3448
+      "line": 2843
     },
     {
       "name": "nft_expr_clone",
       "file": "nf_tables_api.c",
-      "line": 3594
+      "line": 2940
     },
     {
       "name": "nft_expr_destroy",
       "file": "nf_tables_api.c",
-      "line": 3611
+      "line": 2958
     },
     {
       "name": "__nft_rule_lookup",
       "file": "nf_tables_api.c",
-      "line": 3644
+      "line": 2988
     },
     {
       "name": "rhl_for_each_entry_rcu",
       "file": "nf_tables_api.c",
-      "line": 3862
+      "line": 3187
     },
     {
       "name": "nf_tables_dump_rules_start",
       "file": "nf_tables_api.c",
-      "line": 3905
-    },
-    {
-      "name": "nf_tables_dumpreset_rules_start",
-      "file": "nf_tables_api.c",
-      "line": 3927
+      "line": 3212
     },
     {
       "name": "nf_tables_dump_rules_done",
       "file": "nf_tables_api.c",
-      "line": 3936
-    },
-    {
-      "name": "nf_tables_rule_destroy",
-      "file": "nf_tables_api.c",
-      "line": 4064
+      "line": 3245
     },
     {
       "name": "nf_tables_rule_release",
       "file": "nf_tables_api.c",
-      "line": 4082
+      "line": 3336
     },
     {
       "name": "nft_chain_validate",
       "file": "nf_tables_api.c",
-      "line": 4099
+      "line": 3342
     },
     {
       "name": "nft_rule_for_each_expr",
       "file": "nf_tables_api.c",
-      "line": 4115
+      "line": 3356
     },
     {
       "name": "nft_table_validate",
       "file": "nf_tables_api.c",
-      "line": 4132
-    },
-    {
-      "name": "nft_set_catchall_validate",
-      "file": "nf_tables_api.c",
-      "line": 4189
+      "line": 3372
     },
     {
       "name": "nla_for_each_nested",
       "file": "nf_tables_api.c",
-      "line": 4321
+      "line": 3503
     },
     {
       "name": "list_add_tail_rcu",
       "file": "nf_tables_api.c",
-      "line": 4407
+      "line": 3579
     },
     {
       "name": "list_add_rcu",
       "file": "nf_tables_api.c",
-      "line": 4417
+      "line": 3589
     },
     {
       "name": "nft_set_ops_candidate",
       "file": "nf_tables_api.c",
-      "line": 4571
+      "line": 3734
     },
     {
       "name": "nf_msecs_to_jiffies64",
       "file": "nf_tables_api.c",
-      "line": 4804
+      "line": 3962
     },
     {
       "name": "nf_jiffies64_to_msecs",
       "file": "nf_tables_api.c",
-      "line": 4818
-    },
-    {
-      "name": "nft_set_userspace_size",
-      "file": "nf_tables_api.c",
-      "line": 4850
+      "line": 3976
     },
     {
       "name": "nla_nest_end",
       "file": "nf_tables_api.c",
-      "line": 4969
+      "line": 4086
     },
     {
       "name": "nf_tables_dump_sets",
       "file": "nf_tables_api.c",
-      "line": 5024
+      "line": 4141
     },
     {
       "name": "nf_tables_dump_sets_start",
       "file": "nf_tables_api.c",
-      "line": 5085
+      "line": 4202
     },
     {
       "name": "nf_tables_dump_sets_done",
       "file": "nf_tables_api.c",
-      "line": 5097
-    },
-    {
-      "name": "nft_set_put",
-      "file": "nf_tables_api.c",
-      "line": 5649
+      "line": 4214
     },
     {
       "name": "nft_set_destroy",
       "file": "nf_tables_api.c",
-      "line": 5657
+      "line": 4716
     },
     {
       "name": "atomic_read",
       "file": "nf_tables_api.c",
-      "line": 5712
-    },
-    {
-      "name": "nft_map_activate",
-      "file": "nf_tables_api.c",
-      "line": 5875
-    },
-    {
-      "name": "nf_tables_activate_set",
-      "file": "nf_tables_api.c",
-      "line": 5889
-    },
-    {
-      "name": "nft_use_dec",
-      "file": "nf_tables_api.c",
-      "line": 5916
+      "line": 4768
     },
     {
       "name": "nf_tables_destroy_set",
       "file": "nf_tables_api.c",
-      "line": 5942
+      "line": 4906
     },
     {
       "name": "nft_setelem_expr_foreach",
       "file": "nf_tables_api.c",
-      "line": 6033
+      "line": 5000
     },
     {
-      "name": "htonl",
+      "name": "nf_tables_fill_setelem",
       "file": "nf_tables_api.c",
-      "line": 6085
+      "line": 5107
     },
     {
       "name": "nf_tables_dump_set",
       "file": "nf_tables_api.c",
-      "line": 6199
+      "line": 5138
     },
     {
       "name": "nf_tables_dump_set_start",
       "file": "nf_tables_api.c",
-      "line": 6309
+      "line": 5225
     },
     {
       "name": "nf_tables_dump_set_done",
       "file": "nf_tables_api.c",
-      "line": 6318
+      "line": 5234
     },
     {
       "name": "nft_set_ext_check",
       "file": "nf_tables_api.c",
-      "line": 6728
+      "line": 5561
     },
     {
       "name": "nft_set_ext_data",
       "file": "nf_tables_api.c",
-      "line": 6777
+      "line": 5609
     },
     {
-      "name": "nft_trans_set_elem_destroy",
+      "name": "nft_set_elem_change_active",
       "file": "nf_tables_api.c",
-      "line": 6852
+      "line": 5855
     },
     {
-      "name": "nft_clear",
+      "name": "nft_set_elem_clear_busy",
       "file": "nf_tables_api.c",
-      "line": 7039
+      "line": 5856
     },
     {
-      "name": "nft_setelem_catchall_destroy",
+      "name": "nla_memcpy",
       "file": "nf_tables_api.c",
-      "line": 7129
-    },
-    {
-      "name": "nft_setelem_remove",
-      "file": "nf_tables_api.c",
-      "line": 7171
-    },
-    {
-      "name": "nft_set_maxsize",
-      "file": "nf_tables_api.c",
-      "line": 7198
-    },
-    {
-      "name": "nft_set_ext_exists",
-      "file": "nf_tables_api.c",
-      "line": 7544
+      "line": 6243
     },
     {
       "name": "nft_data_hold",
       "file": "nf_tables_api.c",
-      "line": 7688
+      "line": 6381
     },
     {
       "name": "nft_set_flush",
       "file": "nf_tables_api.c",
-      "line": 7949
+      "line": 6597
     },
     {
-      "name": "NFNL_MSG_TYPE",
+      "name": "nft_set_gc_batch_release",
       "file": "nf_tables_api.c",
-      "line": 8005
+      "line": 6653
     },
     {
       "name": "nft_register_obj",
       "file": "nf_tables_api.c",
-      "line": 8028
+      "line": 6687
     },
     {
       "name": "nft_unregister_obj",
       "file": "nf_tables_api.c",
-      "line": 8046
+      "line": 6705
     },
     {
       "name": "nf_tables_dump_obj",
       "file": "nf_tables_api.c",
-      "line": 8437
+      "line": 7055
     },
     {
       "name": "nf_tables_dump_obj_start",
       "file": "nf_tables_api.c",
-      "line": 8509
-    },
-    {
-      "name": "nf_tables_dumpreset_obj_start",
-      "file": "nf_tables_api.c",
-      "line": 8528
+      "line": 7127
     },
     {
       "name": "nf_tables_dump_obj_done",
       "file": "nf_tables_api.c",
-      "line": 8537
+      "line": 7153
     },
     {
       "name": "nft_obj_destroy",
       "file": "nf_tables_api.c",
-      "line": 8663
+      "line": 7244
     },
     {
       "name": "nft_register_flowtable_type",
       "file": "nf_tables_api.c",
-      "line": 8788
+      "line": 7354
     },
     {
       "name": "nft_unregister_flowtable_type",
       "file": "nf_tables_api.c",
-      "line": 8796
+      "line": 7362
     },
     {
-      "name": "nft_unregister_flowtable_ops",
+      "name": "nft_flowtable_hooks_destroy",
       "file": "nf_tables_api.c",
-      "line": 9003
-    },
-    {
-      "name": "nft_hooks_destroy",
-      "file": "nf_tables_api.c",
-      "line": 9085
+      "line": 7618
     },
     {
       "name": "ntohl",
       "file": "nf_tables_api.c",
-      "line": 9264
+      "line": 7772
     },
     {
       "name": "nft_flowtable_hook_release",
       "file": "nf_tables_api.c",
-      "line": 9321
+      "line": 7827
     },
     {
       "name": "nft_delflowtable_hook",
       "file": "nf_tables_api.c",
-      "line": 9425
+      "line": 7926
     },
     {
       "name": "nf_tables_dump_flowtable_start",
       "file": "nf_tables_api.c",
-      "line": 9554
+      "line": 8043
     },
     {
       "name": "nf_tables_dump_flowtable_done",
       "file": "nf_tables_api.c",
-      "line": 9576
+      "line": 8065
     },
     {
       "name": "nf_tables_flowtable_destroy",
       "file": "nf_tables_api.c",
-      "line": 9684
-    },
-    {
-      "name": "__nf_tables_flowtable_event",
-      "file": "nf_tables_api.c",
-      "line": 9842
+      "line": 8169
     },
     {
       "name": "nf_tables_validate",
       "file": "nf_tables_api.c",
-      "line": 10100
+      "line": 8448
     },
     {
       "name": "nft_chain_commit_drop_policy",
       "file": "nf_tables_api.c",
-      "line": 10131
+      "line": 8477
     },
     {
       "name": "nft_chain_commit_update",
       "file": "nf_tables_api.c",
-      "line": 10145
+      "line": 8491
+    },
+    {
+      "name": "nft_obj_commit_update",
+      "file": "nf_tables_api.c",
+      "line": 8521
     },
     {
       "name": "nft_commit_release",
       "file": "nf_tables_api.c",
-      "line": 10192
+      "line": 8535
     },
     {
       "name": "nf_tables_trans_destroy_work",
       "file": "nf_tables_api.c",
-      "line": 10247
+      "line": 8576
     },
     {
       "name": "nf_tables_trans_destroy_flush_work",
       "file": "nf_tables_api.c",
-      "line": 10268
+      "line": 8596
     },
     {
       "name": "nf_tables_commit_chain_prepare",
       "file": "nf_tables_api.c",
-      "line": 10282
+      "line": 8608
     },
     {
       "name": "nf_tables_commit_chain_prepare_cancel",
       "file": "nf_tables_api.c",
-      "line": 10358
+      "line": 8686
     },
     {
-      "name": "__nf_tables_commit_chain_free_rules",
+      "name": "__nf_tables_commit_chain_free_rules_old",
       "file": "nf_tables_api.c",
-      "line": 10374
+      "line": 8702
     },
     {
       "name": "nf_tables_commit_chain_free_rules_old",
       "file": "nf_tables_api.c",
-      "line": 10381
+      "line": 8709
     },
     {
       "name": "nf_tables_commit_chain",
       "file": "nf_tables_api.c",
-      "line": 10392
+      "line": 8720
     },
     {
       "name": "rcu_assign_pointer",
       "file": "nf_tables_api.c",
-      "line": 10414
+      "line": 8742
     },
     {
       "name": "nft_obj_del",
       "file": "nf_tables_api.c",
-      "line": 10440
+      "line": 8768
     },
     {
       "name": "nft_chain_del",
       "file": "nf_tables_api.c",
-      "line": 10446
-    },
-    {
-      "name": "nft_trans_gc_destroy",
-      "file": "nf_tables_api.c",
-      "line": 10467
-    },
-    {
-      "name": "nft_trans_gc_trans_free",
-      "file": "nf_tables_api.c",
-      "line": 10474
-    },
-    {
-      "name": "nft_trans_gc_work_done",
-      "file": "nf_tables_api.c",
-      "line": 10495
-    },
-    {
-      "name": "nft_trans_gc_work",
-      "file": "nf_tables_api.c",
-      "line": 10523
-    },
-    {
-      "name": "list_del",
-      "file": "nf_tables_api.c",
-      "line": 10533
-    },
-    {
-      "name": "nft_trans_gc_elem_add",
-      "file": "nf_tables_api.c",
-      "line": 10565
-    },
-    {
-      "name": "nft_trans_gc_queue_work",
-      "file": "nf_tables_api.c",
-      "line": 10570
-    },
-    {
-      "name": "nft_trans_gc_space",
-      "file": "nf_tables_api.c",
-      "line": 10579
-    },
-    {
-      "name": "nft_trans_gc_queue_async_done",
-      "file": "nf_tables_api.c",
-      "line": 10598
-    },
-    {
-      "name": "nft_trans_gc_queue_sync_done",
-      "file": "nf_tables_api.c",
-      "line": 10624
+      "line": 8774
     },
     {
       "name": "nf_tables_module_autoload_cleanup",
       "file": "nf_tables_api.c",
-      "line": 10692
+      "line": 8783
     },
     {
       "name": "nf_tables_commit_release",
       "file": "nf_tables_api.c",
-      "line": 10705
+      "line": 8796
     },
     {
       "name": "nft_commit_notify",
       "file": "nf_tables_api.c",
-      "line": 10739
+      "line": 8830
     },
     {
       "name": "nf_tables_commit_audit_free",
       "file": "nf_tables_api.c",
-      "line": 10792
-    },
-    {
-      "name": "nf_tables_commit_audit_entrycount",
-      "file": "nf_tables_api.c",
-      "line": 10805
+      "line": 8883
     },
     {
       "name": "nf_tables_commit_audit_log",
       "file": "nf_tables_api.c",
-      "line": 10836
-    },
-    {
-      "name": "nft_set_commit_update",
-      "file": "nf_tables_api.c",
-      "line": 10851
-    },
-    {
-      "name": "nft_gc_seq_begin",
-      "file": "nf_tables_api.c",
-      "line": 10865
-    },
-    {
-      "name": "nft_gc_seq_end",
-      "file": "nf_tables_api.c",
-      "line": 10876
+      "line": 8912
     },
     {
       "name": "nf_tables_commit",
       "file": "nf_tables_api.c",
-      "line": 10881
+      "line": 8927
     },
     {
-      "name": "nft_set_is_anonymous",
+      "name": "nft_flow_rule_destroy",
       "file": "nf_tables_api.c",
-      "line": 10908
-    },
-    {
-      "name": "nft_chain_binding",
-      "file": "nf_tables_api.c",
-      "line": 10916
-    },
-    {
-      "name": "nft_ctx_update",
-      "file": "nf_tables_api.c",
-      "line": 10987
-    },
-    {
-      "name": "nf_tables_commit_audit_collect",
-      "file": "nf_tables_api.c",
-      "line": 10989
-    },
-    {
-      "name": "list_splice",
-      "file": "nf_tables_api.c",
-      "line": 11017
+      "line": 9056
     },
     {
       "name": "WRITE_ONCE",
       "file": "nf_tables_api.c",
-      "line": 11074
+      "line": 9062
     },
     {
-      "name": "nft_trans_elems_add",
+      "name": "nft_setelem_remove",
       "file": "nf_tables_api.c",
-      "line": 11098
-    },
-    {
-      "name": "list_empty",
-      "file": "nf_tables_api.c",
-      "line": 11101
-    },
-    {
-      "name": "nft_trans_elems_remove",
-      "file": "nf_tables_api.c",
-      "line": 11111
+      "line": 9097
     },
     {
       "name": "nft_trans_obj",
       "file": "nf_tables_api.c",
-      "line": 11123
+      "line": 9107
     },
     {
-      "name": "nft_trans_flowtable",
+      "name": "list_splice",
       "file": "nf_tables_api.c",
-      "line": 11166
+      "line": 9130
     },
     {
       "name": "nf_tables_module_autoload",
       "file": "nf_tables_api.c",
-      "line": 11195
+      "line": 9170
     },
     {
       "name": "nf_tables_abort_release",
       "file": "nf_tables_api.c",
-      "line": 11211
-    },
-    {
-      "name": "nft_set_abort_update",
-      "file": "nf_tables_api.c",
-      "line": 11249
+      "line": 9186
     },
     {
       "name": "__nf_tables_abort",
       "file": "nf_tables_api.c",
-      "line": 11263
+      "line": 9218
     },
     {
       "name": "free_percpu",
       "file": "nf_tables_api.c",
-      "line": 11319
+      "line": 9255
     },
     {
-      "name": "nft_use_dec_restore",
+      "name": "nf_tables_cleanup",
       "file": "nf_tables_api.c",
-      "line": 11373
-    },
-    {
-      "name": "nft_trans_elems_destroy_abort",
-      "file": "nf_tables_api.c",
-      "line": 11411
+      "line": 9384
     },
     {
       "name": "nf_tables_valid_genid",
       "file": "nf_tables_api.c",
-      "line": 11503
+      "line": 9400
     },
     {
       "name": "nft_parse_u32_check",
       "file": "nf_tables_api.c",
-      "line": 11574
+      "line": 9608
     },
     {
       "name": "nft_parse_register",
       "file": "nf_tables_api.c",
-      "line": 11587
+      "line": 9621
     },
     {
       "name": "nft_dump_register",
       "file": "nf_tables_api.c",
-      "line": 11617
+      "line": 9651
     },
     {
       "name": "nft_validate_register_load",
       "file": "nf_tables_api.c",
-      "line": 11628
+      "line": 9662
+    },
+    {
+      "name": "nft_parse_register_load",
+      "file": "nf_tables_api.c",
+      "line": 9674
     },
     {
       "name": "nft_verdict_uninit",
       "file": "nf_tables_api.c",
-      "line": 11821
+      "line": 9824
     },
     {
       "name": "nft_verdict_dump",
       "file": "nf_tables_api.c",
-      "line": 11834
+      "line": 9847
     },
     {
       "name": "nla_put",
       "file": "nf_tables_api.c",
-      "line": 11885
+      "line": 9898
     },
     {
       "name": "nft_data_release",
       "file": "nf_tables_api.c",
-      "line": 11948
+      "line": 9961
+    },
+    {
+      "name": "__nft_release_basechain",
+      "file": "nf_tables_api.c",
+      "line": 10001
     },
     {
       "name": "__nft_release_hook",
       "file": "nf_tables_api.c",
-      "line": 11988
+      "line": 10022
     },
     {
       "name": "__nft_release_hooks",
       "file": "nf_tables_api.c",
-      "line": 12001
+      "line": 10034
     },
     {
       "name": "__nft_release_table",
       "file": "nf_tables_api.c",
-      "line": 12014
+      "line": 10047
     },
     {
       "name": "__nft_release_tables",
       "file": "nf_tables_api.c",
-      "line": 12065
+      "line": 10093
+    },
+    {
+      "name": "rcu_barrier",
+      "file": "nf_tables_api.c",
+      "line": 10125
     },
     {
       "name": "nf_tables_init_net",
       "file": "nf_tables_api.c",
-      "line": 12136
+      "line": 10155
     },
     {
       "name": "nf_tables_pre_exit_net",
       "file": "nf_tables_api.c",
-      "line": 12156
+      "line": 10170
     },
     {
       "name": "nf_tables_exit_net",
       "file": "nf_tables_api.c",
-      "line": 12165
-    },
-    {
-      "name": "nf_tables_exit_batch",
-      "file": "nf_tables_api.c",
-      "line": 12193
+      "line": 10179
     },
     {
       "name": "nf_tables_module_init",
       "file": "nf_tables_api.c",
-      "line": 12207
+      "line": 10202
     },
     {
       "name": "nf_tables_module_exit",
       "file": "nf_tables_api.c",
-      "line": 12273
+      "line": 10260
     }
   ],
   "nf_tables_core.c": [
     {
-      "name": "nf_skip_indirect_calls",
-      "file": "nf_tables_core.c",
-      "line": 27
-    },
-    {
-      "name": "nf_skip_indirect_calls_enable",
-      "file": "nf_tables_core.c",
-      "line": 32
-    },
-    {
-      "name": "static_branch_enable",
-      "file": "nf_tables_core.c",
-      "line": 35
-    },
-    {
       "name": "nft_rule_dp_for_each_expr",
       "file": "nf_tables_core.c",
-      "line": 276
-    },
-    {
-      "name": "NF_DROP_REASON",
-      "file": "nf_tables_core.c",
-      "line": 312
+      "line": 255
     },
     {
       "name": "WARN_ON_ONCE",
       "file": "nf_tables_core.c",
-      "line": 329
+      "line": 309
     },
     {
       "name": "nf_tables_core_module_init",
       "file": "nf_tables_core.c",
-      "line": 375
+      "line": 352
     },
     {
       "name": "nf_tables_core_module_exit",
       "file": "nf_tables_core.c",
-      "line": 407
+      "line": 382
     }
   ],
   "nf_tables_offload.c": [
@@ -6350,201 +5804,198 @@
       "line": 45
     },
     {
-      "name": "BIT_ULL",
-      "file": "nf_tables_offload.c",
-      "line": 75
-    },
-    {
       "name": "nft_flow_rule_destroy",
       "file": "nf_tables_offload.c",
-      "line": 146
+      "line": 145
     },
     {
       "name": "nft_chain_offload_priority",
       "file": "nf_tables_offload.c",
-      "line": 212
+      "line": 211
     },
     {
       "name": "nft_chain_offload_support",
       "file": "nf_tables_offload.c",
-      "line": 221
+      "line": 220
     },
     {
       "name": "nft_setup_cb_call",
       "file": "nf_tables_offload.c",
-      "line": 339
+      "line": 334
     },
     {
       "name": "nft_indr_block_cleanup",
       "file": "nf_tables_offload.c",
-      "line": 404
+      "line": 399
     },
     {
       "name": "nft_flow_rule_offload_commit",
       "file": "nf_tables_offload.c",
-      "line": 566
+      "line": 558
     },
     {
       "name": "nft_offload_init",
       "file": "nf_tables_offload.c",
-      "line": 691
+      "line": 683
     },
     {
       "name": "nft_offload_exit",
       "file": "nf_tables_offload.c",
-      "line": 696
+      "line": 688
+    }
+  ],
+  "nf_tables_trace.c": [
+    {
+      "name": "nft_trace_have_verdict_chain",
+      "file": "nf_tables_trace.c",
+      "line": 146
+    },
+    {
+      "name": "nft_trace_notify",
+      "file": "nf_tables_trace.c",
+      "line": 167
     }
   ],
   "nfnetlink.c": [
     {
       "name": "DEFINE_SPINLOCK",
       "file": "nfnetlink.c",
-      "line": 49
+      "line": 48
     },
     {
       "name": "nfnl_lock",
       "file": "nfnetlink.c",
-      "line": 96
+      "line": 95
     },
     {
       "name": "nfnl_unlock",
       "file": "nfnetlink.c",
-      "line": 102
+      "line": 101
     },
     {
       "name": "lockdep_nfnl_is_held",
       "file": "nfnetlink.c",
-      "line": 109
+      "line": 108
     },
     {
       "name": "nfnetlink_subsys_register",
       "file": "nfnetlink.c",
-      "line": 116
+      "line": 115
     },
     {
       "name": "nfnetlink_subsys_unregister",
       "file": "nfnetlink.c",
-      "line": 137
+      "line": 136
     },
     {
       "name": "nfnetlink_has_listeners",
       "file": "nfnetlink.c",
-      "line": 168
+      "line": 167
     },
     {
       "name": "nfnetlink_set_err",
       "file": "nfnetlink.c",
-      "line": 185
+      "line": 184
     },
     {
       "name": "nfnetlink_unicast",
       "file": "nfnetlink.c",
-      "line": 193
+      "line": 192
     },
     {
       "name": "rcu_read_unlock",
       "file": "nfnetlink.c",
-      "line": 294
+      "line": 293
     },
     {
       "name": "nfnetlink_find_client",
       "file": "nfnetlink.c",
-      "line": 297
+      "line": 296
     },
     {
       "name": "nfnl_err_del",
       "file": "nfnetlink.c",
-      "line": 340
+      "line": 339
     },
     {
       "name": "nfnl_err_reset",
       "file": "nfnetlink.c",
-      "line": 346
+      "line": 345
     },
     {
       "name": "nfnl_err_deliver",
       "file": "nfnetlink.c",
-      "line": 354
+      "line": 353
     },
     {
-      "name": "consume_skb",
+      "name": "kfree_skb",
       "file": "nfnetlink.c",
-      "line": 412
-    },
-    {
-      "name": "nfnl_err_add",
-      "file": "nfnetlink.c",
-      "line": 432
+      "line": 411
     },
     {
       "name": "nlmsg_len",
       "file": "nfnetlink.c",
-      "line": 451
+      "line": 445
     },
     {
       "name": "skb_pull",
       "file": "nfnetlink.c",
-      "line": 564
+      "line": 557
     },
     {
       "name": "module_put",
       "file": "nfnetlink.c",
-      "line": 571
+      "line": 564
     },
     {
       "name": "netlink_ack",
       "file": "nfnetlink.c",
-      "line": 580
-    },
-    {
-      "name": "memset",
-      "file": "nfnetlink.c",
-      "line": 582
+      "line": 573
     },
     {
       "name": "nfnetlink_rcv_skb_batch",
       "file": "nfnetlink.c",
-      "line": 612
+      "line": 604
     },
     {
       "name": "nfnetlink_rcv",
       "file": "nfnetlink.c",
-      "line": 650
+      "line": 642
     },
     {
       "name": "nfnetlink_bind_event",
       "file": "nfnetlink.c",
-      "line": 670
+      "line": 662
     },
     {
       "name": "nfnetlink_bind",
       "file": "nfnetlink.c",
-      "line": 708
+      "line": 700
     },
     {
       "name": "nfnetlink_unbind",
       "file": "nfnetlink.c",
-      "line": 728
+      "line": 720
     },
     {
       "name": "nfnetlink_net_init",
       "file": "nfnetlink.c",
-      "line": 766
+      "line": 758
     },
     {
       "name": "nfnetlink_net_exit_batch",
       "file": "nfnetlink.c",
-      "line": 782
+      "line": 774
     },
     {
       "name": "nfnetlink_init",
       "file": "nfnetlink.c",
-      "line": 801
+      "line": 793
     },
     {
       "name": "nfnetlink_exit",
       "file": "nfnetlink.c",
-      "line": 814
+      "line": 806
     }
   ],
   "nfnetlink_acct.c": [
@@ -6710,74 +6161,64 @@
     {
       "name": "ctnl_timeout_put",
       "file": "nfnetlink_cttimeout.c",
-      "line": 525
+      "line": 531
     },
     {
       "name": "container_of",
       "file": "nfnetlink_cttimeout.c",
-      "line": 528
+      "line": 534
     },
     {
       "name": "cttimeout_net_init",
       "file": "nfnetlink_cttimeout.c",
-      "line": 578
+      "line": 584
     },
     {
       "name": "cttimeout_net_pre_exit",
       "file": "nfnetlink_cttimeout.c",
-      "line": 588
+      "line": 594
     },
     {
       "name": "cttimeout_net_exit",
       "file": "nfnetlink_cttimeout.c",
-      "line": 601
+      "line": 607
     },
     {
       "name": "cttimeout_init",
       "file": "nfnetlink_cttimeout.c",
-      "line": 632
+      "line": 638
     },
     {
       "name": "untimeout",
       "file": "nfnetlink_cttimeout.c",
-      "line": 654
+      "line": 660
     },
     {
       "name": "cttimeout_exit",
       "file": "nfnetlink_cttimeout.c",
-      "line": 664
+      "line": 670
     }
   ],
   "nfnetlink_hook.c": [
     {
-      "name": "nla_put_string",
-      "file": "nfnetlink_hook.c",
-      "line": 119
-    },
-    {
-      "name": "nla_put_u8",
-      "file": "nfnetlink_hook.c",
-      "line": 121
-    },
-    {
       "name": "nfnl_hook_dump_start",
       "file": "nfnetlink_hook.c",
-      "line": 381
+      "line": 288
     },
     {
       "name": "nfnl_hook_dump_stop",
       "file": "nfnetlink_hook.c",
-      "line": 425
+      "line": 332
     },
     {
       "name": "nfnetlink_hook_init",
       "file": "nfnetlink_hook.c",
-      "line": 471
+      "line": 378
     },
     {
       "name": "nfnetlink_hook_exit",
       "file": "nfnetlink_hook.c",
-      "line": 476
+      "line": 383
     }
   ],
   "nfnetlink_log.c": [
@@ -6789,378 +6230,345 @@
     {
       "name": "nfulnl_instance_free_rcu",
       "file": "nfnetlink_log.c",
-      "line": 149
+      "line": 139
     },
     {
       "name": "nfulnl_get_bridge_size",
       "file": "nfnetlink_log.c",
-      "line": 402
+      "line": 392
     },
     {
       "name": "nfulnl_put_bridge",
       "file": "nfnetlink_log.c",
-      "line": 421
+      "line": 411
     },
     {
       "name": "nla_nest_end",
       "file": "nfnetlink_log.c",
-      "line": 437
+      "line": 427
     },
     {
       "name": "nla_put",
       "file": "nfnetlink_log.c",
-      "line": 488
+      "line": 479
     },
     {
       "name": "htonl",
       "file": "nfnetlink_log.c",
-      "line": 494
+      "line": 485
     },
     {
       "name": "skb_mac_header_was_set",
       "file": "nfnetlink_log.c",
-      "line": 570
+      "line": 561
     },
     {
       "name": "skb_mac_header_len",
       "file": "nfnetlink_log.c",
-      "line": 571
+      "line": 562
     },
     {
       "name": "memset",
       "file": "nfnetlink_log.c",
-      "line": 575
+      "line": 566
     },
     {
       "name": "read_lock_bh",
       "file": "nfnetlink_log.c",
-      "line": 614
+      "line": 606
     },
     {
       "name": "__nfulnl_flush",
       "file": "nfnetlink_log.c",
-      "line": 793
+      "line": 785
     },
     {
       "name": "spin_lock_bh",
       "file": "nfnetlink_log.c",
-      "line": 840
+      "line": 832
     },
     {
       "name": "hlist_for_each_entry_safe",
       "file": "nfnetlink_log.c",
-      "line": 846
+      "line": 838
     },
     {
       "name": "nfnl_unlock",
       "file": "nfnetlink_log.c",
-      "line": 921
+      "line": 913
     },
     {
       "name": "request_module",
       "file": "nfnetlink_log.c",
-      "line": 922
+      "line": 914
     },
     {
       "name": "nfnl_lock",
       "file": "nfnetlink_log.c",
-      "line": 923
+      "line": 915
     },
     {
       "name": "NETLINK_CB",
       "file": "nfnetlink_log.c",
-      "line": 943
+      "line": 935
     },
     {
       "name": "sk_user_ns",
       "file": "nfnetlink_log.c",
-      "line": 944
+      "line": 936
     },
     {
       "name": "ntohl",
       "file": "nfnetlink_log.c",
-      "line": 972
+      "line": 964
     },
     {
       "name": "nfulnl_set_timeout",
       "file": "nfnetlink_log.c",
-      "line": 978
+      "line": 970
     },
     {
       "name": "nfulnl_set_nlbufsiz",
       "file": "nfnetlink_log.c",
-      "line": 984
+      "line": 976
     },
     {
       "name": "seq_stop",
       "file": "nfnetlink_log.c",
-      "line": 1089
+      "line": 1081
     },
     {
       "name": "seq_show",
       "file": "nfnetlink_log.c",
-      "line": 1095
+      "line": 1087
     },
     {
       "name": "nfnl_log_net_init",
       "file": "nfnetlink_log.c",
-      "line": 1116
+      "line": 1108
     },
     {
       "name": "nfnl_log_net_exit",
       "file": "nfnetlink_log.c",
-      "line": 1144
+      "line": 1136
     },
     {
       "name": "WARN_ON_ONCE",
       "file": "nfnetlink_log.c",
-      "line": 1154
+      "line": 1146
     },
     {
       "name": "nfnetlink_log_init",
       "file": "nfnetlink_log.c",
-      "line": 1164
+      "line": 1156
     },
     {
       "name": "nfnetlink_log_fini",
       "file": "nfnetlink_log.c",
-      "line": 1198
+      "line": 1190
     }
   ],
   "nfnetlink_osf.c": [
     {
       "name": "nfnl_osf_init",
       "file": "nfnetlink_osf.c",
-      "line": 408
+      "line": 400
     },
     {
       "name": "INIT_LIST_HEAD",
       "file": "nfnetlink_osf.c",
-      "line": 414
+      "line": 406
     },
     {
       "name": "nfnl_osf_fini",
       "file": "nfnetlink_osf.c",
-      "line": 427
+      "line": 419
     }
   ],
   "nfnetlink_queue.c": [
     {
       "name": "instance_hashfn",
       "file": "nfnetlink_queue.c",
-      "line": 98
-    },
-    {
-      "name": "nf_ip_reroute",
-      "file": "nfnetlink_queue.c",
-      "line": 274
-    },
-    {
-      "name": "nf_reroute",
-      "file": "nfnetlink_queue.c",
-      "line": 293
-    },
-    {
-      "name": "nf_reinject",
-      "file": "nfnetlink_queue.c",
-      "line": 312
+      "line": 96
     },
     {
       "name": "nfqnl_reinject",
       "file": "nfnetlink_queue.c",
-      "line": 372
+      "line": 226
     },
     {
-      "name": "rcu_read_unlock",
+      "name": "rcu_read_lock",
       "file": "nfnetlink_queue.c",
-      "line": 385
+      "line": 234
     },
     {
       "name": "nfqnl_put_sk_uidgid",
       "file": "nfnetlink_queue.c",
-      "line": 435
-    },
-    {
-      "name": "nfqnl_put_sk_classid",
-      "file": "nfnetlink_queue.c",
-      "line": 460
+      "line": 279
     },
     {
       "name": "nfqnl_get_sk_secctx",
       "file": "nfnetlink_queue.c",
-      "line": 473
+      "line": 304
     },
     {
       "name": "nfqnl_get_bridge_size",
       "file": "nfnetlink_queue.c",
-      "line": 490
+      "line": 321
     },
     {
       "name": "nfqnl_put_bridge",
       "file": "nfnetlink_queue.c",
-      "line": 509
+      "line": 340
     },
     {
       "name": "nla_nest_end",
       "file": "nfnetlink_queue.c",
-      "line": 527
-    },
-    {
-      "name": "nf_queue_checksum_help",
-      "file": "nfnetlink_queue.c",
-      "line": 543
+      "line": 358
     },
     {
       "name": "nfnl_msg_type",
       "file": "nfnetlink_queue.c",
-      "line": 659
+      "line": 477
     },
     {
       "name": "htons",
       "file": "nfnetlink_queue.c",
-      "line": 661
+      "line": 479
     },
     {
       "name": "htonl",
       "file": "nfnetlink_queue.c",
-      "line": 689
+      "line": 507
     },
     {
       "name": "skb_mac_header_was_set",
       "file": "nfnetlink_queue.c",
-      "line": 752
+      "line": 570
     },
     {
       "name": "skb_mac_header_len",
       "file": "nfnetlink_queue.c",
-      "line": 753
+      "line": 571
     },
     {
       "name": "memset",
       "file": "nfnetlink_queue.c",
-      "line": 757
+      "line": 575
     },
     {
       "name": "nf_ct_drop_unconfirmed",
       "file": "nfnetlink_queue.c",
-      "line": 829
+      "line": 644
     },
     {
       "name": "nf_bridge_adjust_skb_data",
       "file": "nfnetlink_queue.c",
-      "line": 952
+      "line": 736
     },
     {
       "name": "nf_bridge_adjust_segmented_data",
       "file": "nfnetlink_queue.c",
-      "line": 958
+      "line": 742
     },
     {
       "name": "__skb_pull",
       "file": "nfnetlink_queue.c",
-      "line": 961
+      "line": 745
     },
     {
       "name": "kfree_skb",
       "file": "nfnetlink_queue.c",
-      "line": 1047
+      "line": 831
     },
     {
       "name": "nfqnl_nf_hook_drop",
       "file": "nfnetlink_queue.c",
-      "line": 1184
+      "line": 968
     },
     {
       "name": "spin_lock",
       "file": "nfnetlink_queue.c",
-      "line": 1219
+      "line": 1003
     },
     {
       "name": "hlist_for_each_entry_safe",
       "file": "nfnetlink_queue.c",
-      "line": 1225
+      "line": 1009
     },
     {
       "name": "nfq_id_after",
       "file": "nfnetlink_queue.c",
-      "line": 1291
+      "line": 1075
     },
     {
       "name": "ntohs",
       "file": "nfnetlink_queue.c",
-      "line": 1390
+      "line": 1174
     },
     {
       "name": "NETLINK_CB",
       "file": "nfnetlink_queue.c",
-      "line": 1562
+      "line": 1346
     },
     {
       "name": "ntohl",
       "file": "nfnetlink_queue.c",
-      "line": 1594
+      "line": 1378
     },
     {
       "name": "spin_unlock_bh",
       "file": "nfnetlink_queue.c",
-      "line": 1602
+      "line": 1386
     },
     {
       "name": "seq_stop",
       "file": "nfnetlink_queue.c",
-      "line": 1716
+      "line": 1500
     },
     {
       "name": "seq_show",
       "file": "nfnetlink_queue.c",
-      "line": 1722
+      "line": 1506
     },
     {
       "name": "nfnl_queue_net_init",
       "file": "nfnetlink_queue.c",
-      "line": 1743
+      "line": 1527
     },
     {
       "name": "nfnl_queue_net_exit",
       "file": "nfnetlink_queue.c",
-      "line": 1761
+      "line": 1545
     },
     {
       "name": "WARN_ON_ONCE",
       "file": "nfnetlink_queue.c",
-      "line": 1770
+      "line": 1554
     },
     {
       "name": "nfnetlink_queue_init",
       "file": "nfnetlink_queue.c",
-      "line": 1780
+      "line": 1564
     },
     {
       "name": "nfnetlink_queue_fini",
       "file": "nfnetlink_queue.c",
-      "line": 1816
+      "line": 1600
     }
   ],
   "nft_bitwise.c": [
     {
-      "name": "nft_bitwise_eval_mask_xor",
+      "name": "nft_bitwise_dump",
       "file": "nft_bitwise.c",
-      "line": 99
-    },
+      "line": 235
+    }
+  ],
+  "nft_byteorder.c": [
     {
-      "name": "nft_bitwise_eval_lshift",
-      "file": "nft_bitwise.c",
-      "line": 103
-    },
-    {
-      "name": "nft_bitwise_eval_and",
-      "file": "nft_bitwise.c",
-      "line": 114
-    },
-    {
-      "name": "nft_bitwise_eval_or",
-      "file": "nft_bitwise.c",
-      "line": 118
+      "name": "nft_byteorder_dump",
+      "file": "nft_byteorder.c",
+      "line": 151
     }
   ],
   "nft_chain_filter.c": [
@@ -7220,34 +6628,24 @@
       "line": 277
     },
     {
-      "name": "nf_register_net_hook",
-      "file": "nft_chain_filter.c",
-      "line": 359
-    },
-    {
-      "name": "__nf_tables_netdev_event",
-      "file": "nft_chain_filter.c",
-      "line": 422
-    },
-    {
       "name": "nft_chain_filter_netdev_init",
       "file": "nft_chain_filter.c",
-      "line": 435
+      "line": 393
     },
     {
       "name": "nft_chain_filter_netdev_fini",
       "file": "nft_chain_filter.c",
-      "line": 453
+      "line": 411
     },
     {
       "name": "nft_chain_filter_init",
       "file": "nft_chain_filter.c",
-      "line": 463
+      "line": 421
     },
     {
       "name": "nft_chain_filter_fini",
       "file": "nft_chain_filter.c",
-      "line": 480
+      "line": 438
     }
   ],
   "nft_chain_nat.c": [
@@ -7301,34 +6699,49 @@
   ],
   "nft_cmp.c": [
     {
+      "name": "nft_cmp_dump",
+      "file": "nft_cmp.c",
+      "line": 95
+    },
+    {
       "name": "nft_payload_n2h",
       "file": "nft_cmp.c",
-      "line": 154
+      "line": 153
     },
     {
       "name": "__nft_cmp_offload",
       "file": "nft_cmp.c",
-      "line": 184
+      "line": 183
     },
     {
       "name": "nft_cmp_fast_mask",
       "file": "nft_cmp.c",
-      "line": 201
+      "line": 200
+    },
+    {
+      "name": "nft_cmp_fast_dump",
+      "file": "nft_cmp.c",
+      "line": 256
     },
     {
       "name": "nft_cmp_mask",
       "file": "nft_cmp.c",
-      "line": 289
+      "line": 287
     },
     {
       "name": "nft_cmp16_fast_mask",
       "file": "nft_cmp.c",
-      "line": 294
+      "line": 292
+    },
+    {
+      "name": "nft_cmp16_fast_dump",
+      "file": "nft_cmp.c",
+      "line": 350
     },
     {
       "name": "ERR_PTR",
       "file": "nft_cmp.c",
-      "line": 398
+      "line": 395
     }
   ],
   "nft_compat.c": [
@@ -7350,47 +6763,62 @@
     {
       "name": "nft_compat_wait_for_destructors",
       "file": "nft_compat.c",
-      "line": 231
+      "line": 224
     },
     {
       "name": "__nft_mt_tg_destroy",
       "file": "nft_compat.c",
-      "line": 292
+      "line": 285
+    },
+    {
+      "name": "nft_target_dump",
+      "file": "nft_compat.c",
+      "line": 327
     },
     {
       "name": "match_compat_from_user",
       "file": "nft_compat.c",
-      "line": 485
+      "line": 462
+    },
+    {
+      "name": "nft_match_dump",
+      "file": "nft_compat.c",
+      "line": 575
+    },
+    {
+      "name": "nft_match_large_dump",
+      "file": "nft_compat.c",
+      "line": 580
     },
     {
       "name": "NFNL_MSG_TYPE",
       "file": "nft_compat.c",
-      "line": 734
+      "line": 694
     },
     {
       "name": "ERR_PTR",
       "file": "nft_compat.c",
-      "line": 804
+      "line": 764
     },
     {
       "name": "nft_match_release_ops",
       "file": "nft_compat.c",
-      "line": 844
+      "line": 804
     },
     {
       "name": "nft_target_release_ops",
       "file": "nft_compat.c",
-      "line": 927
+      "line": 887
     },
     {
       "name": "nft_compat_module_init",
       "file": "nft_compat.c",
-      "line": 944
+      "line": 904
     },
     {
       "name": "nft_compat_module_exit",
       "file": "nft_compat.c",
-      "line": 970
+      "line": 930
     }
   ],
   "nft_connlimit.c": [
@@ -7405,157 +6833,187 @@
       "line": 153
     },
     {
+      "name": "nft_connlimit_dump",
+      "file": "nft_connlimit.c",
+      "line": 188
+    },
+    {
       "name": "nft_connlimit_clone",
       "file": "nft_connlimit.c",
-      "line": 213
+      "line": 212
     },
     {
       "name": "nft_connlimit_gc",
       "file": "nft_connlimit.c",
-      "line": 238
+      "line": 237
     },
     {
       "name": "nft_connlimit_module_init",
       "file": "nft_connlimit.c",
-      "line": 273
+      "line": 272
     },
     {
       "name": "nft_connlimit_module_exit",
       "file": "nft_connlimit.c",
-      "line": 291
+      "line": 290
     }
   ],
   "nft_counter.c": [
     {
       "name": "be64_to_cpu",
       "file": "nft_counter.c",
-      "line": 76
+      "line": 73
     },
     {
       "name": "nft_counter_do_destroy",
       "file": "nft_counter.c",
-      "line": 96
+      "line": 93
     },
     {
       "name": "nft_counter_do_dump",
       "file": "nft_counter.c",
-      "line": 179
+      "line": 170
+    },
+    {
+      "name": "nft_counter_dump",
+      "file": "nft_counter.c",
+      "line": 204
     },
     {
       "name": "nft_counter_clone",
       "file": "nft_counter.c",
-      "line": 238
+      "line": 228
     },
     {
       "name": "nft_counter_init_seqcount",
       "file": "nft_counter.c",
-      "line": 286
+      "line": 278
     }
   ],
   "nft_ct.c": [
     {
-      "name": "strscpy_pad",
+      "name": "strncpy",
       "file": "nft_ct.c",
-      "line": 111
+      "line": 121
     },
     {
       "name": "memcpy",
       "file": "nft_ct.c",
-      "line": 132
+      "line": 142
     },
     {
       "name": "nft_reg_store8",
       "file": "nft_ct.c",
-      "line": 155
+      "line": 165
+    },
+    {
+      "name": "refcount_inc",
+      "file": "nft_ct.c",
+      "line": 264
     },
     {
       "name": "nf_ct_zone_add",
       "file": "nft_ct.c",
-      "line": 256
+      "line": 265
     },
     {
       "name": "nft_ct_tmpl_put_pcpu",
       "file": "nft_ct.c",
-      "line": 344
+      "line": 351
     },
     {
       "name": "nft_ct_tmpl_alloc_pcpu",
       "file": "nft_ct.c",
-      "line": 358
+      "line": 365
     },
     {
       "name": "__nft_ct_set_destroy",
       "file": "nft_ct.c",
-      "line": 519
+      "line": 522
     },
     {
       "name": "mutex_lock",
       "file": "nft_ct.c",
-      "line": 570
+      "line": 573
+    },
+    {
+      "name": "nft_ct_get_dump",
+      "file": "nft_ct.c",
+      "line": 644
+    },
+    {
+      "name": "nft_ct_set_dump",
+      "file": "nft_ct.c",
+      "line": 706
     },
     {
       "name": "ERR_PTR",
       "file": "nft_ct.c",
-      "line": 801
+      "line": 803
     },
     {
       "name": "nft_ct_module_init",
       "file": "nft_ct.c",
-      "line": 1386
+      "line": 1339
     },
     {
       "name": "nft_ct_module_exit",
       "file": "nft_ct.c",
-      "line": 1427
+      "line": 1380
     }
   ],
   "nft_dup_netdev.c": [
     {
+      "name": "nft_dup_netdev_dump",
+      "file": "nft_dup_netdev.c",
+      "line": 47
+    },
+    {
       "name": "nft_dup_netdev_offload_action",
       "file": "nft_dup_netdev.c",
-      "line": 71
+      "line": 70
     },
     {
       "name": "nft_dup_netdev_module_init",
       "file": "nft_dup_netdev.c",
-      "line": 97
+      "line": 96
     },
     {
       "name": "nft_dup_netdev_module_exit",
       "file": "nft_dup_netdev.c",
-      "line": 102
+      "line": 101
     }
   ],
   "nft_dynset.c": [
     {
       "name": "nft_set_ext_exists",
       "file": "nft_dynset.c",
-      "line": 97
-    },
-    {
-      "name": "READ_ONCE",
-      "file": "nft_dynset.c",
-      "line": 98
+      "line": 96
     },
     {
       "name": "nft_dynset_ext_add_expr",
       "file": "nft_dynset.c",
-      "line": 114
+      "line": 112
     },
     {
       "name": "ERR_PTR",
       "file": "nft_dynset.c",
-      "line": 146
+      "line": 144
     },
     {
       "name": "nla_for_each_nested",
       "file": "nft_dynset.c",
-      "line": 267
+      "line": 262
+    },
+    {
+      "name": "nft_dynset_dump",
+      "file": "nft_dynset.c",
+      "line": 360
     },
     {
       "name": "nf_jiffies64_to_msecs",
       "file": "nft_dynset.c",
-      "line": 384
+      "line": 376
     }
   ],
   "nft_exthdr.c": [
@@ -7565,41 +7023,46 @@
       "line": 29
     },
     {
-      "name": "nft_skb_copy_to_reg",
-      "file": "nft_exthdr.c",
-      "line": 38
-    },
-    {
       "name": "nft_reg_store8",
       "file": "nft_exthdr.c",
-      "line": 60
+      "line": 52
     },
     {
       "name": "nft_exthdr_dump_common",
       "file": "nft_exthdr.c",
-      "line": 657
+      "line": 561
+    },
+    {
+      "name": "nft_exthdr_dump",
+      "file": "nft_exthdr.c",
+      "line": 579
+    },
+    {
+      "name": "nft_exthdr_dump_set",
+      "file": "nft_exthdr.c",
+      "line": 589
+    },
+    {
+      "name": "nft_exthdr_dump_strip",
+      "file": "nft_exthdr.c",
+      "line": 599
     },
     {
       "name": "nft_expr_reduce_bitwise",
       "file": "nft_exthdr.c",
-      "line": 729
+      "line": 630
     },
     {
       "name": "ERR_PTR",
       "file": "nft_exthdr.c",
-      "line": 807
+      "line": 697
     }
   ],
   "nft_fib.c": [
     {
-      "name": "nft_fib_validate",
-      "file": "nft_fib.c",
-      "line": 29
-    },
-    {
       "name": "nft_fib_dump",
       "file": "nft_fib.c",
-      "line": 119
+      "line": 121
     }
   ],
   "nft_fib_inet.c": [
@@ -7630,86 +7093,96 @@
     {
       "name": "nft_xmit_type",
       "file": "nft_flow_offload.c",
-      "line": 23
+      "line": 22
     },
     {
       "name": "nft_is_valid_ether_device",
       "file": "nft_flow_offload.c",
-      "line": 40
+      "line": 39
     },
     {
       "name": "dev_fill_forward_path",
       "file": "nft_flow_offload.c",
-      "line": 77
+      "line": 76
     },
     {
       "name": "memcpy",
       "file": "nft_flow_offload.c",
-      "line": 137
+      "line": 136
     },
     {
       "name": "nft_flow_offload_skip",
       "file": "nft_flow_offload.c",
-      "line": 275
-    },
-    {
-      "name": "flow_offload_ct_tcp",
-      "file": "nft_flow_offload.c",
-      "line": 292
+      "line": 269
     },
     {
       "name": "nft_chain_validate_hooks",
       "file": "nft_flow_offload.c",
-      "line": 399
+      "line": 383
+    },
+    {
+      "name": "nft_flow_offload_dump",
+      "file": "nft_flow_offload.c",
+      "line": 436
     },
     {
       "name": "nft_flow_offload_module_init",
       "file": "nft_flow_offload.c",
-      "line": 507
+      "line": 488
     },
     {
       "name": "nft_flow_offload_module_exit",
       "file": "nft_flow_offload.c",
-      "line": 527
+      "line": 508
     }
   ],
   "nft_fwd_netdev.c": [
     {
+      "name": "nft_fwd_netdev_dump",
+      "file": "nft_fwd_netdev.c",
+      "line": 59
+    },
+    {
       "name": "nft_fwd_netdev_offload_action",
       "file": "nft_fwd_netdev.c",
-      "line": 83
+      "line": 82
+    },
+    {
+      "name": "nft_fwd_neigh_dump",
+      "file": "nft_fwd_netdev.c",
+      "line": 189
     },
     {
       "name": "ERR_PTR",
       "file": "nft_fwd_netdev.c",
-      "line": 245
+      "line": 244
     },
     {
       "name": "nft_fwd_netdev_module_init",
       "file": "nft_fwd_netdev.c",
-      "line": 257
+      "line": 256
     },
     {
       "name": "nft_fwd_netdev_module_exit",
       "file": "nft_fwd_netdev.c",
-      "line": 262
+      "line": 261
     }
   ],
   "nft_hash.c": [
     {
       "name": "ERR_PTR",
       "file": "nft_hash.c",
-      "line": 260
+      "line": 259
     },
     {
       "name": "nft_hash_module_init",
       "file": "nft_hash.c",
-      "line": 271
+      "line": 270
     },
     {
       "name": "nft_hash_module_exit",
       "file": "nft_hash.c",
-      "line": 276
+      "line": 275
     }
   ],
   "nft_immediate.c": [
@@ -7719,43 +7192,26 @@
       "line": 32
     },
     {
-      "name": "nft_use_dec",
+      "name": "nft_immediate_dump",
       "file": "nft_immediate.c",
-      "line": 218
+      "line": 150
     },
     {
       "name": "nft_immediate_offload_action",
       "file": "nft_immediate.c",
-      "line": 313
-    }
-  ],
-  "nft_inner.c": [
-    {
-      "name": "DEFINE_PER_CPU",
-      "file": "nft_inner.c",
-      "line": 31
-    },
-    {
-      "name": "htons",
-      "file": "nft_inner.c",
-      "line": 123
-    },
-    {
-      "name": "nft_inner_parse_tunhdr",
-      "file": "nft_inner.c",
-      "line": 223
-    },
-    {
-      "name": "nft_inner_parse",
-      "file": "nft_inner.c",
-      "line": 301
+      "line": 232
     }
   ],
   "nft_last.c": [
     {
+      "name": "nft_last_dump",
+      "file": "nft_last.c",
+      "line": 68
+    },
+    {
       "name": "nft_last_clone",
       "file": "nft_last.c",
-      "line": 105
+      "line": 104
     }
   ],
   "nft_limit.c": [
@@ -7765,24 +7221,39 @@
       "line": 32
     },
     {
+      "name": "nft_limit_pkts_dump",
+      "file": "nft_limit.c",
+      "line": 196
+    },
+    {
+      "name": "nft_limit_pkts_clone",
+      "file": "nft_limit.c",
+      "line": 211
+    },
+    {
+      "name": "nft_limit_bytes_clone",
+      "file": "nft_limit.c",
+      "line": 269
+    },
+    {
       "name": "nft_limit_clone",
       "file": "nft_limit.c",
-      "line": 291
+      "line": 274
     },
     {
       "name": "ERR_PTR",
       "file": "nft_limit.c",
-      "line": 318
+      "line": 301
     },
     {
       "name": "nft_limit_module_init",
       "file": "nft_limit.c",
-      "line": 453
+      "line": 436
     },
     {
       "name": "nft_limit_module_exit",
       "file": "nft_limit.c",
-      "line": 471
+      "line": 454
     }
   ],
   "nft_log.c": [
@@ -7817,78 +7288,73 @@
       "line": 178
     },
     {
+      "name": "nft_log_dump",
+      "file": "nft_log.c",
+      "line": 244
+    },
+    {
       "name": "htonl",
       "file": "nft_log.c",
-      "line": 270
+      "line": 269
     },
     {
       "name": "nft_log_module_init",
       "file": "nft_log.c",
-      "line": 305
+      "line": 304
     },
     {
       "name": "nft_log_module_exit",
       "file": "nft_log.c",
-      "line": 310
+      "line": 309
     }
   ],
   "nft_lookup.c": [
     {
-      "name": "nft_base_seq",
+      "name": "nft_lookup_dump",
       "file": "nft_lookup.c",
-      "line": 58
-    },
-    {
-      "name": "nft_lookup_should_retry",
-      "file": "nft_lookup.c",
-      "line": 64
+      "line": 181
     }
   ],
   "nft_masq.c": [
     {
-      "name": "NLA_POLICY_MASK",
+      "name": "nft_masq_dump",
       "file": "nft_masq.c",
-      "line": 24
+      "line": 76
     },
     {
       "name": "nla_put_be32",
       "file": "nft_masq.c",
-      "line": 79
-    },
-    {
-      "name": "nft_reg_load16",
-      "file": "nft_masq.c",
-      "line": 109
+      "line": 81
     },
     {
       "name": "nft_masq_module_init_ipv6",
       "file": "nft_masq.c",
-      "line": 186
+      "line": 191
     },
     {
       "name": "nft_masq_module_exit_ipv6",
       "file": "nft_masq.c",
-      "line": 191
+      "line": 196
     },
     {
       "name": "nft_masq_module_init_inet",
       "file": "nft_masq.c",
-      "line": 228
+      "line": 247
     },
     {
       "name": "nft_masq_module_exit_inet",
       "file": "nft_masq.c",
-      "line": 233
+      "line": 252
     },
     {
       "name": "nft_masq_module_init",
       "file": "nft_masq.c",
-      "line": 242
+      "line": 261
     },
     {
       "name": "nft_masq_module_exit",
       "file": "nft_masq.c",
-      "line": 274
+      "line": 293
     }
   ],
   "nft_meta.c": [
@@ -7948,41 +7414,56 @@
       "line": 557
     },
     {
+      "name": "nft_meta_set_dump",
+      "file": "nft_meta.c",
+      "line": 687
+    },
+    {
+      "name": "ERR_PTR",
+      "file": "nft_meta.c",
+      "line": 831
+    },
+    {
       "name": "nft_secmark_compute_secid",
       "file": "nft_meta.c",
-      "line": 916
+      "line": 852
     },
     {
       "name": "nft_secmark_obj_destroy",
       "file": "nft_meta.c",
-      "line": 988
+      "line": 924
     }
   ],
   "nft_nat.c": [
     {
+      "name": "nft_nat_dump",
+      "file": "nft_nat.c",
+      "line": 258
+    },
+    {
       "name": "nft_nat_eval",
       "file": "nft_nat.c",
-      "line": 343
+      "line": 340
     },
     {
       "name": "nft_nat_inet_module_init",
       "file": "nft_nat.c",
-      "line": 366
+      "line": 363
     },
     {
       "name": "nft_nat_inet_module_exit",
       "file": "nft_nat.c",
-      "line": 371
+      "line": 368
     },
     {
       "name": "nft_nat_module_init",
       "file": "nft_nat.c",
-      "line": 380
+      "line": 377
     },
     {
       "name": "nft_nat_module_exit",
       "file": "nft_nat.c",
-      "line": 394
+      "line": 391
     }
   ],
   "nft_numgen.c": [
@@ -7992,179 +7473,231 @@
       "line": 24
     },
     {
+      "name": "nft_ng_inc_dump",
+      "file": "nft_numgen.c",
+      "line": 115
+    },
+    {
       "name": "nft_ng_random_gen",
       "file": "nft_numgen.c",
-      "line": 138
+      "line": 137
+    },
+    {
+      "name": "nft_ng_random_dump",
+      "file": "nft_numgen.c",
+      "line": 171
     },
     {
       "name": "ERR_PTR",
       "file": "nft_numgen.c",
-      "line": 230
+      "line": 228
     },
     {
       "name": "nft_ng_module_init",
       "file": "nft_numgen.c",
-      "line": 241
+      "line": 239
     },
     {
       "name": "nft_ng_module_exit",
       "file": "nft_numgen.c",
-      "line": 246
+      "line": 244
     }
   ],
   "nft_objref.c": [
     {
+      "name": "nft_objref_dump",
+      "file": "nft_objref.c",
+      "line": 50
+    },
+    {
+      "name": "nft_objref_map_dump",
+      "file": "nft_objref.c",
+      "line": 159
+    },
+    {
       "name": "ERR_PTR",
       "file": "nft_objref.c",
-      "line": 224
+      "line": 223
+    },
+    {
+      "name": "nft_objref_module_init",
+      "file": "nft_objref.c",
+      "line": 244
+    },
+    {
+      "name": "nft_objref_module_exit",
+      "file": "nft_objref.c",
+      "line": 249
     }
   ],
   "nft_osf.c": [
     {
-      "name": "strscpy_pad",
+      "name": "strncpy",
       "file": "nft_osf.c",
       "line": 48
     },
     {
+      "name": "nft_osf_dump",
+      "file": "nft_osf.c",
+      "line": 95
+    },
+    {
       "name": "nft_osf_module_init",
       "file": "nft_osf.c",
-      "line": 173
+      "line": 178
     },
     {
       "name": "nft_osf_module_exit",
       "file": "nft_osf.c",
-      "line": 178
+      "line": 183
     }
   ],
   "nft_payload.c": [
     {
       "name": "__nft_payload_inner_offset",
       "file": "nft_payload.c",
-      "line": 74
+      "line": 82
     },
     {
       "name": "nft_payload_inner_offset",
       "file": "nft_payload.c",
-      "line": 139
+      "line": 112
     },
     {
-      "name": "nft_payload_need_vlan_adjust",
+      "name": "nft_payload_dump",
       "file": "nft_payload.c",
-      "line": 148
+      "line": 198
     },
     {
       "name": "memset",
       "file": "nft_payload.c",
-      "line": 286
+      "line": 246
     },
     {
       "name": "nft_csum_replace",
       "file": "nft_payload.c",
-      "line": 685
+      "line": 555
     },
     {
       "name": "nft_payload_udp_checksum",
       "file": "nft_payload.c",
-      "line": 692
+      "line": 562
     },
     {
       "name": "nft_payload_csum_sctp",
       "file": "nft_payload.c",
-      "line": 732
+      "line": 602
     },
     {
-      "name": "offsetof",
+      "name": "nft_payload_set_dump",
       "file": "nft_payload.c",
-      "line": 828
-    },
-    {
-      "name": "ntohs",
-      "file": "nft_payload.c",
-      "line": 835
+      "line": 790
     },
     {
       "name": "ERR_PTR",
       "file": "nft_payload.c",
-      "line": 1050
+      "line": 848
     }
   ],
   "nft_queue.c": [
     {
       "name": "nft_chain_validate_hooks",
       "file": "nft_queue.c",
-      "line": 92
+      "line": 93
+    },
+    {
+      "name": "nft_queue_dump",
+      "file": "nft_queue.c",
+      "line": 155
     },
     {
       "name": "ERR_PTR",
       "file": "nft_queue.c",
-      "line": 222
+      "line": 221
     },
     {
       "name": "nft_queue_module_init",
       "file": "nft_queue.c",
-      "line": 233
+      "line": 232
     },
     {
       "name": "nft_queue_module_exit",
       "file": "nft_queue.c",
-      "line": 238
+      "line": 237
     }
   ],
   "nft_quota.c": [
     {
       "name": "nft_quota_invert",
       "file": "nft_quota.c",
-      "line": 34
+      "line": 28
     },
     {
       "name": "nla_put_be32",
       "file": "nft_quota.c",
-      "line": 160
+      "line": 154
+    },
+    {
+      "name": "nft_quota_dump",
+      "file": "nft_quota.c",
+      "line": 220
     },
     {
       "name": "nft_quota_clone",
       "file": "nft_quota.c",
-      "line": 242
+      "line": 235
     },
     {
       "name": "nft_quota_module_init",
       "file": "nft_quota.c",
-      "line": 280
+      "line": 269
     },
     {
       "name": "nft_quota_module_exit",
       "file": "nft_quota.c",
-      "line": 298
+      "line": 287
+    }
+  ],
+  "nft_range.c": [
+    {
+      "name": "nft_range_dump",
+      "file": "nft_range.c",
+      "line": 114
     }
   ],
   "nft_redir.c": [
     {
-      "name": "nft_reg_load16",
+      "name": "nft_redir_dump",
       "file": "nft_redir.c",
-      "line": 114
+      "line": 78
     },
     {
       "name": "nft_redir_module_init_inet",
       "file": "nft_redir.c",
-      "line": 218
+      "line": 242
     },
     {
       "name": "nft_register_expr",
       "file": "nft_redir.c",
-      "line": 220
+      "line": 244
     },
     {
       "name": "nft_redir_module_init",
       "file": "nft_redir.c",
-      "line": 226
+      "line": 250
     },
     {
       "name": "nft_redir_module_exit",
       "file": "nft_redir.c",
-      "line": 253
+      "line": 277
     }
   ],
   "nft_reject.c": [
+    {
+      "name": "nft_reject_dump",
+      "file": "nft_reject.c",
+      "line": 72
+    },
     {
       "name": "nft_reject_icmp_code",
       "file": "nft_reject.c",
@@ -8180,12 +7713,12 @@
     {
       "name": "nft_reject_inet_module_init",
       "file": "nft_reject_inet.c",
-      "line": 94
+      "line": 95
     },
     {
       "name": "nft_reject_inet_module_exit",
       "file": "nft_reject_inet.c",
-      "line": 99
+      "line": 100
     }
   ],
   "nft_reject_netdev.c": [
@@ -8207,12 +7740,12 @@
     {
       "name": "nft_reject_netdev_module_init",
       "file": "nft_reject_netdev.c",
-      "line": 173
+      "line": 174
     },
     {
       "name": "nft_reject_netdev_module_exit",
       "file": "nft_reject_netdev.c",
-      "line": 178
+      "line": 179
     }
   ],
   "nft_rt.c": [
@@ -8222,43 +7755,43 @@
       "line": 21
     },
     {
-      "name": "nft_rt_validate",
-      "file": "nft_rt.c",
-      "line": 163
-    },
-    {
       "name": "nft_chain_validate_hooks",
       "file": "nft_rt.c",
-      "line": 188
+      "line": 184
     }
   ],
   "nft_set_bitmap.c": [
     {
       "name": "nft_bitmap_size",
       "file": "nft_set_bitmap.c",
-      "line": 247
+      "line": 244
     },
     {
       "name": "nft_bitmap_total_size",
       "file": "nft_set_bitmap.c",
-      "line": 252
+      "line": 249
+    },
+    {
+      "name": "nft_bitmap_destroy",
+      "file": "nft_set_bitmap.c",
+      "line": 274
     }
   ],
   "nft_set_hash.c": [
     {
       "name": "nft_rhash_key",
       "file": "nft_set_hash.c",
-      "line": 44
+      "line": 40
     },
     {
       "name": "nft_rhash_obj",
       "file": "nft_set_hash.c",
-      "line": 51
+      "line": 47
     },
     {
       "name": "PTR_ERR",
       "file": "nft_set_hash.c",
-      "line": 186
+      "line": 177
     },
     {
       "name": "nft_rhash_gc",
@@ -8268,255 +7801,220 @@
     {
       "name": "nft_rhash_gc_init",
       "file": "nft_set_hash.c",
-      "line": 410
+      "line": 373
     },
     {
       "name": "nft_rhash_elem_destroy",
       "file": "nft_set_hash.c",
-      "line": 447
+      "line": 403
+    },
+    {
+      "name": "nft_rhash_destroy",
+      "file": "nft_set_hash.c",
+      "line": 408
     },
     {
       "name": "nft_hash_buckets",
       "file": "nft_set_hash.c",
-      "line": 472
-    },
-    {
-      "name": "nft_set_ext_key",
-      "file": "nft_set_hash.c",
-      "line": 594
+      "line": 421
     },
     {
       "name": "nft_set_elem_active",
       "file": "nft_set_hash.c",
-      "line": 595
+      "line": 465
+    },
+    {
+      "name": "nft_set_ext_key",
+      "file": "nft_set_hash.c",
+      "line": 544
+    },
+    {
+      "name": "hlist_for_each_entry_rcu",
+      "file": "nft_set_hash.c",
+      "line": 610
+    },
+    {
+      "name": "nft_hash_destroy",
+      "file": "nft_set_hash.c",
+      "line": 646
     },
     {
       "name": "hlist_for_each_entry_safe",
       "file": "nft_set_hash.c",
-      "line": 701
+      "line": 654
     }
   ],
   "nft_set_pipapo.c": [
     {
-      "name": "memcpy",
+      "name": "pipapo_resize",
       "file": "nft_set_pipapo.c",
-      "line": 622
+      "line": 620
     },
     {
       "name": "pipapo_lt_bits_adjust",
       "file": "nft_set_pipapo.c",
-      "line": 883
+      "line": 834
     },
     {
       "name": "NFT_PIPAPO_LT_ALIGN",
       "file": "nft_set_pipapo.c",
-      "line": 925
+      "line": 874
     },
     {
       "name": "pipapo_bucket_set",
       "file": "nft_set_pipapo.c",
-      "line": 976
+      "line": 923
     },
     {
       "name": "pipapo_step_diff",
       "file": "nft_set_pipapo.c",
-      "line": 1007
+      "line": 954
     },
     {
       "name": "pipapo_base_sum",
       "file": "nft_set_pipapo.c",
-      "line": 1054
-    },
-    {
-      "name": "pipapo_free_scratch",
-      "file": "nft_set_pipapo.c",
-      "line": 1159
-    },
-    {
-      "name": "nft_pipapo_transaction_mutex_held",
-      "file": "nft_set_pipapo.c",
-      "line": 1229
+      "line": 1001
     },
     {
       "name": "pipapo_rules_same_key",
       "file": "nft_set_pipapo.c",
-      "line": 1514
+      "line": 1385
     },
     {
       "name": "NFT_PIPAPO_BUCKETS",
       "file": "nft_set_pipapo.c",
-      "line": 1637
+      "line": 1507
     },
     {
       "name": "pipapo_gc",
       "file": "nft_set_pipapo.c",
-      "line": 1674
+      "line": 1537
     },
     {
       "name": "nft_pipapo_for_each_field",
       "file": "nft_set_pipapo.c",
-      "line": 1695
+      "line": 1551
     },
     {
       "name": "pipapo_free_fields",
       "file": "nft_set_pipapo.c",
-      "line": 1741
-    },
-    {
-      "name": "pipapo_free_match",
-      "file": "nft_set_pipapo.c",
-      "line": 1752
+      "line": 1592
     },
     {
       "name": "pipapo_reclaim_match",
       "file": "nft_set_pipapo.c",
-      "line": 1769
+      "line": 1607
     },
     {
-      "name": "nft_pipapo_commit",
+      "name": "pipapo_commit",
       "file": "nft_set_pipapo.c",
-      "line": 1788
+      "line": 1638
     },
     {
-      "name": "nft_pipapo_abort",
+      "name": "nft_pipapo_destroy",
       "file": "nft_set_pipapo.c",
-      "line": 1807
-    },
-    {
-      "name": "nft_set_pipapo_match_destroy",
-      "file": "nft_set_pipapo.c",
-      "line": 2314
+      "line": 2158
     },
     {
       "name": "nft_pipapo_gc_init",
       "file": "nft_set_pipapo.c",
-      "line": 2333
+      "line": 2209
     }
   ],
   "nft_set_pipapo_avx2.c": [
     {
       "name": "nft_pipapo_avx2_prepare",
       "file": "nft_set_pipapo_avx2.c",
-      "line": 80
+      "line": 83
     },
     {
       "name": "nft_pipapo_avx2_fill",
       "file": "nft_set_pipapo_avx2.c",
-      "line": 99
+      "line": 102
     },
     {
       "name": "NFT_PIPAPO_AVX2_BUCKET_LOAD4",
       "file": "nft_set_pipapo_avx2.c",
-      "line": 228
+      "line": 230
     },
     {
       "name": "NFT_PIPAPO_AVX2_AND",
       "file": "nft_set_pipapo_avx2.c",
-      "line": 230
+      "line": 232
     },
     {
       "name": "NFT_PIPAPO_AVX2_BUCKET_LOAD8",
       "file": "nft_set_pipapo_avx2.c",
-      "line": 689
+      "line": 686
     },
     {
-      "name": "pipapo_resmap_init",
+      "name": "memset",
       "file": "nft_set_pipapo_avx2.c",
-      "line": 1066
-    },
-    {
-      "name": "pipapo_resmap_init_avx2",
-      "file": "nft_set_pipapo_avx2.c",
-      "line": 1123
+      "line": 1055
     },
     {
       "name": "NFT_SET_PIPAPO_AVX2_LOOKUP",
       "file": "nft_set_pipapo_avx2.c",
-      "line": 1209
+      "line": 1169
     }
   ],
   "nft_set_rbtree.c": [
     {
       "name": "nft_rbtree_interval_end",
       "file": "nft_set_rbtree.c",
-      "line": 31
+      "line": 30
     },
     {
       "name": "nft_rbtree_interval_start",
       "file": "nft_set_rbtree.c",
-      "line": 37
-    },
-    {
-      "name": "nft_rbtree_elem_expired",
-      "file": "nft_set_rbtree.c",
-      "line": 50
+      "line": 36
     },
     {
       "name": "nft_set_elem_active",
       "file": "nft_set_rbtree.c",
-      "line": 363
+      "line": 100
     },
     {
-      "name": "nft_rbtree_erase",
+      "name": "nft_set_ext_key",
       "file": "nft_set_rbtree.c",
-      "line": 508
+      "line": 288
     },
     {
       "name": "nft_rbtree_gc",
       "file": "nft_set_rbtree.c",
-      "line": 621
+      "line": 497
     },
     {
-      "name": "nft_rbtree_commit",
+      "name": "nft_set_gc_batch_add",
       "file": "nft_set_rbtree.c",
-      "line": 736
+      "line": 531
     },
     {
-      "name": "nft_rbtree_gc_init",
+      "name": "nft_rbtree_destroy",
       "file": "nft_set_rbtree.c",
-      "line": 744
-    },
-    {
-      "name": "nft_rbtree_ksize",
-      "file": "nft_set_rbtree.c",
-      "line": 754
-    },
-    {
-      "name": "nft_rbtree_usize",
-      "file": "nft_set_rbtree.c",
-      "line": 760
-    },
-    {
-      "name": "nft_rbtree_adjust_maxsize",
-      "file": "nft_set_rbtree.c",
-      "line": 768
+      "line": 585
     }
   ],
   "nft_socket.c": [
     {
-      "name": "nft_socket_cgroup_subtree_level",
-      "file": "nft_socket.c",
-      "line": 59
-    },
-    {
       "name": "nft_reg_store8",
       "file": "nft_socket.c",
-      "line": 129
+      "line": 106
     },
     {
       "name": "sock_gen_put",
       "file": "nft_socket.c",
-      "line": 161
+      "line": 137
     },
     {
       "name": "nft_socket_module_init",
       "file": "nft_socket.c",
-      "line": 310
+      "line": 270
     },
     {
       "name": "nft_socket_module_exit",
       "file": "nft_socket.c",
-      "line": 315
+      "line": 275
     }
   ],
   "nft_synproxy.c": [
@@ -8543,34 +8041,39 @@
     {
       "name": "nft_synproxy_do_destroy",
       "file": "nft_synproxy.c",
-      "line": 207
+      "line": 208
     },
     {
       "name": "nft_synproxy_do_dump",
       "file": "nft_synproxy.c",
-      "line": 228
+      "line": 230
+    },
+    {
+      "name": "nft_synproxy_dump",
+      "file": "nft_synproxy.c",
+      "line": 275
     },
     {
       "name": "nft_synproxy_module_init",
       "file": "nft_synproxy.c",
-      "line": 365
+      "line": 362
     },
     {
       "name": "nft_synproxy_module_exit",
       "file": "nft_synproxy.c",
-      "line": 384
+      "line": 381
     }
   ],
   "nft_tproxy.c": [
     {
       "name": "nft_tproxy_module_init",
       "file": "nft_tproxy.c",
-      "line": 346
+      "line": 342
     },
     {
       "name": "nft_tproxy_module_exit",
       "file": "nft_tproxy.c",
-      "line": 351
+      "line": 347
     }
   ],
   "nft_tunnel.c": [
@@ -8587,27 +8090,27 @@
     {
       "name": "nft_tunnel_ip_dump",
       "file": "nft_tunnel.c",
-      "line": 541
+      "line": 537
     },
     {
       "name": "nla_nest_end",
       "file": "nft_tunnel.c",
-      "line": 560
+      "line": 556
     },
     {
       "name": "htonl",
       "file": "nft_tunnel.c",
-      "line": 595
+      "line": 591
     },
     {
       "name": "nft_tunnel_module_init",
       "file": "nft_tunnel.c",
-      "line": 727
+      "line": 722
     },
     {
       "name": "nft_tunnel_module_exit",
       "file": "nft_tunnel.c",
-      "line": 742
+      "line": 737
     }
   ],
   "nft_xfrm.c": [
@@ -8617,26 +8120,26 @@
       "line": 98
     },
     {
-      "name": "nft_xfrm_validate",
-      "file": "nft_xfrm.c",
-      "line": 233
-    },
-    {
       "name": "nft_xfrm_module_init",
       "file": "nft_xfrm.c",
-      "line": 307
+      "line": 302
     },
     {
       "name": "nft_xfrm_module_exit",
       "file": "nft_xfrm.c",
-      "line": 312
+      "line": 307
     }
   ],
   "utils.c": [
     {
-      "name": "nf_ip6_check_hbh_len",
+      "name": "nf_ip_reroute",
       "file": "utils.c",
-      "line": 183
+      "line": 182
+    },
+    {
+      "name": "nf_reroute",
+      "file": "utils.c",
+      "line": 201
     }
   ],
   "x_tables.c": [
@@ -8723,112 +8226,107 @@
     {
       "name": "xt_free_table_info",
       "file": "x_tables.c",
-      "line": 1203
+      "line": 1202
     },
     {
       "name": "mutex_unlock",
       "file": "x_tables.c",
-      "line": 1259
+      "line": 1258
     },
     {
       "name": "xt_table_unlock",
       "file": "x_tables.c",
-      "line": 1300
+      "line": 1299
     },
     {
       "name": "xt_compat_lock",
       "file": "x_tables.c",
-      "line": 1307
+      "line": 1306
     },
     {
       "name": "xt_compat_unlock",
       "file": "x_tables.c",
-      "line": 1313
+      "line": 1312
     },
     {
       "name": "xt_jumpstack_alloc",
       "file": "x_tables.c",
-      "line": 1327
+      "line": 1325
     },
     {
       "name": "xt_table_seq_stop",
       "file": "x_tables.c",
-      "line": 1544
+      "line": 1541
     },
     {
       "name": "xt_table_seq_show",
       "file": "x_tables.c",
-      "line": 1551
+      "line": 1548
     },
     {
       "name": "xt_mttg_seq_stop",
       "file": "x_tables.c",
-      "line": 1637
+      "line": 1634
     },
     {
       "name": "xt_match_seq_show",
       "file": "x_tables.c",
-      "line": 1662
+      "line": 1659
     },
     {
       "name": "xt_target_seq_show",
       "file": "x_tables.c",
-      "line": 1696
+      "line": 1693
     },
     {
       "name": "int",
       "file": "x_tables.c",
-      "line": 1765
+      "line": 1762
     },
     {
       "name": "xt_unregister_template",
       "file": "x_tables.c",
-      "line": 1795
+      "line": 1792
     },
     {
       "name": "xt_proto_init",
       "file": "x_tables.c",
-      "line": 1816
+      "line": 1813
     },
     {
       "name": "xt_proto_fini",
       "file": "x_tables.c",
-      "line": 1882
+      "line": 1879
     },
     {
       "name": "xt_percpu_counter_free",
       "file": "x_tables.c",
-      "line": 1949
+      "line": 1945
     },
     {
       "name": "xt_net_init",
       "file": "x_tables.c",
-      "line": 1959
+      "line": 1954
     },
     {
       "name": "xt_net_exit",
       "file": "x_tables.c",
-      "line": 1969
+      "line": 1964
     },
     {
       "name": "WARN_ON_ONCE",
       "file": "x_tables.c",
-      "line": 1975
+      "line": 1970
     },
     {
       "name": "xt_init",
       "file": "x_tables.c",
-      "line": 1985
-    },
-    {
-      "name": "for_each_possible_cpu",
-      "file": "x_tables.c",
-      "line": 1991
+      "line": 1980
     },
     {
       "name": "xt_fini",
       "file": "x_tables.c",
-      "line": 2016
+      "line": 2009
     }
   ],
   "xt_AUDIT.c": [
@@ -8867,24 +8365,24 @@
     {
       "name": "checksum_tg_init",
       "file": "xt_CHECKSUM.c",
-      "line": 89
+      "line": 76
     },
     {
       "name": "checksum_tg_exit",
       "file": "xt_CHECKSUM.c",
-      "line": 94
+      "line": 81
     }
   ],
   "xt_CLASSIFY.c": [
     {
       "name": "classify_tg_init",
       "file": "xt_CLASSIFY.c",
-      "line": 71
+      "line": 59
     },
     {
       "name": "classify_tg_exit",
       "file": "xt_CLASSIFY.c",
-      "line": 76
+      "line": 64
     }
   ],
   "xt_CONNSECMARK.c": [
@@ -8916,12 +8414,12 @@
     {
       "name": "connsecmark_tg_init",
       "file": "xt_CONNSECMARK.c",
-      "line": 142
+      "line": 128
     },
     {
       "name": "connsecmark_tg_exit",
       "file": "xt_CONNSECMARK.c",
-      "line": 147
+      "line": 133
     }
   ],
   "xt_CT.c": [
@@ -8983,51 +8481,12 @@
     {
       "name": "xt_ct_tg_init",
       "file": "xt_CT.c",
-      "line": 419
+      "line": 375
     },
     {
       "name": "xt_ct_tg_exit",
       "file": "xt_CT.c",
-      "line": 424
-    }
-  ],
-  "xt_DSCP.c": [
-    {
-      "name": "dscp_tg_check",
-      "file": "xt_DSCP.c",
-      "line": 62
-    },
-    {
-      "name": "dscp_tg_init",
-      "file": "xt_DSCP.c",
-      "line": 150
-    },
-    {
-      "name": "dscp_tg_exit",
-      "file": "xt_DSCP.c",
-      "line": 155
-    }
-  ],
-  "xt_HL.c": [
-    {
-      "name": "ttl_tg_check",
-      "file": "xt_HL.c",
-      "line": 101
-    },
-    {
-      "name": "hl_tg6_check",
-      "file": "xt_HL.c",
-      "line": 112
-    },
-    {
-      "name": "hl_tg_init",
-      "file": "xt_HL.c",
-      "line": 146
-    },
-    {
-      "name": "hl_tg_exit",
-      "file": "xt_HL.c",
-      "line": 151
+      "line": 391
     }
   ],
   "xt_HMARK.c": [
@@ -9079,49 +8538,54 @@
       "line": 101
     },
     {
-      "name": "idletimer_tg_alarmproc",
-      "file": "xt_IDLETIMER.c",
-      "line": 110
-    },
-    {
       "name": "idletimer_check_sysfs_name",
       "file": "xt_IDLETIMER.c",
-      "line": 118
+      "line": 120
     },
     {
       "name": "idletimer_tg_create",
       "file": "xt_IDLETIMER.c",
-      "line": 134
+      "line": 136
     },
     {
       "name": "idletimer_tg_create_v1",
       "file": "xt_IDLETIMER.c",
-      "line": 183
+      "line": 185
     },
     {
       "name": "alarm_start_relative",
       "file": "xt_IDLETIMER.c",
-      "line": 228
+      "line": 230
     },
     {
       "name": "idletimer_tg_helper",
       "file": "xt_IDLETIMER.c",
-      "line": 284
+      "line": 286
     },
     {
       "name": "idletimer_tg_checkentry",
       "file": "xt_IDLETIMER.c",
-      "line": 304
+      "line": 306
     },
     {
       "name": "idletimer_tg_checkentry_v1",
       "file": "xt_IDLETIMER.c",
-      "line": 340
+      "line": 342
     },
     {
       "name": "idletimer_tg_destroy",
       "file": "xt_IDLETIMER.c",
-      "line": 402
+      "line": 404
+    },
+    {
+      "name": "sysfs_remove_file",
+      "file": "xt_IDLETIMER.c",
+      "line": 418
+    },
+    {
+      "name": "kfree",
+      "file": "xt_IDLETIMER.c",
+      "line": 419
     },
     {
       "name": "idletimer_tg_destroy_v1",
@@ -9129,36 +8593,41 @@
       "line": 429
     },
     {
+      "name": "list_del",
+      "file": "xt_IDLETIMER.c",
+      "line": 440
+    },
+    {
       "name": "alarm_cancel",
       "file": "xt_IDLETIMER.c",
-      "line": 450
+      "line": 442
     },
     {
       "name": "idletimer_tg_init",
       "file": "xt_IDLETIMER.c",
-      "line": 512
+      "line": 489
     },
     {
       "name": "MKDEV",
       "file": "xt_IDLETIMER.c",
-      "line": 524
+      "line": 501
     },
     {
       "name": "idletimer_tg_exit",
       "file": "xt_IDLETIMER.c",
-      "line": 549
+      "line": 526
     }
   ],
   "xt_LED.c": [
     {
       "name": "led_trigger_event",
       "file": "xt_LED.c",
-      "line": 56
+      "line": 57
     },
     {
       "name": "led_timeout_callback",
       "file": "xt_LED.c",
-      "line": 73
+      "line": 74
     },
     {
       "name": "led_tg_check",
@@ -9168,17 +8637,17 @@
     {
       "name": "led_tg_destroy",
       "file": "xt_LED.c",
-      "line": 157
+      "line": 155
     },
     {
       "name": "led_tg_init",
       "file": "xt_LED.c",
-      "line": 208
+      "line": 191
     },
     {
       "name": "led_tg_exit",
       "file": "xt_LED.c",
-      "line": 213
+      "line": 196
     }
   ],
   "xt_LOG.c": [
@@ -9276,12 +8745,12 @@
     {
       "name": "nflog_tg_init",
       "file": "xt_NFLOG.c",
-      "line": 92
+      "line": 78
     },
     {
       "name": "nflog_tg_exit",
       "file": "xt_NFLOG.c",
-      "line": 97
+      "line": 83
     }
   ],
   "xt_NFQUEUE.c": [
@@ -9301,43 +8770,6 @@
       "line": 152
     }
   ],
-  "xt_RATEEST.c": [
-    {
-      "name": "xt_rateest_hash",
-      "file": "xt_RATEEST.c",
-      "line": 31
-    },
-    {
-      "name": "xt_rateest_put",
-      "file": "xt_RATEEST.c",
-      "line": 75
-    },
-    {
-      "name": "xt_rateest_tg_checkentry",
-      "file": "xt_RATEEST.c",
-      "line": 107
-    },
-    {
-      "name": "xt_rateest_tg_destroy",
-      "file": "xt_RATEEST.c",
-      "line": 175
-    },
-    {
-      "name": "xt_rateest_net_init",
-      "file": "xt_RATEEST.c",
-      "line": 209
-    },
-    {
-      "name": "xt_rateest_tg_init",
-      "file": "xt_RATEEST.c",
-      "line": 226
-    },
-    {
-      "name": "xt_rateest_tg_fini",
-      "file": "xt_RATEEST.c",
-      "line": 235
-    }
-  ],
   "xt_REDIRECT.c": [
     {
       "name": "redirect_tg6_checkentry",
@@ -9352,22 +8784,22 @@
     {
       "name": "redirect_tg4_check",
       "file": "xt_REDIRECT.c",
-      "line": 49
+      "line": 50
     },
     {
       "name": "nf_nat_redirect_ipv4",
       "file": "xt_REDIRECT.c",
-      "line": 74
+      "line": 68
     },
     {
       "name": "redirect_tg_init",
       "file": "xt_REDIRECT.c",
-      "line": 106
+      "line": 100
     },
     {
       "name": "redirect_tg_exit",
       "file": "xt_REDIRECT.c",
-      "line": 112
+      "line": 106
     }
   ],
   "xt_SECMARK.c": [
@@ -9404,44 +8836,12 @@
     {
       "name": "secmark_tg_init",
       "file": "xt_SECMARK.c",
-      "line": 203
+      "line": 180
     },
     {
       "name": "secmark_tg_exit",
       "file": "xt_SECMARK.c",
-      "line": 208
-    }
-  ],
-  "xt_TCPMSS.c": [
-    {
-      "name": "memset",
-      "file": "xt_TCPMSS.c",
-      "line": 53
-    },
-    {
-      "name": "find_syn_match",
-      "file": "xt_TCPMSS.c",
-      "line": 251
-    },
-    {
-      "name": "tcpmss_tg4_check",
-      "file": "xt_TCPMSS.c",
-      "line": 263
-    },
-    {
-      "name": "tcpmss_tg6_check",
-      "file": "xt_TCPMSS.c",
-      "line": 287
-    },
-    {
-      "name": "tcpmss_tg_init",
-      "file": "xt_TCPMSS.c",
-      "line": 334
-    },
-    {
-      "name": "tcpmss_tg_exit",
-      "file": "xt_TCPMSS.c",
-      "line": 339
+      "line": 185
     }
   ],
   "xt_TCPOPTSTRIP.c": [
@@ -9539,12 +8939,12 @@
     {
       "name": "trace_tg_init",
       "file": "xt_TRACE.c",
-      "line": 57
+      "line": 43
     },
     {
       "name": "trace_tg_exit",
       "file": "xt_TRACE.c",
-      "line": 62
+      "line": 48
     }
   ],
   "xt_addrtype.c": [
@@ -9556,12 +8956,12 @@
     {
       "name": "addrtype_mt_init",
       "file": "xt_addrtype.c",
-      "line": 231
+      "line": 220
     },
     {
       "name": "addrtype_mt_exit",
       "file": "xt_addrtype.c",
-      "line": 237
+      "line": 226
     }
   ],
   "xt_bpf.c": [
@@ -9620,52 +9020,52 @@
     {
       "name": "cgroup_mt_check_v0",
       "file": "xt_cgroup.c",
-      "line": 28
+      "line": 26
     },
     {
       "name": "cgroup_mt_check_v1",
       "file": "xt_cgroup.c",
-      "line": 43
+      "line": 36
     },
     {
       "name": "cgroup_mt_check_v2",
       "file": "xt_cgroup.c",
-      "line": 80
+      "line": 68
     },
     {
       "name": "cgroup_mt_v1",
       "file": "xt_cgroup.c",
-      "line": 133
+      "line": 113
     },
     {
       "name": "cgroup_mt_v2",
       "file": "xt_cgroup.c",
-      "line": 154
+      "line": 131
     },
     {
       "name": "cgroup_mt_destroy_v1",
       "file": "xt_cgroup.c",
-      "line": 175
+      "line": 149
     },
     {
       "name": "cgroup_mt_destroy_v2",
       "file": "xt_cgroup.c",
-      "line": 183
+      "line": 157
     },
     {
       "name": "cgroup_put",
       "file": "xt_cgroup.c",
-      "line": 188
+      "line": 162
     },
     {
       "name": "cgroup_mt_init",
       "file": "xt_cgroup.c",
-      "line": 234
+      "line": 208
     },
     {
       "name": "cgroup_mt_exit",
       "file": "xt_cgroup.c",
-      "line": 239
+      "line": 213
     }
   ],
   "xt_cluster.c": [
@@ -9687,12 +9087,12 @@
     {
       "name": "xt_cluster_mt_init",
       "file": "xt_cluster.c",
-      "line": 172
+      "line": 159
     },
     {
       "name": "xt_cluster_mt_fini",
       "file": "xt_cluster.c",
-      "line": 177
+      "line": 164
     }
   ],
   "xt_comment.c": [
@@ -9716,17 +9116,17 @@
     {
       "name": "connbytes_mt_destroy",
       "file": "xt_connbytes.c",
-      "line": 132
+      "line": 130
     },
     {
       "name": "connbytes_mt_init",
       "file": "xt_connbytes.c",
-      "line": 148
+      "line": 146
     },
     {
       "name": "connbytes_mt_exit",
       "file": "xt_connbytes.c",
-      "line": 153
+      "line": 151
     }
   ],
   "xt_connlabel.c": [
@@ -9770,17 +9170,17 @@
     {
       "name": "connlimit_mt_destroy",
       "file": "xt_connlimit.c",
-      "line": 112
+      "line": 102
     },
     {
       "name": "connlimit_mt_init",
       "file": "xt_connlimit.c",
-      "line": 147
+      "line": 121
     },
     {
       "name": "connlimit_mt_exit",
       "file": "xt_connlimit.c",
-      "line": 152
+      "line": 126
     }
   ],
   "xt_connmark.c": [
@@ -9807,12 +9207,12 @@
     {
       "name": "connmark_mt_init",
       "file": "xt_connmark.c",
-      "line": 206
+      "line": 184
     },
     {
       "name": "connmark_mt_exit",
       "file": "xt_connmark.c",
-      "line": 223
+      "line": 201
     }
   ],
   "xt_conntrack.c": [
@@ -9983,197 +9383,197 @@
     {
       "name": "memcpy",
       "file": "xt_hashlimit.c",
-      "line": 165
+      "line": 166
     },
     {
       "name": "hlist_for_each_entry_rcu",
       "file": "xt_hashlimit.c",
-      "line": 205
+      "line": 206
     },
     {
       "name": "dsthash_free_rcu",
       "file": "xt_hashlimit.c",
-      "line": 258
+      "line": 259
     },
     {
       "name": "htable_selective_cleanup",
       "file": "xt_hashlimit.c",
-      "line": 359
+      "line": 361
     },
     {
       "name": "spin_lock_bh",
       "file": "xt_hashlimit.c",
-      "line": 371
+      "line": 369
     },
     {
       "name": "hlist_for_each_entry_safe",
       "file": "xt_hashlimit.c",
-      "line": 372
+      "line": 370
     },
     {
       "name": "htable_gc",
       "file": "xt_hashlimit.c",
-      "line": 381
+      "line": 379
     },
     {
       "name": "htable_remove_proc_entry",
       "file": "xt_hashlimit.c",
-      "line": 393
+      "line": 391
     },
     {
       "name": "htable_put",
       "file": "xt_hashlimit.c",
-      "line": 424
+      "line": 422
     },
     {
       "name": "xt_hashlimit_len_to_chunks",
       "file": "xt_hashlimit.c",
-      "line": 485
+      "line": 483
     },
     {
       "name": "user2credits",
       "file": "xt_hashlimit.c",
-      "line": 491
+      "line": 489
     },
     {
       "name": "user2credits_byte",
       "file": "xt_hashlimit.c",
-      "line": 505
+      "line": 503
     },
     {
       "name": "user2rate",
       "file": "xt_hashlimit.c",
-      "line": 512
+      "line": 510
     },
     {
       "name": "div64_u64",
       "file": "xt_hashlimit.c",
-      "line": 515
+      "line": 513
     },
     {
       "name": "user2rate_bytes",
       "file": "xt_hashlimit.c",
-      "line": 523
+      "line": 521
     },
     {
       "name": "maskl",
       "file": "xt_hashlimit.c",
-      "line": 608
+      "line": 606
     },
     {
       "name": "hashlimit_ipv6_mask",
       "file": "xt_hashlimit.c",
-      "line": 614
+      "line": 612
     },
     {
       "name": "hashlimit_byte_cost",
       "file": "xt_hashlimit.c",
-      "line": 711
+      "line": 709
     },
     {
       "name": "local_bh_enable",
       "file": "xt_hashlimit.c",
-      "line": 745
+      "line": 743
     },
     {
       "name": "rateinfo_recalc",
       "file": "xt_hashlimit.c",
-      "line": 750
+      "line": 748
     },
     {
       "name": "rateinfo_init",
       "file": "xt_hashlimit.c",
-      "line": 753
+      "line": 751
     },
     {
       "name": "spin_unlock",
       "file": "xt_hashlimit.c",
-      "line": 767
+      "line": 765
     },
     {
       "name": "pr_info_ratelimited",
       "file": "xt_hashlimit.c",
-      "line": 852
+      "line": 850
     },
     {
       "name": "hashlimit_mt_check_v1",
       "file": "xt_hashlimit.c",
-      "line": 912
+      "line": 910
     },
     {
       "name": "hashlimit_mt_check_v2",
       "file": "xt_hashlimit.c",
-      "line": 930
+      "line": 928
     },
     {
       "name": "hashlimit_mt_check",
       "file": "xt_hashlimit.c",
-      "line": 948
+      "line": 946
     },
     {
       "name": "hashlimit_mt_destroy_v2",
       "file": "xt_hashlimit.c",
-      "line": 961
+      "line": 959
     },
     {
       "name": "hashlimit_mt_destroy_v1",
       "file": "xt_hashlimit.c",
-      "line": 968
+      "line": 966
     },
     {
       "name": "hashlimit_mt_destroy",
       "file": "xt_hashlimit.c",
-      "line": 975
+      "line": 973
     },
     {
       "name": "dl_seq_stop",
       "file": "xt_hashlimit.c",
-      "line": 1085
+      "line": 1083
     },
     {
       "name": "dl_seq_show_v2",
       "file": "xt_hashlimit.c",
-      "line": 1172
+      "line": 1170
     },
     {
       "name": "dl_seq_show_v1",
       "file": "xt_hashlimit.c",
-      "line": 1186
+      "line": 1184
     },
     {
       "name": "dl_seq_show",
       "file": "xt_hashlimit.c",
-      "line": 1200
+      "line": 1198
     },
     {
       "name": "hashlimit_proc_net_init",
       "file": "xt_hashlimit.c",
-      "line": 1235
+      "line": 1233
     },
     {
       "name": "hashlimit_proc_net_exit",
       "file": "xt_hashlimit.c",
-      "line": 1252
+      "line": 1250
     },
     {
       "name": "hashlimit_net_init",
       "file": "xt_hashlimit.c",
-      "line": 1274
+      "line": 1272
     },
     {
       "name": "hashlimit_net_exit",
       "file": "xt_hashlimit.c",
-      "line": 1282
+      "line": 1280
     },
     {
       "name": "hashlimit_mt_init",
       "file": "xt_hashlimit.c",
-      "line": 1294
+      "line": 1292
     },
     {
       "name": "hashlimit_mt_exit",
       "file": "xt_hashlimit.c",
-      "line": 1324
+      "line": 1322
     }
   ],
   "xt_helper.c": [
@@ -10327,12 +9727,12 @@
     {
       "name": "length_mt_init",
       "file": "xt_length.c",
-      "line": 55
+      "line": 56
     },
     {
       "name": "length_mt_exit",
       "file": "xt_length.c",
-      "line": 60
+      "line": 61
     }
   ],
   "xt_limit.c": [
@@ -10393,12 +9793,12 @@
     {
       "name": "mark_mt_init",
       "file": "xt_mark.c",
-      "line": 82
+      "line": 60
     },
     {
       "name": "mark_mt_exit",
       "file": "xt_mark.c",
-      "line": 97
+      "line": 75
     }
   ],
   "xt_multiport.c": [
@@ -10506,24 +9906,19 @@
       "line": 54
     },
     {
-      "name": "uid_lte",
-      "file": "xt_owner.c",
-      "line": 91
-    },
-    {
       "name": "gid_lte",
       "file": "xt_owner.c",
-      "line": 105
+      "line": 100
     },
     {
       "name": "owner_mt_init",
       "file": "xt_owner.c",
-      "line": 142
+      "line": 134
     },
     {
       "name": "owner_mt_exit",
       "file": "xt_owner.c",
-      "line": 147
+      "line": 139
     }
   ],
   "xt_physdev.c": [
@@ -10739,22 +10134,22 @@
     {
       "name": "SCTP_CHUNKMAP_COPY",
       "file": "xt_sctp.c",
-      "line": 56
+      "line": 57
     },
     {
       "name": "sctp_mt_check",
       "file": "xt_sctp.c",
-      "line": 148
+      "line": 149
     },
     {
       "name": "sctp_mt_init",
       "file": "xt_sctp.c",
-      "line": 189
+      "line": 188
     },
     {
       "name": "sctp_mt_exit",
       "file": "xt_sctp.c",
-      "line": 194
+      "line": 193
     }
   ],
   "xt_set.c": [
@@ -10903,42 +10298,32 @@
     {
       "name": "tcp_mt",
       "file": "xt_tcpudp.c",
-      "line": 69
+      "line": 66
     },
     {
       "name": "tcp_mt_check",
       "file": "xt_tcpudp.c",
-      "line": 124
+      "line": 121
     },
     {
       "name": "udp_mt",
       "file": "xt_tcpudp.c",
-      "line": 132
+      "line": 129
     },
     {
       "name": "udp_mt_check",
       "file": "xt_tcpudp.c",
-      "line": 159
-    },
-    {
-      "name": "icmp_checkentry",
-      "file": "xt_tcpudp.c",
-      "line": 242
-    },
-    {
-      "name": "icmp6_checkentry",
-      "file": "xt_tcpudp.c",
-      "line": 249
+      "line": 156
     },
     {
       "name": "tcpudp_mt_init",
       "file": "xt_tcpudp.c",
-      "line": 331
+      "line": 221
     },
     {
       "name": "tcpudp_mt_exit",
       "file": "xt_tcpudp.c",
-      "line": 336
+      "line": 226
     }
   ],
   "xt_time.c": [
@@ -10985,19 +10370,14 @@
       "line": 90
     },
     {
-      "name": "u32_mt_checkentry",
-      "file": "xt_u32.c",
-      "line": 99
-    },
-    {
       "name": "u32_mt_init",
       "file": "xt_u32.c",
-      "line": 129
+      "line": 108
     },
     {
       "name": "u32_mt_exit",
       "file": "xt_u32.c",
-      "line": 134
+      "line": 113
     }
   ]
 }

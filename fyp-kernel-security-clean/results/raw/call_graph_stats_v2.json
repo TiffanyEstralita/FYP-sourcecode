@@ -1,48 +1,48 @@
 {
-  "total_callers": 1268,
-  "total_callees": 715,
-  "total_call_edges": 3003,
-  "unique_functions_involved": 1493,
-  "avg_calls_per_function": 2.3682965299684544,
+  "total_callers": 1175,
+  "total_callees": 651,
+  "total_call_edges": 2710,
+  "unique_functions_involved": 1397,
+  "avg_calls_per_function": 2.3063829787234043,
   "top_30_in_degree": [
     [
       "ARRAY_SIZE",
-      144
-    ],
-    [
-      "kfree",
       112
     ],
     [
+      "kfree",
+      103
+    ],
+    [
       "mutex_unlock",
-      77
+      70
     ],
     [
       "mutex_lock",
-      65
+      58
     ],
     [
-      "pr_info_ratelimited",
-      42
+      "htonl",
+      41
     ],
     [
-      "WARN_ON_ONCE",
-      40
-    ],
-    [
-      "spin_unlock_bh",
+      "nla_put_be32",
       39
     ],
     [
-      "list_del",
+      "pr_info_ratelimited",
+      39
+    ],
+    [
+      "spin_unlock_bh",
       37
     ],
     [
       "atomic_read",
-      37
+      36
     ],
     [
-      "rcu_read_unlock",
+      "nft_unregister_expr",
       36
     ],
     [
@@ -50,16 +50,20 @@
       35
     ],
     [
-      "RCU_INIT_POINTER",
-      35
+      "list_del",
+      33
     ],
     [
-      "nft_unregister_expr",
-      35
+      "RCU_INIT_POINTER",
+      33
+    ],
+    [
+      "rcu_read_unlock",
+      32
     ],
     [
       "ntohs",
-      34
+      32
     ],
     [
       "ntohl",
@@ -67,18 +71,26 @@
     ],
     [
       "nft_register_expr",
-      30
+      31
+    ],
+    [
+      "atomic_dec",
+      27
     ],
     [
       "rcu_read_lock",
-      29
-    ],
-    [
-      "spin_unlock",
       26
     ],
     [
       "seq_printf",
+      26
+    ],
+    [
+      "nft_dump_register",
+      26
+    ],
+    [
+      "spin_unlock",
       25
     ],
     [
@@ -86,117 +98,81 @@
       25
     ],
     [
+      "xt_register_match",
+      25
+    ],
+    [
       "IP_VS_DBG",
       24
     ],
     [
-      "list_del_rcu",
+      "WARN_ON_ONCE",
       24
     ],
     [
       "net_eq",
-      23
-    ],
-    [
-      "module_put",
-      23
-    ],
-    [
-      "atomic_dec",
-      23
-    ],
-    [
-      "htons",
-      23
-    ],
-    [
-      "PTR_ERR",
-      23
-    ],
-    [
-      "xt_register_match",
-      23
-    ],
-    [
-      "kvfree",
       22
     ],
     [
-      "spin_lock",
+      "htons",
+      22
+    ],
+    [
+      "PTR_ERR",
+      22
+    ],
+    [
+      "list_del_rcu",
       22
     ]
   ],
   "top_30_out_degree": [
     [
       "nf_tables_commit",
-      41
-    ],
-    [
-      "pipapo_base_sum",
-      33
-    ],
-    [
-      "__nf_tables_abort",
       30
     ],
     [
-      "nft_ctx_update",
-      22
+      "pipapo_base_sum",
+      29
     ],
     [
-      "nf_tables_commit_audit_collect",
-      22
+      "__nf_tables_abort",
+      21
     ],
     [
       "ct_seq_show",
-      16
-    ],
-    [
-      "WRITE_ONCE",
       15
-    ],
-    [
-      "nft_commit_release",
-      14
     ],
     [
       "__ip_vs_init",
       13
     ],
     [
-      "nf_tables_abort_release",
-      13
-    ],
-    [
       "gc_worker",
-      12
-    ],
-    [
-      "__nft_release_table",
-      12
-    ],
-    [
-      "ip_vs_dest_trash_expire",
-      10
-    ],
-    [
-      "ip_vs_est_calc_limits",
-      10
+      11
     ],
     [
       "nf_conntrack_init_start",
       10
     ],
     [
-      "NL_SET_BAD_ATTR",
+      "__ctnetlink_glue_build",
       10
     ],
     [
-      "ip_vs_genl_set_cmd",
+      "WRITE_ONCE",
+      10
+    ],
+    [
+      "nft_commit_release",
+      10
+    ],
+    [
+      "ip_vs_dest_trash_expire",
       9
     ],
     [
-      "ip_vs_stop_estimator",
+      "ip_vs_genl_set_cmd",
       9
     ],
     [
@@ -208,10 +184,6 @@
       9
     ],
     [
-      "tree_gc_worker",
-      9
-    ],
-    [
       "nf_ct_delete",
       9
     ],
@@ -220,11 +192,15 @@
       9
     ],
     [
-      "__ctnetlink_glue_build",
+      "nf_tables_dump_obj",
       9
     ],
     [
-      "nf_tables_dump_set",
+      "__nft_release_table",
+      9
+    ],
+    [
+      "nft_trace_notify",
       9
     ],
     [
@@ -244,8 +220,32 @@
       8
     ],
     [
-      "update_defense_level",
+      "tree_gc_worker",
       8
+    ],
+    [
+      "hlist_nulls_for_each_entry_rcu",
+      8
+    ],
+    [
+      "nf_conntrack_proto_pernet_init",
+      8
+    ],
+    [
+      "nf_tables_dump_set",
+      8
+    ],
+    [
+      "nf_tables_abort_release",
+      8
+    ],
+    [
+      "nf_tables_module_init",
+      8
+    ],
+    [
+      "ip_vs_conn_hash",
+      7
     ]
   ]
 }

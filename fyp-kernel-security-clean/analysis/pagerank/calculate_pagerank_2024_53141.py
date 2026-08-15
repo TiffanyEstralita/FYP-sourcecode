@@ -12,10 +12,12 @@ from pathlib import Path
 import sys
 
 # Paths
-INPUT_FUNCTIONS = Path.home() / "fyp-kernel-security/results/raw/functions_v2.json"
-INPUT_CALLS = Path.home() / "fyp-kernel-security/results/raw/function_calls_v2.json"
-OUTPUT_PATH = Path.home() / "fyp-kernel-security/results/processed"
-GRAPHS_PATH = Path.home() / "fyp-kernel-security/results/visualizations"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+INPUT_FUNCTIONS = PROJECT_ROOT / "results/raw/functions_v2.json"
+INPUT_CALLS = PROJECT_ROOT / "results/raw/function_calls_v2.json"
+OUTPUT_PATH = PROJECT_ROOT / "results/processed"
+GRAPHS_PATH = PROJECT_ROOT / "results/visualizations"
 
 class PageRankAnalyzer:
     """Build graph and calculate PageRank"""

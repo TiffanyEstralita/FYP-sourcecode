@@ -17,30 +17,20 @@
       "rcu_read_lock",
       "rcu_read_unlock"
     ],
-    "nf_ct_set_closing": [
-      "rcu_read_lock",
-      "rcu_read_unlock"
-    ],
     "netfilter_net_init": [
       "ARRAY_SIZE",
       "net_eq"
     ],
     "netfilter_init": [
-      "netfilter_lwtunnel_init",
-      "netfilter_log_init",
-      "netfilter_lwtunnel_fini"
+      "netfilter_log_init"
     ]
   },
   "ip_set_bitmap_ip.c": {},
   "ip_set_bitmap_ipmac.c": {},
   "ip_set_bitmap_port.c": {},
   "ip_set_core.c": {
-    "rcu_barrier": [
-      "module_put",
-      "kfree"
-    ],
-    "read_unlock_bh": [
-      "rcu_barrier"
+    "protocol": [
+      "nla_get_u8"
     ],
     "ip_set_flush_set": [
       "nla_data",
@@ -53,9 +43,11 @@
   "ip_set_hash_ip.c": {
     "adtfn": [
       "swap",
+      "nla_get_u8",
       "ip_set_mask_from_to"
     ],
     "swap": [
+      "nla_get_u8",
       "ip_set_mask_from_to",
       "ntohl",
       "htonl"
@@ -64,6 +56,7 @@
   "ip_set_hash_ipmac.c": {},
   "ip_set_hash_ipmark.c": {
     "swap": [
+      "nla_get_u8",
       "ip_set_mask_from_to",
       "ntohl",
       "htonl"
@@ -78,7 +71,12 @@
   "ip_set_hash_netnet.c": {},
   "ip_set_hash_netport.c": {},
   "ip_set_hash_netportnet.c": {},
-  "ip_set_list_set.c": {},
+  "ip_set_list_set.c": {
+    "del_timer_sync": [
+      "list_del",
+      "kfree"
+    ]
+  },
   "ip_vs_app.c": {
     "ip_vs_app_put": [
       "module_put"
@@ -235,19 +233,22 @@
       "kfree"
     ],
     "ip_vs_conn_del": [
-      "timer_delete",
+      "del_timer",
       "ip_vs_conn_expire"
     ],
     "ip_vs_conn_del_put": [
-      "timer_delete",
+      "del_timer",
       "__ip_vs_conn_put",
       "ip_vs_conn_expire"
     ],
-    "timer_delete": [
+    "del_timer": [
       "atomic_read",
       "IP_VS_DBG",
       "ip_vs_conn_del_put",
       "__ip_vs_conn_put"
+    ],
+    "hlist_entry": [
+      "hlist_for_each_entry_rcu"
     ],
     "ip_vs_conn_seq_stop": [
       "rcu_read_unlock"
@@ -305,7 +306,6 @@
       "ip_vs_conn_flush"
     ],
     "ip_vs_conn_init": [
-      "kvfree",
       "IP_VS_DBG",
       "INIT_HLIST_HEAD",
       "spin_lock_init"
@@ -314,8 +314,7 @@
       "spin_lock_init"
     ],
     "ip_vs_conn_cleanup": [
-      "rcu_barrier",
-      "kvfree"
+      "rcu_barrier"
     ]
   },
   "ip_vs_core.c": {
@@ -386,14 +385,11 @@
       "ip_vs_unregister_nl_ioctl",
       "ip_vs_conn_cleanup",
       "ip_vs_protocol_cleanup",
-      "ip_vs_control_cleanup",
-      "rcu_barrier"
+      "ip_vs_control_cleanup"
     ]
   },
   "ip_vs_ctl.c": {
     "update_defense_level": [
-      "max",
-      "READ_ONCE",
       "local_bh_disable",
       "spin_lock",
       "atomic_set",
@@ -409,13 +405,6 @@
       "atomic_read",
       "ip_vs_random_dropentry"
     ],
-    "est_reload_work_handler": [
-      "atomic_read",
-      "mutex_lock",
-      "ip_vs_est_kthread_stop",
-      "atomic_set",
-      "mutex_unlock"
-    ],
     "ip_vs_svc_hash": [
       "hlist_add_head_rcu",
       "ip_vs_svc_fwm_hashkey",
@@ -429,7 +418,7 @@
       "ntohs"
     ],
     "ip_vs_service_free": [
-      "ip_vs_stats_release",
+      "free_percpu",
       "kfree"
     ],
     "ip_vs_service_rcu_free": [
@@ -438,7 +427,8 @@
     "__ip_vs_svc_put": [
       "IP_VS_DBG_BUF",
       "IP_VS_DBG_ADDR",
-      "ntohs"
+      "ntohs",
+      "ip_vs_service_free"
     ],
     "ip_vs_rs_hash": [
       "IP_VS_DFWD_METHOD",
@@ -456,31 +446,15 @@
     "__ip_vs_dst_cache_reset": [
       "RCU_INIT_POINTER"
     ],
-    "ip_vs_dest_rcu_free": [
-      "ip_vs_stats_release"
-    ],
     "ip_vs_dest_free": [
       "__ip_vs_dst_cache_reset",
-      "__ip_vs_svc_put"
-    ],
-    "ip_vs_trash_cleanup": [
-      "list_del",
-      "ip_vs_dest_free"
-    ],
-    "ip_vs_stats_rcu_free": [
-      "ip_vs_stats_release",
-      "kfree"
-    ],
-    "ip_vs_stats_init_alloc": [
-      "spin_lock_init",
-      "for_each_possible_cpu"
-    ],
-    "ip_vs_stats_release": [
+      "__ip_vs_svc_put",
       "free_percpu"
     ],
-    "ip_vs_stats_free": [
-      "ip_vs_stats_release",
-      "kfree"
+    "ip_vs_trash_cleanup": [
+      "del_timer_sync",
+      "list_del",
+      "ip_vs_dest_free"
     ],
     "ip_vs_dest_trash_expire": [
       "spin_lock",
@@ -491,7 +465,6 @@
       "ntohs",
       "list_del",
       "ip_vs_dest_free",
-      "list_empty",
       "spin_unlock"
     ],
     "ip_vs_unregister_hooks": [
@@ -524,9 +497,6 @@
     "ip_vs_zero_all": [
       "ip_vs_zero_service"
     ],
-    "mutex_lock": [
-      "ip_vs_est_reload_start"
-    ],
     "hlist_entry": [
       "hlist_for_each_entry_rcu"
     ],
@@ -555,7 +525,6 @@
     ],
     "ip_vs_stats_percpu_show": [
       "seq_puts",
-      "for_each_possible_cpu",
       "seq_printf",
       "ip_vs_copy_stats"
     ],
@@ -583,7 +552,8 @@
     "ip_vs_genl_new_daemon": [
       "memset",
       "nla_data",
-      "ipv6_addr_type"
+      "ipv6_addr_type",
+      "nla_get_u8"
     ],
     "ip_vs_genl_del_daemon": [
       "stop_sync_thread"
@@ -614,12 +584,13 @@
       "mutex_unlock"
     ],
     "ip_vs_control_net_init_sysctl": [
-      "ARRAY_SIZE",
       "atomic_set",
       "spin_lock_init",
       "net_eq",
-      "ip_vs_start_estimator",
-      "kfree"
+      "ARRAY_SIZE",
+      "register_net_sysctl",
+      "kfree",
+      "ip_vs_start_estimator"
     ],
     "ip_vs_control_net_cleanup_sysctl": [
       "ip_vs_stop_estimator",
@@ -631,14 +602,13 @@
       "INIT_LIST_HEAD",
       "spin_lock_init",
       "atomic_set",
-      "ip_vs_stats_init_alloc",
       "ip_vs_control_net_init_sysctl",
-      "ip_vs_stats_release",
-      "kfree"
+      "free_percpu"
     ],
     "ip_vs_control_net_cleanup": [
       "ip_vs_trash_cleanup",
-      "ip_vs_control_net_cleanup_sysctl"
+      "ip_vs_control_net_cleanup_sysctl",
+      "free_percpu"
     ],
     "ip_vs_register_nl_ioctl": [
       "nf_register_sockopt",
@@ -685,85 +655,26 @@
     ]
   },
   "ip_vs_est.c": {
-    "ip_vs_est_drain_temp_list": [
-      "hlist_for_each_entry_rcu",
-      "for_each_possible_cpu",
+    "estimation_timer": [
       "spin_lock",
       "spin_unlock"
-    ],
-    "ip_vs_chain_estimation": [
-      "hlist_for_each_entry_rcu",
-      "for_each_possible_cpu",
-      "spin_lock",
-      "spin_unlock"
-    ],
-    "ip_vs_tick_estimation": [
-      "rcu_read_lock",
-      "ip_vs_chain_estimation",
-      "rcu_read_unlock"
-    ],
-    "ip_vs_estimation_kthread": [
-      "ip_vs_est_calc_phase",
-      "ip_vs_est_drain_temp_list",
-      "schedule_timeout",
-      "__set_current_state",
-      "ip_vs_tick_estimation",
-      "WRITE_ONCE"
-    ],
-    "ip_vs_est_reload_start": [
-      "atomic_inc"
-    ],
-    "ip_vs_est_kthread_stop": [
-      "kthread_stop"
-    ],
-    "ip_vs_est_add_kthread": [
-      "mutex_lock",
-      "mutex_unlock",
-      "ip_vs_stats_free",
-      "kfree"
     ],
     "ip_vs_start_estimator": [
-      "ip_vs_est_add_kthread"
-    ],
-    "ip_vs_est_kthread_destroy": [
-      "kthread_stop",
-      "ip_vs_stats_free",
-      "kfree"
+      "INIT_LIST_HEAD",
+      "spin_lock_bh",
+      "spin_unlock_bh"
     ],
     "ip_vs_stop_estimator": [
-      "hlist_del_rcu",
-      "__clear_bit",
-      "__set_bit",
-      "RCU_INIT_POINTER",
-      "kfree_rcu",
-      "mutex_lock",
-      "ip_vs_est_kthread_destroy",
-      "mutex_unlock",
-      "ip_vs_est_update_ktid"
-    ],
-    "__clear_bit": [
-      "RCU_INIT_POINTER",
-      "kfree_rcu"
-    ],
-    "ip_vs_est_calc_limits": [
-      "INIT_HLIST_HEAD",
-      "mutex_lock",
-      "mutex_unlock",
-      "local_bh_disable",
-      "rcu_read_lock",
-      "ip_vs_chain_estimation",
-      "rcu_read_unlock",
-      "local_bh_enable",
-      "cond_resched",
-      "do_div"
+      "spin_lock_bh",
+      "list_del",
+      "spin_unlock_bh"
     ],
     "ip_vs_estimator_net_init": [
-      "INIT_HLIST_HEAD",
-      "atomic_set"
+      "INIT_LIST_HEAD",
+      "spin_lock_init"
     ],
     "ip_vs_estimator_net_cleanup": [
-      "ip_vs_est_kthread_destroy",
-      "kfree"
+      "del_timer_sync"
     ]
   },
   "ip_vs_fo.c": {
@@ -837,12 +748,17 @@
       "atomic_set"
     ],
     "ip_vs_lblc_done_svc": [
+      "del_timer_sync",
       "ip_vs_lblc_flush",
       "kfree_rcu",
       "IP_VS_DBG"
     ],
     "__ip_vs_lblc_init": [
-      "ARRAY_SIZE",
+      "net_eq",
+      "register_net_sysctl",
+      "kfree"
+    ],
+    "register_net_sysctl": [
       "net_eq",
       "kfree"
     ],
@@ -908,6 +824,7 @@
       "atomic_set"
     ],
     "ip_vs_lblcr_done_svc": [
+      "del_timer_sync",
       "ip_vs_lblcr_flush",
       "kfree_rcu",
       "IP_VS_DBG"
@@ -916,7 +833,11 @@
       "atomic_read"
     ],
     "__ip_vs_lblcr_init": [
-      "ARRAY_SIZE",
+      "net_eq",
+      "register_net_sysctl",
+      "kfree"
+    ],
+    "register_net_sysctl": [
       "net_eq",
       "kfree"
     ],
@@ -982,9 +903,6 @@
     ]
   },
   "ip_vs_nfct.c": {
-    "ip_vs_confirm_conntrack": [
-      "nf_conntrack_confirm"
-    ],
     "ip_vs_conn_drop_conntrack": [
       "IP_VS_DBG_BUF",
       "nf_ct_kill",
@@ -1149,13 +1067,11 @@
     ],
     "register_ip_vs_scheduler": [
       "mutex_lock",
-      "list_empty",
       "mutex_unlock",
       "strcmp"
     ],
     "unregister_ip_vs_scheduler": [
       "mutex_lock",
-      "list_empty",
       "mutex_unlock",
       "list_del"
     ]
@@ -1245,18 +1161,6 @@
     "set_sock_size": [
       "READ_ONCE"
     ],
-    "set_mcast_loop": [
-      "READ_ONCE"
-    ],
-    "set_mcast_ttl": [
-      "WRITE_ONCE"
-    ],
-    "set_mcast_pmtudisc": [
-      "WRITE_ONCE"
-    ],
-    "set_mcast_if": [
-      "WRITE_ONCE"
-    ],
     "bind_mcastif_addr": [
       "IP_VS_DBG"
     ],
@@ -1344,38 +1248,6 @@
     ],
     "ip_vs_notrack": [
       "ip_vs_drop_early_demux_sk"
-    ],
-    "htons": [
-      "IP_TUNNEL_DECLARE_FLAGS"
-    ]
-  },
-  "nf_bpf_link.c": {
-    "bpf_nf_enable_defrag": [
-      "PTR_ERR"
-    ],
-    "bpf_nf_disable_defrag": [
-      "module_put"
-    ],
-    "bpf_nf_link_release": [
-      "nf_unregister_net_hook",
-      "bpf_nf_disable_defrag"
-    ],
-    "bpf_nf_link_dealloc": [
-      "kfree"
-    ],
-    "bpf_nf_link_detach": [
-      "bpf_nf_link_release"
-    ],
-    "bpf_nf_link_attach": [
-      "bpf_nf_check_pf_and_hooks",
-      "kfree",
-      "bpf_nf_enable_defrag",
-      "nf_register_net_hook",
-      "bpf_nf_disable_defrag",
-      "bpf_link_settle"
-    ],
-    "nf_ptr_to_btf_id": [
-      "WARN_ON_ONCE"
     ]
   },
   "nf_conncount.c": {
@@ -1404,19 +1276,16 @@
       "rcu_read_lock",
       "rcu_read_unlock",
       "local_bh_enable",
-      "cond_resched",
       "spin_lock_bh",
       "ARRAY_SIZE",
       "clear_bit",
       "spin_unlock_bh"
     ],
+    "ERR_PTR": [
+      "kfree"
+    ],
     "destroy_tree": [
       "nf_conncount_cache_free"
-    ],
-    "nf_conncount_destroy": [
-      "ARRAY_SIZE",
-      "destroy_tree",
-      "kfree"
     ],
     "nf_conncount_modinit": [
       "spin_lock_init"
@@ -1472,9 +1341,6 @@
     "nf_conntrack_all_unlock": [
       "nf_conntrack_lock",
       "spin_unlock"
-    ],
-    "nf_conntrack_get_id": [
-      "nf_ct_get_id"
     ],
     "nf_ct_tmpl_free": [
       "kfree"
@@ -1532,12 +1398,14 @@
     "__nf_conntrack_insert_prepare": [
       "refcount_inc"
     ],
+    "nf_ct_match": [
+      "nf_ct_put",
+      "nf_ct_set"
+    ],
     "nf_ct_resolve_clash_harder": [
       "hlist_nulls_for_each_entry",
       "WRITE_ONCE",
-      "__nf_conntrack_insert_prepare",
-      "smp_mb__before_atomic",
-      "set_bit"
+      "__nf_conntrack_insert_prepare"
     ],
     "early_drop": [
       "rcu_read_lock",
@@ -1545,13 +1413,11 @@
       "rcu_read_unlock"
     ],
     "gc_worker_skip_ct": [
-      "nf_ct_is_confirmed",
       "nf_ct_is_dying"
     ],
     "gc_worker_can_early_drop": [
-      "nf_ct_protonum",
-      "test_bit",
-      "nf_ct_l4proto_find"
+      "nf_ct_l4proto_find",
+      "nf_ct_protonum"
     ],
     "gc_worker": [
       "rcu_read_lock",
@@ -1564,8 +1430,7 @@
       "smp_acquire__after_ctrl_dep",
       "nf_ct_put",
       "gc_worker_can_early_drop",
-      "nf_ct_kill",
-      "cond_resched"
+      "nf_ct_kill"
     ],
     "rcu_read_lock": [
       "rcu_read_unlock"
@@ -1595,10 +1460,6 @@
       "smp_mb__before_atomic",
       "atomic_dec"
     ],
-    "ERR_CAST": [
-      "nf_conntrack_free",
-      "ERR_PTR"
-    ],
     "spin_lock_bh": [
       "__set_bit",
       "rcu_assign_pointer",
@@ -1622,7 +1483,6 @@
       "mutex_lock",
       "nf_ct_delete",
       "nf_ct_put",
-      "cond_resched",
       "mutex_unlock"
     ],
     "nf_ct_iterate_cleanup_net": [
@@ -1676,10 +1536,6 @@
       "nf_conntrack_expect_fini",
       "kvfree"
     ],
-    "nf_conntrack_set_closing": [
-      "nf_ct_protonum",
-      "nf_conntrack_tcp_set_closing"
-    ],
     "nf_conntrack_init_end": [
       "RCU_INIT_POINTER"
     ],
@@ -1691,9 +1547,6 @@
       "nf_conntrack_ecache_pernet_init",
       "nf_conntrack_proto_pernet_init",
       "free_percpu"
-    ],
-    "__nf_ct_change_timeout": [
-      "test_bit"
     ],
     "__nf_ct_change_status": [
       "set_bit",
@@ -1709,7 +1562,6 @@
       "hlist_nulls_del_rcu",
       "hlist_nulls_add_head",
       "spin_unlock_bh",
-      "cond_resched",
       "nf_ct_put"
     ],
     "ecache_work": [
@@ -1717,7 +1569,6 @@
       "schedule_delayed_work"
     ],
     "nf_ct_deliver_cached_events": [
-      "nf_ct_is_confirmed",
       "nf_ct_is_dying"
     ],
     "nf_conntrack_unregister_notifier": [
@@ -1730,8 +1581,7 @@
     ],
     "nf_ct_ecache_ext_add": [
       "READ_ONCE",
-      "WARN_ON_ONCE",
-      "nf_ct_ecache_tstamp_new"
+      "WARN_ON_ONCE"
     ],
     "nf_conntrack_ecache_pernet_init": [
       "spin_lock_init"
@@ -1747,11 +1597,11 @@
       "memset"
     ],
     "nf_ct_remove_expect": [
-      "timer_delete",
+      "del_timer",
       "nf_ct_expect_put"
     ],
     "refcount_inc": [
-      "timer_delete"
+      "del_timer"
     ],
     "nf_ct_remove_expectations": [
       "spin_lock_bh",
@@ -1774,7 +1624,7 @@
     "nf_ct_expect_iterate_destroy": [
       "spin_lock_bh",
       "hlist_for_each_entry_safe",
-      "timer_delete",
+      "del_timer",
       "nf_ct_expect_put",
       "spin_unlock_bh"
     ],
@@ -1782,7 +1632,7 @@
       "spin_lock_bh",
       "hlist_for_each_entry_safe",
       "net_eq",
-      "timer_delete",
+      "del_timer",
       "nf_ct_expect_put",
       "spin_unlock_bh"
     ],
@@ -1941,10 +1791,12 @@
   },
   "nf_conntrack_labels.c": {
     "nf_connlabels_get": [
-      "WARN_ON_ONCE"
+      "spin_lock",
+      "spin_unlock"
     ],
     "nf_connlabels_put": [
-      "WARN_ON_ONCE"
+      "spin_lock",
+      "spin_unlock"
     ]
   },
   "nf_conntrack_netbios_ns.c": {
@@ -1960,8 +1812,12 @@
       "nla_put_be32",
       "htonl"
     ],
+    "ctnetlink_dump_mark": [
+      "READ_ONCE",
+      "nla_put_be32",
+      "htonl"
+    ],
     "ctnetlink_dump_secctx": [
-      "nla_put_string",
       "nla_nest_end"
     ],
     "ctnetlink_dump_master": [
@@ -1987,11 +1843,11 @@
     ],
     "ctnetlink_dump_info": [
       "ctnetlink_dump_status",
+      "ctnetlink_dump_mark",
       "ctnetlink_dump_secctx",
       "ctnetlink_dump_id",
       "ctnetlink_dump_use",
       "ctnetlink_dump_master",
-      "test_bit",
       "ctnetlink_dump_protoinfo"
     ],
     "ctnetlink_proto_size": [
@@ -2006,6 +1862,7 @@
       "ctnetlink_label_size"
     ],
     "ctnetlink_done": [
+      "nf_ct_put",
       "kfree"
     ],
     "ctnetlink_start": [
@@ -2016,14 +1873,10 @@
       "nf_ct_l3num",
       "READ_ONCE"
     ],
-    "ctnetlink_get_id": [
-      "nf_ct_get_id"
-    ],
     "nf_conntrack_lock": [
       "spin_unlock"
     ],
     "NFNL_MSG_TYPE": [
-      "ctnetlink_get_id",
       "spin_unlock"
     ],
     "ctnetlink_flush_iterate": [
@@ -2057,22 +1910,17 @@
       "ctnetlink_dump_secctx",
       "ctnetlink_dump_master",
       "ctnetlink_dump_ct_seq_adj",
-      "ctnetlink_dump_ct_synproxy"
+      "ctnetlink_dump_ct_synproxy",
+      "ctnetlink_dump_mark"
     ],
-    "nla_put_be32": [
-      "nla_put_string"
-    ],
-    "ctnetlink_exp_id": [
-      "nf_ct_get_id"
-    ],
-    "NETLINK_CB": [
-      "ctnetlink_exp_id"
+    "ctnetlink_exp_done": [
+      "nf_ct_expect_put"
     ],
     "expect_iter_name": [
       "strcmp"
     ],
     "spin_lock_bh": [
-      "timer_delete",
+      "del_timer",
       "NETLINK_CB",
       "nlmsg_report",
       "nf_ct_expect_put"
@@ -2096,16 +1944,6 @@
       "nfnetlink_subsys_unregister",
       "RCU_INIT_POINTER",
       "synchronize_rcu"
-    ]
-  },
-  "nf_conntrack_ovs.c": {
-    "nf_ct_skb_network_trim": [
-      "ntohs",
-      "ipv6_hdr",
-      "nf_ip6_check_hbh_len"
-    ],
-    "memset": [
-      "kfree_skb"
     ]
   },
   "nf_conntrack_pptp.c": {
@@ -2134,11 +1972,6 @@
     ]
   },
   "nf_conntrack_proto.c": {
-    "nf_conntrack_confirm": [
-      "nf_ct_l3num",
-      "ipv6_hdr",
-      "htons"
-    ],
     "nf_ct_tcp_fixup": [
       "nf_ct_l3num",
       "nf_ct_protonum"
@@ -2190,8 +2023,24 @@
       "nf_conntrack_tcp_init_net",
       "nf_conntrack_icmp_init_net",
       "nf_conntrack_icmpv6_init_net",
+      "nf_conntrack_dccp_init_net",
       "nf_conntrack_sctp_init_net",
       "nf_conntrack_gre_init_net"
+    ]
+  },
+  "nf_conntrack_proto_dccp.c": {
+    "dccp_ack_seq": [
+      "ntohs",
+      "ntohl"
+    ],
+    "dccp_print_conntrack": [
+      "seq_printf"
+    ],
+    "nlattr_to_dccp": [
+      "nla_get_u8",
+      "spin_lock_bh",
+      "be64_to_cpu",
+      "spin_unlock_bh"
     ]
   },
   "nf_conntrack_proto_generic.c": {},
@@ -2220,16 +2069,17 @@
     ],
     "NLA_ALIGN": [
       "spin_lock_bh",
+      "nla_get_u8",
       "spin_unlock_bh"
     ],
     "nlattr_to_sctp": [
       "spin_lock_bh",
+      "nla_get_u8",
       "spin_unlock_bh"
     ]
   },
   "nf_conntrack_proto_tcp.c": {
     "tcp_print_conntrack": [
-      "test_bit",
       "seq_printf"
     ],
     "WRITE_ONCE": [
@@ -2240,30 +2090,12 @@
       "ntohs",
       "tcp_options",
       "tcp_can_early_drop",
-      "nf_conntrack_tcp_set_closing",
-      "nf_ct_is_confirmed",
-      "spin_lock_bh",
-      "test_bit",
-      "spin_unlock_bh",
-      "nf_conntrack_event_cache",
       "nf_ct_tcp_state_reset",
+      "spin_lock_bh",
       "CTINFO2DIR"
     ],
-    "nf_conntrack_tcp_set_closing": [
-      "nf_ct_is_confirmed",
-      "spin_lock_bh",
-      "test_bit",
-      "spin_unlock_bh",
-      "WRITE_ONCE",
-      "nf_conntrack_event_cache"
-    ],
-    "test_bit": [
-      "spin_unlock_bh"
-    ],
-    "nf_conntrack_event_cache": [
-      "test_bit"
-    ],
     "nlattr_to_tcp": [
+      "nla_get_u8",
       "spin_lock_bh",
       "nla_data",
       "spin_unlock_bh"
@@ -2303,9 +2135,6 @@
     ]
   },
   "nf_conntrack_standalone.c": {
-    "hlist_nulls_for_each_entry_rcu": [
-      "net_eq"
-    ],
     "ct_seq_stop": [
       "rcu_read_unlock"
     ],
@@ -2325,7 +2154,6 @@
       "l3proto_name",
       "nf_ct_l3num",
       "l4proto_name",
-      "test_bit",
       "seq_puts",
       "READ_ONCE",
       "ct_show_secctx",
@@ -2344,6 +2172,7 @@
     "nf_conntrack_standalone_init_sysctl": [
       "ARRAY_SIZE",
       "net_eq",
+      "register_net_sysctl",
       "kfree"
     ],
     "nf_conntrack_standalone_fini_sysctl": [
@@ -2398,21 +2227,12 @@
       "kfree_skb"
     ]
   },
-  "nf_flow_table_bpf.c": {},
   "nf_flow_table_core.c": {
-    "flow_offload_dst_cookie": [
-      "dst_rt6_info"
-    ],
-    "flow_offload_fixup_tcp": [
-      "spin_lock_bh",
-      "spin_unlock_bh"
-    ],
     "flow_offload_fixup_ct": [
       "nf_ct_protonum",
-      "test_bit",
       "flow_offload_fixup_tcp",
       "READ_ONCE",
-      "nf_flow_has_expired"
+      "WRITE_ONCE"
     ],
     "flow_offload_free": [
       "flow_offload_route_release",
@@ -2428,36 +2248,15 @@
     ],
     "flow_offload_teardown": [
       "clear_bit",
+      "set_bit",
       "flow_offload_fixup_ct"
     ],
     "void": [
       "PTR_ERR"
     ],
-    "nf_flow_table_tcp_timeout": [
-      "READ_ONCE"
-    ],
-    "nf_flow_table_extend_ct_timeout": [
-      "smp_acquire__after_ctrl_dep",
-      "nf_ct_is_confirmed",
-      "test_bit",
-      "nf_ct_protonum",
-      "nf_flow_table_tcp_timeout",
-      "WARN_ON_ONCE",
-      "nf_ct_put"
-    ],
-    "test_bit": [
-      "nf_ct_protonum",
-      "nf_flow_table_tcp_timeout",
-      "WARN_ON_ONCE"
-    ],
     "nf_ct_is_dying": [
-      "nf_flow_custom_gc",
-      "flow_offload_teardown",
-      "nf_flow_table_extend_ct_timeout"
-    ],
-    "nf_flow_custom_gc": [
-      "flow_offload_teardown",
-      "nf_flow_table_extend_ct_timeout"
+      "nf_flow_offload_del",
+      "flow_offload_del"
     ],
     "nf_flow_offload_work_gc": [
       "nf_flow_table_gc_run"
@@ -2491,9 +2290,7 @@
       "nf_flow_table_fini_net"
     ],
     "nf_flow_table_module_init": [
-      "nf_flow_table_offload_init",
-      "nf_flow_register_bpf",
-      "nf_flow_table_offload_exit"
+      "nf_flow_table_offload_init"
     ],
     "nf_flow_table_module_exit": [
       "nf_flow_table_offload_exit"
@@ -2508,30 +2305,16 @@
     ]
   },
   "nf_flow_table_ip.c": {
-    "nf_flow_snat_port": [
-      "test_bit"
-    ],
-    "nf_flow_snat_ip": [
-      "test_bit"
-    ],
-    "nf_flow_snat_ipv6": [
-      "test_bit"
+    "nf_ct_acct_update": [
+      "memset",
+      "nf_flow_xmit_xfrm"
     ]
   },
   "nf_flow_table_offload.c": {
-    "BIT_ULL": [
+    "BIT": [
       "memcpy",
       "memcmp",
       "memset"
-    ],
-    "flow_offload_ipv4_snat": [
-      "test_bit"
-    ],
-    "flow_offload_port_snat": [
-      "test_bit"
-    ],
-    "flow_offload_ipv6_snat": [
-      "test_bit"
     ],
     "__nf_flow_offload_destroy": [
       "kfree"
@@ -2545,11 +2328,9 @@
     ],
     "flow_offload_work_del": [
       "clear_bit",
-      "test_bit",
       "set_bit"
     ],
     "flow_offload_work_stats": [
-      "test_bit",
       "flow_offload_get_timeout"
     ],
     "flow_offload_work_handler": [
@@ -2580,20 +2361,7 @@
       "seq_printf"
     ]
   },
-  "nf_hooks_lwtunnel.c": {
-    "nf_hooks_lwtunnel_set": [
-      "static_branch_enable"
-    ],
-    "nf_lwtunnel_net_init": [
-      "net_eq",
-      "ARRAY_SIZE",
-      "kfree"
-    ],
-    "nf_lwtunnel_net_exit": [
-      "net_eq",
-      "kfree"
-    ]
-  },
+  "nf_hooks_lwtunnel.c": {},
   "nf_log.c": {
     "nf_log_set": [
       "ARRAY_SIZE",
@@ -2618,9 +2386,6 @@
       "mutex_unlock",
       "synchronize_rcu"
     ],
-    "nf_log_is_registered": [
-      "WARN_ON_ONCE"
-    ],
     "nf_log_unbind_pf": [
       "ARRAY_SIZE",
       "mutex_lock",
@@ -2628,14 +2393,12 @@
       "mutex_unlock"
     ],
     "nf_logger_find_get": [
-      "ARRAY_SIZE",
       "nf_logger_put",
       "rcu_read_lock",
       "rcu_read_unlock"
     ],
     "nf_logger_put": [
       "rcu_read_lock",
-      "WARN_ON_ONCE",
       "module_put",
       "rcu_read_unlock"
     ],
@@ -2660,7 +2423,6 @@
       "net_eq",
       "snprintf",
       "register_net_sysctl",
-      "ARRAY_SIZE",
       "kfree"
     ],
     "netfilter_log_sysctl_exit": [
@@ -2717,13 +2479,6 @@
     "__nf_nat_decode_session": [
       "nf_ct_l3num",
       "CTINFO2DIR"
-    ],
-    "nf_nat_allow_clash": [
-      "nf_ct_l4proto_find",
-      "nf_ct_protonum"
-    ],
-    "nf_nat_may_kill": [
-      "READ_ONCE"
     ],
     "net_eq": [
       "nf_ct_zone_equal"
@@ -2825,21 +2580,11 @@
       "mutex_unlock"
     ]
   },
-  "nf_nat_ovs.c": {
-    "ip_hdr": [
-      "htons",
-      "ipv6_hdr"
-    ]
-  },
   "nf_nat_proto.c": {
     "nf_xfrm_me_harder": [
       "net_eq",
       "sock_net",
       "PTR_ERR"
-    ],
-    "nf_nat_inet_port_was_mangled": [
-      "nf_ct_protonum",
-      "CTINFO2DIR"
     ],
     "nf_nat_ipv4_register_fn": [
       "ARRAY_SIZE"
@@ -2861,14 +2606,7 @@
       "ARRAY_SIZE"
     ]
   },
-  "nf_nat_redirect.c": {
-    "nf_nat_redirect_ipv6_usable": [
-      "ipv6_addr_type"
-    ],
-    "read_lock_bh": [
-      "nf_nat_redirect_ipv6_usable"
-    ]
-  },
+  "nf_nat_redirect.c": {},
   "nf_nat_sip.c": {
     "htons": [
       "sprintf",
@@ -2921,6 +2659,14 @@
     "nf_queue_nf_hook_drop": [
       "rcu_read_lock",
       "rcu_read_unlock"
+    ],
+    "nf_reinject": [
+      "WARN_ON_ONCE",
+      "kfree_skb",
+      "nf_queue_entry_free",
+      "nf_reroute",
+      "local_bh_disable",
+      "local_bh_enable"
     ]
   },
   "nf_sockopt.c": {
@@ -2972,36 +2718,16 @@
     "nft_validate_state_update": [
       "WARN_ON_ONCE"
     ],
-    "nft_trans_list_del": [
-      "list_del"
-    ],
     "nft_trans_destroy": [
-      "nft_trans_list_del",
-      "kfree"
-    ],
-    "nf_tables_bind_chain": [
-      "nft_chain_binding"
-    ],
-    "nft_netdev_hook_free_ops": [
       "list_del",
       "kfree"
-    ],
-    "nft_netdev_hook_free": [
-      "nft_netdev_hook_free_ops",
-      "kfree"
-    ],
-    "__nft_netdev_hook_free_rcu": [
-      "nft_netdev_hook_free"
     ],
     "nf_unregister_net_hook": [
       "list_del",
-      "nft_netdev_hook_free_rcu"
+      "kfree_rcu"
     ],
     "nft_trans_commit_list_add_tail": [
-      "list_add_tail",
-      "nft_set_is_anonymous",
-      "nft_trans_chain_update",
-      "nft_chain_binding"
+      "list_add_tail"
     ],
     "nft_trans_table_add": [
       "nft_activate_next",
@@ -3018,8 +2744,7 @@
       "ntohl"
     ],
     "nft_delchain": [
-      "PTR_ERR",
-      "nft_use_dec"
+      "PTR_ERR"
     ],
     "nft_delrule": [
       "nft_trans_destroy",
@@ -3027,16 +2752,6 @@
     ],
     "nft_delrule_by_chain": [
       "nft_delrule"
-    ],
-    "nft_map_deactivate": [
-      "WARN_ON_ONCE"
-    ],
-    "nft_delset": [
-      "nft_map_deactivate",
-      "nft_use_dec"
-    ],
-    "nft_delobj": [
-      "nft_use_dec"
     ],
     "__nft_reg_track_clobber": [
       "__nft_reg_track_cancel"
@@ -3053,11 +2768,7 @@
       "lockdep_nfnl_is_held"
     ],
     "nft_base_seq": [
-      "READ_ONCE"
-    ],
-    "nft_base_seq_be16": [
-      "htons",
-      "nft_base_seq"
+      "htons"
     ],
     "nla_put_be32": [
       "nla_put"
@@ -3067,23 +2778,14 @@
       "kfree_skb",
       "nfnetlink_set_err"
     ],
-    "nft_table_disable": [
-      "nft_is_base_chain"
-    ],
     "nf_tables_table_enable": [
-      "nft_is_base_chain",
       "nft_table_disable"
     ],
     "nf_tables_table_disable": [
       "nft_table_disable"
     ],
-    "nft_table_pending_update": [
-      "nft_trans_chain_update",
-      "nft_is_base_chain"
-    ],
     "nf_tables_updtable": [
       "ntohl",
-      "nft_table_pending_update",
       "nf_tables_table_enable",
       "nft_trans_commit_list_add_tail",
       "nft_trans_destroy"
@@ -3097,9 +2799,7 @@
       "nf_tables_updtable"
     ],
     "nft_flush_table": [
-      "nft_chain_binding",
       "nft_delrule_by_chain",
-      "nft_set_is_anonymous",
       "nft_delset",
       "nft_delobj",
       "nft_delchain",
@@ -3121,12 +2821,12 @@
     ],
     "nft_dump_stats": [
       "memset",
-      "for_each_possible_cpu",
       "nla_nest_end"
     ],
-    "nft_nla_put_hook_dev": [
-      "hook_is_prefix",
-      "nla_put_string"
+    "nf_tables_chain_notify": [
+      "nfnetlink_has_listeners",
+      "kfree_skb",
+      "nfnetlink_set_err"
     ],
     "nft_chain_stats_replace": [
       "lockdep_commit_lock_is_held",
@@ -3138,9 +2838,8 @@
     ],
     "nf_tables_chain_destroy": [
       "nf_tables_chain_free_chain_rules",
-      "nft_is_base_chain",
       "list_del_rcu",
-      "nft_netdev_hook_free_rcu",
+      "kfree_rcu",
       "module_put",
       "free_percpu",
       "kfree"
@@ -3148,35 +2847,16 @@
     "module_put": [
       "free_percpu"
     ],
-    "NL_SET_BAD_ATTR": [
-      "INIT_LIST_HEAD",
-      "module_put",
-      "nft_chain_release_hook",
-      "list_del",
-      "nft_netdev_hook_free",
-      "nft_last_rule",
-      "list_splice_init",
-      "nft_chain_offload_support",
-      "nft_chain_add",
-      "list_add_tail_rcu"
-    ],
     "nft_chain_release_hook": [
       "list_del",
-      "nft_netdev_hook_free",
+      "kfree",
       "module_put"
     ],
     "nft_chain_add": [
       "list_add_tail_rcu"
     ],
-    "nft_is_base_chain": [
-      "list_empty"
-    ],
     "nft_trans_chain_policy": [
-      "nft_trans_chain_update",
-      "nft_trans_chain_name",
-      "strcmp",
-      "NL_SET_BAD_ATTR",
-      "kfree"
+      "nft_trans_destroy"
     ],
     "nft_trans_chain_update": [
       "strcmp",
@@ -3195,7 +2875,6 @@
       "kfree"
     ],
     "nft_register_expr": [
-      "WARN_ON_ONCE",
       "nfnl_lock",
       "list_add_tail_rcu",
       "list_add_rcu",
@@ -3210,7 +2889,7 @@
       "PTR_ERR"
     ],
     "nft_expr_clone": [
-      "WARN_ON_ONCE"
+      "memcpy"
     ],
     "nft_expr_destroy": [
       "kfree"
@@ -3218,31 +2897,14 @@
     "nf_tables_dump_rules_start": [
       "kfree"
     ],
-    "nf_tables_dumpreset_rules_start": [
-      "nf_tables_dump_rules_start"
-    ],
     "nf_tables_dump_rules_done": [
       "kfree"
-    ],
-    "nf_tables_rule_destroy": [
-      "kfree"
-    ],
-    "nf_tables_rule_release": [
-      "WARN_ON_ONCE",
-      "lockdep_commit_lock_is_held",
-      "nf_tables_rule_destroy"
     ],
     "nft_chain_validate": [
       "nft_rule_for_each_expr"
     ],
     "nft_table_validate": [
-      "nft_is_base_chain",
-      "nft_chain_validate",
-      "cond_resched"
-    ],
-    "nft_set_catchall_validate": [
-      "lockdep_commit_lock_is_held",
-      "nft_set_elem_active"
+      "nft_chain_validate"
     ],
     "nla_for_each_nested": [
       "NL_SET_BAD_ATTR"
@@ -3253,54 +2915,31 @@
     "nf_tables_dump_sets": [
       "sock_net",
       "rcu_read_lock",
-      "nft_base_seq",
+      "READ_ONCE",
       "rcu_read_unlock"
     ],
     "nf_tables_dump_sets_done": [
       "kfree"
     ],
-    "nft_set_put": [
-      "kfree",
-      "kvfree"
-    ],
     "nft_set_destroy": [
       "nft_expr_destroy",
-      "nft_set_put"
+      "kfree",
+      "kvfree"
     ],
     "atomic_read": [
       "NL_SET_BAD_ATTR"
     ],
-    "nft_map_activate": [
-      "WARN_ON_ONCE"
-    ],
-    "nf_tables_activate_set": [
-      "nft_set_is_anonymous",
-      "nft_map_activate",
-      "nft_clear"
-    ],
-    "nft_use_dec": [
-      "nft_set_is_anonymous",
-      "nft_map_deactivate"
-    ],
     "nf_tables_destroy_set": [
-      "list_empty",
-      "nft_set_is_anonymous",
       "nft_set_destroy"
-    ],
-    "htonl": [
-      "nft_set_ext_exists",
-      "READ_ONCE",
-      "nf_jiffies64_to_msecs"
     ],
     "nf_tables_dump_set": [
       "sock_net",
       "rcu_read_lock",
-      "nft_base_seq",
+      "READ_ONCE",
       "rcu_read_unlock",
       "nfnl_msg_type",
       "NETLINK_CB",
-      "nft_base_seq_be16",
-      "nla_put_string",
+      "nft_base_seq",
       "nla_nest_end"
     ],
     "nf_tables_dump_set_done": [
@@ -3309,15 +2948,11 @@
     "nft_set_ext_data": [
       "nft_set_ext_exists"
     ],
-    "nft_setelem_catchall_destroy": [
-      "list_del_rcu",
-      "kfree_rcu"
+    "nft_data_hold": [
+      "nft_chain_add"
     ],
-    "nft_setelem_remove": [
-      "atomic_dec"
-    ],
-    "NFNL_MSG_TYPE": [
-      "NL_SET_BAD_ATTR"
+    "nft_set_gc_batch_release": [
+      "kfree"
     ],
     "nft_register_obj": [
       "nfnl_lock",
@@ -3331,17 +2966,18 @@
     ],
     "nf_tables_dump_obj": [
       "sock_net",
+      "NFNL_MSG_TYPE",
       "rcu_read_lock",
-      "nft_base_seq",
+      "READ_ONCE",
+      "memset",
       "strcmp",
+      "kfree",
       "NETLINK_CB",
       "rcu_read_unlock"
     ],
     "nf_tables_dump_obj_start": [
+      "kfree",
       "ntohl"
-    ],
-    "nf_tables_dumpreset_obj_start": [
-      "nf_tables_dump_obj_start"
     ],
     "nf_tables_dump_obj_done": [
       "kfree"
@@ -3360,17 +2996,13 @@
       "list_del_rcu",
       "nfnl_unlock"
     ],
-    "nft_unregister_flowtable_ops": [
-      "list_del",
-      "nft_netdev_hook_free_rcu"
-    ],
-    "nft_hooks_destroy": [
+    "nft_flowtable_hooks_destroy": [
       "list_del_rcu",
-      "nft_netdev_hook_free_rcu"
+      "kfree_rcu"
     ],
     "nft_flowtable_hook_release": [
       "list_del",
-      "nft_netdev_hook_free"
+      "kfree"
     ],
     "nft_delflowtable_hook": [
       "NL_SET_BAD_ATTR"
@@ -3383,7 +3015,6 @@
     ],
     "nf_tables_flowtable_destroy": [
       "list_del_rcu",
-      "nft_netdev_hook_free_rcu",
       "kfree",
       "module_put"
     ],
@@ -3392,37 +3023,36 @@
       "nft_table_validate"
     ],
     "nft_chain_commit_drop_policy": [
-      "nft_is_base_chain"
+      "nft_trans_chain_policy"
     ],
     "nft_chain_commit_update": [
+      "nft_trans_chain_name",
       "swap",
-      "nft_is_base_chain",
-      "nft_chain_stats_replace"
+      "nft_chain_stats_replace",
+      "nft_trans_chain_policy"
+    ],
+    "nft_obj_commit_update": [
+      "nft_trans_obj",
+      "nft_obj_destroy"
     ],
     "nft_commit_release": [
-      "nft_ctx_update",
       "nf_tables_table_destroy",
       "free_percpu",
       "kfree",
       "nft_trans_chain_name",
-      "nft_trans_chain_update",
-      "nft_hooks_destroy",
       "nf_tables_chain_destroy",
-      "nf_tables_rule_destroy",
       "nft_set_destroy",
       "nft_obj_destroy",
       "nft_trans_obj",
-      "nf_tables_flowtable_destroy",
-      "nft_trans_flowtable"
+      "nft_flowtable_hooks_destroy",
+      "nf_tables_flowtable_destroy"
     ],
     "nf_tables_trans_destroy_work": [
       "LIST_HEAD",
       "spin_lock",
-      "list_splice_init",
       "spin_unlock",
-      "list_empty",
       "synchronize_rcu",
-      "nft_trans_list_del",
+      "list_del",
       "nft_commit_release"
     ],
     "nf_tables_commit_chain_prepare": [
@@ -3434,7 +3064,7 @@
     "nf_tables_commit_chain_prepare_cancel": [
       "kvfree"
     ],
-    "__nf_tables_commit_chain_free_rules": [
+    "__nf_tables_commit_chain_free_rules_old": [
       "kvfree"
     ],
     "nf_tables_commit_chain": [
@@ -3449,55 +3079,13 @@
       "WARN_ON_ONCE",
       "list_del_rcu"
     ],
-    "nft_trans_gc_destroy": [
-      "nft_set_put",
-      "kfree"
-    ],
-    "nft_trans_gc_trans_free": [
-      "atomic_dec",
-      "nft_trans_gc_destroy"
-    ],
-    "nft_trans_gc_work_done": [
-      "mutex_lock",
-      "READ_ONCE",
-      "mutex_unlock"
-    ],
-    "nft_trans_gc_work": [
-      "LIST_HEAD",
-      "spin_lock",
-      "list_splice_init",
-      "spin_unlock",
-      "list_del",
-      "nft_trans_gc_work_done",
-      "nft_trans_gc_destroy"
-    ],
-    "list_del": [
-      "nft_trans_gc_work_done",
-      "nft_trans_gc_destroy"
-    ],
-    "nft_trans_gc_queue_work": [
-      "spin_lock",
-      "list_add_tail",
-      "spin_unlock"
-    ],
-    "nft_trans_gc_queue_async_done": [
-      "nft_trans_gc_destroy",
-      "nft_trans_gc_queue_work"
-    ],
-    "nft_trans_gc_queue_sync_done": [
-      "WARN_ON_ONCE",
-      "lockdep_commit_lock_is_held",
-      "nft_trans_gc_destroy"
-    ],
     "nf_tables_module_autoload_cleanup": [
       "WARN_ON_ONCE",
-      "list_empty",
       "list_del",
       "kfree"
     ],
     "nf_tables_commit_release": [
       "synchronize_rcu",
-      "list_empty",
       "nf_tables_module_autoload_cleanup",
       "mutex_unlock",
       "list_last_entry",
@@ -3510,8 +3098,7 @@
       "skb_put",
       "memcpy",
       "kfree_skb",
-      "WARN_ON_ONCE",
-      "list_empty"
+      "WARN_ON_ONCE"
     ],
     "nf_tables_commit_audit_free": [
       "list_del",
@@ -3522,180 +3109,89 @@
       "list_del",
       "kfree"
     ],
-    "nft_gc_seq_begin": [
-      "READ_ONCE",
-      "WRITE_ONCE"
-    ],
-    "nft_gc_seq_end": [
-      "WRITE_ONCE"
-    ],
     "nf_tables_commit": [
       "LIST_HEAD",
-      "list_empty",
       "mutex_unlock",
-      "nft_set_is_anonymous",
-      "nft_trans_chain_update",
-      "nft_chain_binding",
       "nf_tables_validate",
       "nft_flow_rule_offload_commit",
       "nf_tables_commit_chain_prepare_cancel",
       "nf_tables_commit_audit_free",
       "nf_tables_commit_chain_prepare",
       "nf_tables_commit_chain",
-      "nft_base_seq",
-      "nft_gc_seq_begin",
-      "nft_ctx_update",
-      "nf_tables_commit_audit_collect",
+      "READ_ONCE",
+      "WRITE_ONCE",
       "nft_trans_destroy",
       "nf_tables_table_disable",
-      "nft_clear",
       "nf_tables_table_notify",
       "list_del_rcu",
+      "nft_trans_chain_update",
       "nft_chain_commit_update",
-      "list_splice",
+      "nf_tables_chain_notify",
       "nft_chain_commit_drop_policy",
       "nft_chain_del",
       "nft_flow_rule_destroy",
-      "list_del",
-      "WRITE_ONCE",
-      "nft_use_dec",
-      "nft_trans_elems_add",
-      "list_add_tail",
-      "nft_trans_elems_remove",
+      "nft_setelem_remove",
+      "atomic_dec",
+      "nft_obj_commit_update",
       "nft_trans_obj",
       "nft_obj_del",
-      "nft_trans_flowtable",
-      "nft_set_commit_update",
+      "list_splice",
       "nft_commit_notify",
       "NETLINK_CB",
       "nf_tables_commit_audit_log",
-      "nft_gc_seq_end",
       "nf_tables_commit_release"
     ],
-    "nft_ctx_update": [
-      "nft_trans_destroy",
-      "nf_tables_table_disable",
-      "nft_clear",
-      "nf_tables_table_notify",
-      "list_del_rcu",
-      "nft_trans_chain_update",
-      "nft_chain_commit_update",
-      "list_splice",
-      "nft_chain_commit_drop_policy",
-      "nft_chain_del",
-      "nft_flow_rule_destroy",
-      "list_del",
-      "WRITE_ONCE",
-      "nft_set_is_anonymous",
-      "list_empty",
-      "nft_use_dec",
-      "nft_trans_elems_add",
-      "list_add_tail",
-      "nft_trans_elems_remove",
-      "nft_trans_obj",
-      "nft_obj_del",
-      "nft_trans_flowtable"
+    "nft_flow_rule_destroy": [
+      "WRITE_ONCE"
     ],
-    "nf_tables_commit_audit_collect": [
-      "nft_trans_destroy",
-      "nf_tables_table_disable",
-      "nft_clear",
-      "nf_tables_table_notify",
-      "list_del_rcu",
-      "nft_trans_chain_update",
-      "nft_chain_commit_update",
-      "list_splice",
-      "nft_chain_commit_drop_policy",
-      "nft_chain_del",
-      "nft_flow_rule_destroy",
-      "list_del",
-      "WRITE_ONCE",
-      "nft_set_is_anonymous",
-      "list_empty",
-      "nft_use_dec",
-      "nft_trans_elems_add",
-      "list_add_tail",
-      "nft_trans_elems_remove",
-      "nft_trans_obj",
-      "nft_obj_del",
-      "nft_trans_flowtable"
-    ],
-    "nft_trans_elems_add": [
-      "list_empty",
-      "list_add_tail"
-    ],
-    "list_empty": [
-      "list_add_tail"
-    ],
-    "nft_trans_elems_remove": [
-      "list_empty",
-      "list_add_tail"
+    "nft_setelem_remove": [
+      "atomic_dec"
     ],
     "nf_tables_module_autoload": [
       "LIST_HEAD",
-      "list_splice_init",
       "mutex_unlock",
       "request_module",
       "mutex_lock",
       "list_splice"
     ],
     "nf_tables_abort_release": [
-      "nft_ctx_update",
       "nf_tables_table_destroy",
-      "nft_trans_chain_update",
-      "nft_hooks_destroy",
       "nf_tables_chain_destroy",
-      "nf_tables_rule_destroy",
       "nft_set_destroy",
-      "nft_trans_set_elem_destroy",
       "nft_obj_destroy",
       "nft_trans_obj",
+      "nft_flowtable_hooks_destroy",
       "nf_tables_flowtable_destroy",
-      "nft_trans_flowtable",
       "kfree"
     ],
     "__nf_tables_abort": [
-      "LIST_HEAD",
       "nf_tables_validate",
-      "nft_ctx_update",
       "nft_trans_destroy",
       "nf_tables_table_disable",
       "list_del_rcu",
-      "nft_clear",
       "nft_trans_chain_update",
       "free_percpu",
       "kfree",
       "nft_trans_chain_name",
-      "nft_use_dec_restore",
       "nft_chain_del",
-      "list_splice",
       "nft_flow_rule_destroy",
-      "nft_rule_expr_activate",
-      "list_del",
-      "nft_map_activate",
-      "list_empty",
-      "list_add_tail",
-      "nft_trans_elems_destroy_abort",
+      "nft_setelem_remove",
+      "atomic_dec",
       "nft_obj_destroy",
       "nft_obj_del",
       "nft_trans_obj",
-      "nft_trans_flowtable",
-      "WARN_ON_ONCE",
-      "nft_set_abort_update",
+      "list_splice",
       "synchronize_rcu",
-      "nft_trans_list_del",
-      "nf_tables_abort_release"
+      "list_del",
+      "nf_tables_abort_release",
+      "nf_tables_module_autoload",
+      "nf_tables_module_autoload_cleanup"
     ],
-    "nft_use_dec_restore": [
-      "nft_trans_destroy"
-    ],
-    "nft_trans_elems_destroy_abort": [
-      "list_empty",
-      "list_add_tail"
+    "nf_tables_cleanup": [
+      "nft_validate_state_update"
     ],
     "nf_tables_valid_genid": [
       "mutex_lock",
-      "nft_base_seq",
       "mutex_unlock"
     ],
     "nft_parse_u32_check": [
@@ -3708,28 +3204,34 @@
       "nla_put_be32",
       "htonl"
     ],
+    "nft_parse_register_load": [
+      "nft_parse_register",
+      "nft_validate_register_load"
+    ],
     "nft_verdict_uninit": [
-      "nft_use_dec"
+      "nft_chain_del"
     ],
     "nft_verdict_dump": [
       "nla_put_be32",
       "htonl",
-      "nla_put_string",
       "nla_nest_end"
     ],
     "nft_data_release": [
       "nft_verdict_uninit"
     ],
+    "__nft_release_basechain": [
+      "list_del",
+      "nf_tables_rule_release",
+      "nft_chain_del",
+      "nf_tables_chain_destroy"
+    ],
     "__nft_release_hooks": [
       "__nft_release_hook"
     ],
     "__nft_release_table": [
-      "nft_chain_binding",
       "list_del",
-      "nft_use_dec",
       "nf_tables_rule_release",
       "nf_tables_flowtable_destroy",
-      "nft_map_deactivate",
       "nft_set_destroy",
       "nft_obj_del",
       "nft_obj_destroy",
@@ -3741,6 +3243,11 @@
       "list_del",
       "__nft_release_table"
     ],
+    "rcu_barrier": [
+      "__nft_release_hook",
+      "list_del_rcu",
+      "ARRAY_SIZE"
+    ],
     "nf_tables_init_net": [
       "INIT_LIST_HEAD"
     ],
@@ -3751,13 +3258,10 @@
     ],
     "nf_tables_exit_net": [
       "mutex_lock",
-      "nft_gc_seq_begin",
-      "WARN_ON_ONCE",
-      "list_empty",
-      "nf_tables_module_autoload_cleanup",
+      "__nf_tables_abort",
       "__nft_release_tables",
-      "nft_gc_seq_end",
-      "mutex_unlock"
+      "mutex_unlock",
+      "WARN_ON_ONCE"
     ],
     "nf_tables_module_init": [
       "nft_chain_filter_init",
@@ -3779,18 +3283,11 @@
     ]
   },
   "nf_tables_core.c": {
-    "nf_skip_indirect_calls_enable": [
-      "static_branch_enable"
-    ],
-    "static_branch_enable": [
-      "nf_skip_indirect_calls_enable"
-    ],
     "nf_tables_core_module_init": [
       "nft_counter_init_seqcount",
       "ARRAY_SIZE",
       "nft_register_obj",
       "nft_register_expr",
-      "nf_skip_indirect_calls_enable",
       "nft_unregister_expr",
       "nft_unregister_obj"
     ],
@@ -3801,9 +3298,6 @@
     ]
   },
   "nf_tables_offload.c": {
-    "BIT_ULL": [
-      "htons"
-    ],
     "nft_flow_rule_destroy": [
       "kfree"
     ],
@@ -3818,6 +3312,19 @@
     "nft_flow_rule_offload_commit": [
       "nft_trans_chain_update",
       "nft_trans_chain_policy"
+    ]
+  },
+  "nf_tables_trace.c": {
+    "nft_trace_notify": [
+      "nfnetlink_has_listeners",
+      "nft_trace_have_verdict_chain",
+      "nfnl_msg_type",
+      "nla_put_be32",
+      "htonl",
+      "nft_pf",
+      "nft_verdict_dump",
+      "WARN_ON_ONCE",
+      "kfree_skb"
     ]
   },
   "nfnetlink.c": {
@@ -3927,7 +3434,6 @@
   },
   "nfnetlink_cthelper.c": {
     "htonl": [
-      "nla_put_string",
       "nla_put_be32",
       "nla_nest_end"
     ],
@@ -3961,7 +3467,6 @@
       "list_del_rcu"
     ],
     "cttimeout_net_exit": [
-      "list_empty",
       "nf_ct_untimeout",
       "list_del",
       "kfree_rcu"
@@ -3979,13 +3484,6 @@
     ]
   },
   "nfnetlink_hook.c": {
-    "nla_put_string": [
-      "nla_put_u8",
-      "nla_nest_cancel"
-    ],
-    "nla_put_u8": [
-      "nla_nest_cancel"
-    ],
     "nfnl_hook_dump_start": [
       "sock_net",
       "ntohl",
@@ -4054,9 +3552,6 @@
     "sk_user_ns": [
       "PTR_ERR"
     ],
-    "seq_stop": [
-      "rcu_read_unlock"
-    ],
     "seq_show": [
       "seq_printf",
       "refcount_read"
@@ -4096,37 +3591,16 @@
     ]
   },
   "nfnetlink_queue.c": {
-    "nf_ip_reroute": [
-      "ip_hdr"
-    ],
-    "nf_reroute": [
-      "nf_ip_reroute"
-    ],
-    "nf_reinject": [
-      "nf_queue_entry_free",
-      "nf_reroute",
-      "local_bh_disable",
-      "local_bh_enable",
-      "kfree_skb"
-    ],
     "nfqnl_reinject": [
       "rcu_read_lock",
       "rcu_read_unlock",
-      "nf_queue_entry_free",
       "nf_reinject"
-    ],
-    "rcu_read_unlock": [
-      "nf_queue_entry_free"
     ],
     "nfqnl_put_sk_uidgid": [
       "read_lock_bh",
       "nla_put_be32",
       "htonl",
       "read_unlock_bh"
-    ],
-    "nfqnl_put_sk_classid": [
-      "nla_put_be32",
-      "htonl"
     ],
     "nfqnl_get_sk_secctx": [
       "read_lock_bh",
@@ -4161,10 +3635,6 @@
     "memset": [
       "htons",
       "nla_put"
-    ],
-    "nf_ct_drop_unconfirmed": [
-      "READ_ONCE",
-      "refcount_read"
     ],
     "nf_bridge_adjust_segmented_data": [
       "__skb_pull"
@@ -4206,7 +3676,20 @@
       "rcu_barrier"
     ]
   },
-  "nft_bitwise.c": {},
+  "nft_bitwise.c": {
+    "nft_bitwise_dump": [
+      "nft_dump_register",
+      "nla_put_be32",
+      "htonl"
+    ]
+  },
+  "nft_byteorder.c": {
+    "nft_byteorder_dump": [
+      "nft_dump_register",
+      "nla_put_be32",
+      "htonl"
+    ]
+  },
   "nft_chain_filter.c": {
     "nft_chain_filter_ipv4_init": [
       "nft_register_chain_type"
@@ -4237,9 +3720,6 @@
     ],
     "nft_chain_filter_bridge_fini": [
       "nft_unregister_chain_type"
-    ],
-    "nf_register_net_hook": [
-      "kfree"
     ],
     "nft_chain_filter_netdev_init": [
       "nft_register_chain_type",
@@ -4291,8 +3771,23 @@
     ]
   },
   "nft_cmp.c": {
+    "nft_cmp_dump": [
+      "nft_dump_register",
+      "nla_put_be32",
+      "htonl"
+    ],
+    "nft_cmp_fast_dump": [
+      "nft_dump_register",
+      "nla_put_be32",
+      "htonl"
+    ],
     "nft_cmp16_fast_mask": [
       "nft_cmp_mask"
+    ],
+    "nft_cmp16_fast_dump": [
+      "nft_dump_register",
+      "nla_put_be32",
+      "htonl"
     ]
   },
   "nft_compat.c": {
@@ -4309,6 +3804,10 @@
     "__nft_mt_tg_destroy": [
       "module_put",
       "kfree"
+    ],
+    "nft_target_dump": [
+      "nla_put_be32",
+      "htonl"
     ],
     "match_compat_from_user": [
       "memcpy",
@@ -4336,6 +3835,9 @@
     ]
   },
   "nft_connlimit.c": {
+    "nft_connlimit_dump": [
+      "nft_connlimit_do_dump"
+    ],
     "nft_connlimit_clone": [
       "nf_conncount_list_init"
     ],
@@ -4357,12 +3859,12 @@
     "nft_counter_do_destroy": [
       "free_percpu"
     ],
-    "nft_counter_init_seqcount": [
-      "for_each_possible_cpu"
+    "nft_counter_dump": [
+      "nft_counter_do_dump"
     ]
   },
   "nft_ct.c": {
-    "strscpy_pad": [
+    "strncpy": [
       "memcpy",
       "memset"
     ],
@@ -4370,13 +3872,10 @@
       "nf_ct_zone_id"
     ],
     "nft_ct_tmpl_put_pcpu": [
-      "for_each_possible_cpu",
       "nf_ct_put"
     ],
     "nft_ct_tmpl_alloc_pcpu": [
-      "for_each_possible_cpu",
-      "nft_ct_tmpl_put_pcpu",
-      "__set_bit"
+      "nft_ct_tmpl_put_pcpu"
     ],
     "__nft_ct_set_destroy": [
       "nf_connlabels_put",
@@ -4388,8 +3887,17 @@
       "nft_ct_tmpl_alloc_pcpu",
       "mutex_unlock"
     ],
-    "ERR_PTR": [
-      "ntohl"
+    "nft_ct_get_dump": [
+      "nft_dump_register",
+      "nla_put_be32",
+      "htonl",
+      "nla_put_u8"
+    ],
+    "nft_ct_set_dump": [
+      "nft_dump_register",
+      "nla_put_be32",
+      "htonl",
+      "nla_put_u8"
     ],
     "nft_ct_module_init": [
       "nft_register_expr",
@@ -4403,6 +3911,9 @@
     ]
   },
   "nft_dup_netdev.c": {
+    "nft_dup_netdev_dump": [
+      "nft_dump_register"
+    ],
     "nft_dup_netdev_module_init": [
       "nft_register_expr"
     ],
@@ -4411,15 +3922,15 @@
     ]
   },
   "nft_dynset.c": {
-    "nft_set_ext_exists": [
-      "READ_ONCE",
-      "WRITE_ONCE"
-    ],
-    "READ_ONCE": [
-      "WRITE_ONCE"
-    ],
     "nla_for_each_nested": [
       "PTR_ERR"
+    ],
+    "nft_dynset_dump": [
+      "nft_dump_register",
+      "nla_put_be32",
+      "htonl",
+      "nf_jiffies64_to_msecs",
+      "nla_nest_end"
     ],
     "nf_jiffies64_to_msecs": [
       "nla_nest_end"
@@ -4430,12 +3941,20 @@
       "nla_put_u8",
       "nla_put_be32",
       "htonl"
+    ],
+    "nft_exthdr_dump": [
+      "nft_dump_register",
+      "nft_exthdr_dump_common"
+    ],
+    "nft_exthdr_dump_set": [
+      "nft_dump_register",
+      "nft_exthdr_dump_common"
+    ],
+    "nft_exthdr_dump_strip": [
+      "nft_exthdr_dump_common"
     ]
   },
   "nft_fib.c": {
-    "nft_fib_validate": [
-      "nft_chain_validate_hooks"
-    ],
     "nft_fib_dump": [
       "nft_dump_register",
       "nla_put_be32",
@@ -4459,9 +3978,8 @@
     ]
   },
   "nft_flow_offload.c": {
-    "flow_offload_ct_tcp": [
-      "spin_lock_bh",
-      "spin_unlock_bh"
+    "memcpy": [
+      "BIT"
     ],
     "nft_flow_offload_module_init": [
       "nft_register_expr"
@@ -4471,6 +3989,14 @@
     ]
   },
   "nft_fwd_netdev.c": {
+    "nft_fwd_netdev_dump": [
+      "nft_dump_register"
+    ],
+    "nft_fwd_neigh_dump": [
+      "nft_dump_register",
+      "nla_put_be32",
+      "htonl"
+    ],
     "nft_fwd_netdev_module_init": [
       "nft_register_expr"
     ],
@@ -4490,24 +4016,29 @@
     "nft_reg_to_type": [
       "ntohl"
     ],
-    "nft_use_dec": [
-      "list_del",
-      "nf_tables_rule_destroy"
+    "nft_immediate_dump": [
+      "nft_dump_register"
     ]
   },
-  "nft_inner.c": {
-    "htons": [
-      "ntohs"
-    ],
-    "nft_inner_parse": [
-      "WARN_ON_ONCE"
+  "nft_last.c": {
+    "nft_last_dump": [
+      "READ_ONCE",
+      "WRITE_ONCE",
+      "nf_jiffies64_to_msecs",
+      "nla_put_be32",
+      "htonl"
     ]
   },
-  "nft_last.c": {},
   "nft_limit.c": {
     "nft_limit_eval": [
       "spin_lock_bh",
       "spin_unlock_bh"
+    ],
+    "nft_limit_pkts_clone": [
+      "nft_limit_clone"
+    ],
+    "nft_limit_bytes_clone": [
+      "nft_limit_clone"
     ],
     "nft_limit_module_init": [
       "nft_register_obj",
@@ -4526,6 +4057,11 @@
       "audit_ip4",
       "audit_ip6"
     ],
+    "nft_log_dump": [
+      "nla_put_be32",
+      "htonl",
+      "htons"
+    ],
     "nft_log_module_init": [
       "nft_register_expr"
     ],
@@ -4534,16 +4070,20 @@
     ]
   },
   "nft_lookup.c": {
-    "nft_lookup_should_retry": [
-      "nft_base_seq"
+    "nft_lookup_dump": [
+      "nft_dump_register",
+      "nla_put_be32",
+      "htonl"
     ]
   },
   "nft_masq.c": {
-    "nla_put_be32": [
+    "nft_masq_dump": [
+      "nla_put_be32",
+      "htonl",
       "nft_dump_register"
     ],
-    "nft_reg_load16": [
-      "nft_pf"
+    "nla_put_be32": [
+      "nft_dump_register"
     ],
     "nft_masq_module_init_ipv6": [
       "nft_register_expr"
@@ -4582,7 +4122,7 @@
       "nft_reg_store8"
     ],
     "nft_meta_store_ifname": [
-      "strscpy_pad"
+      "strncpy"
     ],
     "nft_meta_get_eval_sdif": [
       "nft_pf"
@@ -4593,11 +4133,21 @@
     "nft_meta_get_validate_xfrm": [
       "nft_chain_validate_hooks"
     ],
+    "nft_meta_set_dump": [
+      "nla_put_be32",
+      "htonl",
+      "nft_dump_register"
+    ],
     "nft_secmark_obj_destroy": [
       "kfree"
     ]
   },
   "nft_nat.c": {
+    "nft_nat_dump": [
+      "nla_put_be32",
+      "htonl",
+      "nft_dump_register"
+    ],
     "nft_nat_inet_module_init": [
       "nft_register_expr"
     ],
@@ -4625,8 +4175,27 @@
       "nft_unregister_expr"
     ]
   },
-  "nft_objref.c": {},
+  "nft_objref.c": {
+    "nft_objref_dump": [
+      "nla_put_be32",
+      "htonl"
+    ],
+    "nft_objref_map_dump": [
+      "nft_dump_register"
+    ],
+    "nft_objref_module_init": [
+      "nft_register_expr"
+    ],
+    "nft_objref_module_exit": [
+      "nft_unregister_expr"
+    ]
+  },
   "nft_osf.c": {
+    "nft_osf_dump": [
+      "nla_put_u8",
+      "ntohl",
+      "nft_dump_register"
+    ],
     "nft_osf_module_init": [
       "nft_register_expr"
     ],
@@ -4638,11 +4207,21 @@
     "nft_payload_inner_offset": [
       "__nft_payload_inner_offset"
     ],
-    "offsetof": [
-      "ntohs"
+    "nft_payload_dump": [
+      "nft_dump_register",
+      "nla_put_be32",
+      "htonl"
+    ],
+    "nft_payload_set_dump": [
+      "nft_dump_register",
+      "nla_put_be32",
+      "htonl"
     ]
   },
   "nft_queue.c": {
+    "nft_queue_dump": [
+      "htons"
+    ],
     "nft_queue_module_init": [
       "nft_register_expr"
     ],
@@ -4664,9 +4243,18 @@
       "nft_unregister_obj"
     ]
   },
+  "nft_range.c": {
+    "nft_range_dump": [
+      "nft_dump_register",
+      "nla_put_be32",
+      "htonl"
+    ]
+  },
   "nft_redir.c": {
-    "nft_reg_load16": [
-      "nft_pf"
+    "nft_redir_dump": [
+      "nft_dump_register",
+      "nla_put_be32",
+      "htonl"
     ],
     "nft_redir_module_init_inet": [
       "nft_register_expr"
@@ -4685,6 +4273,11 @@
     ]
   },
   "nft_reject.c": {
+    "nft_reject_dump": [
+      "nla_put_be32",
+      "htonl",
+      "nla_put_u8"
+    ],
     "nft_reject_icmp_code": [
       "WARN_ON_ONCE"
     ],
@@ -4725,9 +4318,6 @@
       "nft_pf",
       "ip_hdr",
       "ipv6_hdr"
-    ],
-    "nft_rt_validate": [
-      "nft_chain_validate_hooks"
     ]
   },
   "nft_set_bitmap.c": {
@@ -4740,21 +4330,34 @@
       "nft_set_ext_key"
     ],
     "nft_rhash_gc": [
-      "READ_ONCE",
-      "nft_trans_gc_destroy",
+      "PTR_ERR",
       "nft_set_ext_exists",
-      "nft_trans_gc_elem_add",
-      "nft_trans_gc_queue_async_done"
+      "atomic_dec",
+      "nft_set_gc_batch_add"
+    ],
+    "nft_rhash_destroy": [
+      "rcu_barrier"
     ],
     "nft_set_ext_key": [
       "nft_set_elem_active"
+    ],
+    "hlist_for_each_entry_rcu": [
+      "nft_set_elem_active"
+    ],
+    "nft_hash_destroy": [
+      "hlist_for_each_entry_safe",
+      "hlist_del_rcu"
     ],
     "hlist_for_each_entry_safe": [
       "hlist_del_rcu"
     ]
   },
   "nft_set_pipapo.c": {
-    "memcpy": [
+    "pipapo_resize": [
+      "NFT_PIPAPO_BUCKETS",
+      "NFT_PIPAPO_LT_ALIGN",
+      "memcpy",
+      "kvfree",
       "memset"
     ],
     "pipapo_lt_bits_adjust": [
@@ -4762,74 +4365,68 @@
       "NFT_PIPAPO_LT_ALIGN",
       "kvfree"
     ],
+    "pipapo_step_diff": [
+      "BIT"
+    ],
     "pipapo_base_sum": [
       "memcpy",
       "memcmp",
       "pipapo_step_diff",
-      "pipapo_free_scratch",
-      "kvfree",
-      "for_each_possible_cpu",
+      "kfree",
       "NFT_PIPAPO_LT_ALIGN",
-      "nft_pipapo_transaction_mutex_held",
       "nft_set_ext_exists",
       "nft_set_ext_key",
+      "PTR_ERR",
       "nft_pipapo_for_each_field",
+      "ERR_PTR",
       "NFT_PIPAPO_BUCKETS",
+      "kvfree",
       "free_percpu",
-      "kfree",
       "pipapo_rules_same_key",
       "memset",
+      "pipapo_resize",
       "pipapo_lt_bits_adjust",
       "pipapo_gc",
-      "nft_trans_gc_elem_add",
-      "nft_trans_gc_queue_sync_done",
+      "rcu_barrier",
       "pipapo_free_fields",
-      "pipapo_free_match",
       "pipapo_reclaim_match",
-      "nft_pipapo_commit",
-      "nft_pipapo_abort",
-      "nft_clear",
-      "test_bit",
-      "WARN_ON_ONCE",
+      "pipapo_commit",
+      "rcu_assign_pointer",
+      "nft_set_elem_change_active",
+      "nft_set_elem_clear_busy",
       "rcu_read_lock",
       "rcu_read_unlock",
-      "rcu_assign_pointer",
-      "nft_set_pipapo_match_destroy",
+      "nft_pipapo_destroy",
       "nft_pipapo_gc_init"
-    ],
-    "pipapo_free_scratch": [
-      "kvfree"
     ],
     "pipapo_gc": [
       "pipapo_rules_same_key",
       "nft_pipapo_for_each_field",
-      "nft_trans_gc_elem_add",
-      "nft_trans_gc_queue_sync_done"
+      "rcu_barrier"
     ],
     "pipapo_free_fields": [
       "nft_pipapo_for_each_field",
       "kvfree"
     ],
-    "pipapo_free_match": [
-      "for_each_possible_cpu",
-      "pipapo_free_scratch",
-      "free_percpu",
-      "pipapo_free_fields",
-      "kfree"
-    ],
     "pipapo_reclaim_match": [
-      "pipapo_free_match"
+      "kfree",
+      "free_percpu",
+      "pipapo_free_fields"
     ],
-    "nft_pipapo_commit": [
+    "pipapo_commit": [
       "pipapo_gc",
-      "nft_pipapo_transaction_mutex_held"
+      "rcu_assign_pointer"
     ],
-    "nft_pipapo_abort": [
-      "pipapo_free_match"
+    "nft_pipapo_destroy": [
+      "rcu_barrier",
+      "free_percpu",
+      "kfree",
+      "pipapo_free_fields"
     ]
   },
   "nft_set_pipapo_avx2.c": {
     "nft_pipapo_avx2_fill": [
+      "BIT",
       "memset"
     ]
   },
@@ -4841,34 +4438,28 @@
       "nft_rbtree_interval_end"
     ],
     "nft_set_elem_active": [
-      "PTR_ERR"
+      "nft_rbtree_interval_start"
     ],
-    "nft_rbtree_erase": [
-      "write_lock_bh",
-      "write_unlock_bh"
+    "nft_set_ext_key": [
+      "nft_rbtree_interval_start",
+      "nft_rbtree_interval_end",
+      "nft_set_elem_active"
     ],
     "nft_rbtree_gc": [
+      "write_lock_bh",
       "nft_rbtree_interval_end",
-      "nft_trans_gc_elem_add",
-      "nft_trans_gc_queue_sync_done"
+      "atomic_dec",
+      "nft_set_gc_batch_add",
+      "write_unlock_bh"
     ],
-    "nft_rbtree_commit": [
-      "nft_rbtree_gc"
+    "nft_set_gc_batch_add": [
+      "atomic_dec"
     ],
-    "nft_rbtree_adjust_maxsize": [
-      "nft_rbtree_interval_end",
-      "nft_set_ext_key"
+    "nft_rbtree_destroy": [
+      "rcu_barrier"
     ]
   },
   "nft_socket.c": {
-    "nft_socket_cgroup_subtree_level": [
-      "PTR_ERR",
-      "cgroup_put",
-      "WARN_ON_ONCE"
-    ],
-    "nft_reg_store8": [
-      "READ_ONCE"
-    ],
     "nft_socket_module_init": [
       "nft_register_expr"
     ],
@@ -4889,6 +4480,9 @@
       "nla_put_u8",
       "nla_put_be32",
       "htonl"
+    ],
+    "nft_synproxy_dump": [
+      "nft_synproxy_do_dump"
     ],
     "nft_synproxy_module_init": [
       "nft_register_obj",
@@ -4914,9 +4508,6 @@
       "nla_nest_cancel",
       "nla_nest_end"
     ],
-    "htonl": [
-      "test_bit"
-    ],
     "nft_tunnel_module_init": [
       "nft_register_expr",
       "nft_register_obj",
@@ -4928,10 +4519,6 @@
     ]
   },
   "nft_xfrm.c": {
-    "nft_xfrm_validate": [
-      "WARN_ON_ONCE",
-      "nft_chain_validate_hooks"
-    ],
     "nft_xfrm_module_init": [
       "nft_register_expr"
     ],
@@ -4940,9 +4527,11 @@
     ]
   },
   "utils.c": {
-    "nf_ip6_check_hbh_len": [
-      "ipv6_hdr",
-      "ntohl"
+    "nf_ip_reroute": [
+      "ip_hdr"
+    ],
+    "nf_reroute": [
+      "nf_ip_reroute"
     ]
   },
   "x_tables.c": {
@@ -4982,7 +4571,6 @@
       "ARRAY_SIZE"
     ],
     "xt_free_table_info": [
-      "for_each_possible_cpu",
       "kvfree"
     ],
     "mutex_unlock": [
@@ -4997,9 +4585,6 @@
     ],
     "xt_compat_unlock": [
       "mutex_unlock"
-    ],
-    "xt_jumpstack_alloc": [
-      "for_each_possible_cpu"
     ],
     "xt_table_seq_stop": [
       "mutex_unlock"
@@ -5043,11 +4628,9 @@
       "INIT_LIST_HEAD"
     ],
     "xt_net_exit": [
-      "WARN_ON_ONCE",
-      "list_empty"
+      "WARN_ON_ONCE"
     ],
     "xt_init": [
-      "for_each_possible_cpu",
       "INIT_LIST_HEAD",
       "kfree"
     ],
@@ -5071,10 +4654,7 @@
       "pr_info_ratelimited"
     ],
     "checksum_tg_init": [
-      "ARRAY_SIZE"
-    ],
-    "checksum_tg_exit": [
-      "ARRAY_SIZE"
+      "xt_register_target"
     ]
   },
   "xt_CLASSIFY.c": {
@@ -5101,10 +4681,7 @@
       "nf_ct_netns_put"
     ],
     "connsecmark_tg_init": [
-      "ARRAY_SIZE"
-    ],
-    "connsecmark_tg_exit": [
-      "ARRAY_SIZE"
+      "xt_register_target"
     ]
   },
   "xt_CT.c": {
@@ -5122,25 +4699,10 @@
       "memcpy"
     ],
     "xt_ct_tg_init": [
+      "xt_register_target",
       "ARRAY_SIZE"
     ],
     "xt_ct_tg_exit": [
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_DSCP.c": {
-    "dscp_tg_init": [
-      "ARRAY_SIZE"
-    ],
-    "dscp_tg_exit": [
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_HL.c": {
-    "hl_tg_init": [
-      "ARRAY_SIZE"
-    ],
-    "hl_tg_exit": [
       "ARRAY_SIZE"
     ]
   },
@@ -5188,16 +4750,24 @@
     ],
     "idletimer_tg_destroy": [
       "mutex_lock",
-      "mutex_unlock",
       "list_del",
-      "kfree"
+      "del_timer_sync",
+      "sysfs_remove_file",
+      "kfree",
+      "mutex_unlock"
     ],
     "idletimer_tg_destroy_v1": [
       "mutex_lock",
-      "mutex_unlock",
       "list_del",
       "alarm_cancel",
-      "kfree"
+      "del_timer_sync",
+      "sysfs_remove_file",
+      "kfree",
+      "mutex_unlock"
+    ],
+    "list_del": [
+      "alarm_cancel",
+      "del_timer_sync"
     ],
     "idletimer_tg_init": [
       "PTR_ERR",
@@ -5224,13 +4794,11 @@
       "mutex_lock",
       "mutex_unlock",
       "list_del",
+      "del_timer_sync",
       "kfree"
     ],
     "led_tg_init": [
-      "ARRAY_SIZE"
-    ],
-    "led_tg_exit": [
-      "ARRAY_SIZE"
+      "xt_register_target"
     ]
   },
   "xt_LOG.c": {
@@ -5293,10 +4861,7 @@
       "nf_logger_put"
     ],
     "nflog_tg_init": [
-      "ARRAY_SIZE"
-    ],
-    "nflog_tg_exit": [
-      "ARRAY_SIZE"
+      "xt_register_target"
     ]
   },
   "xt_NFQUEUE.c": {
@@ -5307,34 +4872,6 @@
       "ARRAY_SIZE"
     ],
     "nfqueue_tg_exit": [
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_RATEEST.c": {
-    "xt_rateest_put": [
-      "mutex_lock",
-      "kfree_rcu",
-      "mutex_unlock"
-    ],
-    "xt_rateest_tg_checkentry": [
-      "strnlen",
-      "mutex_lock",
-      "mutex_unlock",
-      "xt_rateest_put",
-      "spin_lock_init",
-      "kfree"
-    ],
-    "xt_rateest_tg_destroy": [
-      "xt_rateest_put"
-    ],
-    "xt_rateest_net_init": [
-      "ARRAY_SIZE",
-      "INIT_HLIST_HEAD"
-    ],
-    "xt_rateest_tg_init": [
-      "ARRAY_SIZE"
-    ],
-    "xt_rateest_tg_fini": [
       "ARRAY_SIZE"
     ]
   },
@@ -5369,25 +4906,6 @@
       "ARRAY_SIZE"
     ],
     "secmark_tg_exit": [
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_TCPMSS.c": {
-    "find_syn_match": [
-      "strcmp"
-    ],
-    "tcpmss_tg4_check": [
-      "pr_info_ratelimited",
-      "find_syn_match"
-    ],
-    "tcpmss_tg6_check": [
-      "pr_info_ratelimited",
-      "find_syn_match"
-    ],
-    "tcpmss_tg_init": [
-      "ARRAY_SIZE"
-    ],
-    "tcpmss_tg_exit": [
       "ARRAY_SIZE"
     ]
   },
@@ -5443,10 +4961,7 @@
       "nf_logger_put"
     ],
     "trace_tg_init": [
-      "ARRAY_SIZE"
-    ],
-    "trace_tg_exit": [
-      "ARRAY_SIZE"
+      "xt_register_target"
     ]
   },
   "xt_addrtype.c": {
@@ -5517,10 +5032,7 @@
       "nf_ct_netns_put"
     ],
     "xt_cluster_mt_init": [
-      "ARRAY_SIZE"
-    ],
-    "xt_cluster_mt_fini": [
-      "ARRAY_SIZE"
+      "xt_register_match"
     ]
   },
   "xt_comment.c": {
@@ -5556,20 +5068,8 @@
     ]
   },
   "xt_connlimit.c": {
-    "connlimit_mt_check": [
-      "nf_ct_netns_get",
-      "pr_info_ratelimited",
-      "nf_ct_netns_put"
-    ],
-    "connlimit_mt_destroy": [
-      "nf_conncount_destroy",
-      "nf_ct_netns_put"
-    ],
     "connlimit_mt_init": [
-      "ARRAY_SIZE"
-    ],
-    "connlimit_mt_exit": [
-      "ARRAY_SIZE"
+      "xt_register_match"
     ]
   },
   "xt_connmark.c": {
@@ -5685,8 +5185,7 @@
     "htable_selective_cleanup": [
       "spin_lock_bh",
       "hlist_for_each_entry_safe",
-      "spin_unlock_bh",
-      "cond_resched"
+      "spin_unlock_bh"
     ],
     "spin_lock_bh": [
       "hlist_for_each_entry_safe"
@@ -5698,8 +5197,7 @@
       "htable_remove_proc_entry",
       "mutex_unlock",
       "htable_selective_cleanup",
-      "kfree",
-      "kvfree"
+      "kfree"
     ],
     "user2credits": [
       "div64_u64"
@@ -5889,11 +5387,8 @@
   },
   "xt_mark.c": {
     "mark_mt_init": [
-      "ARRAY_SIZE",
+      "xt_register_target",
       "xt_register_match"
-    ],
-    "mark_mt_exit": [
-      "ARRAY_SIZE"
     ]
   },
   "xt_multiport.c": {
@@ -5943,9 +5438,6 @@
     "owner_check": [
       "uid_lt",
       "gid_lt"
-    ],
-    "uid_lte": [
-      "read_unlock_bh"
     ],
     "owner_mt_init": [
       "xt_register_match"
@@ -6060,9 +5552,6 @@
       "htons",
       "ntohs"
     ],
-    "sctp_mt_check": [
-      "ARRAY_SIZE"
-    ],
     "sctp_mt_init": [
       "ARRAY_SIZE"
     ],
@@ -6164,9 +5653,6 @@
     ]
   },
   "xt_u32.c": {
-    "u32_mt_checkentry": [
-      "ARRAY_SIZE"
-    ],
     "u32_mt_init": [
       "xt_register_match"
     ]

@@ -25,14 +25,16 @@ CVE_ID = "2024_53141"
 CVE_TITLE = "CVE-2024-53141"
 CVE_FILE = "ip_set_bitmap_ip.c"
 
-PAGERANK_FILE = Path.home() / "fyp-kernel-security/results/processed/pagerank_scores.json"
-TOP_100_FILE = Path.home() / "fyp-kernel-security/results/processed/top_100_functions.json"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+PAGERANK_FILE = PROJECT_ROOT / "results/processed/pagerank_scores.json"
+TOP_100_FILE = PROJECT_ROOT / "results/processed/top_100_functions.json"
 
 # IMPORTANT: use your renamed 2024 analysis json
-CVE_ANALYSIS_FILE = Path.home() / "fyp-kernel-security/results/processed/cve_2024_53141_pagerank_analysis.json"
+CVE_ANALYSIS_FILE = PROJECT_ROOT / "results/processed/cve_2024_53141_pagerank_analysis.json"
 
-CALLS_FILE = Path.home() / "fyp-kernel-security/results/raw/function_calls_v2.json"
-OUTPUT_PATH = Path.home() / "fyp-kernel-security/results/visualizations"
+CALLS_FILE = PROJECT_ROOT / "results/raw/function_calls_v2.json"
+OUTPUT_PATH = PROJECT_ROOT / "results/visualizations"
 
 # ----------------------------
 # STYLE (match 2023 vibe)
