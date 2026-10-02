@@ -16,6 +16,10 @@ import numpy as np
 from pathlib import Path
 from matplotlib.lines import Line2D
 from matplotlib.patches import FancyArrowPatch, Circle
+import sys
+
+# Windows terminals use a non-UTF-8 encoding by default and crash on emoji output
+sys.stdout.reconfigure(encoding="utf-8")
 
 # Paths
 PROJECT_ROOT = Path(__file__).resolve().parents[2]

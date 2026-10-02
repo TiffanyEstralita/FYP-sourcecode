@@ -11,6 +11,9 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 import sys
 
+# Windows terminals use a non-UTF-8 encoding by default and crash on emoji output
+sys.stdout.reconfigure(encoding="utf-8")
+
 # Paths
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 

@@ -6,6 +6,9 @@ import networkx as nx
 import pandas as pd
 import git
 
+# Windows terminals use a non-UTF-8 encoding by default and crash on emoji output
+sys.stdout.reconfigure(encoding="utf-8")
+
 print("=" * 60)
 print("🧪 FYP Environment Test")
 print("=" * 60)

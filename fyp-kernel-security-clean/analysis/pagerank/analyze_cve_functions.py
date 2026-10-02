@@ -10,6 +10,9 @@ import json
 from pathlib import Path
 import sys
 
+# Windows terminals use a non-UTF-8 encoding by default and crash on emoji output
+sys.stdout.reconfigure(encoding="utf-8")
+
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 GROUND_TRUTH_FILE = PROJECT_ROOT / "validation/cve_data/vulnerable_functions.json"

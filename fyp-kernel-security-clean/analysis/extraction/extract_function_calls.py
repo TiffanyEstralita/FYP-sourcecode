@@ -16,6 +16,9 @@ from pathlib import Path
 from typing import Dict, List, Set
 import sys
 
+# Windows terminals use a non-UTF-8 encoding by default and crash on emoji output
+sys.stdout.reconfigure(encoding="utf-8")
+
 # Paths
 # KERNEL_PATH = Path.home() / "fyp-kernel-security/data/kernel/linux-shallow"
 # NETFILTER_PATH = KERNEL_PATH / "net/netfilter"

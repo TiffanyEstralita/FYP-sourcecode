@@ -8,6 +8,10 @@ Date: November 2025
 import re
 import json
 from pathlib import Path
+import sys
+
+# Windows terminals use a non-UTF-8 encoding by default and crash on emoji output
+sys.stdout.reconfigure(encoding="utf-8")
 
 # KERNEL_PATH = Path.home() / "fyp-kernel-security/data/kernel/linux-shallow"
 # NETFILTER_PATH = KERNEL_PATH / "net/netfilter"

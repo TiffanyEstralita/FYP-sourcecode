@@ -22,6 +22,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import networkx as nx
 
+# Windows terminals use a non-UTF-8 encoding by default and crash on emoji output
+sys.stdout.reconfigure(encoding="utf-8")
+
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 PAGERANK_FILE = PROJECT_ROOT / "results/processed/pagerank_scores.json"
