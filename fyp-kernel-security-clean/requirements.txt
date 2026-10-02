@@ -16,5 +16,5 @@ seaborn==0.13.2
 # Talking to the local Ollama LLM server
 requests==2.32.5
 
-# Used by scripts/test_environemnt.py
+# Used by scripts/test_environment.py
 GitPython==3.1.45
