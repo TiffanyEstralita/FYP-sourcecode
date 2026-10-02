@@ -117,60 +117,7 @@ class PageRankAnalyzer:
         
         return stats
     
-    def check_cve_file(self, pagerank):
-        """Check PageRank of CVE file functions"""
-        print("\n🎯 CVE-2023-0179 FILE ANALYSIS:")
-        
-        cve_file = "nf_tables_api.c"
-        
-        if cve_file not in self.functions:
-            print(f"   ❌ {cve_file} not found!")
-            return None
-        
-        # Get all functions from CVE file
-        cve_functions = [f['name'] for f in self.functions[cve_file]]
-        
-        # Get PageRank scores for CVE functions
-        cve_scores = []
-        for func in cve_functions:
-            if func in pagerank:
-                cve_scores.append((func, pagerank[func]))
-        
-        # Sort by PageRank
-        cve_scores_sorted = sorted(cve_scores, key=lambda x: x[1], reverse=True)
-        
-        # Overall rank of CVE functions
-        all_sorted = sorted(pagerank.items(), key=lambda x: x[1], reverse=True)
-        cve_ranks = []
-        for func, score in cve_scores:
-            rank = next(i for i, (f, s) in enumerate(all_sorted, 1) if f == func)
-            cve_ranks.append((func, score, rank))
-        
-        cve_ranks_sorted = sorted(cve_ranks, key=lambda x: x[1], reverse=True)
-        
-        print(f"   Total functions in CVE file: {len(cve_functions)}")
-        print(f"   Functions with PageRank:     {len(cve_scores)}")
-        print(f"\n   Top 20 CVE functions by PageRank:")
-        for i, (func, score, rank) in enumerate(cve_ranks_sorted[:20], 1):
-            percentile = (rank / len(all_sorted)) * 100
-            print(f"      {i:2d}. {func:40s} PR: {score:.6f} (Rank #{rank:4d}, Top {percentile:.1f}%)")
-        
-        # Count how many CVE functions are in top 10%, 20%, etc.
-        top_10_pct = len([r for _, _, r in cve_ranks if r <= len(all_sorted) * 0.1])
-        top_20_pct = len([r for _, _, r in cve_ranks if r <= len(all_sorted) * 0.2])
-        
-        print(f"\n   CVE functions in top 10%: {top_10_pct}/{len(cve_scores)}")
-        print(f"   CVE functions in top 20%: {top_20_pct}/{len(cve_scores)}")
-        
-        return {
-            'cve_functions': cve_functions,
-            'cve_scores': cve_scores_sorted,
-            'cve_ranks': cve_ranks_sorted,
-            'top_10_pct': top_10_pct,
-            'top_20_pct': top_20_pct
-        }
-    
-    def save_results(self, pagerank, stats, cve_analysis):
+    def save_results(self, pagerank, stats):
         """Save all results"""
         OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
         
@@ -203,13 +150,6 @@ class PageRankAnalyzer:
             json.dump(top_100_detailed, f, indent=2)
         print(f"   ✅ Saved top 100 functions: {top_100_file}")
         
-        # Save CVE analysis
-        if cve_analysis:
-            cve_file = OUTPUT_PATH / "cve_pagerank_analysis.json"
-            with open(cve_file, 'w') as f:
-                json.dump(cve_analysis, f, indent=2, default=str)
-            print(f"   ✅ Saved CVE analysis: {cve_file}")
-        
         # Create human-readable summary
         summary_file = OUTPUT_PATH / "pagerank_summary.txt"
         with open(summary_file, 'w') as f:
@@ -230,18 +170,7 @@ class PageRankAnalyzer:
                     if any(f['name'] == func for f in funcs):
                         f.write(f"{i:3d}. {func:45s} {score:.6f} ({filename})\n")
                         break
-            
-            if cve_analysis:
-                f.write("\n" + "=" * 70 + "\n")
-                f.write("CVE-2023-0179 FILE ANALYSIS\n")
-                f.write("=" * 70 + "\n\n")
-                f.write(f"Total CVE functions:       {len(cve_analysis['cve_functions'])}\n")
-                f.write(f"Functions in top 10%:      {cve_analysis['top_10_pct']}\n")
-                f.write(f"Functions in top 20%:      {cve_analysis['top_20_pct']}\n")
-                f.write("\nTop 30 CVE functions:\n\n")
-                for i, (func, score, rank) in enumerate(cve_analysis['cve_ranks'][:30], 1):
-                    f.write(f"{i:3d}. {func:45s} {score:.6f} (Overall rank: #{rank})\n")
-        
+
         print(f"   ✅ Saved summary: {summary_file}")
 
 
@@ -274,16 +203,13 @@ def main():
     for i, (func, score) in enumerate(stats['top_20'], 1):
         print(f"   {i:2d}. {func:45s} {score:.6f}")
     
-    # Check CVE file
-    cve_analysis = analyzer.check_cve_file(pagerank)
-    
     # Save results
-    analyzer.save_results(pagerank, stats, cve_analysis)
-    
+    analyzer.save_results(pagerank, stats)
+
     print("\n" + "=" * 70)
     print("✅ PAGERANK ANALYSIS COMPLETE!")
     print("=" * 70)
-    print("\nNext step: Use LLM to explain why high-ranking functions are critical")
+    print("\nNext step: run analyze_cve_functions.py for CVE-specific ground-truth analysis")
     
     return 0
 

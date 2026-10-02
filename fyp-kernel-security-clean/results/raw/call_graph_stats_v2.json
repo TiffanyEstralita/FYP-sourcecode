@@ -1,251 +1,251 @@
 {
-  "total_callers": 1175,
-  "total_callees": 651,
-  "total_call_edges": 2710,
-  "unique_functions_involved": 1397,
-  "avg_calls_per_function": 2.3063829787234043,
+  "total_callers": 3004,
+  "total_callees": 2065,
+  "total_call_edges": 8583,
+  "unique_functions_involved": 3534,
+  "avg_calls_per_function": 2.857190412782956,
   "top_30_in_degree": [
     [
-      "ARRAY_SIZE",
-      112
+      "ntohl",
+      189
     ],
     [
       "kfree",
-      103
+      173
     ],
     [
-      "mutex_unlock",
-      70
-    ],
-    [
-      "mutex_lock",
-      58
-    ],
-    [
-      "htonl",
-      41
-    ],
-    [
-      "nla_put_be32",
-      39
-    ],
-    [
-      "pr_info_ratelimited",
-      39
-    ],
-    [
-      "spin_unlock_bh",
-      37
-    ],
-    [
-      "atomic_read",
-      36
-    ],
-    [
-      "nft_unregister_expr",
-      36
-    ],
-    [
-      "spin_lock_bh",
-      35
-    ],
-    [
-      "list_del",
-      33
-    ],
-    [
-      "RCU_INIT_POINTER",
-      33
-    ],
-    [
-      "rcu_read_unlock",
-      32
-    ],
-    [
-      "ntohs",
-      32
-    ],
-    [
-      "ntohl",
-      31
-    ],
-    [
-      "nft_register_expr",
-      31
-    ],
-    [
-      "atomic_dec",
-      27
-    ],
-    [
-      "rcu_read_lock",
-      26
-    ],
-    [
-      "seq_printf",
-      26
-    ],
-    [
-      "nft_dump_register",
-      26
-    ],
-    [
-      "spin_unlock",
-      25
-    ],
-    [
-      "synchronize_rcu",
-      25
-    ],
-    [
-      "xt_register_match",
-      25
-    ],
-    [
-      "IP_VS_DBG",
-      24
-    ],
-    [
-      "WARN_ON_ONCE",
-      24
-    ],
-    [
-      "net_eq",
-      22
+      "ARRAY_SIZE",
+      134
     ],
     [
       "htons",
-      22
+      127
+    ],
+    [
+      "spin_unlock_bh",
+      109
+    ],
+    [
+      "spin_lock_bh",
+      107
+    ],
+    [
+      "memset",
+      107
+    ],
+    [
+      "mutex_unlock",
+      98
+    ],
+    [
+      "memcpy",
+      88
+    ],
+    [
+      "mutex_lock",
+      85
+    ],
+    [
+      "rcu_read_unlock",
+      85
     ],
     [
       "PTR_ERR",
-      22
+      80
     ],
     [
-      "list_del_rcu",
-      22
+      "rcu_read_lock",
+      80
+    ],
+    [
+      "IP_VS_DBG",
+      73
+    ],
+    [
+      "NETLINK_CB",
+      72
+    ],
+    [
+      "atomic_read",
+      68
+    ],
+    [
+      "ip_hdr",
+      67
+    ],
+    [
+      "nf_ct_l3num",
+      64
+    ],
+    [
+      "kfree_skb",
+      61
+    ],
+    [
+      "nla_get_u8",
+      57
+    ],
+    [
+      "nla_data",
+      57
+    ],
+    [
+      "WARN_ON_ONCE",
+      56
+    ],
+    [
+      "ipv6_hdr",
+      54
+    ],
+    [
+      "nla_nest_end",
+      54
+    ],
+    [
+      "adtfn",
+      53
+    ],
+    [
+      "pr_info_ratelimited",
+      52
+    ],
+    [
+      "IP_VS_DBG_BUF",
+      50
+    ],
+    [
+      "list_del",
+      49
+    ],
+    [
+      "net_eq",
+      46
+    ],
+    [
+      "module_put",
+      46
     ]
   ],
   "top_30_out_degree": [
     [
-      "nf_tables_commit",
-      30
+      "pipapo_base_sum",
+      46
     ],
     [
-      "pipapo_base_sum",
-      29
+      "nf_tables_commit",
+      41
     ],
     [
       "__nf_tables_abort",
+      27
+    ],
+    [
+      "do_ip_vs_set_ctl",
+      24
+    ],
+    [
+      "ctnetlink_conntrack_event",
+      23
+    ],
+    [
+      "ctnetlink_create_conntrack",
+      23
+    ],
+    [
+      "nf_tables_newrule",
       21
     ],
     [
-      "ct_seq_show",
-      15
+      "nf_tables_newset",
+      21
     ],
     [
-      "__ip_vs_init",
-      13
+      "nft_add_set_elem",
+      21
     ],
     [
-      "gc_worker",
-      11
+      "nf_tables_newflowtable",
+      20
     ],
     [
-      "nf_conntrack_init_start",
-      10
+      "nf_conntrack_tcp_packet",
+      18
+    ],
+    [
+      "nf_tables_addchain",
+      18
+    ],
+    [
+      "nfulnl_recv_config",
+      18
+    ],
+    [
+      "ip_vs_in_icmp",
+      17
+    ],
+    [
+      "__nf_conntrack_confirm",
+      17
+    ],
+    [
+      "ip_vs_in_hook",
+      16
+    ],
+    [
+      "ip_vs_add_service",
+      16
+    ],
+    [
+      "ip_vs_proc_conn",
+      16
     ],
     [
       "__ctnetlink_glue_build",
-      10
+      16
     ],
     [
-      "WRITE_ONCE",
-      10
+      "nf_flow_offload_ip_hook",
+      16
     ],
     [
-      "nft_commit_release",
-      10
+      "nf_flow_offload_ipv6_hook",
+      16
     ],
     [
-      "ip_vs_dest_trash_expire",
-      9
+      "do_ip_vs_get_ctl",
+      15
     ],
     [
       "ip_vs_genl_set_cmd",
-      9
+      15
     ],
     [
-      "ip_vs_sync_conn",
-      9
+      "nfqnl_recv_config",
+      15
     ],
     [
-      "stop_sync_thread",
-      9
+      "start_sync_thread",
+      14
     ],
     [
-      "nf_ct_delete",
-      9
+      "__ip_vs_get_out_rt_v6",
+      14
     ],
     [
-      "nf_conntrack_hash_resize",
-      9
+      "WRITE_ONCE",
+      14
     ],
     [
-      "nf_tables_dump_obj",
-      9
+      "ct_seq_show",
+      14
     ],
     [
-      "__nft_release_table",
-      9
+      "nfnetlink_rcv_batch",
+      14
     ],
     [
-      "nft_trace_notify",
-      9
-    ],
-    [
-      "ip_vs_try_bind_dest",
-      8
-    ],
-    [
-      "ip_vs_check_template",
-      8
-    ],
-    [
-      "ip_vs_random_dropentry",
-      8
-    ],
-    [
-      "__ip_vs_cleanup_batch",
-      8
-    ],
-    [
-      "tree_gc_worker",
-      8
-    ],
-    [
-      "hlist_nulls_for_each_entry_rcu",
-      8
-    ],
-    [
-      "nf_conntrack_proto_pernet_init",
-      8
-    ],
-    [
-      "nf_tables_dump_set",
-      8
-    ],
-    [
-      "nf_tables_abort_release",
-      8
-    ],
-    [
-      "nf_tables_module_init",
-      8
-    ],
-    [
-      "ip_vs_conn_hash",
-      7
+      "ip_set_create",
+      13
     ]
   ]
 }

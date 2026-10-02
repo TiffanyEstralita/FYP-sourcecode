@@ -1,0 +1,68 @@
+{
+  "CVE-2023-0179": {
+    "description": "Stack-based buffer overflow in nf_tables VLAN payload handling. An integer underflow when computing 'ethlen' (u8) lets an attacker-controlled memcpy write up to 255 bytes into a 4-byte stack buffer.",
+    "functions": [
+      {
+        "function": "nft_payload_copy_vlan",
+        "expected_file": "nft_payload.c",
+        "verified": true,
+        "source": "https://seclists.org/oss-sec/2023/q1/20",
+        "file": "nft_payload.c",
+        "line": 41,
+        "pagerank_score": 0.00012029711285623898,
+        "overall_rank": 1540,
+        "total_functions": 3815,
+        "percentile_top": 40.36697247706422,
+        "in_top_1_pct": false,
+        "in_top_5_pct": false,
+        "in_top_10_pct": false,
+        "in_top_20_pct": false,
+        "status": "OK"
+      }
+    ]
+  },
+  "CVE-2024-53141": {
+    "description": "Missing range check in bitmap_ip_uadt: when IPSET_ATTR_IP_TO is absent but IPSET_ATTR_CIDR is present, ip/ip_to values are swapped and the range check for ip is skipped, allowing an out-of-bounds write.",
+    "functions": [
+      {
+        "function": "bitmap_ip_uadt",
+        "expected_file": "ip_set_bitmap_ip.c",
+        "verified": true,
+        "source": "https://cveawg.mitre.org/api/cve/CVE-2024-53141",
+        "file": "ip_set_bitmap_ip.c",
+        "line": 129,
+        "pagerank_score": 9.92470765744352e-05,
+        "overall_rank": 2082,
+        "total_functions": 3815,
+        "percentile_top": 54.5740498034076,
+        "in_top_1_pct": false,
+        "in_top_5_pct": false,
+        "in_top_10_pct": false,
+        "in_top_20_pct": false,
+        "status": "OK"
+      }
+    ]
+  },
+  "CVE-2025-22064": {
+    "description": "nf_tables_updchain rolls back hook registration on error unconditionally, but the hook is never registered when the table is flagged dormant (inactive), so the rollback path unregisters a hook that was never registered.",
+    "functions": [
+      {
+        "function": "nf_tables_updchain",
+        "expected_file": "nf_tables_api.c",
+        "verified": true,
+        "source": "https://cveawg.mitre.org/api/cve/CVE-2025-22064",
+        "file": "nf_tables_api.c",
+        "line": 2367,
+        "pagerank_score": 0.00010860264825523686,
+        "overall_rank": 1883,
+        "total_functions": 3815,
+        "percentile_top": 49.357798165137616,
+        "in_top_1_pct": false,
+        "in_top_5_pct": false,
+        "in_top_10_pct": false,
+        "in_top_20_pct": false,
+        "status": "OK"
+      }
+    ]
+  }
+}

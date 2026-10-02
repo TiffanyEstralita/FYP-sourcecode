@@ -34,59 +34,110 @@ def is_function_definition(lines, index):
                 return True
     return False
 
+KEYWORDS = {
+    'if', 'for', 'while', 'switch', 'return', 'do', 'else',
+    'case', 'break', 'continue', 'goto', 'sizeof', 'typeof',
+    'list_for_each_entry', 'list_for_each_entry_safe',
+    'list_for_each_entry_rcu', 'list_for_each_entry_reverse',
+    'hlist_for_each_entry', 'lockdep_is_held', 'likely', 'unlikely',
+    'BUG_ON', 'WARN_ON', 'pr_debug', 'pr_err', 'printk',
+    'module_init', 'module_exit', 'MODULE_LICENSE',
+    'EXPORT_SYMBOL', 'EXPORT_SYMBOL_GPL'
+}
+
+# type/name on one line, opening paren present (rest of params may wrap)
+SIG_START_PATTERN = re.compile(r'^([\w\s\*]+?)\s+(\w+)\s*\(')
+# a line that is ONLY a return type / modifiers, e.g. "static int" or
+# "static bool" or "static struct foo *" - no parens, no semicolon
+BARE_TYPE_PATTERN = re.compile(r'^[\w\s\*]+$')
+# a line starting directly with an identifier and '(' - used to catch the
+# kernel style where the return type is on the previous line and the
+# function name starts the next line, e.g.:
+#   static int
+#   bitmap_ip_uadt(struct ip_set *set, struct nlattr *tb[],
+BARE_NAME_PATTERN = re.compile(r'^(\w+)\s*\(')
+
+
+def is_noise_line(line):
+    return any(keyword in line for keyword in
+               ['#define', '#include', 'typedef', 'struct {', 'if (', 'for (', 'while ('])
+
+
 def extract_functions(file_path):
-    """Extract only real function definitions"""
+    """
+    Extract real function definitions, including ones whose signature
+    spans multiple lines (return type on its own line, and/or parameters
+    wrapping across lines) - both very common in Linux kernel style.
+    """
     try:
         content = file_path.read_text(errors='ignore')
     except:
         return []
-    
+
     functions = []
     lines = content.split('\n')
     seen = set()
-    
-    # Pattern: return_type function_name(params)
-    # Must have ( and ) and typically starts at beginning of line
-    pattern = re.compile(r'^[\w\s\*]+\s+(\w+)\s*\([^)]*\)')
-    
-    for i, line in enumerate(lines):
-        # Skip obvious non-function lines
+
+    i = 0
+    n = len(lines)
+    while i < n:
+        line = lines[i]
         stripped = line.strip()
+
         if not stripped or stripped.startswith(('#', '//', '/*', '*', '}')):
+            i += 1
             continue
-        
-        # Skip lines that are clearly not function definitions
-        if any(keyword in line for keyword in ['#define', '#include', 'typedef', 'struct {', 'if (', 'for (', 'while (']):
+
+        if is_noise_line(line):
+            i += 1
             continue
-        
-        match = pattern.match(line)
-        if match:
-            func_name = match.group(1)
-            
-            # Filter out keywords and common macros
-            keywords = {
-                'if', 'for', 'while', 'switch', 'return', 'do', 'else',
-                'case', 'break', 'continue', 'goto', 'sizeof', 'typeof',
-                'list_for_each_entry', 'list_for_each_entry_safe',
-                'list_for_each_entry_rcu', 'list_for_each_entry_reverse',
-                'hlist_for_each_entry', 'lockdep_is_held', 'likely', 'unlikely',
-                'BUG_ON', 'WARN_ON', 'pr_debug', 'pr_err', 'printk',
-                'module_init', 'module_exit', 'MODULE_LICENSE',
-                'EXPORT_SYMBOL', 'EXPORT_SYMBOL_GPL'
-            }
-            
-            if func_name in keywords:
-                continue
-            
-            # Must have opening brace nearby (real function definition)
-            if is_function_definition(lines, i) and func_name not in seen:
-                functions.append({
-                    'name': func_name,
-                    'file': file_path.name,
-                    'line': i + 1
-                })
-                seen.add(func_name)
-    
+
+        sig_line_idx = i
+        sig_text = line
+        func_name = None
+        consumed_next = False
+
+        m = SIG_START_PATTERN.match(line)
+        if m:
+            func_name = m.group(2)
+        elif BARE_TYPE_PATTERN.match(stripped) and '(' not in line and i + 1 < n:
+            # Candidate "return type on its own line" - check next line for
+            # a bare function name immediately followed by '('
+            next_line = lines[i + 1]
+            nm = BARE_NAME_PATTERN.match(next_line.strip())
+            if nm:
+                func_name = nm.group(1)
+                sig_text = line + ' ' + next_line
+                consumed_next = True
+
+        if func_name is None or func_name in KEYWORDS:
+            i += 1
+            continue
+
+        # Join forward lines until parentheses balance, to handle
+        # parameter lists that wrap across multiple lines
+        j = i + 1 if consumed_next else i
+        joined = sig_text
+        max_lookahead = 8
+        while joined.count('(') > joined.count(')') and (j - sig_line_idx) < max_lookahead and j + 1 < n:
+            j += 1
+            joined += ' ' + lines[j]
+
+        if joined.count('(') == 0 or joined.count('(') != joined.count(')'):
+            i += 1
+            continue
+
+        # Must have opening brace nearby (real definition, not a prototype)
+        if is_function_definition(lines, j) and func_name not in seen:
+            functions.append({
+                'name': func_name,
+                'file': file_path.name,
+                'line': sig_line_idx + 1
+            })
+            seen.add(func_name)
+
+        i = j + 1
+
     return functions
 
 def main():

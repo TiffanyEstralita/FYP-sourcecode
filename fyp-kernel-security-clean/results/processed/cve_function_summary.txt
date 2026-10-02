@@ -1,0 +1,41 @@
+======================================================================
+CVE-SPECIFIC FUNCTION-LEVEL PAGERANK ANALYSIS
+Ground truth: exact vulnerable function(s) per CVE, not whole file
+======================================================================
+
+CVE-2023-0179
+----------------------------------------------------------------------
+Stack-based buffer overflow in nf_tables VLAN payload handling. An integer underflow when computing 'ethlen' (u8) lets an attacker-controlled memcpy write up to 255 bytes into a 4-byte stack buffer.
+
+Function:   nft_payload_copy_vlan
+Verified:   True  (source: https://seclists.org/oss-sec/2023/q1/20)
+File:       nft_payload.c, line 41
+PageRank:   0.000120
+Rank:       #1540 of 3815
+Percentile: top 40.37%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+CVE-2024-53141
+----------------------------------------------------------------------
+Missing range check in bitmap_ip_uadt: when IPSET_ATTR_IP_TO is absent but IPSET_ATTR_CIDR is present, ip/ip_to values are swapped and the range check for ip is skipped, allowing an out-of-bounds write.
+
+Function:   bitmap_ip_uadt
+Verified:   True  (source: https://cveawg.mitre.org/api/cve/CVE-2024-53141)
+File:       ip_set_bitmap_ip.c, line 129
+PageRank:   0.000099
+Rank:       #2082 of 3815
+Percentile: top 54.57%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+CVE-2025-22064
+----------------------------------------------------------------------
+nf_tables_updchain rolls back hook registration on error unconditionally, but the hook is never registered when the table is flagged dormant (inactive), so the rollback path unregisters a hook that was never registered.
+
+Function:   nf_tables_updchain
+Verified:   True  (source: https://cveawg.mitre.org/api/cve/CVE-2025-22064)
+File:       nf_tables_api.c, line 2367
+PageRank:   0.000109
+Rank:       #1883 of 3815
+Percentile: top 49.36%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
