@@ -7,6 +7,8 @@ Purpose: Draw charts for EVERY CVE in the function-level CVE analysis
          validation/cve_data/vulnerable_functions.json and it gets charts.
 
 Charts:
+  1_pagerank_distribution.png - histogram of all PageRank scores
+  2_top_20_functions.png - the 20 highest-PageRank functions overall
   3_<cve>_top_30.png     - functions in the vulnerable file, ranked by PageRank,
                            with the vulnerable function highlighted
   4_cve_rank_summary.png - every CVE's vulnerable function and its overall rank
@@ -89,6 +91,59 @@ class Visualizer:
                     yield cve_id, entry
                 else:
                     print(f"⚠️  Skipping {cve_id} {entry['function']}: {entry['status']}")
+
+    # ----------------------------
+    # Chart 1: distribution of all PageRank scores
+    # ----------------------------
+    def plot_pagerank_distribution(self):
+        print("\n📊 Chart 1: PageRank score distribution...")
+
+        scores = np.array(list(self.pagerank.values()))
+
+        fig, ax = plt.subplots(figsize=(12, 6))
+        ax.hist(scores, bins=50, edgecolor="black", alpha=0.7)
+        ax.set_yscale("log")  # most scores are tiny - log scale keeps the tail visible
+
+        for pct, style in ((90, ":"), (95, "--"), (99, "-.")):
+            ax.axvline(np.percentile(scores, pct), color="tab:red", linestyle=style,
+                       linewidth=2, label=f"{pct}th percentile")
+
+        ax.set_xlabel("PageRank Score", fontsize=12)
+        ax.set_ylabel("Number of Functions (log scale)", fontsize=12)
+        ax.set_title(f"PageRank Score Distribution - Netfilter ({len(scores)} functions)",
+                     fontsize=14, fontweight="bold")
+        ax.legend()
+
+        plt.tight_layout()
+        out = OUTPUT_PATH / "1_pagerank_distribution.png"
+        plt.savefig(out, bbox_inches="tight")
+        plt.close()
+        print(f"   ✅ Saved: {out}")
+
+    # ----------------------------
+    # Chart 2: top 20 functions overall
+    # ----------------------------
+    def plot_top_20(self):
+        print("\n📊 Chart 2: top 20 functions by PageRank...")
+
+        top = sorted(self.pagerank.items(), key=lambda x: x[1], reverse=True)[:20]
+        names = [name for name, _ in top]
+        scores = [score for _, score in top]
+
+        fig, ax = plt.subplots(figsize=(12, 10))
+        y = np.arange(len(top))
+        ax.barh(y, scores, alpha=0.85)
+        ax.set_yticks(y)
+        ax.set_yticklabels(names)
+        ax.invert_yaxis()
+        ax.set_xlabel("PageRank Score", fontsize=12)
+        ax.set_title("Top 20 Functions by PageRank", fontsize=14, fontweight="bold")
+
+        plt.tight_layout()
+        out = OUTPUT_PATH / "2_top_20_functions.png"
+        plt.savefig(out, bbox_inches="tight")
+        plt.close()
+        print(f"   ✅ Saved: {out}")
 
     # ----------------------------
     # Chart 3: functions in the vulnerable file, ranked
@@ -231,6 +286,9 @@ class Visualizer:
         print("=" * 70)
         print("🎨 CVE VISUALIZATIONS")
         print("=" * 70)
+
+        self.plot_pagerank_distribution()
+        self.plot_top_20()
 
         for cve_id, entry in self.ok_entries():
             print(f"\n📊 {cve_id} ({entry['function']})")
