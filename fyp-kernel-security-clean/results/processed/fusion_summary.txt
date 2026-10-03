@@ -1,0 +1,58 @@
+FUSION RESULTS  (shortlist K=266, LLM prompt v3, LLM time 1.1 h; w chosen on tuning CVEs)
+
+all CVEs (20):
+   setup                                       R@10  R@20  R@50 R@266     MRR
+   baseline (standard, no LLM)                 0.00  0.00  0.10  0.20  0.0046
+   A (personalized, no LLM)                    0.00  0.00  0.00  0.10  0.0017
+   C (hybrid, no LLM)                          0.00  0.00  0.05  0.15  0.0032
+   B (standard + LLM, w=0.5)                   0.05  0.05  0.05  0.20  0.0123
+   full (personalized + LLM, w=0.1)            0.05  0.10  0.10  0.10  0.0101
+   hybrid + LLM (w=0.4)                        0.05  0.05  0.05  0.15  0.0070
+   hybrid + LLM, K=490 (w=0.5)                 0.05  0.05  0.05  0.25  0.0095
+
+tuning CVEs (6):
+   setup                                       R@10  R@20  R@50 R@266     MRR
+   baseline (standard, no LLM)                 0.00  0.00  0.17  0.17  0.0069
+   A (personalized, no LLM)                    0.00  0.00  0.00  0.17  0.0020
+   C (hybrid, no LLM)                          0.00  0.00  0.17  0.33  0.0046
+   B (standard + LLM, w=0.5)                   0.17  0.17  0.17  0.17  0.0342
+   full (personalized + LLM, w=0.1)            0.17  0.17  0.17  0.17  0.0172
+   hybrid + LLM (w=0.4)                        0.17  0.17  0.17  0.33  0.0187
+   hybrid + LLM, K=490 (w=0.5)                 0.17  0.17  0.17  0.33  0.0261
+
+test CVEs (14):
+   setup                                       R@10  R@20  R@50 R@266     MRR
+   baseline (standard, no LLM)                 0.00  0.00  0.07  0.21  0.0037
+   A (personalized, no LLM)                    0.00  0.00  0.00  0.07  0.0015
+   C (hybrid, no LLM)                          0.00  0.00  0.00  0.07  0.0026
+   B (standard + LLM, w=0.5)                   0.00  0.00  0.00  0.21  0.0029
+   full (personalized + LLM, w=0.1)            0.00  0.07  0.07  0.07  0.0070
+   hybrid + LLM (w=0.4)                        0.00  0.00  0.00  0.07  0.0020
+   hybrid + LLM, K=490 (w=0.5)                 0.00  0.00  0.00  0.21  0.0023
+
+Rank of each CVE that is inside a shortlist in any setup (columns S1.. = setups in the order listed above):
+   CVE              split        S1      S2      S3      S4      S5      S6      S7
+   CVE-2023-52620   test       3255     156     278    3255      12     278     114
+   CVE-2024-41042   tuning       28     608      47       5     608      10       7
+   CVE-2026-23274   test       3421     318     587    3421     318     587     587
+   CVE-2026-43027   test         34     478      58      72     478     121     135
+   CVE-2026-72419   test        285    1975     526     285    1975     526     526
+   CVE-2026-74347   tuning      305     120     213     305      10      93      83
+   CVE-2026-74579   test        183    2490     328     107    2490     328     219
+   CVE-2026-74724   test       1578     464     834    1578     464     834     834
+   CVE-2026-74748   test        151     535     269     155     535     269     318
+   S1 = baseline (standard, no LLM); S2 = A (personalized, no LLM); S3 = C (hybrid, no LLM); S4 = B (standard + LLM, w=0.5); S5 = full (personalized + LLM, w=0.1); S6 = hybrid + LLM (w=0.4); S7 = hybrid + LLM, K=490 (w=0.5)
+
+Efficiency curve (all 20 CVEs; number found) - for each ranking: inside shortlist / top 20 without LLM / top 20 with LLM
+       K  LLM h |          standard |      personalized |            hybrid
+      10   0.04 |     0     0     0 |     0     0     0 |     0     0     0
+      25   0.10 |     0     0     0 |     0     0     0 |     0     0     0
+      50   0.21 |     2     0     1 |     0     0     0 |     1     0     0
+     100   0.41 |     2     0     1 |     0     0     0 |     2     0     1
+     150   0.62 |     2     0     1 |     1     0     1 |     2     0     1
+     200   0.83 |     4     0     1 |     2     0     2 |     2     0     1
+     250   1.03 |     4     0     1 |     2     0     2 |     3     0     1
+     266   1.10 |     4     0     1 |     2     0     2 |     3     0     1
+     300   1.24 |      (not scored) |      (not scored) |     5     0     1
+     400   1.66 |      (not scored) |      (not scored) |     6     0     1
+     490   2.03 |      (not scored) |      (not scored) |     6     0     1

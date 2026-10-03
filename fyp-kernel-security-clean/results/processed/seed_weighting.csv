@@ -1,0 +1,13 @@
+weighting,split,scope,mrr,median_rank,recall@100,recall@500,recall@1000
+uniform,tuning,all,0.00177,2032.5,0.0,0.167,0.333
+uniform,tuning,non_seed,0.00185,1728.5,0.0,0.333,0.333
+uniform,test,all,0.00156,1271.0,0.0,0.286,0.429
+uniform,test,non_seed,0.00201,1672.0,0.0,0.333,0.5
+path_balanced,tuning,all,0.00177,2030.5,0.0,0.167,0.333
+path_balanced,tuning,non_seed,0.00186,1726.5,0.0,0.333,0.333
+path_balanced,test,all,0.00167,1270.0,0.0,0.286,0.429
+path_balanced,test,non_seed,0.00201,1671.0,0.0,0.333,0.5
+group_balanced,tuning,all,0.00183,1515.0,0.0,0.167,0.333
+group_balanced,tuning,non_seed,0.0021,1211.0,0.0,0.333,0.5
+group_balanced,test,all,0.00187,1310.0,0.0,0.357,0.429
+group_balanced,test,non_seed,0.00257,1342.0,0.083,0.333,0.417

@@ -1,0 +1,37 @@
+SEED WEIGHTING EXPERIMENT (personalized PageRank, alpha=0.85)
+Best on the tuning CVEs (by MRR): group_balanced
+
+uniform         tuning  all       MRR=0.0018 median=2032 R@500=0.17 R@1000=0.33
+uniform         tuning  non_seed  MRR=0.0019 median=1728 R@500=0.33 R@1000=0.33
+uniform         test    all       MRR=0.0016 median=1271 R@500=0.29 R@1000=0.43
+uniform         test    non_seed  MRR=0.0020 median=1672 R@500=0.33 R@1000=0.50
+path_balanced   tuning  all       MRR=0.0018 median=2030 R@500=0.17 R@1000=0.33
+path_balanced   tuning  non_seed  MRR=0.0019 median=1726 R@500=0.33 R@1000=0.33
+path_balanced   test    all       MRR=0.0017 median=1270 R@500=0.29 R@1000=0.43
+path_balanced   test    non_seed  MRR=0.0020 median=1671 R@500=0.33 R@1000=0.50
+group_balanced  tuning  all       MRR=0.0018 median=1515 R@500=0.17 R@1000=0.33
+group_balanced  tuning  non_seed  MRR=0.0021 median=1211 R@500=0.33 R@1000=0.50
+group_balanced  test    all       MRR=0.0019 median=1310 R@500=0.36 R@1000=0.43
+group_balanced  test    non_seed  MRR=0.0026 median=1342 R@500=0.33 R@1000=0.42
+
+Rank of each CVE:
+   CVE-2023-0179    tuning uniform=2260  path_balanced=2264  group_balanced=1279  
+   CVE-2023-52620   test   uniform=140  path_balanced=140  group_balanced=142  
+   CVE-2024-35898   tuning uniform=2032  path_balanced=2030  group_balanced=2144  
+   CVE-2024-41042   tuning uniform=610  path_balanced=610  group_balanced=591  
+   CVE-2024-53141   test   uniform=1240  path_balanced=1236  group_balanced=1234  
+   CVE-2025-71160   test   uniform=623  path_balanced=623  group_balanced=489  
+   CVE-2026-23274   test   uniform=330  path_balanced=215  group_balanced=283  
+   CVE-2026-43027   test   uniform=480  path_balanced=478  group_balanced=348  
+   CVE-2026-53001   test   uniform=3798  path_balanced=3798  group_balanced=3798  
+   CVE-2026-53218   test   uniform=1271  path_balanced=1270  group_balanced=1310  
+   CVE-2026-64189   tuning uniform=2617  path_balanced=2616  group_balanced=2744  
+   CVE-2026-72020   test   uniform=2045  path_balanced=2053  group_balanced=1646  
+   CVE-2026-72251   tuning uniform=1900  path_balanced=1899  group_balanced=1515  
+   CVE-2026-72419   test   uniform=1976  path_balanced=1975  group_balanced=2106  
+   CVE-2026-74347   tuning uniform=140  path_balanced=140  group_balanced=142  
+   CVE-2026-74579   test   uniform=2517  path_balanced=2517  group_balanced=2612  
+   CVE-2026-74724   test   uniform=466  path_balanced=466  group_balanced=196  
+   CVE-2026-74748   test   uniform=534  path_balanced=534  group_balanced=627  
+   CVE-2026-80744   test   uniform=3046  path_balanced=3046  group_balanced=2556  
+   CVE-2026-90141   test   uniform=2819  path_balanced=2820  group_balanced=2828  
