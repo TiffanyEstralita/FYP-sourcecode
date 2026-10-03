@@ -10,3 +10,7 @@ __pycache__/
 
 # Secrets - never commit API keys
 .env
+
+# Kernel CVE database (500 MB) - re-download with:
+#   git clone --depth 1 https://git.kernel.org/pub/scm/linux/security/vulns.git data/vulns
+**/data/vulns/

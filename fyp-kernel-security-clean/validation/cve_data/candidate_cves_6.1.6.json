@@ -1,0 +1,4865 @@
+{
+  "kernel_version": "6.1.6",
+  "netfilter_cves_in_database": 298,
+  "candidates": [
+    {
+      "cve_id": "CVE-2023-52620",
+      "subject": "netfilter: nf_tables: disallow timeout for anonymous sets",
+      "bug_type": "other",
+      "fix_commit": "b7be6c737a179a76901c872f6b4c1d00552d9a1b",
+      "fix_date": "Fri, 16 Jun 2023 15:22:18 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nf_tables_newset"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2023/CVE-2023-52620.json"
+    },
+    {
+      "cve_id": "CVE-2023-52628",
+      "subject": "netfilter: nftables: exthdr: fix 4-byte stack OOB write",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "d9ebfc0f21377690837ebbd119e679243e0099cc",
+      "fix_date": "Tue, 5 Sep 2023 23:13:56 +0200",
+      "files": [
+        "net/netfilter/nft_exthdr.c"
+      ],
+      "vulnerable_functions": [
+        "nft_exthdr_ipv6_eval",
+        "nft_exthdr_ipv4_eval",
+        "nft_exthdr_tcp_eval",
+        "nft_exthdr_sctp_eval"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 5,
+        "mapped": 4,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2023/CVE-2023-52628.json"
+    },
+    {
+      "cve_id": "CVE-2023-52923",
+      "subject": "netfilter: nf_tables: adapt set backend to use GC transaction API",
+      "bug_type": "race/locking",
+      "fix_commit": "df650d6a4bf47248261b61ef6b174d7c54034d15",
+      "fix_date": "Fri, 22 Sep 2023 18:30:15 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c",
+        "net/netfilter/nft_set_hash.c",
+        "net/netfilter/nft_set_pipapo.c",
+        "net/netfilter/nft_set_rbtree.c"
+      ],
+      "vulnerable_functions": [
+        "nft_setelem_activate",
+        "nft_setelem_catchall_deactivate",
+        "nft_set_catchall_flush",
+        "nft_rhash_cmp",
+        "nft_rhash_activate",
+        "nft_rhash_flush",
+        "nft_rhash_deactivate",
+        "nft_rhash_gc",
+        "nft_rhash_destroy",
+        "pipapo_gc",
+        "nft_pipapo_activate",
+        "__nft_rbtree_lookup",
+        "nft_rbtree_activate",
+        "nft_rbtree_flush"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 24,
+        "mapped": 18,
+        "outside_function": 1,
+        "unmapped": 5,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2023/CVE-2023-52923.json"
+    },
+    {
+      "cve_id": "CVE-2023-52924",
+      "subject": "netfilter: nf_tables: don't skip expired elements during walk",
+      "bug_type": "memory-leak",
+      "fix_commit": "59dab3bf0b8fc08eb802721c0532f13dd89209b8",
+      "fix_date": "Fri, 22 Sep 2023 18:30:13 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c",
+        "net/netfilter/nft_set_hash.c",
+        "net/netfilter/nft_set_pipapo.c",
+        "net/netfilter/nft_set_rbtree.c"
+      ],
+      "vulnerable_functions": [
+        "nf_tables_dump_setelem",
+        "nft_rhash_walk",
+        "pipapo_get",
+        "nft_pipapo_get",
+        "nft_pipapo_walk",
+        "nft_rbtree_walk"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 6,
+        "mapped": 6,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2023/CVE-2023-52924.json"
+    },
+    {
+      "cve_id": "CVE-2023-52927",
+      "subject": "netfilter: allow exp not to be removed in nf_ct_find_expectation",
+      "bug_type": "other",
+      "fix_commit": "3fa58a6fbd1e9e5682d09cdafb08fba004cb12ec",
+      "fix_date": "Sun, 16 Jul 2023 17:09:17 -0400",
+      "files": [
+        "net/netfilter/nf_conntrack_core.c",
+        "net/netfilter/nf_conntrack_expect.c",
+        "net/netfilter/nft_ct.c"
+      ],
+      "vulnerable_functions": [
+        "init_conntrack",
+        "nf_ct_find_expectation",
+        "nft_ct_set_zone_eval",
+        "nft_ct_tmpl_alloc_pcpu"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 5,
+        "mapped": 5,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "include/net/netfilter/nf_conntrack_expect.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2023/CVE-2023-52927.json"
+    },
+    {
+      "cve_id": "CVE-2023-53032",
+      "subject": "netfilter: ipset: Fix overflow before widen in the bitmap_ip_create() function.",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "e88865876d47c790be0d5e23973499d75d034364",
+      "fix_date": "Wed, 11 Jan 2023 11:57:39 +0000",
+      "files": [
+        "net/netfilter/ipset/ip_set_bitmap_ip.c"
+      ],
+      "vulnerable_functions": [
+        "bitmap_ip_create"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2023/CVE-2023-53032.json"
+    },
+    {
+      "cve_id": "CVE-2023-53033",
+      "subject": "netfilter: nft_payload: incorrect arithmetics when fetching VLAN header bits",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "76ef74d4a379faa451003621a84e3498044e7aa3",
+      "fix_date": "Wed, 11 Jan 2023 17:07:33 +0100",
+      "files": [
+        "net/netfilter/nft_payload.c"
+      ],
+      "vulnerable_functions": [
+        "nft_payload_copy_vlan"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2023/CVE-2023-53033.json"
+    },
+    {
+      "cve_id": "CVE-2023-53179",
+      "subject": "netfilter: ipset: add the missing IP_SET_HASH_WITH_NET0 macro for ip_set_hash_netportnet.c",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "7ca0706c68adadf86a36b60dca090f5e9481e808",
+      "fix_date": "Tue, 5 Sep 2023 15:04:09 -0700",
+      "files": [
+        "net/netfilter/ipset/ip_set_hash_netportnet.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "outside_function",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 0,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2023/CVE-2023-53179.json"
+    },
+    {
+      "cve_id": "CVE-2023-53333",
+      "subject": "netfilter: conntrack: dccp: copy entire header to stack buffer, not just basic one",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "5c618daa5038712c4a4ef8923905a2ea1b8836a1",
+      "fix_date": "Wed, 21 Jun 2023 17:56:53 +0200",
+      "files": [
+        "net/netfilter/nf_conntrack_proto_dccp.c"
+      ],
+      "vulnerable_functions": [
+        "dccp_error",
+        "nf_conntrack_dccp_packet"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2023/CVE-2023-53333.json"
+    },
+    {
+      "cve_id": "CVE-2023-53492",
+      "subject": "netfilter: nf_tables: do not ignore genmask when looking up chain by id",
+      "bug_type": "race/locking",
+      "fix_commit": "fc95c8b02c6160936f1f3d8d9d7f4f66f3c84b49",
+      "fix_date": "Wed, 5 Jul 2023 09:12:55 -0300",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nft_chain_lookup_byid",
+        "nf_tables_newrule",
+        "nft_verdict_init"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 4,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2023/CVE-2023-53492.json"
+    },
+    {
+      "cve_id": "CVE-2023-53619",
+      "subject": "netfilter: conntrack: Avoid nf_ct_helper_hash uses after free",
+      "bug_type": "use-after-free",
+      "fix_commit": "05561f822f27b9fa88fa5504ddec34bf38833034",
+      "fix_date": "Mon, 3 Jul 2023 16:52:16 +0200",
+      "files": [
+        "net/netfilter/nf_conntrack_helper.c"
+      ],
+      "vulnerable_functions": [
+        "nf_conntrack_helper_register",
+        "nf_conntrack_helper_fini"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2023/CVE-2023-53619.json"
+    },
+    {
+      "cve_id": "CVE-2023-53635",
+      "subject": "netfilter: conntrack: fix wrong ct->timeout value",
+      "bug_type": "other",
+      "fix_commit": "80c5ba0078e20d926d11d0778f9a43902664ebf0",
+      "fix_date": "Wed, 19 Apr 2023 13:15:26 +0800",
+      "files": [
+        "net/netfilter/nf_conntrack_netlink.c"
+      ],
+      "vulnerable_functions": [
+        "ctnetlink_dump_timeout",
+        "ctnetlink_create_conntrack"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 3,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "include/net/netfilter/nf_conntrack_core.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2023/CVE-2023-53635.json"
+    },
+    {
+      "cve_id": "CVE-2023-54200",
+      "subject": "netfilter: nf_tables: always release netdev hooks from notifier",
+      "bug_type": "use-after-free",
+      "fix_commit": "30e4b13b1bfbdf3bf3b27036d8209ea1b9f0d880",
+      "fix_date": "Thu, 4 May 2023 14:20:21 +0200",
+      "files": [
+        "net/netfilter/nft_chain_filter.c"
+      ],
+      "vulnerable_functions": [
+        "nft_netdev_event",
+        "nf_tables_netdev_event"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2023/CVE-2023-54200.json"
+    },
+    {
+      "cve_id": "CVE-2024-26642",
+      "subject": "netfilter: nf_tables: disallow anonymous set with timeout flag",
+      "bug_type": "other",
+      "fix_commit": "72c1efe3f247a581667b7d368fff3bd9a03cd57a",
+      "fix_date": "Fri, 1 Mar 2024 00:11:10 +0100",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nf_tables_newset"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-26642.json"
+    },
+    {
+      "cve_id": "CVE-2024-26668",
+      "subject": "netfilter: nft_limit: reject configurations that cause integer overflow",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "bc6e242bb74e2ae616bfd2b250682b738e781c9b",
+      "fix_date": "Fri, 19 Jan 2024 13:11:32 +0100",
+      "files": [
+        "net/netfilter/nft_limit.c"
+      ],
+      "vulnerable_functions": [
+        "nft_limit_init"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-26668.json"
+    },
+    {
+      "cve_id": "CVE-2024-26673",
+      "subject": "netfilter: nft_ct: sanitize layer 3 and 4 protocol number in custom expectations",
+      "bug_type": "other",
+      "fix_commit": "0f501dae16b7099e69ee9b0d5c70b8f40fd30e98",
+      "fix_date": "Mon, 29 Jan 2024 13:12:33 +0100",
+      "files": [
+        "net/netfilter/nft_ct.c"
+      ],
+      "vulnerable_functions": [
+        "nft_ct_expect_obj_init"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-26673.json"
+    },
+    {
+      "cve_id": "CVE-2024-26808",
+      "subject": "netfilter: nft_chain_filter: handle NETDEV_UNREGISTER for inet/ingress basechain",
+      "bug_type": "other",
+      "fix_commit": "af149a46890e8285d1618bd68b8d159bdb87fdb3",
+      "fix_date": "Thu, 18 Jan 2024 10:56:26 +0100",
+      "files": [
+        "net/netfilter/nft_chain_filter.c"
+      ],
+      "vulnerable_functions": [
+        "nf_tables_netdev_event"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 3,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-26808.json"
+    },
+    {
+      "cve_id": "CVE-2024-26809",
+      "subject": "netfilter: nft_set_pipapo: release elements in clone only from destroy path",
+      "bug_type": "other",
+      "fix_commit": "5ad233dc731ab64cdc47b84a5c1f78fff6c024af",
+      "fix_date": "Sun, 10 Mar 2024 10:02:41 +0100",
+      "files": [
+        "net/netfilter/nft_set_pipapo.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 2,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-26809.json"
+    },
+    {
+      "cve_id": "CVE-2024-26835",
+      "subject": "netfilter: nf_tables: set dormant flag on hook register failure",
+      "bug_type": "other",
+      "fix_commit": "0c9302a6da262e6ab6a6c1d30f04a6130ed97376",
+      "fix_date": "Mon, 19 Feb 2024 16:58:04 +0100",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nf_tables_updtable"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-26835.json"
+    },
+    {
+      "cve_id": "CVE-2024-26851",
+      "subject": "netfilter: nf_conntrack_h323: Add protection for bmp length out of range",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "39001e3c42000e7c2038717af0d33c32319ad591",
+      "fix_date": "Tue, 5 Mar 2024 11:38:55 +0000",
+      "files": [
+        "net/netfilter/nf_conntrack_h323_asn1.c"
+      ],
+      "vulnerable_functions": [
+        "decode_seq"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-26851.json"
+    },
+    {
+      "cve_id": "CVE-2024-26924",
+      "subject": "netfilter: nft_set_pipapo: do not free live element",
+      "bug_type": "memory-leak",
+      "fix_commit": "41d8fdf3afaff312e17466e4ab732937738d5644",
+      "fix_date": "Wed, 10 Apr 2024 21:05:13 +0200",
+      "files": [
+        "net/netfilter/nft_set_pipapo.c"
+      ],
+      "vulnerable_functions": [
+        "nft_pipapo_remove"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-26924.json"
+    },
+    {
+      "cve_id": "CVE-2024-27011",
+      "subject": "netfilter: nf_tables: fix memleak in map from abort path",
+      "bug_type": "other",
+      "fix_commit": "86a1471d7cde792941109b93b558b5dc078b9ee9",
+      "fix_date": "Wed, 17 Apr 2024 17:43:21 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "outside_function",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 0,
+        "outside_function": 1,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-27011.json"
+    },
+    {
+      "cve_id": "CVE-2024-27015",
+      "subject": "netfilter: flowtable: incorrect pppoe tuple",
+      "bug_type": "other",
+      "fix_commit": "f1c3c61701a0b12f4906152c1626a5de580ea3d2",
+      "fix_date": "Thu, 11 Apr 2024 00:09:00 +0200",
+      "files": [
+        "net/netfilter/nf_flow_table_ip.c"
+      ],
+      "vulnerable_functions": [
+        "nf_flow_tuple_encap"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-27015.json"
+    },
+    {
+      "cve_id": "CVE-2024-27016",
+      "subject": "netfilter: flowtable: validate pppoe header",
+      "bug_type": "other",
+      "fix_commit": "8bf7c76a2a207ca2b4cfda0a279192adf27678d7",
+      "fix_date": "Tue, 9 Apr 2024 13:47:33 +0200",
+      "files": [
+        "net/netfilter/nf_flow_table_inet.c",
+        "net/netfilter/nf_flow_table_ip.c"
+      ],
+      "vulnerable_functions": [
+        "nf_flow_offload_inet_hook",
+        "nf_flow_skb_encap_protocol",
+        "nf_flow_encap_pop"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 4,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "include/net/netfilter/nf_flow_table.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-27016.json"
+    },
+    {
+      "cve_id": "CVE-2024-27019",
+      "subject": "netfilter: nf_tables: Fix potential data-race in __nft_obj_type_get()",
+      "bug_type": "race/locking",
+      "fix_commit": "df7c0fb8c2b9f9cac65659332581b19682a71349",
+      "fix_date": "Sun, 7 Apr 2024 14:56:05 +0800",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "__nft_obj_type_get"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-27019.json"
+    },
+    {
+      "cve_id": "CVE-2024-27020",
+      "subject": "netfilter: nf_tables: Fix potential data-race in __nft_expr_type_get()",
+      "bug_type": "race/locking",
+      "fix_commit": "8d56bad42ac4c43c6c72ddd6a654a2628bf839c5",
+      "fix_date": "Sun, 7 Apr 2024 14:56:04 +0800",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "__nft_expr_type_get",
+        "nft_expr_type_get"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-27020.json"
+    },
+    {
+      "cve_id": "CVE-2024-27065",
+      "subject": "netfilter: nf_tables: do not compare internal table flags on updates",
+      "bug_type": "other",
+      "fix_commit": "9683cb6c2c6c0f45537bf0b8868b5d38fcb63fc7",
+      "fix_date": "Thu, 14 Mar 2024 18:51:38 +0100",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nf_tables_updtable"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-27065.json"
+    },
+    {
+      "cve_id": "CVE-2024-27397",
+      "subject": "netfilter: nf_tables: use timestamp to check for set element timeout",
+      "bug_type": "race/locking",
+      "fix_commit": "b45176b869673417ace338b87cf9cdb66e2eeb01",
+      "fix_date": "Thu, 27 Jun 2024 01:53:13 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c",
+        "net/netfilter/nft_set_hash.c",
+        "net/netfilter/nft_set_pipapo.c",
+        "net/netfilter/nft_set_rbtree.c"
+      ],
+      "vulnerable_functions": [
+        "nf_tables_valid_genid",
+        "nft_rhash_cmp",
+        "nft_rhash_lookup",
+        "nft_rhash_get",
+        "nft_rhash_update",
+        "nft_rhash_insert",
+        "nft_rhash_deactivate",
+        "pipapo_get",
+        "nft_pipapo_insert",
+        "pipapo_deactivate",
+        "nft_rbtree_deactivate"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 24,
+        "mapped": 14,
+        "outside_function": 2,
+        "unmapped": 8,
+        "skipped_files": [
+          "include/net/netfilter/nf_tables.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-27397.json"
+    },
+    {
+      "cve_id": "CVE-2024-27403",
+      "subject": "netfilter: nft_flow_offload: reset dst in route object after setting up flow",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "012df10717da02367aaf92c65f9c89db206c15f4",
+      "fix_date": "Wed, 21 Feb 2024 12:32:58 +0100",
+      "files": [
+        "net/netfilter/nf_flow_table_core.c"
+      ],
+      "vulnerable_functions": [
+        "flow_offload_fill_route",
+        "flow_offload_route_init"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "include/net/netfilter/nf_flow_table.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-27403.json"
+    },
+    {
+      "cve_id": "CVE-2024-27415",
+      "subject": "netfilter: bridge: confirm multicast packets before passing them up the stack",
+      "bug_type": "race/locking",
+      "fix_commit": "2b1414d5e94e477edff1d2c79030f1d742625ea0",
+      "fix_date": "Tue, 27 Feb 2024 16:17:51 +0100",
+      "files": [
+        "net/netfilter/nf_conntrack_core.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": [
+          "include/linux/netfilter.h",
+          "net/bridge/br_netfilter_hooks.c",
+          "net/bridge/netfilter/nf_conntrack_bridge.c"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-27415.json"
+    },
+    {
+      "cve_id": "CVE-2024-35897",
+      "subject": "netfilter: nf_tables: discard table flag update with pending basechain deletion",
+      "bug_type": "other",
+      "fix_commit": "2aeb805a1bcd5f27c8c0d1a9d4d653f16d1506f4",
+      "fix_date": "Mon, 8 Apr 2024 23:18:34 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "outside_function",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 0,
+        "outside_function": 1,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-35897.json"
+    },
+    {
+      "cve_id": "CVE-2024-35898",
+      "subject": "netfilter: nf_tables: Fix potential data-race in __nft_flowtable_type_get()",
+      "bug_type": "race/locking",
+      "fix_commit": "9b5b7708ec2be21dd7ef8ca0e3abe4ae9f3b083b",
+      "fix_date": "Wed, 3 Apr 2024 15:22:04 +0800",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "__nft_flowtable_type_get",
+        "nft_flowtable_type_get"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-35898.json"
+    },
+    {
+      "cve_id": "CVE-2024-35899",
+      "subject": "netfilter: nf_tables: flush pending destroy work before exit_net release",
+      "bug_type": "use-after-free",
+      "fix_commit": "4e8447a9a3d367b5065a0b7abe101da6e0037b6e",
+      "fix_date": "Tue, 2 Apr 2024 18:04:36 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-35899.json"
+    },
+    {
+      "cve_id": "CVE-2024-35900",
+      "subject": "netfilter: nf_tables: reject new basechain after table flag update",
+      "bug_type": "other",
+      "fix_commit": "745cf6a843896cdac8766c74379300ed73c78830",
+      "fix_date": "Mon, 1 Apr 2024 00:33:02 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nf_tables_addchain"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-35900.json"
+    },
+    {
+      "cve_id": "CVE-2024-36005",
+      "subject": "netfilter: nf_tables: honor table dormant flag from netdev release event path",
+      "bug_type": "other",
+      "fix_commit": "13ba94f6cc820fdea15efeaa17d4c722874eebf9",
+      "fix_date": "Wed, 24 Apr 2024 20:45:01 +0200",
+      "files": [
+        "net/netfilter/nft_chain_filter.c"
+      ],
+      "vulnerable_functions": [
+        "nft_netdev_event"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-36005.json"
+    },
+    {
+      "cve_id": "CVE-2024-36286",
+      "subject": "netfilter: nfnetlink_queue: acquire rcu_read_lock() in instance_destroy_rcu()",
+      "bug_type": "race/locking",
+      "fix_commit": "68f40354a3851df46c27be96b84f11ae193e36c5",
+      "fix_date": "Wed, 15 May 2024 13:23:39 +0000",
+      "files": [
+        "net/netfilter/nfnetlink_queue.c"
+      ],
+      "vulnerable_functions": [
+        "instance_destroy_rcu"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-36286.json"
+    },
+    {
+      "cve_id": "CVE-2024-41042",
+      "subject": "netfilter: nf_tables: prefer nft_chain_validate",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "b6b6e430470e1c3c5513311cb35a15a205595abe",
+      "fix_date": "Mon, 12 Aug 2024 12:23:20 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nft_chain_validate",
+        "nf_tables_check_loops",
+        "nf_tables_loop_check_setelem",
+        "nft_check_loops",
+        "nft_set_catchall_loops",
+        "nft_validate_register_store"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 3,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-41042.json"
+    },
+    {
+      "cve_id": "CVE-2024-42070",
+      "subject": "netfilter: nf_tables: fully validate NFT_DATA_VALUE on store to data registers",
+      "bug_type": "memory-leak",
+      "fix_commit": "efb27ad05949403848f487823b597ed67060e007",
+      "fix_date": "Wed, 26 Jun 2024 23:15:38 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c",
+        "net/netfilter/nft_lookup.c"
+      ],
+      "vulnerable_functions": [
+        "nf_tables_fill_setelem",
+        "nft_validate_register_store",
+        "nft_lookup_init"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 4,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "include/net/netfilter/nf_tables.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-42070.json"
+    },
+    {
+      "cve_id": "CVE-2024-42322",
+      "subject": "ipvs: properly dereference pe in ip_vs_add_service",
+      "bug_type": "other",
+      "fix_commit": "b2c664df3bb46aabac6a5fd78aaa5bd614cfad97",
+      "fix_date": "Tue, 19 Nov 2024 18:20:10 +0800",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_ctl.c"
+      ],
+      "vulnerable_functions": [
+        "ip_vs_add_service"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-42322.json"
+    },
+    {
+      "cve_id": "CVE-2024-44944",
+      "subject": "netfilter: ctnetlink: use helper function to calculate expect ID",
+      "bug_type": "memory-leak",
+      "fix_commit": "24f407042cf90b0872de667460230d8d50c06c39",
+      "fix_date": "Sat, 13 Jul 2024 16:47:38 +0200",
+      "files": [
+        "net/netfilter/nf_conntrack_netlink.c"
+      ],
+      "vulnerable_functions": [
+        "ctnetlink_del_expect"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-44944.json"
+    },
+    {
+      "cve_id": "CVE-2024-44983",
+      "subject": "netfilter: flowtable: validate vlan header",
+      "bug_type": "uninitialized",
+      "fix_commit": "d9384ae7aec46036d248d1c2c2757e471ab486c3",
+      "fix_date": "Tue, 13 Aug 2024 12:39:46 +0200",
+      "files": [
+        "net/netfilter/nf_flow_table_inet.c",
+        "net/netfilter/nf_flow_table_ip.c"
+      ],
+      "vulnerable_functions": [
+        "nf_flow_offload_inet_hook",
+        "nf_flow_skb_encap_protocol"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-44983.json"
+    },
+    {
+      "cve_id": "CVE-2024-45018",
+      "subject": "netfilter: flowtable: initialise extack before use",
+      "bug_type": "other",
+      "fix_commit": "7eafeec6be68ebd6140a830ce9ae68ad5b67ec78",
+      "fix_date": "Tue, 6 Aug 2024 17:16:37 +0100",
+      "files": [
+        "net/netfilter/nf_flow_table_offload.c"
+      ],
+      "vulnerable_functions": [
+        "nf_flow_offload_tuple"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-45018.json"
+    },
+    {
+      "cve_id": "CVE-2024-46855",
+      "subject": "netfilter: nft_socket: fix sk refcount leaks",
+      "bug_type": "memory-leak",
+      "fix_commit": "33c2258bf8cb17fba9e58b111d4c4f4cf43a4896",
+      "fix_date": "Thu, 5 Sep 2024 12:54:46 +0200",
+      "files": [
+        "net/netfilter/nft_socket.c"
+      ],
+      "vulnerable_functions": [
+        "nft_socket_eval"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 3,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-46855.json"
+    },
+    {
+      "cve_id": "CVE-2024-50038",
+      "subject": "netfilter: xtables: avoid NFPROTO_UNSPEC where needed",
+      "bug_type": "other",
+      "fix_commit": "8f482bb7e27b37f1f734bb9a8eeb28b23d59d189",
+      "fix_date": "Mon, 7 Oct 2024 11:28:16 +0200",
+      "files": [
+        "net/netfilter/xt_CHECKSUM.c",
+        "net/netfilter/xt_CLASSIFY.c",
+        "net/netfilter/xt_CONNSECMARK.c",
+        "net/netfilter/xt_CT.c",
+        "net/netfilter/xt_IDLETIMER.c",
+        "net/netfilter/xt_LED.c",
+        "net/netfilter/xt_NFLOG.c",
+        "net/netfilter/xt_RATEEST.c",
+        "net/netfilter/xt_SECMARK.c",
+        "net/netfilter/xt_TRACE.c",
+        "net/netfilter/xt_addrtype.c",
+        "net/netfilter/xt_cluster.c",
+        "net/netfilter/xt_connbytes.c",
+        "net/netfilter/xt_connlimit.c",
+        "net/netfilter/xt_connmark.c",
+        "net/netfilter/xt_mark.c"
+      ],
+      "vulnerable_functions": [
+        "checksum_tg_exit",
+        "checksum_tg_init",
+        "connsecmark_tg_exit",
+        "connsecmark_tg_init",
+        "notrack_tg",
+        "xt_ct_tg_exit",
+        "xt_ct_tg_init",
+        "led_tg_exit",
+        "led_tg_init",
+        "nflog_tg_exit",
+        "nflog_tg_init",
+        "trace_tg_exit",
+        "trace_tg_init",
+        "xt_cluster_mt_fini",
+        "xt_cluster_mt_init",
+        "connbytes_mt_check",
+        "connlimit_mt_exit",
+        "connlimit_mt_init",
+        "mark_mt_init",
+        "mark_mt_exit"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 26,
+        "mapped": 11,
+        "outside_function": 13,
+        "unmapped": 2,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-50038.json"
+    },
+    {
+      "cve_id": "CVE-2024-50251",
+      "subject": "netfilter: nft_payload: sanitize offset and length before calling skb_checksum()",
+      "bug_type": "other",
+      "fix_commit": "d3217323525f7596427124359e76ea0d8fcc9874",
+      "fix_date": "Wed, 30 Oct 2024 23:13:48 +0100",
+      "files": [
+        "net/netfilter/nft_payload.c"
+      ],
+      "vulnerable_functions": [
+        "nft_payload_set_eval"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-50251.json"
+    },
+    {
+      "cve_id": "CVE-2024-50257",
+      "subject": "netfilter: Fix use-after-free in get_info()",
+      "bug_type": "use-after-free",
+      "fix_commit": "cb7c388b5967946f097afdb759b7c860305f2d96",
+      "fix_date": "Thu, 24 Oct 2024 09:47:01 +0800",
+      "files": [
+        "net/netfilter/x_tables.c"
+      ],
+      "vulnerable_functions": [
+        "xt_find_table_lock"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-50257.json"
+    },
+    {
+      "cve_id": "CVE-2024-53141",
+      "subject": "netfilter: ipset: add missing range check in bitmap_ip_uadt",
+      "bug_type": "other",
+      "fix_commit": "7ffef5e5d5eeecd9687204a5ec2d863752aafb7e",
+      "fix_date": "Wed, 13 Nov 2024 22:02:09 +0900",
+      "files": [
+        "net/netfilter/ipset/ip_set_bitmap_ip.c"
+      ],
+      "vulnerable_functions": [
+        "bitmap_ip_uadt"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-53141.json"
+    },
+    {
+      "cve_id": "CVE-2024-53680",
+      "subject": "ipvs: fix UB due to uninitialized stack access in ip_vs_protocol_init()",
+      "bug_type": "null-deref",
+      "fix_commit": "664d0feab92495b6a27edc3d1119e232c0fe8b2b",
+      "fix_date": "Sat, 23 Nov 2024 03:42:56 -0600",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_proto.c"
+      ],
+      "vulnerable_functions": [
+        "ip_vs_protocol_init"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-53680.json"
+    },
+    {
+      "cve_id": "CVE-2024-54683",
+      "subject": "netfilter: IDLETIMER: Fix for possible ABBA deadlock",
+      "bug_type": "race/locking",
+      "fix_commit": "f36b01994d68ffc253c8296e2228dfe6e6431c03",
+      "fix_date": "Fri, 6 Dec 2024 19:32:29 +0100",
+      "files": [
+        "net/netfilter/xt_IDLETIMER.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 2,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-54683.json"
+    },
+    {
+      "cve_id": "CVE-2024-56637",
+      "subject": "netfilter: ipset: Hold module reference while requesting a module",
+      "bug_type": "race/locking",
+      "fix_commit": "5bae60a933ba5d16eed55c6b279be51bcbbc79b0",
+      "fix_date": "Fri, 29 Nov 2024 16:30:38 +0100",
+      "files": [
+        "net/netfilter/ipset/ip_set_core.c"
+      ],
+      "vulnerable_functions": [
+        "load_settype"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-56637.json"
+    },
+    {
+      "cve_id": "CVE-2024-56650",
+      "subject": "netfilter: x_tables: fix LED ID check in led_tg_check()",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "ab9916321c95f5280b72b4c5055e269f98627efe",
+      "fix_date": "Thu, 21 Nov 2024 09:55:42 +0300",
+      "files": [
+        "net/netfilter/xt_LED.c"
+      ],
+      "vulnerable_functions": [
+        "led_tg_check"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-56650.json"
+    },
+    {
+      "cve_id": "CVE-2024-57947",
+      "subject": "netfilter: nf_set_pipapo: fix initial map fill",
+      "bug_type": "memory-leak",
+      "fix_commit": "9625c46ce6fd4f922595a4b32b1de5066d70464f",
+      "fix_date": "Mon, 15 Jul 2024 13:54:03 +0200",
+      "files": [
+        "net/netfilter/nft_set_pipapo.c",
+        "net/netfilter/nft_set_pipapo.h",
+        "net/netfilter/nft_set_pipapo_avx2.c"
+      ],
+      "vulnerable_functions": [
+        "nft_pipapo_lookup",
+        "pipapo_get",
+        "nft_pipapo_avx2_lookup_slow",
+        "nft_pipapo_avx2_lookup"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 7,
+        "mapped": 6,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": [
+          "net/netfilter/nft_set_pipapo.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-57947.json"
+    },
+    {
+      "cve_id": "CVE-2025-21648",
+      "subject": "netfilter: conntrack: clamp maximum hashtable size to INT_MAX",
+      "bug_type": "other",
+      "fix_commit": "5552b4fd44be3393b930434a7845d8d95a2a3c33",
+      "fix_date": "Wed, 8 Jan 2025 22:56:33 +0100",
+      "files": [
+        "net/netfilter/nf_conntrack_core.c"
+      ],
+      "vulnerable_functions": [
+        "nf_ct_alloc_hashtable"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-21648.json"
+    },
+    {
+      "cve_id": "CVE-2025-21959",
+      "subject": "netfilter: nf_conncount: Fully initialize struct nf_conncount_tuple in insert_tree()",
+      "bug_type": "uninitialized",
+      "fix_commit": "a62a25c6ad58fae997f48a0749afeda1c252ae51",
+      "fix_date": "Sun, 9 Mar 2025 17:07:38 +0900",
+      "files": [
+        "net/netfilter/nf_conncount.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-21959.json"
+    },
+    {
+      "cve_id": "CVE-2025-22055",
+      "subject": "net: fix geneve_opt length integer overflow",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "21748669c5825761cbbf47cbeeb01387ddccc8cb",
+      "fix_date": "Thu, 3 Apr 2025 00:56:32 +0800",
+      "files": [
+        "net/netfilter/nft_tunnel.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "outside_function",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 0,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": [
+          "net/ipv4/ip_tunnel_core.c",
+          "net/sched/act_tunnel_key.c",
+          "net/sched/cls_flower.c"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-22055.json"
+    },
+    {
+      "cve_id": "CVE-2025-22056",
+      "subject": "netfilter: nft_tunnel: fix geneve_opt type confusion addition",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "a263d31c8c92e5919d41af57d9479cfb66323782",
+      "fix_date": "Thu, 3 Apr 2025 01:00:26 +0800",
+      "files": [
+        "net/netfilter/nft_tunnel.c"
+      ],
+      "vulnerable_functions": [
+        "nft_tunnel_obj_geneve_init",
+        "nft_tunnel_opts_dump"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-22056.json"
+    },
+    {
+      "cve_id": "CVE-2025-37961",
+      "subject": "ipvs: fix uninit-value for saddr in do_output_route4",
+      "bug_type": "uninitialized",
+      "fix_commit": "7d0032112a0380d0b8d7c9005f621928a9b9fc76",
+      "fix_date": "Sat, 3 May 2025 01:01:18 +0300",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_xmit.c"
+      ],
+      "vulnerable_functions": [
+        "do_output_route4",
+        "__ip_vs_get_out_rt"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-37961.json"
+    },
+    {
+      "cve_id": "CVE-2025-37997",
+      "subject": "netfilter: ipset: fix region locking in hash types",
+      "bug_type": "race/locking",
+      "fix_commit": "aa77294b0f73bb8265987591460cd25b8722c3df",
+      "fix_date": "Wed, 7 May 2025 17:01:59 +0200",
+      "files": [
+        "net/netfilter/ipset/ip_set_hash_gen.h"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 0,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "net/netfilter/ipset/ip_set_hash_gen.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-37997.json"
+    },
+    {
+      "cve_id": "CVE-2025-38162",
+      "subject": "netfilter: nft_set_pipapo: prevent overflow in lookup table allocation",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "91edc076439c9e2f34b176149f1c84a47a8ec32f",
+      "fix_date": "Tue, 10 Mar 2026 16:02:46 +0800",
+      "files": [
+        "net/netfilter/nft_set_pipapo.c"
+      ],
+      "vulnerable_functions": [
+        "pipapo_resize",
+        "pipapo_lt_bits_adjust"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 7,
+        "mapped": 4,
+        "outside_function": 1,
+        "unmapped": 2,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-38162.json"
+    },
+    {
+      "cve_id": "CVE-2025-38201",
+      "subject": "netfilter: nft_set_pipapo: clamp maximum map bucket size to INT_MAX",
+      "bug_type": "other",
+      "fix_commit": "80417057ac60dd80f4816eb426e4e4a5bf696534",
+      "fix_date": "Tue, 22 Apr 2025 21:52:44 +0200",
+      "files": [
+        "net/netfilter/nft_set_pipapo.c"
+      ],
+      "vulnerable_functions": [
+        "pipapo_resize",
+        "pipapo_clone"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-38201.json"
+    },
+    {
+      "cve_id": "CVE-2025-38472",
+      "subject": "netfilter: nf_conntrack: fix crash due to removal of uninitialised entry",
+      "bug_type": "uninitialized",
+      "fix_commit": "a47ef874189d47f934d0809ae738886307c0ea22",
+      "fix_date": "Wed, 16 Jul 2025 20:39:14 +0200",
+      "files": [
+        "net/netfilter/nf_conntrack_core.c"
+      ],
+      "vulnerable_functions": [
+        "nf_ct_resolve_clash_harder",
+        "__nf_conntrack_confirm"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 4,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "include/net/netfilter/nf_conntrack.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-38472.json"
+    },
+    {
+      "cve_id": "CVE-2025-38639",
+      "subject": "netfilter: xt_nfacct: don't assume acct name is null-terminated",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "e18939176e657a3a20bfbed357b8c55a9f82aba3",
+      "fix_date": "Fri, 18 Jul 2025 13:27:13 +0200",
+      "files": [
+        "net/netfilter/xt_nfacct.c"
+      ],
+      "vulnerable_functions": [
+        "nfacct_mt_checkentry"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-38639.json"
+    },
+    {
+      "cve_id": "CVE-2025-38678",
+      "subject": "netfilter: nf_tables: reject duplicate device on updates",
+      "bug_type": "other",
+      "fix_commit": "4ce2a0c3b8497a66cfc25fc7ca3d087258a785d2",
+      "fix_date": "Mon, 17 Nov 2025 21:39:58 +0000",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nft_flowtable_update"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-38678.json"
+    },
+    {
+      "cve_id": "CVE-2025-38721",
+      "subject": "netfilter: ctnetlink: fix refcount leak on table dump",
+      "bug_type": "memory-leak",
+      "fix_commit": "41462f4cfc583513833f87f9ee55d12da651a7e3",
+      "fix_date": "Fri, 1 Aug 2025 17:25:08 +0200",
+      "files": [
+        "net/netfilter/nf_conntrack_netlink.c"
+      ],
+      "vulnerable_functions": [
+        "ctnetlink_done",
+        "ctnetlink_dump_table"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 5,
+        "mapped": 5,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-38721.json"
+    },
+    {
+      "cve_id": "CVE-2025-39764",
+      "subject": "netfilter: ctnetlink: remove refcounting in expectation dumpers",
+      "bug_type": "memory-leak",
+      "fix_commit": "64b7684042246e3238464c66894e30ba30c7e851",
+      "fix_date": "Fri, 1 Aug 2025 17:25:09 +0200",
+      "files": [
+        "net/netfilter/nf_conntrack_netlink.c"
+      ],
+      "vulnerable_functions": [
+        "ctnetlink_exp_done",
+        "ctnetlink_exp_dump_table",
+        "ctnetlink_exp_ct_dump_table",
+        "ctnetlink_dump_exp_ct",
+        "ctnetlink_get_expect"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 8,
+        "mapped": 8,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-39764.json"
+    },
+    {
+      "cve_id": "CVE-2025-40018",
+      "subject": "ipvs: Defer ip_vs_ftp unregister during netns cleanup",
+      "bug_type": "use-after-free",
+      "fix_commit": "53717f8a4347b78eac6488072ad8e5adbaff38d9",
+      "fix_date": "Fri, 12 Sep 2025 01:57:59 +0800",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_ftp.c"
+      ],
+      "vulnerable_functions": [
+        "__ip_vs_ftp_exit",
+        "ip_vs_ftp_exit"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 2,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-40018.json"
+    },
+    {
+      "cve_id": "CVE-2025-40206",
+      "subject": "netfilter: nft_objref: validate objref and objrefmap expressions",
+      "bug_type": "other",
+      "fix_commit": "f31bcea12222a26d6f151df9c4a6d21f2eec1724",
+      "fix_date": "Thu, 23 Jul 2026 21:24:51 -0400",
+      "files": [
+        "net/netfilter/nft_objref.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "outside_function",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 0,
+        "outside_function": 4,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-40206.json"
+    },
+    {
+      "cve_id": "CVE-2025-68206",
+      "subject": "netfilter: nft_ct: add seqadj extension for natted connections",
+      "bug_type": "other",
+      "fix_commit": "4de80f0dc3868408dd7fe9817e507123c9dd8bb0",
+      "fix_date": "Fri, 24 Oct 2025 18:22:16 +0200",
+      "files": [
+        "net/netfilter/nft_ct.c"
+      ],
+      "vulnerable_functions": [
+        "nft_ct_helper_obj_eval"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 1,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-68206.json"
+    },
+    {
+      "cve_id": "CVE-2025-68813",
+      "subject": "ipvs: fix ipv4 null-ptr-deref in route error path",
+      "bug_type": "null-deref",
+      "fix_commit": "cdeff10851c37a002d87a035818ebd60fdb74447",
+      "fix_date": "Fri, 21 Nov 2025 16:52:13 +0800",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_xmit.c"
+      ],
+      "vulnerable_functions": [
+        "__ip_vs_get_out_rt"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-68813.json"
+    },
+    {
+      "cve_id": "CVE-2025-71160",
+      "subject": "netfilter: nf_tables: avoid chain re-validation if possible",
+      "bug_type": "race/locking",
+      "fix_commit": "8e1a1bc4f5a42747c08130b8242ebebd1210b32f",
+      "fix_date": "Sun, 7 Jul 2024 01:18:25 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nft_validate_state_update",
+        "nft_table_validate"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 6,
+        "mapped": 3,
+        "outside_function": 0,
+        "unmapped": 3,
+        "skipped_files": [
+          "include/net/netfilter/nf_tables.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-71160.json"
+    },
+    {
+      "cve_id": "CVE-2026-100070",
+      "subject": "netfilter: nf_nat_sip: rewind offset when NAT shrinks the packet",
+      "bug_type": "memory-leak",
+      "fix_commit": "0f4d30e2e49f343fc28ba1e259fd22969b940c46",
+      "fix_date": "Mon, 6 Jul 2026 14:30:55 +0200",
+      "files": [
+        "net/netfilter/nf_nat_sip.c"
+      ],
+      "vulnerable_functions": [
+        "nf_nat_sip"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-100070.json"
+    },
+    {
+      "cve_id": "CVE-2026-23139",
+      "subject": "netfilter: nf_conncount: update last_gc only when GC has been performed",
+      "bug_type": "other",
+      "fix_commit": "9f45588993d7f115280fc726119ca86fba32a811",
+      "fix_date": "Wed, 17 Dec 2025 15:46:40 +0100",
+      "files": [
+        "net/netfilter/nf_conncount.c"
+      ],
+      "vulnerable_functions": [
+        "__nf_conncount_add"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23139.json"
+    },
+    {
+      "cve_id": "CVE-2026-23231",
+      "subject": "netfilter: nf_tables: fix use-after-free in nf_tables_addchain()",
+      "bug_type": "use-after-free",
+      "fix_commit": "2a6586ecfa4ce1413daaafee250d2590e05f1a33",
+      "fix_date": "Tue, 17 Feb 2026 21:14:40 +0900",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23231.json"
+    },
+    {
+      "cve_id": "CVE-2026-23272",
+      "subject": "netfilter: nf_tables: unconditionally bump set->nelems before insertion",
+      "bug_type": "race/locking",
+      "fix_commit": "25fcaef7948912652905e96922f36583a84fffed",
+      "fix_date": "Fri, 19 Jun 2026 02:28:50 -0700",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nft_add_set_elem"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23272.json"
+    },
+    {
+      "cve_id": "CVE-2026-23274",
+      "subject": "netfilter: xt_IDLETIMER: reject rev0 reuse of ALARM timer labels",
+      "bug_type": "uninitialized",
+      "fix_commit": "28c7cfaf0c0ab17cbd7754092116fd1af45271f9",
+      "fix_date": "Mon, 9 Mar 2026 03:41:46 -0700",
+      "files": [
+        "net/netfilter/xt_IDLETIMER.c"
+      ],
+      "vulnerable_functions": [
+        "idletimer_tg_checkentry"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23274.json"
+    },
+    {
+      "cve_id": "CVE-2026-23351",
+      "subject": "netfilter: nft_set_pipapo: split gc into unlink and reclaim phase",
+      "bug_type": "use-after-free",
+      "fix_commit": "16f3595c0441d87dfa005c47d8f95be213afaa9e",
+      "fix_date": "Tue, 3 Mar 2026 16:31:32 +0100",
+      "files": [
+        "net/netfilter/nf_tables_api.c",
+        "net/netfilter/nft_set_pipapo.c",
+        "net/netfilter/nft_set_pipapo.h"
+      ],
+      "vulnerable_functions": [
+        "nft_pipapo_remove",
+        "pipapo_commit",
+        "nft_pipapo_init",
+        "nft_pipapo_destroy"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 10,
+        "mapped": 5,
+        "outside_function": 1,
+        "unmapped": 4,
+        "skipped_files": [
+          "include/net/netfilter/nf_tables.h",
+          "net/netfilter/nft_set_pipapo.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23351.json"
+    },
+    {
+      "cve_id": "CVE-2026-23391",
+      "subject": "netfilter: xt_CT: drop pending enqueued packets on template removal",
+      "bug_type": "other",
+      "fix_commit": "d2d0bae0c9a2a17b6990a2966f5cdce0813d6256",
+      "fix_date": "Thu, 12 Mar 2026 13:48:48 +0100",
+      "files": [
+        "net/netfilter/xt_CT.c"
+      ],
+      "vulnerable_functions": [
+        "xt_ct_tg_destroy"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 1,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23391.json"
+    },
+    {
+      "cve_id": "CVE-2026-23392",
+      "subject": "netfilter: nf_tables: release flowtable after rcu grace period on error",
+      "bug_type": "use-after-free",
+      "fix_commit": "d2632de96ccb066e0131ad1494241b9c281c60b8",
+      "fix_date": "Tue, 17 Mar 2026 20:00:26 +0100",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23392.json"
+    },
+    {
+      "cve_id": "CVE-2026-23397",
+      "subject": "nfnetlink_osf: validate individual option lengths in fingerprints",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "aa0574182c46963c3cdb8cde46ec93aca21100d8",
+      "fix_date": "Thu, 19 Mar 2026 15:32:44 +0800",
+      "files": [
+        "net/netfilter/nfnetlink_osf.c"
+      ],
+      "vulnerable_functions": [
+        "nfnl_osf_add_callback"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23397.json"
+    },
+    {
+      "cve_id": "CVE-2026-23399",
+      "subject": "nf_tables: nft_dynset: fix possible stateful expression memleak in error path",
+      "bug_type": "other",
+      "fix_commit": "4357dbb1d9c35ca0b4443d71c98a48e6666f7689",
+      "fix_date": "Fri, 17 Apr 2026 16:21:24 +0800",
+      "files": [
+        "net/netfilter/nf_tables_api.c",
+        "net/netfilter/nft_dynset.c"
+      ],
+      "vulnerable_functions": [
+        "nft_set_elem_expr_destroy"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": [
+          "include/net/netfilter/nf_tables.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23399.json"
+    },
+    {
+      "cve_id": "CVE-2026-23455",
+      "subject": "netfilter: nf_conntrack_h323: check for zero length in DecodeQ931()",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "495e97af9e7249ee02b72bb1d0848a6efc3700f4",
+      "fix_date": "Thu, 12 Mar 2026 14:49:50 +0000",
+      "files": [
+        "net/netfilter/nf_conntrack_h323_asn1.c"
+      ],
+      "vulnerable_functions": [
+        "DecodeQ931"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23455.json"
+    },
+    {
+      "cve_id": "CVE-2026-23456",
+      "subject": "netfilter: nf_conntrack_h323: fix OOB read in decode_int() CONS case",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "41b417ff73a24b2c68134992cc44c88db27f482d",
+      "fix_date": "Thu, 12 Mar 2026 02:29:32 +0000",
+      "files": [
+        "net/netfilter/nf_conntrack_h323_asn1.c"
+      ],
+      "vulnerable_functions": [
+        "decode_int"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23456.json"
+    },
+    {
+      "cve_id": "CVE-2026-23457",
+      "subject": "netfilter: nf_conntrack_sip: fix Content-Length u32 truncation in sip_help_tcp()",
+      "bug_type": "other",
+      "fix_commit": "b75209debb9adab287b3caa982f77788c1e15027",
+      "fix_date": "Tue, 10 Mar 2026 21:49:01 +0000",
+      "files": [
+        "net/netfilter/nf_conntrack_sip.c"
+      ],
+      "vulnerable_functions": [
+        "sip_help_tcp"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23457.json"
+    },
+    {
+      "cve_id": "CVE-2026-23458",
+      "subject": "netfilter: ctnetlink: fix use-after-free in ctnetlink_dump_exp_ct()",
+      "bug_type": "use-after-free",
+      "fix_commit": "bdf2724eefd4455a66863abb025bab8d3aa98c57",
+      "fix_date": "Sun, 8 Mar 2026 02:21:37 +0900",
+      "files": [
+        "net/netfilter/nf_conntrack_netlink.c"
+      ],
+      "vulnerable_functions": [
+        "ctnetlink_exp_ct_dump_table"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 2,
+        "outside_function": 1,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23458.json"
+    },
+    {
+      "cve_id": "CVE-2026-31407",
+      "subject": "netfilter: conntrack: add missing netlink policy validations",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "be88a337bf07afb1ee173f1099294d1b7ab3fefe",
+      "fix_date": "Tue, 10 Mar 2026 00:28:29 +0100",
+      "files": [
+        "net/netfilter/nf_conntrack_netlink.c",
+        "net/netfilter/nf_conntrack_proto_sctp.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "outside_function",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 0,
+        "outside_function": 2,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-31407.json"
+    },
+    {
+      "cve_id": "CVE-2026-31414",
+      "subject": "netfilter: nf_conntrack_expect: use expect->helper",
+      "bug_type": "race/locking",
+      "fix_commit": "847cb7fe26c5ce5dce0d1a41fac1ea488b7f1781",
+      "fix_date": "Wed, 25 Mar 2026 14:11:03 +0100",
+      "files": [
+        "net/netfilter/nf_conntrack_expect.c",
+        "net/netfilter/nf_conntrack_helper.c",
+        "net/netfilter/nf_conntrack_netlink.c",
+        "net/netfilter/nf_conntrack_sip.c"
+      ],
+      "vulnerable_functions": [
+        "exp_seq_show",
+        "ctnetlink_exp_dump_expect",
+        "expect_iter_name",
+        "ctnetlink_alloc_expect",
+        "set_expected_rtp_rtcp"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 8,
+        "mapped": 6,
+        "outside_function": 0,
+        "unmapped": 2,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-31414.json"
+    },
+    {
+      "cve_id": "CVE-2026-31416",
+      "subject": "netfilter: nfnetlink_log: account for netlink header size",
+      "bug_type": "other",
+      "fix_commit": "761b45c661af48da6a065868d59ab1e1f64fd9b6",
+      "fix_date": "Thu, 26 Mar 2026 16:17:24 +0100",
+      "files": [
+        "net/netfilter/nfnetlink_log.c"
+      ],
+      "vulnerable_functions": [
+        "nfulnl_log_packet"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-31416.json"
+    },
+    {
+      "cve_id": "CVE-2026-31418",
+      "subject": "netfilter: ipset: drop logically empty buckets in mtype_del",
+      "bug_type": "other",
+      "fix_commit": "ad92ee87462f9a3061361d392e9dbfe2e5c1c9fb",
+      "fix_date": "Mon, 30 Mar 2026 14:39:24 -0700",
+      "files": [
+        "net/netfilter/ipset/ip_set_hash_gen.h"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 0,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "net/netfilter/ipset/ip_set_hash_gen.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-31418.json"
+    },
+    {
+      "cve_id": "CVE-2026-31424",
+      "subject": "netfilter: x_tables: restrict xt_check_match/xt_check_target extensions for NFPROTO_ARP",
+      "bug_type": "null-deref",
+      "fix_commit": "1cd6313c8644bfebbd813a05da9daa21b09dd68c",
+      "fix_date": "Tue, 31 Mar 2026 16:41:25 +0200",
+      "files": [
+        "net/netfilter/x_tables.c"
+      ],
+      "vulnerable_functions": [
+        "xt_check_match",
+        "xt_check_target"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-31424.json"
+    },
+    {
+      "cve_id": "CVE-2026-31427",
+      "subject": "netfilter: nf_conntrack_sip: fix use of uninitialized rtp_addr in process_sdp",
+      "bug_type": "uninitialized",
+      "fix_commit": "6e5e3c87b7e6212f1d8414fc2e4d158b01e12025",
+      "fix_date": "Wed, 25 Mar 2026 14:11:07 +0100",
+      "files": [
+        "net/netfilter/nf_conntrack_sip.c"
+      ],
+      "vulnerable_functions": [
+        "process_sdp"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 4,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-31427.json"
+    },
+    {
+      "cve_id": "CVE-2026-31428",
+      "subject": "netfilter: nfnetlink_log: fix uninitialized padding leak in NFULA_PAYLOAD",
+      "bug_type": "uninitialized",
+      "fix_commit": "fc961dd7272b5e4a462999635e44a4770d7f2482",
+      "fix_date": "Wed, 25 Mar 2026 14:10:58 +0100",
+      "files": [
+        "net/netfilter/nfnetlink_log.c"
+      ],
+      "vulnerable_functions": [
+        "__build_packet_message"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-31428.json"
+    },
+    {
+      "cve_id": "CVE-2026-31495",
+      "subject": "netfilter: ctnetlink: use netlink policy range checks",
+      "bug_type": "other",
+      "fix_commit": "4f7d25f3f0786402ba48ff7d13b6241d77d975f5",
+      "fix_date": "Wed, 25 Mar 2026 14:11:08 +0100",
+      "files": [
+        "net/netfilter/nf_conntrack_netlink.c",
+        "net/netfilter/nf_conntrack_proto_tcp.c"
+      ],
+      "vulnerable_functions": [
+        "ctnetlink_parse_filter",
+        "nlattr_to_tcp"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 5,
+        "mapped": 2,
+        "outside_function": 3,
+        "unmapped": 0,
+        "skipped_files": [
+          "include/uapi/linux/netfilter/nf_conntrack_common.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-31495.json"
+    },
+    {
+      "cve_id": "CVE-2026-31496",
+      "subject": "netfilter: nf_conntrack_expect: skip expectations in other netns via proc",
+      "bug_type": "other",
+      "fix_commit": "2028405ea6987b4448784e439413202cfe19f43f",
+      "fix_date": "Wed, 25 Mar 2026 14:11:06 +0100",
+      "files": [
+        "net/netfilter/nf_conntrack_expect.c"
+      ],
+      "vulnerable_functions": [
+        "exp_seq_show"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-31496.json"
+    },
+    {
+      "cve_id": "CVE-2026-31665",
+      "subject": "netfilter: nft_ct: fix use-after-free in timeout object destroy",
+      "bug_type": "use-after-free",
+      "fix_commit": "f16fe84879a5280f05ebbcea593a189ba0f3e79a",
+      "fix_date": "Fri, 3 Apr 2026 00:33:17 -0700",
+      "files": [
+        "net/netfilter/nft_ct.c"
+      ],
+      "vulnerable_functions": [
+        "nft_ct_timeout_obj_destroy"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "include/net/netfilter/nf_conntrack_timeout.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-31665.json"
+    },
+    {
+      "cve_id": "CVE-2026-31681",
+      "subject": "netfilter: xt_multiport: validate range encoding in checkentry",
+      "bug_type": "other",
+      "fix_commit": "b67d638cbee9975c765feb45c126e96ed11ec802",
+      "fix_date": "Fri, 3 Apr 2026 23:52:52 +0800",
+      "files": [
+        "net/netfilter/xt_multiport.c"
+      ],
+      "vulnerable_functions": [
+        "multiport_mt_check",
+        "multiport_mt6_check"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 2,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-31681.json"
+    },
+    {
+      "cve_id": "CVE-2026-43025",
+      "subject": "netfilter: ctnetlink: ignore explicit helper on new expectations",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "e135f8e8212cbed12a03ab8dec77fa1247139897",
+      "fix_date": "Mon, 30 Mar 2026 11:26:22 +0200",
+      "files": [
+        "net/netfilter/nf_conntrack_netlink.c"
+      ],
+      "vulnerable_functions": [
+        "ctnetlink_glue_attach_expect",
+        "ctnetlink_alloc_expect",
+        "ctnetlink_create_expect"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 9,
+        "mapped": 6,
+        "outside_function": 1,
+        "unmapped": 2,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43025.json"
+    },
+    {
+      "cve_id": "CVE-2026-43026",
+      "subject": "netfilter: ctnetlink: zero expect NAT fields when CTA_EXPECT_NAT absent",
+      "bug_type": "other",
+      "fix_commit": "a64b7bf84b4d5ea54218c5d374ec87fff9000f43",
+      "fix_date": "Tue, 31 Mar 2026 14:17:12 +0800",
+      "files": [
+        "net/netfilter/nf_conntrack_netlink.c"
+      ],
+      "vulnerable_functions": [
+        "ctnetlink_alloc_expect"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43026.json"
+    },
+    {
+      "cve_id": "CVE-2026-43027",
+      "subject": "netfilter: nf_conntrack_helper: pass helper to expect cleanup",
+      "bug_type": "use-after-free",
+      "fix_commit": "dc1739eff48e34cc71d4e2f03715493fbcebd8af",
+      "fix_date": "Mon, 30 Mar 2026 00:50:36 +0800",
+      "files": [
+        "net/netfilter/nf_conntrack_helper.c"
+      ],
+      "vulnerable_functions": [
+        "nf_conntrack_helper_unregister"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43027.json"
+    },
+    {
+      "cve_id": "CVE-2026-43028",
+      "subject": "netfilter: x_tables: ensure names are nul-terminated",
+      "bug_type": "other",
+      "fix_commit": "aa6cd4a8863391e0a64f62d8922cb0af732a2cf2",
+      "fix_date": "Tue, 31 Mar 2026 23:13:36 +0200",
+      "files": [
+        "net/netfilter/xt_cgroup.c",
+        "net/netfilter/xt_rateest.c"
+      ],
+      "vulnerable_functions": [
+        "cgroup_mt_check_v1",
+        "cgroup_mt_check_v2",
+        "xt_rateest_mt_checkentry"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 3,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43028.json"
+    },
+    {
+      "cve_id": "CVE-2026-43060",
+      "subject": "netfilter: nft_ct: drop pending enqueued packets on removal",
+      "bug_type": "other",
+      "fix_commit": "ab50302190b303f847c4eba0e31a01a56dec596e",
+      "fix_date": "Thu, 12 Mar 2026 13:48:47 +0100",
+      "files": [
+        "net/netfilter/nft_ct.c"
+      ],
+      "vulnerable_functions": [
+        "__nft_ct_set_destroy",
+        "nft_ct_timeout_obj_destroy",
+        "nft_ct_helper_obj_destroy"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 3,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43060.json"
+    },
+    {
+      "cve_id": "CVE-2026-43085",
+      "subject": "netfilter: nfnetlink_log: initialize nfgenmsg in NLMSG_DONE terminator",
+      "bug_type": "memory-leak",
+      "fix_commit": "57cc509d82b46150a11dcecc8b25eaa177eda34d",
+      "fix_date": "Wed, 1 Apr 2026 14:20:57 -0700",
+      "files": [
+        "net/netfilter/nfnetlink_log.c"
+      ],
+      "vulnerable_functions": [
+        "__nfulnl_send"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43085.json"
+    },
+    {
+      "cve_id": "CVE-2026-43114",
+      "subject": "netfilter: nft_set_pipapo_avx2: don't return non-matching entry on expiry",
+      "bug_type": "other",
+      "fix_commit": "1c43f0dd8691ddf8884793b481ddc7511cf593c3",
+      "fix_date": "Wed, 25 Mar 2026 14:10:55 +0100",
+      "files": [
+        "net/netfilter/nft_set_pipapo_avx2.c"
+      ],
+      "vulnerable_functions": [
+        "nft_pipapo_avx2_lookup_4b_2",
+        "nft_pipapo_avx2_lookup_4b_4",
+        "nft_pipapo_avx2_lookup_4b_8",
+        "nft_pipapo_avx2_lookup_4b_12",
+        "nft_pipapo_avx2_lookup_4b_32",
+        "nft_pipapo_avx2_lookup_8b_1",
+        "nft_pipapo_avx2_lookup_8b_2",
+        "nft_pipapo_avx2_lookup_8b_4",
+        "nft_pipapo_avx2_lookup_8b_6",
+        "nft_pipapo_avx2_lookup_8b_16"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 10,
+        "mapped": 10,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43114.json"
+    },
+    {
+      "cve_id": "CVE-2026-43116",
+      "subject": "netfilter: ctnetlink: ensure safe access to master conntrack",
+      "bug_type": "race/locking",
+      "fix_commit": "9e1196d27ef496f404c76f7a9d03761142d991c4",
+      "fix_date": "Fri, 12 Jun 2026 20:39:06 +0000",
+      "files": [
+        "net/netfilter/nf_conntrack_ecache.c",
+        "net/netfilter/nf_conntrack_expect.c",
+        "net/netfilter/nf_conntrack_netlink.c"
+      ],
+      "vulnerable_functions": [
+        "nf_ct_expect_event_report",
+        "nf_ct_unlink_expect_report",
+        "nf_ct_remove_expect",
+        "nf_ct_find_expectation",
+        "__nf_ct_expect_check",
+        "nf_ct_expect_related_report",
+        "ctnetlink_get_expect"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 8,
+        "mapped": 7,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": [
+          "include/net/netfilter/nf_conntrack_core.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43116.json"
+    },
+    {
+      "cve_id": "CVE-2026-43190",
+      "subject": "netfilter: xt_tcpmss: check remaining length before reading optlen",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "eaedc0bc18be46fe7f58170e967959a932c4f824",
+      "fix_date": "Mon, 19 Jan 2026 12:30:42 +0100",
+      "files": [
+        "net/netfilter/xt_tcpmss.c"
+      ],
+      "vulnerable_functions": [
+        "tcpmss_mt"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43190.json"
+    },
+    {
+      "cve_id": "CVE-2026-43233",
+      "subject": "netfilter: nf_conntrack_h323: fix OOB read in decode_choice()",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "81f2fc5b0d0cf4696146f00f837596d10b92dead",
+      "fix_date": "Wed, 25 Feb 2026 14:06:18 +0100",
+      "files": [
+        "net/netfilter/nf_conntrack_h323_asn1.c"
+      ],
+      "vulnerable_functions": [
+        "decode_choice"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43233.json"
+    },
+    {
+      "cve_id": "CVE-2026-43329",
+      "subject": "netfilter: flowtable: strictly check for maximum number of actions",
+      "bug_type": "other",
+      "fix_commit": "fe9018d3e94329f1951b00805a8640bc06f56ead",
+      "fix_date": "Thu, 26 Mar 2026 00:17:09 +0100",
+      "files": [
+        "net/netfilter/nf_flow_table_offload.c"
+      ],
+      "vulnerable_functions": [
+        "flow_action_entry_next",
+        "flow_offload_eth_src",
+        "flow_offload_eth_dst",
+        "flow_offload_ipv4_snat",
+        "flow_offload_ipv4_dnat",
+        "flow_offload_ipv6_mangle",
+        "flow_offload_ipv6_snat",
+        "flow_offload_ipv6_dnat",
+        "flow_offload_port_snat",
+        "flow_offload_port_dnat",
+        "flow_offload_ipv4_checksum",
+        "flow_offload_redirect",
+        "flow_offload_encap_tunnel",
+        "flow_offload_decap_tunnel",
+        "nf_flow_rule_route_common",
+        "nf_flow_rule_route_ipv4",
+        "nf_flow_rule_route_ipv6"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 24,
+        "mapped": 23,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43329.json"
+    },
+    {
+      "cve_id": "CVE-2026-43450",
+      "subject": "netfilter: nfnetlink_cthelper: fix OOB read in nfnl_cthelper_dump_table()",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "3cc328ffc32ddb389cba7b78b6aa95d995c2876e",
+      "fix_date": "Sun, 8 Mar 2026 02:23:34 +0900",
+      "files": [
+        "net/netfilter/nfnetlink_cthelper.c"
+      ],
+      "vulnerable_functions": [
+        "nfnl_cthelper_dump_table"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43450.json"
+    },
+    {
+      "cve_id": "CVE-2026-43451",
+      "subject": "netfilter: nfnetlink_queue: fix entry leak in bridge verdict error path",
+      "bug_type": "memory-leak",
+      "fix_commit": "b38d2b4603fd3dda24eb8b3dd81c18a0930be97b",
+      "fix_date": "Sun, 8 Mar 2026 02:24:06 +0900",
+      "files": [
+        "net/netfilter/nfnetlink_queue.c"
+      ],
+      "vulnerable_functions": [
+        "nfqnl_recv_verdict"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43451.json"
+    },
+    {
+      "cve_id": "CVE-2026-43452",
+      "subject": "netfilter: x_tables: guard option walkers against 1-byte tail reads",
+      "bug_type": "other",
+      "fix_commit": "c39f84e4be1be63fc60ca7141ea7b76edcea5907",
+      "fix_date": "Sat, 7 Mar 2026 20:26:21 +0200",
+      "files": [
+        "net/netfilter/xt_dccp.c",
+        "net/netfilter/xt_tcpudp.c"
+      ],
+      "vulnerable_functions": [
+        "dccp_find_option",
+        "tcp_find_option"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43452.json"
+    },
+    {
+      "cve_id": "CVE-2026-43453",
+      "subject": "netfilter: nft_set_pipapo: fix stack out-of-bounds read in pipapo_drop()",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "60c1d18781e37bfb96290b86510eb01c5fa24d75",
+      "fix_date": "Fri, 6 Mar 2026 19:12:38 +0000",
+      "files": [
+        "net/netfilter/nft_set_pipapo.c"
+      ],
+      "vulnerable_functions": [
+        "pipapo_drop"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43453.json"
+    },
+    {
+      "cve_id": "CVE-2026-45841",
+      "subject": "netfilter: nfnetlink_osf: fix divide-by-zero in OSF_WSS_MODULO",
+      "bug_type": "other",
+      "fix_commit": "0694618cf3e9b120666e31f5f383a6e466d95a0d",
+      "fix_date": "Tue, 14 Apr 2026 15:14:01 -0700",
+      "files": [
+        "net/netfilter/nfnetlink_osf.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-45841.json"
+    },
+    {
+      "cve_id": "CVE-2026-45850",
+      "subject": "ipvs: skip ipv6 extension headers for csum checks",
+      "bug_type": "other",
+      "fix_commit": "768f665f3685b455ed686370ed7ccb852a125a3b",
+      "fix_date": "Sat, 14 Feb 2026 16:58:49 +0200",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_proto_sctp.c",
+        "net/netfilter/ipvs/ip_vs_proto_tcp.c",
+        "net/netfilter/ipvs/ip_vs_proto_udp.c"
+      ],
+      "vulnerable_functions": [
+        "sctp_snat_handler",
+        "sctp_dnat_handler",
+        "sctp_csum_check",
+        "tcp_snat_handler",
+        "tcp_dnat_handler",
+        "tcp_csum_check",
+        "udp_snat_handler",
+        "udp_dnat_handler",
+        "udp_csum_check"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 14,
+        "mapped": 11,
+        "outside_function": 3,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-45850.json"
+    },
+    {
+      "cve_id": "CVE-2026-45860",
+      "subject": "netfilter: nf_conncount: increase the connection clean up limit to 64",
+      "bug_type": "other",
+      "fix_commit": "fa85432d58c8e74b39333edbf8d28df2985dfc79",
+      "fix_date": "Wed, 17 Dec 2025 15:46:41 +0100",
+      "files": [
+        "net/netfilter/nf_conncount.c"
+      ],
+      "vulnerable_functions": [
+        "nf_conncount_list_init"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 5,
+        "mapped": 1,
+        "outside_function": 1,
+        "unmapped": 3,
+        "skipped_files": [
+          "include/net/netfilter/nf_conntrack_count.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-45860.json"
+    },
+    {
+      "cve_id": "CVE-2026-45917",
+      "subject": "ipvs: do not keep dest_dst if dev is going down",
+      "bug_type": "memory-leak",
+      "fix_commit": "8fde939b0206afc1d5846217a01a16b9bc8c7896",
+      "fix_date": "Sat, 14 Feb 2026 16:58:50 +0200",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_xmit.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "outside_function",
+      "mapping": {
+        "hunks": 5,
+        "mapped": 0,
+        "outside_function": 1,
+        "unmapped": 4,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-45917.json"
+    },
+    {
+      "cve_id": "CVE-2026-46101",
+      "subject": "netfilter: reject zero shift in nft_bitwise",
+      "bug_type": "other",
+      "fix_commit": "9ad26c272405f53834871cc2e46b9b5393a666c3",
+      "fix_date": "Wed, 22 Apr 2026 22:54:18 +0800",
+      "files": [
+        "net/netfilter/nft_bitwise.c"
+      ],
+      "vulnerable_functions": [
+        "nft_bitwise_init_shift"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-46101.json"
+    },
+    {
+      "cve_id": "CVE-2026-46324",
+      "subject": "netfilter: nf_tables: use list_del_rcu for netlink hooks",
+      "bug_type": "race/locking",
+      "fix_commit": "f3224ee463f8f6f6ced7dcdf6081add4f8128527",
+      "fix_date": "Thu, 16 Apr 2026 15:14:51 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "outside_function",
+      "mapping": {
+        "hunks": 9,
+        "mapped": 0,
+        "outside_function": 1,
+        "unmapped": 8,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-46324.json"
+    },
+    {
+      "cve_id": "CVE-2026-52912",
+      "subject": "netfilter: nf_queue: hold bridge skb->dev while queued",
+      "bug_type": "use-after-free",
+      "fix_commit": "19924bdd8a45ebc72a7b84c57fd63057d1dc75ac",
+      "fix_date": "Fri, 15 May 2026 11:19:02 +0800",
+      "files": [
+        "net/netfilter/nf_queue.c",
+        "net/netfilter/nfnetlink_queue.c"
+      ],
+      "vulnerable_functions": [
+        "nf_queue_entry_release_refs",
+        "nf_queue_entry_get_refs",
+        "__nf_queue",
+        "dev_cmp"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 4,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "include/net/netfilter/nf_queue.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-52912.json"
+    },
+    {
+      "cve_id": "CVE-2026-52920",
+      "subject": "netfilter: xt_policy: fix strict mode inbound policy matching",
+      "bug_type": "other",
+      "fix_commit": "f98b7f85e04b40e28b08c461ded0cc79f14f5509",
+      "fix_date": "Fri, 17 Apr 2026 20:25:06 +0800",
+      "files": [
+        "net/netfilter/xt_policy.c"
+      ],
+      "vulnerable_functions": [
+        "match_policy_in"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-52920.json"
+    },
+    {
+      "cve_id": "CVE-2026-52921",
+      "subject": "netfilter: ipset: stop hash:* range iteration at end",
+      "bug_type": "other",
+      "fix_commit": "0d7b33ace701fe397e6e4de145f32e098178d901",
+      "fix_date": "Tue, 12 May 2026 16:50:01 +0800",
+      "files": [
+        "net/netfilter/ipset/ip_set_hash_ipmark.c",
+        "net/netfilter/ipset/ip_set_hash_ipport.c",
+        "net/netfilter/ipset/ip_set_hash_ipportip.c",
+        "net/netfilter/ipset/ip_set_hash_ipportnet.c"
+      ],
+      "vulnerable_functions": [
+        "hash_ipmark4_uadt",
+        "hash_ipport4_uadt",
+        "hash_ipportip4_uadt",
+        "hash_ipportnet4_uadt"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 8,
+        "mapped": 8,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-52921.json"
+    },
+    {
+      "cve_id": "CVE-2026-52942",
+      "subject": "netfilter: nf_log: validate MAC header was set before dumping it",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "befb8968a2abdfa948d5600ea7f7a509a292a590",
+      "fix_date": "Tue, 9 Jun 2026 15:55:02 -0700",
+      "files": [
+        "net/netfilter/nf_log_syslog.c"
+      ],
+      "vulnerable_functions": [
+        "dump_mac_header"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-52942.json"
+    },
+    {
+      "cve_id": "CVE-2026-52970",
+      "subject": "netfilter: nft_ct: fix missing expect put in obj eval",
+      "bug_type": "other",
+      "fix_commit": "7b96242ceedfe249f158419f3254bcee04173ffe",
+      "fix_date": "Thu, 7 May 2026 22:04:23 +0800",
+      "files": [
+        "net/netfilter/nft_ct.c"
+      ],
+      "vulnerable_functions": [
+        "nft_ct_expect_obj_eval"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-52970.json"
+    },
+    {
+      "cve_id": "CVE-2026-52986",
+      "subject": "netfilter: nf_conntrack_sip: don't use simple_strtoul",
+      "bug_type": "race/locking",
+      "fix_commit": "b3264c977e79d8a25778d4fd11520f00fea1329c",
+      "fix_date": "Thu, 23 Apr 2026 02:19:11 +0200",
+      "files": [
+        "net/netfilter/nf_conntrack_sip.c",
+        "net/netfilter/nf_nat_sip.c"
+      ],
+      "vulnerable_functions": [
+        "epaddr_len",
+        "ct_sip_parse_request",
+        "ct_sip_parse_header_uri",
+        "ct_sip_parse_numerical_param",
+        "process_sdp",
+        "process_register_request",
+        "process_register_response",
+        "process_sip_response",
+        "process_sip_request",
+        "sip_help_tcp",
+        "nf_nat_sip"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 18,
+        "mapped": 16,
+        "outside_function": 2,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-52986.json"
+    },
+    {
+      "cve_id": "CVE-2026-52988",
+      "subject": "netfilter: nf_tables: join hook list via splice_list_rcu() in commit phase",
+      "bug_type": "race/locking",
+      "fix_commit": "a6134e62dba2ea4f760b29d5226907f447c92400",
+      "fix_date": "Wed, 15 Apr 2026 17:56:14 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nf_tables_commit"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-52988.json"
+    },
+    {
+      "cve_id": "CVE-2026-52998",
+      "subject": "netfilter: nfnetlink_osf: fix potential NULL dereference in ttl check",
+      "bug_type": "null-deref",
+      "fix_commit": "edc806f9122961f0d3819f7c69c14cccde31f277",
+      "fix_date": "Fri, 17 Apr 2026 18:20:57 +0200",
+      "files": [
+        "net/netfilter/nfnetlink_osf.c"
+      ],
+      "vulnerable_functions": [
+        "nf_osf_ttl"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-52998.json"
+    },
+    {
+      "cve_id": "CVE-2026-52999",
+      "subject": "netfilter: nfnetlink_osf: fix out-of-bounds read on option matching",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "1e19a07291bb8682c14c39a64725a3ae54ab8ccc",
+      "fix_date": "Fri, 17 Apr 2026 18:20:56 +0200",
+      "files": [
+        "net/netfilter/nfnetlink_osf.c"
+      ],
+      "vulnerable_functions": [
+        "nf_osf_match_one"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 4,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-52999.json"
+    },
+    {
+      "cve_id": "CVE-2026-53000",
+      "subject": "netfilter: nat: use kfree_rcu to release ops",
+      "bug_type": "race/locking",
+      "fix_commit": "6eda0d771f94267f73f57c94630aa47e90957915",
+      "fix_date": "Wed, 15 Apr 2026 17:29:45 +0200",
+      "files": [
+        "net/netfilter/nf_nat_core.c"
+      ],
+      "vulnerable_functions": [
+        "nf_nat_register_fn",
+        "nf_nat_unregister_fn"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "net/ipv4/netfilter/iptable_nat.c",
+          "net/ipv6/netfilter/ip6table_nat.c"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53000.json"
+    },
+    {
+      "cve_id": "CVE-2026-53001",
+      "subject": "netfilter: xtables: restrict several matches to inet family",
+      "bug_type": "other",
+      "fix_commit": "9a109751b297b0f2135495749ef5a18ba31ec7d4",
+      "fix_date": "Wed, 15 Apr 2026 12:21:00 +0200",
+      "files": [
+        "net/netfilter/xt_mac.c",
+        "net/netfilter/xt_owner.c",
+        "net/netfilter/xt_physdev.c",
+        "net/netfilter/xt_realm.c"
+      ],
+      "vulnerable_functions": [
+        "mac_mt_exit",
+        "mac_mt_init",
+        "owner_mt_exit",
+        "owner_mt_init",
+        "physdev_mt_exit",
+        "physdev_mt_init"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 3,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53001.json"
+    },
+    {
+      "cve_id": "CVE-2026-53002",
+      "subject": "netfilter: conntrack: remove sprintf usage",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "ab64e61c9323fa6de21bd20da1ddb29a0fb65d34",
+      "fix_date": "Tue, 14 Apr 2026 19:13:46 +0200",
+      "files": [
+        "net/netfilter/nf_nat_amanda.c",
+        "net/netfilter/nf_nat_sip.c"
+      ],
+      "vulnerable_functions": [
+        "help [nf_nat_amanda.c]",
+        "sip_sprintf_addr",
+        "sip_sprintf_addr_port",
+        "map_addr",
+        "nf_nat_sip",
+        "nf_nat_sip_expect",
+        "mangle_content_len",
+        "nf_nat_sdp_addr",
+        "nf_nat_sdp_port",
+        "nf_nat_sdp_session"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 12,
+        "mapped": 12,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53002.json"
+    },
+    {
+      "cve_id": "CVE-2026-53131",
+      "subject": "netfilter: require Ethernet MAC header before using eth_hdr()",
+      "bug_type": "other",
+      "fix_commit": "063f43361e884acd7300790e90194430275d0d0c",
+      "fix_date": "Sat, 4 Apr 2026 17:39:48 +0800",
+      "files": [
+        "net/netfilter/ipset/ip_set_bitmap_ipmac.c",
+        "net/netfilter/ipset/ip_set_hash_ipmac.c",
+        "net/netfilter/ipset/ip_set_hash_mac.c",
+        "net/netfilter/nf_log_syslog.c",
+        "net/netfilter/xt_mac.c"
+      ],
+      "vulnerable_functions": [
+        "bitmap_ipmac_kadt",
+        "hash_ipmac4_kadt",
+        "hash_ipmac6_kadt",
+        "hash_mac4_kadt",
+        "dump_arp_packet",
+        "dump_mac_header",
+        "mac_mt"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 10,
+        "mapped": 7,
+        "outside_function": 3,
+        "unmapped": 0,
+        "skipped_files": [
+          "net/ipv6/netfilter/ip6t_eui64.c"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53131.json"
+    },
+    {
+      "cve_id": "CVE-2026-53134",
+      "subject": "netfilter: nft_fib: fix stale stack leak via the OIFNAME register",
+      "bug_type": "uninitialized",
+      "fix_commit": "d19ddef8c327a4773ff81f8e51027d1e0b4cf069",
+      "fix_date": "Mon, 15 Jun 2026 12:17:29 -0400",
+      "files": [
+        "net/netfilter/nft_fib.c"
+      ],
+      "vulnerable_functions": [
+        "nft_fib_init"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "net/ipv4/netfilter/nft_fib_ipv4.c",
+          "net/ipv6/netfilter/nft_fib_ipv6.c"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53134.json"
+    },
+    {
+      "cve_id": "CVE-2026-53212",
+      "subject": "netfilter: nft_tunnel: fix use-after-free on object destroy",
+      "bug_type": "use-after-free",
+      "fix_commit": "5e9ee18b27fde88cb6148202b33916c66693fe82",
+      "fix_date": "Wed, 27 May 2026 13:57:50 +0000",
+      "files": [
+        "net/netfilter/nft_tunnel.c"
+      ],
+      "vulnerable_functions": [
+        "nft_tunnel_obj_destroy"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53212.json"
+    },
+    {
+      "cve_id": "CVE-2026-53218",
+      "subject": "netfilter: nft_exthdr: fix register tracking for F_PRESENT flag",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "46fc15a044e9938e7ea77786fb37edd2cd74f031",
+      "fix_date": "Tue, 9 Jun 2026 21:28:09 +0200",
+      "files": [
+        "net/netfilter/nft_exthdr.c"
+      ],
+      "vulnerable_functions": [
+        "nft_exthdr_init"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53218.json"
+    },
+    {
+      "cve_id": "CVE-2026-53220",
+      "subject": "netfilter: revalidate bridge ports",
+      "bug_type": "race/locking",
+      "fix_commit": "ccb9fd4b87538ccf19ccff78ee26700526d94867",
+      "fix_date": "Tue, 2 Jun 2026 17:04:25 +0200",
+      "files": [
+        "net/netfilter/nfnetlink_log.c",
+        "net/netfilter/nfnetlink_queue.c"
+      ],
+      "vulnerable_functions": [
+        "__build_packet_message",
+        "nfqnl_build_packet_message"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 7,
+        "mapped": 4,
+        "outside_function": 2,
+        "unmapped": 1,
+        "skipped_files": [
+          "net/bridge/netfilter/ebt_dnat.c",
+          "net/bridge/netfilter/ebt_redirect.c"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53220.json"
+    },
+    {
+      "cve_id": "CVE-2026-53267",
+      "subject": "netfilter: nft_ct: bail out on template ct in get eval",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "3027ecbdb5fdf9200251c21d4818e4c447ef78e1",
+      "fix_date": "Thu, 28 May 2026 19:09:19 +0800",
+      "files": [
+        "net/netfilter/nft_ct.c",
+        "net/netfilter/nft_ct_fast.c"
+      ],
+      "vulnerable_functions": [
+        "nft_ct_get_eval"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53267.json"
+    },
+    {
+      "cve_id": "CVE-2026-53268",
+      "subject": "netfilter: conntrack_irc: fix possible out-of-bounds read",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "0afc802160af0df61ed374fdb97fb34cfe5cdf2f",
+      "fix_date": "Wed, 27 May 2026 12:20:19 +0200",
+      "files": [
+        "net/netfilter/nf_conntrack_irc.c"
+      ],
+      "vulnerable_functions": [
+        "help [nf_conntrack_irc.c]"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53268.json"
+    },
+    {
+      "cve_id": "CVE-2026-53269",
+      "subject": "netfilter: synproxy: add mutex to guard hook reference counting",
+      "bug_type": "race/locking",
+      "fix_commit": "debc57b83d5b323df74bf010c8d50fe26ad2ed6b",
+      "fix_date": "Tue, 26 May 2026 23:58:31 +0200",
+      "files": [
+        "net/netfilter/nf_synproxy_core.c"
+      ],
+      "vulnerable_functions": [
+        "nf_synproxy_ipv4_fini",
+        "nf_synproxy_ipv4_init",
+        "nf_synproxy_ipv6_fini",
+        "nf_synproxy_ipv6_init"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 2,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53269.json"
+    },
+    {
+      "cve_id": "CVE-2026-53270",
+      "subject": "ipvs: clear the svc scheduler ptr early on edit",
+      "bug_type": "race/locking",
+      "fix_commit": "7d4f5004511757e3984901ffb412fcf858d80ed5",
+      "fix_date": "Mon, 25 May 2026 07:07:44 +0300",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_ctl.c",
+        "net/netfilter/ipvs/ip_vs_sched.c"
+      ],
+      "vulnerable_functions": [
+        "ip_vs_add_service",
+        "ip_vs_edit_service",
+        "__ip_vs_del_service",
+        "ip_vs_unbind_scheduler"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 5,
+        "mapped": 5,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "include/net/ip_vs.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53270.json"
+    },
+    {
+      "cve_id": "CVE-2026-53349",
+      "subject": "netfilter: nf_conntrack: destroy stale expectfn expectations on unregister",
+      "bug_type": "race/locking",
+      "fix_commit": "fbfde85308b99938a6092c48753214d190ece48d",
+      "fix_date": "Wed, 3 Jun 2026 00:38:17 -0700",
+      "files": [
+        "net/netfilter/nf_conntrack_helper.c",
+        "net/netfilter/nf_nat_core.c",
+        "net/netfilter/nf_nat_sip.c"
+      ],
+      "vulnerable_functions": [
+        "nf_nat_init",
+        "nf_nat_cleanup",
+        "nf_nat_sip_fini"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 3,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": [
+          "include/net/netfilter/nf_conntrack_helper.h",
+          "net/ipv4/netfilter/nf_nat_h323.c"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53349.json"
+    },
+    {
+      "cve_id": "CVE-2026-63858",
+      "subject": "netfilter: nf_tables: add hook transactions for device deletions",
+      "bug_type": "race/locking",
+      "fix_commit": "10f79dbd7719d1da9f5884d13060322d8729f091",
+      "fix_date": "Wed, 15 Apr 2026 22:58:23 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nft_delflowtable_hook",
+        "nf_tables_fill_flowtable_info",
+        "nf_tables_flowtable_notify",
+        "nf_tables_commit",
+        "__nf_tables_abort"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 32,
+        "mapped": 6,
+        "outside_function": 2,
+        "unmapped": 24,
+        "skipped_files": [
+          "include/net/netfilter/nf_tables.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-63858.json"
+    },
+    {
+      "cve_id": "CVE-2026-63913",
+      "subject": "netfilter: conntrack: tcp: do not force CLOSE on invalid-seq RST without direction check",
+      "bug_type": "other",
+      "fix_commit": "f5547bebc416d56f56fb5b86dc20aabfa42165a0",
+      "fix_date": "Mon, 11 May 2026 10:43:14 -0400",
+      "files": [
+        "net/netfilter/nf_conntrack_proto_tcp.c"
+      ],
+      "vulnerable_functions": [
+        "nf_conntrack_tcp_packet"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-63913.json"
+    },
+    {
+      "cve_id": "CVE-2026-64006",
+      "subject": "netfilter: nf_tables: fix dst corruption in same register operation",
+      "bug_type": "other",
+      "fix_commit": "18014147d3ee7831dce53fe65d7fc8d428b02552",
+      "fix_date": "Mon, 11 May 2026 16:37:56 +0200",
+      "files": [
+        "net/netfilter/nft_bitwise.c",
+        "net/netfilter/nft_byteorder.c"
+      ],
+      "vulnerable_functions": [
+        "nft_bitwise_eval_lshift",
+        "nft_bitwise_eval_rshift",
+        "nft_bitwise_init",
+        "nft_byteorder_init"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 5,
+        "mapped": 4,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": [
+          "include/net/netfilter/nf_tables.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-64006.json"
+    },
+    {
+      "cve_id": "CVE-2026-64007",
+      "subject": "netfilter: synproxy: refresh tcphdr after skb_ensure_writable",
+      "bug_type": "other",
+      "fix_commit": "dd206819f210522579010d889d45a9530bb494bc",
+      "fix_date": "Tue, 19 May 2026 12:36:14 -0700",
+      "files": [
+        "net/netfilter/nf_synproxy_core.c"
+      ],
+      "vulnerable_functions": [
+        "synproxy_tstamp_adjust"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-64007.json"
+    },
+    {
+      "cve_id": "CVE-2026-64078",
+      "subject": "netfilter: x_tables: add and use xtables_unregister_table_exit",
+      "bug_type": "other",
+      "fix_commit": "b4597d5fd7d2f8cebfffd40dffb5e003cc78964c",
+      "fix_date": "Wed, 6 May 2026 12:07:17 +0200",
+      "files": [
+        "net/netfilter/x_tables.c"
+      ],
+      "vulnerable_functions": [
+        "xt_unregister_table",
+        "xt_find_table",
+        "xt_net_init",
+        "xt_net_exit"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 7,
+        "mapped": 4,
+        "outside_function": 1,
+        "unmapped": 2,
+        "skipped_files": [
+          "include/linux/netfilter/x_tables.h",
+          "net/ipv4/netfilter/arp_tables.c",
+          "net/ipv4/netfilter/ip_tables.c",
+          "net/ipv4/netfilter/iptable_nat.c",
+          "net/ipv6/netfilter/ip6_tables.c",
+          "net/ipv6/netfilter/ip6table_nat.c"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-64078.json"
+    },
+    {
+      "cve_id": "CVE-2026-64079",
+      "subject": "netfilter: x_tables: allocate hook ops while under mutex",
+      "bug_type": "null-deref",
+      "fix_commit": "b62eb8dcf2c47d4d676a434efbd57c4f776f7829",
+      "fix_date": "Wed, 6 May 2026 12:07:14 +0200",
+      "files": [
+        "net/netfilter/x_tables.c"
+      ],
+      "vulnerable_functions": [
+        "xt_register_table"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 3,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": [
+          "include/linux/netfilter/x_tables.h",
+          "net/ipv4/netfilter/arp_tables.c",
+          "net/ipv4/netfilter/ip_tables.c",
+          "net/ipv6/netfilter/ip6_tables.c"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-64079.json"
+    },
+    {
+      "cve_id": "CVE-2026-64189",
+      "subject": "netfilter: ipset: fix race between dump and ip_set_list resize",
+      "bug_type": "use-after-free",
+      "fix_commit": "e8a9976b61f1bc4aa7fd25fa26726dfdf2adf710",
+      "fix_date": "Wed, 24 Jun 2026 18:00:06 -0700",
+      "files": [
+        "net/netfilter/ipset/ip_set_core.c"
+      ],
+      "vulnerable_functions": [
+        "ip_set_dump_done",
+        "ip_set_dump_do"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-64189.json"
+    },
+    {
+      "cve_id": "CVE-2026-68476",
+      "subject": "ipvs: reload ip header after head reallocation",
+      "bug_type": "other",
+      "fix_commit": "a10f5080afbed242640f2984328de25f84557da1",
+      "fix_date": "Fri, 28 Aug 2026 11:55:21 +0300",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_xmit.c"
+      ],
+      "vulnerable_functions": [
+        "ip_vs_bypass_xmit"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-68476.json"
+    },
+    {
+      "cve_id": "CVE-2026-68477",
+      "subject": "ipvs: fix more places with wrong ipv6 transport offsets",
+      "bug_type": "other",
+      "fix_commit": "3a9dc9b55b53d94613a587604b77d3b20024090c",
+      "fix_date": "Wed, 8 Jul 2026 21:03:15 +0300",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_app.c",
+        "net/netfilter/ipvs/ip_vs_core.c"
+      ],
+      "vulnerable_functions": [
+        "app_tcp_pkt_out",
+        "app_tcp_pkt_in",
+        "ip_vs_out_icmp_v6"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 3,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-68477.json"
+    },
+    {
+      "cve_id": "CVE-2026-72020",
+      "subject": "ipvs: reset full ip_vs_seq structs in ip_vs_conn_new",
+      "bug_type": "uninitialized",
+      "fix_commit": "32c299e28b8eea6cbbd23b97dc61401e9ef9c445",
+      "fix_date": "Thu, 2 Jul 2026 19:28:36 +0800",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_conn.c"
+      ],
+      "vulnerable_functions": [
+        "ip_vs_conn_new"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72020.json"
+    },
+    {
+      "cve_id": "CVE-2026-72021",
+      "subject": "ipvs: use parsed transport offset in SCTP state lookup",
+      "bug_type": "other",
+      "fix_commit": "290e9e8389b556efc603522e28bd1543846aa336",
+      "fix_date": "Mon, 6 Jul 2026 18:16:24 +0800",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_proto_sctp.c"
+      ],
+      "vulnerable_functions": [
+        "set_sctp_state",
+        "sctp_state_transition"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72021.json"
+    },
+    {
+      "cve_id": "CVE-2026-72247",
+      "subject": "netfilter: nf_conncount: fix zone comparison in tuple dedup",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "4f30a89c0ed2418719a1144881c2635b940b543d",
+      "fix_date": "Wed, 8 Jul 2026 13:27:28 +0800",
+      "files": [
+        "net/netfilter/nf_conncount.c"
+      ],
+      "vulnerable_functions": [
+        "__nf_conncount_add"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72247.json"
+    },
+    {
+      "cve_id": "CVE-2026-72251",
+      "subject": "netfilter: nf_nat_sip: reload possible stale data pointer",
+      "bug_type": "other",
+      "fix_commit": "e38143c9b477f2968024c47c647dd4456a40aff1",
+      "fix_date": "Wed, 1 Jul 2026 07:44:17 +0200",
+      "files": [
+        "net/netfilter/nf_nat_sip.c"
+      ],
+      "vulnerable_functions": [
+        "nf_nat_sip"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72251.json"
+    },
+    {
+      "cve_id": "CVE-2026-72252",
+      "subject": "netfilter: nft_set_pipapo: don't leak bad clone into future transaction",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "cc53703f48558896295f565cd4f5e956d21b7af4",
+      "fix_date": "Thu, 23 Jul 2026 10:34:33 -0400",
+      "files": [
+        "net/netfilter/nft_set_pipapo.c",
+        "net/netfilter/nft_set_pipapo.h"
+      ],
+      "vulnerable_functions": [
+        "nft_pipapo_init",
+        "nft_pipapo_insert",
+        "pipapo_clone"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 7,
+        "mapped": 5,
+        "outside_function": 1,
+        "unmapped": 1,
+        "skipped_files": [
+          "net/netfilter/nft_set_pipapo.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72252.json"
+    },
+    {
+      "cve_id": "CVE-2026-72253",
+      "subject": "netfilter: nf_conntrack_sip: validate skb_dst() before accessing it",
+      "bug_type": "other",
+      "fix_commit": "0aec339694a56e263d4b22475ff7211d40900830",
+      "fix_date": "Thu, 23 Jul 2026 10:59:59 -0400",
+      "files": [
+        "net/netfilter/nf_conntrack_sip.c"
+      ],
+      "vulnerable_functions": [
+        "set_expected_rtp_rtcp"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72253.json"
+    },
+    {
+      "cve_id": "CVE-2026-72254",
+      "subject": "netfilter: nft_fib: reject fib expression on the netdev egress hook",
+      "bug_type": "null-deref",
+      "fix_commit": "d07955dd34ecae17d35d8c7d0a273a3fba653a8c",
+      "fix_date": "Mon, 29 Jun 2026 12:53:11 +0200",
+      "files": [
+        "net/netfilter/nft_fib.c",
+        "net/netfilter/nft_fib_netdev.c"
+      ],
+      "vulnerable_functions": [
+        "nft_fib_validate"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 1,
+        "outside_function": 1,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72254.json"
+    },
+    {
+      "cve_id": "CVE-2026-72255",
+      "subject": "netfilter: nf_queue: pin bridge device while NFQUEUE holds fake dst",
+      "bug_type": "other",
+      "fix_commit": "430521af7fe8a9c08f5a2554224a35f11f51d99e",
+      "fix_date": "Mon, 8 Jun 2026 13:43:44 +0800",
+      "files": [
+        "net/netfilter/nf_queue.c",
+        "net/netfilter/nfnetlink_queue.c"
+      ],
+      "vulnerable_functions": [
+        "nf_queue_entry_release_refs",
+        "__nf_queue_entry_init_physdevs",
+        "nf_queue_entry_get_refs"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 5,
+        "mapped": 3,
+        "outside_function": 0,
+        "unmapped": 2,
+        "skipped_files": [
+          "include/net/netfilter/nf_queue.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72255.json"
+    },
+    {
+      "cve_id": "CVE-2026-72256",
+      "subject": "netfilter: xt_cluster: reject template conntracks in hash match",
+      "bug_type": "other",
+      "fix_commit": "4cb8b5f586e41c187942291cc0938006077fa79e",
+      "fix_date": "Thu, 11 Jun 2026 15:21:42 +0800",
+      "files": [
+        "net/netfilter/xt_cluster.c"
+      ],
+      "vulnerable_functions": [
+        "xt_cluster_mt"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72256.json"
+    },
+    {
+      "cve_id": "CVE-2026-72319",
+      "subject": "ipvs: ensure inner headers in ICMP errors are in headroom",
+      "bug_type": "other",
+      "fix_commit": "dd22f74a09e25ca298ced0a3763ef353242cb78d",
+      "fix_date": "Tue, 7 Jul 2026 21:25:46 +0300",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_core.c"
+      ],
+      "vulnerable_functions": [
+        "ip_vs_in_icmp"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 8,
+        "mapped": 6,
+        "outside_function": 0,
+        "unmapped": 2,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72319.json"
+    },
+    {
+      "cve_id": "CVE-2026-72320",
+      "subject": "netfilter: nft_lookup: fix catchall element handling with inverted lookups",
+      "bug_type": "other",
+      "fix_commit": "e6107a4c74b54cb33e3bce162a63048ae5a6b198",
+      "fix_date": "Fri, 3 Jul 2026 16:22:57 +0000",
+      "files": [
+        "net/netfilter/nft_lookup.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72320.json"
+    },
+    {
+      "cve_id": "CVE-2026-72347",
+      "subject": "netfilter: xt_connmark: reject invalid shift parameters",
+      "bug_type": "other",
+      "fix_commit": "9657bb11a6376ab0a79f05d433713d6944111e9d",
+      "fix_date": "Fri, 3 Jul 2026 13:04:46 +0800",
+      "files": [
+        "net/netfilter/xt_connmark.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "outside_function",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 0,
+        "outside_function": 3,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72347.json"
+    },
+    {
+      "cve_id": "CVE-2026-72349",
+      "subject": "netfilter: xt_rateest: fix u64 truncation in xt_rateest_mt()",
+      "bug_type": "other",
+      "fix_commit": "bab305dd769d78074adca73505cc2509e1206bf2",
+      "fix_date": "Thu, 25 Jun 2026 08:44:25 +0000",
+      "files": [
+        "net/netfilter/xt_rateest.c"
+      ],
+      "vulnerable_functions": [
+        "xt_rateest_mt"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72349.json"
+    },
+    {
+      "cve_id": "CVE-2026-72350",
+      "subject": "netfilter: xt_u32: reject invalid shift counts",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "728f479dc0447ae7eaef87926ff49142e415a811",
+      "fix_date": "Sun, 28 Jun 2026 16:05:54 +0800",
+      "files": [
+        "net/netfilter/xt_u32.c"
+      ],
+      "vulnerable_functions": [
+        "u32_match_it"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72350.json"
+    },
+    {
+      "cve_id": "CVE-2026-72416",
+      "subject": "netfilter: nft_compat: ebtables emulation must reject non-bridge targets",
+      "bug_type": "other",
+      "fix_commit": "9dbba7e694ec045f21ede2f892fb42b81b4e1692",
+      "fix_date": "Mon, 15 Jun 2026 20:10:44 +0200",
+      "files": [
+        "net/netfilter/nft_compat.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "outside_function",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 0,
+        "outside_function": 1,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72416.json"
+    },
+    {
+      "cve_id": "CVE-2026-72419",
+      "subject": "netfilter: nf_nat: avoid invalid nat_net pointer use on failed nf_nat_init()",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "359d8ff97362a4662356104540e4814bff9dad7c",
+      "fix_date": "Tue, 28 Apr 2026 11:09:17 +0200",
+      "files": [
+        "net/netfilter/nf_nat_core.c"
+      ],
+      "vulnerable_functions": [
+        "nf_nat_register_fn"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72419.json"
+    },
+    {
+      "cve_id": "CVE-2026-72423",
+      "subject": "bpf: Guard conntrack opts error writes",
+      "bug_type": "other",
+      "fix_commit": "6f6183a39533d727deaa5061cadae6dd9e6744d0",
+      "fix_date": "Thu, 18 Jun 2026 10:18:43 +0000",
+      "files": [
+        "net/netfilter/nf_conntrack_bpf.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "outside_function",
+      "mapping": {
+        "hunks": 5,
+        "mapped": 0,
+        "outside_function": 1,
+        "unmapped": 4,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72423.json"
+    },
+    {
+      "cve_id": "CVE-2026-72434",
+      "subject": "netfilter: ipset: make sure gc is properly stopped",
+      "bug_type": "other",
+      "fix_commit": "4a597a87e2e2f608edb6be2c510dc826b4fdfb53",
+      "fix_date": "Wed, 17 Jun 2026 10:41:26 +0200",
+      "files": [
+        "net/netfilter/ipset/ip_set_hash_gen.h"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 0,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "net/netfilter/ipset/ip_set_hash_gen.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72434.json"
+    },
+    {
+      "cve_id": "CVE-2026-72435",
+      "subject": "netfilter: ipset: fix order of kfree_rcu() and rcu_assign_pointer()",
+      "bug_type": "race/locking",
+      "fix_commit": "50b70f56f3baaff46599f59b2d93fa2540120776",
+      "fix_date": "Wed, 17 Jun 2026 10:41:24 +0200",
+      "files": [
+        "net/netfilter/ipset/ip_set_core.c"
+      ],
+      "vulnerable_functions": [
+        "ip_set_init_comment",
+        "ip_set_comment_free"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72435.json"
+    },
+    {
+      "cve_id": "CVE-2026-72436",
+      "subject": "netfilter: ipset: Don't use test_bit() in lockless RCU readers in hash types",
+      "bug_type": "race/locking",
+      "fix_commit": "c107233d2ff4fd7cef5d02f9124b99194957a710",
+      "fix_date": "Wed, 17 Jun 2026 10:41:22 +0200",
+      "files": [
+        "net/netfilter/ipset/ip_set_hash_gen.h"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 0,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "net/netfilter/ipset/ip_set_hash_gen.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72436.json"
+    },
+    {
+      "cve_id": "CVE-2026-74347",
+      "subject": "netfilter: cttimeout: detach dataplane timeout policy and repurpose refcount",
+      "bug_type": "other",
+      "fix_commit": "7d6a9cdb8d3a51d9cfe546a09a518ab3d2671549",
+      "fix_date": "Thu, 4 Jun 2026 08:21:08 +0200",
+      "files": [
+        "net/netfilter/nf_conntrack_core.c",
+        "net/netfilter/nf_conntrack_timeout.c",
+        "net/netfilter/nfnetlink_cttimeout.c",
+        "net/netfilter/nft_ct.c",
+        "net/netfilter/xt_CT.c"
+      ],
+      "vulnerable_functions": [
+        "nf_conntrack_free",
+        "untimeout [nf_conntrack_timeout.c]",
+        "nf_ct_set_timeout",
+        "nf_ct_destroy_timeout",
+        "cttimeout_new_timeout",
+        "ctnl_timeout_fill_info",
+        "ctnl_timeout_try_del",
+        "cttimeout_del_timeout",
+        "ctnl_timeout_find_get",
+        "ctnl_timeout_put",
+        "cttimeout_net_exit",
+        "cttimeout_exit",
+        "untimeout [nfnetlink_cttimeout.c]",
+        "nft_ct_timeout_obj_eval",
+        "nft_ct_timeout_obj_init"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 20,
+        "mapped": 17,
+        "outside_function": 1,
+        "unmapped": 2,
+        "skipped_files": [
+          "include/net/netfilter/nf_conntrack_timeout.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json"
+    },
+    {
+      "cve_id": "CVE-2026-74492",
+      "subject": "netfilter: ipset: do not update comments from kernel-side hash adds",
+      "bug_type": "race/locking",
+      "fix_commit": "16bfa7be2d76ca1e0aacfa363482e1bf8ab5042a",
+      "fix_date": "Mon, 13 Jul 2026 09:59:15 +0000",
+      "files": [
+        "net/netfilter/ipset/ip_set_hash_gen.h"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 0,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "net/netfilter/ipset/ip_set_hash_gen.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74492.json"
+    },
+    {
+      "cve_id": "CVE-2026-74564",
+      "subject": "netfilter: xt_hashlimit: validate hashtable supports XT_HASHLIMIT_RATE_MATCH",
+      "bug_type": "uninitialized",
+      "fix_commit": "f76ab783e7d8d33e33dd7dfa697297f70d57b0e8",
+      "fix_date": "Tue, 21 Jul 2026 22:02:46 +0200",
+      "files": [
+        "net/netfilter/xt_hashlimit.c"
+      ],
+      "vulnerable_functions": [
+        "htable_create",
+        "hashlimit_mt_check_common"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 3,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74564.json"
+    },
+    {
+      "cve_id": "CVE-2026-74565",
+      "subject": "netfilter: nf_tables: make nft_object rhltable per table",
+      "bug_type": "use-after-free",
+      "fix_commit": "523c881661dde67efb44fce38c8eed50a72a57c1",
+      "fix_date": "Fri, 4 Sep 2026 01:31:02 +0000",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nf_tables_newtable",
+        "nf_tables_table_destroy",
+        "nft_obj_lookup",
+        "nf_tables_newobj",
+        "nf_tables_getobj",
+        "nft_obj_del",
+        "nf_tables_commit",
+        "__nf_tables_abort",
+        "__nft_release_table",
+        "nf_tables_module_init",
+        "nf_tables_module_exit"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 15,
+        "mapped": 14,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": [
+          "include/net/netfilter/nf_tables.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74565.json"
+    },
+    {
+      "cve_id": "CVE-2026-74569",
+      "subject": "netfilter: nf_conntrack_sip: widen NAT rewrite delta to s32 in sip_help_tcp()",
+      "bug_type": "use-after-free",
+      "fix_commit": "32d4abc8923b0d4046fd63ad6e4917872e44eb6d",
+      "fix_date": "Sun, 12 Jul 2026 16:42:01 -0700",
+      "files": [
+        "net/netfilter/nf_conntrack_sip.c",
+        "net/netfilter/nf_nat_sip.c"
+      ],
+      "vulnerable_functions": [
+        "sip_help_tcp",
+        "nf_nat_sip_seq_adjust"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": [
+          "include/linux/netfilter/nf_conntrack_sip.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74569.json"
+    },
+    {
+      "cve_id": "CVE-2026-74579",
+      "subject": "netfilter: nft_payload: fix mask build for partial field offload",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "363c3a84a946d53e5e121c9f47c7c2b7d228c46b",
+      "fix_date": "Sun, 19 Jul 2026 22:15:23 +0000",
+      "files": [
+        "net/netfilter/nft_payload.c"
+      ],
+      "vulnerable_functions": [
+        "nft_payload_offload_mask"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74579.json"
+    },
+    {
+      "cve_id": "CVE-2026-74624",
+      "subject": "netfilter: nf_conntrack: defer invalid log until after unlock",
+      "bug_type": "race/locking",
+      "fix_commit": "ca97360eba4b3dc67f1804625542f4ccc774242a",
+      "fix_date": "Thu, 20 Aug 2026 00:22:00 -0400",
+      "files": [
+        "net/netfilter/nf_conntrack_proto.c",
+        "net/netfilter/nf_conntrack_proto_sctp.c",
+        "net/netfilter/nf_conntrack_proto_tcp.c"
+      ],
+      "vulnerable_functions": [
+        "nf_ct_l4proto_log_invalid",
+        "nf_conntrack_sctp_packet",
+        "nf_tcp_log_invalid",
+        "tcp_in_window",
+        "nf_tcp_handle_invalid",
+        "nf_conntrack_tcp_packet"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 13,
+        "mapped": 12,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74624.json"
+    },
+    {
+      "cve_id": "CVE-2026-74669",
+      "subject": "ipvs: clear IPv4 options after rebasing tunnel ICMP errors",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "37c61b3745129cbd682c557b51345828120972e5",
+      "fix_date": "Tue, 4 Aug 2026 06:10:55 +0000",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_core.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74669.json"
+    },
+    {
+      "cve_id": "CVE-2026-74695",
+      "subject": "netfilter: nf_flow_table: drop existing skb dst before skb_dst_set_noref()",
+      "bug_type": "memory-leak",
+      "fix_commit": "8aecf0bbcc72605592134c917c222207d8f63ab0",
+      "fix_date": "Tue, 4 Aug 2026 09:33:28 +0000",
+      "files": [
+        "net/netfilter/nf_flow_table_ip.c"
+      ],
+      "vulnerable_functions": [
+        "nf_flow_xmit_xfrm"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 2,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74695.json"
+    },
+    {
+      "cve_id": "CVE-2026-74715",
+      "subject": "bpf: Fix netns reference imbalance in conntrack kfuncs",
+      "bug_type": "null-deref",
+      "fix_commit": "fdeba03fea78407a8c52faa99177c9f7f29f90eb",
+      "fix_date": "Sat, 1 Aug 2026 00:09:21 +0800",
+      "files": [
+        "net/netfilter/nf_conntrack_bpf.c"
+      ],
+      "vulnerable_functions": [
+        "__bpf_nf_ct_alloc_entry"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 2,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74715.json"
+    },
+    {
+      "cve_id": "CVE-2026-74724",
+      "subject": "ipvs: avoid out-of-bounds write in ip_vs_nat_icmp",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "3b8f79af0e98f27b932b0b416e9c52b692d31ff9",
+      "fix_date": "Thu, 30 Jul 2026 21:35:05 +0300",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_core.c",
+        "net/netfilter/ipvs/ip_vs_xmit.c"
+      ],
+      "vulnerable_functions": [
+        "ip_vs_out_icmp",
+        "ip_vs_in_icmp"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 14,
+        "mapped": 3,
+        "outside_function": 0,
+        "unmapped": 11,
+        "skipped_files": [
+          "include/net/ip_vs.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74724.json"
+    },
+    {
+      "cve_id": "CVE-2026-74746",
+      "subject": "netfilter: flowtable: publish GC-visible tuple last",
+      "bug_type": "use-after-free",
+      "fix_commit": "211ee5d998d92a7d548811939c65942d06c146e4",
+      "fix_date": "Sat, 8 Aug 2026 12:40:02 +0000",
+      "files": [
+        "net/netfilter/nf_flow_table_core.c"
+      ],
+      "vulnerable_functions": [
+        "flow_offload_add"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74746.json"
+    },
+    {
+      "cve_id": "CVE-2026-74747",
+      "subject": "ipvs: revalidate ihl to prevent out-of-bounds access",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "d93660df4dd1d116f608ada4a29a80a5d6f0a6ed",
+      "fix_date": "Thu, 6 Aug 2026 13:52:11 +0300",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_core.c",
+        "net/netfilter/ipvs/ip_vs_xmit.c"
+      ],
+      "vulnerable_functions": [
+        "ip_vs_nat_icmp",
+        "ip_vs_nat_icmp_v6"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 5,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 3,
+        "skipped_files": [
+          "include/net/ip_vs.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74747.json"
+    },
+    {
+      "cve_id": "CVE-2026-74748",
+      "subject": "netfilter: ipset: fix refcount race between list:set GC and swap",
+      "bug_type": "race/locking",
+      "fix_commit": "b0aab9dd1a348b99d75ff52765719d0cc2050630",
+      "fix_date": "Wed, 22 Jul 2026 22:38:32 +0000",
+      "files": [
+        "net/netfilter/ipset/ip_set_core.c"
+      ],
+      "vulnerable_functions": [
+        "__ip_set_put",
+        "__ip_set_put_byindex"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74748.json"
+    },
+    {
+      "cve_id": "CVE-2026-80603",
+      "subject": "netfilter: nf_conntrack_irc: fix parse_dcc() off-by-one OOB read",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "910c33e4a8c046c3cc1fa5a465a4d41a1bb398f1",
+      "fix_date": "Tue, 19 May 2026 17:23:28 -0400",
+      "files": [
+        "net/netfilter/nf_conntrack_irc.c"
+      ],
+      "vulnerable_functions": [
+        "parse_dcc"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 1,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-80603.json"
+    },
+    {
+      "cve_id": "CVE-2026-80634",
+      "subject": "netfilter: flowtable: avoid num_encaps underflow on bridge VLAN untag",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "e052f920773b73be49eb4d8702a9f85de7464363",
+      "fix_date": "Sat, 23 May 2026 16:26:21 +0100",
+      "files": [
+        "net/netfilter/nf_flow_table_path.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-80634.json"
+    },
+    {
+      "cve_id": "CVE-2026-80636",
+      "subject": "netfilter: conntrack: revert ct extension genid infrastructure",
+      "bug_type": "other",
+      "fix_commit": "35e21a4dccc5c255ba59ccfbfeb4629ed21da972",
+      "fix_date": "Thu, 4 Jun 2026 08:21:12 +0200",
+      "files": [
+        "net/netfilter/nf_conntrack_core.c",
+        "net/netfilter/nf_conntrack_extend.c"
+      ],
+      "vulnerable_functions": [
+        "nf_ct_ext_valid_post",
+        "nf_ct_ext_valid_pre",
+        "__nf_conntrack_confirm",
+        "nf_ct_iterate_destroy",
+        "nf_ct_ext_add",
+        "__nf_ct_ext_find",
+        "nf_ct_ext_bump_genid"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 9,
+        "mapped": 6,
+        "outside_function": 1,
+        "unmapped": 2,
+        "skipped_files": [
+          "include/net/netfilter/nf_conntrack_extend.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-80636.json"
+    },
+    {
+      "cve_id": "CVE-2026-80637",
+      "subject": "netfilter: synproxy: fix unaligned memory access in timestamp adjustment",
+      "bug_type": "other",
+      "fix_commit": "992c20bc8a4aba220c8b95b467d049289778dad6",
+      "fix_date": "Tue, 26 May 2026 23:58:29 +0200",
+      "files": [
+        "net/netfilter/nf_synproxy_core.c"
+      ],
+      "vulnerable_functions": [
+        "synproxy_tstamp_adjust"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-80637.json"
+    },
+    {
+      "cve_id": "CVE-2026-80664",
+      "subject": "netfilter: xt_nat: reject unsupported target families",
+      "bug_type": "null-deref",
+      "fix_commit": "4fbc2bac02edabb665beb2aa87ca6f1e1d4c4777",
+      "fix_date": "Sat, 13 Jun 2026 18:27:15 +0800",
+      "files": [
+        "net/netfilter/xt_nat.c"
+      ],
+      "vulnerable_functions": [
+        "xt_nat_checkentry"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-80664.json"
+    },
+    {
+      "cve_id": "CVE-2026-80714",
+      "subject": "ipvs: do not propagate one-packet flag to synced conns",
+      "bug_type": "other",
+      "fix_commit": "300348e3ba1521b003d59825f97e24f9a6859688",
+      "fix_date": "Mon, 13 Jul 2026 19:52:32 +0800",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_conn.c"
+      ],
+      "vulnerable_functions": [
+        "ip_vs_bind_dest"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-80714.json"
+    },
+    {
+      "cve_id": "CVE-2026-80744",
+      "subject": "netfilter: nf_tables_offload: suppress WARN_ON_ONCE for ENOMEM in abort path",
+      "bug_type": "other",
+      "fix_commit": "09bda4b6df222fd1819e8f188c3a6e90caf546d3",
+      "fix_date": "Thu, 6 Aug 2026 19:11:38 +0300",
+      "files": [
+        "net/netfilter/nf_tables_offload.c"
+      ],
+      "vulnerable_functions": [
+        "nft_flow_rule_offload_abort"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-80744.json"
+    },
+    {
+      "cve_id": "CVE-2026-80837",
+      "subject": "netfilter: nf_tables: don't queue packet path object notifications",
+      "bug_type": "use-after-free",
+      "fix_commit": "7904b94768e983bcb2be34a8d6d1f3450f5b838b",
+      "fix_date": "Mon, 10 Aug 2026 19:35:01 +0800",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nft_obj_notify"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 4,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 3,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-80837.json"
+    },
+    {
+      "cve_id": "CVE-2026-80875",
+      "subject": "ipvs: use parsed transport offset in TCP state lookup",
+      "bug_type": "other",
+      "fix_commit": "5848e914b85e360a2dd9d19c00a72e2ea9617dd0",
+      "fix_date": "Mon, 6 Jul 2026 18:16:23 +0800",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_proto_tcp.c"
+      ],
+      "vulnerable_functions": [
+        "tcp_state_transition"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-80875.json"
+    },
+    {
+      "cve_id": "CVE-2026-80901",
+      "subject": "ipvs: fix the checksum validations",
+      "bug_type": "other",
+      "fix_commit": "d418d73acf8be62744dc47359dfdde8c2148845d",
+      "fix_date": "Wed, 22 Jul 2026 13:15:15 +0300",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_core.c",
+        "net/netfilter/ipvs/ip_vs_proto_sctp.c",
+        "net/netfilter/ipvs/ip_vs_proto_tcp.c",
+        "net/netfilter/ipvs/ip_vs_proto_udp.c"
+      ],
+      "vulnerable_functions": [
+        "ip_vs_checksum_complete",
+        "handle_response_icmp",
+        "ip_vs_in_icmp",
+        "ip_vs_in_icmp_v6"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 16,
+        "mapped": 4,
+        "outside_function": 0,
+        "unmapped": 12,
+        "skipped_files": [
+          "include/net/ip_vs.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-80901.json"
+    },
+    {
+      "cve_id": "CVE-2026-90061",
+      "subject": "netfilter: nf_tables: skip double clone set expressions on element insert",
+      "bug_type": "other",
+      "fix_commit": "43559058d21e0493aa220ac167e0279334dea5f9",
+      "fix_date": "Wed, 19 Aug 2026 13:42:36 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c",
+        "net/netfilter/nft_dynset.c"
+      ],
+      "vulnerable_functions": [
+        "nft_set_elem_expr_setup",
+        "nft_add_set_elem",
+        "nft_dynset_init",
+        "nft_dynset_destroy",
+        "nft_dynset_dump"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 16,
+        "mapped": 14,
+        "outside_function": 1,
+        "unmapped": 1,
+        "skipped_files": [
+          "include/net/netfilter/nf_tables.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-90061.json"
+    },
+    {
+      "cve_id": "CVE-2026-90062",
+      "subject": "netfilter: nf_tables: move hardware offload step after building the chain blob",
+      "bug_type": "other",
+      "fix_commit": "309acbab74e46114246bf4346c9b60b3d8cb4fcd",
+      "fix_date": "Thu, 13 Aug 2026 02:16:02 +0200",
+      "files": [
+        "net/netfilter/nf_tables_api.c"
+      ],
+      "vulnerable_functions": [
+        "nf_tables_commit"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-90062.json"
+    },
+    {
+      "cve_id": "CVE-2026-90141",
+      "subject": "ipvs: fix integer overflow in ftp helper port/address parsing",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "50cb9b7263a2ed01f7d2f97818a800c2ee05f661",
+      "fix_date": "Thu, 13 Aug 2026 15:34:24 -0300",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_ftp.c"
+      ],
+      "vulnerable_functions": [
+        "ip_vs_ftp_get_addrport"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 3,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-90141.json"
+    },
+    {
+      "cve_id": "CVE-2026-90237",
+      "subject": "netfilter: nft_ct: move custom expectation support to helper",
+      "bug_type": "race/locking",
+      "fix_commit": "3679da4ad8be84cddaf40bc307fef1fe13e051ff",
+      "fix_date": "Mon, 10 Aug 2026 00:17:41 +0200",
+      "files": [
+        "net/netfilter/nf_conntrack_helper.c",
+        "net/netfilter/nft_ct.c"
+      ],
+      "vulnerable_functions": [
+        "nft_ct_expect_obj_init",
+        "nft_ct_expect_obj_destroy"
+      ],
+      "status": "partial",
+      "mapping": {
+        "hunks": 8,
+        "mapped": 2,
+        "outside_function": 3,
+        "unmapped": 3,
+        "skipped_files": [
+          "include/net/netfilter/nf_conntrack_helper.h"
+        ]
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-90237.json"
+    },
+    {
+      "cve_id": "CVE-2026-93288",
+      "subject": "netfilter: nfnetlink_log: wait for rcu grace period before freeing pernet state",
+      "bug_type": "race/locking",
+      "fix_commit": "33d1469b0124cc0baaea7a2032123b77a81e0940",
+      "fix_date": "Mon, 3 Aug 2026 10:43:27 +0200",
+      "files": [
+        "net/netfilter/nf_log_syslog.c",
+        "net/netfilter/nfnetlink_log.c"
+      ],
+      "vulnerable_functions": [
+        "nf_log_syslog_net_exit",
+        "nfnl_log_net_exit"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 3,
+        "mapped": 2,
+        "outside_function": 1,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-93288.json"
+    },
+    {
+      "cve_id": "CVE-2026-97417",
+      "subject": "netfilter: nf_conntrack: use get_unaligned_be32() in tcp_sack()",
+      "bug_type": "other",
+      "fix_commit": "d3bf9eae486490832bd08fd62ab0ac601f346bd4",
+      "fix_date": "Mon, 25 May 2026 14:58:40 -0700",
+      "files": [
+        "net/netfilter/nf_conntrack_proto_tcp.c"
+      ],
+      "vulnerable_functions": [
+        "tcp_sack"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-97417.json"
+    },
+    {
+      "cve_id": "CVE-2026-97596",
+      "subject": "ipvs: reject invalid states in connection template sync records",
+      "bug_type": "other",
+      "fix_commit": "74cb39735b6cd0aff4b5584158f09376fd97aadf",
+      "fix_date": "Mon, 10 Aug 2026 15:10:34 -0700",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_sync.c"
+      ],
+      "vulnerable_functions": [
+        "ip_vs_process_message_v0",
+        "ip_vs_proc_sync_conn"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-97596.json"
+    },
+    {
+      "cve_id": "CVE-2026-97608",
+      "subject": "netfilter: nf_log: unregister loggers before per-net teardown",
+      "bug_type": "race/locking",
+      "fix_commit": "2c018cc4842c33f0c732962e2ab58635e8ae5823",
+      "fix_date": "Mon, 24 Aug 2026 01:05:38 +0800",
+      "files": [
+        "net/netfilter/nf_log_syslog.c",
+        "net/netfilter/nfnetlink_log.c"
+      ],
+      "vulnerable_functions": [
+        "nf_log_syslog_exit",
+        "nfnetlink_log_fini"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 2,
+        "mapped": 2,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-97608.json"
+    },
+    {
+      "cve_id": "CVE-2026-97609",
+      "subject": "netfilter: cttimeout: prevent UAF during module unload",
+      "bug_type": "use-after-free",
+      "fix_commit": "fec9b1de0d02de8dafa3cc344bcb91cf28660643",
+      "fix_date": "Mon, 24 Aug 2026 20:12:38 +0800",
+      "files": [
+        "net/netfilter/nfnetlink_cttimeout.c"
+      ],
+      "vulnerable_functions": [],
+      "status": "unmapped",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 0,
+        "outside_function": 0,
+        "unmapped": 1,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-97609.json"
+    },
+    {
+      "cve_id": "CVE-2026-97998",
+      "subject": "netfilter: nfnetlink_log: cope with concurrent instance destruction",
+      "bug_type": "other",
+      "fix_commit": "387d744fa7e499d2c3748a4e60e02ebb24e7fb16",
+      "fix_date": "Tue, 25 Aug 2026 03:36:03 +0200",
+      "files": [
+        "net/netfilter/nfnetlink_log.c"
+      ],
+      "vulnerable_functions": [
+        "__instance_destroy [nfnetlink_log.c]"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-97998.json"
+    },
+    {
+      "cve_id": "CVE-2026-98077",
+      "subject": "netfilter: nf_conntrack_sip: fix OOB read in sip_skip_whitespace()",
+      "bug_type": "out-of-bounds",
+      "fix_commit": "e8f8231824b5815f57ce62cba116e511b10196de",
+      "fix_date": "Tue, 18 Aug 2026 06:31:43 -0700",
+      "files": [
+        "net/netfilter/nf_conntrack_sip.c"
+      ],
+      "vulnerable_functions": [
+        "sip_skip_whitespace"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-98077.json"
+    },
+    {
+      "cve_id": "CVE-2026-98078",
+      "subject": "ipvs: fix reversed sequence option serialization",
+      "bug_type": "other",
+      "fix_commit": "b04578b74f2d3755548fe9e829e3b2a6c6f966a1",
+      "fix_date": "Mon, 10 Aug 2026 15:13:47 -0700",
+      "files": [
+        "net/netfilter/ipvs/ip_vs_sync.c"
+      ],
+      "vulnerable_functions": [
+        "ip_vs_sync_conn"
+      ],
+      "status": "ok",
+      "mapping": {
+        "hunks": 1,
+        "mapped": 1,
+        "outside_function": 0,
+        "unmapped": 0,
+        "skipped_files": []
+      },
+      "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-98078.json"
+    }
+  ]
+}
