@@ -1,10 +1,14 @@
 {
-  "total_callers": 2272,
-  "total_callees": 2015,
-  "total_call_edges": 4648,
-  "unique_functions_involved": 3245,
-  "avg_calls_per_function": 2.045774647887324,
+  "total_callers": 2619,
+  "total_callees": 2413,
+  "total_call_edges": 5538,
+  "unique_functions_involved": 3851,
+  "avg_calls_per_function": 2.1145475372279496,
   "top_30_in_degree": [
+    [
+      "ip_set_free",
+      52
+    ],
     [
       "nf_ct_netns_put",
       36
@@ -32,6 +36,26 @@
     [
       "ip_set_get_extensions",
       27
+    ],
+    [
+      "ip_set_match_extensions",
+      27
+    ],
+    [
+      "ip_set_init_comment",
+      27
+    ],
+    [
+      "ip_set_put_flags",
+      27
+    ],
+    [
+      "ip_set_put_extensions",
+      27
+    ],
+    [
+      "ip_set_alloc",
+      26
     ],
     [
       "xt_register_match",
@@ -100,30 +124,6 @@
     [
       "nf_nat_setup_info",
       18
-    ],
-    [
-      "xt_register_targets",
-      17
-    ],
-    [
-      "ip_set_type_register",
-      16
-    ],
-    [
-      "ip_set_type_unregister",
-      16
-    ],
-    [
-      "ip_vs_proto_data_get",
-      16
-    ],
-    [
-      "nft_ctx_init",
-      16
-    ],
-    [
-      "nfnetlink_subsys_unregister",
-      15
     ]
   ],
   "top_30_out_degree": [

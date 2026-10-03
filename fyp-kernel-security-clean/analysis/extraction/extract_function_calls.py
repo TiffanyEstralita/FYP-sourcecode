@@ -32,6 +32,9 @@ NETFILTER_PATH = KERNEL_PATH / "net/netfilter"
 INPUT_FILE = PROJECT_ROOT / "results/raw/functions_v2.json"
 OUTPUT_PATH = PROJECT_ROOT / "results/raw"
 
+sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
+from sources import find_source
+
 class ImprovedCallExtractor:
     """Extract ALL function calls including cross-file"""
     
@@ -136,15 +139,10 @@ class ImprovedCallExtractor:
         print("Now detecting ALL calls including cross-file...\n")
         
         for filename, funcs in all_functions.items():
-            file_path = KERNEL_PATH / "net/netfilter" / filename
+            # netfilter .c file, or an expanded ipset template copy (see analysis/sources.py)
+            file_path = find_source(filename)
 
-            matches = []
-            if not file_path.exists():
-                matches = list((KERNEL_PATH / "net/netfilter").rglob(filename))
-            if matches:
-                file_path = matches[0]
-
-            if not file_path.exists():
+            if file_path is None:
                 print(f"⚠️  {filename:45s} not found")
                 continue
 

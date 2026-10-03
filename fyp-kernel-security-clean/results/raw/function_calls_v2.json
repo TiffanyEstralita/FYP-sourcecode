@@ -77,7 +77,8 @@
       "ip_set_elem_len",
       "ip_set_alloc",
       "init_map_ip",
-      "ip_set_free"
+      "ip_set_free",
+      "bitmap_ip_gc_init"
     ],
     "bitmap_ip_init": [
       "ip_set_type_register"
@@ -98,7 +99,8 @@
       "ip_set_elem_len",
       "ip_set_alloc",
       "init_map_ipmac",
-      "ip_set_free"
+      "ip_set_free",
+      "bitmap_ipmac_gc_init"
     ],
     "bitmap_ipmac_init": [
       "ip_set_type_register"
@@ -124,7 +126,8 @@
       "ip_set_elem_len",
       "ip_set_alloc",
       "init_map_port",
-      "ip_set_free"
+      "ip_set_free",
+      "bitmap_port_gc_init"
     ],
     "bitmap_port_init": [
       "ip_set_type_register"
@@ -2616,6 +2619,7 @@
       "nf_conntrack_helpers_unregister"
     ],
     "nf_conntrack_ftp_init": [
+      "nf_ct_helper_init",
       "nf_conntrack_helpers_register"
     ]
   },
@@ -2895,6 +2899,7 @@
       "nf_ct_expect_put"
     ],
     "nf_conntrack_irc_init": [
+      "nf_ct_helper_init",
       "nf_conntrack_helpers_register"
     ],
     "nf_conntrack_irc_fini": [
@@ -3578,6 +3583,7 @@
       "nf_conntrack_helpers_unregister"
     ],
     "nf_conntrack_sane_init": [
+      "nf_ct_helper_init",
       "nf_conntrack_helpers_register"
     ]
   },
@@ -3739,6 +3745,7 @@
       "nf_conntrack_helpers_unregister"
     ],
     "nf_conntrack_sip_init": [
+      "nf_ct_helper_init",
       "nf_conntrack_helpers_register"
     ]
   },
@@ -3825,6 +3832,7 @@
       "nf_conntrack_helpers_unregister"
     ],
     "nf_conntrack_tftp_init": [
+      "nf_ct_helper_init",
       "nf_conntrack_helpers_register"
     ]
   },
@@ -6150,12 +6158,16 @@
       "__nfulnl_send",
       "instance_put"
     ],
+    "__build_packet_message": [
+      "nfulnl_put_bridge"
+    ],
     "nfulnl_log_packet": [
       "nfnl_log_pernet",
       "instance_lookup_get",
       "nfulnl_get_bridge_size",
       "__nfulnl_flush",
       "nfulnl_alloc_skb",
+      "__build_packet_message",
       "instance_get",
       "instance_put"
     ],
@@ -9688,6 +9700,1630 @@
     ],
     "u32_mt_exit": [
       "xt_unregister_match"
+    ]
+  },
+  "bitmap_ip@ip_set_bitmap_gen.h": {
+    "bitmap_ip_destroy": [
+      "bitmap_ip_ext_cleanup",
+      "ip_set_free"
+    ],
+    "bitmap_ip_flush": [
+      "bitmap_ip_ext_cleanup"
+    ],
+    "bitmap_ip_head": [
+      "bitmap_ip_memsize",
+      "bitmap_ip_do_head",
+      "ip_set_put_flags"
+    ],
+    "bitmap_ip_test": [
+      "bitmap_ip_do_test",
+      "ip_set_match_extensions"
+    ],
+    "bitmap_ip_add": [
+      "bitmap_ip_do_add",
+      "ip_set_init_comment"
+    ],
+    "bitmap_ip_del": [
+      "bitmap_ip_do_del"
+    ],
+    "bitmap_ip_list": [
+      "bitmap_ip_is_filled",
+      "bitmap_ip_do_list",
+      "ip_set_put_extensions"
+    ],
+    "bitmap_ip_gc": [
+      "bitmap_ip_gc_test"
+    ]
+  },
+  "bitmap_ipmac@ip_set_bitmap_gen.h": {
+    "bitmap_ipmac_destroy": [
+      "bitmap_ipmac_ext_cleanup",
+      "ip_set_free"
+    ],
+    "bitmap_ipmac_flush": [
+      "bitmap_ipmac_ext_cleanup"
+    ],
+    "bitmap_ipmac_head": [
+      "bitmap_ipmac_memsize",
+      "bitmap_ipmac_do_head",
+      "ip_set_put_flags"
+    ],
+    "bitmap_ipmac_test": [
+      "bitmap_ipmac_do_test",
+      "ip_set_match_extensions"
+    ],
+    "bitmap_ipmac_add": [
+      "bitmap_ipmac_do_add",
+      "bitmap_ipmac_add_timeout",
+      "ip_set_init_comment"
+    ],
+    "bitmap_ipmac_del": [
+      "bitmap_ipmac_do_del"
+    ],
+    "bitmap_ipmac_list": [
+      "bitmap_ipmac_is_filled",
+      "bitmap_ipmac_do_list",
+      "ip_set_put_extensions"
+    ],
+    "bitmap_ipmac_gc": [
+      "bitmap_ipmac_gc_test"
+    ]
+  },
+  "bitmap_port@ip_set_bitmap_gen.h": {
+    "bitmap_port_destroy": [
+      "bitmap_port_ext_cleanup",
+      "ip_set_free"
+    ],
+    "bitmap_port_flush": [
+      "bitmap_port_ext_cleanup"
+    ],
+    "bitmap_port_head": [
+      "bitmap_port_memsize",
+      "bitmap_port_do_head",
+      "ip_set_put_flags"
+    ],
+    "bitmap_port_test": [
+      "bitmap_port_do_test",
+      "ip_set_match_extensions"
+    ],
+    "bitmap_port_add": [
+      "bitmap_port_do_add",
+      "ip_set_init_comment"
+    ],
+    "bitmap_port_del": [
+      "bitmap_port_do_del"
+    ],
+    "bitmap_port_list": [
+      "bitmap_port_is_filled",
+      "bitmap_port_do_list",
+      "ip_set_put_extensions"
+    ],
+    "bitmap_port_gc": [
+      "bitmap_port_gc_test"
+    ]
+  },
+  "hash_ip4@ip_set_hash_gen.h": {
+    "hash_ip4_flush": [
+      "hash_ip4_ext_cleanup"
+    ],
+    "hash_ip4_ahash_destroy": [
+      "hash_ip4_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_ip4_destroy": [
+      "hash_ip4_ahash_destroy"
+    ],
+    "hash_ip4_gc_do": [
+      "hash_ip4_del_cidr"
+    ],
+    "hash_ip4_gc": [
+      "hash_ip4_gc_do",
+      "hash_ip4_ahash_destroy"
+    ],
+    "hash_ip4_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_ip4_add",
+      "hash_ip4_del",
+      "hash_ip4_ahash_destroy"
+    ],
+    "hash_ip4_add": [
+      "hash_ip4_gc_do",
+      "hash_ip4_data_equal",
+      "hash_ip4_del_cidr",
+      "hash_ip4_data_next",
+      "hash_ip4_add_cidr",
+      "ip_set_init_comment",
+      "hash_ip4_ahash_destroy"
+    ],
+    "hash_ip4_del": [
+      "hash_ip4_data_equal",
+      "hash_ip4_del_cidr",
+      "hash_ip4_ahash_destroy"
+    ],
+    "hash_ip4_data_match": [
+      "ip_set_match_extensions"
+    ],
+    "hash_ip4_test_cidrs": [
+      "hash_ip4_data_equal",
+      "hash_ip4_data_match"
+    ],
+    "hash_ip4_test": [
+      "hash_ip4_test_cidrs",
+      "hash_ip4_data_equal",
+      "hash_ip4_data_match"
+    ],
+    "hash_ip4_head": [
+      "hash_ip4_ext_size",
+      "hash_ip4_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_ip4_uref": [
+      "hash_ip4_ahash_destroy"
+    ],
+    "hash_ip4_list": [
+      "hash_ip4_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_ip6@ip_set_hash_gen.h": {
+    "hash_ip6_flush": [
+      "hash_ip6_ext_cleanup"
+    ],
+    "hash_ip6_ahash_destroy": [
+      "hash_ip6_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_ip6_destroy": [
+      "hash_ip6_ahash_destroy"
+    ],
+    "hash_ip6_gc_do": [
+      "hash_ip6_del_cidr"
+    ],
+    "hash_ip6_gc": [
+      "hash_ip6_gc_do",
+      "hash_ip6_ahash_destroy"
+    ],
+    "hash_ip6_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_ip6_add",
+      "hash_ip6_del",
+      "hash_ip6_ahash_destroy"
+    ],
+    "hash_ip6_add": [
+      "hash_ip6_gc_do",
+      "hash_ip6_data_equal",
+      "hash_ip6_del_cidr",
+      "hash_ip6_data_next",
+      "hash_ip6_add_cidr",
+      "ip_set_init_comment",
+      "hash_ip6_ahash_destroy"
+    ],
+    "hash_ip6_del": [
+      "hash_ip6_data_equal",
+      "hash_ip6_del_cidr",
+      "hash_ip6_ahash_destroy"
+    ],
+    "hash_ip6_data_match": [
+      "ip_set_match_extensions"
+    ],
+    "hash_ip6_test_cidrs": [
+      "hash_ip6_data_equal",
+      "hash_ip6_data_match"
+    ],
+    "hash_ip6_test": [
+      "hash_ip6_test_cidrs",
+      "hash_ip6_data_equal",
+      "hash_ip6_data_match"
+    ],
+    "hash_ip6_head": [
+      "hash_ip6_ext_size",
+      "hash_ip6_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_ip6_uref": [
+      "hash_ip6_ahash_destroy"
+    ],
+    "hash_ip6_list": [
+      "hash_ip6_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_ipmac4@ip_set_hash_gen.h": {
+    "hash_ipmac4_flush": [
+      "hash_ipmac4_ext_cleanup"
+    ],
+    "hash_ipmac4_ahash_destroy": [
+      "hash_ipmac4_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_ipmac4_destroy": [
+      "hash_ipmac4_ahash_destroy"
+    ],
+    "hash_ipmac4_gc_do": [
+      "hash_ipmac4_del_cidr"
+    ],
+    "hash_ipmac4_gc": [
+      "hash_ipmac4_gc_do",
+      "hash_ipmac4_ahash_destroy"
+    ],
+    "hash_ipmac4_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_ipmac4_add",
+      "hash_ipmac4_del",
+      "hash_ipmac4_ahash_destroy"
+    ],
+    "hash_ipmac4_add": [
+      "hash_ipmac4_gc_do",
+      "hash_ipmac4_data_equal",
+      "hash_ipmac4_del_cidr",
+      "hash_ipmac4_data_next",
+      "hash_ipmac4_add_cidr",
+      "ip_set_init_comment",
+      "hash_ipmac4_ahash_destroy"
+    ],
+    "hash_ipmac4_del": [
+      "hash_ipmac4_data_equal",
+      "hash_ipmac4_del_cidr",
+      "hash_ipmac4_ahash_destroy"
+    ],
+    "hash_ipmac4_data_match": [
+      "ip_set_match_extensions"
+    ],
+    "hash_ipmac4_test_cidrs": [
+      "hash_ipmac4_data_equal",
+      "hash_ipmac4_data_match"
+    ],
+    "hash_ipmac4_test": [
+      "hash_ipmac4_test_cidrs",
+      "hash_ipmac4_data_equal",
+      "hash_ipmac4_data_match"
+    ],
+    "hash_ipmac4_head": [
+      "hash_ipmac4_ext_size",
+      "hash_ipmac4_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_ipmac4_uref": [
+      "hash_ipmac4_ahash_destroy"
+    ],
+    "hash_ipmac4_list": [
+      "hash_ipmac4_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_ipmac6@ip_set_hash_gen.h": {
+    "hash_ipmac6_flush": [
+      "hash_ipmac6_ext_cleanup"
+    ],
+    "hash_ipmac6_ahash_destroy": [
+      "hash_ipmac6_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_ipmac6_destroy": [
+      "hash_ipmac6_ahash_destroy"
+    ],
+    "hash_ipmac6_gc_do": [
+      "hash_ipmac6_del_cidr"
+    ],
+    "hash_ipmac6_gc": [
+      "hash_ipmac6_gc_do",
+      "hash_ipmac6_ahash_destroy"
+    ],
+    "hash_ipmac6_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_ipmac6_add",
+      "hash_ipmac6_del",
+      "hash_ipmac6_ahash_destroy"
+    ],
+    "hash_ipmac6_add": [
+      "hash_ipmac6_gc_do",
+      "hash_ipmac6_data_equal",
+      "hash_ipmac6_del_cidr",
+      "hash_ipmac6_data_next",
+      "hash_ipmac6_add_cidr",
+      "ip_set_init_comment",
+      "hash_ipmac6_ahash_destroy"
+    ],
+    "hash_ipmac6_del": [
+      "hash_ipmac6_data_equal",
+      "hash_ipmac6_del_cidr",
+      "hash_ipmac6_ahash_destroy"
+    ],
+    "hash_ipmac6_data_match": [
+      "ip_set_match_extensions"
+    ],
+    "hash_ipmac6_test_cidrs": [
+      "hash_ipmac6_data_equal",
+      "hash_ipmac6_data_match"
+    ],
+    "hash_ipmac6_test": [
+      "hash_ipmac6_test_cidrs",
+      "hash_ipmac6_data_equal",
+      "hash_ipmac6_data_match"
+    ],
+    "hash_ipmac6_head": [
+      "hash_ipmac6_ext_size",
+      "hash_ipmac6_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_ipmac6_uref": [
+      "hash_ipmac6_ahash_destroy"
+    ],
+    "hash_ipmac6_list": [
+      "hash_ipmac6_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_ipmark4@ip_set_hash_gen.h": {
+    "hash_ipmark4_flush": [
+      "hash_ipmark4_ext_cleanup"
+    ],
+    "hash_ipmark4_ahash_destroy": [
+      "hash_ipmark4_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_ipmark4_destroy": [
+      "hash_ipmark4_ahash_destroy"
+    ],
+    "hash_ipmark4_gc_do": [
+      "hash_ipmark4_del_cidr"
+    ],
+    "hash_ipmark4_gc": [
+      "hash_ipmark4_gc_do",
+      "hash_ipmark4_ahash_destroy"
+    ],
+    "hash_ipmark4_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_ipmark4_add",
+      "hash_ipmark4_del",
+      "hash_ipmark4_ahash_destroy"
+    ],
+    "hash_ipmark4_add": [
+      "hash_ipmark4_gc_do",
+      "hash_ipmark4_data_equal",
+      "hash_ipmark4_del_cidr",
+      "hash_ipmark4_data_next",
+      "hash_ipmark4_add_cidr",
+      "ip_set_init_comment",
+      "hash_ipmark4_ahash_destroy"
+    ],
+    "hash_ipmark4_del": [
+      "hash_ipmark4_data_equal",
+      "hash_ipmark4_del_cidr",
+      "hash_ipmark4_ahash_destroy"
+    ],
+    "hash_ipmark4_data_match": [
+      "ip_set_match_extensions"
+    ],
+    "hash_ipmark4_test_cidrs": [
+      "hash_ipmark4_data_equal",
+      "hash_ipmark4_data_match"
+    ],
+    "hash_ipmark4_test": [
+      "hash_ipmark4_test_cidrs",
+      "hash_ipmark4_data_equal",
+      "hash_ipmark4_data_match"
+    ],
+    "hash_ipmark4_head": [
+      "hash_ipmark4_ext_size",
+      "hash_ipmark4_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_ipmark4_uref": [
+      "hash_ipmark4_ahash_destroy"
+    ],
+    "hash_ipmark4_list": [
+      "hash_ipmark4_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_ipmark6@ip_set_hash_gen.h": {
+    "hash_ipmark6_flush": [
+      "hash_ipmark6_ext_cleanup"
+    ],
+    "hash_ipmark6_ahash_destroy": [
+      "hash_ipmark6_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_ipmark6_destroy": [
+      "hash_ipmark6_ahash_destroy"
+    ],
+    "hash_ipmark6_gc_do": [
+      "hash_ipmark6_del_cidr"
+    ],
+    "hash_ipmark6_gc": [
+      "hash_ipmark6_gc_do",
+      "hash_ipmark6_ahash_destroy"
+    ],
+    "hash_ipmark6_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_ipmark6_add",
+      "hash_ipmark6_del",
+      "hash_ipmark6_ahash_destroy"
+    ],
+    "hash_ipmark6_add": [
+      "hash_ipmark6_gc_do",
+      "hash_ipmark6_data_equal",
+      "hash_ipmark6_del_cidr",
+      "hash_ipmark6_data_next",
+      "hash_ipmark6_add_cidr",
+      "ip_set_init_comment",
+      "hash_ipmark6_ahash_destroy"
+    ],
+    "hash_ipmark6_del": [
+      "hash_ipmark6_data_equal",
+      "hash_ipmark6_del_cidr",
+      "hash_ipmark6_ahash_destroy"
+    ],
+    "hash_ipmark6_data_match": [
+      "ip_set_match_extensions"
+    ],
+    "hash_ipmark6_test_cidrs": [
+      "hash_ipmark6_data_equal",
+      "hash_ipmark6_data_match"
+    ],
+    "hash_ipmark6_test": [
+      "hash_ipmark6_test_cidrs",
+      "hash_ipmark6_data_equal",
+      "hash_ipmark6_data_match"
+    ],
+    "hash_ipmark6_head": [
+      "hash_ipmark6_ext_size",
+      "hash_ipmark6_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_ipmark6_uref": [
+      "hash_ipmark6_ahash_destroy"
+    ],
+    "hash_ipmark6_list": [
+      "hash_ipmark6_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_ipport4@ip_set_hash_gen.h": {
+    "hash_ipport4_flush": [
+      "hash_ipport4_ext_cleanup"
+    ],
+    "hash_ipport4_ahash_destroy": [
+      "hash_ipport4_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_ipport4_destroy": [
+      "hash_ipport4_ahash_destroy"
+    ],
+    "hash_ipport4_gc_do": [
+      "hash_ipport4_del_cidr"
+    ],
+    "hash_ipport4_gc": [
+      "hash_ipport4_gc_do",
+      "hash_ipport4_ahash_destroy"
+    ],
+    "hash_ipport4_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_ipport4_add",
+      "hash_ipport4_del",
+      "hash_ipport4_ahash_destroy"
+    ],
+    "hash_ipport4_add": [
+      "hash_ipport4_gc_do",
+      "hash_ipport4_data_equal",
+      "hash_ipport4_del_cidr",
+      "hash_ipport4_data_next",
+      "hash_ipport4_add_cidr",
+      "ip_set_init_comment",
+      "hash_ipport4_ahash_destroy"
+    ],
+    "hash_ipport4_del": [
+      "hash_ipport4_data_equal",
+      "hash_ipport4_del_cidr",
+      "hash_ipport4_ahash_destroy"
+    ],
+    "hash_ipport4_data_match": [
+      "ip_set_match_extensions"
+    ],
+    "hash_ipport4_test_cidrs": [
+      "hash_ipport4_data_equal",
+      "hash_ipport4_data_match"
+    ],
+    "hash_ipport4_test": [
+      "hash_ipport4_test_cidrs",
+      "hash_ipport4_data_equal",
+      "hash_ipport4_data_match"
+    ],
+    "hash_ipport4_head": [
+      "hash_ipport4_ext_size",
+      "hash_ipport4_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_ipport4_uref": [
+      "hash_ipport4_ahash_destroy"
+    ],
+    "hash_ipport4_list": [
+      "hash_ipport4_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_ipport6@ip_set_hash_gen.h": {
+    "hash_ipport6_flush": [
+      "hash_ipport6_ext_cleanup"
+    ],
+    "hash_ipport6_ahash_destroy": [
+      "hash_ipport6_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_ipport6_destroy": [
+      "hash_ipport6_ahash_destroy"
+    ],
+    "hash_ipport6_gc_do": [
+      "hash_ipport6_del_cidr"
+    ],
+    "hash_ipport6_gc": [
+      "hash_ipport6_gc_do",
+      "hash_ipport6_ahash_destroy"
+    ],
+    "hash_ipport6_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_ipport6_add",
+      "hash_ipport6_del",
+      "hash_ipport6_ahash_destroy"
+    ],
+    "hash_ipport6_add": [
+      "hash_ipport6_gc_do",
+      "hash_ipport6_data_equal",
+      "hash_ipport6_del_cidr",
+      "hash_ipport6_data_next",
+      "hash_ipport6_add_cidr",
+      "ip_set_init_comment",
+      "hash_ipport6_ahash_destroy"
+    ],
+    "hash_ipport6_del": [
+      "hash_ipport6_data_equal",
+      "hash_ipport6_del_cidr",
+      "hash_ipport6_ahash_destroy"
+    ],
+    "hash_ipport6_data_match": [
+      "ip_set_match_extensions"
+    ],
+    "hash_ipport6_test_cidrs": [
+      "hash_ipport6_data_equal",
+      "hash_ipport6_data_match"
+    ],
+    "hash_ipport6_test": [
+      "hash_ipport6_test_cidrs",
+      "hash_ipport6_data_equal",
+      "hash_ipport6_data_match"
+    ],
+    "hash_ipport6_head": [
+      "hash_ipport6_ext_size",
+      "hash_ipport6_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_ipport6_uref": [
+      "hash_ipport6_ahash_destroy"
+    ],
+    "hash_ipport6_list": [
+      "hash_ipport6_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_ipportip4@ip_set_hash_gen.h": {
+    "hash_ipportip4_flush": [
+      "hash_ipportip4_ext_cleanup"
+    ],
+    "hash_ipportip4_ahash_destroy": [
+      "hash_ipportip4_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_ipportip4_destroy": [
+      "hash_ipportip4_ahash_destroy"
+    ],
+    "hash_ipportip4_gc_do": [
+      "hash_ipportip4_del_cidr"
+    ],
+    "hash_ipportip4_gc": [
+      "hash_ipportip4_gc_do",
+      "hash_ipportip4_ahash_destroy"
+    ],
+    "hash_ipportip4_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_ipportip4_add",
+      "hash_ipportip4_del",
+      "hash_ipportip4_ahash_destroy"
+    ],
+    "hash_ipportip4_add": [
+      "hash_ipportip4_gc_do",
+      "hash_ipportip4_data_equal",
+      "hash_ipportip4_del_cidr",
+      "hash_ipportip4_data_next",
+      "hash_ipportip4_add_cidr",
+      "ip_set_init_comment",
+      "hash_ipportip4_ahash_destroy"
+    ],
+    "hash_ipportip4_del": [
+      "hash_ipportip4_data_equal",
+      "hash_ipportip4_del_cidr",
+      "hash_ipportip4_ahash_destroy"
+    ],
+    "hash_ipportip4_data_match": [
+      "ip_set_match_extensions"
+    ],
+    "hash_ipportip4_test_cidrs": [
+      "hash_ipportip4_data_equal",
+      "hash_ipportip4_data_match"
+    ],
+    "hash_ipportip4_test": [
+      "hash_ipportip4_test_cidrs",
+      "hash_ipportip4_data_equal",
+      "hash_ipportip4_data_match"
+    ],
+    "hash_ipportip4_head": [
+      "hash_ipportip4_ext_size",
+      "hash_ipportip4_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_ipportip4_uref": [
+      "hash_ipportip4_ahash_destroy"
+    ],
+    "hash_ipportip4_list": [
+      "hash_ipportip4_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_ipportip6@ip_set_hash_gen.h": {
+    "hash_ipportip6_flush": [
+      "hash_ipportip6_ext_cleanup"
+    ],
+    "hash_ipportip6_ahash_destroy": [
+      "hash_ipportip6_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_ipportip6_destroy": [
+      "hash_ipportip6_ahash_destroy"
+    ],
+    "hash_ipportip6_gc_do": [
+      "hash_ipportip6_del_cidr"
+    ],
+    "hash_ipportip6_gc": [
+      "hash_ipportip6_gc_do",
+      "hash_ipportip6_ahash_destroy"
+    ],
+    "hash_ipportip6_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_ipportip6_add",
+      "hash_ipportip6_del",
+      "hash_ipportip6_ahash_destroy"
+    ],
+    "hash_ipportip6_add": [
+      "hash_ipportip6_gc_do",
+      "hash_ipportip6_data_equal",
+      "hash_ipportip6_del_cidr",
+      "hash_ipportip6_data_next",
+      "hash_ipportip6_add_cidr",
+      "ip_set_init_comment",
+      "hash_ipportip6_ahash_destroy"
+    ],
+    "hash_ipportip6_del": [
+      "hash_ipportip6_data_equal",
+      "hash_ipportip6_del_cidr",
+      "hash_ipportip6_ahash_destroy"
+    ],
+    "hash_ipportip6_data_match": [
+      "ip_set_match_extensions"
+    ],
+    "hash_ipportip6_test_cidrs": [
+      "hash_ipportip6_data_equal",
+      "hash_ipportip6_data_match"
+    ],
+    "hash_ipportip6_test": [
+      "hash_ipportip6_test_cidrs",
+      "hash_ipportip6_data_equal",
+      "hash_ipportip6_data_match"
+    ],
+    "hash_ipportip6_head": [
+      "hash_ipportip6_ext_size",
+      "hash_ipportip6_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_ipportip6_uref": [
+      "hash_ipportip6_ahash_destroy"
+    ],
+    "hash_ipportip6_list": [
+      "hash_ipportip6_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_ipportnet4@ip_set_hash_gen.h": {
+    "hash_ipportnet4_flush": [
+      "hash_ipportnet4_ext_cleanup"
+    ],
+    "hash_ipportnet4_ahash_destroy": [
+      "hash_ipportnet4_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_ipportnet4_destroy": [
+      "hash_ipportnet4_ahash_destroy"
+    ],
+    "hash_ipportnet4_gc_do": [
+      "hash_ipportnet4_del_cidr"
+    ],
+    "hash_ipportnet4_gc": [
+      "hash_ipportnet4_gc_do",
+      "hash_ipportnet4_ahash_destroy"
+    ],
+    "hash_ipportnet4_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_ipportnet4_data_reset_flags",
+      "hash_ipportnet4_add",
+      "hash_ipportnet4_del",
+      "hash_ipportnet4_ahash_destroy"
+    ],
+    "hash_ipportnet4_add": [
+      "hash_ipportnet4_gc_do",
+      "hash_ipportnet4_data_equal",
+      "hash_ipportnet4_del_cidr",
+      "hash_ipportnet4_data_next",
+      "hash_ipportnet4_add_cidr",
+      "hash_ipportnet4_data_set_flags",
+      "ip_set_init_comment",
+      "hash_ipportnet4_ahash_destroy"
+    ],
+    "hash_ipportnet4_del": [
+      "hash_ipportnet4_data_equal",
+      "hash_ipportnet4_del_cidr",
+      "hash_ipportnet4_ahash_destroy"
+    ],
+    "hash_ipportnet4_data_match": [
+      "ip_set_match_extensions",
+      "hash_ipportnet4_do_data_match"
+    ],
+    "hash_ipportnet4_test_cidrs": [
+      "hash_ipportnet4_data_netmask",
+      "hash_ipportnet4_data_equal",
+      "hash_ipportnet4_data_match"
+    ],
+    "hash_ipportnet4_test": [
+      "hash_ipportnet4_test_cidrs",
+      "hash_ipportnet4_data_equal",
+      "hash_ipportnet4_data_match"
+    ],
+    "hash_ipportnet4_head": [
+      "hash_ipportnet4_ext_size",
+      "hash_ipportnet4_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_ipportnet4_uref": [
+      "hash_ipportnet4_ahash_destroy"
+    ],
+    "hash_ipportnet4_list": [
+      "hash_ipportnet4_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_ipportnet6@ip_set_hash_gen.h": {
+    "hash_ipportnet6_flush": [
+      "hash_ipportnet6_ext_cleanup"
+    ],
+    "hash_ipportnet6_ahash_destroy": [
+      "hash_ipportnet6_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_ipportnet6_destroy": [
+      "hash_ipportnet6_ahash_destroy"
+    ],
+    "hash_ipportnet6_gc_do": [
+      "hash_ipportnet6_del_cidr"
+    ],
+    "hash_ipportnet6_gc": [
+      "hash_ipportnet6_gc_do",
+      "hash_ipportnet6_ahash_destroy"
+    ],
+    "hash_ipportnet6_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_ipportnet6_data_reset_flags",
+      "hash_ipportnet6_add",
+      "hash_ipportnet6_del",
+      "hash_ipportnet6_ahash_destroy"
+    ],
+    "hash_ipportnet6_add": [
+      "hash_ipportnet6_gc_do",
+      "hash_ipportnet6_data_equal",
+      "hash_ipportnet6_del_cidr",
+      "hash_ipportnet6_data_next",
+      "hash_ipportnet6_add_cidr",
+      "hash_ipportnet6_data_set_flags",
+      "ip_set_init_comment",
+      "hash_ipportnet6_ahash_destroy"
+    ],
+    "hash_ipportnet6_del": [
+      "hash_ipportnet6_data_equal",
+      "hash_ipportnet6_del_cidr",
+      "hash_ipportnet6_ahash_destroy"
+    ],
+    "hash_ipportnet6_data_match": [
+      "ip_set_match_extensions",
+      "hash_ipportnet6_do_data_match"
+    ],
+    "hash_ipportnet6_test_cidrs": [
+      "hash_ipportnet6_data_netmask",
+      "hash_ipportnet6_data_equal",
+      "hash_ipportnet6_data_match"
+    ],
+    "hash_ipportnet6_test": [
+      "hash_ipportnet6_test_cidrs",
+      "hash_ipportnet6_data_equal",
+      "hash_ipportnet6_data_match"
+    ],
+    "hash_ipportnet6_head": [
+      "hash_ipportnet6_ext_size",
+      "hash_ipportnet6_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_ipportnet6_uref": [
+      "hash_ipportnet6_ahash_destroy"
+    ],
+    "hash_ipportnet6_list": [
+      "hash_ipportnet6_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_mac4@ip_set_hash_gen.h": {
+    "hash_mac4_flush": [
+      "hash_mac4_ext_cleanup"
+    ],
+    "hash_mac4_ahash_destroy": [
+      "hash_mac4_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_mac4_destroy": [
+      "hash_mac4_ahash_destroy"
+    ],
+    "hash_mac4_gc_do": [
+      "hash_mac4_del_cidr"
+    ],
+    "hash_mac4_gc": [
+      "hash_mac4_gc_do",
+      "hash_mac4_ahash_destroy"
+    ],
+    "hash_mac4_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_mac4_add",
+      "hash_mac4_del",
+      "hash_mac4_ahash_destroy"
+    ],
+    "hash_mac4_add": [
+      "hash_mac4_gc_do",
+      "hash_mac4_data_equal",
+      "hash_mac4_del_cidr",
+      "hash_mac4_data_next",
+      "hash_mac4_add_cidr",
+      "ip_set_init_comment",
+      "hash_mac4_ahash_destroy"
+    ],
+    "hash_mac4_del": [
+      "hash_mac4_data_equal",
+      "hash_mac4_del_cidr",
+      "hash_mac4_ahash_destroy"
+    ],
+    "hash_mac4_data_match": [
+      "ip_set_match_extensions"
+    ],
+    "hash_mac4_test_cidrs": [
+      "hash_mac4_data_equal",
+      "hash_mac4_data_match"
+    ],
+    "hash_mac4_test": [
+      "hash_mac4_test_cidrs",
+      "hash_mac4_data_equal",
+      "hash_mac4_data_match"
+    ],
+    "hash_mac4_head": [
+      "hash_mac4_ext_size",
+      "hash_mac4_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_mac4_uref": [
+      "hash_mac4_ahash_destroy"
+    ],
+    "hash_mac4_list": [
+      "hash_mac4_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_net4@ip_set_hash_gen.h": {
+    "hash_net4_flush": [
+      "hash_net4_ext_cleanup"
+    ],
+    "hash_net4_ahash_destroy": [
+      "hash_net4_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_net4_destroy": [
+      "hash_net4_ahash_destroy"
+    ],
+    "hash_net4_gc_do": [
+      "hash_net4_del_cidr"
+    ],
+    "hash_net4_gc": [
+      "hash_net4_gc_do",
+      "hash_net4_ahash_destroy"
+    ],
+    "hash_net4_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_net4_data_reset_flags",
+      "hash_net4_add",
+      "hash_net4_del",
+      "hash_net4_ahash_destroy"
+    ],
+    "hash_net4_add": [
+      "hash_net4_gc_do",
+      "hash_net4_data_equal",
+      "hash_net4_del_cidr",
+      "hash_net4_data_next",
+      "hash_net4_add_cidr",
+      "hash_net4_data_set_flags",
+      "ip_set_init_comment",
+      "hash_net4_ahash_destroy"
+    ],
+    "hash_net4_del": [
+      "hash_net4_data_equal",
+      "hash_net4_del_cidr",
+      "hash_net4_ahash_destroy"
+    ],
+    "hash_net4_data_match": [
+      "ip_set_match_extensions",
+      "hash_net4_do_data_match"
+    ],
+    "hash_net4_test_cidrs": [
+      "hash_net4_data_netmask",
+      "hash_net4_data_equal",
+      "hash_net4_data_match"
+    ],
+    "hash_net4_test": [
+      "hash_net4_test_cidrs",
+      "hash_net4_data_equal",
+      "hash_net4_data_match"
+    ],
+    "hash_net4_head": [
+      "hash_net4_ext_size",
+      "hash_net4_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_net4_uref": [
+      "hash_net4_ahash_destroy"
+    ],
+    "hash_net4_list": [
+      "hash_net4_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_net6@ip_set_hash_gen.h": {
+    "hash_net6_flush": [
+      "hash_net6_ext_cleanup"
+    ],
+    "hash_net6_ahash_destroy": [
+      "hash_net6_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_net6_destroy": [
+      "hash_net6_ahash_destroy"
+    ],
+    "hash_net6_gc_do": [
+      "hash_net6_del_cidr"
+    ],
+    "hash_net6_gc": [
+      "hash_net6_gc_do",
+      "hash_net6_ahash_destroy"
+    ],
+    "hash_net6_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_net6_data_reset_flags",
+      "hash_net6_add",
+      "hash_net6_del",
+      "hash_net6_ahash_destroy"
+    ],
+    "hash_net6_add": [
+      "hash_net6_gc_do",
+      "hash_net6_data_equal",
+      "hash_net6_del_cidr",
+      "hash_net6_data_next",
+      "hash_net6_add_cidr",
+      "hash_net6_data_set_flags",
+      "ip_set_init_comment",
+      "hash_net6_ahash_destroy"
+    ],
+    "hash_net6_del": [
+      "hash_net6_data_equal",
+      "hash_net6_del_cidr",
+      "hash_net6_ahash_destroy"
+    ],
+    "hash_net6_data_match": [
+      "ip_set_match_extensions",
+      "hash_net6_do_data_match"
+    ],
+    "hash_net6_test_cidrs": [
+      "hash_net6_data_netmask",
+      "hash_net6_data_equal",
+      "hash_net6_data_match"
+    ],
+    "hash_net6_test": [
+      "hash_net6_test_cidrs",
+      "hash_net6_data_equal",
+      "hash_net6_data_match"
+    ],
+    "hash_net6_head": [
+      "hash_net6_ext_size",
+      "hash_net6_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_net6_uref": [
+      "hash_net6_ahash_destroy"
+    ],
+    "hash_net6_list": [
+      "hash_net6_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_netiface4@ip_set_hash_gen.h": {
+    "hash_netiface4_flush": [
+      "hash_netiface4_ext_cleanup"
+    ],
+    "hash_netiface4_ahash_destroy": [
+      "hash_netiface4_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_netiface4_destroy": [
+      "hash_netiface4_ahash_destroy"
+    ],
+    "hash_netiface4_gc_do": [
+      "hash_netiface4_del_cidr"
+    ],
+    "hash_netiface4_gc": [
+      "hash_netiface4_gc_do",
+      "hash_netiface4_ahash_destroy"
+    ],
+    "hash_netiface4_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_netiface4_data_reset_flags",
+      "hash_netiface4_add",
+      "hash_netiface4_del",
+      "hash_netiface4_ahash_destroy"
+    ],
+    "hash_netiface4_add": [
+      "hash_netiface4_gc_do",
+      "hash_netiface4_data_equal",
+      "hash_netiface4_del_cidr",
+      "hash_netiface4_data_next",
+      "hash_netiface4_add_cidr",
+      "hash_netiface4_data_set_flags",
+      "ip_set_init_comment",
+      "hash_netiface4_ahash_destroy"
+    ],
+    "hash_netiface4_del": [
+      "hash_netiface4_data_equal",
+      "hash_netiface4_del_cidr",
+      "hash_netiface4_ahash_destroy"
+    ],
+    "hash_netiface4_data_match": [
+      "ip_set_match_extensions",
+      "hash_netiface4_do_data_match"
+    ],
+    "hash_netiface4_test_cidrs": [
+      "hash_netiface4_data_netmask",
+      "hash_netiface4_data_equal",
+      "hash_netiface4_data_match"
+    ],
+    "hash_netiface4_test": [
+      "hash_netiface4_test_cidrs",
+      "hash_netiface4_data_equal",
+      "hash_netiface4_data_match"
+    ],
+    "hash_netiface4_head": [
+      "hash_netiface4_ext_size",
+      "hash_netiface4_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_netiface4_uref": [
+      "hash_netiface4_ahash_destroy"
+    ],
+    "hash_netiface4_list": [
+      "hash_netiface4_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_netiface6@ip_set_hash_gen.h": {
+    "hash_netiface6_flush": [
+      "hash_netiface6_ext_cleanup"
+    ],
+    "hash_netiface6_ahash_destroy": [
+      "hash_netiface6_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_netiface6_destroy": [
+      "hash_netiface6_ahash_destroy"
+    ],
+    "hash_netiface6_gc_do": [
+      "hash_netiface6_del_cidr"
+    ],
+    "hash_netiface6_gc": [
+      "hash_netiface6_gc_do",
+      "hash_netiface6_ahash_destroy"
+    ],
+    "hash_netiface6_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_netiface6_data_reset_flags",
+      "hash_netiface6_add",
+      "hash_netiface6_del",
+      "hash_netiface6_ahash_destroy"
+    ],
+    "hash_netiface6_add": [
+      "hash_netiface6_gc_do",
+      "hash_netiface6_data_equal",
+      "hash_netiface6_del_cidr",
+      "hash_netiface6_data_next",
+      "hash_netiface6_add_cidr",
+      "hash_netiface6_data_set_flags",
+      "ip_set_init_comment",
+      "hash_netiface6_ahash_destroy"
+    ],
+    "hash_netiface6_del": [
+      "hash_netiface6_data_equal",
+      "hash_netiface6_del_cidr",
+      "hash_netiface6_ahash_destroy"
+    ],
+    "hash_netiface6_data_match": [
+      "ip_set_match_extensions",
+      "hash_netiface6_do_data_match"
+    ],
+    "hash_netiface6_test_cidrs": [
+      "hash_netiface6_data_netmask",
+      "hash_netiface6_data_equal",
+      "hash_netiface6_data_match"
+    ],
+    "hash_netiface6_test": [
+      "hash_netiface6_test_cidrs",
+      "hash_netiface6_data_equal",
+      "hash_netiface6_data_match"
+    ],
+    "hash_netiface6_head": [
+      "hash_netiface6_ext_size",
+      "hash_netiface6_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_netiface6_uref": [
+      "hash_netiface6_ahash_destroy"
+    ],
+    "hash_netiface6_list": [
+      "hash_netiface6_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_netnet4@ip_set_hash_gen.h": {
+    "hash_netnet4_flush": [
+      "hash_netnet4_ext_cleanup"
+    ],
+    "hash_netnet4_ahash_destroy": [
+      "hash_netnet4_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_netnet4_destroy": [
+      "hash_netnet4_ahash_destroy"
+    ],
+    "hash_netnet4_gc_do": [
+      "hash_netnet4_del_cidr"
+    ],
+    "hash_netnet4_gc": [
+      "hash_netnet4_gc_do",
+      "hash_netnet4_ahash_destroy"
+    ],
+    "hash_netnet4_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_netnet4_data_reset_flags",
+      "hash_netnet4_add",
+      "hash_netnet4_del",
+      "hash_netnet4_ahash_destroy"
+    ],
+    "hash_netnet4_add": [
+      "hash_netnet4_gc_do",
+      "hash_netnet4_data_equal",
+      "hash_netnet4_del_cidr",
+      "hash_netnet4_data_next",
+      "hash_netnet4_add_cidr",
+      "hash_netnet4_data_set_flags",
+      "ip_set_init_comment",
+      "hash_netnet4_ahash_destroy"
+    ],
+    "hash_netnet4_del": [
+      "hash_netnet4_data_equal",
+      "hash_netnet4_del_cidr",
+      "hash_netnet4_ahash_destroy"
+    ],
+    "hash_netnet4_data_match": [
+      "ip_set_match_extensions",
+      "hash_netnet4_do_data_match"
+    ],
+    "hash_netnet4_test_cidrs": [
+      "hash_netnet4_data_reset_elem",
+      "hash_netnet4_data_netmask",
+      "hash_netnet4_data_equal",
+      "hash_netnet4_data_match"
+    ],
+    "hash_netnet4_test": [
+      "hash_netnet4_test_cidrs",
+      "hash_netnet4_data_equal",
+      "hash_netnet4_data_match"
+    ],
+    "hash_netnet4_head": [
+      "hash_netnet4_ext_size",
+      "hash_netnet4_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_netnet4_uref": [
+      "hash_netnet4_ahash_destroy"
+    ],
+    "hash_netnet4_list": [
+      "hash_netnet4_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_netnet6@ip_set_hash_gen.h": {
+    "hash_netnet6_flush": [
+      "hash_netnet6_ext_cleanup"
+    ],
+    "hash_netnet6_ahash_destroy": [
+      "hash_netnet6_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_netnet6_destroy": [
+      "hash_netnet6_ahash_destroy"
+    ],
+    "hash_netnet6_gc_do": [
+      "hash_netnet6_del_cidr"
+    ],
+    "hash_netnet6_gc": [
+      "hash_netnet6_gc_do",
+      "hash_netnet6_ahash_destroy"
+    ],
+    "hash_netnet6_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_netnet6_data_reset_flags",
+      "hash_netnet6_add",
+      "hash_netnet6_del",
+      "hash_netnet6_ahash_destroy"
+    ],
+    "hash_netnet6_add": [
+      "hash_netnet6_gc_do",
+      "hash_netnet6_data_equal",
+      "hash_netnet6_del_cidr",
+      "hash_netnet6_data_next",
+      "hash_netnet6_add_cidr",
+      "hash_netnet6_data_set_flags",
+      "ip_set_init_comment",
+      "hash_netnet6_ahash_destroy"
+    ],
+    "hash_netnet6_del": [
+      "hash_netnet6_data_equal",
+      "hash_netnet6_del_cidr",
+      "hash_netnet6_ahash_destroy"
+    ],
+    "hash_netnet6_data_match": [
+      "ip_set_match_extensions",
+      "hash_netnet6_do_data_match"
+    ],
+    "hash_netnet6_test_cidrs": [
+      "hash_netnet6_data_reset_elem",
+      "hash_netnet6_data_netmask",
+      "hash_netnet6_data_equal",
+      "hash_netnet6_data_match"
+    ],
+    "hash_netnet6_test": [
+      "hash_netnet6_test_cidrs",
+      "hash_netnet6_data_equal",
+      "hash_netnet6_data_match"
+    ],
+    "hash_netnet6_head": [
+      "hash_netnet6_ext_size",
+      "hash_netnet6_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_netnet6_uref": [
+      "hash_netnet6_ahash_destroy"
+    ],
+    "hash_netnet6_list": [
+      "hash_netnet6_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_netport4@ip_set_hash_gen.h": {
+    "hash_netport4_flush": [
+      "hash_netport4_ext_cleanup"
+    ],
+    "hash_netport4_ahash_destroy": [
+      "hash_netport4_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_netport4_destroy": [
+      "hash_netport4_ahash_destroy"
+    ],
+    "hash_netport4_gc_do": [
+      "hash_netport4_del_cidr"
+    ],
+    "hash_netport4_gc": [
+      "hash_netport4_gc_do",
+      "hash_netport4_ahash_destroy"
+    ],
+    "hash_netport4_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_netport4_data_reset_flags",
+      "hash_netport4_add",
+      "hash_netport4_del",
+      "hash_netport4_ahash_destroy"
+    ],
+    "hash_netport4_add": [
+      "hash_netport4_gc_do",
+      "hash_netport4_data_equal",
+      "hash_netport4_del_cidr",
+      "hash_netport4_data_next",
+      "hash_netport4_add_cidr",
+      "hash_netport4_data_set_flags",
+      "ip_set_init_comment",
+      "hash_netport4_ahash_destroy"
+    ],
+    "hash_netport4_del": [
+      "hash_netport4_data_equal",
+      "hash_netport4_del_cidr",
+      "hash_netport4_ahash_destroy"
+    ],
+    "hash_netport4_data_match": [
+      "ip_set_match_extensions",
+      "hash_netport4_do_data_match"
+    ],
+    "hash_netport4_test_cidrs": [
+      "hash_netport4_data_netmask",
+      "hash_netport4_data_equal",
+      "hash_netport4_data_match"
+    ],
+    "hash_netport4_test": [
+      "hash_netport4_test_cidrs",
+      "hash_netport4_data_equal",
+      "hash_netport4_data_match"
+    ],
+    "hash_netport4_head": [
+      "hash_netport4_ext_size",
+      "hash_netport4_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_netport4_uref": [
+      "hash_netport4_ahash_destroy"
+    ],
+    "hash_netport4_list": [
+      "hash_netport4_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_netport6@ip_set_hash_gen.h": {
+    "hash_netport6_flush": [
+      "hash_netport6_ext_cleanup"
+    ],
+    "hash_netport6_ahash_destroy": [
+      "hash_netport6_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_netport6_destroy": [
+      "hash_netport6_ahash_destroy"
+    ],
+    "hash_netport6_gc_do": [
+      "hash_netport6_del_cidr"
+    ],
+    "hash_netport6_gc": [
+      "hash_netport6_gc_do",
+      "hash_netport6_ahash_destroy"
+    ],
+    "hash_netport6_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_netport6_data_reset_flags",
+      "hash_netport6_add",
+      "hash_netport6_del",
+      "hash_netport6_ahash_destroy"
+    ],
+    "hash_netport6_add": [
+      "hash_netport6_gc_do",
+      "hash_netport6_data_equal",
+      "hash_netport6_del_cidr",
+      "hash_netport6_data_next",
+      "hash_netport6_add_cidr",
+      "hash_netport6_data_set_flags",
+      "ip_set_init_comment",
+      "hash_netport6_ahash_destroy"
+    ],
+    "hash_netport6_del": [
+      "hash_netport6_data_equal",
+      "hash_netport6_del_cidr",
+      "hash_netport6_ahash_destroy"
+    ],
+    "hash_netport6_data_match": [
+      "ip_set_match_extensions",
+      "hash_netport6_do_data_match"
+    ],
+    "hash_netport6_test_cidrs": [
+      "hash_netport6_data_netmask",
+      "hash_netport6_data_equal",
+      "hash_netport6_data_match"
+    ],
+    "hash_netport6_test": [
+      "hash_netport6_test_cidrs",
+      "hash_netport6_data_equal",
+      "hash_netport6_data_match"
+    ],
+    "hash_netport6_head": [
+      "hash_netport6_ext_size",
+      "hash_netport6_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_netport6_uref": [
+      "hash_netport6_ahash_destroy"
+    ],
+    "hash_netport6_list": [
+      "hash_netport6_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_netportnet4@ip_set_hash_gen.h": {
+    "hash_netportnet4_flush": [
+      "hash_netportnet4_ext_cleanup"
+    ],
+    "hash_netportnet4_ahash_destroy": [
+      "hash_netportnet4_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_netportnet4_destroy": [
+      "hash_netportnet4_ahash_destroy"
+    ],
+    "hash_netportnet4_gc_do": [
+      "hash_netportnet4_del_cidr"
+    ],
+    "hash_netportnet4_gc": [
+      "hash_netportnet4_gc_do",
+      "hash_netportnet4_ahash_destroy"
+    ],
+    "hash_netportnet4_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_netportnet4_data_reset_flags",
+      "hash_netportnet4_add",
+      "hash_netportnet4_del",
+      "hash_netportnet4_ahash_destroy"
+    ],
+    "hash_netportnet4_add": [
+      "hash_netportnet4_gc_do",
+      "hash_netportnet4_data_equal",
+      "hash_netportnet4_del_cidr",
+      "hash_netportnet4_data_next",
+      "hash_netportnet4_add_cidr",
+      "hash_netportnet4_data_set_flags",
+      "ip_set_init_comment",
+      "hash_netportnet4_ahash_destroy"
+    ],
+    "hash_netportnet4_del": [
+      "hash_netportnet4_data_equal",
+      "hash_netportnet4_del_cidr",
+      "hash_netportnet4_ahash_destroy"
+    ],
+    "hash_netportnet4_data_match": [
+      "ip_set_match_extensions",
+      "hash_netportnet4_do_data_match"
+    ],
+    "hash_netportnet4_test_cidrs": [
+      "hash_netportnet4_data_reset_elem",
+      "hash_netportnet4_data_netmask",
+      "hash_netportnet4_data_equal",
+      "hash_netportnet4_data_match"
+    ],
+    "hash_netportnet4_test": [
+      "hash_netportnet4_test_cidrs",
+      "hash_netportnet4_data_equal",
+      "hash_netportnet4_data_match"
+    ],
+    "hash_netportnet4_head": [
+      "hash_netportnet4_ext_size",
+      "hash_netportnet4_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_netportnet4_uref": [
+      "hash_netportnet4_ahash_destroy"
+    ],
+    "hash_netportnet4_list": [
+      "hash_netportnet4_data_list",
+      "ip_set_put_extensions"
+    ]
+  },
+  "hash_netportnet6@ip_set_hash_gen.h": {
+    "hash_netportnet6_flush": [
+      "hash_netportnet6_ext_cleanup"
+    ],
+    "hash_netportnet6_ahash_destroy": [
+      "hash_netportnet6_ext_cleanup",
+      "ip_set_free"
+    ],
+    "hash_netportnet6_destroy": [
+      "hash_netportnet6_ahash_destroy"
+    ],
+    "hash_netportnet6_gc_do": [
+      "hash_netportnet6_del_cidr"
+    ],
+    "hash_netportnet6_gc": [
+      "hash_netportnet6_gc_do",
+      "hash_netportnet6_ahash_destroy"
+    ],
+    "hash_netportnet6_resize": [
+      "ip_set_alloc",
+      "ip_set_free",
+      "hash_netportnet6_data_reset_flags",
+      "hash_netportnet6_add",
+      "hash_netportnet6_del",
+      "hash_netportnet6_ahash_destroy"
+    ],
+    "hash_netportnet6_add": [
+      "hash_netportnet6_gc_do",
+      "hash_netportnet6_data_equal",
+      "hash_netportnet6_del_cidr",
+      "hash_netportnet6_data_next",
+      "hash_netportnet6_add_cidr",
+      "hash_netportnet6_data_set_flags",
+      "ip_set_init_comment",
+      "hash_netportnet6_ahash_destroy"
+    ],
+    "hash_netportnet6_del": [
+      "hash_netportnet6_data_equal",
+      "hash_netportnet6_del_cidr",
+      "hash_netportnet6_ahash_destroy"
+    ],
+    "hash_netportnet6_data_match": [
+      "ip_set_match_extensions",
+      "hash_netportnet6_do_data_match"
+    ],
+    "hash_netportnet6_test_cidrs": [
+      "hash_netportnet6_data_reset_elem",
+      "hash_netportnet6_data_netmask",
+      "hash_netportnet6_data_equal",
+      "hash_netportnet6_data_match"
+    ],
+    "hash_netportnet6_test": [
+      "hash_netportnet6_test_cidrs",
+      "hash_netportnet6_data_equal",
+      "hash_netportnet6_data_match"
+    ],
+    "hash_netportnet6_head": [
+      "hash_netportnet6_ext_size",
+      "hash_netportnet6_ahash_memsize",
+      "ip_set_put_flags"
+    ],
+    "hash_netportnet6_uref": [
+      "hash_netportnet6_ahash_destroy"
+    ],
+    "hash_netportnet6_list": [
+      "hash_netportnet6_data_list",
+      "ip_set_put_extensions"
     ]
   }
 }

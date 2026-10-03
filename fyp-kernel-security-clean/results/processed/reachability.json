@@ -22,7 +22,17 @@
           "nft_payload_eval",
           "nft_payload_copy_vlan"
         ],
-        "netlink": null
+        "netlink": [
+          "nfnetlink_rcv_msg",
+          "nfqnl_recv_verdict_batch",
+          "nfqnl_reinject",
+          "nf_reinject",
+          "nft_do_chain_ipv4",
+          "nft_do_chain",
+          "expr_call_ops_eval",
+          "nft_payload_eval",
+          "nft_payload_copy_vlan"
+        ]
       }
     },
     "CVE-2024-53141:bitmap_ip_uadt": {

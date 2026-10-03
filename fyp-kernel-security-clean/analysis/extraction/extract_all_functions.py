@@ -23,6 +23,9 @@ KERNEL_PATH = PROJECT_ROOT / "data/kernel/linux-shallow"
 NETFILTER_PATH = KERNEL_PATH / "net/netfilter"
 OUTPUT_PATH = PROJECT_ROOT / "results/raw"
 
+sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
+from sources import all_source_files, expand_ipset_templates, template_prefix
+
 def opens_body(joined, lines, end_index):
     """
     Check that the signature is followed by a function body: after the ')'
@@ -147,7 +150,7 @@ def extract_functions(file_path):
         # parameter lists that wrap across multiple lines
         j = i + 1 if consumed_next else i
         joined = sig_text
-        max_lookahead = 8
+        max_lookahead = 20
         while joined.count('(') > joined.count(')') and (j - sig_line_idx) < max_lookahead and j + 1 < n:
             j += 1
             joined += ' ' + lines[j]
@@ -175,14 +178,21 @@ def main():
     print("=" * 70)
     print(f"\nScanning: {NETFILTER_PATH}\n")
     
-    c_files = sorted(NETFILTER_PATH.rglob("*.c")) #we add to rglob, previously was glob
-    print(f"Found {len(c_files)} C files\n")
-    
+    # ipset template headers -> filled-in copies such as "bitmap_ip@ip_set_bitmap_gen.h"
+    expanded = expand_ipset_templates()
+    c_files = all_source_files()
+    print(f"Found {len(c_files) - len(expanded)} C files + {len(expanded)} expanded ipset templates\n")
+
     all_funcs = {}
     total = 0
-    
-    for f in c_files:  # First 50 files for now
+
+    for f in c_files:
         funcs = extract_functions(f)
+        prefix = template_prefix(f.name)
+        if prefix:
+            # From a template copy keep only the templated functions (bitmap_ip_add, ...).
+            # The few shared helpers in it are not per-set code.
+            funcs = [func for func in funcs if func['name'].startswith(prefix)]
         if funcs:
             all_funcs[f.name] = funcs
             total += len(funcs)

@@ -20,8 +20,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 CONFIG_FILE = PROJECT_ROOT / "config/api_keys.json"
 TOP_100_FILE = PROJECT_ROOT / "results/processed/top_100_functions.json"
-KERNEL_PATH = PROJECT_ROOT / "data/kernel/linux-shallow"
 OUTPUT_PATH = PROJECT_ROOT / "results/processed"
+
+sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
+from sources import find_source
 
 class LLMAnalyzer:
     """Use LLM to analyze security implications of functions"""
@@ -57,7 +59,7 @@ class LLMAnalyzer:
         Send function to LLM for security analysis
         """
 
-        file_path = next(KERNEL_PATH.rglob(file_name), None)
+        file_path = find_source(file_name)
 
         if file_path is None:
             print(f"   ⚠️  Could not find {file_name} anywhere in kernel source")

@@ -1,15 +1,17 @@
 {
   "stats": {
-    "fields_with_registrations": 138,
-    "registrations": 1216,
-    "ipset_template_registrations_resolved": 55,
-    "functions_with_dispatch": 156,
-    "new_indirect_edges": 3205,
-    "direct_edges": 4647,
+    "fields_with_registrations": 143,
+    "registrations": 1490,
+    "registrations_from_slots": 1481,
+    "registrations_from_argument_handoff": 9,
+    "callback_edges_from_argument_handoff": 13,
+    "functions_with_dispatch": 223,
+    "new_indirect_edges": 3905,
+    "direct_edges": 5537,
     "largest_fields": [
       [
         "destroy",
-        94
+        120
       ],
       [
         "init",
@@ -18,6 +20,10 @@
       [
         "dump",
         83
+      ],
+      [
+        "adt",
+        81
       ],
       [
         "checkentry",
@@ -40,6 +46,10 @@
         48
       ],
       [
+        "flush",
+        32
+      ],
+      [
         "kadt",
         27
       ],
@@ -48,28 +58,23 @@
         27
       ],
       [
-        "start",
-        25
+        "head",
+        27
       ],
       [
-        "hook",
-        23
+        "list",
+        27
       ],
       [
-        "reduce",
-        22
-      ],
-      [
-        "validate",
-        21
-      ],
-      [
-        "show",
-        20
+        "same_set",
+        27
       ]
     ]
   },
   "edges": {
+    "__build_packet_message": [
+      "ctnetlink_glue_build"
+    ],
     "__ip_vs_rs_conn_out": [
       "ip_vs_sip_conn_out"
     ],
@@ -95,6 +100,19 @@
     "__nf_ct_timeout_put": [
       "ctnl_timeout_put"
     ],
+    "__nf_hook_entries_try_shrink": [
+      "nf_route_table_hook4",
+      "nf_route_table_hook6",
+      "nf_route_table_inet",
+      "nft_do_chain_arp",
+      "nft_do_chain_bridge",
+      "nft_do_chain_inet",
+      "nft_do_chain_inet_ingress",
+      "nft_do_chain_ipv4",
+      "nft_do_chain_ipv6",
+      "nft_do_chain_netdev",
+      "nft_nat_do_chain"
+    ],
     "__nf_queue": [
       "nfqnl_enqueue_packet"
     ],
@@ -104,6 +122,9 @@
       "nft_nat_inet_unreg"
     ],
     "__nft_match_destroy": [
+      "bitmap_ip_destroy",
+      "bitmap_ipmac_destroy",
+      "bitmap_port_destroy",
       "bpf_mt_destroy",
       "bpf_mt_destroy_v1",
       "cgroup_mt_destroy_v1",
@@ -115,6 +136,29 @@
       "connmark_tg_destroy",
       "connsecmark_tg_destroy",
       "conntrack_mt_destroy",
+      "hash_ip4_destroy",
+      "hash_ip6_destroy",
+      "hash_ipmac4_destroy",
+      "hash_ipmac6_destroy",
+      "hash_ipmark4_destroy",
+      "hash_ipmark6_destroy",
+      "hash_ipport4_destroy",
+      "hash_ipport6_destroy",
+      "hash_ipportip4_destroy",
+      "hash_ipportip6_destroy",
+      "hash_ipportnet4_destroy",
+      "hash_ipportnet6_destroy",
+      "hash_mac4_destroy",
+      "hash_net4_destroy",
+      "hash_net6_destroy",
+      "hash_netiface4_destroy",
+      "hash_netiface6_destroy",
+      "hash_netnet4_destroy",
+      "hash_netnet6_destroy",
+      "hash_netport4_destroy",
+      "hash_netport6_destroy",
+      "hash_netportnet4_destroy",
+      "hash_netportnet6_destroy",
       "hashlimit_mt_destroy",
       "hashlimit_mt_destroy_v1",
       "hashlimit_mt_destroy_v2",
@@ -296,32 +340,85 @@
     "bind_mcastif_addr": [
       "nfnetlink_bind"
     ],
+    "bitmap_ip_kadt": [
+      "bitmap_ip_add",
+      "bitmap_ip_del",
+      "bitmap_ip_test"
+    ],
+    "bitmap_ip_uadt": [
+      "bitmap_ip_add",
+      "bitmap_ip_del",
+      "bitmap_ip_test"
+    ],
+    "bitmap_ipmac_kadt": [
+      "bitmap_ipmac_add",
+      "bitmap_ipmac_del",
+      "bitmap_ipmac_test"
+    ],
+    "bitmap_ipmac_uadt": [
+      "bitmap_ipmac_add",
+      "bitmap_ipmac_del",
+      "bitmap_ipmac_test"
+    ],
+    "bitmap_port_kadt": [
+      "bitmap_port_add",
+      "bitmap_port_del",
+      "bitmap_port_test"
+    ],
+    "bitmap_port_uadt": [
+      "bitmap_port_add",
+      "bitmap_port_del",
+      "bitmap_port_test"
+    ],
     "call_ad": [
       "bitmap_ip_uadt",
       "bitmap_ipmac_uadt",
       "bitmap_port_uadt",
+      "hash_ip4_resize",
       "hash_ip4_uadt",
+      "hash_ip6_resize",
       "hash_ip6_uadt",
+      "hash_ipmac4_resize",
       "hash_ipmac4_uadt",
+      "hash_ipmac6_resize",
       "hash_ipmac6_uadt",
+      "hash_ipmark4_resize",
       "hash_ipmark4_uadt",
+      "hash_ipmark6_resize",
       "hash_ipmark6_uadt",
+      "hash_ipport4_resize",
       "hash_ipport4_uadt",
+      "hash_ipport6_resize",
       "hash_ipport6_uadt",
+      "hash_ipportip4_resize",
       "hash_ipportip4_uadt",
+      "hash_ipportip6_resize",
       "hash_ipportip6_uadt",
+      "hash_ipportnet4_resize",
       "hash_ipportnet4_uadt",
+      "hash_ipportnet6_resize",
       "hash_ipportnet6_uadt",
+      "hash_mac4_resize",
       "hash_mac4_uadt",
+      "hash_net4_resize",
       "hash_net4_uadt",
+      "hash_net6_resize",
       "hash_net6_uadt",
+      "hash_netiface4_resize",
       "hash_netiface4_uadt",
+      "hash_netiface6_resize",
       "hash_netiface6_uadt",
+      "hash_netnet4_resize",
       "hash_netnet4_uadt",
+      "hash_netnet6_resize",
       "hash_netnet6_uadt",
+      "hash_netport4_resize",
       "hash_netport4_uadt",
+      "hash_netport6_resize",
       "hash_netport6_uadt",
+      "hash_netportnet4_resize",
       "hash_netportnet4_uadt",
+      "hash_netportnet6_resize",
       "hash_netportnet6_uadt",
       "list_set_uadt"
     ],
@@ -332,18 +429,21 @@
       "tcp_print_conntrack"
     ],
     "ctnetlink_change_helper": [
+      "nf_ct_ftp_from_nlattr",
       "nfnl_cthelper_from_nlattr",
       "nlattr_to_dccp",
       "nlattr_to_sctp",
       "nlattr_to_tcp"
     ],
     "ctnetlink_change_protoinfo": [
+      "nf_ct_ftp_from_nlattr",
       "nfnl_cthelper_from_nlattr",
       "nlattr_to_dccp",
       "nlattr_to_sctp",
       "nlattr_to_tcp"
     ],
     "ctnetlink_create_conntrack": [
+      "nf_ct_ftp_from_nlattr",
       "nfnl_cthelper_from_nlattr",
       "nlattr_to_dccp",
       "nlattr_to_sctp",
@@ -461,6 +561,377 @@
       "sctp_can_early_drop",
       "tcp_can_early_drop"
     ],
+    "get_next_corpse": [
+      "ctnetlink_flush_iterate",
+      "kill_all",
+      "nf_ct_tcp_fixup",
+      "nf_nat_proto_clean",
+      "unhelp",
+      "untimeout [nf_conntrack_timeout.c]",
+      "untimeout [nfnetlink_cttimeout.c]"
+    ],
+    "hash_ip4_kadt": [
+      "hash_ip4_add",
+      "hash_ip4_del",
+      "hash_ip4_test",
+      "hash_ip6_add",
+      "hash_ip6_del",
+      "hash_ip6_test"
+    ],
+    "hash_ip4_uadt": [
+      "hash_ip4_add",
+      "hash_ip4_del",
+      "hash_ip4_test",
+      "hash_ip6_add",
+      "hash_ip6_del",
+      "hash_ip6_test"
+    ],
+    "hash_ip6_kadt": [
+      "hash_ip4_add",
+      "hash_ip4_del",
+      "hash_ip4_test",
+      "hash_ip6_add",
+      "hash_ip6_del",
+      "hash_ip6_test"
+    ],
+    "hash_ip6_uadt": [
+      "hash_ip4_add",
+      "hash_ip4_del",
+      "hash_ip4_test",
+      "hash_ip6_add",
+      "hash_ip6_del",
+      "hash_ip6_test"
+    ],
+    "hash_ipmac4_kadt": [
+      "hash_ipmac4_add",
+      "hash_ipmac4_del",
+      "hash_ipmac4_test",
+      "hash_ipmac6_add",
+      "hash_ipmac6_del",
+      "hash_ipmac6_test"
+    ],
+    "hash_ipmac4_uadt": [
+      "hash_ipmac4_add",
+      "hash_ipmac4_del",
+      "hash_ipmac4_test",
+      "hash_ipmac6_add",
+      "hash_ipmac6_del",
+      "hash_ipmac6_test"
+    ],
+    "hash_ipmac6_kadt": [
+      "hash_ipmac4_add",
+      "hash_ipmac4_del",
+      "hash_ipmac4_test",
+      "hash_ipmac6_add",
+      "hash_ipmac6_del",
+      "hash_ipmac6_test"
+    ],
+    "hash_ipmac6_uadt": [
+      "hash_ipmac4_add",
+      "hash_ipmac4_del",
+      "hash_ipmac4_test",
+      "hash_ipmac6_add",
+      "hash_ipmac6_del",
+      "hash_ipmac6_test"
+    ],
+    "hash_ipmark4_kadt": [
+      "hash_ipmark4_add",
+      "hash_ipmark4_del",
+      "hash_ipmark4_test",
+      "hash_ipmark6_add",
+      "hash_ipmark6_del",
+      "hash_ipmark6_test"
+    ],
+    "hash_ipmark4_uadt": [
+      "hash_ipmark4_add",
+      "hash_ipmark4_del",
+      "hash_ipmark4_test",
+      "hash_ipmark6_add",
+      "hash_ipmark6_del",
+      "hash_ipmark6_test"
+    ],
+    "hash_ipmark6_kadt": [
+      "hash_ipmark4_add",
+      "hash_ipmark4_del",
+      "hash_ipmark4_test",
+      "hash_ipmark6_add",
+      "hash_ipmark6_del",
+      "hash_ipmark6_test"
+    ],
+    "hash_ipmark6_uadt": [
+      "hash_ipmark4_add",
+      "hash_ipmark4_del",
+      "hash_ipmark4_test",
+      "hash_ipmark6_add",
+      "hash_ipmark6_del",
+      "hash_ipmark6_test"
+    ],
+    "hash_ipport4_kadt": [
+      "hash_ipport4_add",
+      "hash_ipport4_del",
+      "hash_ipport4_test",
+      "hash_ipport6_add",
+      "hash_ipport6_del",
+      "hash_ipport6_test"
+    ],
+    "hash_ipport4_uadt": [
+      "hash_ipport4_add",
+      "hash_ipport4_del",
+      "hash_ipport4_test",
+      "hash_ipport6_add",
+      "hash_ipport6_del",
+      "hash_ipport6_test"
+    ],
+    "hash_ipport6_kadt": [
+      "hash_ipport4_add",
+      "hash_ipport4_del",
+      "hash_ipport4_test",
+      "hash_ipport6_add",
+      "hash_ipport6_del",
+      "hash_ipport6_test"
+    ],
+    "hash_ipport6_uadt": [
+      "hash_ipport4_add",
+      "hash_ipport4_del",
+      "hash_ipport4_test",
+      "hash_ipport6_add",
+      "hash_ipport6_del",
+      "hash_ipport6_test"
+    ],
+    "hash_ipportip4_kadt": [
+      "hash_ipportip4_add",
+      "hash_ipportip4_del",
+      "hash_ipportip4_test",
+      "hash_ipportip6_add",
+      "hash_ipportip6_del",
+      "hash_ipportip6_test"
+    ],
+    "hash_ipportip4_uadt": [
+      "hash_ipportip4_add",
+      "hash_ipportip4_del",
+      "hash_ipportip4_test",
+      "hash_ipportip6_add",
+      "hash_ipportip6_del",
+      "hash_ipportip6_test"
+    ],
+    "hash_ipportip6_kadt": [
+      "hash_ipportip4_add",
+      "hash_ipportip4_del",
+      "hash_ipportip4_test",
+      "hash_ipportip6_add",
+      "hash_ipportip6_del",
+      "hash_ipportip6_test"
+    ],
+    "hash_ipportip6_uadt": [
+      "hash_ipportip4_add",
+      "hash_ipportip4_del",
+      "hash_ipportip4_test",
+      "hash_ipportip6_add",
+      "hash_ipportip6_del",
+      "hash_ipportip6_test"
+    ],
+    "hash_ipportnet4_kadt": [
+      "hash_ipportnet4_add",
+      "hash_ipportnet4_del",
+      "hash_ipportnet4_test",
+      "hash_ipportnet6_add",
+      "hash_ipportnet6_del",
+      "hash_ipportnet6_test"
+    ],
+    "hash_ipportnet4_uadt": [
+      "hash_ipportnet4_add",
+      "hash_ipportnet4_del",
+      "hash_ipportnet4_test",
+      "hash_ipportnet6_add",
+      "hash_ipportnet6_del",
+      "hash_ipportnet6_test"
+    ],
+    "hash_ipportnet6_kadt": [
+      "hash_ipportnet4_add",
+      "hash_ipportnet4_del",
+      "hash_ipportnet4_test",
+      "hash_ipportnet6_add",
+      "hash_ipportnet6_del",
+      "hash_ipportnet6_test"
+    ],
+    "hash_ipportnet6_uadt": [
+      "hash_ipportnet4_add",
+      "hash_ipportnet4_del",
+      "hash_ipportnet4_test",
+      "hash_ipportnet6_add",
+      "hash_ipportnet6_del",
+      "hash_ipportnet6_test"
+    ],
+    "hash_mac4_kadt": [
+      "hash_mac4_add",
+      "hash_mac4_del",
+      "hash_mac4_test"
+    ],
+    "hash_mac4_uadt": [
+      "hash_mac4_add",
+      "hash_mac4_del",
+      "hash_mac4_test"
+    ],
+    "hash_net4_kadt": [
+      "hash_net4_add",
+      "hash_net4_del",
+      "hash_net4_test",
+      "hash_net6_add",
+      "hash_net6_del",
+      "hash_net6_test"
+    ],
+    "hash_net4_uadt": [
+      "hash_net4_add",
+      "hash_net4_del",
+      "hash_net4_test",
+      "hash_net6_add",
+      "hash_net6_del",
+      "hash_net6_test"
+    ],
+    "hash_net6_kadt": [
+      "hash_net4_add",
+      "hash_net4_del",
+      "hash_net4_test",
+      "hash_net6_add",
+      "hash_net6_del",
+      "hash_net6_test"
+    ],
+    "hash_net6_uadt": [
+      "hash_net4_add",
+      "hash_net4_del",
+      "hash_net4_test",
+      "hash_net6_add",
+      "hash_net6_del",
+      "hash_net6_test"
+    ],
+    "hash_netiface4_kadt": [
+      "hash_netiface4_add",
+      "hash_netiface4_del",
+      "hash_netiface4_test",
+      "hash_netiface6_add",
+      "hash_netiface6_del",
+      "hash_netiface6_test"
+    ],
+    "hash_netiface4_uadt": [
+      "hash_netiface4_add",
+      "hash_netiface4_del",
+      "hash_netiface4_test",
+      "hash_netiface6_add",
+      "hash_netiface6_del",
+      "hash_netiface6_test"
+    ],
+    "hash_netiface6_kadt": [
+      "hash_netiface4_add",
+      "hash_netiface4_del",
+      "hash_netiface4_test",
+      "hash_netiface6_add",
+      "hash_netiface6_del",
+      "hash_netiface6_test"
+    ],
+    "hash_netiface6_uadt": [
+      "hash_netiface4_add",
+      "hash_netiface4_del",
+      "hash_netiface4_test",
+      "hash_netiface6_add",
+      "hash_netiface6_del",
+      "hash_netiface6_test"
+    ],
+    "hash_netnet4_kadt": [
+      "hash_netnet4_add",
+      "hash_netnet4_del",
+      "hash_netnet4_test",
+      "hash_netnet6_add",
+      "hash_netnet6_del",
+      "hash_netnet6_test"
+    ],
+    "hash_netnet4_uadt": [
+      "hash_netnet4_add",
+      "hash_netnet4_del",
+      "hash_netnet4_test",
+      "hash_netnet6_add",
+      "hash_netnet6_del",
+      "hash_netnet6_test"
+    ],
+    "hash_netnet6_kadt": [
+      "hash_netnet4_add",
+      "hash_netnet4_del",
+      "hash_netnet4_test",
+      "hash_netnet6_add",
+      "hash_netnet6_del",
+      "hash_netnet6_test"
+    ],
+    "hash_netnet6_uadt": [
+      "hash_netnet4_add",
+      "hash_netnet4_del",
+      "hash_netnet4_test",
+      "hash_netnet6_add",
+      "hash_netnet6_del",
+      "hash_netnet6_test"
+    ],
+    "hash_netport4_kadt": [
+      "hash_netport4_add",
+      "hash_netport4_del",
+      "hash_netport4_test",
+      "hash_netport6_add",
+      "hash_netport6_del",
+      "hash_netport6_test"
+    ],
+    "hash_netport4_uadt": [
+      "hash_netport4_add",
+      "hash_netport4_del",
+      "hash_netport4_test",
+      "hash_netport6_add",
+      "hash_netport6_del",
+      "hash_netport6_test"
+    ],
+    "hash_netport6_kadt": [
+      "hash_netport4_add",
+      "hash_netport4_del",
+      "hash_netport4_test",
+      "hash_netport6_add",
+      "hash_netport6_del",
+      "hash_netport6_test"
+    ],
+    "hash_netport6_uadt": [
+      "hash_netport4_add",
+      "hash_netport4_del",
+      "hash_netport4_test",
+      "hash_netport6_add",
+      "hash_netport6_del",
+      "hash_netport6_test"
+    ],
+    "hash_netportnet4_kadt": [
+      "hash_netportnet4_add",
+      "hash_netportnet4_del",
+      "hash_netportnet4_test",
+      "hash_netportnet6_add",
+      "hash_netportnet6_del",
+      "hash_netportnet6_test"
+    ],
+    "hash_netportnet4_uadt": [
+      "hash_netportnet4_add",
+      "hash_netportnet4_del",
+      "hash_netportnet4_test",
+      "hash_netportnet6_add",
+      "hash_netportnet6_del",
+      "hash_netportnet6_test"
+    ],
+    "hash_netportnet6_kadt": [
+      "hash_netportnet4_add",
+      "hash_netportnet4_del",
+      "hash_netportnet4_test",
+      "hash_netportnet6_add",
+      "hash_netportnet6_del",
+      "hash_netportnet6_test"
+    ],
+    "hash_netportnet6_uadt": [
+      "hash_netportnet4_add",
+      "hash_netportnet4_del",
+      "hash_netportnet4_test",
+      "hash_netportnet6_add",
+      "hash_netportnet6_del",
+      "hash_netportnet6_test"
+    ],
     "init_conntrack": [
       "ip_vs_nfct_expect_callback",
       "nf_nat_follow_master",
@@ -503,102 +974,32 @@
       "bitmap_ipmac_same_set",
       "bitmap_port_create",
       "bitmap_port_same_set",
-      "bpf_mt_destroy",
-      "bpf_mt_destroy_v1",
-      "cgroup_mt_destroy_v1",
-      "cgroup_mt_destroy_v2",
-      "connbytes_mt_destroy",
-      "connlabel_mt_destroy",
-      "connlimit_mt_destroy",
-      "connmark_mt_destroy",
-      "connmark_tg_destroy",
-      "connsecmark_tg_destroy",
-      "conntrack_mt_destroy",
-      "hashlimit_mt_destroy",
-      "hashlimit_mt_destroy_v1",
-      "hashlimit_mt_destroy_v2",
-      "helper_mt_destroy",
-      "idletimer_tg_destroy",
-      "idletimer_tg_destroy_v1",
+      "hash_ip4_same_set",
+      "hash_ip6_same_set",
+      "hash_ipmac4_same_set",
+      "hash_ipmac6_same_set",
+      "hash_ipmark4_same_set",
+      "hash_ipmark6_same_set",
+      "hash_ipport4_same_set",
+      "hash_ipport6_same_set",
+      "hash_ipportip4_same_set",
+      "hash_ipportip6_same_set",
+      "hash_ipportnet4_same_set",
+      "hash_ipportnet6_same_set",
+      "hash_mac4_same_set",
+      "hash_net4_same_set",
+      "hash_net6_same_set",
+      "hash_netiface4_same_set",
+      "hash_netiface6_same_set",
+      "hash_netnet4_same_set",
+      "hash_netnet6_same_set",
+      "hash_netport4_same_set",
+      "hash_netport6_same_set",
+      "hash_netportnet4_same_set",
+      "hash_netportnet6_same_set",
       "ip_set_comment_free",
-      "led_tg_destroy",
-      "limit_mt_destroy",
       "list_set_create",
-      "list_set_destroy",
-      "list_set_same_set",
-      "log_tg_destroy",
-      "masquerade_tg_destroy",
-      "netmap_tg_destroy",
-      "nf_ct_destroy",
-      "nfacct_mt_destroy",
-      "nflog_tg_destroy",
-      "nft_bitmap_destroy",
-      "nft_connlimit_destroy",
-      "nft_connlimit_obj_destroy",
-      "nft_counter_destroy",
-      "nft_counter_obj_destroy",
-      "nft_ct_expect_obj_destroy",
-      "nft_ct_get_destroy",
-      "nft_ct_helper_obj_destroy",
-      "nft_ct_set_destroy",
-      "nft_ct_timeout_obj_destroy",
-      "nft_dynset_destroy",
-      "nft_flow_offload_destroy",
-      "nft_hash_destroy",
-      "nft_immediate_destroy",
-      "nft_last_destroy",
-      "nft_limit_bytes_destroy",
-      "nft_limit_obj_bytes_destroy",
-      "nft_limit_obj_pkts_destroy",
-      "nft_limit_pkts_destroy",
-      "nft_log_destroy",
-      "nft_lookup_destroy",
-      "nft_masq_inet_destroy",
-      "nft_masq_ipv4_destroy",
-      "nft_masq_ipv6_destroy",
-      "nft_match_destroy",
-      "nft_match_large_destroy",
-      "nft_meta_set_destroy",
-      "nft_nat_destroy",
-      "nft_ng_inc_destroy",
-      "nft_objref_map_destroy",
-      "nft_pipapo_destroy",
-      "nft_quota_destroy",
-      "nft_quota_obj_destroy",
-      "nft_rbtree_destroy",
-      "nft_redir_inet_destroy",
-      "nft_redir_ipv4_destroy",
-      "nft_redir_ipv6_destroy",
-      "nft_rhash_destroy",
-      "nft_secmark_obj_destroy",
-      "nft_synproxy_destroy",
-      "nft_synproxy_obj_destroy",
-      "nft_target_destroy",
-      "nft_tproxy_destroy",
-      "nft_tunnel_obj_destroy",
-      "pptp_destroy_siblings",
-      "quota_mt_destroy",
-      "recent_mt_destroy",
-      "redirect_tg_destroy",
-      "secmark_tg_destroy",
-      "set_match_v0_destroy",
-      "set_match_v1_destroy",
-      "set_target_v0_destroy",
-      "set_target_v1_destroy",
-      "set_target_v3_destroy",
-      "socket_mt_destroy",
-      "state_mt_destroy",
-      "statistic_mt_destroy",
-      "string_mt_destroy",
-      "tee_tg_destroy",
-      "tproxy_tg4_destroy",
-      "tproxy_tg6_destroy",
-      "trace_tg_destroy",
-      "xt_cluster_mt_destroy",
-      "xt_ct_tg_destroy_v0",
-      "xt_ct_tg_destroy_v1",
-      "xt_nat_destroy",
-      "xt_rateest_mt_destroy"
+      "list_set_same_set"
     ],
     "ip_set_del": [
       "bitmap_ip_kadt",
@@ -630,106 +1031,139 @@
       "list_set_kadt"
     ],
     "ip_set_destroy_set": [
-      "bpf_mt_destroy",
-      "bpf_mt_destroy_v1",
-      "cgroup_mt_destroy_v1",
-      "cgroup_mt_destroy_v2",
-      "connbytes_mt_destroy",
-      "connlabel_mt_destroy",
-      "connlimit_mt_destroy",
-      "connmark_mt_destroy",
-      "connmark_tg_destroy",
-      "connsecmark_tg_destroy",
-      "conntrack_mt_destroy",
-      "hashlimit_mt_destroy",
-      "hashlimit_mt_destroy_v1",
-      "hashlimit_mt_destroy_v2",
-      "helper_mt_destroy",
-      "idletimer_tg_destroy",
-      "idletimer_tg_destroy_v1",
-      "ip_set_comment_free",
-      "led_tg_destroy",
-      "limit_mt_destroy",
-      "list_set_destroy",
-      "log_tg_destroy",
-      "masquerade_tg_destroy",
-      "netmap_tg_destroy",
-      "nf_ct_destroy",
-      "nfacct_mt_destroy",
-      "nflog_tg_destroy",
-      "nft_bitmap_destroy",
-      "nft_connlimit_destroy",
-      "nft_connlimit_obj_destroy",
-      "nft_counter_destroy",
-      "nft_counter_obj_destroy",
-      "nft_ct_expect_obj_destroy",
-      "nft_ct_get_destroy",
-      "nft_ct_helper_obj_destroy",
-      "nft_ct_set_destroy",
-      "nft_ct_timeout_obj_destroy",
-      "nft_dynset_destroy",
-      "nft_flow_offload_destroy",
-      "nft_hash_destroy",
-      "nft_immediate_destroy",
-      "nft_last_destroy",
-      "nft_limit_bytes_destroy",
-      "nft_limit_obj_bytes_destroy",
-      "nft_limit_obj_pkts_destroy",
-      "nft_limit_pkts_destroy",
-      "nft_log_destroy",
-      "nft_lookup_destroy",
-      "nft_masq_inet_destroy",
-      "nft_masq_ipv4_destroy",
-      "nft_masq_ipv6_destroy",
-      "nft_match_destroy",
-      "nft_match_large_destroy",
-      "nft_meta_set_destroy",
-      "nft_nat_destroy",
-      "nft_ng_inc_destroy",
-      "nft_objref_map_destroy",
-      "nft_pipapo_destroy",
-      "nft_quota_destroy",
-      "nft_quota_obj_destroy",
-      "nft_rbtree_destroy",
-      "nft_redir_inet_destroy",
-      "nft_redir_ipv4_destroy",
-      "nft_redir_ipv6_destroy",
-      "nft_rhash_destroy",
-      "nft_secmark_obj_destroy",
-      "nft_synproxy_destroy",
-      "nft_synproxy_obj_destroy",
-      "nft_target_destroy",
-      "nft_tproxy_destroy",
-      "nft_tunnel_obj_destroy",
-      "pptp_destroy_siblings",
-      "quota_mt_destroy",
-      "recent_mt_destroy",
-      "redirect_tg_destroy",
-      "secmark_tg_destroy",
-      "set_match_v0_destroy",
-      "set_match_v1_destroy",
-      "set_target_v0_destroy",
-      "set_target_v1_destroy",
-      "set_target_v3_destroy",
-      "socket_mt_destroy",
-      "state_mt_destroy",
-      "statistic_mt_destroy",
-      "string_mt_destroy",
-      "tee_tg_destroy",
-      "tproxy_tg4_destroy",
-      "tproxy_tg6_destroy",
-      "trace_tg_destroy",
-      "xt_cluster_mt_destroy",
-      "xt_ct_tg_destroy_v0",
-      "xt_ct_tg_destroy_v1",
-      "xt_nat_destroy",
-      "xt_rateest_mt_destroy"
+      "ip_set_comment_free"
     ],
     "ip_set_dump_do": [
+      "bitmap_ip_head",
+      "bitmap_ip_list",
+      "bitmap_ipmac_head",
+      "bitmap_ipmac_list",
+      "bitmap_port_head",
+      "bitmap_port_list",
+      "hash_ip4_head",
+      "hash_ip4_list",
+      "hash_ip4_uref",
+      "hash_ip6_head",
+      "hash_ip6_list",
+      "hash_ip6_uref",
+      "hash_ipmac4_head",
+      "hash_ipmac4_list",
+      "hash_ipmac4_uref",
+      "hash_ipmac6_head",
+      "hash_ipmac6_list",
+      "hash_ipmac6_uref",
+      "hash_ipmark4_head",
+      "hash_ipmark4_list",
+      "hash_ipmark4_uref",
+      "hash_ipmark6_head",
+      "hash_ipmark6_list",
+      "hash_ipmark6_uref",
+      "hash_ipport4_head",
+      "hash_ipport4_list",
+      "hash_ipport4_uref",
+      "hash_ipport6_head",
+      "hash_ipport6_list",
+      "hash_ipport6_uref",
+      "hash_ipportip4_head",
+      "hash_ipportip4_list",
+      "hash_ipportip4_uref",
+      "hash_ipportip6_head",
+      "hash_ipportip6_list",
+      "hash_ipportip6_uref",
+      "hash_ipportnet4_head",
+      "hash_ipportnet4_list",
+      "hash_ipportnet4_uref",
+      "hash_ipportnet6_head",
+      "hash_ipportnet6_list",
+      "hash_ipportnet6_uref",
+      "hash_mac4_head",
+      "hash_mac4_list",
+      "hash_mac4_uref",
+      "hash_net4_head",
+      "hash_net4_list",
+      "hash_net4_uref",
+      "hash_net6_head",
+      "hash_net6_list",
+      "hash_net6_uref",
+      "hash_netiface4_head",
+      "hash_netiface4_list",
+      "hash_netiface4_uref",
+      "hash_netiface6_head",
+      "hash_netiface6_list",
+      "hash_netiface6_uref",
+      "hash_netnet4_head",
+      "hash_netnet4_list",
+      "hash_netnet4_uref",
+      "hash_netnet6_head",
+      "hash_netnet6_list",
+      "hash_netnet6_uref",
+      "hash_netport4_head",
+      "hash_netport4_list",
+      "hash_netport4_uref",
+      "hash_netport6_head",
+      "hash_netport6_list",
+      "hash_netport6_uref",
+      "hash_netportnet4_head",
+      "hash_netportnet4_list",
+      "hash_netportnet4_uref",
+      "hash_netportnet6_head",
+      "hash_netportnet6_list",
+      "hash_netportnet6_uref",
       "list_set_head",
       "list_set_list"
     ],
+    "ip_set_dump_done": [
+      "hash_ip4_uref",
+      "hash_ip6_uref",
+      "hash_ipmac4_uref",
+      "hash_ipmac6_uref",
+      "hash_ipmark4_uref",
+      "hash_ipmark6_uref",
+      "hash_ipport4_uref",
+      "hash_ipport6_uref",
+      "hash_ipportip4_uref",
+      "hash_ipportip6_uref",
+      "hash_ipportnet4_uref",
+      "hash_ipportnet6_uref",
+      "hash_mac4_uref",
+      "hash_net4_uref",
+      "hash_net6_uref",
+      "hash_netiface4_uref",
+      "hash_netiface6_uref",
+      "hash_netnet4_uref",
+      "hash_netnet6_uref",
+      "hash_netport4_uref",
+      "hash_netport6_uref",
+      "hash_netportnet4_uref",
+      "hash_netportnet6_uref"
+    ],
     "ip_set_flush_set": [
+      "bitmap_ip_flush",
+      "bitmap_ipmac_flush",
+      "bitmap_port_flush",
+      "hash_ip4_flush",
+      "hash_ip6_flush",
+      "hash_ipmac4_flush",
+      "hash_ipmac6_flush",
+      "hash_ipmark4_flush",
+      "hash_ipmark6_flush",
+      "hash_ipport4_flush",
+      "hash_ipport6_flush",
+      "hash_ipportip4_flush",
+      "hash_ipportip6_flush",
+      "hash_ipportnet4_flush",
+      "hash_ipportnet6_flush",
+      "hash_mac4_flush",
+      "hash_net4_flush",
+      "hash_net6_flush",
+      "hash_netiface4_flush",
+      "hash_netiface6_flush",
+      "hash_netnet4_flush",
+      "hash_netnet6_flush",
+      "hash_netport4_flush",
+      "hash_netport6_flush",
+      "hash_netportnet4_flush",
+      "hash_netportnet6_flush",
       "list_set_flush",
       "nft_bitmap_flush",
       "nft_hash_flush",
@@ -881,6 +1315,42 @@
       "ip_vs_tunnel_xmit",
       "ip_vs_tunnel_xmit_v6"
     ],
+    "ip_vs_mh_get": [
+      "nft_bitmap_lookup",
+      "nft_hash_lookup",
+      "nft_hash_lookup_fast",
+      "nft_pipapo_avx2_lookup",
+      "nft_pipapo_lookup",
+      "nft_rbtree_lookup",
+      "nft_rhash_lookup"
+    ],
+    "ip_vs_mh_get_fallback": [
+      "nft_bitmap_lookup",
+      "nft_hash_lookup",
+      "nft_hash_lookup_fast",
+      "nft_pipapo_avx2_lookup",
+      "nft_pipapo_lookup",
+      "nft_rbtree_lookup",
+      "nft_rhash_lookup"
+    ],
+    "ip_vs_mh_populate": [
+      "nft_bitmap_lookup",
+      "nft_hash_lookup",
+      "nft_hash_lookup_fast",
+      "nft_pipapo_avx2_lookup",
+      "nft_pipapo_lookup",
+      "nft_rbtree_lookup",
+      "nft_rhash_lookup"
+    ],
+    "ip_vs_mh_reset": [
+      "nft_bitmap_lookup",
+      "nft_hash_lookup",
+      "nft_hash_lookup_fast",
+      "nft_pipapo_avx2_lookup",
+      "nft_pipapo_lookup",
+      "nft_rbtree_lookup",
+      "nft_rhash_lookup"
+    ],
     "ip_vs_nat_xmit": [
       "sctp_dnat_handler",
       "tcp_dnat_handler",
@@ -957,6 +1427,11 @@
       "ah_esp_conn_out_get",
       "ip_vs_conn_out_get_proto"
     ],
+    "list_set_uadt": [
+      "list_set_uadd",
+      "list_set_udel",
+      "list_set_utest"
+    ],
     "make_receive_sock": [
       "nfnetlink_bind"
     ],
@@ -964,13 +1439,22 @@
       "amanda_help",
       "conntrack_pptp_help",
       "h245_help",
+      "help [nf_conntrack_ftp.c]",
+      "help [nf_conntrack_irc.c]",
+      "help [nf_conntrack_sane.c]",
       "netbios_ns_help",
       "nfnl_userspace_cthelper",
       "q931_help",
       "ras_help",
-      "snmp_conntrack_help"
+      "sip_help_tcp",
+      "sip_help_udp",
+      "snmp_conntrack_help",
+      "tftp_help"
     ],
     "nf_conntrack_destroy": [
+      "bitmap_ip_destroy",
+      "bitmap_ipmac_destroy",
+      "bitmap_port_destroy",
       "bpf_mt_destroy",
       "bpf_mt_destroy_v1",
       "cgroup_mt_destroy_v1",
@@ -982,6 +1466,29 @@
       "connmark_tg_destroy",
       "connsecmark_tg_destroy",
       "conntrack_mt_destroy",
+      "hash_ip4_destroy",
+      "hash_ip6_destroy",
+      "hash_ipmac4_destroy",
+      "hash_ipmac6_destroy",
+      "hash_ipmark4_destroy",
+      "hash_ipmark6_destroy",
+      "hash_ipport4_destroy",
+      "hash_ipport6_destroy",
+      "hash_ipportip4_destroy",
+      "hash_ipportip6_destroy",
+      "hash_ipportnet4_destroy",
+      "hash_ipportnet6_destroy",
+      "hash_mac4_destroy",
+      "hash_net4_destroy",
+      "hash_net6_destroy",
+      "hash_netiface4_destroy",
+      "hash_netiface6_destroy",
+      "hash_netnet4_destroy",
+      "hash_netnet6_destroy",
+      "hash_netport4_destroy",
+      "hash_netport6_destroy",
+      "hash_netportnet4_destroy",
+      "hash_netportnet6_destroy",
       "hashlimit_mt_destroy",
       "hashlimit_mt_destroy_v1",
       "hashlimit_mt_destroy_v2",
@@ -1078,7 +1585,17 @@
     "nf_ct_expect_event_report": [
       "ctnetlink_expect_event"
     ],
+    "nf_ct_expect_iterate_destroy": [
+      "expect_iter_me"
+    ],
+    "nf_ct_expect_iterate_net": [
+      "expect_iter_all",
+      "expect_iter_name"
+    ],
     "nf_ct_find_expectation": [
+      "bitmap_ip_destroy",
+      "bitmap_ipmac_destroy",
+      "bitmap_port_destroy",
       "bpf_mt_destroy",
       "bpf_mt_destroy_v1",
       "cgroup_mt_destroy_v1",
@@ -1090,6 +1607,29 @@
       "connmark_tg_destroy",
       "connsecmark_tg_destroy",
       "conntrack_mt_destroy",
+      "hash_ip4_destroy",
+      "hash_ip6_destroy",
+      "hash_ipmac4_destroy",
+      "hash_ipmac6_destroy",
+      "hash_ipmark4_destroy",
+      "hash_ipmark6_destroy",
+      "hash_ipport4_destroy",
+      "hash_ipport6_destroy",
+      "hash_ipportip4_destroy",
+      "hash_ipportip6_destroy",
+      "hash_ipportnet4_destroy",
+      "hash_ipportnet6_destroy",
+      "hash_mac4_destroy",
+      "hash_net4_destroy",
+      "hash_net6_destroy",
+      "hash_netiface4_destroy",
+      "hash_netiface6_destroy",
+      "hash_netnet4_destroy",
+      "hash_netnet6_destroy",
+      "hash_netport4_destroy",
+      "hash_netport6_destroy",
+      "hash_netportnet4_destroy",
+      "hash_netportnet6_destroy",
       "hashlimit_mt_destroy",
       "hashlimit_mt_destroy_v1",
       "hashlimit_mt_destroy_v2",
@@ -1178,6 +1718,9 @@
       "nf_conntrack_get_tuple_skb"
     ],
     "nf_ct_helper_destroy": [
+      "bitmap_ip_destroy",
+      "bitmap_ipmac_destroy",
+      "bitmap_port_destroy",
       "bpf_mt_destroy",
       "bpf_mt_destroy_v1",
       "cgroup_mt_destroy_v1",
@@ -1189,6 +1732,29 @@
       "connmark_tg_destroy",
       "connsecmark_tg_destroy",
       "conntrack_mt_destroy",
+      "hash_ip4_destroy",
+      "hash_ip6_destroy",
+      "hash_ipmac4_destroy",
+      "hash_ipmac6_destroy",
+      "hash_ipmark4_destroy",
+      "hash_ipmark6_destroy",
+      "hash_ipport4_destroy",
+      "hash_ipport6_destroy",
+      "hash_ipportip4_destroy",
+      "hash_ipportip6_destroy",
+      "hash_ipportnet4_destroy",
+      "hash_ipportnet6_destroy",
+      "hash_mac4_destroy",
+      "hash_net4_destroy",
+      "hash_net6_destroy",
+      "hash_netiface4_destroy",
+      "hash_netiface6_destroy",
+      "hash_netnet4_destroy",
+      "hash_netnet6_destroy",
+      "hash_netport4_destroy",
+      "hash_netport6_destroy",
+      "hash_netportnet4_destroy",
+      "hash_netportnet6_destroy",
       "hashlimit_mt_destroy",
       "hashlimit_mt_destroy_v1",
       "hashlimit_mt_destroy_v2",
@@ -1281,6 +1847,10 @@
       "nf_flow_rule_route_ipv4",
       "nf_flow_rule_route_ipv6"
     ],
+    "nf_flow_table_iterate": [
+      "nf_flow_offload_gc_step",
+      "nf_flow_table_do_cleanup"
+    ],
     "nf_getsockopt": [
       "do_ip_vs_get_ctl",
       "getorigdst",
@@ -1291,6 +1861,45 @@
       "nft_pipapo_get",
       "nft_rbtree_get",
       "nft_rhash_get"
+    ],
+    "nf_hook_entries_grow": [
+      "nf_route_table_hook4",
+      "nf_route_table_hook6",
+      "nf_route_table_inet",
+      "nft_do_chain_arp",
+      "nft_do_chain_bridge",
+      "nft_do_chain_inet",
+      "nft_do_chain_inet_ingress",
+      "nft_do_chain_ipv4",
+      "nft_do_chain_ipv6",
+      "nft_do_chain_netdev",
+      "nft_nat_do_chain"
+    ],
+    "nf_hook_slow": [
+      "nf_route_table_hook4",
+      "nf_route_table_hook6",
+      "nf_route_table_inet",
+      "nft_do_chain_arp",
+      "nft_do_chain_bridge",
+      "nft_do_chain_inet",
+      "nft_do_chain_inet_ingress",
+      "nft_do_chain_ipv4",
+      "nft_do_chain_ipv6",
+      "nft_do_chain_netdev",
+      "nft_nat_do_chain"
+    ],
+    "nf_iterate": [
+      "nf_route_table_hook4",
+      "nf_route_table_hook6",
+      "nf_route_table_inet",
+      "nft_do_chain_arp",
+      "nft_do_chain_bridge",
+      "nft_do_chain_inet",
+      "nft_do_chain_inet_ingress",
+      "nft_do_chain_ipv4",
+      "nft_do_chain_ipv6",
+      "nft_do_chain_netdev",
+      "nft_nat_do_chain"
     ],
     "nf_log_packet": [
       "nf_log_arp_packet",
@@ -1306,8 +1915,47 @@
       "nf_log_netdev_packet",
       "nfulnl_log_packet"
     ],
+    "nf_nat_inet_fn": [
+      "nf_route_table_hook4",
+      "nf_route_table_hook6",
+      "nf_route_table_inet",
+      "nft_do_chain_arp",
+      "nft_do_chain_bridge",
+      "nft_do_chain_inet",
+      "nft_do_chain_inet_ingress",
+      "nft_do_chain_ipv4",
+      "nft_do_chain_ipv6",
+      "nft_do_chain_netdev",
+      "nft_nat_do_chain"
+    ],
     "nf_queue_nf_hook_drop": [
       "nfqnl_nf_hook_drop"
+    ],
+    "nf_reinject": [
+      "nf_route_table_hook4",
+      "nf_route_table_hook6",
+      "nf_route_table_inet",
+      "nft_do_chain_arp",
+      "nft_do_chain_bridge",
+      "nft_do_chain_inet",
+      "nft_do_chain_inet_ingress",
+      "nft_do_chain_ipv4",
+      "nft_do_chain_ipv6",
+      "nft_do_chain_netdev",
+      "nft_nat_do_chain"
+    ],
+    "nf_remove_net_hook": [
+      "nf_route_table_hook4",
+      "nf_route_table_hook6",
+      "nf_route_table_inet",
+      "nft_do_chain_arp",
+      "nft_do_chain_bridge",
+      "nft_do_chain_inet",
+      "nft_do_chain_inet_ingress",
+      "nft_do_chain_ipv4",
+      "nft_do_chain_ipv6",
+      "nft_do_chain_netdev",
+      "nft_nat_do_chain"
     ],
     "nf_setsockopt": [
       "do_ip_vs_set_ctl"
@@ -1334,6 +1982,9 @@
       "nft_rhash_walk"
     ],
     "nf_tables_expr_destroy": [
+      "bitmap_ip_destroy",
+      "bitmap_ipmac_destroy",
+      "bitmap_port_destroy",
       "bpf_mt_destroy",
       "bpf_mt_destroy_v1",
       "cgroup_mt_destroy_v1",
@@ -1345,6 +1996,29 @@
       "connmark_tg_destroy",
       "connsecmark_tg_destroy",
       "conntrack_mt_destroy",
+      "hash_ip4_destroy",
+      "hash_ip6_destroy",
+      "hash_ipmac4_destroy",
+      "hash_ipmac6_destroy",
+      "hash_ipmark4_destroy",
+      "hash_ipmark6_destroy",
+      "hash_ipport4_destroy",
+      "hash_ipport6_destroy",
+      "hash_ipportip4_destroy",
+      "hash_ipportip6_destroy",
+      "hash_ipportnet4_destroy",
+      "hash_ipportnet6_destroy",
+      "hash_mac4_destroy",
+      "hash_net4_destroy",
+      "hash_net6_destroy",
+      "hash_netiface4_destroy",
+      "hash_netiface6_destroy",
+      "hash_netnet4_destroy",
+      "hash_netnet6_destroy",
+      "hash_netport4_destroy",
+      "hash_netport6_destroy",
+      "hash_netportnet4_destroy",
+      "hash_netportnet6_destroy",
       "hashlimit_mt_destroy",
       "hashlimit_mt_destroy_v1",
       "hashlimit_mt_destroy_v2",
@@ -1727,6 +2401,9 @@
       "xt_net_init"
     ],
     "nf_tables_newobj": [
+      "bitmap_ip_destroy",
+      "bitmap_ipmac_destroy",
+      "bitmap_port_destroy",
       "bpf_mt_destroy",
       "bpf_mt_destroy_v1",
       "cgroup_mt_destroy_v1",
@@ -1738,6 +2415,29 @@
       "connmark_tg_destroy",
       "connsecmark_tg_destroy",
       "conntrack_mt_destroy",
+      "hash_ip4_destroy",
+      "hash_ip6_destroy",
+      "hash_ipmac4_destroy",
+      "hash_ipmac6_destroy",
+      "hash_ipmark4_destroy",
+      "hash_ipmark6_destroy",
+      "hash_ipport4_destroy",
+      "hash_ipport6_destroy",
+      "hash_ipportip4_destroy",
+      "hash_ipportip6_destroy",
+      "hash_ipportnet4_destroy",
+      "hash_ipportnet6_destroy",
+      "hash_mac4_destroy",
+      "hash_net4_destroy",
+      "hash_net6_destroy",
+      "hash_netiface4_destroy",
+      "hash_netiface6_destroy",
+      "hash_netnet4_destroy",
+      "hash_netnet6_destroy",
+      "hash_netport4_destroy",
+      "hash_netport6_destroy",
+      "hash_netportnet4_destroy",
+      "hash_netportnet6_destroy",
       "hashlimit_mt_destroy",
       "hashlimit_mt_destroy_v1",
       "hashlimit_mt_destroy_v2",
@@ -1831,6 +2531,9 @@
       "__ip_vs_init",
       "__ip_vs_lblc_init",
       "__ip_vs_lblcr_init",
+      "bitmap_ip_destroy",
+      "bitmap_ipmac_destroy",
+      "bitmap_port_destroy",
       "bpf_mt_destroy",
       "bpf_mt_destroy_v1",
       "cgroup_mt_destroy_v1",
@@ -1844,6 +2547,29 @@
       "conntrack_mt_destroy",
       "ctnetlink_net_init",
       "cttimeout_net_init",
+      "hash_ip4_destroy",
+      "hash_ip6_destroy",
+      "hash_ipmac4_destroy",
+      "hash_ipmac6_destroy",
+      "hash_ipmark4_destroy",
+      "hash_ipmark6_destroy",
+      "hash_ipport4_destroy",
+      "hash_ipport6_destroy",
+      "hash_ipportip4_destroy",
+      "hash_ipportip6_destroy",
+      "hash_ipportnet4_destroy",
+      "hash_ipportnet6_destroy",
+      "hash_mac4_destroy",
+      "hash_net4_destroy",
+      "hash_net6_destroy",
+      "hash_netiface4_destroy",
+      "hash_netiface6_destroy",
+      "hash_netnet4_destroy",
+      "hash_netnet6_destroy",
+      "hash_netport4_destroy",
+      "hash_netport6_destroy",
+      "hash_netportnet4_destroy",
+      "hash_netportnet6_destroy",
       "hashlimit_mt_destroy",
       "hashlimit_mt_destroy_v1",
       "hashlimit_mt_destroy_v2",
@@ -2179,6 +2905,9 @@
       "ctnetlink_glue_attach_expect",
       "ctnetlink_glue_parse"
     ],
+    "nfqnl_flush": [
+      "dev_cmp"
+    ],
     "nfqnl_nf_hook_drop": [
       "__ip_vs_ftp_exit",
       "__ip_vs_ftp_init",
@@ -2300,6 +3029,19 @@
       "nft_rhash_update",
       "nft_synproxy_obj_update"
     ],
+    "nft_basechain_hook_init": [
+      "nf_route_table_hook4",
+      "nf_route_table_hook6",
+      "nf_route_table_inet",
+      "nft_do_chain_arp",
+      "nft_do_chain_bridge",
+      "nft_do_chain_inet",
+      "nft_do_chain_inet_ingress",
+      "nft_do_chain_ipv4",
+      "nft_do_chain_ipv6",
+      "nft_do_chain_netdev",
+      "nft_nat_do_chain"
+    ],
     "nft_bitmap_walk": [
       "nf_tables_bind_check_setelem",
       "nf_tables_dump_setelem",
@@ -2389,6 +3131,9 @@
       "nft_synproxy_obj_update"
     ],
     "nft_obj_destroy": [
+      "bitmap_ip_destroy",
+      "bitmap_ipmac_destroy",
+      "bitmap_port_destroy",
       "bpf_mt_destroy",
       "bpf_mt_destroy_v1",
       "cgroup_mt_destroy_v1",
@@ -2400,6 +3145,29 @@
       "connmark_tg_destroy",
       "connsecmark_tg_destroy",
       "conntrack_mt_destroy",
+      "hash_ip4_destroy",
+      "hash_ip6_destroy",
+      "hash_ipmac4_destroy",
+      "hash_ipmac6_destroy",
+      "hash_ipmark4_destroy",
+      "hash_ipmark6_destroy",
+      "hash_ipport4_destroy",
+      "hash_ipport6_destroy",
+      "hash_ipportip4_destroy",
+      "hash_ipportip6_destroy",
+      "hash_ipportnet4_destroy",
+      "hash_ipportnet6_destroy",
+      "hash_mac4_destroy",
+      "hash_net4_destroy",
+      "hash_net6_destroy",
+      "hash_netiface4_destroy",
+      "hash_netiface6_destroy",
+      "hash_netnet4_destroy",
+      "hash_netnet6_destroy",
+      "hash_netport4_destroy",
+      "hash_netport6_destroy",
+      "hash_netportnet4_destroy",
+      "hash_netportnet6_destroy",
       "hashlimit_mt_destroy",
       "hashlimit_mt_destroy_v1",
       "hashlimit_mt_destroy_v2",
@@ -2892,6 +3660,9 @@
       "nft_rhash_estimate"
     ],
     "nft_set_destroy": [
+      "bitmap_ip_destroy",
+      "bitmap_ipmac_destroy",
+      "bitmap_port_destroy",
       "bpf_mt_destroy",
       "bpf_mt_destroy_v1",
       "cgroup_mt_destroy_v1",
@@ -2903,6 +3674,29 @@
       "connmark_tg_destroy",
       "connsecmark_tg_destroy",
       "conntrack_mt_destroy",
+      "hash_ip4_destroy",
+      "hash_ip6_destroy",
+      "hash_ipmac4_destroy",
+      "hash_ipmac6_destroy",
+      "hash_ipmark4_destroy",
+      "hash_ipmark6_destroy",
+      "hash_ipport4_destroy",
+      "hash_ipport6_destroy",
+      "hash_ipportip4_destroy",
+      "hash_ipportip6_destroy",
+      "hash_ipportnet4_destroy",
+      "hash_ipportnet6_destroy",
+      "hash_mac4_destroy",
+      "hash_net4_destroy",
+      "hash_net6_destroy",
+      "hash_netiface4_destroy",
+      "hash_netiface6_destroy",
+      "hash_netnet4_destroy",
+      "hash_netnet6_destroy",
+      "hash_netport4_destroy",
+      "hash_netport6_destroy",
+      "hash_netportnet4_destroy",
+      "hash_netportnet6_destroy",
       "hashlimit_mt_destroy",
       "hashlimit_mt_destroy_v1",
       "hashlimit_mt_destroy_v2",
@@ -3012,6 +3806,32 @@
       "nft_rhash_activate"
     ],
     "nft_setelem_flush": [
+      "bitmap_ip_flush",
+      "bitmap_ipmac_flush",
+      "bitmap_port_flush",
+      "hash_ip4_flush",
+      "hash_ip6_flush",
+      "hash_ipmac4_flush",
+      "hash_ipmac6_flush",
+      "hash_ipmark4_flush",
+      "hash_ipmark6_flush",
+      "hash_ipport4_flush",
+      "hash_ipport6_flush",
+      "hash_ipportip4_flush",
+      "hash_ipportip6_flush",
+      "hash_ipportnet4_flush",
+      "hash_ipportnet6_flush",
+      "hash_mac4_flush",
+      "hash_net4_flush",
+      "hash_net6_flush",
+      "hash_netiface4_flush",
+      "hash_netiface6_flush",
+      "hash_netnet4_flush",
+      "hash_netnet6_flush",
+      "hash_netport4_flush",
+      "hash_netport6_flush",
+      "hash_netportnet4_flush",
+      "hash_netportnet6_flush",
       "list_set_flush",
       "nft_bitmap_flush",
       "nft_hash_flush",
@@ -3045,6 +3865,9 @@
       "nft_rhash_remove"
     ],
     "nft_target_destroy": [
+      "bitmap_ip_destroy",
+      "bitmap_ipmac_destroy",
+      "bitmap_port_destroy",
       "bpf_mt_destroy",
       "bpf_mt_destroy_v1",
       "cgroup_mt_destroy_v1",
@@ -3056,6 +3879,29 @@
       "connmark_tg_destroy",
       "connsecmark_tg_destroy",
       "conntrack_mt_destroy",
+      "hash_ip4_destroy",
+      "hash_ip6_destroy",
+      "hash_ipmac4_destroy",
+      "hash_ipmac6_destroy",
+      "hash_ipmark4_destroy",
+      "hash_ipmark6_destroy",
+      "hash_ipport4_destroy",
+      "hash_ipport6_destroy",
+      "hash_ipportip4_destroy",
+      "hash_ipportip6_destroy",
+      "hash_ipportnet4_destroy",
+      "hash_ipportnet6_destroy",
+      "hash_mac4_destroy",
+      "hash_net4_destroy",
+      "hash_net6_destroy",
+      "hash_netiface4_destroy",
+      "hash_netiface6_destroy",
+      "hash_netnet4_destroy",
+      "hash_netnet6_destroy",
+      "hash_netport4_destroy",
+      "hash_netport6_destroy",
+      "hash_netportnet4_destroy",
+      "hash_netportnet6_destroy",
       "hashlimit_mt_destroy",
       "hashlimit_mt_destroy_v1",
       "hashlimit_mt_destroy_v2",
@@ -3587,6 +4433,9 @@
     ]
   },
   "dispatches": {
+    "__build_packet_message": [
+      "build"
+    ],
     "__ip_vs_rs_conn_out": [
       "conn_out"
     ],
@@ -3605,6 +4454,9 @@
     ],
     "__nf_ct_timeout_put": [
       "timeout_put"
+    ],
+    "__nf_hook_entries_try_shrink": [
+      "hooks"
     ],
     "__nf_queue": [
       "outfn"
@@ -3633,7 +4485,26 @@
     "bind_mcastif_addr": [
       "bind"
     ],
+    "bitmap_ip_kadt": [
+      "adt"
+    ],
+    "bitmap_ip_uadt": [
+      "adt"
+    ],
+    "bitmap_ipmac_kadt": [
+      "adt"
+    ],
+    "bitmap_ipmac_uadt": [
+      "adt"
+    ],
+    "bitmap_port_kadt": [
+      "adt"
+    ],
+    "bitmap_port_uadt": [
+      "adt"
+    ],
     "call_ad": [
+      "resize",
       "uadt"
     ],
     "ct_seq_show": [
@@ -3672,6 +4543,144 @@
     "gc_worker_can_early_drop": [
       "can_early_drop"
     ],
+    "hash_ip4_kadt": [
+      "adt"
+    ],
+    "hash_ip4_uadt": [
+      "adt"
+    ],
+    "hash_ip6_kadt": [
+      "adt"
+    ],
+    "hash_ip6_uadt": [
+      "adt"
+    ],
+    "hash_ipmac4_kadt": [
+      "adt"
+    ],
+    "hash_ipmac4_uadt": [
+      "adt"
+    ],
+    "hash_ipmac6_kadt": [
+      "adt"
+    ],
+    "hash_ipmac6_uadt": [
+      "adt"
+    ],
+    "hash_ipmark4_kadt": [
+      "adt"
+    ],
+    "hash_ipmark4_uadt": [
+      "adt"
+    ],
+    "hash_ipmark6_kadt": [
+      "adt"
+    ],
+    "hash_ipmark6_uadt": [
+      "adt"
+    ],
+    "hash_ipport4_kadt": [
+      "adt"
+    ],
+    "hash_ipport4_uadt": [
+      "adt"
+    ],
+    "hash_ipport6_kadt": [
+      "adt"
+    ],
+    "hash_ipport6_uadt": [
+      "adt"
+    ],
+    "hash_ipportip4_kadt": [
+      "adt"
+    ],
+    "hash_ipportip4_uadt": [
+      "adt"
+    ],
+    "hash_ipportip6_kadt": [
+      "adt"
+    ],
+    "hash_ipportip6_uadt": [
+      "adt"
+    ],
+    "hash_ipportnet4_kadt": [
+      "adt"
+    ],
+    "hash_ipportnet4_uadt": [
+      "adt"
+    ],
+    "hash_ipportnet6_kadt": [
+      "adt"
+    ],
+    "hash_ipportnet6_uadt": [
+      "adt"
+    ],
+    "hash_mac4_kadt": [
+      "adt"
+    ],
+    "hash_mac4_uadt": [
+      "adt"
+    ],
+    "hash_net4_kadt": [
+      "adt"
+    ],
+    "hash_net4_uadt": [
+      "adt"
+    ],
+    "hash_net6_kadt": [
+      "adt"
+    ],
+    "hash_net6_uadt": [
+      "adt"
+    ],
+    "hash_netiface4_kadt": [
+      "adt"
+    ],
+    "hash_netiface4_uadt": [
+      "adt"
+    ],
+    "hash_netiface6_kadt": [
+      "adt"
+    ],
+    "hash_netiface6_uadt": [
+      "adt"
+    ],
+    "hash_netnet4_kadt": [
+      "adt"
+    ],
+    "hash_netnet4_uadt": [
+      "adt"
+    ],
+    "hash_netnet6_kadt": [
+      "adt"
+    ],
+    "hash_netnet6_uadt": [
+      "adt"
+    ],
+    "hash_netport4_kadt": [
+      "adt"
+    ],
+    "hash_netport4_uadt": [
+      "adt"
+    ],
+    "hash_netport6_kadt": [
+      "adt"
+    ],
+    "hash_netport6_uadt": [
+      "adt"
+    ],
+    "hash_netportnet4_kadt": [
+      "adt"
+    ],
+    "hash_netportnet4_uadt": [
+      "adt"
+    ],
+    "hash_netportnet6_kadt": [
+      "adt"
+    ],
+    "hash_netportnet6_uadt": [
+      "adt"
+    ],
     "init_conntrack": [
       "expectfn"
     ],
@@ -3691,7 +4700,11 @@
     ],
     "ip_set_dump_do": [
       "head",
-      "list"
+      "list",
+      "uref"
+    ],
+    "ip_set_dump_done": [
+      "uref"
     ],
     "ip_set_flush_set": [
       "flush"
@@ -3744,6 +4757,18 @@
     "ip_vs_leave": [
       "packet_xmit"
     ],
+    "ip_vs_mh_get": [
+      "lookup"
+    ],
+    "ip_vs_mh_get_fallback": [
+      "lookup"
+    ],
+    "ip_vs_mh_populate": [
+      "lookup"
+    ],
+    "ip_vs_mh_reset": [
+      "lookup"
+    ],
     "ip_vs_nat_xmit": [
       "dnat_handler"
     ],
@@ -3776,6 +4801,9 @@
     ],
     "ipvs_mt": [
       "conn_out_get"
+    ],
+    "list_set_uadt": [
+      "adt"
     ],
     "make_receive_sock": [
       "bind"
@@ -3816,14 +4844,32 @@
     "nf_getsockopt": [
       "get"
     ],
+    "nf_hook_entries_grow": [
+      "hooks"
+    ],
+    "nf_hook_slow": [
+      "hooks"
+    ],
+    "nf_iterate": [
+      "hooks"
+    ],
     "nf_log_packet": [
       "logfn"
     ],
     "nf_log_trace": [
       "logfn"
     ],
+    "nf_nat_inet_fn": [
+      "hooks"
+    ],
     "nf_queue_nf_hook_drop": [
       "nf_hook_drop"
+    ],
+    "nf_reinject": [
+      "hooks"
+    ],
+    "nf_remove_net_hook": [
+      "hooks"
     ],
     "nf_setsockopt": [
       "set"
@@ -3898,6 +4944,9 @@
     ],
     "nfqnl_reinject": [
       "update"
+    ],
+    "nft_basechain_hook_init": [
+      "hooks"
     ],
     "nft_bitmap_walk": [
       "fn"
@@ -4103,6 +5152,89 @@
       "ip_vs_mh_dest_changed",
       "ip_vs_sh_dest_changed",
       "ip_vs_wrr_dest_changed"
+    ],
+    "adt": [
+      "bitmap_ip_add",
+      "bitmap_ip_del",
+      "bitmap_ip_test",
+      "bitmap_ipmac_add",
+      "bitmap_ipmac_del",
+      "bitmap_ipmac_test",
+      "bitmap_port_add",
+      "bitmap_port_del",
+      "bitmap_port_test",
+      "hash_ip4_add",
+      "hash_ip4_del",
+      "hash_ip4_test",
+      "hash_ip6_add",
+      "hash_ip6_del",
+      "hash_ip6_test",
+      "hash_ipmac4_add",
+      "hash_ipmac4_del",
+      "hash_ipmac4_test",
+      "hash_ipmac6_add",
+      "hash_ipmac6_del",
+      "hash_ipmac6_test",
+      "hash_ipmark4_add",
+      "hash_ipmark4_del",
+      "hash_ipmark4_test",
+      "hash_ipmark6_add",
+      "hash_ipmark6_del",
+      "hash_ipmark6_test",
+      "hash_ipport4_add",
+      "hash_ipport4_del",
+      "hash_ipport4_test",
+      "hash_ipport6_add",
+      "hash_ipport6_del",
+      "hash_ipport6_test",
+      "hash_ipportip4_add",
+      "hash_ipportip4_del",
+      "hash_ipportip4_test",
+      "hash_ipportip6_add",
+      "hash_ipportip6_del",
+      "hash_ipportip6_test",
+      "hash_ipportnet4_add",
+      "hash_ipportnet4_del",
+      "hash_ipportnet4_test",
+      "hash_ipportnet6_add",
+      "hash_ipportnet6_del",
+      "hash_ipportnet6_test",
+      "hash_mac4_add",
+      "hash_mac4_del",
+      "hash_mac4_test",
+      "hash_net4_add",
+      "hash_net4_del",
+      "hash_net4_test",
+      "hash_net6_add",
+      "hash_net6_del",
+      "hash_net6_test",
+      "hash_netiface4_add",
+      "hash_netiface4_del",
+      "hash_netiface4_test",
+      "hash_netiface6_add",
+      "hash_netiface6_del",
+      "hash_netiface6_test",
+      "hash_netnet4_add",
+      "hash_netnet4_del",
+      "hash_netnet4_test",
+      "hash_netnet6_add",
+      "hash_netnet6_del",
+      "hash_netnet6_test",
+      "hash_netport4_add",
+      "hash_netport4_del",
+      "hash_netport4_test",
+      "hash_netport6_add",
+      "hash_netport6_del",
+      "hash_netport6_test",
+      "hash_netportnet4_add",
+      "hash_netportnet4_del",
+      "hash_netportnet4_test",
+      "hash_netportnet6_add",
+      "hash_netportnet6_del",
+      "hash_netportnet6_test",
+      "list_set_uadd",
+      "list_set_udel",
+      "list_set_utest"
     ],
     "app_conn_bind": [
       "sctp_app_conn_bind",
@@ -4362,6 +5494,9 @@
       "nft_rhash_delete"
     ],
     "destroy": [
+      "bitmap_ip_destroy",
+      "bitmap_ipmac_destroy",
+      "bitmap_port_destroy",
       "bpf_mt_destroy",
       "bpf_mt_destroy_v1",
       "cgroup_mt_destroy_v1",
@@ -4373,6 +5508,29 @@
       "connmark_tg_destroy",
       "connsecmark_tg_destroy",
       "conntrack_mt_destroy",
+      "hash_ip4_destroy",
+      "hash_ip6_destroy",
+      "hash_ipmac4_destroy",
+      "hash_ipmac6_destroy",
+      "hash_ipmark4_destroy",
+      "hash_ipmark6_destroy",
+      "hash_ipport4_destroy",
+      "hash_ipport6_destroy",
+      "hash_ipportip4_destroy",
+      "hash_ipportip6_destroy",
+      "hash_ipportnet4_destroy",
+      "hash_ipportnet6_destroy",
+      "hash_mac4_destroy",
+      "hash_net4_destroy",
+      "hash_net6_destroy",
+      "hash_netiface4_destroy",
+      "hash_netiface6_destroy",
+      "hash_netnet4_destroy",
+      "hash_netnet6_destroy",
+      "hash_netport4_destroy",
+      "hash_netport6_destroy",
+      "hash_netportnet4_destroy",
+      "hash_netportnet6_destroy",
       "hashlimit_mt_destroy",
       "hashlimit_mt_destroy_v1",
       "hashlimit_mt_destroy_v2",
@@ -4716,6 +5874,32 @@
       "ip_vs_sip_fill_param"
     ],
     "flush": [
+      "bitmap_ip_flush",
+      "bitmap_ipmac_flush",
+      "bitmap_port_flush",
+      "hash_ip4_flush",
+      "hash_ip6_flush",
+      "hash_ipmac4_flush",
+      "hash_ipmac6_flush",
+      "hash_ipmark4_flush",
+      "hash_ipmark6_flush",
+      "hash_ipport4_flush",
+      "hash_ipport6_flush",
+      "hash_ipportip4_flush",
+      "hash_ipportip6_flush",
+      "hash_ipportnet4_flush",
+      "hash_ipportnet6_flush",
+      "hash_mac4_flush",
+      "hash_net4_flush",
+      "hash_net6_flush",
+      "hash_netiface4_flush",
+      "hash_netiface6_flush",
+      "hash_netnet4_flush",
+      "hash_netnet6_flush",
+      "hash_netport4_flush",
+      "hash_netport6_flush",
+      "hash_netportnet4_flush",
+      "hash_netportnet6_flush",
       "list_set_flush",
       "nft_bitmap_flush",
       "nft_hash_flush",
@@ -4734,6 +5918,7 @@
       "nf_flow_table_free"
     ],
     "from_nlattr": [
+      "nf_ct_ftp_from_nlattr",
       "nfnl_cthelper_from_nlattr",
       "nlattr_to_dccp",
       "nlattr_to_sctp",
@@ -4776,17 +5961,49 @@
       "ip_vs_sip_hashkey_raw"
     ],
     "head": [
+      "bitmap_ip_head",
+      "bitmap_ipmac_head",
+      "bitmap_port_head",
+      "hash_ip4_head",
+      "hash_ip6_head",
+      "hash_ipmac4_head",
+      "hash_ipmac6_head",
+      "hash_ipmark4_head",
+      "hash_ipmark6_head",
+      "hash_ipport4_head",
+      "hash_ipport6_head",
+      "hash_ipportip4_head",
+      "hash_ipportip6_head",
+      "hash_ipportnet4_head",
+      "hash_ipportnet6_head",
+      "hash_mac4_head",
+      "hash_net4_head",
+      "hash_net6_head",
+      "hash_netiface4_head",
+      "hash_netiface6_head",
+      "hash_netnet4_head",
+      "hash_netnet6_head",
+      "hash_netport4_head",
+      "hash_netport6_head",
+      "hash_netportnet4_head",
+      "hash_netportnet6_head",
       "list_set_head"
     ],
     "help": [
       "amanda_help",
       "conntrack_pptp_help",
       "h245_help",
+      "help [nf_conntrack_ftp.c]",
+      "help [nf_conntrack_irc.c]",
+      "help [nf_conntrack_sane.c]",
       "netbios_ns_help",
       "nfnl_userspace_cthelper",
       "q931_help",
       "ras_help",
-      "snmp_conntrack_help"
+      "sip_help_tcp",
+      "sip_help_udp",
+      "snmp_conntrack_help",
+      "tftp_help"
     ],
     "hook": [
       "accept_all",
@@ -4812,6 +6029,19 @@
       "nf_nat_ipv6_in",
       "nf_nat_ipv6_local_fn",
       "nf_nat_ipv6_out"
+    ],
+    "hooks": [
+      "nf_route_table_hook4",
+      "nf_route_table_hook6",
+      "nf_route_table_inet",
+      "nft_do_chain_arp",
+      "nft_do_chain_bridge",
+      "nft_do_chain_inet",
+      "nft_do_chain_inet_ingress",
+      "nft_do_chain_ipv4",
+      "nft_do_chain_ipv6",
+      "nft_do_chain_netdev",
+      "nft_nat_do_chain"
     ],
     "init": [
       "__ip_vs_ftp_init",
@@ -4935,6 +6165,10 @@
       "nft_rbtree_insert",
       "nft_rhash_insert"
     ],
+    "iter": [
+      "device_cmp",
+      "inet_cmp"
+    ],
     "kadt": [
       "bitmap_ip_kadt",
       "bitmap_ipmac_kadt",
@@ -4965,6 +6199,32 @@
       "list_set_kadt"
     ],
     "list": [
+      "bitmap_ip_list",
+      "bitmap_ipmac_list",
+      "bitmap_port_list",
+      "hash_ip4_list",
+      "hash_ip6_list",
+      "hash_ipmac4_list",
+      "hash_ipmac6_list",
+      "hash_ipmark4_list",
+      "hash_ipmark6_list",
+      "hash_ipport4_list",
+      "hash_ipport6_list",
+      "hash_ipportip4_list",
+      "hash_ipportip6_list",
+      "hash_ipportnet4_list",
+      "hash_ipportnet6_list",
+      "hash_mac4_list",
+      "hash_net4_list",
+      "hash_net6_list",
+      "hash_netiface4_list",
+      "hash_netiface6_list",
+      "hash_netnet4_list",
+      "hash_netnet6_list",
+      "hash_netport4_list",
+      "hash_netport6_list",
+      "hash_netportnet4_list",
+      "hash_netportnet6_list",
       "list_set_list"
     ],
     "logfn": [
@@ -5273,10 +6533,58 @@
     "remove_nat_bysrc": [
       "nf_nat_cleanup_conntrack"
     ],
+    "resize": [
+      "hash_ip4_resize",
+      "hash_ip6_resize",
+      "hash_ipmac4_resize",
+      "hash_ipmac6_resize",
+      "hash_ipmark4_resize",
+      "hash_ipmark6_resize",
+      "hash_ipport4_resize",
+      "hash_ipport6_resize",
+      "hash_ipportip4_resize",
+      "hash_ipportip6_resize",
+      "hash_ipportnet4_resize",
+      "hash_ipportnet6_resize",
+      "hash_mac4_resize",
+      "hash_net4_resize",
+      "hash_net6_resize",
+      "hash_netiface4_resize",
+      "hash_netiface6_resize",
+      "hash_netnet4_resize",
+      "hash_netnet6_resize",
+      "hash_netport4_resize",
+      "hash_netport6_resize",
+      "hash_netportnet4_resize",
+      "hash_netportnet6_resize"
+    ],
     "same_set": [
       "bitmap_ip_same_set",
       "bitmap_ipmac_same_set",
       "bitmap_port_same_set",
+      "hash_ip4_same_set",
+      "hash_ip6_same_set",
+      "hash_ipmac4_same_set",
+      "hash_ipmac6_same_set",
+      "hash_ipmark4_same_set",
+      "hash_ipmark6_same_set",
+      "hash_ipport4_same_set",
+      "hash_ipport6_same_set",
+      "hash_ipportip4_same_set",
+      "hash_ipportip6_same_set",
+      "hash_ipportnet4_same_set",
+      "hash_ipportnet6_same_set",
+      "hash_mac4_same_set",
+      "hash_net4_same_set",
+      "hash_net6_same_set",
+      "hash_netiface4_same_set",
+      "hash_netiface6_same_set",
+      "hash_netnet4_same_set",
+      "hash_netnet6_same_set",
+      "hash_netport4_same_set",
+      "hash_netport6_same_set",
+      "hash_netportnet4_same_set",
+      "hash_netportnet6_same_set",
       "list_set_same_set"
     ],
     "schedule": [
@@ -5535,6 +6843,31 @@
       "nft_quota_obj_update",
       "nft_rhash_update",
       "nft_synproxy_obj_update"
+    ],
+    "uref": [
+      "hash_ip4_uref",
+      "hash_ip6_uref",
+      "hash_ipmac4_uref",
+      "hash_ipmac6_uref",
+      "hash_ipmark4_uref",
+      "hash_ipmark6_uref",
+      "hash_ipport4_uref",
+      "hash_ipport6_uref",
+      "hash_ipportip4_uref",
+      "hash_ipportip6_uref",
+      "hash_ipportnet4_uref",
+      "hash_ipportnet6_uref",
+      "hash_mac4_uref",
+      "hash_net4_uref",
+      "hash_net6_uref",
+      "hash_netiface4_uref",
+      "hash_netiface6_uref",
+      "hash_netnet4_uref",
+      "hash_netnet6_uref",
+      "hash_netport4_uref",
+      "hash_netport6_uref",
+      "hash_netportnet4_uref",
+      "hash_netportnet6_uref"
     ],
     "valid_genid": [
       "nf_tables_valid_genid"

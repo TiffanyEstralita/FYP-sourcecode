@@ -2,47 +2,47 @@
 NETFILTER CALL GRAPH ANALYSIS (IMPROVED)
 ======================================================================
 
-Functions that call others:        2272
-Functions that are called:         2015
-Total call relationships (edges):  4648
-Unique functions in graph:         3245
-Average calls per function:        2.05
+Functions that call others:        2619
+Functions that are called:         2413
+Total call relationships (edges):  5538
+Unique functions in graph:         3851
+Average calls per function:        2.11
 
 ======================================================================
 TOP 30 MOST CALLED FUNCTIONS (High In-Degree)
 ======================================================================
 These are the most critical/central functions
 
-  1. nf_ct_netns_put                                    called    36 times
-  2. nft_unregister_expr                                called    36 times
-  3. nft_dump_register                                  called    36 times
-  4. nf_ct_expect_put                                   called    34 times
-  5. nf_ct_netns_get                                    called    31 times
-  6. nft_register_expr                                  called    31 times
-  7. ip_set_get_extensions                              called    27 times
-  8. xt_register_match                                  called    26 times
-  9. xt_unregister_matches                              called    26 times
- 10. xt_unregister_match                                called    26 times
- 11. nfnetlink_unicast                                  called    24 times
- 12. nft_parse_register_load                            called    23 times
- 13. xt_register_matches                                called    23 times
- 14. nf_ct_helper_log                                   called    21 times
- 15. nft_table_lookup                                   called    21 times
- 16. xt_unregister_targets                              called    21 times
- 17. nfnl_unlock                                        called    20 times
- 18. nfnl_lock                                          called    20 times
- 19. ip_set_pernet                                      called    20 times
- 20. nf_ct_expect_alloc                                 called    20 times
- 21. nft_parse_register_store                           called    19 times
- 22. nft_chain_validate_hooks                           called    19 times
- 23. nf_ct_expect_init                                  called    18 times
- 24. nf_nat_setup_info                                  called    18 times
- 25. xt_register_targets                                called    17 times
- 26. ip_set_type_register                               called    16 times
- 27. ip_set_type_unregister                             called    16 times
- 28. ip_vs_proto_data_get                               called    16 times
- 29. nft_ctx_init                                       called    16 times
- 30. nfnetlink_subsys_unregister                        called    15 times
+  1. ip_set_free                                        called    52 times
+  2. nf_ct_netns_put                                    called    36 times
+  3. nft_unregister_expr                                called    36 times
+  4. nft_dump_register                                  called    36 times
+  5. nf_ct_expect_put                                   called    34 times
+  6. nf_ct_netns_get                                    called    31 times
+  7. nft_register_expr                                  called    31 times
+  8. ip_set_get_extensions                              called    27 times
+  9. ip_set_match_extensions                            called    27 times
+ 10. ip_set_init_comment                                called    27 times
+ 11. ip_set_put_flags                                   called    27 times
+ 12. ip_set_put_extensions                              called    27 times
+ 13. ip_set_alloc                                       called    26 times
+ 14. xt_register_match                                  called    26 times
+ 15. xt_unregister_matches                              called    26 times
+ 16. xt_unregister_match                                called    26 times
+ 17. nfnetlink_unicast                                  called    24 times
+ 18. nft_parse_register_load                            called    23 times
+ 19. xt_register_matches                                called    23 times
+ 20. nf_ct_helper_log                                   called    21 times
+ 21. nft_table_lookup                                   called    21 times
+ 22. xt_unregister_targets                              called    21 times
+ 23. nfnl_unlock                                        called    20 times
+ 24. nfnl_lock                                          called    20 times
+ 25. ip_set_pernet                                      called    20 times
+ 26. nf_ct_expect_alloc                                 called    20 times
+ 27. nft_parse_register_store                           called    19 times
+ 28. nft_chain_validate_hooks                           called    19 times
+ 29. nf_ct_expect_init                                  called    18 times
+ 30. nf_nat_setup_info                                  called    18 times
 
 ======================================================================
 TOP 30 FUNCTIONS WITH HIGHEST OUT-DEGREE
