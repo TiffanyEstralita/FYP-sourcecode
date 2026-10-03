@@ -32,8 +32,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 PAGERANK_FILE = PROJECT_ROOT / "results/processed/pagerank_scores.json"
 CVE_ANALYSIS_FILE = PROJECT_ROOT / "results/processed/cve_function_analysis.json"
 FUNCTIONS_FILE = PROJECT_ROOT / "results/raw/functions_v2.json"
-CALLS_FILE = PROJECT_ROOT / "results/raw/function_calls_v2.json"
 OUTPUT_PATH = PROJECT_ROOT / "results/visualizations"
+
+sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
+from callgraph import load_call_graph
 
 VULN_COLOR = "#d62728"   # red - the known vulnerable function
 OTHER_COLOR = "#9e9e9e"  # grey - everything else
@@ -55,7 +57,7 @@ class Visualizer:
         self.rank_of = {}
         self.functions = {}
         self.cves = {}
-        self.graph = nx.DiGraph()
+        self.graph = None
         OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
 
     def load_data(self):
@@ -67,18 +69,13 @@ class Visualizer:
             self.functions = json.load(f)
         with open(CVE_ANALYSIS_FILE, "r") as f:
             self.cves = json.load(f)
-        with open(CALLS_FILE, "r") as f:
-            calls = json.load(f)
 
         # Overall rank of every function (1 = highest PageRank)
         ordered = sorted(self.pagerank.items(), key=lambda x: x[1], reverse=True)
         self.rank_of = {name: i for i, (name, _) in enumerate(ordered, 1)}
 
         # Same call graph that calculate_pagerank.py builds
-        for file_calls in calls.values():
-            for caller, callees in file_calls.items():
-                for callee in callees:
-                    self.graph.add_edge(caller, callee)
+        self.graph = load_call_graph()
 
         print(f"✅ Loaded PageRank for {len(self.pagerank)} functions")
         print(f"✅ Loaded {len(self.cves)} CVEs: {', '.join(self.cves)}")
@@ -258,9 +255,11 @@ class Visualizer:
         nx.draw_networkx_nodes(G, pos, nodelist=[vuln], node_color=VULN_COLOR,
                                node_size=1600, edgecolors="black", linewidths=2, ax=ax)
         nx.draw_networkx_labels(G, pos, font_size=8, font_weight="bold", ax=ax)
-        nx.draw_networkx_edges(G, pos, edge_color="black", arrows=True, arrowsize=20,
-                               arrowstyle="->", alpha=0.6, width=1.5,
-                               connectionstyle="arc3,rad=0.12", ax=ax)
+        for kind, style in (("direct", "solid"), ("indirect", "dashed")):
+            edgelist = [(u, v) for u, v, d in G.edges(data=True) if d.get("kind") == kind]
+            nx.draw_networkx_edges(G, pos, edgelist=edgelist, edge_color="black", style=style,
+                                   arrows=True, arrowsize=20, arrowstyle="->", alpha=0.6,
+                                   width=1.5, connectionstyle="arc3,rad=0.12", ax=ax)
 
         sm = plt.cm.ScalarMappable(cmap="YlOrRd", norm=plt.Normalize(vmin=vmin, vmax=vmax))
         sm.set_array([])
@@ -270,7 +269,8 @@ class Visualizer:
                        else "NO callers found - probably reached via a function pointer")
         ax.set_title(
             f"{cve_id} – Call graph around {vuln} (red)\n"
-            f"{caller_note}, {len(callees)} callee(s); arrows point caller → callee",
+            f"{caller_note}, {len(callees)} callee(s); arrows point caller → callee, "
+            f"dashed = via function pointer",
             fontsize=13,
             fontweight="bold",
         )
@@ -303,7 +303,7 @@ class Visualizer:
 
 
 def main():
-    for required in (PAGERANK_FILE, CVE_ANALYSIS_FILE, FUNCTIONS_FILE, CALLS_FILE):
+    for required in (PAGERANK_FILE, CVE_ANALYSIS_FILE, FUNCTIONS_FILE):
         if not required.exists():
             print(f"❌ Missing required input: {required}")
             print("Run calculate_pagerank.py and analyze_cve_functions.py first!")

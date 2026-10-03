@@ -5,6 +5,7 @@ Purpose: Identify critical functions using PageRank algorithm
 Date: November 2025
 """
 
+import argparse
 import json
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -21,6 +22,9 @@ INPUT_FUNCTIONS = PROJECT_ROOT / "results/raw/functions_v2.json"
 INPUT_CALLS = PROJECT_ROOT / "results/raw/function_calls_v2.json"
 OUTPUT_PATH = PROJECT_ROOT / "results/processed"
 GRAPHS_PATH = PROJECT_ROOT / "results/visualizations"
+
+sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
+from callgraph import load_call_graph, count_edges
 
 class PageRankAnalyzer:
     """Build graph and calculate PageRank"""
@@ -51,30 +55,19 @@ class PageRankAnalyzer:
         print(f"✅ Loaded {total_funcs} functions from {len(self.functions)} files")
         print(f"✅ Loaded {total_calls} call relationships")
     
-    def build_graph(self):
-        """Build NetworkX directed graph"""
+    def build_graph(self, include_indirect=True):
+        """Build NetworkX directed graph (shared builder in analysis/callgraph.py)"""
         print("\n🔨 Building graph...")
-        
-        # Add all functions as nodes
-        for filename, funcs in self.functions.items():
-            for func in funcs:
-                func_name = func['name']
-                self.graph.add_node(
-                    func_name,
-                    file=filename,
-                    line=func['line']
-                )
-        
-        # Add all calls as edges
-        for filename, file_calls in self.calls.items():
-            for caller, callees in file_calls.items():
-                for callee in callees:
-                    # Add edge: caller → callee
-                    self.graph.add_edge(caller, callee)
-        
+
+        self.graph = load_call_graph(include_indirect=include_indirect)
+        direct, indirect = count_edges(self.graph)
+
         print(f"✅ Graph built:")
         print(f"   Nodes (functions): {self.graph.number_of_nodes()}")
         print(f"   Edges (calls):     {self.graph.number_of_edges()}")
+        print(f"      direct:         {direct}")
+        print(f"      indirect:       {indirect}" +
+              ("" if include_indirect else "  (disabled with --no-indirect)"))
     
     def calculate_pagerank(self):
         """Calculate PageRank scores"""
@@ -179,19 +172,24 @@ class PageRankAnalyzer:
 
 def main():
     """Main execution"""
-    
+
+    parser = argparse.ArgumentParser(description="Build the call graph and run PageRank")
+    parser.add_argument("--no-indirect", action="store_true",
+                        help="ignore function-pointer edges (reproduces the Phase 0 baseline)")
+    args = parser.parse_args()
+
     print("=" * 70)
     print("🚀 PAGERANK ANALYSIS")
     print("=" * 70)
-    
+
     # Initialize analyzer
     analyzer = PageRankAnalyzer()
-    
+
     # Load data
     analyzer.load_data()
-    
+
     # Build graph
-    analyzer.build_graph()
+    analyzer.build_graph(include_indirect=not args.no_indirect)
     
     # Calculate PageRank
     pagerank = analyzer.calculate_pagerank()

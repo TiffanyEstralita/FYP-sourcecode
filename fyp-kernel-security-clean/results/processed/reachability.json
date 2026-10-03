@@ -1,0 +1,71 @@
+{
+  "entry_points": {
+    "packet": [
+      "nf_hook_slow",
+      "nft_do_chain"
+    ],
+    "netlink": [
+      "nfnetlink_rcv_msg",
+      "nfnetlink_rcv_batch"
+    ]
+  },
+  "results": {
+    "CVE-2023-0179:nft_payload_copy_vlan": {
+      "direct_only": {
+        "packet": null,
+        "netlink": null
+      },
+      "with_indirect": {
+        "packet": [
+          "nft_do_chain",
+          "expr_call_ops_eval",
+          "nft_payload_eval",
+          "nft_payload_copy_vlan"
+        ],
+        "netlink": null
+      }
+    },
+    "CVE-2024-53141:bitmap_ip_uadt": {
+      "direct_only": {
+        "packet": null,
+        "netlink": null
+      },
+      "with_indirect": {
+        "packet": [
+          "nft_do_chain",
+          "expr_call_ops_eval",
+          "nft_redir_ipv6_eval",
+          "nf_nat_redirect_ipv6",
+          "read_unlock_bh",
+          "ip_set_destroy_set",
+          "nft_immediate_destroy",
+          "nf_tables_rule_release",
+          "nf_tables_rule_destroy",
+          "nf_tables_newrule",
+          "nla_for_each_nested",
+          "call_ad",
+          "bitmap_ip_uadt"
+        ],
+        "netlink": [
+          "nfnetlink_rcv_msg",
+          "ip_set_utest",
+          "bitmap_ip_uadt"
+        ]
+      }
+    },
+    "CVE-2025-22064:nf_tables_updchain": {
+      "direct_only": {
+        "packet": null,
+        "netlink": null
+      },
+      "with_indirect": {
+        "packet": null,
+        "netlink": [
+          "nfnetlink_rcv_msg",
+          "nf_tables_newchain",
+          "nf_tables_updchain"
+        ]
+      }
+    }
+  }
+}
