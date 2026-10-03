@@ -1,0 +1,608 @@
+{
+  "k": 266,
+  "llm_version": "v3",
+  "weights": {
+    "standard": 0.5,
+    "personalized": 0.1,
+    "hybrid": 0.4
+  },
+  "llm_hours_for_shortlist": 1.1009444444444445,
+  "llm_hours_all_functions": 18.016583333333333,
+  "table": {
+    "test": {
+      "random (expected)": {
+        "mrr": 0.002802886269845353,
+        "R@10": 0.003499999999999997,
+        "R@20": 0.007214285714285699,
+        "R@50": 0.017178571428571526,
+        "R@100": 0.03339285714285701,
+        "R@266": 0.09142857142857204
+      },
+      "baseline: standard PageRank": {
+        "mrr": 0.0036972445821327896,
+        "R@10": 0.0,
+        "R@20": 0.0,
+        "R@50": 0.07142857142857142,
+        "R@100": 0.07142857142857142,
+        "R@266": 0.21428571428571427,
+        "median_rank": 1484.0
+      },
+      "A: personalized PageRank": {
+        "mrr": 0.0015154538956387406,
+        "R@10": 0.0,
+        "R@20": 0.0,
+        "R@50": 0.0,
+        "R@100": 0.0,
+        "R@266": 0.07142857142857142,
+        "median_rank": 1279.0
+      },
+      "B: standard + LLM": {
+        "mrr": 0.002853497014143317,
+        "R@10": 0.0,
+        "R@20": 0.0,
+        "R@50": 0.0,
+        "R@100": 0.07142857142857142,
+        "R@266": 0.21428571428571427,
+        "median_rank": 1484.0
+      },
+      "full: personalized + LLM": {
+        "mrr": 0.007009959390144234,
+        "R@10": 0.0,
+        "R@20": 0.07142857142857142,
+        "R@50": 0.07142857142857142,
+        "R@100": 0.07142857142857142,
+        "R@266": 0.07142857142857142,
+        "median_rank": 1279.0
+      },
+      "hybrid + LLM (extra)": {
+        "mrr": 0.0019558290624666083,
+        "R@10": 0.0,
+        "R@20": 0.0,
+        "R@50": 0.0,
+        "R@100": 0.0,
+        "R@266": 0.07142857142857142,
+        "median_rank": 1071.0
+      }
+    },
+    "tuning": {
+      "random (expected)": {
+        "mrr": 0.006707733387391675,
+        "R@10": 0.011250000000000003,
+        "R@20": 0.020833333333333322,
+        "R@50": 0.04883333333333359,
+        "R@100": 0.09124999999999953,
+        "R@266": 0.2120000000000008
+      },
+      "baseline: standard PageRank": {
+        "mrr": 0.00685901453629207,
+        "R@10": 0.0,
+        "R@20": 0.0,
+        "R@50": 0.16666666666666666,
+        "R@100": 0.16666666666666666,
+        "R@266": 0.16666666666666666,
+        "median_rank": 1636.0
+      },
+      "A: personalized PageRank": {
+        "mrr": 0.0019714016197674273,
+        "R@10": 0.0,
+        "R@20": 0.0,
+        "R@50": 0.0,
+        "R@100": 0.0,
+        "R@266": 0.16666666666666666,
+        "median_rank": 2032.0
+      },
+      "B: standard + LLM": {
+        "mrr": 0.03423996691724445,
+        "R@10": 0.16666666666666666,
+        "R@20": 0.16666666666666666,
+        "R@50": 0.16666666666666666,
+        "R@100": 0.16666666666666666,
+        "R@266": 0.16666666666666666,
+        "median_rank": 1636.0
+      },
+      "full: personalized + LLM": {
+        "mrr": 0.017249179397545205,
+        "R@10": 0.16666666666666666,
+        "R@20": 0.16666666666666666,
+        "R@50": 0.16666666666666666,
+        "R@100": 0.16666666666666666,
+        "R@266": 0.16666666666666666,
+        "median_rank": 2032.0
+      },
+      "hybrid + LLM (extra)": {
+        "mrr": 0.018719168916298493,
+        "R@10": 0.16666666666666666,
+        "R@20": 0.16666666666666666,
+        "R@50": 0.16666666666666666,
+        "R@100": 0.3333333333333333,
+        "R@266": 0.3333333333333333,
+        "median_rank": 2361.0
+      }
+    },
+    "all": {
+      "random (expected)": {
+        "mrr": 0.004107415215703466,
+        "R@10": 0.005700000000000011,
+        "R@20": 0.01137500000000008,
+        "R@50": 0.028149999999999745,
+        "R@100": 0.05242499999999902,
+        "R@266": 0.12842500000000007
+      },
+      "baseline: standard PageRank": {
+        "mrr": 0.004645775568380574,
+        "R@10": 0.0,
+        "R@20": 0.0,
+        "R@50": 0.1,
+        "R@100": 0.1,
+        "R@266": 0.2,
+        "median_rank": 1578.0
+      },
+      "A: personalized PageRank": {
+        "mrr": 0.0016522382128773467,
+        "R@10": 0.0,
+        "R@20": 0.0,
+        "R@50": 0.0,
+        "R@100": 0.0,
+        "R@266": 0.1,
+        "median_rank": 1898.0
+      },
+      "B: standard + LLM": {
+        "mrr": 0.01226943798507366,
+        "R@10": 0.05,
+        "R@20": 0.05,
+        "R@50": 0.05,
+        "R@100": 0.1,
+        "R@266": 0.2,
+        "median_rank": 1578.0
+      },
+      "full: personalized + LLM": {
+        "mrr": 0.010081725392364526,
+        "R@10": 0.05,
+        "R@20": 0.1,
+        "R@50": 0.1,
+        "R@100": 0.1,
+        "R@266": 0.1,
+        "median_rank": 1898.0
+      },
+      "hybrid + LLM (extra)": {
+        "mrr": 0.006984831018616172,
+        "R@10": 0.05,
+        "R@20": 0.05,
+        "R@50": 0.05,
+        "R@100": 0.1,
+        "R@266": 0.15,
+        "median_rank": 1311.0
+      }
+    }
+  },
+  "comparisons": {
+    "full: personalized + LLM  vs  A: personalized PageRank": {
+      "mrr_difference": 0.005494505494505494,
+      "ci95": [
+        0.0,
+        0.01648351648351648
+      ],
+      "improved": 1,
+      "worse": 0,
+      "same": 13
+    },
+    "B: standard + LLM  vs  baseline: standard PageRank": {
+      "mrr_difference": -0.0008437475679894732,
+      "ci95": [
+        -0.0033385379360032844,
+        0.0008072952320348646
+      ],
+      "improved": 1,
+      "worse": 2,
+      "same": 11
+    },
+    "full: personalized + LLM  vs  baseline: standard PageRank": {
+      "mrr_difference": 0.0033127148080114442,
+      "ci95": [
+        -0.006101407541341362,
+        0.017202696838070995
+      ],
+      "improved": 6,
+      "worse": 8,
+      "same": 0
+    }
+  },
+  "breakdowns": {
+    "attack_path": {
+      "both": {
+        "cves": 9,
+        "baseline: standard PageRank": 705.0,
+        "A: personalized PageRank": 623.0,
+        "B: standard + LLM": 705.0,
+        "full: personalized + LLM": 623.0,
+        "hybrid + LLM (extra)": 587.0
+      },
+      "config": {
+        "cves": 6,
+        "baseline: standard PageRank": 1871.5,
+        "A: personalized PageRank": 1602.5,
+        "B: standard + LLM": 1871.5,
+        "full: personalized + LLM": 1602.5,
+        "hybrid + LLM (extra)": 1217.5
+      },
+      "none": {
+        "cves": 1,
+        "baseline: standard PageRank": 3954.0,
+        "A: personalized PageRank": 3785.0,
+        "B: standard + LLM": 3954.0,
+        "full: personalized + LLM": 3785.0,
+        "hybrid + LLM (extra)": 3964.0
+      },
+      "packet": {
+        "cves": 4,
+        "baseline: standard PageRank": 1531.0,
+        "A: personalized PageRank": 1971.0,
+        "B: standard + LLM": 1531.0,
+        "full: personalized + LLM": 1971.0,
+        "hybrid + LLM (extra)": 1731.5
+      }
+    },
+    "bug_type": {
+      "other": {
+        "cves": 6,
+        "baseline: standard PageRank": 2586.5,
+        "A: personalized PageRank": 1564.0,
+        "B: standard + LLM": 2586.5,
+        "full: personalized + LLM": 1564.0,
+        "hybrid + LLM (extra)": 2111.5
+      },
+      "out-of-bounds": {
+        "cves": 7,
+        "baseline: standard PageRank": 927.0,
+        "A: personalized PageRank": 1975.0,
+        "B: standard + LLM": 927.0,
+        "full: personalized + LLM": 1975.0,
+        "hybrid + LLM (extra)": 834.0
+      },
+      "race/locking": {
+        "cves": 3,
+        "baseline: standard PageRank": 705.0,
+        "A: personalized PageRank": 623.0,
+        "B: standard + LLM": 705.0,
+        "full: personalized + LLM": 623.0,
+        "hybrid + LLM (extra)": 1071.0
+      },
+      "uninitialized": {
+        "cves": 2,
+        "baseline: standard PageRank": 2099.5,
+        "A: personalized PageRank": 1181.0,
+        "B: standard + LLM": 2099.5,
+        "full: personalized + LLM": 1181.0,
+        "hybrid + LLM (extra)": 949.0
+      },
+      "use-after-free": {
+        "cves": 2,
+        "baseline: standard PageRank": 1494.0,
+        "A: personalized PageRank": 1523.5,
+        "B: standard + LLM": 1513.0,
+        "full: personalized + LLM": 1523.5,
+        "hybrid + LLM (extra)": 1708.5
+      }
+    },
+    "llm_could_have_seen_fix": {
+      "False": {
+        "cves": 14,
+        "baseline: standard PageRank": 1205.5,
+        "A: personalized PageRank": 1936.5,
+        "B: standard + LLM": 1205.5,
+        "full: personalized + LLM": 1936.5,
+        "hybrid + LLM (extra)": 1072.5
+      },
+      "True": {
+        "cves": 6,
+        "baseline: standard PageRank": 1676.5,
+        "A: personalized PageRank": 926.5,
+        "B: standard + LLM": 1676.5,
+        "full: personalized + LLM": 926.5,
+        "hybrid + LLM (extra)": 1490.0
+      }
+    }
+  },
+  "per_cve": [
+    {
+      "cve": "CVE-2023-0179",
+      "split": "tuning",
+      "bug_type": "out-of-bounds",
+      "attack_path": "both",
+      "fix_written": "2023-01-13",
+      "llm_could_have_seen_fix": true,
+      "functions": 1,
+      "random_expected_rank": 2170,
+      "baseline: standard PageRank": 1636.0,
+      "A: personalized PageRank": 2262.0,
+      "B: standard + LLM": 1636.0,
+      "full: personalized + LLM": 2262.0,
+      "hybrid + LLM (extra)": 2361.0
+    },
+    {
+      "cve": "CVE-2023-52620",
+      "split": "test",
+      "bug_type": "other",
+      "attack_path": "config",
+      "fix_written": "2023-06-16",
+      "llm_could_have_seen_fix": true,
+      "functions": 1,
+      "random_expected_rank": 2197,
+      "baseline: standard PageRank": 3255.0,
+      "A: personalized PageRank": 156.0,
+      "B: standard + LLM": 3255.0,
+      "full: personalized + LLM": 12.0,
+      "hybrid + LLM (extra)": 278.0
+    },
+    {
+      "cve": "CVE-2024-35898",
+      "split": "tuning",
+      "bug_type": "race/locking",
+      "attack_path": "config",
+      "fix_written": "2024-04-03",
+      "llm_could_have_seen_fix": true,
+      "functions": 2,
+      "random_expected_rank": 1474,
+      "baseline: standard PageRank": 1717.0,
+      "A: personalized PageRank": 2032.0,
+      "B: standard + LLM": 1717.0,
+      "full: personalized + LLM": 2032.0,
+      "hybrid + LLM (extra)": 2480.0
+    },
+    {
+      "cve": "CVE-2024-41042",
+      "split": "tuning",
+      "bug_type": "out-of-bounds",
+      "attack_path": "both",
+      "fix_written": "2024-08-12",
+      "llm_could_have_seen_fix": true,
+      "functions": 6,
+      "random_expected_rank": 640,
+      "baseline: standard PageRank": 28.0,
+      "A: personalized PageRank": 608.0,
+      "B: standard + LLM": 5.0,
+      "full: personalized + LLM": 608.0,
+      "hybrid + LLM (extra)": 10.0
+    },
+    {
+      "cve": "CVE-2024-53141",
+      "split": "test",
+      "bug_type": "other",
+      "attack_path": "config",
+      "fix_written": "2024-11-13",
+      "llm_could_have_seen_fix": true,
+      "functions": 1,
+      "random_expected_rank": 2198,
+      "baseline: standard PageRank": 3147.0,
+      "A: personalized PageRank": 1230.0,
+      "B: standard + LLM": 3147.0,
+      "full: personalized + LLM": 1230.0,
+      "hybrid + LLM (extra)": 1909.0
+    },
+    {
+      "cve": "CVE-2025-71160",
+      "split": "test",
+      "bug_type": "race/locking",
+      "attack_path": "both",
+      "fix_written": "2024-07-07",
+      "llm_could_have_seen_fix": true,
+      "functions": 2,
+      "random_expected_rank": 1446,
+      "baseline: standard PageRank": 705.0,
+      "A: personalized PageRank": 623.0,
+      "B: standard + LLM": 705.0,
+      "full: personalized + LLM": 623.0,
+      "hybrid + LLM (extra)": 1071.0
+    },
+    {
+      "cve": "CVE-2026-23274",
+      "split": "test",
+      "bug_type": "uninitialized",
+      "attack_path": "both",
+      "fix_written": "2026-03-09",
+      "llm_could_have_seen_fix": false,
+      "functions": 1,
+      "random_expected_rank": 2157,
+      "baseline: standard PageRank": 3421.0,
+      "A: personalized PageRank": 318.0,
+      "B: standard + LLM": 3421.0,
+      "full: personalized + LLM": 318.0,
+      "hybrid + LLM (extra)": 587.0
+    },
+    {
+      "cve": "CVE-2026-43027",
+      "split": "test",
+      "bug_type": "use-after-free",
+      "attack_path": "config",
+      "fix_written": "2026-03-30",
+      "llm_could_have_seen_fix": false,
+      "functions": 1,
+      "random_expected_rank": 2246,
+      "baseline: standard PageRank": 34.0,
+      "A: personalized PageRank": 478.0,
+      "B: standard + LLM": 72.0,
+      "full: personalized + LLM": 478.0,
+      "hybrid + LLM (extra)": 121.0
+    },
+    {
+      "cve": "CVE-2026-53001",
+      "split": "test",
+      "bug_type": "other",
+      "attack_path": "none",
+      "fix_written": "2026-04-15",
+      "llm_could_have_seen_fix": false,
+      "functions": 6,
+      "random_expected_rank": 640,
+      "baseline: standard PageRank": 3954.0,
+      "A: personalized PageRank": 3785.0,
+      "B: standard + LLM": 3954.0,
+      "full: personalized + LLM": 3785.0,
+      "hybrid + LLM (extra)": 3964.0
+    },
+    {
+      "cve": "CVE-2026-53218",
+      "split": "test",
+      "bug_type": "out-of-bounds",
+      "attack_path": "both",
+      "fix_written": "2026-06-09",
+      "llm_could_have_seen_fix": false,
+      "functions": 1,
+      "random_expected_rank": 2210,
+      "baseline: standard PageRank": 927.0,
+      "A: personalized PageRank": 1279.0,
+      "B: standard + LLM": 927.0,
+      "full: personalized + LLM": 1279.0,
+      "hybrid + LLM (extra)": 1516.0
+    },
+    {
+      "cve": "CVE-2026-64189",
+      "split": "tuning",
+      "bug_type": "use-after-free",
+      "attack_path": "both",
+      "fix_written": "2026-06-24",
+      "llm_could_have_seen_fix": false,
+      "functions": 2,
+      "random_expected_rank": 1479,
+      "baseline: standard PageRank": 2954.0,
+      "A: personalized PageRank": 2569.0,
+      "B: standard + LLM": 2954.0,
+      "full: personalized + LLM": 2569.0,
+      "hybrid + LLM (extra)": 3296.0
+    },
+    {
+      "cve": "CVE-2026-72020",
+      "split": "test",
+      "bug_type": "uninitialized",
+      "attack_path": "packet",
+      "fix_written": "2026-07-02",
+      "llm_could_have_seen_fix": false,
+      "functions": 1,
+      "random_expected_rank": 2154,
+      "baseline: standard PageRank": 778.0,
+      "A: personalized PageRank": 2044.0,
+      "B: standard + LLM": 778.0,
+      "full: personalized + LLM": 2044.0,
+      "hybrid + LLM (extra)": 1311.0
+    },
+    {
+      "cve": "CVE-2026-72251",
+      "split": "tuning",
+      "bug_type": "other",
+      "attack_path": "packet",
+      "fix_written": "2026-07-01",
+      "llm_could_have_seen_fix": false,
+      "functions": 1,
+      "random_expected_rank": 2198,
+      "baseline: standard PageRank": 1590.0,
+      "A: personalized PageRank": 1898.0,
+      "B: standard + LLM": 1590.0,
+      "full: personalized + LLM": 1898.0,
+      "hybrid + LLM (extra)": 2314.0
+    },
+    {
+      "cve": "CVE-2026-72419",
+      "split": "test",
+      "bug_type": "out-of-bounds",
+      "attack_path": "config",
+      "fix_written": "2026-04-28",
+      "llm_could_have_seen_fix": false,
+      "functions": 1,
+      "random_expected_rank": 2196,
+      "baseline: standard PageRank": 285.0,
+      "A: personalized PageRank": 1975.0,
+      "B: standard + LLM": 285.0,
+      "full: personalized + LLM": 1975.0,
+      "hybrid + LLM (extra)": 526.0
+    },
+    {
+      "cve": "CVE-2026-74347",
+      "split": "tuning",
+      "bug_type": "other",
+      "attack_path": "both",
+      "fix_written": "2026-06-04",
+      "llm_could_have_seen_fix": false,
+      "functions": 15,
+      "random_expected_rank": 268,
+      "baseline: standard PageRank": 305.0,
+      "A: personalized PageRank": 120.0,
+      "B: standard + LLM": 305.0,
+      "full: personalized + LLM": 10.0,
+      "hybrid + LLM (extra)": 93.0
+    },
+    {
+      "cve": "CVE-2026-74579",
+      "split": "test",
+      "bug_type": "out-of-bounds",
+      "attack_path": "both",
+      "fix_written": "2026-07-19",
+      "llm_could_have_seen_fix": false,
+      "functions": 1,
+      "random_expected_rank": 2142,
+      "baseline: standard PageRank": 183.0,
+      "A: personalized PageRank": 2490.0,
+      "B: standard + LLM": 107.0,
+      "full: personalized + LLM": 2490.0,
+      "hybrid + LLM (extra)": 328.0
+    },
+    {
+      "cve": "CVE-2026-74724",
+      "split": "test",
+      "bug_type": "out-of-bounds",
+      "attack_path": "packet",
+      "fix_written": "2026-07-30",
+      "llm_could_have_seen_fix": false,
+      "functions": 2,
+      "random_expected_rank": 1389,
+      "baseline: standard PageRank": 1578.0,
+      "A: personalized PageRank": 464.0,
+      "B: standard + LLM": 1578.0,
+      "full: personalized + LLM": 464.0,
+      "hybrid + LLM (extra)": 834.0
+    },
+    {
+      "cve": "CVE-2026-74748",
+      "split": "test",
+      "bug_type": "race/locking",
+      "attack_path": "both",
+      "fix_written": "2026-07-22",
+      "llm_could_have_seen_fix": false,
+      "functions": 2,
+      "random_expected_rank": 1455,
+      "baseline: standard PageRank": 151.0,
+      "A: personalized PageRank": 535.0,
+      "B: standard + LLM": 155.0,
+      "full: personalized + LLM": 535.0,
+      "hybrid + LLM (extra)": 269.0
+    },
+    {
+      "cve": "CVE-2026-80744",
+      "split": "test",
+      "bug_type": "other",
+      "attack_path": "config",
+      "fix_written": "2026-08-06",
+      "llm_could_have_seen_fix": false,
+      "functions": 1,
+      "random_expected_rank": 2175,
+      "baseline: standard PageRank": 2026.0,
+      "A: personalized PageRank": 3047.0,
+      "B: standard + LLM": 2026.0,
+      "full: personalized + LLM": 3047.0,
+      "hybrid + LLM (extra)": 2832.0
+    },
+    {
+      "cve": "CVE-2026-90141",
+      "split": "test",
+      "bug_type": "out-of-bounds",
+      "attack_path": "packet",
+      "fix_written": "2026-08-13",
+      "llm_could_have_seen_fix": false,
+      "functions": 1,
+      "random_expected_rank": 2159,
+      "baseline: standard PageRank": 1484.0,
+      "A: personalized PageRank": 2813.0,
+      "B: standard + LLM": 1484.0,
+      "full: personalized + LLM": 2813.0,
+      "hybrid + LLM (extra)": 2152.0
+    }
+  ]
+}

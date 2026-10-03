@@ -1,0 +1,21 @@
+cve,split,bug_type,attack_path,fix_written,llm_could_have_seen_fix,functions,random_expected_rank,baseline: standard PageRank,A: personalized PageRank,B: standard + LLM,full: personalized + LLM,hybrid + LLM (extra)
+CVE-2023-0179,tuning,out-of-bounds,both,2023-01-13,True,1,2170,1636.0,2262.0,1636.0,2262.0,2361.0
+CVE-2023-52620,test,other,config,2023-06-16,True,1,2197,3255.0,156.0,3255.0,12.0,278.0
+CVE-2024-35898,tuning,race/locking,config,2024-04-03,True,2,1474,1717.0,2032.0,1717.0,2032.0,2480.0
+CVE-2024-41042,tuning,out-of-bounds,both,2024-08-12,True,6,640,28.0,608.0,5.0,608.0,10.0
+CVE-2024-53141,test,other,config,2024-11-13,True,1,2198,3147.0,1230.0,3147.0,1230.0,1909.0
+CVE-2025-71160,test,race/locking,both,2024-07-07,True,2,1446,705.0,623.0,705.0,623.0,1071.0
+CVE-2026-23274,test,uninitialized,both,2026-03-09,False,1,2157,3421.0,318.0,3421.0,318.0,587.0
+CVE-2026-43027,test,use-after-free,config,2026-03-30,False,1,2246,34.0,478.0,72.0,478.0,121.0
+CVE-2026-53001,test,other,none,2026-04-15,False,6,640,3954.0,3785.0,3954.0,3785.0,3964.0
+CVE-2026-53218,test,out-of-bounds,both,2026-06-09,False,1,2210,927.0,1279.0,927.0,1279.0,1516.0
+CVE-2026-64189,tuning,use-after-free,both,2026-06-24,False,2,1479,2954.0,2569.0,2954.0,2569.0,3296.0
+CVE-2026-72020,test,uninitialized,packet,2026-07-02,False,1,2154,778.0,2044.0,778.0,2044.0,1311.0
+CVE-2026-72251,tuning,other,packet,2026-07-01,False,1,2198,1590.0,1898.0,1590.0,1898.0,2314.0
+CVE-2026-72419,test,out-of-bounds,config,2026-04-28,False,1,2196,285.0,1975.0,285.0,1975.0,526.0
+CVE-2026-74347,tuning,other,both,2026-06-04,False,15,268,305.0,120.0,305.0,10.0,93.0
+CVE-2026-74579,test,out-of-bounds,both,2026-07-19,False,1,2142,183.0,2490.0,107.0,2490.0,328.0
+CVE-2026-74724,test,out-of-bounds,packet,2026-07-30,False,2,1389,1578.0,464.0,1578.0,464.0,834.0
+CVE-2026-74748,test,race/locking,both,2026-07-22,False,2,1455,151.0,535.0,155.0,535.0,269.0
+CVE-2026-80744,test,other,config,2026-08-06,False,1,2175,2026.0,3047.0,2026.0,3047.0,2832.0
+CVE-2026-90141,test,out-of-bounds,packet,2026-08-13,False,1,2159,1484.0,2813.0,1484.0,2813.0,2152.0
