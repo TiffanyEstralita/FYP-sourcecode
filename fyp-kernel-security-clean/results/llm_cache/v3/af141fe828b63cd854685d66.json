@@ -1,0 +1,13 @@
+{
+  "node": "connmark_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "While the function handles user-supplied data, the checks appear complete as it only performs a bitwise operation and comparison without any unsafe memory operations or pointer dereferences.",
+  "analysis": "The function reads from packet metadata through nf_ct_get() and uses info->mask and info->mark from the matchinfo parameter which comes from user-supplied netlink attributes. Memory is read from ct->mark (a kernel memory location) and compared against attacker-controlled values. The function performs no bounds checking on the matchinfo structure contents, and the mask/mark values could potentially be crafted to cause unexpected behavior or bypass security checks.",
+  "seconds": 12.7,
+  "code_chars": 341
+}

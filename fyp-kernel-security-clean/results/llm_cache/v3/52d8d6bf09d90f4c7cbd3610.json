@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_expect_put",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "use_after_free",
+  "justification": "Function can be called on already-freed expect objects without validation, leading to potential use-after-free vulnerability.",
+  "analysis": "This function takes a nf_conntrack_expect pointer as input which could be influenced by attackers through netlink commands. It decrements a reference count and conditionally calls RCU free, but there are no checks on the input pointer validity or whether it's already freed. The function doesn't directly read/write memory based on attacker-controlled data, but could lead to use-after-free if called on already-freed objects.",
+  "seconds": 10.6,
+  "code_chars": 143
+}

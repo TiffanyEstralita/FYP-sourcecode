@@ -1,0 +1,13 @@
+{
+  "node": "find_or_evict",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete checks on all attacker-influenced values including cpu ID, jiffies values, and connection state before making decisions.",
+  "analysis": "",
+  "seconds": 10.0,
+  "code_chars": 787
+}

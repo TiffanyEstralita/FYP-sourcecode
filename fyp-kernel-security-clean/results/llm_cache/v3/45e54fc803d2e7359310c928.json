@@ -1,0 +1,13 @@
+{
+  "node": "xt_register_target",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only performs simple list operations on a user-provided structure without any unsafe memory handling or attacker-controlled data processing.",
+  "analysis": "The function takes a struct xt_target pointer from user space via the target parameter. The function only reads the family field from the target structure and uses it to index into the xt[] array, then adds the target to a linked list. No attacker-controlled lengths, offsets, or indices are used in memory operations. The target structure is not copied or validated beyond accessing its family field. There are no memory allocations, deallocations, or pointer dereferences that could lead to use-after-free or null dereference issues.",
+  "seconds": 12.1,
+  "code_chars": 195
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_stat_ct",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No obvious memory safety issues found in the provided function; it's a straightforward message construction and transmission wrapper.",
+  "analysis": "The function ctnetlink_stat_ct does not directly process attacker-influenced packet contents or netlink attributes for memory operations. It allocates a new netlink message buffer and calls a fill function that likely processes conntrack data, but no direct unsafe indexing, copying, or length checks are visible in this snippet. The function handles standard netlink message construction and does not appear to use freed objects or have obvious integer overflows.",
+  "seconds": 14.4,
+  "code_chars": 541
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_osf_remove_callback",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function copies attacker-controlled data without validating its size or contents, potentially leading to information disclosure or other issues if the input is malformed.",
+  "analysis": "The function reads attacker-controlled data from netlink attributes via `nla_data(osf_attrs[OSF_ATTR_FINGER])` and uses it to compare against stored entries. The comparison uses `memcmp(&sf->finger, f, sizeof(struct nf_osf_user_finger))` which copies the full structure without validating its contents or size. There are no checks on the size of the input data before use, and the function does not validate that the netlink attribute contains a complete or valid structure.",
+  "seconds": 16.4,
+  "code_chars": 665
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_getrule",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function uses NLMSG_GOODSIZE which could potentially overflow when computing netlink message sizes, and the fill function may not fully validate attribute lengths before copying.",
+  "analysis": "The function processes attacker-controlled netlink attributes (NFTA_RULE_TABLE, NFTA_RULE_CHAIN, NFTA_RULE_HANDLE) to lookup table, chain, and rule. Memory is allocated with alloc_skb and filled with rule information using nf_tables_fill_rule_info. The main risk comes from potential integer overflow in NLMSG_GOODSIZE or issues in the fill function if it doesn't properly validate attribute lengths before copying data. No direct use-after-free or null dereference patterns are evident.",
+  "seconds": 20.6,
+  "code_chars": 1620
+}

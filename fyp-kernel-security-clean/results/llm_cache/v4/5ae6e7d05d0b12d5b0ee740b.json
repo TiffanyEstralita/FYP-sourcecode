@@ -1,0 +1,13 @@
+{
+  "node": "xt_compat_match_from_user",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 72.0,
+  "risk": 0.72,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic on `msize` and `off` without checking for overflow, which can lead to buffer overflows when calculating final size.",
+  "analysis": "The function reads from attacker-controlled data via `cm` (compat_xt_entry_match) which includes `match_size` and `data` fields that could be malformed. Memory is copied using `msize` without validation of whether it exceeds buffer bounds or causes integer overflow when adjusted by `off`. The `off` value comes from `xt_compat_match_offset(match)` which may be derived from the match module's offset, but there's no check that `msize + off` doesn't overflow or that `cm->data` is validly sized. No explicit use-after-free occurs here, but improper bounds checking on `msize` could lead to memory corruption.",
+  "seconds": 18.0,
+  "code_chars": 728
+}

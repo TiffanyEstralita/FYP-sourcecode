@@ -1,0 +1,13 @@
+{
+  "node": "hash_ip4_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-influenced data handling and all memory operations are safe.",
+  "analysis": "The function processes hash buckets from a hash table but does not validate any attacker-influenced inputs directly. It iterates through all buckets using a fixed loop counter based on htable_bits, which is determined by the set configuration and not user-controlled. No memory is read or written using attacker-supplied offsets or lengths, and no arithmetic operations could overflow. The function properly dereferences and frees memory in a controlled manner without use-after-free issues.",
+  "seconds": 12.8,
+  "code_chars": 420
+}

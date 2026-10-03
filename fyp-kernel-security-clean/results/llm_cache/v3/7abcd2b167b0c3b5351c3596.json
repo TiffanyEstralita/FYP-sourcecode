@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_dump_done",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only uses fixed netlink callback argument offsets and does not perform any unsafe memory operations on attacker-controlled data.",
+  "analysis": "The function reads from netlink callback arguments (cb->args) which could be influenced by userspace, but does not perform any direct memory operations on attacker-controlled data. The function uses fixed offsets (IPSET_CB_ARG0, IPSET_CB_NET, IPSET_CB_INDEX) that are part of the netlink callback structure and not directly user-controllable. No arithmetic operations or memory allocations are performed that could lead to overflow/underflow or use-after-free issues.",
+  "seconds": 18.3,
+  "code_chars": 437
+}

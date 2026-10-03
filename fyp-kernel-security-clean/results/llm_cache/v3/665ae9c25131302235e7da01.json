@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_pernet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function is a simple per-net data lookup with no attacker-controlled inputs or unsafe memory operations.",
+  "analysis": "This function simply retrieves a per-net structure using net_generic() with a fixed ID. There are no attacker-influenced inputs as this is a straightforward lookup operation. The function performs a basic memory read from the kernel's per-net data structures without any unsafe indexing, copying, or allocation operations. No length checks, offset arithmetic, or memory management issues are present.",
+  "seconds": 9.0,
+  "code_chars": 101
+}

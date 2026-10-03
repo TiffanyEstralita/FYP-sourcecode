@@ -1,0 +1,13 @@
+{
+  "node": "nft_trans_alloc",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "Unbounded size parameter passed directly to memory allocator without validation.",
+  "analysis": "The function `nft_trans_alloc` takes a user-supplied `size` parameter that could be influenced by an attacker through netlink messages. The function directly passes this size to `nft_trans_alloc_gfp` without any validation or bounds checking, which could lead to memory allocation issues if the size is maliciously large or negative. There are no length checks or overflow protections for the size parameter before memory allocation occurs.",
+  "seconds": 10.4,
+  "code_chars": 163
+}

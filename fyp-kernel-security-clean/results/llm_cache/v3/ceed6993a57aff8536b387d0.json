@@ -1,0 +1,13 @@
+{
+  "node": "set_target_v2",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Indices from user-controlled input are used without validation that they refer to valid set objects.",
+  "analysis": "The function reads attacker-influenced data from `info->add_set` and `info->del_set` structures which are part of `par->targinfo`. Memory is accessed via `info->add_set.index` and `info->del_set.index` without clear validation that these indices are valid or within bounds. The `ADT_OPT` macro likely uses these values to configure operations, but there's no explicit check on whether the indices reference valid set objects. No obvious use-after-free or overflow conditions are apparent.",
+  "seconds": 16.0,
+  "code_chars": 775
+}

@@ -1,0 +1,13 @@
+{
+  "node": "gre_pernet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Pure accessor function with no security-relevant operations",
+  "analysis": "This function simply returns a pointer to a fixed offset within the net structure's connection tracking data. There are no attacker-influenced inputs, memory operations, or indexing involved. The function performs no bounds checking, arithmetic operations, or memory management.",
+  "seconds": 7.6,
+  "code_chars": 98
+}

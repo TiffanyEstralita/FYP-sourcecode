@@ -1,0 +1,13 @@
+{
+  "node": "nft_flow_dst_release",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only reads from validated enum parameter and does not perform any unsafe memory operations.",
+  "analysis": "The function reads from flow->tuplehash[dir].tuple.xmit_type and flow->tuplehash[dir].tuple.dst_cache, where dir is an enum parameter that could potentially be manipulated by an attacker through netlink commands. The function performs a bounds check on the dir parameter via the enum type but does not validate that the flow pointer itself is valid or that the tuplehash array has been properly initialized. No memory allocation or deallocation occurs in this function, but it dereferences pointers that could be invalid if the flow structure was corrupted or freed.",
+  "seconds": 13.4,
+  "code_chars": 295
+}

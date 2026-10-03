@@ -1,0 +1,13 @@
+{
+  "node": "owner_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The loop accessing gi->gid[i] lacks proper bounds checking against gi->ngroups, which could allow an attacker to cause out-of-bounds memory access if the group_info structure is malformed.",
+  "analysis": "The function reads from attacker-influenced netfilter match info structure, specifically checking UID/GID ranges and socket ownership flags. Memory accesses occur on filp->f_cred->fsuid, fsgid, and group_info structures, but no explicit bounds checking is performed on the group_info array access. The code does not perform overflow/underflow checks on any arithmetic operations and does not free any objects.",
+  "seconds": 23.1,
+  "code_chars": 1637
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_genl_set_config",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Unbounded integer values from netlink attributes are assigned directly to timeout fields without range validation.",
+  "analysis": "The function reads timeout values from netlink attributes without validating their range or bounds, relying on nla_get_u32() to extract 32-bit unsigned integers. These values are directly assigned to timeout fields in the t structure without any overflow/underflow checks or sanity validation. The function does not perform any memory allocation, deallocation, or indexing operations that could lead to use-after-free or buffer overflows.",
+  "seconds": 13.4,
+  "code_chars": 516
+}

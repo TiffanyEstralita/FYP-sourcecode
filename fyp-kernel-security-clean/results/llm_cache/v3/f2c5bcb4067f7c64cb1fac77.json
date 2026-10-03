@@ -1,0 +1,13 @@
+{
+  "node": "cttimeout_default_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function does not validate that l4num corresponds to a supported protocol before accessing timeouts array, allowing potential out-of-bounds access.",
+  "analysis": "The function reads l3num and l4num from netlink attributes, which are attacker-controlled. It uses l4num to index into protocol-specific timeout arrays but does not validate that l4num corresponds to a supported protocol before accessing the timeouts array. The switch statement handles several known protocols but doesn't explicitly check if l4num is valid for the current kernel configuration, potentially leading to use of uninitialized or invalid pointers.",
+  "seconds": 22.3,
+  "code_chars": 1907
+}

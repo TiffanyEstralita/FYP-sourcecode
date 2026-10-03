@@ -1,0 +1,13 @@
+{
+  "node": "hash_netnet6_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No attacker-influenced data is processed, function only operates on internal hash table structure with no obvious bounds checking issues.",
+  "analysis": "The function processes hash buckets from a hash table but does not validate any attacker-influenced inputs directly. It iterates through all buckets using a loop counter and dereferences pointers without checking if they are valid or have been freed. The function uses jhash_size() which depends on t->htable_bits, but there's no validation that this value is within expected bounds or that the hash table structure itself is properly initialized. No memory is copied or manipulated based on external data, but the function assumes all buckets are valid and can be freed without checking their state.",
+  "seconds": 14.6,
+  "code_chars": 428
+}

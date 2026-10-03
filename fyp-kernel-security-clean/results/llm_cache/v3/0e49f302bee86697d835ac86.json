@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_delflowtable",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "use_after_free",
+  "justification": "No explicit checks prevent use of a flowtable object after potential concurrent modification or deletion, and lookup functions may not validate attribute bounds.",
+  "analysis": "The function processes attacker-controlled netlink attributes including table name, handle, and hook data. It uses these to look up a flowtable object but does not perform explicit validation of attribute lengths or offsets before passing them to lookup functions. The flowtable object is dereferenced without additional checks that could prevent use-after-free if the object was concurrently modified or deleted.",
+  "seconds": 17.5,
+  "code_chars": 1353
+}

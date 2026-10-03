@@ -1,0 +1,13 @@
+{
+  "node": "nf_conntrack_invert_icmpv6_tuple",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses an attacker-influenced value as an array index without complete bounds checking, allowing potential out-of-bounds memory access.",
+  "analysis": "The function reads an ICMPv6 type from the original tuple's destination field, subtracts 128 to get a zero-based index, then uses this index to access the invmap array without proper bounds checking. The attacker can influence the ICMPv6 type value in the packet, which directly determines the array index. While there is a check against sizeof(invmap), it's not sufficient since the index calculation (type = orig->dst.u.icmp.type - 128) could still result in negative values or values beyond the array bounds if the input type is maliciously crafted.",
+  "seconds": 15.0,
+  "code_chars": 394
+}

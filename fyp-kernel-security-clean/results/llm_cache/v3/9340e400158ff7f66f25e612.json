@@ -1,0 +1,13 @@
+{
+  "node": "nf_log_netdev_packet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "While the function processes packet data, it doesn't appear to have obvious buffer overflows or use-after-free issues, and the protocol switch is a standard pattern.",
+  "analysis": "The function accepts attacker-influenced inputs including sk_buff data, net_device pointers, and nf_loginfo structures. It performs a switch on skb->protocol which is derived from packet data and directly passed to various logging functions without additional validation of the protocol value. The function does not perform any length or offset checks on the packet data before passing it to downstream functions.",
+  "seconds": 14.8,
+  "code_chars": 723
+}

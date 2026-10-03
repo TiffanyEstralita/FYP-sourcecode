@@ -1,0 +1,13 @@
+{
+  "node": "bitmap_port_flush",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "No attacker-controlled data processing or memory operations that could lead to vulnerabilities.",
+  "analysis": "This function does not handle any attacker-influenced inputs - it only operates on internal set data structures. All memory operations are performed on fixed internal fields of the bitmap_port structure and set object without any external data processing or bounds checking requirements. The function performs simple bitmap clearing and counter resets on internal data.",
+  "seconds": 9.2,
+  "code_chars": 249
+}

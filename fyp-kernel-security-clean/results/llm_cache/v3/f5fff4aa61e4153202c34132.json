@@ -1,0 +1,13 @@
+{
+  "node": "l2tp_mt_check",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs basic input validation with no risky memory operations or use-after-free scenarios.",
+  "analysis": "The function l2tp_mt_check processes user-supplied flags and version information from xt_l2tp_info structure. While it validates flag combinations and version ranges, there are no direct memory operations (read/write/copy/index) involving attacker-controlled data beyond the initial validation checks. The inputs are simple integer fields that are compared against fixed constants without complex arithmetic or pointer dereferences.",
+  "seconds": 17.5,
+  "code_chars": 1305
+}

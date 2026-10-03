@@ -1,0 +1,13 @@
+{
+  "node": "xt_ct_target_v0",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "use_after_free",
+  "justification": "Direct dereference of attacker-controlled pointer without validation or bounds checking.",
+  "analysis": "The function reads from `info->ct` which is derived from `par->targinfo` - this is user-supplied data from netlink attributes during target configuration. The function directly uses the `ct` pointer without any validation or bounds checking of the pointer value. Since `ct` comes from attacker-controlled netlink configuration data, an invalid or malicious pointer could be dereferenced, leading to potential use-after-free or null dereference vulnerabilities.",
+  "seconds": 10.5,
+  "code_chars": 222
+}

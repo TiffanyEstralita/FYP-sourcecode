@@ -1,0 +1,13 @@
+{
+  "node": "iprange_mt4",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "No validation of packet IP header length or matchinfo data integrity before use.",
+  "analysis": "The function reads packet IP addresses and compares them against configured ranges without validating the packet's IP header length or ensuring the skb contains valid IP data. The inputs come from the packet's IP header (saddr/daddr) and matchinfo structure, which could be influenced by userspace via netlink configuration. Memory is read from the packet header and matchinfo structure, but there are no checks to ensure the packet has a complete IP header or that the matchinfo values are valid before use.",
+  "seconds": 19.8,
+  "code_chars": 1039
+}

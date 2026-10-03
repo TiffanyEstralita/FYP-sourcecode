@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_table_iterate",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only iterates over kernel-internal data structures with no attacker-controlled inputs or unsafe memory operations.",
+  "analysis": "The function processes flow table entries using a hash table walker but does not directly handle attacker-influenced data. Inputs are derived from kernel-internal data structures, not user-supplied content. Memory access occurs through standard rhashtable operations and container_of macro, with no obvious unchecked indices or lengths. The function performs safe traversal without apparent use-after-free or overflow issues.",
+  "seconds": 13.3,
+  "code_chars": 793
+}

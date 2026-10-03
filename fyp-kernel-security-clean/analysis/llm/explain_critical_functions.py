@@ -11,6 +11,7 @@ import time
 from pathlib import Path
 import requests
 import sys
+import yaml
 
 # Windows terminals use a non-UTF-8 encoding by default and crash on emoji output
 sys.stdout.reconfigure(encoding="utf-8")
@@ -18,7 +19,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 # Paths
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-CONFIG_FILE = PROJECT_ROOT / "config/api_keys.json"
+CONFIG_FILE = PROJECT_ROOT / "configs/ollama.yaml"
 TOP_100_FILE = PROJECT_ROOT / "results/processed/top_100_functions.json"
 OUTPUT_PATH = PROJECT_ROOT / "results/processed"
 
@@ -188,17 +189,10 @@ Be concise and specific. Focus on concrete security concerns."""
 
 
 def load_config():
-    """Load Ollama model/host from config, falling back to defaults"""
-    model = "llama3.1"
-    host = "http://localhost:11434"
-
-    if CONFIG_FILE.exists():
-        with open(CONFIG_FILE, 'r') as f:
-            config = json.load(f)
-        model = config.get('ollama_model', model)
-        host = config.get('ollama_host', host)
-
-    return model, host
+    """Load Ollama model/host from configs/ollama.yaml (shared with the scoring stage)"""
+    with open(CONFIG_FILE, 'r') as f:
+        config = yaml.safe_load(f)
+    return config['model'], config['host']
 
 
 def load_top_functions():

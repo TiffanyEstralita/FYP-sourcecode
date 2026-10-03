@@ -1,0 +1,13 @@
+{
+  "node": "nf_xfrm_me_harder",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The hh_len value is derived from a device header length without explicit bounds checking, potentially leading to integer overflow in pskb_expand_head.",
+  "analysis": "The function processes packet data through xfrm_decode_session and xfrm_lookup, which may use attacker-influenced flowi fields. It performs memory operations like skb_dst_drop, skb_dst_set, and pskb_expand_head that could be affected by untrusted inputs. The code does not perform explicit bounds checking on the hh_len value derived from the device header length, which could lead to incorrect headroom calculations or buffer overflows if the device header length is maliciously large.",
+  "seconds": 20.0,
+  "code_chars": 809
+}

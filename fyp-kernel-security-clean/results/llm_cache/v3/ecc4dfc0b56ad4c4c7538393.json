@@ -1,0 +1,13 @@
+{
+  "node": "set_target_v0",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled dimension and flag values without proper validation, which could lead to memory corruption or unexpected behavior in downstream functions.",
+  "analysis": "The function reads attacker-influenced data from `info->add_set.u.compat.dim`, `info->add_set.u.compat.flags`, `info->del_set.u.compat.dim`, and `info->del_set.u.compat.flags` which are part of the netfilter target info structure. Memory is read from these fields and passed to `ADT_OPT` macro and subsequently to `ip_set_add`/`ip_set_del` functions. The indices `info->add_set.index` and `info->del_set.index` are checked against `IPSET_INVALID_ID` but no validation is performed on the dimension or flag values that could lead to out-of-bounds access or incorrect behavior in the underlying set operations.",
+  "seconds": 18.8,
+  "code_chars": 622
+}

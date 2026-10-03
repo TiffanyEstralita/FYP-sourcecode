@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_getset",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled netlink attributes without sufficient validation before passing them to lookup functions.",
+  "analysis": "The function processes netlink attributes including NFTA_SET_TABLE and NFTA_SET_NAME which can be controlled by an attacker. It uses these attributes to look up tables and sets without comprehensive validation of their contents, potentially leading to use-after-free or out-of-bounds access if the lookup functions do not fully validate inputs. The code does not perform explicit checks on attribute lengths or offsets before use, and relies on internal lookup functions that may not adequately protect against malformed input.",
+  "seconds": 21.7,
+  "code_chars": 1550
+}

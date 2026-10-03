@@ -1,0 +1,13 @@
+{
+  "node": "netmap_tg6",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No clear memory safety issue detected; array accesses are bounded but potential input validation gaps exist.",
+  "analysis": "The function reads attacker-influenced data from `range->min_addr.ip6` and `range->max_addr.ip6` without explicit bounds checking on array indices. However, `ARRAY_SIZE(range->min_addr.ip6)` is used consistently with loop bounds, preventing direct out-of-bounds access. The primary risk lies in potential integer overflow or underflow if `range` points to malformed netlink attributes, though the code does not perform arithmetic that could cause such issues. No use-after-free or null dereference patterns are present.",
+  "seconds": 18.6,
+  "code_chars": 1054
+}

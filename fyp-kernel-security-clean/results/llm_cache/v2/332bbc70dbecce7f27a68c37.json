@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_genl_find_service",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function calls ip_vs_genl_parse_service which likely processes attacker-controlled netlink attributes without complete bounds checking before using parsed data to find or create service objects.",
+  "analysis": "",
+  "seconds": 7.8,
+  "code_chars": 287
+}

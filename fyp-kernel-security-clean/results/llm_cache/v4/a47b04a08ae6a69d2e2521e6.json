@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_genl_set_config",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 72.0,
+  "risk": 0.72,
+  "pattern": "missing_bounds_check",
+  "justification": "Timeout values from netlink attributes are used directly without validation of their range or sanity checks.",
+  "analysis": "The function reads timeout values from netlink attributes without validating their range or bounds, relying on nla_get_u32() to extract 32-bit unsigned integers. These values are directly assigned to timeout fields in the t structure and passed to ip_vs_set_timeout(), which may not validate these values either. There are no checks for overflow/underflow or invalid ranges of the timeout values, and no indication that the extracted values are sanitized before use.",
+  "seconds": 14.6,
+  "code_chars": 516
+}

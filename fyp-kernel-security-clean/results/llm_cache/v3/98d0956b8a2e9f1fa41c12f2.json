@@ -1,0 +1,13 @@
+{
+  "node": "nfct_timeout_pernet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function is a simple per-net namespace lookup with no attacker-controlled data or memory operations.",
+  "analysis": "This function simply retrieves a per-network namespace data structure using net_generic() with a fixed ID. There are no attacker-influenced inputs as the function only takes a kernel-provided net pointer and uses a static nfct_timeout_id. No memory is read, written, copied, indexed, allocated or freed within this function. The function performs a straightforward lookup operation without any bounds checking or arithmetic operations.",
+  "seconds": 9.7,
+  "code_chars": 118
+}

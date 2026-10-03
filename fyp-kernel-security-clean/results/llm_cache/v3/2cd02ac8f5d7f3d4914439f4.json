@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_swap",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The use of strncpy without checking the length of nla_data() input could lead to buffer overflows.",
+  "analysis": "The function accepts attacker-controlled data through netlink attributes IPSET_ATTR_SETNAME and IPSET_ATTR_SETNAME2, which are used to lookup sets via nla_data(). The name fields are copied using strncpy without validating the length of input data, potentially allowing buffer overflows. The function performs swaps on set references but does not validate that the input names correspond to valid, existing sets before swapping, and there's no check for potential race conditions during the swap operation.",
+  "seconds": 18.6,
+  "code_chars": 1367
+}

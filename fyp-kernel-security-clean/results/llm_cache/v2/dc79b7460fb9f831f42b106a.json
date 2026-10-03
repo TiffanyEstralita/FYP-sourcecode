@@ -1,0 +1,13 @@
+{
+  "node": "nft_trace_packet",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles internal data structures and does not process any attacker-influenced input or perform unsafe operations.",
+  "analysis": "",
+  "seconds": 6.6,
+  "code_chars": 375
+}

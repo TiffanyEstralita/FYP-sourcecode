@@ -1,0 +1,13 @@
+{
+  "node": "cttimeout_new_timeout",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function uses `l4proto->ctnl_timeout.obj_size` from external data without verifying it fits within allocated memory, risking integer overflow when computing allocation size.",
+  "analysis": "",
+  "seconds": 21.0,
+  "code_chars": 2111
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_match_extensions",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No obvious buffer overflows, use-after-free, or integer overflow issues; relies on properly initialized data structures.",
+  "analysis": "The function processes packet extension data through 'ext', 'mext', and 'data' parameters which could be influenced by attacker-supplied packet contents or netlink attributes. Memory is read from 'ext', 'mext', and 'data' pointers, with potential access to counter and skbinfo fields. The function does not perform explicit bounds checking on indices or lengths derived from these inputs, though it appears to rely on proper initialization and validation of the set structure and its flags.",
+  "seconds": 14.2,
+  "code_chars": 734
+}

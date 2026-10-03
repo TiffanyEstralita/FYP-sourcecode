@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_dump_master",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles internal data structures with proper netlink attribute handling and no obvious security flaws.",
+  "analysis": "The function reads from ct->status which is part of the connection tracking structure, but this is not directly attacker-controlled. The function uses nla_nest_start and nla_nest_end which are netlink attribute functions that handle their own bounds checking. The master_tuple(ct) function call is used but its input comes from the conntrack structure which is validated during connection creation. No obvious integer overflows, use-after-free issues, or null dereferences are present.",
+  "seconds": 16.1,
+  "code_chars": 408
+}

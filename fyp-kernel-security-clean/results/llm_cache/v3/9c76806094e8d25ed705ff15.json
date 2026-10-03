@@ -1,0 +1,13 @@
+{
+  "node": "match_set",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Unvalidated index parameter passed directly to ip_set_test() function without bounds checking.",
+  "analysis": "The function takes an 'index' parameter that could be influenced by attacker-controlled netlink attributes when setting up iptables rules. The function directly passes this index to ip_set_test() without any validation or bounds checking against the valid range of set indices. The index is used as an array offset or lookup key without verification, making it vulnerable to out-of-bounds access if the attacker provides an invalid index value.",
+  "seconds": 11.1,
+  "code_chars": 222
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_conntrack_free",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "Function only handles internal kernel data structures with no attacker-controlled inputs or unsafe memory operations.",
+  "analysis": "The function `nf_conntrack_free` does not directly process attacker-influenced data as it only handles internal connection tracking structures. Memory is read from the connection tracking object's fields and freed, but no user-supplied lengths, offsets, or indices are used in memory operations. The function performs standard cleanup operations without risky arithmetic or use-after-free scenarios.",
+  "seconds": 12.5,
+  "code_chars": 614
+}

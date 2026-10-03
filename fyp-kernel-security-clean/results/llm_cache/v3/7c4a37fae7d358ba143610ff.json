@@ -1,0 +1,13 @@
+{
+  "node": "checksum_tg",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only performs simple flag checks on kernel-managed skb data with no attacker-controlled inputs or memory operations that could be exploited.",
+  "analysis": "The function takes a sk_buff pointer and xt_action_param pointer as inputs, but does not directly process any attacker-influenced data from packet contents or netlink attributes. The function performs simple checks on skb->ip_summed and skb_is_gso() flags without any memory allocation, copying, or indexing operations that could be exploited. No arithmetic operations or pointer dereferences are performed that could overflow or underflow.",
+  "seconds": 10.7,
+  "code_chars": 200
+}

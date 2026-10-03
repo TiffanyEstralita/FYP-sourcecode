@@ -1,0 +1,13 @@
+{
+  "node": "nft_payload_copy_vlan",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic operations on offset and len without sufficient bounds checking against the actual packet data size, potentially leading to integer overflow/underflow when calculating buffer sizes.",
+  "analysis": "",
+  "seconds": 12.9,
+  "code_chars": 1043
+}

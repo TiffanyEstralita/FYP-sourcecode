@@ -1,0 +1,13 @@
+{
+  "node": "recent_pernet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Pure lookup function with no attacker-controlled data handling or memory safety issues.",
+  "analysis": "This function simply retrieves a per-network namespace structure using net_generic() with a fixed ID. There are no attacker-influenced inputs as this is a straightforward lookup operation. The function reads from a kernel-internal data structure and performs no memory allocation, copying, or indexing operations that could be compromised. No memory is freed or used after freeing.",
+  "seconds": 8.6,
+  "code_chars": 108
+}

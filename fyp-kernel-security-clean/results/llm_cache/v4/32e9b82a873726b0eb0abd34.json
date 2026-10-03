@@ -1,0 +1,13 @@
+{
+  "node": "cttimeout_del_timeout",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses strncmp with a fixed maximum length against potentially unbounded input from netlink attributes without proper bounds checking.",
+  "analysis": "The function accepts a netlink attribute CTA_TIMEOUT_NAME which is used as a string name to search for a timeout entry. The name is retrieved using nla_data() without checking its length, and strncmp is called with a fixed maximum length (CTNL_TIMEOUT_NAME_MAX) that may be larger than the actual data. This could lead to reading beyond the allocated buffer if the name attribute is shorter than expected, or potentially a use-after-free if the entry is deleted during iteration.",
+  "seconds": 15.2,
+  "code_chars": 714
+}

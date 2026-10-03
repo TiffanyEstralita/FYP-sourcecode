@@ -1,0 +1,13 @@
+{
+  "node": "ctnl_timeout_put",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "Function only handles reference counting and cleanup with proper atomic operations, no direct attacker-influenced memory access patterns.",
+  "analysis": "This function takes a nf_ct_timeout pointer as input which could be influenced by user-supplied data through netlink commands. It performs a refcount_dec_and_test operation on timeout->refcnt and if the count reaches zero, it calls kfree_rcu on the timeout structure. The function doesn't directly read or write attacker-influenced memory locations, but relies on proper reference counting to prevent use-after-free scenarios. The check appears complete as it uses atomic refcount operations and proper RCU freeing.",
+  "seconds": 11.9,
+  "code_chars": 249
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_ip6_checksum_partial",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete checks on packet data offsets and lengths before use.",
+  "analysis": "",
+  "seconds": 8.7,
+  "code_chars": 722
+}

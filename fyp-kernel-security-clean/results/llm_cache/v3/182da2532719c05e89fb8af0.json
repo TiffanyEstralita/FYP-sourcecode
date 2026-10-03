@@ -1,0 +1,13 @@
+{
+  "node": "nft_trans_commit_list_add_tail",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs simple list operation with no attacker-controlled data manipulation or memory safety issues.",
+  "analysis": "This function takes a netfilter transaction object 'trans' as input which could potentially be influenced by an attacker through netlink commands. The function performs a simple list operation by adding the transaction to a commit list using list_add_tail(). There are no lengths, offsets, or indices being manipulated that could be attacker-controlled, and no memory allocation, copying, or freeing operations occur in this function. The only potential issue would be if the 'trans' object itself was malformed when passed in, but this appears to be a simple list management function.",
+  "seconds": 12.6,
+  "code_chars": 194
+}

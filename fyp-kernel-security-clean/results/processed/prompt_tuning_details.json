@@ -1,0 +1,2138 @@
+{
+  "v1": {
+    "per_cve_best": {
+      "CVE-2023-0179": 0.6,
+      "CVE-2024-35898": 0.3,
+      "CVE-2024-41042": 0.3,
+      "CVE-2026-64189": 0.3,
+      "CVE-2026-72251": 0.3,
+      "CVE-2026-74347": 0.3
+    },
+    "scores": {
+      "__nft_flowtable_type_get": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function performs a simple list traversal with proper bounds checking and returns NULL on no match, no obvious security vulnerabilities present.",
+        "error": null
+      },
+      "ctnl_timeout_fill_info": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper null checks and uses safe netlink attribute handling without obvious vulnerability patterns.",
+        "error": null
+      },
+      "ctnl_timeout_find_get": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly handles reference counting and uses RCU traversal with appropriate null checks, though it could benefit from explicit NULL return handling for better clarity",
+        "error": null
+      },
+      "ctnl_timeout_put": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it properly checks reference count before freeing and uses kfree_rcu for safe memory deallocation.",
+        "error": null
+      },
+      "ctnl_timeout_try_del": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly handles reference counting with refcount_dec_if_one and uses RCU-safe list deletion, preventing use-after-free scenarios.",
+        "error": null
+      },
+      "cttimeout_del_timeout": {
+        "risk_score": 3.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function uses strncmp with CTNL_TIMEOUT_NAME_MAX without ensuring the name length is properly bounded, potentially allowing buffer overread if the name exceeds the maximum allowed length.",
+        "error": null
+      },
+      "cttimeout_exit": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears to properly unregister netfilter subsystems and clear pointers without obvious security flaws.",
+        "error": null
+      },
+      "cttimeout_net_exit": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly handles list traversal and reference counting without obvious security flaws.",
+        "error": null
+      },
+      "cttimeout_new_timeout": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly validates inputs and handles memory allocation errors, with no obvious security vulnerabilities present.",
+        "error": null
+      },
+      "ip_set_dump_do": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper bounds checking and lock management, with no obvious vulnerability patterns like use-after-free or integer overflow.",
+        "error": null
+      },
+      "ip_set_dump_done": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it properly checks for null pointers and follows correct reference counting patterns without obvious vulnerability patterns.",
+        "error": null
+      },
+      "nf_conntrack_free": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly handles reference counting and uses RCU protection, with no obvious memory safety issues or vulnerability patterns.",
+        "error": null
+      },
+      "nf_ct_destroy_timeout": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly handles RCU synchronization and null checks, no obvious security vulnerabilities present",
+        "error": null
+      },
+      "nf_ct_set_timeout": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly handles all error conditions and uses RCU locking correctly, with no obvious vulnerability patterns present.",
+        "error": null
+      },
+      "nf_nat_sip": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper bounds checking and validation before memory access, with no obvious vulnerability patterns.",
+        "error": null
+      },
+      "nf_tables_check_loops": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper null checks and loop detection without obvious vulnerability patterns.",
+        "error": null
+      },
+      "nf_tables_loop_check_setelem": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it properly checks for extension existence before dereferencing and handles the loop checking correctly without obvious vulnerabilities.",
+        "error": null
+      },
+      "nft_chain_validate": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper bounds checking and error handling without obvious vulnerabilities",
+        "error": null
+      },
+      "nft_check_loops": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it properly validates verdict code before accessing chain pointer, with no obvious memory safety issues or control flow vulnerabilities.",
+        "error": null
+      },
+      "nft_ct_timeout_obj_eval": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper null checks and validation before dereferencing pointers, with appropriate error handling for allocation failures.",
+        "error": null
+      },
+      "nft_ct_timeout_obj_init": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper validation of inputs and handles error cases appropriately without obvious security vulnerabilities.",
+        "error": null
+      },
+      "nft_flowtable_type_get": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly handles null pointer checks and module loading with appropriate error returns, no obvious security vulnerabilities present",
+        "error": null
+      },
+      "nft_payload_copy_vlan": {
+        "risk_score": 6.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The function performs arithmetic operations on offset and len without proper bounds checking, potentially leading to integer overflow when calculating ethlen or accessing memory beyond buffer boundaries.",
+        "error": null
+      },
+      "nft_set_catchall_loops": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it properly handles RCU list traversal and null checks, with no obvious vulnerability patterns",
+        "error": null
+      },
+      "nft_validate_register_store": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper bounds checking and input validation with no obvious security vulnerabilities",
+        "error": null
+      },
+      "untimeout [nf_conntrack_timeout.c]": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it properly checks for null pointers and uses RCU mechanisms correctly, with no obvious vulnerability patterns.",
+        "error": null
+      },
+      "untimeout [nfnetlink_cttimeout.c]": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it only sets a pointer to NULL after checking for valid timeout extension, with no obvious memory safety issues.",
+        "error": null
+      },
+      "hashlimit_proc_net_exit": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears to properly handle netfilter proc entry cleanup with mutex protection and null checks, no obvious security vulnerabilities present.",
+        "error": null
+      },
+      "xt_compat_match_to_user": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper bounds checking and error handling, no obvious security vulnerabilities detected",
+        "error": null
+      },
+      "getorigdst": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper bounds checking and error handling, with no obvious vulnerability patterns.",
+        "error": null
+      },
+      "ip_vs_genl_find_service": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it properly handles error returns and the svc pointer is validated through the parse function call.",
+        "error": null
+      },
+      "nft_bitwise_dump_shift": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it only dumps data without performing any operations that could lead to memory corruption or security issues.",
+        "error": null
+      },
+      "bitmap_port_do_del": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it only performs a bit operation with proper kernel API usage, no obvious vulnerability patterns detected",
+        "error": null
+      },
+      "conntrack_mt_destroy": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it only calls a netfilter helper function with validated parameters, no obvious vulnerability patterns present",
+        "error": null
+      },
+      "nft_target_destroy": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears to properly validate pointer before use and handles cleanup without obvious memory safety issues",
+        "error": null
+      },
+      "nf_flow_dnat_port": {
+        "risk_score": 3.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function accesses skb_network_header(skb) + thoff without validating that the offset or resulting pointer is within valid packet bounds, potentially leading to memory corruption.",
+        "error": null
+      },
+      "ctnetlink_exp_dump_tuple": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears to properly handle netlink attribute nesting and error conditions without obvious vulnerabilities.",
+        "error": null
+      },
+      "ip_vs_app_seq_show": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it only reads from well-defined struct members and uses proper seq_file APIs without obvious vulnerability patterns.",
+        "error": null
+      },
+      "nf_osf_find": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper bounds checking through RCU list traversal and uses safe memory access patterns without obvious vulnerability patterns.",
+        "error": null
+      },
+      "callforward_do_filter": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly handles both IPv4 and IPv6 cases with correct null checks and resource management, no obvious vulnerability patterns detected.",
+        "error": null
+      },
+      "synproxy_send_client_ack": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper bounds checking and memory allocation validation, with no obvious vulnerability patterns.",
+        "error": null
+      },
+      "nf_conntrack_pernet_init": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper error handling and cleanup without obvious memory safety issues or logical vulnerabilities.",
+        "error": null
+      },
+      "hash_ipportip6_data_match": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears to properly validate extensions before proceeding with match operation, no obvious vulnerability patterns detected",
+        "error": null
+      },
+      "bitmap_ip_ext_cleanup": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it properly iterates within bounds and only processes set bits, with no obvious memory safety issues.",
+        "error": null
+      },
+      "ctnetlink_change_seq_adj": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly handles null pointer checks and uses proper locking, with no obvious vulnerability patterns detected.",
+        "error": null
+      },
+      "ip_vs_state_name": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly validates state index and handles edge cases without obvious security vulnerabilities",
+        "error": null
+      },
+      "ip_vs_proc_seqopt": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper bounds checking and parameter validation before processing data, with no obvious security vulnerabilities.",
+        "error": null
+      },
+      "connmark_tg_destroy": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it only calls a netfilter helper function with validated parameters, no obvious vulnerability patterns present",
+        "error": null
+      },
+      "hash_mac4_uadt": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper bounds checking and validation of input attributes before use, with no obvious security vulnerabilities detected.",
+        "error": null
+      },
+      "ctnetlink_dump_master": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears safe with proper error handling and no obvious vulnerability patterns",
+        "error": null
+      },
+      "nf_flow_table_offload_init": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function properly handles allocation failures and cleans up resources, no obvious security vulnerabilities present.",
+        "error": null
+      },
+      "ip_vs_sched_persist": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper parameter validation and memory management without obvious security flaws.",
+        "error": null
+      },
+      "cgroup_mt_destroy_v2": {
+        "risk_score": 3.0,
+        "pattern": "null_deref",
+        "justification": "The code dereferences info->priv without checking if info is NULL, which could lead to a null pointer dereference if the matchinfo parameter is not properly initialized.",
+        "error": null
+      },
+      "nft_trace_packet": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs basic null check on nf_trace before dereferencing and has no obvious vulnerability patterns",
+        "error": null
+      },
+      "nf_logger_put": {
+        "risk_score": 3.0,
+        "pattern": "null_deref",
+        "justification": "The function dereferences logger pointer without checking if it's NULL after RCU lookup, potentially causing null pointer dereference if the logger was concurrently freed.",
+        "error": null
+      },
+      "ecn_mt6": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs basic bitwise operations and conditional checks without obvious memory safety issues or known vulnerability patterns.",
+        "error": null
+      },
+      "xt_compat_match_from_user": {
+        "risk_score": 3.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Function does not validate that cm->u.user.match_size or msize values are within expected bounds before using them in memory operations.",
+        "error": null
+      },
+      "hash_ipportnet4_destroy": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly handles memory cleanup and list traversal without obvious vulnerabilities, though it could benefit from null pointer checks for dereferenced pointers.",
+        "error": null
+      },
+      "nfnl_cthelper_get": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper capability checks and input validation, with no obvious memory safety issues or control flow vulnerabilities.",
+        "error": null
+      },
+      "nfnl_acct_put": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly handles reference counting and module loading/unloading without obvious vulnerabilities.",
+        "error": null
+      },
+      "xt_compat_match_offset": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs safe arithmetic with proper alignment calculations and no obvious vulnerability patterns",
+        "error": null
+      },
+      "classify_tg": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Simple assignment of priority value with no obvious vulnerability patterns, though missing input validation for the priority value could be improved",
+        "error": null
+      },
+      "nf_nat_irc_init": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears to be a simple initialization routine with proper null check and RCU pointer assignment, no obvious security vulnerabilities present.",
+        "error": null
+      },
+      "nf_register_sockopt": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly validates input parameters and uses mutex locking to prevent race conditions, with no obvious security vulnerabilities present.",
+        "error": null
+      },
+      "ip_vs_genl_set_config": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly validates attribute existence before accessing and uses standard netlink attribute getters with no obvious vulnerability patterns.",
+        "error": null
+      },
+      "bitmap_port_flush": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function appears safe as it only clears bitmap members and resets counters without dereferencing potentially unsafe pointers or performing operations that could lead to memory corruption.",
+        "error": null
+      },
+      "hash_ipportnet4_data_equal": {
+        "risk_score": 1.0,
+        "pattern": "none",
+        "justification": "Function only performs simple equality comparisons on fixed-size fields with no obvious vulnerability patterns",
+        "error": null
+      },
+      "bitmap_ipmac_test": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears to properly validate inputs and handle edge cases without obvious security vulnerabilities",
+        "error": null
+      },
+      "nf_ip6_checksum_partial": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears to properly handle checksum calculations with appropriate bounds checking and conditional logic, though it could benefit from additional input validation.",
+        "error": null
+      },
+      "process_olca": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper null checks and bounds validation, no obvious vulnerability patterns detected.",
+        "error": null
+      },
+      "find_or_evict": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears to handle edge cases properly with appropriate checks for CPU affinity and age, though the age calculation could be improved to prevent potential unsigned integer underflow in rare circumstances.",
+        "error": null
+      },
+      "hash_netport4_data_netmask": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs basic bitwise operations and arithmetic with proper parameter validation, no obvious security vulnerabilities present",
+        "error": null
+      },
+      "ip_vs_proto_get": {
+        "risk_score": 1.0,
+        "pattern": "none",
+        "justification": "Function performs safe hash lookup with proper null termination check and no unsafe memory operations.",
+        "error": null
+      },
+      "get_callid": {
+        "risk_score": 3.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function does not validate that matchoff and matchlen values when added to dataoff remain within the bounds of the available data buffer before accessing memory.",
+        "error": null
+      },
+      "nf_flow_offload_destroy": {
+        "risk_score": 3.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Function assumes flow_rule array has FLOW_OFFLOAD_DIR_MAX elements without validating the input array bounds or checking if flow_rule is NULL.",
+        "error": null
+      },
+      "dl_seq_start": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly handles allocation failure and bounds checking, no obvious security vulnerabilities present",
+        "error": null
+      },
+      "nf_nat_inet_unregister_fn": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears to be a simple wrapper that safely calls two other functions with proper parameters and no obvious vulnerability patterns.",
+        "error": null
+      },
+      "hash_netportnet4_head": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper locking, null checks, and uses safe netlink attribute operations with appropriate error handling.",
+        "error": null
+      },
+      "nf_log_dump_packet_common": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function performs safe null checks and uses validated device names without direct memory manipulation or obvious vulnerability patterns.",
+        "error": null
+      },
+      "nft_synproxy_do_destroy": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs valid bounds checking through switch statement and proper null checks, with no obvious vulnerability patterns.",
+        "error": null
+      },
+      "nft_ct_set_init": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper validation of inputs and handles error cases appropriately without obvious security vulnerabilities.",
+        "error": null
+      },
+      "hash_ipmac_fini": {
+        "risk_score": 1.0,
+        "pattern": "none",
+        "justification": "Simple cleanup function that only unregisters a netfilter type, no obvious security vulnerabilities present",
+        "error": null
+      },
+      "ctnetlink_parse_zone": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly handles null attribute and uses safe ntohs() conversion, no obvious security vulnerabilities present.",
+        "error": null
+      },
+      "nf_nat_sip_init": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function contains no obvious security vulnerabilities, only proper initialization and registration of netfilter hooks",
+        "error": null
+      },
+      "nf_nat_ipv4_csum_recalc": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs proper bounds checking and parameter validation, with no obvious vulnerability patterns like use-after-free, null dereference, or integer overflow.",
+        "error": null
+      },
+      "nfnl_userspace_cthelper": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function appears to have proper null checks and safe dereferences, no obvious vulnerability patterns detected",
+        "error": null
+      },
+      "hash_ipmark6_ahash_destroy": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function properly iterates through hash buckets and frees memory without obvious dereference or allocation issues",
+        "error": null
+      }
+    }
+  },
+  "v2": {
+    "per_cve_best": {
+      "CVE-2023-0179": 0.6,
+      "CVE-2024-35898": 0.3,
+      "CVE-2024-41042": 0.3,
+      "CVE-2026-64189": 0.6,
+      "CVE-2026-72251": 0.6,
+      "CVE-2026-74347": 0.6
+    },
+    "scores": {
+      "__nft_flowtable_type_get": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only performs a lookup in a linked list using a family parameter that appears to be validated elsewhere, with no direct attacker-influenced data handling.",
+        "error": null
+      },
+      "ctnl_timeout_fill_info": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks, no obvious vulnerability patterns detected.",
+        "error": null
+      },
+      "ctnl_timeout_find_get": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs proper reference counting and null checks, with no obvious memory safety issues.",
+        "error": null
+      },
+      "ctnl_timeout_put": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles reference counting and module release with proper RCU cleanup, no attacker-influenced data processing",
+        "error": null
+      },
+      "ctnl_timeout_try_del": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles reference counting and RCU list operations with proper locking, no attacker-influenced data processing",
+        "error": null
+      },
+      "cttimeout_del_timeout": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function uses nla_data() without checking the attribute length, potentially leading to buffer overread when comparing names.",
+        "error": null
+      },
+      "cttimeout_exit": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only handles kernel internal cleanup operations with no attacker-influenced data processing.",
+        "error": null
+      },
+      "cttimeout_net_exit": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles internal data structures with proper reference counting and list operations, no attacker-influenced data is processed",
+        "error": null
+      },
+      "cttimeout_new_timeout": {
+        "risk_score": 6.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The function uses `l4proto->ctnl_timeout.obj_size` from external data without verifying it fits within allocated memory, risking integer overflow when computing allocation size.",
+        "error": null
+      },
+      "ip_set_dump_do": {
+        "risk_score": 6.0,
+        "pattern": "other",
+        "justification": "Function parses attacker-influenced data from netlink callback arguments without complete validation of index bounds before accessing set array.",
+        "error": null
+      },
+      "ip_set_dump_done": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles netlink callback data but performs complete checks with proper reference counting and no obvious memory safety issues.",
+        "error": null
+      },
+      "nf_conntrack_free": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles internal data structures with proper reference counting and uses RCU locking, no attacker-influenced data is processed",
+        "error": null
+      },
+      "nf_ct_destroy_timeout": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles RCU-protected data with proper locking and null checks, no attacker-influenced data processing",
+        "error": null
+      },
+      "nf_ct_set_timeout": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete validation checks before use, with proper error handling and reference counting.",
+        "error": null
+      },
+      "nf_nat_sip": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Function parses attacker-influenced SIP data without complete bounds checking on offsets and lengths used in multiple parsing and mangle operations.",
+        "error": null
+      },
+      "nf_tables_check_loops": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks on chain and set references before use.",
+        "error": null
+      },
+      "nf_tables_loop_check_setelem": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles internal data structures with no attacker-influenced inputs, performs basic flag checks and calls to other kernel functions without obvious vulnerabilities.",
+        "error": null
+      },
+      "nft_chain_validate": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs proper validation checks with appropriate error handling and uses safe iteration patterns.",
+        "error": null
+      },
+      "nft_check_loops": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles internal data structures with no attacker-influenced input, performs simple switch/case operations, and uses verified kernel APIs without memory manipulation.",
+        "error": null
+      },
+      "nft_ct_timeout_obj_eval": {
+        "risk_score": 6.0,
+        "pattern": "null_deref",
+        "justification": "The function dereferences 'timeout' without ensuring it's not NULL after potential allocation failure, and 'nf_ct_timeout_data' could return NULL which is then dereferenced.",
+        "error": null
+      },
+      "nft_ct_timeout_obj_init": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function parses attacker-influenced data from netlink attributes without complete validation of the size or content, particularly in the timeout policy parsing step.",
+        "error": null
+      },
+      "nft_flowtable_type_get": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles well-defined internal data and uses proper error handling without external input influence.",
+        "error": null
+      },
+      "nft_payload_copy_vlan": {
+        "risk_score": 6.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The function performs arithmetic operations on offset and len without sufficient bounds checking against the actual packet data size, potentially leading to integer overflow/underflow when calculating buffer sizes.",
+        "error": null
+      },
+      "nft_set_catchall_loops": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only processes internally managed data structures with proper RCU locking and no attacker-controlled inputs",
+        "error": null
+      },
+      "nft_validate_register_store": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data with complete checks but does not appear to have any obvious security vulnerabilities.",
+        "error": null
+      },
+      "untimeout [nf_conntrack_timeout.c]": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks with proper null pointer validation and RCU synchronization.",
+        "error": null
+      },
+      "untimeout [nfnetlink_cttimeout.c]": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only handles internal connection timeout reference and does not process any attacker-influenced data",
+        "error": null
+      },
+      "hashlimit_proc_net_exit": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only handles proc entry removal and does not process any attacker-influenced data or perform unsafe memory operations.",
+        "error": null
+      },
+      "xt_compat_match_to_user": {
+        "risk_score": 6.0,
+        "pattern": "other",
+        "justification": "Parses attacker-influenced data from packet/netlink with potential integer overflow in offset arithmetic and incomplete bounds checking on match size calculations.",
+        "error": null
+      },
+      "getorigdst": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks on input length and socket protocol, with proper locking and reference counting.",
+        "error": null
+      },
+      "ip_vs_genl_find_service": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Function calls ip_vs_genl_parse_service which likely processes attacker-controlled netlink attributes without complete bounds checking before using parsed data to find or create service objects.",
+        "error": null
+      },
+      "nft_bitwise_dump_shift": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles internal data structures with no attacker-influenced input, performs simple data dumping operation with fixed size",
+        "error": null
+      },
+      "bitmap_port_do_del": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only performs a bit test and clear operation on a pre-validated bitmap member, no attacker-influenced data handling",
+        "error": null
+      },
+      "conntrack_mt_destroy": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only calls netns put operation with parameters from kernel context, no attacker-influenced data handling.",
+        "error": null
+      },
+      "nft_target_destroy": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks with proper null pointer validation before function calls",
+        "error": null
+      },
+      "nf_flow_dnat_port": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Function accesses packet data without verifying that the thoff offset and protocol header layout are valid or within packet bounds before dereferencing hdr pointer.",
+        "error": null
+      },
+      "ctnetlink_exp_dump_tuple": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles netlink data but performs proper bounds checking through nla_nest_start and nla_nest_end functions, with no obvious memory safety issues.",
+        "error": null
+      },
+      "ip_vs_app_seq_show": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only reads from fixed kernel data structures with no attacker-influenced inputs or memory safety issues.",
+        "error": null
+      },
+      "nf_osf_find": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks with proper bounds validation and safe list traversal.",
+        "error": null
+      },
+      "callforward_do_filter": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function processes attacker-influenced source and destination addresses without validating their contents, which could lead to incorrect routing decisions or memory access issues if malformed data is passed.",
+        "error": null
+      },
+      "synproxy_send_client_ack": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks on all inputs and uses safe memory allocation and manipulation patterns.",
+        "error": null
+      },
+      "nf_conntrack_pernet_init": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles internal initialization logic with no attacker-influenced data processing",
+        "error": null
+      },
+      "hash_ipportip6_data_match": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only calls existing helper functions with validated parameters, no direct attacker-influenced data handling or memory operations.",
+        "error": null
+      },
+      "bitmap_ip_ext_cleanup": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only processes internally managed bitmap data with no external input influence and proper bounds checking through the loop condition.",
+        "error": null
+      },
+      "ctnetlink_change_seq_adj": {
+        "risk_score": 6.0,
+        "pattern": "other",
+        "justification": "Function parses attacker-influenced netlink data but relies on called function 'change_seq_adj' to validate inputs, with no explicit bounds checking or overflow protection for sequence adjustment values.",
+        "error": null
+      },
+      "ip_vs_state_name": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles internal data structures with proper bounds checking and does not process attacker-influenced input",
+        "error": null
+      },
+      "ip_vs_proc_seqopt": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only validates length and flag checks, no unsafe memory operations or attacker-influenced data handling beyond basic validation",
+        "error": null
+      },
+      "connmark_tg_destroy": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only calls netfilter core API to release netns reference, no attacker-influenced data handling",
+        "error": null
+      },
+      "hash_mac4_uadt": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks on netlink attributes including length validation and ether address verification.",
+        "error": null
+      },
+      "ctnetlink_dump_master": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles internal data structures and does not process attacker-influenced input, with proper error handling and no obvious memory safety issues.",
+        "error": null
+      },
+      "nf_flow_table_offload_init": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only handles internal workqueue initialization and cleanup with no attacker-influenced data processing.",
+        "error": null
+      },
+      "ip_vs_sched_persist": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but includes proper checks and does not exhibit obvious memory safety issues or use-after-free conditions.",
+        "error": null
+      },
+      "cgroup_mt_destroy_v2": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles reference counting and cgroup release, no attacker-influenced data processing or memory manipulation.",
+        "error": null
+      },
+      "nft_trace_packet": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles internal data structures and does not process any attacker-influenced input or perform unsafe operations.",
+        "error": null
+      },
+      "nf_logger_put": {
+        "risk_score": 6.0,
+        "pattern": "use_after_free",
+        "justification": "The function dereferences a logger pointer that may have been freed by module_put() without proper synchronization or validation to ensure the object remains valid.",
+        "error": null
+      },
+      "ecn_mt6": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only performs basic boolean operations and calls to other match functions with validated parameters, no direct memory manipulation or attacker-influenced data handling.",
+        "error": null
+      },
+      "xt_compat_match_from_user": {
+        "risk_score": 6.0,
+        "pattern": "other",
+        "justification": "Parses attacker-influenced data from netlink/compat structures without complete bounds checking on match_size and offset arithmetic that could overflow.",
+        "error": null
+      },
+      "hash_ipportnet4_destroy": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles internal data structures with proper cleanup, no attacker-influenced data processing or obvious memory safety issues.",
+        "error": null
+      },
+      "nfnl_cthelper_get": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks on attacker-influenced inputs with proper bounds checking and error handling.",
+        "error": null
+      },
+      "nfnl_acct_put": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles reference counting and module release, no attacker-influenced data processing or memory management issues.",
+        "error": null
+      },
+      "xt_compat_match_offset": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only performs arithmetic operations on kernel-internal constants and match sizes with no attacker-influenced data handling",
+        "error": null
+      },
+      "classify_tg": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only copies a fixed value from target info to skb priority without any attacker-influenced data handling or memory operations.",
+        "error": null
+      },
+      "nf_nat_irc_init": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "No attacker-influenced data handling, this is a simple initialization function that registers a helper hook.",
+        "error": null
+      },
+      "nf_register_sockopt": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks for overlapping socket options and proper locking.",
+        "error": null
+      },
+      "ip_vs_genl_set_config": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles netlink attributes safely with proper bounds checking via nla_get_u32, and all data is validated before use.",
+        "error": null
+      },
+      "bitmap_port_flush": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "No attacker-influenced data handling - this is a simple cleanup function that operates on kernel-allocated structures with no external input.",
+        "error": null
+      },
+      "hash_ipportnet4_data_equal": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only performs simple equality comparisons on fixed-size struct members with no external data handling or memory operations.",
+        "error": null
+      },
+      "bitmap_ipmac_test": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks with proper bounds validation and no obvious memory safety issues.",
+        "error": null
+      },
+      "nf_ip6_checksum_partial": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks on packet data offsets and lengths before use.",
+        "error": null
+      },
+      "process_olca": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function processes parsed H.323 protocol data with proper conditional checks but no obvious memory safety issues or attacker-influenced data handling without validation.",
+        "error": null
+      },
+      "find_or_evict": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks on all attacker-influenced values including cpu ID, jiffies values, and connection state before making decisions.",
+        "error": null
+      },
+      "hash_netport4_data_netmask": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only performs bitwise operations and assignment with validated cidr parameter, no external data handling or memory management involved.",
+        "error": null
+      },
+      "ip_vs_proto_get": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only performs hash lookup and comparison using fixed protocol value, no attacker-influenced data handling.",
+        "error": null
+      },
+      "get_callid": {
+        "risk_score": 6.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The function performs arithmetic on dataoff and uses matchoff/matchlen as offsets into dptr without sufficient bounds checking against the original datalen, risking integer overflow or underflow.",
+        "error": null
+      },
+      "nf_flow_offload_destroy": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only iterates over a fixed array size with no attacker-influenced data handling or memory safety issues.",
+        "error": null
+      },
+      "dl_seq_start": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs proper bounds checking and error handling, with no obvious memory safety issues.",
+        "error": null
+      },
+      "nf_nat_inet_unregister_fn": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only calls other functions with fixed parameters and does not handle any attacker-influenced data",
+        "error": null
+      },
+      "hash_netportnet4_head": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles only internal data and does not process any attacker-influenced input; all operations are based on validated set configuration and computed values.",
+        "error": null
+      },
+      "nf_log_dump_packet_common": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles well-checked netdevice names and loginfo level, with no unsafe memory operations or attacker-influenced data handling.",
+        "error": null
+      },
+      "nft_synproxy_do_destroy": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only handles internal netfilter context and calls existing netfilter functions without processing external packet data or manipulating attacker-influenced inputs.",
+        "error": null
+      },
+      "nft_ct_set_init": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks on all inputs including bounds and validation.",
+        "error": null
+      },
+      "hash_ipmac_fini": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "No attacker-influenced data handling, this is a simple cleanup function that unregisters a set type.",
+        "error": null
+      },
+      "ctnetlink_parse_zone": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles netlink attribute data but performs complete validation with proper bounds checking and no unsafe operations.",
+        "error": null
+      },
+      "nf_nat_sip_init": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only performs initialization operations with no attacker-influenced data handling.",
+        "error": null
+      },
+      "nf_nat_ipv4_csum_recalc": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks with proper bounds validation and safe arithmetic operations.",
+        "error": null
+      },
+      "nfnl_userspace_cthelper": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles well-defined netfilter connection tracking data with proper null checks and no unsafe memory operations.",
+        "error": null
+      },
+      "hash_ipmark6_ahash_destroy": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only handles internal data structures with no attacker-influenced input, performs standard cleanup operations with proper null checks",
+        "error": null
+      }
+    }
+  },
+  "v3": {
+    "per_cve_best": {
+      "CVE-2023-0179": 0.7,
+      "CVE-2024-35898": 0.6,
+      "CVE-2024-41042": 0.7,
+      "CVE-2026-64189": 0.7,
+      "CVE-2026-72251": 0.7,
+      "CVE-2026-74347": 0.8
+    },
+    "scores": {
+      "__nft_flowtable_type_get": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function only handles a simple input parameter with no memory operations that could be exploited.",
+        "error": null
+      },
+      "ctnl_timeout_fill_info": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function calls a protocol-specific callback with user-provided data without verifying that the data is valid or within expected bounds.",
+        "error": null
+      },
+      "ctnl_timeout_find_get": {
+        "risk_score": 7.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function uses strncmp with a fixed maximum length without validating that the input name is properly bounded, creating potential for buffer over-read or memory corruption.",
+        "error": null
+      },
+      "ctnl_timeout_put": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function only handles internal kernel object cleanup with proper reference counting and RCU synchronization, no attacker-influenced data processing.",
+        "error": null
+      },
+      "ctnl_timeout_try_del": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles internal data structures with proper locking and reference counting, no direct attacker influence on memory operations.",
+        "error": null
+      },
+      "cttimeout_del_timeout": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The strncmp call uses CTNL_TIMEOUT_NAME_MAX as the length limit but doesn't ensure the input name is null-terminated or properly bounded, creating a potential buffer overread risk.",
+        "error": null
+      },
+      "cttimeout_exit": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only performs standard cleanup operations with no attacker-influenced data handling.",
+        "error": null
+      },
+      "cttimeout_net_exit": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "No validation of list contents or object initialization before processing, potential for use of malformed list entries.",
+        "error": null
+      },
+      "cttimeout_new_timeout": {
+        "risk_score": 8.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Unbounded strcpy() and lack of validation on obj_size from l4proto can lead to memory corruption.",
+        "error": null
+      },
+      "ip_set_dump_do": {
+        "risk_score": 7.0,
+        "pattern": "use_after_free",
+        "justification": "The function accesses set data structures after potentially releasing them, and relies on user-controlled indices without complete validation.",
+        "error": null
+      },
+      "ip_set_dump_done": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only uses fixed netlink callback argument offsets and does not perform any unsafe memory operations on attacker-controlled data.",
+        "error": null
+      },
+      "nf_conntrack_free": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function performs standard cleanup operations on a validated conntrack object with no obvious memory safety vulnerabilities.",
+        "error": null
+      },
+      "nf_ct_destroy_timeout": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles shared objects safely with proper RCU locking and doesn't process attacker-controlled data directly.",
+        "error": null
+      },
+      "nf_ct_set_timeout": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The timeout_name string is passed directly to timeout_find_get() without validation of its length or content, which could allow an attacker to trigger a buffer overflow or other memory corruption if the lookup function does not properly validate input.",
+        "error": null
+      },
+      "nf_nat_sip": {
+        "risk_score": 7.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "Multiple uses of attacker-controlled offsets and lengths without complete overflow/underflow checking in memory operations.",
+        "error": null
+      },
+      "nf_tables_check_loops": {
+        "risk_score": 7.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The function performs recursive calls and walks through lists without sufficient bounds checking on potentially attacker-controlled inputs.",
+        "error": null
+      },
+      "nf_tables_loop_check_setelem": {
+        "risk_score": 7.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Function accesses user-supplied set element data without proper validation of bounds or structure integrity.",
+        "error": null
+      },
+      "nft_chain_validate": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs proper validation checks and does not contain obvious memory safety vulnerabilities.",
+        "error": null
+      },
+      "nft_check_loops": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Chain reference is used without validation of its legitimacy or bounds.",
+        "error": null
+      },
+      "nft_ct_timeout_obj_eval": {
+        "risk_score": 6.0,
+        "pattern": "use_after_free",
+        "justification": "The function uses a pointer obtained from `nf_ct_timeout_data` without verifying its validity or bounds, and relies on RCU for synchronization which may not prevent use-after-free in all cases.",
+        "error": null
+      },
+      "nft_ct_timeout_obj_init": {
+        "risk_score": 8.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The allocation size calculation uses l4proto->ctnl_timeout.obj_size without validation, which could lead to integer overflow and subsequent memory corruption.",
+        "error": null
+      },
+      "nft_flowtable_type_get": {
+        "risk_score": 6.0,
+        "pattern": "use_after_free",
+        "justification": "Potential use-after-free when accessing type->owner after try_module_get() without proper locking or reference counting guarantees.",
+        "error": null
+      },
+      "nft_payload_copy_vlan": {
+        "risk_score": 7.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The function performs arithmetic on offset and len without complete validation against packet boundaries, risking integer overflow or underflow.",
+        "error": null
+      },
+      "nft_set_catchall_loops": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "No direct attacker-controlled data handling, all operations appear safe with proper validation.",
+        "error": null
+      },
+      "nft_validate_register_store": {
+        "risk_score": 7.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The arithmetic expression 'reg * NFT_REG32_SIZE + len' can overflow before the bounds check, allowing out-of-bounds memory access.",
+        "error": null
+      },
+      "untimeout [nf_conntrack_timeout.c]": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function only performs null pointer checks and simple pointer assignment without handling attacker-influenced data in a dangerous manner.",
+        "error": null
+      },
+      "untimeout [nfnetlink_cttimeout.c]": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only performs a simple null pointer check and RCU operation without handling any attacker-controlled data.",
+        "error": null
+      },
+      "hashlimit_proc_net_exit": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function performs safe cleanup operations with no attacker-influenced data handling.",
+        "error": null
+      },
+      "xt_compat_match_to_user": {
+        "risk_score": 7.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The function computes 'msize' and uses it in arithmetic operations without complete bounds checking against attacker-controlled inputs.",
+        "error": null
+      },
+      "getorigdst": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs adequate checks on buffer length and does not exhibit clear memory safety issues.",
+        "error": null
+      },
+      "ip_vs_genl_find_service": {
+        "risk_score": 8.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function processes attacker-controlled netlink attributes without complete input validation, creating potential for buffer overflows or memory corruption.",
+        "error": null
+      },
+      "nft_bitwise_dump_shift": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Function passes user-provided data directly to nft_data_dump without validation of data size or structure.",
+        "error": null
+      },
+      "bitmap_port_do_del": {
+        "risk_score": 9.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Direct use of unbounded user-provided index in bit manipulation function without size validation.",
+        "error": null
+      },
+      "conntrack_mt_destroy": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only performs a simple netns reference decrement with no obvious memory safety issues.",
+        "error": null
+      },
+      "nft_target_destroy": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "No validation of attacker-controlled pointers before dereference, potential for use of invalid memory locations.",
+        "error": null
+      },
+      "nf_flow_dnat_port": {
+        "risk_score": 8.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Missing validation of thoff parameter against available packet buffer size before memory access.",
+        "error": null
+      },
+      "ctnetlink_exp_dump_tuple": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "While the function processes kernel-managed tuple data, it lacks explicit validation of potentially malformed tuple contents that could cause issues during dumping.",
+        "error": null
+      },
+      "ip_vs_app_seq_show": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "No attacker-controlled data is processed, this is a simple read-only display function with no memory safety issues.",
+        "error": null
+      },
+      "nf_osf_find": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The opts buffer is filled without validating the actual IP options length against MAX_IPOPTLEN.",
+        "error": null
+      },
+      "callforward_do_filter": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks on routing lookups without obvious memory safety issues.",
+        "error": null
+      },
+      "synproxy_send_client_ack": {
+        "risk_score": 6.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The tcp_hdr_size calculation involves attacker-controlled data (opts->wscale) and could lead to integer overflow/underflow without proper bounds checking.",
+        "error": null
+      },
+      "nf_conntrack_pernet_init": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "No attacker-influenced data is processed; this is a simple initialization function with proper error handling.",
+        "error": null
+      },
+      "hash_ipportip6_data_match": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only performs a match extension check and delegates to another function without direct memory manipulation.",
+        "error": null
+      },
+      "bitmap_ip_ext_cleanup": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Loop control variable id is not validated against actual bitmap bounds, allowing potential out-of-bounds access if map->elements is maliciously set.",
+        "error": null
+      },
+      "ctnetlink_change_seq_adj": {
+        "risk_score": 8.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Attacker-controlled netlink attributes are passed to change_seq_adj without validation of their contents or lengths.",
+        "error": null
+      },
+      "ip_vs_state_name": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "State value used as array index lacks complete bounds checking against table size.",
+        "error": null
+      },
+      "ip_vs_proc_seqopt": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function performs a basic length check but does not validate that the input pointer 'p' points to a valid memory region or that the structure contents are properly aligned and well-formed.",
+        "error": null
+      },
+      "connmark_tg_destroy": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function only performs a simple netns reference counting operation with no obvious security vulnerabilities.",
+        "error": null
+      },
+      "hash_mac4_uadt": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function copies attacker-controlled Ethernet address data without sufficient validation beyond length check.",
+        "error": null
+      },
+      "ctnetlink_dump_master": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles internal data structures with proper netlink attribute handling and no obvious security flaws.",
+        "error": null
+      },
+      "nf_flow_table_offload_init": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "No attacker-controlled data is processed and no unsafe memory operations are performed.",
+        "error": null
+      },
+      "ip_vs_sched_persist": {
+        "risk_score": 6.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "Potential integer overflow in arithmetic involving svc->netmask and dst_port without complete validation.",
+        "error": null
+      },
+      "cgroup_mt_destroy_v2": {
+        "risk_score": 6.0,
+        "pattern": "null_deref",
+        "justification": "Function dereferences user-supplied pointer without validation, potential null pointer dereference if priv field is not properly initialized.",
+        "error": null
+      },
+      "nft_trace_packet": {
+        "risk_score": 6.0,
+        "pattern": "null_deref",
+        "justification": "Direct dereference of pkt->skb->nf_trace without null pointer validation or bounds checking.",
+        "error": null
+      },
+      "nf_logger_put": {
+        "risk_score": 7.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Protocol family index is used as array offset without bounds validation, allowing potential out-of-bounds access.",
+        "error": null
+      },
+      "ecn_mt6": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only performs basic bit operations on validated input without memory manipulation.",
+        "error": null
+      },
+      "xt_compat_match_from_user": {
+        "risk_score": 8.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The function performs arithmetic on user-controlled values without overflow checks, risking buffer overflows when computing final sizes.",
+        "error": null
+      },
+      "hash_ipportnet4_destroy": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function only handles internal kernel data structures with no attacker-influenced inputs or unsafe memory operations.",
+        "error": null
+      },
+      "nfnl_cthelper_get": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Helper name is read via nla_data() without complete bounds checking before strncmp(), allowing potential buffer overflow via malformed netlink attribute.",
+        "error": null
+      },
+      "nfnl_acct_put": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function only handles reference counting and module management with no attacker-influenced data processing.",
+        "error": null
+      },
+      "xt_compat_match_offset": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only performs simple arithmetic on kernel-internal data structures with no attacker-controlled inputs or memory safety issues.",
+        "error": null
+      },
+      "classify_tg": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Simple assignment of user-supplied integer value with no obvious memory safety issues",
+        "error": null
+      },
+      "nf_nat_irc_init": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "No attacker-controlled data processing or unsafe memory operations present in this initialization function.",
+        "error": null
+      },
+      "nf_register_sockopt": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "While the function handles user-provided data, all checks appear to be properly bounded and no obvious memory corruption patterns are present.",
+        "error": null
+      },
+      "ip_vs_genl_set_config": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Unbounded integer values from netlink attributes are assigned directly to timeout fields without range validation.",
+        "error": null
+      },
+      "bitmap_port_flush": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "No attacker-controlled data processing or memory operations that could lead to vulnerabilities.",
+        "error": null
+      },
+      "hash_ipportnet4_data_equal": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only performs simple field comparisons with no external data handling or memory operations.",
+        "error": null
+      },
+      "bitmap_ipmac_test": {
+        "risk_score": 7.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The 'e->id' field is used as an array index without validation against the bitmap size, allowing potential out-of-bounds access.",
+        "error": null
+      },
+      "nf_ip6_checksum_partial": {
+        "risk_score": 7.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function uses attacker-controlled 'dataoff' and 'len' without validating they stay within packet bounds.",
+        "error": null
+      },
+      "process_olca": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function accesses nested structure fields without verifying that the entire structure was properly parsed from attacker-controlled input, risking out-of-bounds reads.",
+        "error": null
+      },
+      "find_or_evict": {
+        "risk_score": 6.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The age calculation a - b could underflow due to jiffies wrapping, and the function does not validate that conn->jiffies32 is within reasonable bounds.",
+        "error": null
+      },
+      "hash_netport4_data_netmask": {
+        "risk_score": 6.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The cidr parameter can cause integer underflow when subtracted by 1 without validation.",
+        "error": null
+      },
+      "ip_vs_proto_get": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only processes validated protocol numbers from internal tables without direct attacker influence on memory operations.",
+        "error": null
+      },
+      "get_callid": {
+        "risk_score": 8.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function accesses memory using attacker-controlled offsets without ensuring they stay within packet bounds, risking out-of-bounds reads.",
+        "error": null
+      },
+      "nf_flow_offload_destroy": {
+        "risk_score": 6.0,
+        "pattern": "null_deref",
+        "justification": "Function dereferences array elements without checking for NULL pointers, which could be exploited by passing malformed netlink data.",
+        "error": null
+      },
+      "dl_seq_start": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "No direct memory corruption or use-after-free vulnerabilities detected, though bounds checking is done after allocation",
+        "error": null
+      },
+      "nf_nat_inet_unregister_fn": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "Function only performs simple function calls with compile-time constant parameters, no attacker-influenced data processing.",
+        "error": null
+      },
+      "hash_netportnet4_head": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "No attacker-influenced inputs are directly used in memory operations or control flow.",
+        "error": null
+      },
+      "nf_log_dump_packet_common": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs only safe string operations with no obvious memory safety issues.",
+        "error": null
+      },
+      "nft_synproxy_do_destroy": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "Function performs standard cleanup operations without handling attacker-controlled data or unsafe memory operations.",
+        "error": null
+      },
+      "nft_ct_set_init": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The key value from NFTA_CT_KEY is used directly in a switch statement without checking if it's a valid enum value, which could lead to unexpected behavior or access to uninitialized memory.",
+        "error": null
+      },
+      "hash_ipmac_fini": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "No attacker-controlled data processing or memory operations involved.",
+        "error": null
+      },
+      "ctnetlink_parse_zone": {
+        "risk_score": 6.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Direct assignment of netlink attribute value to zone ID without validation or bounds checking.",
+        "error": null
+      },
+      "nf_nat_sip_init": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "No attacker-controlled data processing or memory manipulation occurs in this initialization function.",
+        "error": null
+      },
+      "nf_nat_ipv4_csum_recalc": {
+        "risk_score": 6.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The function performs arithmetic on datalen and oldlen without checking for overflow/underflow conditions that could lead to incorrect memory calculations.",
+        "error": null
+      },
+      "nfnl_userspace_cthelper": {
+        "risk_score": 3.0,
+        "pattern": "none",
+        "justification": "Function only performs flag checks and returns verdict without direct memory manipulation or unsafe arithmetic.",
+        "error": null
+      },
+      "hash_ipmark6_ahash_destroy": {
+        "risk_score": 2.0,
+        "pattern": "none",
+        "justification": "No attacker-influenced data handling or obvious memory safety issues present.",
+        "error": null
+      }
+    }
+  },
+  "v4": {
+    "per_cve_best": {
+      "CVE-2023-0179": 0.72,
+      "CVE-2024-35898": 0.25,
+      "CVE-2024-41042": 0.75,
+      "CVE-2026-64189": 0.72,
+      "CVE-2026-72251": 0.72,
+      "CVE-2026-74347": 0.75
+    },
+    "scores": {
+      "__nft_flowtable_type_get": {
+        "risk_score": 20.0,
+        "pattern": "none",
+        "justification": "Function only handles a simple input parameter with no unsafe memory operations or attacker-controlled data processing.",
+        "error": null
+      },
+      "ctnl_timeout_fill_info": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function uses user-supplied data without explicit bounds checking on string or data buffer lengths.",
+        "error": null
+      },
+      "ctnl_timeout_find_get": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The name parameter is used in strncmp without proper bounds checking against CTNL_TIMEOUT_NAME_MAX, allowing potential buffer over-read if name exceeds the maximum allowed length.",
+        "error": null
+      },
+      "ctnl_timeout_put": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Function only handles reference counting and cleanup with proper atomic operations, no direct attacker-influenced memory access patterns.",
+        "error": null
+      },
+      "ctnl_timeout_try_del": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "No attacker-influenced data handling and proper reference counting with RCU protection.",
+        "error": null
+      },
+      "cttimeout_del_timeout": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function uses strncmp with a fixed maximum length against potentially unbounded input from netlink attributes without proper bounds checking.",
+        "error": null
+      },
+      "cttimeout_exit": {
+        "risk_score": 12.0,
+        "pattern": "none",
+        "justification": "Pure cleanup function with no attacker-controlled data handling",
+        "error": null
+      },
+      "cttimeout_net_exit": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "No attacker-influenced data handling or obvious memory safety issues present.",
+        "error": null
+      },
+      "cttimeout_new_timeout": {
+        "risk_score": 75.0,
+        "pattern": "missing_bounds_check",
+        "justification": "strcpy of user-provided name data without checking against CTNL_TIMEOUT_NAME_MAX buffer size.",
+        "error": null
+      },
+      "ip_set_dump_do": {
+        "risk_score": 72.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The index from cb->args[IPSET_CB_INDEX] is used to access ip_set() without rechecking bounds after potential modification, creating a risk of out-of-bounds memory access.",
+        "error": null
+      },
+      "ip_set_dump_done": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "No obvious memory corruption patterns, relies on proper netlink subsystem initialization and argument handling.",
+        "error": null
+      },
+      "nf_conntrack_free": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Function only handles internal kernel data structures with no attacker-controlled inputs or unsafe memory operations.",
+        "error": null
+      },
+      "nf_ct_destroy_timeout": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Function only handles internal kernel data structures with proper RCU locking, no direct attacker-controlled inputs are processed.",
+        "error": null
+      },
+      "nf_ct_set_timeout": {
+        "risk_score": 60.0,
+        "pattern": "use_after_free",
+        "justification": "The function uses RCU locking but does not prevent potential use-after-free if the timeout object is freed while still referenced by other code paths.",
+        "error": null
+      },
+      "nf_nat_sip": {
+        "risk_score": 72.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function uses attacker-controlled offsets and lengths without sufficient validation, creating potential for buffer overflows or memory corruption.",
+        "error": null
+      },
+      "nf_tables_check_loops": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function processes lists and pointers from external inputs without explicit validation of their integrity or bounds, creating potential for memory corruption.",
+        "error": null
+      },
+      "nf_tables_loop_check_setelem": {
+        "risk_score": 62.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Function accesses user-supplied set element data without complete bounds checking of the element structure.",
+        "error": null
+      },
+      "nft_chain_validate": {
+        "risk_score": 60.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function iterates over a linked list of rules but doesn't validate that the list structure remains intact or that expression pointers are valid before calling validate callbacks.",
+        "error": null
+      },
+      "nft_check_loops": {
+        "risk_score": 75.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Unvalidated chain pointer dereference in verdict handling without proper bounds checking or validation.",
+        "error": null
+      },
+      "nft_ct_timeout_obj_eval": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function accesses timeout data without validating array bounds or ensuring the data is properly initialized, allowing potential out-of-bounds reads.",
+        "error": null
+      },
+      "nft_ct_timeout_obj_init": {
+        "risk_score": 65.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The allocation size calculation 'sizeof(struct nf_ct_timeout) + l4proto->ctnl_timeout.obj_size' could overflow if obj_size is large enough, leading to insufficient memory allocation.",
+        "error": null
+      },
+      "nft_flowtable_type_get": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks; no obvious memory corruption patterns.",
+        "error": null
+      },
+      "nft_payload_copy_vlan": {
+        "risk_score": 72.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The function performs arithmetic on offset and len without sufficient bounds checking that could lead to integer overflow or underflow, potentially causing out-of-bounds memory access.",
+        "error": null
+      },
+      "nft_set_catchall_loops": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "No attacker-influenced data handling, relies on kernel-internal structures with proper locking and RCU usage.",
+        "error": null
+      },
+      "nft_validate_register_store": {
+        "risk_score": 75.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The arithmetic expression 'reg * NFT_REG32_SIZE + len' can overflow and bypass the bounds check, leading to out-of-bounds memory access.",
+        "error": null
+      },
+      "untimeout [nf_conntrack_timeout.c]": {
+        "risk_score": 15.0,
+        "pattern": "none",
+        "justification": "No attacker-influenced memory operations or unsafe pointer manipulations detected.",
+        "error": null
+      },
+      "untimeout [nfnetlink_cttimeout.c]": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Function only performs simple pointer assignment and NULL initialization without handling attacker-controlled data.",
+        "error": null
+      },
+      "hashlimit_proc_net_exit": {
+        "risk_score": 15.0,
+        "pattern": "none",
+        "justification": "Function only handles internal kernel cleanup without processing external inputs or exhibiting memory safety issues.",
+        "error": null
+      },
+      "xt_compat_match_to_user": {
+        "risk_score": 65.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The function performs arithmetic on user-supplied match sizes without comprehensive validation of resulting values.",
+        "error": null
+      },
+      "getorigdst": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete validation of inputs and uses safe memory operations.",
+        "error": null
+      },
+      "ip_vs_genl_find_service": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function processes attacker-controlled netlink attributes without complete validation of parsed lengths/offsets before use.",
+        "error": null
+      },
+      "nft_bitwise_dump_shift": {
+        "risk_score": 60.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function passes attacker-controlled data to nft_data_dump without validating its contents or size before dumping.",
+        "error": null
+      },
+      "bitmap_port_do_del": {
+        "risk_score": 60.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The id field from attacker-controlled input is used as a direct bit index without bounds checking against the bitmap size.",
+        "error": null
+      },
+      "conntrack_mt_destroy": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Simple wrapper function that safely passes parameters to netfilter core without any risky memory operations or unchecked inputs.",
+        "error": null
+      },
+      "nft_target_destroy": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function passes user-controlled data to a destroy callback without validating its bounds or contents.",
+        "error": null
+      },
+      "nf_flow_dnat_port": {
+        "risk_score": 75.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function uses an attacker-influenced offset 'thoff' to index into packet data without proper bounds checking.",
+        "error": null
+      },
+      "ctnetlink_exp_dump_tuple": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function passes unvalidated tuple data to another function without checking tuple integrity or bounds.",
+        "error": null
+      },
+      "ip_vs_app_seq_show": {
+        "risk_score": 15.0,
+        "pattern": "none",
+        "justification": "No attacker-controlled data is processed and all memory accesses are to well-defined kernel structures.",
+        "error": null
+      },
+      "nf_osf_find": {
+        "risk_score": 72.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function uses an untrusted index `ctx.df` to access a list without validating its bounds, which can lead to memory corruption.",
+        "error": null
+      },
+      "callforward_do_filter": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Function handles external data but performs complete checks with no obvious memory safety issues.",
+        "error": null
+      },
+      "synproxy_send_client_ack": {
+        "risk_score": 65.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The tcp_hdr_size calculation could overflow due to unchecked user-supplied wscale value, leading to incorrect memory allocation and potential memory corruption.",
+        "error": null
+      },
+      "nf_conntrack_pernet_init": {
+        "risk_score": 15.0,
+        "pattern": "none",
+        "justification": "No attacker-controlled data is processed; function performs standard initialization and cleanup of kernel-internal structures.",
+        "error": null
+      },
+      "hash_ipportip6_data_match": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Function is a simple wrapper that delegates to other functions without direct memory manipulation or attacker-controlled data processing.",
+        "error": null
+      },
+      "bitmap_ip_ext_cleanup": {
+        "risk_score": 60.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Loop index is bounded but no validation of map->elements or map->members pointer integrity.",
+        "error": null
+      },
+      "ctnetlink_change_seq_adj": {
+        "risk_score": 65.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The function processes attacker-influenced netlink attributes without clear validation of sequence adjustment values, risking integer overflow/underflow in underlying change_seq_adj() function.",
+        "error": null
+      },
+      "ip_vs_state_name": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The state value from user-controlled connection data is used as an array index without complete validation against the table size.",
+        "error": null
+      },
+      "ip_vs_proc_seqopt": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function checks the length but does not validate that the input pointer 'p' is properly aligned or that the memory it points to is accessible and valid.",
+        "error": null
+      },
+      "connmark_tg_destroy": {
+        "risk_score": 15.0,
+        "pattern": "none",
+        "justification": "Function only performs a simple netns reference decrement operation with no risky memory handling.",
+        "error": null
+      },
+      "hash_mac4_uadt": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function validates the netlink attribute length but does not check for potential out-of-bounds access when copying the Ethernet address.",
+        "error": null
+      },
+      "ctnetlink_dump_master": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Function uses attacker-influenced connection tracking data without explicit bounds checking on tuple data lengths or indices.",
+        "error": null
+      },
+      "nf_flow_table_offload_init": {
+        "risk_score": 15.0,
+        "pattern": "none",
+        "justification": "No attacker-controlled data is processed and no unsafe memory operations are performed.",
+        "error": null
+      },
+      "ip_vs_sched_persist": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Function uses packet data without complete validation of lengths/offsets, particularly in ip_vs_conn_fill_param_persist call.",
+        "error": null
+      },
+      "cgroup_mt_destroy_v2": {
+        "risk_score": 60.0,
+        "pattern": "use_after_free",
+        "justification": "Function uses user-supplied pointer without validation that it's a valid cgroup reference, potentially leading to use-after-free or invalid memory access.",
+        "error": null
+      },
+      "nft_trace_packet": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Function copies pointers from potentially malicious packet data without validation or bounds checking.",
+        "error": null
+      },
+      "nf_logger_put": {
+        "risk_score": 75.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Missing validation of pf input against valid protocol family range allows potential out-of-bounds array access.",
+        "error": null
+      },
+      "ecn_mt6": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Function only uses validated parameters without handling attacker-influenced data that could lead to memory corruption.",
+        "error": null
+      },
+      "xt_compat_match_from_user": {
+        "risk_score": 72.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The function performs arithmetic on `msize` and `off` without checking for overflow, which can lead to buffer overflows when calculating final size.",
+        "error": null
+      },
+      "hash_ipportnet4_destroy": {
+        "risk_score": 15.0,
+        "pattern": "none",
+        "justification": "Function only handles kernel-allocated memory cleanup with no attacker-controlled inputs or unsafe memory operations.",
+        "error": null
+      },
+      "nfnl_cthelper_get": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Helper name is copied without checking against NF_CT_HELPER_NAME_LEN before strncmp, allowing potential buffer overread.",
+        "error": null
+      },
+      "nfnl_acct_put": {
+        "risk_score": 15.0,
+        "pattern": "none",
+        "justification": "Function only handles internal reference counting and module management with no attacker-influenced data processing.",
+        "error": null
+      },
+      "xt_compat_match_offset": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Function only performs arithmetic operations on fixed structure fields without memory manipulation or external input validation.",
+        "error": null
+      },
+      "classify_tg": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Simple assignment of user-supplied value with no obvious memory safety issues or exploitable patterns.",
+        "error": null
+      },
+      "nf_nat_irc_init": {
+        "risk_score": 12.0,
+        "pattern": "none",
+        "justification": "No attacker-controlled data processing or memory manipulation occurs in this initialization function.",
+        "error": null
+      },
+      "nf_register_sockopt": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "No direct memory access, read, write, or allocation occurs; the function only performs list traversal and comparison of user-supplied values.",
+        "error": null
+      },
+      "ip_vs_genl_set_config": {
+        "risk_score": 72.0,
+        "pattern": "missing_bounds_check",
+        "justification": "Timeout values from netlink attributes are used directly without validation of their range or sanity checks.",
+        "error": null
+      },
+      "bitmap_port_flush": {
+        "risk_score": 12.0,
+        "pattern": "none",
+        "justification": "No attacker-controlled data processing or memory manipulation occurs in this simple cleanup function.",
+        "error": null
+      },
+      "hash_ipportnet4_data_equal": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Function only performs simple field comparisons with no memory manipulation or unsafe operations.",
+        "error": null
+      },
+      "bitmap_ipmac_test": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The 'id' field from attacker-controlled 'value' is used as an index without bounds checking, creating a potential out-of-bounds memory access.",
+        "error": null
+      },
+      "nf_ip6_checksum_partial": {
+        "risk_score": 65.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The function uses attacker-controlled 'len' and 'dataoff' without complete bounds checking, risking integer overflow in checksum calculations.",
+        "error": null
+      },
+      "process_olca": {
+        "risk_score": 65.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function directly accesses nested structure fields without verifying that the packet data is large enough to contain all referenced substructures, creating potential for out-of-bounds reads.",
+        "error": null
+      },
+      "find_or_evict": {
+        "risk_score": 72.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The unsigned integer subtraction 'a - b' can underflow when b > a, causing incorrect age calculation and potential bypass of stale entry eviction logic.",
+        "error": null
+      },
+      "hash_netport4_data_netmask": {
+        "risk_score": 65.0,
+        "pattern": "integer_overflow_underflow",
+        "justification": "The cidr parameter can cause integer underflow when subtracted by 1, and lacks proper validation of attacker-influenced input.",
+        "error": null
+      },
+      "ip_vs_proto_get": {
+        "risk_score": 15.0,
+        "pattern": "none",
+        "justification": "Simple lookup function with no unsafe memory operations or attacker-influenced data handling beyond the initial protocol parameter.",
+        "error": null
+      },
+      "get_callid": {
+        "risk_score": 72.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function accesses memory using calculated offsets without ensuring they remain within the bounds of the provided packet data.",
+        "error": null
+      },
+      "nf_flow_offload_destroy": {
+        "risk_score": 65.0,
+        "pattern": "use_after_free",
+        "justification": "Function calls __nf_flow_offload_destroy on potentially invalid array elements without proper validation, risking use-after-free if elements are freed or NULL.",
+        "error": null
+      },
+      "dl_seq_start": {
+        "risk_score": 60.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The position parameter from seq_file is used directly without proper bounds checking against htable->cfg.size before memory allocation.",
+        "error": null
+      },
+      "nf_nat_inet_unregister_fn": {
+        "risk_score": 15.0,
+        "pattern": "none",
+        "justification": "Function only performs simple function calls with no direct memory manipulation or attacker-influenced data processing.",
+        "error": null
+      },
+      "hash_netportnet4_head": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "No attacker-influenced data is processed; all variables come from validated internal state.",
+        "error": null
+      },
+      "nf_log_dump_packet_common": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Function only handles external data but performs complete checks with safe string operations.",
+        "error": null
+      },
+      "nft_synproxy_do_destroy": {
+        "risk_score": 15.0,
+        "pattern": "none",
+        "justification": "No attacker-controlled data is processed, and no memory safety issues are present in this function.",
+        "error": null
+      },
+      "nft_ct_set_init": {
+        "risk_score": 72.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The 'len' variable derived from attacker-controlled netlink attributes is used in nft_parse_register_load() without validation against maximum allowed register sizes, creating potential for buffer overflows.",
+        "error": null
+      },
+      "hash_ipmac_fini": {
+        "risk_score": 0.0,
+        "pattern": "none",
+        "justification": "No attacker-controlled data processing or unsafe memory operations present",
+        "error": null
+      },
+      "ctnetlink_parse_zone": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "No attacker-influenced data handling beyond simple attribute parsing with no validation.",
+        "error": null
+      },
+      "nf_nat_sip_init": {
+        "risk_score": 5.0,
+        "pattern": "none",
+        "justification": "Pure initialization function with no attacker-controlled data handling or memory operations.",
+        "error": null
+      },
+      "nf_nat_ipv4_csum_recalc": {
+        "risk_score": 60.0,
+        "pattern": "missing_bounds_check",
+        "justification": "The function uses attacker-controlled lengths without validation, potentially leading to memory corruption.",
+        "error": null
+      },
+      "nfnl_userspace_cthelper": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "Function only reads from RCU-protected data and uses fixed flag checks without attacker-controlled memory operations.",
+        "error": null
+      },
+      "hash_ipmark6_ahash_destroy": {
+        "risk_score": 25.0,
+        "pattern": "none",
+        "justification": "No attacker-influenced data is processed; the function operates on internal hash table structures with no direct user input dependencies.",
+        "error": null
+      }
+    }
+  }
+}

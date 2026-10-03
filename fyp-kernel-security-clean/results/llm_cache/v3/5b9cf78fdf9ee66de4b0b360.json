@@ -1,0 +1,13 @@
+{
+  "node": "recent_entry_remove",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "use_after_free",
+  "justification": "Function performs kfree on user-supplied pointer without validation, creating potential use-after-free vulnerability.",
+  "analysis": "The function `recent_entry_remove` takes a `struct recent_entry *e` parameter which is derived from user-controlled data through netfilter hooks. The function directly uses the pointer `e` to perform list operations and kfree without any validation that the entry is valid or properly initialized. If an attacker can manipulate the list structure or pass a dangling pointer, this could lead to use-after-free or double-free conditions.",
+  "seconds": 13.1,
+  "code_chars": 155
+}

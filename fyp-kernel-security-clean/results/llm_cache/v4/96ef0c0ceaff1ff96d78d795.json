@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipmark6_ahash_destroy",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "No attacker-influenced data is processed; the function operates on internal hash table structures with no direct user input dependencies.",
+  "analysis": "The function processes hash buckets from a set but does not validate any attacker-influenced inputs directly. The loop index 'i' is bounded by 'jhash_size(t->htable_bits)' which is derived from the hash table configuration, not user input. No memory is read or written using attacker-controlled offsets or lengths, and no freed objects are accessed afterward. However, the function assumes valid data structures without explicit validation.",
+  "seconds": 13.9,
+  "code_chars": 428
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_conn_expire",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No obvious attacker-controlled data handling or memory safety issues detected in the function.",
+  "analysis": "The function `ip_vs_conn_expire` does not directly process attacker-influenced packet contents or netlink attributes. It operates on connection structures that are managed internally by the kernel's IPVS subsystem, with no obvious memory access patterns involving unchecked lengths, offsets, or indices from external input. The function handles reference counting and timer management but does not appear to have any use-after-free, null dereference, or integer overflow issues based on the provided code.",
+  "seconds": 21.6,
+  "code_chars": 1912
+}

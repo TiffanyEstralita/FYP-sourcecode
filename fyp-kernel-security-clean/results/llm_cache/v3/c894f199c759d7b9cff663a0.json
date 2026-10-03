@@ -1,0 +1,13 @@
+{
+  "node": "nft_dump_register",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic on attacker-controlled input without proper bounds checking, creating potential for integer overflow/underflow vulnerabilities.",
+  "analysis": "The function takes an attacker-influenced 'reg' parameter that is used directly in arithmetic operations without bounds checking. The calculation involves division and subtraction operations that could overflow or underflow if reg is maliciously large. The function doesn't validate that reg is within valid register range before performing the arithmetic, potentially leading to incorrect memory access patterns.",
+  "seconds": 10.7,
+  "code_chars": 291
+}

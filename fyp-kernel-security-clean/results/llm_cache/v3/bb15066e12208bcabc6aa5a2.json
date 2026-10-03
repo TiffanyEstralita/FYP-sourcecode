@@ -1,0 +1,13 @@
+{
+  "node": "audit_tg_ebt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "other",
+  "justification": "Function passes attacker-influenced packet data to audit_tg without additional checks, but this appears to be a simple wrapper that doesn't directly manipulate memory in dangerous ways.",
+  "analysis": "The function audit_tg_ebt calls audit_tg with skb and par parameters. The sk_buff pointer and xt_action_param structure contain attacker-influenced packet data and netlink attributes that could be manipulated. The function directly passes these parameters to audit_tg without additional validation or sanitization, and the audit_tg function likely processes these inputs for security auditing purposes.",
+  "seconds": 10.3,
+  "code_chars": 135
+}

@@ -1,0 +1,13 @@
+{
+  "node": "hash_netnet4_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles internal hash table data structures with no direct attacker-controlled inputs, and all operations appear to be safe.",
+  "analysis": "The function processes hash buckets from a hash table but does not validate any attacker-influenced inputs directly. It iterates through all buckets using a loop counter and dereferences pointers without checking if they are valid or have been freed. The function uses jhash_size() which could be influenced by the htable_bits field, but this is typically set during initialization and not directly from user input. No memory is copied, indexed, or allocated in a way that would allow an attacker to control the flow.",
+  "seconds": 15.9,
+  "code_chars": 428
+}

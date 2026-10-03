@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipportnet4_data_equal",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "Function only performs simple field comparisons with no memory manipulation or unsafe operations.",
+  "analysis": "This function takes two struct hash_ipportnet4_elem pointers as inputs, which are populated from user-supplied netlink attributes during set creation/updates. The function performs simple equality comparisons between fields (ip, ip2, cidr, port, proto) without any bounds checking or validation of the input data. Since these elements come from potentially untrusted netlink messages, an attacker could craft malicious data that might cause unexpected behavior if the memory layout assumptions are violated.",
+  "seconds": 12.3,
+  "code_chars": 310
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_set_timeout",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete validation checks before use, with proper error handling and reference counting.",
+  "analysis": "",
+  "seconds": 14.3,
+  "code_chars": 1467
+}

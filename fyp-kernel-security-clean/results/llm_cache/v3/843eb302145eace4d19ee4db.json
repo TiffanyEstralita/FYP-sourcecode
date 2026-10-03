@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipmark4_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-influenced data handling, purely internal memory management with no obvious vulnerabilities.",
+  "analysis": "This function processes hash buckets from a hash table but does not directly handle attacker-influenced data. The loop index 'i' is controlled by jhash_size(t->htable_bits) which is derived from the hash table configuration, not user input. No memory is read or written using attacker-controlled offsets or lengths. The function frees memory that was allocated during initialization and does not appear to have use-after-free issues.",
+  "seconds": 13.8,
+  "code_chars": 428
+}

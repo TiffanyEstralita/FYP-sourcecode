@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The set name attribute is used without proper bounds checking on its length, potentially allowing buffer overflows or out-of-bounds reads.",
+  "analysis": "The function handles attacker-influenced data through netlink attributes, specifically IPSET_ATTR_SETNAME which is used to find a set. Memory is read via ip_set() macro and written to NULL, with potential use of freed objects if references are not properly managed. The code checks for busy sets but does not validate the length or content of the set name attribute before passing it to find_set_and_id().",
+  "seconds": 20.9,
+  "code_chars": 1706
+}

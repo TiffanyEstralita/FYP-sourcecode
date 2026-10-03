@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipportnet4_data_equal",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only performs simple equality comparisons on fixed-size struct members with no external data handling or memory operations.",
+  "analysis": "",
+  "seconds": 6.8,
+  "code_chars": 310
+}

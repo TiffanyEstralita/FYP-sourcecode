@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_deactivate_set",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs simple reference counting without attacker-influenced data handling or obvious memory safety issues.",
+  "analysis": "The function takes a nft_set pointer that could be influenced by attacker-controlled netlink commands, and performs a decrement operation on set->use without any validation of the set pointer or its use count. The function doesn't directly read or write attacker-influenced data, but the set pointer could point to maliciously allocated memory. There's no explicit bounds checking on the use counter, though it's a simple decrement operation.",
+  "seconds": 13.7,
+  "code_chars": 396
+}

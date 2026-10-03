@@ -1,0 +1,13 @@
+{
+  "node": "nft_set_elem_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "use_after_free",
+  "justification": "The function does not validate if 'elem' is a valid pointer before freeing it, which could lead to use-after-free if called with an already freed element.",
+  "analysis": "The function `nft_set_elem_destroy` processes a user-provided element pointer 'elem' and accesses extended metadata through `nft_set_elem_ext`. The main risk comes from potential use-after-free if the element was already freed or if the 'elem' pointer is invalid, though no direct attacker-controlled lengths or offsets are used. Memory is freed via kfree(elem) without additional validation that 'elem' points to valid allocated memory.",
+  "seconds": 14.7,
+  "code_chars": 628
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_conntrack_lock",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only handles kernel-internal locking primitives with no attacker-controlled data paths.",
+  "analysis": "This function does not handle any attacker-influenced data directly - it only operates on kernel-internal spinlocks and global variables. There are no memory reads, writes, or copies based on packet contents or user inputs. The function performs standard locking operations with no risky arithmetic or pointer manipulations.",
+  "seconds": 11.9,
+  "code_chars": 598
+}

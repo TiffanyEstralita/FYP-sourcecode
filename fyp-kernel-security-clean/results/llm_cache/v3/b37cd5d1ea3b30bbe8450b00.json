@@ -1,0 +1,13 @@
+{
+  "node": "nft_parse_u32_check",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing validation of netlink attribute type and format before parsing, allowing potential memory corruption from malformed input.",
+  "analysis": "The function takes a netlink attribute (nla_get_be32) as input which can be controlled by an attacker. It reads the value directly from the attribute without checking if the attribute itself is valid or properly formatted before calling nla_get_be32. The function performs a range check against max but doesn't validate that the attribute type matches what's expected, potentially allowing memory corruption if malformed data is passed. No memory allocation, copying, or freeing occurs in this function.",
+  "seconds": 11.5,
+  "code_chars": 179
+}

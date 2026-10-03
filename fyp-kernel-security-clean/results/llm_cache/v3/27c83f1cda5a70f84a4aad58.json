@@ -1,0 +1,13 @@
+{
+  "node": "flow_action_entry_next",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Unbounded array indexing with user-controlled offset without bounds verification.",
+  "analysis": "The function reads from flow_rule->rule->action.num_entries and uses it as an index to access flow_rule->rule->action.entries array. The num_entries field can be influenced by user-supplied netlink attributes during flow rule creation, and there's no bounds checking to ensure the index doesn't exceed array capacity. The function increments num_entries without verifying it stays within valid bounds, potentially allowing out-of-bounds memory access.",
+  "seconds": 10.0,
+  "code_chars": 193
+}

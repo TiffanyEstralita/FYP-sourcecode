@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_irc_init",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "No attacker-controlled data processing or unsafe memory operations present in this initialization function.",
+  "analysis": "This function does not handle any attacker-influenced data - it's a simple initialization function that registers a netfilter helper. There are no memory operations, length checks, or index calculations involving external inputs. The function only performs basic initialization and registration operations with no unsafe memory handling.",
+  "seconds": 9.0,
+  "code_chars": 172
+}

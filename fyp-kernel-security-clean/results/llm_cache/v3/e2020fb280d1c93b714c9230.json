@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_getobj",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "Attacker can control object name and type attributes which are used in lookups without complete validation, potentially leading to memory corruption.",
+  "analysis": "The function processes attacker-controlled netlink attributes including object name and type, which are used to look up objects in the netfilter table. It uses these values to index into kernel memory structures without comprehensive bounds checking, particularly in the nft_obj_lookup call and related operations. The use of kasprintf and audit logging could be vulnerable to buffer overflows if string formatting is not properly constrained.",
+  "seconds": 22.9,
+  "code_chars": 1943
+}

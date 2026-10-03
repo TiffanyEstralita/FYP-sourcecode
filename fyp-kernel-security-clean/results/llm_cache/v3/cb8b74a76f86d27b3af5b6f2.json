@@ -1,0 +1,13 @@
+{
+  "node": "port_match [xt_tcpudp.c]",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Simple numeric comparison function with no memory operations or attacker-influenced memory access patterns.",
+  "analysis": "This function takes four parameters: two minimum/maximum port values and a port to check against, all of which are unsigned 16-bit integers. The function performs a simple comparison operation without any memory operations, allocations, or pointer dereferences. All inputs are numeric values that could potentially come from user-supplied data in netfilter rules, but the function only does basic arithmetic comparisons with no risk of buffer overflows, use-after-free, or other memory safety issues.",
+  "seconds": 11.2,
+  "code_chars": 139
+}

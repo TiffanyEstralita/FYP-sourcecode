@@ -1,0 +1,13 @@
+{
+  "node": "hashlimit_proc_net_exit",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function performs safe cleanup operations with no attacker-influenced data handling.",
+  "analysis": "The function handles netfilter hashlimit proc entries and uses a mutex for synchronization. The inputs are not directly attacker-influenced as this is a cleanup function called during net namespace exit. Memory operations occur on internal data structures (hinfo, hashlimit_net) that are managed by the kernel itself. No unchecked lengths, offsets, or indices are used, and no use-after-free conditions exist since the function only removes entries from lists and calls remove_proc_entry on known valid proc entries.",
+  "seconds": 18.5,
+  "code_chars": 742
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nft_ct_set_init",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 72.0,
+  "risk": 0.72,
+  "pattern": "missing_bounds_check",
+  "justification": "The 'len' variable derived from attacker-controlled netlink attributes is used in nft_parse_register_load() without validation against maximum allowed register sizes, creating potential for buffer overflows.",
+  "analysis": "The function processes netlink attributes (tb[]) containing attacker-influenced data such as NFTA_CT_KEY, NFTA_CT_DIRECTION, and NFTA_CT_SREG. It uses these values to determine 'len' and perform register loading, but does not validate the 'len' value against the actual size of the data being copied or accessed. The 'len' is used in nft_parse_register_load() which could lead to buffer overflows if the length is manipulated by an attacker. No explicit bounds checking is performed on the 'len' before it's passed to functions that use it.",
+  "seconds": 27.6,
+  "code_chars": 1782
+}

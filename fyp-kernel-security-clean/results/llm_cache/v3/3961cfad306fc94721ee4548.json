@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_netns_inet_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only uses compile-time constants for protocol selection and handles errors properly without any attacker-controlled data processing.",
+  "analysis": "This function handles netfilter connection tracking for IPv4 and IPv6 protocols in a network namespace. The inputs are limited to the net parameter which comes from kernel context, not directly from user-supplied data. Memory operations occur in the nf_ct_netns_do_get and nf_ct_netns_put functions which are called with protocol constants (NFPROTO_IPV4, NFPROTO_IPV6) that are compile-time constants. There are no attacker-influenced lengths, offsets, or indices used in memory operations, and the function properly handles error paths by calling cleanup functions.",
+  "seconds": 17.6,
+  "code_chars": 320
+}

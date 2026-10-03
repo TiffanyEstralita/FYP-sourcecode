@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_parse_zone",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "No attacker-influenced data handling beyond simple attribute parsing with no validation.",
+  "analysis": "The function reads a netlink attribute containing a zone ID, which is attacker-influenced data. The zone ID is directly extracted from the netlink attribute using nla_get_be16() without any validation or bounds checking against valid zone ID ranges. The function does not perform any overflow/underflow checks on the zone ID value, and there are no memory allocations, copies, or frees involved.",
+  "seconds": 11.9,
+  "code_chars": 319
+}

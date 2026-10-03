@@ -1,0 +1,13 @@
+{
+  "node": "__nft_trace_packet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles internal data structures with no obvious memory safety issues, though it does process externally provided trace information that could potentially be maliciously crafted.",
+  "analysis": "The function receives attacker-influenced data through the 'info' parameter which contains packet trace information. Memory is read and written to the 'info' structure's fields without validation of attacker-controlled values. The function doesn't perform any bounds checking on lengths, offsets, or indices from external sources, and there are no obvious use-after-free conditions or null dereferences.",
+  "seconds": 11.3,
+  "code_chars": 256
+}

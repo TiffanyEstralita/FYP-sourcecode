@@ -1,0 +1,13 @@
+{
+  "node": "xt_unregister_matches",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs bounded iteration over provided array without direct unsafe memory operations.",
+  "analysis": "The function takes attacker-influenced parameters 'match' (pointer to match structures) and 'n' (number of matches). It iterates backwards through the match array and calls xt_unregister_match on each element. The main risk is that if 'n' is larger than the actual allocated size of the match array, or if 'match' points to untrusted memory, this could lead to out-of-bounds access when dereferencing &match[n]. However, the function itself doesn't perform any direct memory operations on user-controlled data beyond the bounds checking implied by the loop condition.",
+  "seconds": 12.4,
+  "code_chars": 121
+}

@@ -1,0 +1,13 @@
+{
+  "node": "connbytes_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The `sinfo->direction` field is used as an array index without validation of its value against known constants.",
+  "analysis": "The function reads attacker-influenced data through `sinfo->what`, `sinfo->direction`, and `sinfo->count` fields from the matchinfo structure passed in `par->matchinfo`. These inputs are used to index into arrays and perform comparisons, but there are no explicit bounds checks on `sinfo->direction` which could lead to out-of-bounds memory access. The `counters` array is accessed using `IP_CT_DIR_ORIGINAL` and `IP_CT_DIR_REPLY` constants, which are validated by the kernel's conntrack subsystem, but the direction value itself is not validated against valid enum values before use.",
+  "seconds": 37.1,
+  "code_chars": 2351
+}

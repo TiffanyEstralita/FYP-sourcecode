@@ -1,0 +1,13 @@
+{
+  "node": "cttimeout_exit",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only handles kernel internal cleanup operations with no attacker-influenced data processing.",
+  "analysis": "",
+  "seconds": 5.7,
+  "code_chars": 223
+}

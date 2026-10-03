@@ -1,0 +1,13 @@
+{
+  "node": "nf_register_net_hooks",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "Unbounded loop counter 'n' can cause integer overflow or out-of-bounds access when iterating through hook operations.",
+  "analysis": "The function takes attacker-influenced input 'n' (number of hooks) and 'reg' (array of hook operations) from user space. It iterates 'i < n' without validating that 'n' is within reasonable bounds or that the memory pointed to by 'reg' is properly allocated and accessible. The loop uses 'i' as an index into the 'reg' array, but there's no check that 'n' is valid before the loop. If 'n' is extremely large, it could cause integer overflow in the loop condition or lead to reading beyond allocated memory.",
+  "seconds": 13.5,
+  "code_chars": 312
+}

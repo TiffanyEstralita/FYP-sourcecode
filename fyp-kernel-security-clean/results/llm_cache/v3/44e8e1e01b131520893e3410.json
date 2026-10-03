@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_get_ct_unconfirmed",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-controlled data is processed beyond a simple flag check, and no memory operations depend on external inputs.",
+  "analysis": "This function handles netlink messages for retrieving unconfirmed connections. The only attacker-influenced input is the netlink message header (info->nlh) which contains nlmsg_flags that can be set by any user. The function only checks if the NLM_F_DUMP flag is set and then calls netlink_dump_start with a fixed control structure. No memory is read, written, or copied based on attacker data, and no dangerous arithmetic operations occur. The function simply branches on a flag value without further processing of user-supplied data.",
+  "seconds": 13.0,
+  "code_chars": 379
+}

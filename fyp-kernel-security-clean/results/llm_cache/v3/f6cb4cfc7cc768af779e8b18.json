@@ -1,0 +1,13 @@
+{
+  "node": "nft_reject_queue_xmit",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function accesses packet headers without validating they exist and are properly formatted",
+  "analysis": "The function reads packet data from oldskb including protocol and Ethernet headers, but does not validate that the oldskb contains valid packet data or that the headers are properly aligned. The dev_hard_header call uses potentially untrusted source/dest MAC addresses from the original packet, and there's no check that the packet has a valid Ethernet header structure before accessing it. No memory allocation, copying, or freeing occurs in this function.",
+  "seconds": 11.1,
+  "code_chars": 235
+}

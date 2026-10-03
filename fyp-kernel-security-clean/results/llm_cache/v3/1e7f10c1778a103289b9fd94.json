@@ -1,0 +1,13 @@
+{
+  "node": "xt_snat_target_v0",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing validation of range array index against the number of ranges provided by attacker-controlled netlink input.",
+  "analysis": "The function reads from `par->targinfo` which contains attacker-controlled data via netlink attributes, and passes it to `xt_nat_convert_range` without explicit bounds checking on the number of ranges. The `mr->range[0]` access could be out-of-bounds if the number of ranges is not properly validated. No obvious use-after-free or null dereference patterns are present, but the lack of bounds checking on the range array index is a potential vulnerability.",
+  "seconds": 13.8,
+  "code_chars": 498
+}

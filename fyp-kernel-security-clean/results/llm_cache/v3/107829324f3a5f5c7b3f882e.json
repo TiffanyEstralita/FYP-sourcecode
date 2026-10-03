@@ -1,0 +1,13 @@
+{
+  "node": "process_olca",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function accesses nested structure fields without verifying that the entire structure was properly parsed from attacker-controlled input, risking out-of-bounds reads.",
+  "analysis": "The function processes H.323 OpenLogicalChannelAck messages and accesses fields within the olca structure that could be influenced by attacker-controlled packet data. Memory is read from the olca structure's nested fields without explicit bounds checking on the structure's contents or lengths, and there are no obvious integer overflows or use-after-free issues. The function does not directly allocate or free memory, but relies on prior parsing of attacker-supplied data.",
+  "seconds": 22.8,
+  "code_chars": 2101
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_log_arp_packet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Packet data is processed without complete bounds checking on ARP header fields that could be attacker-controlled.",
+  "analysis": "The function accepts attacker-influenced packet data through the skb parameter, and calls dump_arp_packet which likely processes ARP headers from the packet. The function uses nf_log_buf_open() to allocate a buffer and then passes it to nf_log_dump_packet_common and dump_arp_packet without clear bounds checking on the packet data length or offsets. There are no obvious integer overflows/underflows, use-after-free issues, or null dereferences, but the packet data handling could be vulnerable if the ARP parsing functions don't validate packet lengths properly.",
+  "seconds": 13.5,
+  "code_chars": 567
+}

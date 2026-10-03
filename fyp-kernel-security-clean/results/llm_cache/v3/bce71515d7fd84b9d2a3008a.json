@@ -1,0 +1,13 @@
+{
+  "node": "conntrack_mt_v2",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function is a simple wrapper with no complex memory operations or obvious vulnerability patterns.",
+  "analysis": "The function receives attacker-influenced data through the 'info' parameter which is derived from netlink attributes in the xt_action_param structure. Memory is read from the info->state_mask and info->status_mask fields, but these are simple integer values that don't appear to involve complex memory operations or indexing. The function acts as a simple wrapper that passes these values to another function without additional processing or validation.",
+  "seconds": 10.8,
+  "code_chars": 216
+}

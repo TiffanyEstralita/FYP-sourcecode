@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_helper_log",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "While the function uses attacker-influenced data in logging, it does not perform any unsafe operations like buffer overflows or use-after-free, and the checks appear complete for the data handling.",
+  "analysis": "The function reads from the helper name field which is user-supplied and could be attacker-controlled through netlink attributes during helper registration. It uses this name in a log message without additional validation or sanitization. The function does not perform any length checks on the format string or arguments, and there are no obvious memory allocation, copying, or freeing operations that could lead to use-after-free or similar issues.",
+  "seconds": 13.6,
+  "code_chars": 599
+}

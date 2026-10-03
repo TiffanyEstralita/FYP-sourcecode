@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_newrule",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The size calculation could overflow when summing expr_info[n].ops->size values, and nla_memcpy lacks complete bounds checking against ulen.",
+  "analysis": "The function processes user-supplied netlink attributes including rule expressions, userdata, and handle/position identifiers. Memory is allocated based on parsed expression sizes and copied from netlink attributes without complete validation of all bounds. The primary risk involves potential integer overflow in size calculation and insufficient checks on user-provided offsets/lengths during expression parsing and userdata copying.",
+  "seconds": 52.6,
+  "code_chars": 5811
+}

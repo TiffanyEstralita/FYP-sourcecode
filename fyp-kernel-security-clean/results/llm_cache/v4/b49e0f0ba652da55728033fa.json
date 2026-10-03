@@ -1,0 +1,13 @@
+{
+  "node": "conntrack_mt_destroy",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "Simple wrapper function that safely passes parameters to netfilter core without any risky memory operations or unchecked inputs.",
+  "analysis": "The function takes a pointer to xt_mtdtor_param which contains net and family fields that could potentially be influenced by userspace through netlink configuration. However, the function only calls nf_ct_netns_put with these parameters without any additional processing or memory operations. The inputs are passed directly to a netfilter core function without additional checks or manipulation.",
+  "seconds": 10.0,
+  "code_chars": 112
+}

@@ -1,0 +1,13 @@
+{
+  "node": "cttimeout_default_set",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The l4proto pointer returned by nf_ct_l4proto_find is used without null check, and attacker-controlled data is passed to ctnl_timeout_parse_policy without validation.",
+  "analysis": "The function reads attacker-influenced data via netlink attributes CTA_TIMEOUT_L4PROTO and CTA_TIMEOUT_DATA. It uses l4num from CTA_TIMEOUT_L4PROTO to look up a protocol handler via nf_ct_l4proto_find, but does not validate that the returned l4proto is non-NULL or properly initialized before use. The ctnl_timeout_parse_policy function processes CTA_TIMEOUT_DATA which could contain malicious input. No explicit bounds checking is performed on the protocol number or data length before processing.",
+  "seconds": 15.7,
+  "code_chars": 663
+}

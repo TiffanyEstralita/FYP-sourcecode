@@ -1,0 +1,13 @@
+{
+  "node": "nft_ct_timeout_obj_init",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function parses attacker-influenced data from netlink attributes without complete validation of the size or content, particularly in the timeout policy parsing step.",
+  "analysis": "",
+  "seconds": 14.5,
+  "code_chars": 1250
+}

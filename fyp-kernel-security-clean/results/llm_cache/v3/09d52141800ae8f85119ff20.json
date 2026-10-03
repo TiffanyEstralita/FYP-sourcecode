@@ -1,0 +1,13 @@
+{
+  "node": "nf_logger_put",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "Protocol family index is used as array offset without bounds validation, allowing potential out-of-bounds access.",
+  "analysis": "The function takes pf (protocol family) and type as inputs, where pf could be influenced by attacker-supplied netlink attributes. The function uses pf as an index to access the loggers array without validating that pf is within valid bounds [0, NFPROTO_MAX). The module_put() call could dereference a potentially invalid pointer if the logger entry was not properly initialized or if pf points outside the valid range.",
+  "seconds": 15.7,
+  "code_chars": 342
+}

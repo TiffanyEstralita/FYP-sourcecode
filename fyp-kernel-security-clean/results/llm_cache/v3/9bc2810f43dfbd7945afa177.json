@@ -1,0 +1,13 @@
+{
+  "node": "nft_do_chain_inet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function acts as a simple dispatcher without risky memory operations or unchecked attacker inputs.",
+  "analysis": "This function takes attacker-influenced inputs through skb (network packet data) and state (netfilter hook state). It processes packet information by calling nft_set_pktinfo and related functions, then passes the packet info to nft_do_chain. The function performs a simple switch on state->pf but doesn't validate or sanitize any attacker-controlled data before passing it to downstream functions. No memory allocation, deallocation, or complex indexing occurs in this function.",
+  "seconds": 16.8,
+  "code_chars": 379
+}

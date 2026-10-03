@@ -1,0 +1,13 @@
+{
+  "node": "cgroup_mt_v2",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses user-supplied matchinfo without validating pointer contents or structure fields, creating potential for use-after-free or null dereference if the cgroup data is not properly initialized.",
+  "analysis": "The function reads from attacker-influenced data through `info->priv` and `info->classid` which are part of the matchinfo structure passed in from userspace via netlink. It dereferences pointers `skcd` and `ancestor` without validating their contents, and uses `sock_cgroup_ptr(skcd)` which could be NULL or invalid if the socket's cgroup data is not properly initialized. There are no bounds checks on the user-provided `info` structure fields before use.",
+  "seconds": 14.8,
+  "code_chars": 539
+}

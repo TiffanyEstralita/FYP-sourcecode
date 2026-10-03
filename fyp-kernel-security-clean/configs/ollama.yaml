@@ -1,0 +1,9 @@
+# Which local Ollama model the LLM scripts use, and where Ollama runs.
+# Used by analysis/llm/llm_client.py (risk scoring) and
+# analysis/llm/explain_critical_functions.py (old explanation stage).
+#
+# Changing the model means every function is asked again (answers are
+# cached per model), and results are no longer comparable with earlier runs.
+
+model: qwen3-coder:30b
+host: http://localhost:11434

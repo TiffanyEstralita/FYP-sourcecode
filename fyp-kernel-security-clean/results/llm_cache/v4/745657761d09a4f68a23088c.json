@@ -1,0 +1,13 @@
+{
+  "node": "nf_conntrack_pernet_init",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 15.0,
+  "risk": 0.15,
+  "pattern": "none",
+  "justification": "No attacker-controlled data is processed; function performs standard initialization and cleanup of kernel-internal structures.",
+  "analysis": "This function does not directly process attacker-influenced packet contents or netlink attributes. It handles internal netfilter initialization and cleanup, using only kernel-internal data structures and system configuration. There are no memory reads, writes, or copies based on external inputs, and no risky arithmetic operations or use-after-free scenarios present.",
+  "seconds": 12.0,
+  "code_chars": 605
+}

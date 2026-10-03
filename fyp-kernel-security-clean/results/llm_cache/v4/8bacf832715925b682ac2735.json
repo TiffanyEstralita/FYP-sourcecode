@@ -1,0 +1,13 @@
+{
+  "node": "nft_synproxy_do_destroy",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 15.0,
+  "risk": 0.15,
+  "pattern": "none",
+  "justification": "No attacker-controlled data is processed, and no memory safety issues are present in this function.",
+  "analysis": "The function `nft_synproxy_do_destroy` does not directly process attacker-influenced data such as packet contents or netlink attributes. It operates on netfilter context data including network family and netns references, which are typically controlled by the kernel's internal state rather than external inputs. Memory is read from the netfilter context and used in function calls, but no direct memory allocation, copying, or indexing occurs that could be exploited. The function performs a simple switch-case based on the network family and calls finalization functions for IPv4/IPv6 proxy modules, followed by a netns put operation.",
+  "seconds": 17.3,
+  "code_chars": 509
+}

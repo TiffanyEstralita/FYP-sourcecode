@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_ipv4_csum_recalc",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic on datalen and oldlen without checking for overflow/underflow conditions that could lead to incorrect memory calculations.",
+  "analysis": "The function takes attacker-influenced inputs including packet data, protocol type, checksum pointer, and lengths. It performs arithmetic operations on datalen and oldlen without explicit overflow/underflow checks, and uses these values to calculate offsets and perform memory operations. The function does not appear to use freed objects or have obvious null dereferences, but the length handling could lead to incorrect memory access if not properly bounded.",
+  "seconds": 13.4,
+  "code_chars": 568
+}

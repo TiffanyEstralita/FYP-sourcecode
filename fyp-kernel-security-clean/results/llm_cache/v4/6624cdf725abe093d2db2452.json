@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_dump_master",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "missing_bounds_check",
+  "justification": "Function uses attacker-influenced connection tracking data without explicit bounds checking on tuple data lengths or indices.",
+  "analysis": "The function ctnetlink_dump_master processes netfilter connection tracking data and uses nla_nest_start/nla_nest_end for netlink attribute nesting. The main inputs are from the connection tracking structure 'ct' which may contain attacker-influenced data, particularly in the master_tuple(ct) call. Memory is read from ct->status and written to netlink attributes via nla_nest_start/end functions. There are no explicit bounds checks on lengths or indices before use, though the function relies on standard netlink attribute handling which typically validates input. The primary risk comes from potential manipulation of connection tracking state that could affect tuple data.",
+  "seconds": 14.8,
+  "code_chars": 408
+}

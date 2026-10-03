@@ -1,0 +1,13 @@
+{
+  "node": "get_next_corpse",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-influenced data is processed and no unsafe memory operations are performed.",
+  "analysis": "The function `get_next_corpse` does not directly process attacker-influenced inputs like packet contents or netlink attributes. It iterates over internal hash buckets and uses only internal data structures and indices derived from fixed-size hash tables. No memory is read, written, copied, or indexed using unchecked attacker-controlled values. The function performs standard locking and reference counting without obvious overflow/underflow issues or use-after-free risks.",
+  "seconds": 17.3,
+  "code_chars": 1430
+}

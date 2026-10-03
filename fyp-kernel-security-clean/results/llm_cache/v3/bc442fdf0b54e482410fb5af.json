@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_l4proto_log_invalid",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function processes attacker-controlled format strings and variadic arguments without proper validation or bounds checking.",
+  "analysis": "The function takes attacker-influenced packet data through the skb parameter and uses it in nf_l4proto_log_invalid call. The fmt string and va_list arguments come from user-supplied variadic parameters which could be crafted by an attacker. There are no explicit bounds checks on the format string or variable arguments, and the function directly passes these to the logging subsystem without validation.",
+  "seconds": 13.7,
+  "code_chars": 461
+}

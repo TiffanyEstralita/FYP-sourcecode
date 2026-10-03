@@ -1,0 +1,13 @@
+{
+  "node": "tproxy_tg6_v1",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function reads packet headers without sufficient bounds checking on the header offset and size, allowing potential for out-of-bounds memory access.",
+  "analysis": "The function processes packet data including IPv6 headers and UDP headers, reading from skb using attacker-influenced offsets and lengths. It uses `skb_header_pointer` to read the UDP header without full validation of the header size or packet boundaries. The `thoff` variable is derived from `ipv6_find_hdr` which could be manipulated by an attacker to cause incorrect offset calculations, potentially leading to out-of-bounds reads or writes.",
+  "seconds": 22.9,
+  "code_chars": 1983
+}

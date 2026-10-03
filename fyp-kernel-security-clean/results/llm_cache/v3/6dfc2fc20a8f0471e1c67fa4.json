@@ -1,0 +1,13 @@
+{
+  "node": "secmark_tg",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles validated input and performs simple assignment with no obvious memory safety issues.",
+  "analysis": "The function reads from the 'info' parameter which is user-supplied data from netlink attributes, but there are no input validation checks performed. The 'mode' variable is used in a switch statement that could be influenced by attacker-controlled data, and the 'BUG()' call indicates improper handling of invalid modes. No memory allocation, copying, or indexing operations occur that would present obvious vulnerabilities.",
+  "seconds": 11.9,
+  "code_chars": 264
+}

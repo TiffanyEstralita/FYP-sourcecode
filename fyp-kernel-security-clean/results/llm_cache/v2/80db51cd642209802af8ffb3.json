@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_dump_do",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "other",
+  "justification": "Function parses attacker-influenced data from netlink callback arguments without complete validation of index bounds before accessing set array.",
+  "analysis": "",
+  "seconds": 32.3,
+  "code_chars": 3970
+}

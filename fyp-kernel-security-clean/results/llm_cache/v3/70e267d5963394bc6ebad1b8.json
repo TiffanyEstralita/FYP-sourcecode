@@ -1,0 +1,13 @@
+{
+  "node": "conntrack_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No clear memory safety issues found; all inputs are validated before use and there's no evidence of buffer overflows, use-after-free, or similar vulnerabilities.",
+  "analysis": "The function processes packet data through netfilter hooks and uses attacker-influenced matchinfo structures. Inputs like 'info' (from netlink attributes) and packet contents are used to determine match results, but no obvious unchecked memory accesses or use-after-free scenarios are present. The code performs bit testing and comparisons on conntrack state/status fields without apparent overflow/underflow issues.",
+  "seconds": 24.2,
+  "code_chars": 2355
+}

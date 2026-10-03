@@ -1,0 +1,13 @@
+{
+  "node": "nft_verdict_dump",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "null_deref",
+  "justification": "The function may dereference a potentially invalid chain pointer without proper validation.",
+  "analysis": "The function reads from the attacker-influenced 'v' parameter which contains a chain pointer. The chain name is copied to netlink attribute without checking if the chain pointer is valid or if the name field is properly null-terminated. No bounds checking is performed on the chain name length, and there's no verification that v->chain points to a valid object before dereferencing it.",
+  "seconds": 12.4,
+  "code_chars": 487
+}

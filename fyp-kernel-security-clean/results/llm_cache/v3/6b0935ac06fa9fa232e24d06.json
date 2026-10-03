@@ -1,0 +1,13 @@
+{
+  "node": "nf_log_ip_packet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function processes packet data without explicit bounds checking on attacker-influenced offsets and lengths.",
+  "analysis": "The function handles attacker-influenced packet data through the skb parameter, which is processed by several helper functions including nf_log_dump_packet_common, dump_mac_header, and dump_ipv4_packet. Memory operations occur in nf_log_buf_open(), nf_log_buf_close(), and various dump functions that may read/write packet headers and payload data. The function does not perform explicit bounds checking on packet data lengths or offsets before use, and relies on underlying functions to handle potentially malicious input without clear validation of attacker-controlled parameters.",
+  "seconds": 14.0,
+  "code_chars": 614
+}

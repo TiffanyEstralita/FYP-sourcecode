@@ -1,0 +1,13 @@
+{
+  "node": "hash_mac4_uadt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function copies attacker-controlled Ethernet address data without sufficient validation beyond length check.",
+  "analysis": "The function reads attacker-controlled data from netlink attributes, specifically the Ethernet address via `nla_data(tb[IPSET_ATTR_ETHER])`. While it checks that the attribute exists and has the correct length (ETH_ALEN), it does not validate the actual content of the Ethernet address beyond checking if it's all zeros. The `ether_addr_copy` function copies the data without additional validation, and there are no obvious integer overflows or use-after-free issues. However, the lack of comprehensive validation on the copied MAC address could potentially lead to unexpected behavior if malformed data is passed.",
+  "seconds": 21.9,
+  "code_chars": 736
+}

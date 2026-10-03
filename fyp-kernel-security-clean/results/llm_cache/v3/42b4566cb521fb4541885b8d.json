@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_getchain",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs standard lookup and validation checks; no clear memory safety violations detected.",
+  "analysis": "The function processes attacker-controlled netlink attributes NFTA_CHAIN_TABLE and NFTA_CHAIN_NAME to lookup table and chain objects. Memory is allocated with alloc_skb and filled with data from chain information. No obvious buffer overflows or use-after-free issues are present, but the function relies on proper validation of netlink inputs and correct handling of chain lookups.",
+  "seconds": 16.7,
+  "code_chars": 1323
+}

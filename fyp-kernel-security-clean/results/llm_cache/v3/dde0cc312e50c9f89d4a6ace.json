@@ -1,0 +1,13 @@
+{
+  "node": "l4proto_manip_pkt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function acts as a simple dispatcher with no direct memory handling or attacker-influenced data processing.",
+  "analysis": "The function l4proto_manip_pkt processes packets based on protocol type but does not directly handle attacker-influenced data like packet contents or netlink attributes. It simply dispatches to protocol-specific handlers (tcp_manip_pkt, udp_manip_pkt, etc.) without performing any checks on the inputs iphdroff, hdroff, or tuple before passing them along. The function itself is a dispatcher and does not perform memory operations directly, but relies on the correctness of the protocol-specific manip functions which are not shown here.",
+  "seconds": 19.9,
+  "code_chars": 1075
+}

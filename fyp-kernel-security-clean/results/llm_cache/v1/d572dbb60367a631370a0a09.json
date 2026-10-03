@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_destroy_timeout",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function properly handles RCU synchronization and null checks, no obvious security vulnerabilities present",
+  "analysis": "",
+  "seconds": 6.9,
+  "code_chars": 443
+}

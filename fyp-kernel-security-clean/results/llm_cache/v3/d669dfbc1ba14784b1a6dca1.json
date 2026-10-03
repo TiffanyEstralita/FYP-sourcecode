@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_hook_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles netlink attribute parsing and dump control setup with no direct memory manipulation or use-after-free risks.",
+  "analysis": "The function reads from nla array indexed by NFNLA_HOOK_HOOKNUM, which is user-provided data from netlink attributes. The nla array is passed directly as dump control data without validation of its contents or bounds. No memory is allocated, freed, or copied, but the function relies on potentially untrusted netlink attribute data for control flow and parameter passing.",
+  "seconds": 12.1,
+  "code_chars": 492
+}

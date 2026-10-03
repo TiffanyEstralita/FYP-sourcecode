@@ -1,0 +1,13 @@
+{
+  "node": "nf_ip6_checksum_partial",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function uses attacker-controlled 'len' and 'dataoff' without complete bounds checking, risking integer overflow in checksum calculations.",
+  "analysis": "The function takes attacker-influenced parameters 'dataoff', 'len', and 'protocol' from netfilter hooks. It performs arithmetic operations on these values without thorough validation of bounds or overflow conditions, particularly in the checksum calculation logic. The use of 'len' and 'dataoff' in 'skb_checksum' and 'skb_checksum_complete_head' could lead to memory access violations if not properly constrained.",
+  "seconds": 15.4,
+  "code_chars": 722
+}

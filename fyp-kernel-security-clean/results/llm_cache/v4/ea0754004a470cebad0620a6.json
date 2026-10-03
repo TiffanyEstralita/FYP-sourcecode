@@ -1,0 +1,13 @@
+{
+  "node": "getorigdst",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete validation of inputs and uses safe memory operations.",
+  "analysis": "The function reads socket metadata including IP addresses and ports from the socket structure, which are not directly attacker-controlled. However, the 'len' parameter from user space is checked against sizeof(struct sockaddr_in) before use. The main data flow involves reading from nf_conntrack structures and copying to user space via copy_to_user. No obvious integer overflows, use-after-free issues, or missing bounds checks are present.",
+  "seconds": 19.4,
+  "code_chars": 1676
+}

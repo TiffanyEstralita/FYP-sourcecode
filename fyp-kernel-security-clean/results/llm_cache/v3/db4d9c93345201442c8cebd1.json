@@ -1,0 +1,13 @@
+{
+  "node": "connlimit_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled mask values without validating their range, potentially leading to buffer overflows or out-of-bounds memory access.",
+  "analysis": "The function processes packet data to determine connection limits, with attacker-influenced inputs including packet contents (IP headers) and netlink attributes (info structure). Memory is read from packet headers and copied into key array, with potential for overflow if mask values are improperly validated. The code does not perform explicit bounds checking on the mask values or array indices before use, and relies on nf_conncount_count which may not validate all inputs.",
+  "seconds": 21.2,
+  "code_chars": 1570
+}

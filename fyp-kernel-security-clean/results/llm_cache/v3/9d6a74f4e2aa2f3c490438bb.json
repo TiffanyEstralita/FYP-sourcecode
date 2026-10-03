@@ -1,0 +1,13 @@
+{
+  "node": "addrtype_mt_v0",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function uses packet header fields and matchinfo parameters without validation, creating potential for memory access issues if malformed packets are processed.",
+  "analysis": "The function reads packet contents (IP header fields saddr/daddr) and uses attacker-influenced values from the xt_addrtype_info structure (source/dest/invert_source/invert_dest). The iph->saddr and iph->daddr are read directly from the IP header without validation, and the info parameters are used as-is. No bounds checking or overflow protection is performed on any of these values.",
+  "seconds": 12.6,
+  "code_chars": 456
+}

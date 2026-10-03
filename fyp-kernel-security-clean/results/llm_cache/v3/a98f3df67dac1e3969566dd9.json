@@ -1,0 +1,13 @@
+{
+  "node": "ecn_mt4",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "other",
+  "justification": "Relies on helper functions with potentially unvalidated packet data without clear bounds checking in the main function.",
+  "analysis": "The function reads from attacker-influenced data through the 'info' pointer which comes from netlink attributes during module initialization. It calls match_ip() and match_tcp() functions that likely process packet contents and may have unvalidated offsets or lengths. The function doesn't perform any direct memory allocation, deallocation, or indexing operations, but relies on helper functions that could contain vulnerabilities.",
+  "seconds": 15.1,
+  "code_chars": 342
+}

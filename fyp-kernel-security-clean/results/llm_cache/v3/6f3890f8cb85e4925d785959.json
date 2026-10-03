@@ -1,0 +1,13 @@
+{
+  "node": "get_port [ip_set_getport.c]",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled protooff without validating it against packet boundaries before calling skb_header_pointer.",
+  "analysis": "The function reads packet data using skb_header_pointer with attacker-influenced offsets and lengths (protooff), but performs no validation of these values beyond the basic pointer check. The protooff parameter comes from user-supplied netlink attributes or packet parsing logic, and could be crafted to cause out-of-bounds reads if not properly validated. No integer overflow/underflow issues are present, and there are no use-after-free or null dereference risks.",
+  "seconds": 19.9,
+  "code_chars": 1450
+}

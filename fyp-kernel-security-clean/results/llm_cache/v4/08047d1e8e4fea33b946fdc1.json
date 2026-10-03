@@ -1,0 +1,13 @@
+{
+  "node": "bitmap_ip_ext_cleanup",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 60.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Loop index is bounded but no validation of map->elements or map->members pointer integrity.",
+  "analysis": "The function reads from map->members using id as an index, where id comes from a loop counter starting at 0 and going up to map->elements. The loop condition checks id < map->elements, so the index is bounded by the elements count. However, there's no validation that map->elements is properly initialized or that map->members points to valid memory before use. The get_ext() function call could potentially access invalid memory if the set data structure is malformed.",
+  "seconds": 11.4,
+  "code_chars": 228
+}

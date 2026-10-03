@@ -1,0 +1,13 @@
+{
+  "node": "nft_do_chain_ipv6",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function acts as a simple wrapper with no obvious memory manipulation or validation issues.",
+  "analysis": "This function takes attacker-influenced packet data through the skb parameter and passes it to nft_set_pktinfo and nft_set_pktinfo_ipv6 functions. The function performs no direct memory operations, bounds checks, or index arithmetic on attacker-controlled data. The only potential issue is in the called functions which may not be shown here, but the function itself simply forwards the packet data without modifying or validating it.",
+  "seconds": 11.2,
+  "code_chars": 255
+}

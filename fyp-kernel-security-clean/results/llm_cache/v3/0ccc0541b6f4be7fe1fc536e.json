@@ -1,0 +1,13 @@
+{
+  "node": "hashlimit_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function acts as a simple wrapper that passes parameters without performing security checks on attacker-influenced data.",
+  "analysis": "The function receives attacker-influenced data through the sk_buff packet and xt_action_param structures. It dereferences pointers to hashlimit information structures but doesn't perform any explicit bounds checking on lengths or indices from the packet data. The function delegates to hashlimit_mt_common which likely handles the actual packet parsing and validation, but this specific function only passes parameters without additional verification.",
+  "seconds": 11.1,
+  "code_chars": 255
+}

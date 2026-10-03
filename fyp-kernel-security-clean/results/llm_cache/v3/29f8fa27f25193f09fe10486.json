@@ -1,0 +1,13 @@
+{
+  "node": "nf_remove_net_hook",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only compares pointers and writes to kernel-internal structures with proper bounds checking, no direct user input handling that could lead to memory corruption.",
+  "analysis": "The function takes a pointer to nf_hook_ops structure from user space (unreg) and uses it to compare against hook operations in old->hooks array. The index i is bounded by old->num_hook_entries which is trusted data from the kernel's internal netfilter structures, not directly from user input. No memory is allocated, freed, or copied in a way that could lead to use-after-free or buffer overflows. The function only performs comparisons and writes to kernel-internal structures.",
+  "seconds": 13.0,
+  "code_chars": 418
+}

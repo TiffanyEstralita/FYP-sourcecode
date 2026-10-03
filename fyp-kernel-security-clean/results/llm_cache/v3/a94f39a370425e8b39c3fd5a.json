@@ -1,0 +1,13 @@
+{
+  "node": "nft_verdict_init",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function parses nested netlink attributes but does not fully validate the contents or structure of the chain reference attributes before using them.",
+  "analysis": "The function processes attacker-controlled netlink attributes to initialize a verdict, with potential for misuse through NFTA_VERDICT_CHAIN or NFTA_VERDICT_CHAIN_ID. It performs lookups and increments chain use counters without validating the attribute data structure beyond parsing. The chain lookup may return an error, but there's no direct validation of the chain object itself before assignment.",
+  "seconds": 21.1,
+  "code_chars": 1517
+}

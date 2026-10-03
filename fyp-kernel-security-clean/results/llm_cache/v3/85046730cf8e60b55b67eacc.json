@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_bind_check_setelem",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Attacker-influenced set element data is passed to validation function without bounds checking.",
+  "analysis": "The function receives attacker-influenced data through the 'elem' parameter which contains packet or netlink-supplied set element data. Memory is read during the nft_setelem_data_validate call, but no explicit bounds checking is performed on the element data before passing it to the validation function. The function directly passes the attacker-controlled element data without additional sanitization or length checks.",
+  "seconds": 10.5,
+  "code_chars": 217
+}

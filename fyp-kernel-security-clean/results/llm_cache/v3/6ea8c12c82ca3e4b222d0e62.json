@@ -1,0 +1,13 @@
+{
+  "node": "nfqueue_tg_v3",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "While the function handles external data, all operations appear to be bounded and safe with no obvious buffer overflows or use-after-free conditions.",
+  "analysis": "The function accepts attacker-influenced data through the xt_NFQ_info_v3 structure, specifically 'queuenum' and 'queues_total' fields that could be set via netlink configuration. Memory is read from the info structure and used in arithmetic operations to calculate queue numbers, but there are no explicit bounds checks on 'queues_total' or validation that 'queue' remains within valid range after modulo operation. The function does not perform any memory allocation, copying, or deallocation.",
+  "seconds": 15.7,
+  "code_chars": 580
+}

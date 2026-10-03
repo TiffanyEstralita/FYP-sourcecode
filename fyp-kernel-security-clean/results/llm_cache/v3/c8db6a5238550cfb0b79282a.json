@@ -1,0 +1,13 @@
+{
+  "node": "__nf_ct_expect_find",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Hash index calculation uses attacker-influenced tuple data without bounds checking against the hash table size.",
+  "analysis": "The function reads from a hash table using a computed hash value derived from packet tuple data, but does not validate the hash index against table bounds. The hash computation itself could be influenced by attacker-controlled tuple data, and there's no explicit check that the resulting hash index h is within valid range for the nf_ct_expect_hash array. No memory allocation, copying, or freeing occurs in this function.",
+  "seconds": 11.9,
+  "code_chars": 478
+}

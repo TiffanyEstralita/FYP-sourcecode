@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipmark6_ahash_destroy",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function properly iterates through hash buckets and frees memory without obvious dereference or allocation issues",
+  "analysis": "",
+  "seconds": 7.8,
+  "code_chars": 428
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_dump_do",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "use_after_free",
+  "justification": "The function accesses set data structures after potentially releasing them, and relies on user-controlled indices without complete validation.",
+  "analysis": "The function processes netlink callback arguments and iterates through IP sets using an index from `cb->args[IPSET_CB_INDEX]` which can be influenced by userspace. It performs bounds checking against `inst->ip_set_max` but does not validate the initial `cb->args[IPSET_CB_DUMP]` value or ensure proper state transitions. Memory is read and written via `set->variant->list()` and `set->variant->head()` calls, which could be exploited if the set data structures are corrupted or freed during iteration. There's a potential use-after-free risk when accessing `set` after possibly releasing it.",
+  "seconds": 58.2,
+  "code_chars": 3970
+}

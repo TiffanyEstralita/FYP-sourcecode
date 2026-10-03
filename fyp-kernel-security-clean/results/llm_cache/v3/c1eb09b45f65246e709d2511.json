@@ -1,0 +1,13 @@
+{
+  "node": "tcpoptstrip_mangle_packet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs unchecked arithmetic on packet data that can lead to buffer overflows or underflows.",
+  "analysis": "The function processes TCP options from incoming packets and allows attacker-influenced data through the 'opt' pointer derived from packet contents. The primary risk comes from the 'optl = optlen(opt, i)' call which could be manipulated to cause out-of-bounds reads or writes if 'i + optl' exceeds 'tcp_hdrlen', and the loop variable 'i' is incremented without sufficient validation of the option length. There are no checks for integer overflow in the arithmetic operations involving 'i' and 'optl'.",
+  "seconds": 22.1,
+  "code_chars": 1397
+}

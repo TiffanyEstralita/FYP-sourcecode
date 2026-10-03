@@ -1,0 +1,13 @@
+{
+  "node": "ct_sip_get_header",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled offsets and lengths without sufficient bounds checking, risking out-of-bounds memory access.",
+  "analysis": "The function processes packet data through 'dptr', 'dataoff', and 'datalen' which can be influenced by attacker-supplied SIP headers. Memory is read and compared using offsets derived from these inputs without complete validation of bounds, particularly in the strncasecmp and sip_skip_whitespace calls. The function does not perform comprehensive checks on arithmetic operations or pointer advances that could lead to out-of-bounds reads or use-after-free conditions.",
+  "seconds": 20.8,
+  "code_chars": 1664
+}

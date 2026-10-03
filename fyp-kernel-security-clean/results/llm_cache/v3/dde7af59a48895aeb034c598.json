@@ -1,0 +1,13 @@
+{
+  "node": "nfqueue_tg_v2",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only reads a single boolean flag from user-supplied structure with no risky operations or memory handling.",
+  "analysis": "The function reads from info->bypass which is part of the xt_NFQ_info_v2 structure passed in par->targinfo. This structure is user-supplied through netfilter rules and contains attacker-influenced data. The function performs a simple boolean check on this value without additional validation or bounds checking. No memory allocation, copying, or freeing occurs in this function.",
+  "seconds": 11.3,
+  "code_chars": 262
+}

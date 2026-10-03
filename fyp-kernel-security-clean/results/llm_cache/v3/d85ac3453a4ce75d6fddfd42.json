@@ -1,0 +1,13 @@
+{
+  "node": "getorigdst",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs adequate checks on buffer length and does not exhibit clear memory safety issues.",
+  "analysis": "The function reads socket parameters from the kernel socket structure and uses them to construct a tuple for connection tracking lookup. The main inputs are influenced by the socket state and user-provided length parameter, but no direct attacker-controlled packet data is parsed. Memory is read from the socket and connection tracking structures, with a check on the user buffer length before copying the result. No obvious integer overflows or use-after-free issues are present.",
+  "seconds": 30.0,
+  "code_chars": 1676
+}

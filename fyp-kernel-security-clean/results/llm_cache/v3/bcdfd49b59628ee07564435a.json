@@ -1,0 +1,13 @@
+{
+  "node": "expr_call_ops_eval",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function directly calls a user-supplied function pointer without validation, allowing potential arbitrary code execution.",
+  "analysis": "The function reads the 'eval' function pointer from 'expr->ops->eval' which is user-supplied via netfilter rules and can be influenced by an attacker. It performs a direct function pointer call without additional validation or bounds checking of the pointer value. The use of macro X() to compare and dispatch to specific eval functions does not introduce new attack surface, but the final fallback to 'expr->ops->eval' could lead to execution of arbitrary code if the attacker controls the ops structure. No memory allocation, copying, or freeing occurs in this function.",
+  "seconds": 15.9,
+  "code_chars": 657
+}

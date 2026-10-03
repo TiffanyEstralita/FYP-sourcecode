@@ -1,0 +1,13 @@
+{
+  "node": "mark_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only performs simple bitwise operations on kernel-controlled and user-supplied scalar values with no memory handling or complex logic that could lead to vulnerabilities.",
+  "analysis": "The function reads from skb->mark (kernel-controlled) and info->mask/info->mark (from matchinfo which is user-supplied via netlink), and info->invert (also user-supplied). No memory allocation, copying, or freeing occurs. The function performs simple bitwise operations and comparisons without any unchecked arithmetic or pointer dereferences. All inputs are scalar values that are directly used in boolean logic.",
+  "seconds": 11.8,
+  "code_chars": 199
+}

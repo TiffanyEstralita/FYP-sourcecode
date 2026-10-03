@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_sched_persist",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "Potential integer overflow in arithmetic involving svc->netmask and dst_port without complete validation.",
+  "analysis": "The function processes packet data through `skb`, `iph`, and service configuration (`svc`) which can be influenced by attackers. It uses `ip_vs_conn_fill_param_persist` and `ip_vs_conn_new` that may copy or allocate memory based on inputs like `param.pe_data`, `svc->netmask`, and `dst_port`. There are no obvious bounds checks on `svc->netmask` or `dst_port` before use, and potential for integer overflow in arithmetic involving these values. Memory is allocated via `ip_vs_conn_new` and freed via `kfree` and `ip_vs_conn_put`, but there's no clear evidence of use-after-free or null dereference issues.",
+  "seconds": 66.5,
+  "code_chars": 4674
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_newobj",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses nla_strdup and nla_memdup without validating the length or content of attacker-controlled netlink attributes, which could lead to buffer overflows or other memory corruption issues.",
+  "analysis": "The function processes netlink attributes including NFTA_OBJ_NAME, NFTA_OBJ_DATA, and NFTA_OBJ_USERDATA, which can be controlled by an attacker. Memory is allocated for obj->key.name using nla_strdup and for obj->udata using nla_memdup, with lengths derived from netlink attributes. The code checks for NULL returns but does not validate the length or content of these attributes before use, potentially allowing out-of-bounds reads or writes if malicious data is provided. There are no obvious use-after-free issues, but improper bounds checking on user-supplied data could lead to memory corruption.",
+  "seconds": 29.9,
+  "code_chars": 2583
+}

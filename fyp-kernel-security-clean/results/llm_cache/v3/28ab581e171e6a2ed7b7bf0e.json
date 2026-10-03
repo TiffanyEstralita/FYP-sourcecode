@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_helper_register",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs list operations on a validated input pointer without any obvious memory safety issues.",
+  "analysis": "This function takes a pointer to a struct nf_conntrack_nat_helper as input, which could be user-supplied data. The function performs list insertion using RCU (read-copy-update) mechanism but does not validate the input pointer or check if the structure is properly initialized before adding it to the list. There are no bounds checks or validation of the input data, and the function assumes the pointer is valid without verification.",
+  "seconds": 10.7,
+  "code_chars": 195
+}

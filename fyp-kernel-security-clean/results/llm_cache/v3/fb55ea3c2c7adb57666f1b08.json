@@ -1,0 +1,13 @@
+{
+  "node": "flow_offload_fixup_tcp",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only performs simple struct member assignments with no attacker-controlled data or unsafe memory operations.",
+  "analysis": "This function does not handle any attacker-influenced data - it only operates on a fixed struct ip_ct_tcp that is passed as a parameter. The function performs simple memory writes to fixed offsets within the struct without any length, offset, or index checks. There are no memory allocations, deallocations, or pointer dereferences that could lead to use-after-free conditions.",
+  "seconds": 10.3,
+  "code_chars": 119
+}

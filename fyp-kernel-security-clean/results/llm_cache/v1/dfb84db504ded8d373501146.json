@@ -1,0 +1,13 @@
+{
+  "node": "nft_set_catchall_loops",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function appears safe as it properly handles RCU list traversal and null checks, with no obvious vulnerability patterns",
+  "analysis": "",
+  "seconds": 7.7,
+  "code_chars": 464
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_loop_check_setelem",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function appears safe as it properly checks for extension existence before dereferencing and handles the loop checking correctly without obvious vulnerabilities.",
+  "analysis": "",
+  "seconds": 7.1,
+  "code_chars": 392
+}

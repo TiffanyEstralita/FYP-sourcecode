@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_get_extensions",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function reads netlink attributes without validating their length or structure before calling nla_get_* functions, which could allow attackers to trigger memory read errors with malformed input.",
+  "analysis": "The function processes netlink attributes provided by userspace, extracting timeout, counters, comments, and skbinfo fields. Attackers can influence these inputs through packet contents or netlink messages, particularly the byte-order converted values from nla_get_be64/be32/be16 calls. While checks are performed to ensure attributes match set capabilities (e.g., SET_WITH_TIMEOUT), there's no explicit validation of attribute lengths or bounds before calling nla_get_* functions, which could lead to reading invalid memory if malformed data is passed. The function does not appear to use freed objects or have obvious integer overflows.",
+  "seconds": 29.7,
+  "code_chars": 1759
+}

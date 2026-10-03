@@ -1,4 +1,0 @@
-{
-  "ollama_model": "qwen2.5-coder:3b",
-  "ollama_host": "http://localhost:11434"
-}

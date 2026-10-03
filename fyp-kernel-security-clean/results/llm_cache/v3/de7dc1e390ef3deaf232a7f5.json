@@ -1,0 +1,13 @@
+{
+  "node": "nf_queue_nf_hook_drop",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only performs RCU read lock/unlock and calls a registered handler without processing attacker-influenced data.",
+  "analysis": "This function does not directly process attacker-influenced packet data or netlink attributes. It reads a pointer from a global RCU-protected variable and calls a function pointer, but the inputs are not directly derived from packet contents or user-supplied data. The memory operations are simple pointer dereferences and function calls with no direct copying, indexing, or allocation/deallocation. There are no obvious length checks, arithmetic operations, or use-after-free scenarios.",
+  "seconds": 11.2,
+  "code_chars": 197
+}

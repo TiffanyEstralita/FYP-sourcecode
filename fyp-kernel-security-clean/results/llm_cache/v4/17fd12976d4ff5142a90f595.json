@@ -1,0 +1,13 @@
+{
+  "node": "nft_check_loops",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 75.0,
+  "risk": 0.75,
+  "pattern": "missing_bounds_check",
+  "justification": "Unvalidated chain pointer dereference in verdict handling without proper bounds checking or validation.",
+  "analysis": "The function reads from 'data->verdict.chain' which is part of attacker-influenced packet data through the 'nft_data' structure. The 'data' pointer comes from 'nft_set_ext_data(ext)' which could be manipulated by an attacker through netlink commands or packet contents. There are no bounds checks or validation performed on the chain reference before use, and the function does not validate that the chain exists or is properly initialized.",
+  "seconds": 11.8,
+  "code_chars": 342
+}

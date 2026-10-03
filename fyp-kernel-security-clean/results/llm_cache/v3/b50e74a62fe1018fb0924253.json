@@ -1,0 +1,13 @@
+{
+  "node": "nf_conntrack_find_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function uses attacker-influenced tuple data in hash calculations without complete bounds checking.",
+  "analysis": "The function processes attacker-influenced packet tuple data through the 'tuple' parameter, which is used in hash calculations and passed to __nf_conntrack_find_get. There are no explicit bounds checks on the tuple contents before hashing or use, and the function returns a pointer from an internal lookup without additional validation of the returned object's integrity. The zone_id calculations and hash lookups could potentially be manipulated by an attacker.",
+  "seconds": 14.1,
+  "code_chars": 582
+}

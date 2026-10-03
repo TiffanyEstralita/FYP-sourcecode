@@ -1,0 +1,13 @@
+{
+  "node": "xt_rateest_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "Arithmetic operations with attacker-controlled values may lead to unexpected behavior due to lack of overflow/underflow checks.",
+  "analysis": "The function reads attacker-influenced data through `info->matchinfo` which is provided via netlink attributes during module initialization or configuration. It performs arithmetic operations on values like `info->bps1`, `info->pps1`, `info->bps2`, and `info->pps2` without clear validation of their ranges or bounds. The function does not directly allocate, copy, or free memory, but relies on pre-configured estimator objects that could be manipulated if not properly validated at setup time.",
+  "seconds": 24.4,
+  "code_chars": 1521
+}

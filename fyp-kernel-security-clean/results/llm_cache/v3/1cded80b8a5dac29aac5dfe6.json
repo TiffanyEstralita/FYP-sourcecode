@@ -1,0 +1,13 @@
+{
+  "node": "nf_conntrack_free",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs standard cleanup operations on a validated conntrack object with no obvious memory safety vulnerabilities.",
+  "analysis": "The function nf_conntrack_free does not directly process attacker-influenced data such as packet contents or netlink attributes. It operates on a conntrack structure that has already been validated and is being freed, with no direct user-supplied lengths, offsets, or indices involved in memory operations. The function performs standard cleanup including RCU lock usage for hook dereferencing, but does not appear to have any obvious memory safety issues like use-after-free or integer overflows since it's a simple cleanup function that operates on a known valid object.",
+  "seconds": 21.1,
+  "code_chars": 614
+}

@@ -1,0 +1,13 @@
+{
+  "node": "classify_tg",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "Simple assignment of user-supplied value with no obvious memory safety issues or exploitable patterns.",
+  "analysis": "The function reads from clinfo->priority which is part of the target info structure passed in par->targinfo. This structure is user-supplied through netlink attributes when configuring the xt_CLASSIFY target. The function performs no validation of the priority value before assigning it to skb->priority, and there are no bounds checks on the input data. The clinfo pointer itself is validated by the netfilter framework but the priority field contents are not checked for validity.",
+  "seconds": 11.5,
+  "code_chars": 211
+}

@@ -1,0 +1,13 @@
+{
+  "node": "xt_compat_match_offset",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs arithmetic operations on kernel-internal constants and match sizes with no attacker-influenced data handling",
+  "analysis": "",
+  "seconds": 6.2,
+  "code_chars": 180
+}

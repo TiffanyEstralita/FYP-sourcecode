@@ -1,0 +1,13 @@
+{
+  "node": "ctnl_timeout_put",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function appears safe as it properly checks reference count before freeing and uses kfree_rcu for safe memory deallocation.",
+  "analysis": "",
+  "seconds": 6.1,
+  "code_chars": 249
+}

@@ -1,0 +1,13 @@
+{
+  "node": "hash_netport4_data_netmask",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The cidr parameter can cause integer underflow when subtracted by 1, and lacks proper validation of attacker-influenced input.",
+  "analysis": "The function takes an attacker-influenced cidr parameter that is used directly in arithmetic operations and assigned to elem->cidr without validation. The cidr value could come from netlink attributes or packet data, and the subtraction by 1 could underflow if cidr is 0. No bounds checking is performed on the cidr value before use.",
+  "seconds": 10.9,
+  "code_chars": 143
+}

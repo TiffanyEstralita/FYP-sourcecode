@@ -1,0 +1,13 @@
+{
+  "node": "nf_hook_entry_head",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The hooknum parameter is used as an array index without sufficient validation against the actual array bounds, allowing potential out-of-bounds access.",
+  "analysis": "The function takes hooknum as input which is user-controlled and used to index into arrays of hook entries without additional validation beyond ARRAY_SIZE checks. The hooknum parameter comes from netfilter hooks and can be influenced by packet processing logic or netlink configuration. While there are WARN_ON_ONCE checks, the core issue is that hooknum is not validated against the actual size of the target array before indexing, which could lead to out-of-bounds access if an invalid hooknum is passed. The function returns pointers to arrays that may be accessed by other code without further validation.",
+  "seconds": 20.4,
+  "code_chars": 1429
+}

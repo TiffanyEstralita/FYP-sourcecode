@@ -1,0 +1,13 @@
+{
+  "node": "pipapo_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function uses attacker-influenced values for calculating offsets and array sizes without sufficient bounds checking, risking integer overflow or out-of-bounds access.",
+  "analysis": "The function `pipapo_get` processes packet data through the `data` pointer, which is advanced based on field configurations. It uses `f->groups / NFT_PIPAPO_GROUPS_PER_BYTE(f)` to calculate byte offsets, and `f->bb` to select processing functions, both of which could be influenced by attacker-controlled netlink attributes during set creation. The function performs memory allocation using `kmalloc_array` and `kcalloc`, but does not validate the bounds or values of `m->bsize_max`, `f->groups`, or `f->bb` before use, potentially leading to out-of-bounds access or integer overflow. There are no obvious use-after-free issues, but the lack of strict validation on field parameters introduces a risk of memory corruption.",
+  "seconds": 27.7,
+  "code_chars": 2029
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_get_conntrack",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function relies on external parsing functions that may not fully validate lengths or offsets in netlink attributes, creating potential for integer overflow/underflow in memory operations.",
+  "analysis": "The function processes netlink attributes (cda) and tuple data from user input, parsing zone and tuple information that could be attacker-controlled. Memory is read and written during parsing and NLMSG construction, but no obvious buffer overflows or use-after-free issues are present. The function validates inputs and uses proper reference counting, though the parsing functions ctnetlink_parse_zone and ctnetlink_parse_tuple may contain unchecked data from netlink attributes.",
+  "seconds": 20.3,
+  "code_chars": 1466
+}

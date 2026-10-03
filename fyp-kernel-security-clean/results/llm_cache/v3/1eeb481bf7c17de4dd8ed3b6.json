@@ -1,0 +1,13 @@
+{
+  "node": "classify_tg",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Simple assignment of user-supplied integer value with no obvious memory safety issues",
+  "analysis": "The function reads from clinfo->priority which is part of the target info structure passed in par->targinfo. This structure is user-supplied through netlink attributes during rule configuration, making the priority value attacker-influenced. The function performs no validation or bounds checking on this value before assigning it to skb->priority. There are no memory allocations, deallocations, or complex indexing operations involved.",
+  "seconds": 10.4,
+  "code_chars": 211
+}

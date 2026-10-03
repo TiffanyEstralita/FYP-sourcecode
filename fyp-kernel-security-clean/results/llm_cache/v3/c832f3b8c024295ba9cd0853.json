@@ -1,0 +1,13 @@
+{
+  "node": "multiport_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses skb_header_pointer with a fixed-size buffer but does not fully validate that the packet data at par->thoff is sufficient for the read operation.",
+  "analysis": "The function reads port data from packet headers using skb_header_pointer with a fixed size of 2 ports. The attacker can influence the packet contents which determine the offset and length used in skb_header_pointer, though the code uses a fixed-size buffer. No obvious integer overflows or use-after-free issues are present, but the check on par->thoff and the fixed buffer size could be problematic if not properly validated.",
+  "seconds": 16.6,
+  "code_chars": 577
+}

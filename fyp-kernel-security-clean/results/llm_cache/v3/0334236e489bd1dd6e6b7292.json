@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_setup_info",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-influenced 'range' data without explicit validation of its contents before tuple manipulation.",
+  "analysis": "The function processes attacker-influenced data through the 'range' parameter which contains user-supplied NAT range information. It uses 'maniptype' and tuple manipulations but does not perform explicit bounds checking on any attacker-controlled lengths or offsets. The function does not directly allocate or free memory, nor does it use freed objects, but relies on external tuple handling that could be manipulated.",
+  "seconds": 22.3,
+  "code_chars": 1823
+}

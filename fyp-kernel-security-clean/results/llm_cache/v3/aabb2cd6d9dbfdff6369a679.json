@@ -1,0 +1,13 @@
+{
+  "node": "nf_log_packet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Potential format string vulnerability due to unchecked vsnprintf output length against fixed buffer size.",
+  "analysis": "The function accepts attacker-influenced inputs through the 'fmt' parameter which is passed to vsnprintf, potentially allowing format string vulnerabilities. The 'prefix' buffer has a fixed size of NF_LOG_PREFIXLEN, but there's no check on the length of the formatted string produced by vsnprintf against this buffer size. No memory is allocated, freed, or indexed with attacker-controlled values, and there are no obvious use-after-free or integer overflow issues.",
+  "seconds": 13.6,
+  "code_chars": 678
+}

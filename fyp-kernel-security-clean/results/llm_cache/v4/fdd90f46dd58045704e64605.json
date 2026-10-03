@@ -1,0 +1,13 @@
+{
+  "node": "find_or_evict",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 72.0,
+  "risk": 0.72,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The unsigned integer subtraction 'a - b' can underflow when b > a, causing incorrect age calculation and potential bypass of stale entry eviction logic.",
+  "analysis": "The function takes attacker-influenced data through the 'conn' parameter which includes tuple and jiffies32 values that could be manipulated. It performs arithmetic on jiffies values without checking for underflow, and uses cpu field from conn without validation. The main risk is in the age calculation where unsigned subtraction can underflow if b > a, leading to a large positive age value that bypasses the stale entry eviction check.",
+  "seconds": 16.4,
+  "code_chars": 787
+}

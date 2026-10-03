@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_delset",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Attacker can influence table and set lookup parameters through netlink attributes, but the code relies on existing validation in lookup functions rather than performing explicit bounds checks on raw attribute data.",
+  "analysis": "The function processes attacker-controlled netlink attributes including NFTA_SET_TABLE, NFTA_SET_HANDLE, and NFTA_SET_NAME. It uses these attributes to look up tables and sets without comprehensive validation of their contents or lengths. The primary risk comes from potential misuse of the lookup functions with untrusted data, though direct memory corruption seems mitigated by existing validation checks in nft_table_lookup and nft_set_lookup. No obvious use-after-free or integer overflow patterns are present.",
+  "seconds": 18.5,
+  "code_chars": 1197
+}

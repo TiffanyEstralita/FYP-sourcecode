@@ -1,0 +1,13 @@
+{
+  "node": "find_set_type",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs string comparison and list traversal with no unsafe memory operations or attacker-controlled inputs that could lead to memory corruption.",
+  "analysis": "The function `find_set_type` takes a user-provided name string as input and compares it against registered set types. The comparison uses `STRNCMP` which likely performs a bounded string comparison, but the function itself doesn't perform any validation of the input parameters beyond basic type checking. No memory is allocated, copied, or freed within this function. The function only reads from a linked list of registered set types and performs comparisons without any obvious buffer overflows or use-after-free issues.",
+  "seconds": 13.7,
+  "code_chars": 430
+}

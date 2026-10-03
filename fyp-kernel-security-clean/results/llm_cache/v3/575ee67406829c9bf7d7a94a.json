@@ -1,0 +1,13 @@
+{
+  "node": "conntrack_addrcmp",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs simple bitwise operations on attacker-controlled data with no obvious memory safety issues.",
+  "analysis": "The function takes attacker-influenced parameters uaddr and umask from netlink attributes, but these are only used for bitwise operations and comparisons without direct memory access. The function performs simple arithmetic and comparison operations on the inputs without apparent bounds checking or overflow issues. No memory is allocated, freed, or dereferenced in a way that could lead to use-after-free or null dereference conditions.",
+  "seconds": 12.2,
+  "code_chars": 414
+}

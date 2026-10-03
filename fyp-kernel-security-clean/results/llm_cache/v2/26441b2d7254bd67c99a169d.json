@@ -1,0 +1,13 @@
+{
+  "node": "nft_ct_timeout_obj_eval",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "null_deref",
+  "justification": "The function dereferences 'timeout' without ensuring it's not NULL after potential allocation failure, and 'nf_ct_timeout_data' could return NULL which is then dereferenced.",
+  "analysis": "",
+  "seconds": 11.6,
+  "code_chars": 886
+}

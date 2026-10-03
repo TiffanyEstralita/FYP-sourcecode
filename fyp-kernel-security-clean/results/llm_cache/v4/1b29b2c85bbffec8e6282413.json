@@ -1,0 +1,13 @@
+{
+  "node": "nft_chain_validate",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 60.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function iterates over a linked list of rules but doesn't validate that the list structure remains intact or that expression pointers are valid before calling validate callbacks.",
+  "analysis": "The function processes rule expressions in a chain and calls validate callbacks on each expression. The main inputs that could be attacker-influenced are the rule data and expression operations, which come from user-supplied netfilter rules. Memory is read during expression validation and written to the data pointer. The function does not perform explicit bounds checking on rule or expression indices, and relies on list traversal without validating the integrity of the rule list structure itself.",
+  "seconds": 13.7,
+  "code_chars": 553
+}

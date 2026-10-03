@@ -1,0 +1,13 @@
+{
+  "node": "bitmap_port_do_del",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function appears safe as it only performs a bit operation with proper kernel API usage, no obvious vulnerability patterns detected",
+  "analysis": "",
+  "seconds": 5.7,
+  "code_chars": 151
+}

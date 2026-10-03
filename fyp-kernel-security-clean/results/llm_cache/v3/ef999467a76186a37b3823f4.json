@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_byname",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The set name from netlink attribute is used without proper bounds checking before being passed to find_set_and_id().",
+  "analysis": "The function reads the set name from netlink attribute IPSET_ATTR_SETNAME, which is attacker-controlled. It uses this data to find a set and retrieve its ID without sufficient validation of the name length or format. The function does not perform bounds checking on the name data before passing it to find_set_and_id(), and there are no checks for potential integer overflows in the netlink message handling. Memory allocation and copying are done with standard kernel functions, but the primary risk comes from unchecked user input leading to potential out-of-bounds access or incorrect set lookup.",
+  "seconds": 18.2,
+  "code_chars": 1111
+}

@@ -1,0 +1,13 @@
+{
+  "node": "hash_net4_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles internal hash table structures with no direct attacker-controlled data processing.",
+  "analysis": "The function processes hash buckets from a hash table but does not validate any attacker-influenced inputs directly. It iterates through all buckets using a fixed loop counter based on jhash_size(), and dereferences pointers without additional validation. The memory deallocation occurs on buckets and table regions, but there's no evidence of use-after-free or null dereference issues. No integer overflows or underflows are apparent in the arithmetic operations.",
+  "seconds": 15.1,
+  "code_chars": 422
+}

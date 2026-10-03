@@ -1,0 +1,13 @@
+{
+  "node": "nft_setelem_data_validate",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "other",
+  "justification": "Function processes attacker-influenced data without explicit bounds checking on the data pointer and length before passing to validation function.",
+  "analysis": "The function reads data from 'nft_set_elem' structure which contains attacker-influenced elements through 'elem->priv' and 'set->dtype'. It calls 'nft_set_ext_data(ext)' to get data pointer and passes it to 'nft_validate_register_store' along with 'set->dlen' which could be influenced by the set configuration. The function doesn't perform explicit bounds checking on the attacker-controlled data before passing it to validation functions, though the validation itself may handle bounds checking.",
+  "seconds": 12.9,
+  "code_chars": 439
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_state_name",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles internal data structures with proper bounds checking and does not process attacker-influenced input",
+  "analysis": "",
+  "seconds": 7.0,
+  "code_chars": 442
+}

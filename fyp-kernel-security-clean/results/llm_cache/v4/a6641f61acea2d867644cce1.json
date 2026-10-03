@@ -1,0 +1,13 @@
+{
+  "node": "connmark_tg_destroy",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 15.0,
+  "risk": 0.15,
+  "pattern": "none",
+  "justification": "Function only performs a simple netns reference decrement operation with no risky memory handling.",
+  "analysis": "The function takes a parameter 'par' which contains net and family fields that could potentially be influenced by attackers through netlink configuration. However, the function only calls nf_ct_netns_put() with these parameters without any additional memory operations, bounds checking, or pointer manipulations. The inputs are simple netns references and family identifiers that don't involve direct memory access or manipulation.",
+  "seconds": 9.3,
+  "code_chars": 111
+}

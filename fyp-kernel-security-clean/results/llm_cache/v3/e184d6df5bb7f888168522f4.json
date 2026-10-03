@@ -1,0 +1,13 @@
+{
+  "node": "nft_do_chain_netdev",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles standard network protocol data with basic validation, no obvious buffer overflows or use-after-free patterns detected.",
+  "analysis": "The function processes network packets and calls nft_set_pktinfo_* functions based on protocol type. The skb->protocol field is directly used in htons() comparison without validation, and the packet data is passed to validation functions that may not fully check attacker-controlled packet contents. The main risk comes from potential improper handling of malformed packet data in the validation functions, though the direct inputs are limited to standard network protocol fields.",
+  "seconds": 15.7,
+  "code_chars": 438
+}

@@ -1,0 +1,13 @@
+{
+  "node": "list_set_del",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "null_deref",
+  "justification": "Function dereferences input pointer 'e' without null check or validation of element state.",
+  "analysis": "The function `list_set_del` takes a set element 'e' as input which could be influenced by an attacker through netfilter operations. It performs list deletion and RCU callback operations but does not validate the input element 'e' for null pointers or valid state before using it. The function assumes 'e' is valid and directly accesses 'e->list' and 'e->id' without checking if 'e' points to a valid memory location or if the element has already been freed.",
+  "seconds": 12.5,
+  "code_chars": 225
+}

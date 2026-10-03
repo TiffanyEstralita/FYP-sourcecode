@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_table_offload_init",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only handles internal workqueue initialization and cleanup with no attacker-influenced data processing.",
+  "analysis": "",
+  "seconds": 9.1,
+  "code_chars": 639
+}

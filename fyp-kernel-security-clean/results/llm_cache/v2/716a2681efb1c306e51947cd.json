@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_change_seq_adj",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "other",
+  "justification": "Function parses attacker-influenced netlink data but relies on called function 'change_seq_adj' to validate inputs, with no explicit bounds checking or overflow protection for sequence adjustment values.",
+  "analysis": "",
+  "seconds": 10.2,
+  "code_chars": 694
+}

@@ -1,0 +1,13 @@
+{
+  "node": "xt_compat_match_from_user",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic on user-controlled values without overflow checks, risking buffer overflows when computing final sizes.",
+  "analysis": "The function processes attacker-controlled data from netlink attributes via `cm` which points to `struct compat_xt_entry_match`. Memory is copied using `msize` that comes from user input without validation of whether it exceeds buffer bounds. The `off` value is added to `msize` without checking for overflow, and `*dstptr` is advanced by `msize` without ensuring it doesn't exceed allocated space. There's no check that `msize - sizeof(*cm)` is valid before the memcpy in the else branch.",
+  "seconds": 21.0,
+  "code_chars": 728
+}

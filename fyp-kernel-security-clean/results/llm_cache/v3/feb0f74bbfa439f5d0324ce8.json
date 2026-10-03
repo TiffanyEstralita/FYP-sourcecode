@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_service_free",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only frees kernel-internal data structures with no attacker-controlled inputs or unsafe memory operations.",
+  "analysis": "The function ip_vs_service_free takes a pointer to struct ip_vs_service and frees it along with per-cpu stats. There are no attacker-influenced inputs directly handled by this function - it only operates on kernel-internal data structures. The function performs standard memory deallocation operations without any unsafe indexing, copying, or arithmetic operations. The svc pointer is assumed to be valid as it's passed from internal kernel code that manages the service lifecycle.",
+  "seconds": 13.2,
+  "code_chars": 109
+}

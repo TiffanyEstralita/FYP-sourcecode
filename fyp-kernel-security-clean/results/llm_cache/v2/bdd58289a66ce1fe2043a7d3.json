@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_proto_get",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only performs hash lookup and comparison using fixed protocol value, no attacker-influenced data handling.",
+  "analysis": "",
+  "seconds": 6.2,
+  "code_chars": 258
+}

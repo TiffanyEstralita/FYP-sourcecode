@@ -1,0 +1,13 @@
+{
+  "node": "nf_conntrack_helpers_unregister",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs unchecked decrementing loop with potentially attacker-controlled input 'n', creating risk of integer underflow or buffer over-read.",
+  "analysis": "The function takes a pointer to helper structures and a count 'n' as inputs, where 'n' could be attacker-influenced if passed from user space. The function iterates backwards from index 'n-1' down to 0, calling nf_conntrack_helper_unregister on each helper. Memory is read/written during the helper unregister process, but no bounds checking is performed on the input 'n' or the helper array pointer before use. The loop could overflow or underflow if 'n' is maliciously large or negative.",
+  "seconds": 11.8,
+  "code_chars": 159
+}

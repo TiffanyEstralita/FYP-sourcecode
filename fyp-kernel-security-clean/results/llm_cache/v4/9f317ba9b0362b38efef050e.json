@@ -1,0 +1,13 @@
+{
+  "node": "ctnl_timeout_try_del",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "No attacker-influenced data handling and proper reference counting with RCU protection.",
+  "analysis": "The function ctnl_timeout_try_del does not directly process attacker-influenced inputs like packet contents or netlink attributes. It operates on a timeout object that is already validated and managed by the netfilter subsystem. Memory operations include reading from timeout->refcnt, list manipulation via list_del_rcu, and freeing via kfree_rcu. The refcount logic with refcount_dec_if_one() provides proper synchronization, and there are no obvious integer overflows or use-after-free scenarios since the object is only freed when refcnt reaches zero and is protected by RCU.",
+  "seconds": 13.9,
+  "code_chars": 450
+}

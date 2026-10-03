@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_ipv4_csum_update",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "The iphdroff parameter is used as a direct offset into skb->data without validation against packet boundaries, creating potential for out-of-bounds memory access.",
+  "analysis": "The function takes attacker-influenced inputs through skb (packet data) and iphdroff (offset into packet), which are used to calculate the IP header pointer. Memory is read from the packet buffer at iphdroff offset and written via inet_proto_csum_replace4. The iphdroff value is not validated for bounds checking against the actual packet size, allowing potential out-of-bounds access if the offset points beyond the packet data. The function does not perform any overflow/underflow checks on the offset arithmetic.",
+  "seconds": 14.9,
+  "code_chars": 479
+}

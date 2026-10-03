@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_dnat_port",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 75.0,
+  "risk": 0.75,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses an attacker-influenced offset 'thoff' to index into packet data without proper bounds checking.",
+  "analysis": "The function reads from and writes to memory pointed to by `skb_network_header(skb) + thoff` without validating that `thoff` is within bounds of the packet data. An attacker could manipulate `thoff` via netlink attributes or packet contents to cause out-of-bounds memory access. The `hdr` pointer is dereferenced directly without checking if the offset and protocol-specific header lengths are valid, potentially leading to memory corruption.",
+  "seconds": 13.8,
+  "code_chars": 656
+}

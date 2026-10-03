@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_icmpv6_reply_translation",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "The function accesses packet data without ensuring hdrlen + sizeof(*inside) does not exceed skb length, allowing for potential out-of-bounds reads.",
+  "analysis": "The function processes ICMPv6 packets and manipulates NAT translations. Attackers can influence packet contents including ICMPv6 headers and IPv6 headers via the skb buffer. Memory is read and written at offsets calculated from hdrlen, which comes from user-supplied hooknum and potentially untrusted packet data. The function does not validate that hdrlen + sizeof(*inside) fits within the actual skb length before accessing inside->icmp6.icmp6_type, creating a potential out-of-bounds read if the packet is malformed.",
+  "seconds": 23.7,
+  "code_chars": 1723
+}

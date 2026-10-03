@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_loop_check_setelem",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles internal data structures with no attacker-influenced inputs, performs basic flag checks and calls to other kernel functions without obvious vulnerabilities.",
+  "analysis": "",
+  "seconds": 7.4,
+  "code_chars": 392
+}

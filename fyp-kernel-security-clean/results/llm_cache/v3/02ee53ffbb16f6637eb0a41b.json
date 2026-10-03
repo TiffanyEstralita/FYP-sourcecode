@@ -1,0 +1,13 @@
+{
+  "node": "checkentry_lsm",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function reads from a user-controlled string without explicit bounds checking beyond relying on strlen(), which may not be sufficient to prevent memory corruption.",
+  "analysis": "The function accepts a pointer to `xt_secmark_target_info_v1` struct which is user-supplied and contains the `secctx` field that can be influenced by an attacker. The function reads from `info->secctx` without validating its length or bounds, relying on `strlen()` which could be problematic if the buffer is not properly null-terminated. There are no obvious integer overflows or use-after-free issues, but the lack of explicit bounds checking on the user-provided string could lead to memory corruption if the buffer is malformed.",
+  "seconds": 15.7,
+  "code_chars": 701
+}

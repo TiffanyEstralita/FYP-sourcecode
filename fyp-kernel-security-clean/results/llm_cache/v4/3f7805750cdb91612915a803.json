@@ -1,0 +1,13 @@
+{
+  "node": "cttimeout_new_timeout",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 75.0,
+  "risk": 0.75,
+  "pattern": "missing_bounds_check",
+  "justification": "strcpy of user-provided name data without checking against CTNL_TIMEOUT_NAME_MAX buffer size.",
+  "analysis": "The function reads attacker-controlled data from netlink attributes including name, l3num, l4num, and CTA_TIMEOUT_DATA. Memory is allocated based on l4proto->ctnl_timeout.obj_size and copied using strcpy without bounds checking on the name length. The name buffer size is CTNL_TIMEOUT_NAME_MAX but there's no check that nla_data(cda[CTA_TIMEOUT_NAME]) fits within this limit before strcpy.",
+  "seconds": 23.2,
+  "code_chars": 2111
+}

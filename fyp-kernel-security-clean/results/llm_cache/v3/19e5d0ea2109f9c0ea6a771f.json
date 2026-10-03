@@ -1,0 +1,13 @@
+{
+  "node": "redirect_tg6",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function passes attacker-controlled packet data and netlink attributes to NAT redirect function without complete input validation.",
+  "analysis": "The function receives attacker-influenced packet data through skb parameter and uses netlink attributes via par->targinfo. It calls nf_nat_redirect_ipv6 which likely processes these inputs without complete validation of lengths or offsets. The function directly passes these parameters to a netfilter NAT helper without additional checks.",
+  "seconds": 9.9,
+  "code_chars": 159
+}

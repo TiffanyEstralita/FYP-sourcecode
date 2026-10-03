@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_newset",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The alloc_size calculation can overflow and the udlen is not fully validated before being used in nla_memcpy.",
+  "analysis": "The function processes netlink attributes including NFTA_SET_KEY_LEN, NFTA_SET_DATA_LEN, and NFTA_SET_USERDATA which can be controlled by an attacker. Memory is allocated based on attacker-controlled lengths (udlen, size) and copied into the allocated buffer using nla_memcpy. The key vulnerability lies in potential integer overflow during alloc_size calculation and lack of complete bounds checking on udlen before use in nla_memcpy.",
+  "seconds": 61.6,
+  "code_chars": 6697
+}

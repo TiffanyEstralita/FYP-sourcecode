@@ -1,0 +1,13 @@
+{
+  "node": "tcpoptstrip_tg6",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The return value from ipv6_skip_exthdr() is not validated for positive bounds before use.",
+  "analysis": "The function reads nexthdr from ipv6h->nexthdr and uses it in ipv6_skip_exthdr() which can be influenced by attacker-controlled packet data. The tcphoff value returned from ipv6_skip_exthdr() is used as an offset without additional validation of its bounds or sanity checks. If the function returns a negative value, NF_DROP is returned immediately, but there's no explicit check that tcphoff is non-negative before being passed to tcpoptstrip_mangle_packet().",
+  "seconds": 13.3,
+  "code_chars": 376
+}

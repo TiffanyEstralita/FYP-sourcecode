@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_netns_put",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only processes validated input parameters without memory operations that could lead to security vulnerabilities.",
+  "analysis": "This function takes a net pointer and nfproto uint8_t as input parameters. The nfproto parameter is directly used in a switch statement without any validation or bounds checking, meaning an attacker could potentially pass an invalid nfproto value that might cause unexpected behavior. The function calls nf_ct_netns_do_put() with the nfproto value, but there's no verification that this value is within expected range before use. No memory allocation, copying, or freeing occurs in this function.",
+  "seconds": 12.9,
+  "code_chars": 327
+}

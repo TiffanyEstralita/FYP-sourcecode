@@ -1,0 +1,13 @@
+{
+  "node": "nft_bitmap_size",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs unchecked arithmetic operations on user-provided input that can lead to integer overflow.",
+  "analysis": "This function takes a single parameter klen (key length) that could potentially be influenced by userspace through netlink attributes when creating sets. The function performs arithmetic operations including bit shifts and division on klen without any validation of the input value. If klen is large enough, the expression (klen * BITS_PER_BYTE) - 1 could overflow, leading to unexpected behavior in the bit shift operations. The result of the calculation is then used in a bit shift operation that could also overflow if klen is sufficiently large.",
+  "seconds": 14.0,
+  "code_chars": 115
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_newtable",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function copies attacker-controlled data using nla_strdup and nla_memdup without complete bounds checking on the lengths, which could lead to buffer overflows.",
+  "analysis": "The function processes user-supplied netlink attributes including table name and userdata, which can be influenced by an attacker. Memory is allocated for table structures and copied from netlink attributes without complete validation of lengths or bounds. The nla_strdup and nla_memdup functions are used directly on attacker-controlled data without sufficient checks, and there's potential for integer overflow in length calculations. No use-after-free patterns are evident.",
+  "seconds": 25.0,
+  "code_chars": 2405
+}

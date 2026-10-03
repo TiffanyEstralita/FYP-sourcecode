@@ -1,0 +1,13 @@
+{
+  "node": "nft_ct_timeout_obj_init",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The allocation size calculation 'sizeof(struct nf_ct_timeout) + l4proto->ctnl_timeout.obj_size' could overflow if obj_size is large enough, leading to insufficient memory allocation.",
+  "analysis": "The function accepts attacker-controlled data via netlink attributes NFTA_CT_TIMEOUT_L4PROTO and NFTA_CT_TIMEOUT_DATA. The l4num value is used to look up a protocol handler, and the obj_size from l4proto is added to the allocation size without overflow checking. The timeout data is parsed using nft_ct_timeout_parse_policy which may use the attacker-influenced data. No clear evidence of use-after-free or null dereference, but potential integer overflow in memory allocation.",
+  "seconds": 19.2,
+  "code_chars": 1250
+}

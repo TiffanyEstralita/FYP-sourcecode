@@ -1,0 +1,13 @@
+{
+  "node": "dscp_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs simple DSCP comparison with basic packet header access, no obvious memory safety issues",
+  "analysis": "The function reads DSCP values from IP packet headers and compares them against a configured value. The attacker can influence the packet contents which contain the DSCP field, but the function only performs a simple comparison without any bounds checking or validation of the packet data. The function directly accesses ip_hdr(skb) and uses ipv4_get_dsfield() which assumes valid IP header structure, but there are no checks for malformed packets or buffer overflows in the packet parsing.",
+  "seconds": 12.0,
+  "code_chars": 243
+}

@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipmac6_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No attacker-influenced data is processed, function only operates on internal kernel data structures with no external input validation needed.",
+  "analysis": "The function processes hash buckets from a hash table but does not validate any attacker-controlled inputs. It iterates through all buckets using a fixed loop counter and directly frees memory without checking if the bucket pointers are valid or have been tampered with. There are no bounds checks on the hash table size or bucket pointers, and the function assumes all buckets are properly allocated and accessible.",
+  "seconds": 13.5,
+  "code_chars": 426
+}

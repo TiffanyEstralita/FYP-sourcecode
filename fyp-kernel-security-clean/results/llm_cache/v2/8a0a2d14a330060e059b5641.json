@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_check_loops",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete checks on chain and set references before use.",
+  "analysis": "",
+  "seconds": 16.0,
+  "code_chars": 1511
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nfqnl_recv_verdict_batch",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The maxid value from netlink attributes is used in list traversal without proper bounds checking, risking integer overflow or out-of-bounds access.",
+  "analysis": "The function processes attacker-controlled netlink attributes including NFQA_MARK and NFQA_PRIORITY, and uses values from NFQA_VERDICT_HDR (verdict, maxid) which are derived from packet data without thorough validation. The maxid value is used to iterate through a linked list of queue entries, but there's no check that maxid is within valid bounds or that the list traversal doesn't exceed allocated memory. There's also potential for integer overflow in the maxid handling if it comes from untrusted input.",
+  "seconds": 19.2,
+  "code_chars": 1242
+}

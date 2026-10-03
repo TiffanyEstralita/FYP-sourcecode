@@ -1,0 +1,13 @@
+{
+  "node": "nft_register_expr",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete checks with standard list operations, no obvious memory safety issues.",
+  "analysis": "This function takes a single parameter 'type' which is a pointer to struct nft_expr_type. The function does not directly process packet contents or netlink attributes, but it does manipulate a linked list by adding the type->list element to nf_tables_expressions. The list operations are standard RCU list operations with no obvious bounds checking issues, but the function doesn't validate that the input type pointer or its members are properly initialized before use.",
+  "seconds": 11.1,
+  "code_chars": 288
+}

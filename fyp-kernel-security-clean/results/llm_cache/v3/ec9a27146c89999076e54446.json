@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_get_skbinfo",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only copies data without performing any checks on attacker-influenced inputs, but no direct memory corruption or use-after-free issues present.",
+  "analysis": "The function takes attacker-influenced data through the 'skbinfo' parameter which comes from 'ext' (struct ip_set_ext) that could be user-supplied via netlink attributes. It performs a simple memory copy operation without any validation of the input data. The 'flags' parameter is also user-controlled but not used in the function body, suggesting potential incomplete input sanitization.",
+  "seconds": 10.2,
+  "code_chars": 169
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_sched_persist",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs proper parameter validation and memory management without obvious security flaws.",
+  "analysis": "",
+  "seconds": 35.8,
+  "code_chars": 4674
+}

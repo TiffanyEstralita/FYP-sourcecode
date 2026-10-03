@@ -1,0 +1,13 @@
+{
+  "node": "tproxy_tg4_v0",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function copies user-supplied target info without validating the contents before passing to downstream functions.",
+  "analysis": "The function receives attacker-influenced data through the xt_tproxy_target_info structure which is part of the netfilter target parameters. The laddr, lport, mark_mask, and mark_value fields are copied directly from user space into the kernel without additional validation. These values are then passed to tproxy_tg4() which likely uses them for socket operations and routing decisions, potentially allowing privilege escalation or denial of service if malformed values are provided.",
+  "seconds": 11.4,
+  "code_chars": 252
+}

@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipportip6_data_match",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs a match extension check and delegates to another function without direct memory manipulation.",
+  "analysis": "The function handles attacker-influenced data through the 'data' parameter which comes from netfilter packet processing. It performs a match extension check and then calls another function with the same data. No direct memory manipulation or indexing occurs in this function, and the data flow appears straightforward without obvious overflow/underflow conditions or use-after-free scenarios.",
+  "seconds": 15.2,
+  "code_chars": 320
+}

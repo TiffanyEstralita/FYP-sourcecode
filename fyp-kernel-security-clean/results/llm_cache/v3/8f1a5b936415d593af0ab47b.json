@@ -1,0 +1,13 @@
+{
+  "node": "pkttype_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "While the function reads from attacker-controlled packet data, the operations are simple comparisons with no dangerous memory access patterns.",
+  "analysis": "The function reads pkt_type from skb which is attacker-influenced through packet contents, but performs no validation of the input data. The pkt_type field is directly read from the socket buffer without any bounds checking or sanitization. The function uses a simple comparison with info->pkttype which is derived from matchinfo, but there's no verification that this value is within valid bounds or properly initialized.",
+  "seconds": 13.2,
+  "code_chars": 482
+}

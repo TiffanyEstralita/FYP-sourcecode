@@ -1,0 +1,13 @@
+{
+  "node": "tproxy_tg4",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function relies on packet data without sufficient validation of header lengths or offsets before use.",
+  "analysis": "The function tproxy_tg4 processes incoming packets and uses attacker-influenced data from the packet headers (IP and UDP) for socket lookups and operations. It reads packet contents via skb_header_pointer and uses fields like source/dest ports and IP addresses without extensive validation. The main risks involve potential misuse of the sk reference if nf_tproxy_get_sock_v4 or nf_tproxy_handle_time_wait4 return invalid sockets, but no direct memory corruption or use-after-free issues are apparent.",
+  "seconds": 23.5,
+  "code_chars": 1619
+}

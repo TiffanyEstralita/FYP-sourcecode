@@ -1,0 +1,13 @@
+{
+  "node": "comp_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-influenced par->thoff without comprehensive validation of the resulting header access.",
+  "analysis": "The function reads packet data using skb_header_pointer with a length derived from par->thoff, which is user-controlled via netlink attributes during match setup. The chdr pointer is used to access the SPI field without additional validation of the header contents beyond the initial copy. There are no obvious integer overflows or use-after-free issues, but the function relies on potentially untrusted packet data for SPI matching.",
+  "seconds": 17.8,
+  "code_chars": 682
+}

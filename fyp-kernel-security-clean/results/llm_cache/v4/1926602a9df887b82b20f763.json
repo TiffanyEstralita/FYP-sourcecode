@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_table_offload_init",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 15.0,
+  "risk": 0.15,
+  "pattern": "none",
+  "justification": "No attacker-controlled data is processed and no unsafe memory operations are performed.",
+  "analysis": "This function does not process any attacker-influenced inputs such as packet contents, netlink attributes, or user-supplied lengths/offsets. It only initializes workqueues with fixed parameters and handles basic error cases by cleaning up previously allocated resources. No memory is read, written, copied, indexed, or freed in a way that could be exploited.",
+  "seconds": 12.6,
+  "code_chars": 639
+}

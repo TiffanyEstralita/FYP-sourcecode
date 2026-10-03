@@ -1,0 +1,13 @@
+{
+  "node": "cttimeout_del_timeout",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses strncmp with CTNL_TIMEOUT_NAME_MAX without ensuring the name length is properly bounded, potentially allowing buffer overread if the name exceeds the maximum allowed length.",
+  "analysis": "",
+  "seconds": 9.7,
+  "code_chars": 714
+}

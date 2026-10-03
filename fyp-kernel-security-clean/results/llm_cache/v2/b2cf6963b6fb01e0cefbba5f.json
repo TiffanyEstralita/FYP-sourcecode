@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipportip6_data_match",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only calls existing helper functions with validated parameters, no direct attacker-influenced data handling or memory operations.",
+  "analysis": "",
+  "seconds": 6.8,
+  "code_chars": 320
+}

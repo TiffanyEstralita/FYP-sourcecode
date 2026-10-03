@@ -1,0 +1,13 @@
+{
+  "node": "nft_ct_timeout_obj_eval",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "use_after_free",
+  "justification": "The function uses a pointer obtained from `nf_ct_timeout_data` without verifying its validity or bounds, and relies on RCU for synchronization which may not prevent use-after-free in all cases.",
+  "analysis": "The function reads from `priv->timeout` and uses it to set `timeout->timeout` via `rcu_assign_pointer`. The `values` pointer is obtained from `nf_ct_timeout_data(timeout)`, which could be influenced by the timeout data structure. There are no explicit bounds checks on `values[0]` before use, and the `timeout` object may be freed or modified concurrently if not properly synchronized. No direct memory allocation or deallocation occurs in the critical path, but the RCU assignment and potential use of unvalidated data could lead to issues.",
+  "seconds": 26.8,
+  "code_chars": 886
+}

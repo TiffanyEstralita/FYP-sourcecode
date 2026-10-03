@@ -1,0 +1,13 @@
+{
+  "node": "ctnl_timeout_find_get",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function properly handles reference counting and uses RCU traversal with appropriate null checks, though it could benefit from explicit NULL return handling for better clarity",
+  "analysis": "",
+  "seconds": 7.7,
+  "code_chars": 506
+}

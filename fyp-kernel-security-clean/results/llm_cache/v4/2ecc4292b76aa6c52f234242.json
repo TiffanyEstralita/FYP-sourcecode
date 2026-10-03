@@ -1,0 +1,13 @@
+{
+  "node": "nft_validate_register_store",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 75.0,
+  "risk": 0.75,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The arithmetic expression 'reg * NFT_REG32_SIZE + len' can overflow and bypass the bounds check, leading to out-of-bounds memory access.",
+  "analysis": "The function accepts attacker-influenced inputs including 'reg', 'data', 'type', and 'len' which can come from netlink attributes. Memory is read/written via 'data->verdict.chain' and 'reg * NFT_REG32_SIZE + len' arithmetic. The length check 'reg * NFT_REG32_SIZE + len > sizeof_field(struct nft_regs, data)' could overflow if 'reg' is large, and 'data' pointer is dereferenced without ensuring it's valid for the given type.",
+  "seconds": 17.1,
+  "code_chars": 821
+}

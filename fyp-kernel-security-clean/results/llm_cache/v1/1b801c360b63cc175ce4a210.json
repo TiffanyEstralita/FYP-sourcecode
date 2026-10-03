@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_inet_unregister_fn",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function appears to be a simple wrapper that safely calls two other functions with proper parameters and no obvious vulnerability patterns.",
+  "analysis": "",
+  "seconds": 6.5,
+  "code_chars": 234
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_netns_do_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The nfproto parameter is not validated against known protocol types before being used in a switch statement, allowing potential out-of-bounds access.",
+  "analysis": "The function takes nfproto as input which is user-supplied and used in a switch statement. It performs arithmetic operations on users4, users6, and users_bridge counters without overflow checks. The function uses mutex locking but does not validate the nfproto value against known protocol types before using it, potentially leading to out-of-bounds access or unexpected behavior. No direct memory allocation or deallocation occurs, and no use-after-free scenarios are present.",
+  "seconds": 24.6,
+  "code_chars": 1817
+}

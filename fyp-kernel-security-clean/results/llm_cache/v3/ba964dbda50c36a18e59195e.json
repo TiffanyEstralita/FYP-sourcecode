@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_type",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The typename string is used without checking its length before passing to find_set_type_minmax(), which could allow buffer over-read if the string is malformed.",
+  "analysis": "The function reads 'typename' from netlink attribute IPSET_ATTR_TYPENAME and uses it in find_set_type_minmax() without obvious bounds checking on the string length. The 'family' value is read from IPSET_ATTR_FAMILY and used in nla_put_u8() calls, but there's no explicit validation of its range. No direct memory allocation, copying or freeing occurs that could lead to use-after-free or null dereference issues.",
+  "seconds": 18.5,
+  "code_chars": 1314
+}

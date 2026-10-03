@@ -1,0 +1,13 @@
+{
+  "node": "nft_register_chain_type",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "Array indices derived from attacker-controlled struct fields are used without bounds checking.",
+  "analysis": "This function takes a const struct nft_chain_type pointer as input which is controlled by the caller. It uses ctype->family and ctype->type as array indices into the chain_type array without validating their bounds. The family and type fields could be maliciously set to cause out-of-bounds array access, potentially leading to memory corruption or information disclosure.",
+  "seconds": 10.4,
+  "code_chars": 303
+}

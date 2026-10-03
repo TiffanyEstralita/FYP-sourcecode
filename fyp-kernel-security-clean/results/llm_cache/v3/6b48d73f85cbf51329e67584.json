@@ -1,0 +1,13 @@
+{
+  "node": "process_olc",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No direct memory access with unchecked attacker-controlled indices or lengths; relies on pre-parsed structure fields.",
+  "analysis": "The function `process_olc` processes H.323 OpenLogicalChannel messages and indirectly uses data from the `olc` parameter, which is derived from packet contents and can be influenced by an attacker. The function performs several checks on bit flags and choice fields within the `olc` structure but does not directly validate lengths or offsets from the packet data itself. Memory access occurs through structured field dereferences, but no explicit bounds checking is performed on attacker-controlled data before use.",
+  "seconds": 23.4,
+  "code_chars": 2022
+}

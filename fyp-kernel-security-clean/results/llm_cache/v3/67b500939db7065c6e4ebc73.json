@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_comment_uget",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function returns raw nla_data() without validation, allowing potential buffer overread if attacker supplies malformed netlink attributes.",
+  "analysis": "The function takes a netlink attribute (nlattr) as input which can be controlled by attackers. It directly returns the result of nla_data(tb) without any validation or bounds checking on the attribute data. The nla_data() function extracts data from the netlink attribute without verifying that the attribute is properly formatted or within expected bounds, potentially allowing attackers to craft malicious netlink messages that could lead to memory corruption or information disclosure.",
+  "seconds": 10.5,
+  "code_chars": 78
+}

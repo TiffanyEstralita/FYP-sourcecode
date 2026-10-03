@@ -1,0 +1,13 @@
+{
+  "node": "hash_ip6_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only handles internal hash table cleanup with no attacker-influenced data processing.",
+  "analysis": "This function processes hash table buckets for destruction but does not directly handle attacker-influenced data. The loop iterates over a fixed-size hash table based on jhash_size(t->htable_bits) which appears to be determined at initialization time rather than from external input. No memory is read or written using attacker-controlled offsets, lengths, or indices. The function properly dereferences and frees memory that was allocated during set creation, with no obvious use-after-free or null pointer dereference issues.",
+  "seconds": 16.0,
+  "code_chars": 420
+}

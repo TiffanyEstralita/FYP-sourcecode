@@ -1,0 +1,13 @@
+{
+  "node": "nft_parse_register_store",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Attacker-controlled register value is used without range validation before being passed to validation function.",
+  "analysis": "The function accepts a netlink attribute 'attr' that can be controlled by an attacker, and passes it to nft_parse_register() which likely parses register information from packet data. The parsed register value 'reg' is then passed to nft_validate_register_store() without additional validation of the register number against valid ranges. Memory is read/written in the validation function but no bounds checking is performed on the attacker-controlled register value before use.",
+  "seconds": 12.1,
+  "code_chars": 399
+}

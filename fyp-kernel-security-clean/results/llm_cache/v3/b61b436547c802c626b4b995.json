@@ -1,0 +1,13 @@
+{
+  "node": "find_or_evict",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The age calculation a - b could underflow due to jiffies wrapping, and the function does not validate that conn->jiffies32 is within reasonable bounds.",
+  "analysis": "The function handles attacker-influenced data through the 'conn' parameter which contains user-supplied tuple and jiffies values. Memory is read from 'conn->jiffies32' and 'conn->cpu', with no explicit bounds checking on these values. The age calculation 'a - b' could potentially underflow if jiffies wraps, though the check 'age >= 2' provides some protection. No memory is allocated, copied, or freed in this function directly, but it calls 'conn_free' which may lead to use-after-free issues if not properly synchronized.",
+  "seconds": 17.4,
+  "code_chars": 787
+}

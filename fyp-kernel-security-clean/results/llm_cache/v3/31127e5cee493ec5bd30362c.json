@@ -1,0 +1,13 @@
+{
+  "node": "set_target_v1",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled dimension and flag values without proper validation before passing them to lower-level functions that may perform unsafe memory operations.",
+  "analysis": "The function reads attacker-influenced data from `info->add_set.dim`, `info->add_set.flags`, `info->del_set.dim`, and `info->del_set.flags` which are part of the `xt_set_info_target_v1` structure passed in `par->targinfo`. These values are used to initialize `ADT_OPT` macros and passed to `ip_set_add`/`ip_set_del` functions without apparent bounds checking. The `index` fields are checked against `IPSET_INVALID_ID` but the dimension and flag values could lead to out-of-bounds access or invalid memory operations in the underlying IP set functions.",
+  "seconds": 16.8,
+  "code_chars": 586
+}

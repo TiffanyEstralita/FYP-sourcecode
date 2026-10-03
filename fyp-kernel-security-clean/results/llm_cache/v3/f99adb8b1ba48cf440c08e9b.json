@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_check_loops",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs recursive calls and walks through lists without sufficient bounds checking on potentially attacker-controlled inputs.",
+  "analysis": "The function processes chain rules and set bindings to detect loops, with potential attacker influence through packet data via netlink attributes when setting up chains or rules. Memory is read from rule expressions and set bindings, but no explicit bounds checking is performed on user-supplied indices or lengths. The function recursively calls itself without clear validation of chain pointers or set element counts, which could lead to integer overflow or use-after-free if the input data is malformed.",
+  "seconds": 36.8,
+  "code_chars": 1511
+}

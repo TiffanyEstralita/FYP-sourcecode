@@ -1,0 +1,13 @@
+{
+  "node": "untimeout [nf_conntrack_timeout.c]",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only performs null pointer checks and simple pointer assignment without handling attacker-influenced data in a dangerous manner.",
+  "analysis": "The function takes a timeout parameter that could be influenced by user input, but the only operation performed is a null pointer check and assignment to NULL. No memory is read, written, copied, indexed, allocated or freed beyond simple pointer operations. The function does not handle any attacker-influenced data in a way that could lead to memory corruption or security issues.",
+  "seconds": 14.5,
+  "code_chars": 375
+}

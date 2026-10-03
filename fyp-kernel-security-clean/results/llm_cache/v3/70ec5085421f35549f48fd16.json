@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_ext_add",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Extension ID is used as array index without validation of its bounds, and potential integer overflow in length calculation.",
+  "analysis": "The function accepts an extension ID from user input which is used as an index into the nf_ct_ext_type_len array and new->offset array without sufficient bounds checking. The newoff calculation uses ALIGN macro which could overflow if oldlen is close to UINT_MAX. The function does not validate that the extension ID is within valid range before using it as an array index, and there's no check on the total calculated length against maximum allowed values.",
+  "seconds": 22.1,
+  "code_chars": 995
+}

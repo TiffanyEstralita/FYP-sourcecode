@@ -1,0 +1,13 @@
+{
+  "node": "nfulnl_log_packet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic operations on potentially attacker-controlled values (data_len, plen) without complete overflow/underflow checks before memory allocation or copying.",
+  "analysis": "The function processes packet data and constructs netlink messages for userspace logging. Attackers can influence inputs through packet contents, netlink attributes (like copy_range, qthreshold, flags), and skb data. Memory is read/written during message construction, with size calculations based on potentially attacker-controlled values like data_len and plen. The function performs some checks on lengths and indices but does not fully validate all attacker-influenced data before use, particularly in the size calculation and data copy logic.",
+  "seconds": 42.4,
+  "code_chars": 3992
+}

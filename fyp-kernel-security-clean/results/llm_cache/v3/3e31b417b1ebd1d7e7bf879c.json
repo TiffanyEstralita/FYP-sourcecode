@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_osf_add_callback",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function copies attacker-controlled data without validating its size or structure before use, leading to potential out-of-bounds reads.",
+  "analysis": "The function reads attacker-controlled data via `nla_data(osf_attrs[OSF_ATTR_FINGER])` into `f`, which is then copied to `kf` using `memcpy`. The `f` pointer is dereferenced to access `f->df` for indexing into `nf_osf_fingers`, but there's no validation that `f` points to a valid, properly aligned structure. If `osf_attrs[OSF_ATTR_FINGER]` is malformed or too small, this could lead to reading uninitialized or invalid memory. No overflow/underflow checks are performed on the copy operation or index calculation.",
+  "seconds": 18.5,
+  "code_chars": 962
+}

@@ -1,0 +1,13 @@
+{
+  "node": "hash_netportnet4_head",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "No attacker-influenced data is processed; all variables come from validated internal state.",
+  "analysis": "The function reads from RCU-protected data structures and uses values like htable_bits, elements, and memsize that are derived from set configuration and hash table state. These values are not directly user-controlled but depend on previously validated inputs. No direct memory access or indexing occurs based on attacker-supplied data, and all operations use checked values from internal structures.",
+  "seconds": 21.0,
+  "code_chars": 1569
+}

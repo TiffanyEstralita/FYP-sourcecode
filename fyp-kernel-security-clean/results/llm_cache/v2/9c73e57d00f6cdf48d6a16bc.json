@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_offload_destroy",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only iterates over a fixed array size with no attacker-influenced data handling or memory safety issues.",
+  "analysis": "",
+  "seconds": 7.3,
+  "code_chars": 169
+}

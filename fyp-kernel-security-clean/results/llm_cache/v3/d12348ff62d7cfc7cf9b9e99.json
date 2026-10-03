@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_set_timeout",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The timeout_name string is passed directly to timeout_find_get() without validation of its length or content, which could allow an attacker to trigger a buffer overflow or other memory corruption if the lookup function does not properly validate input.",
+  "analysis": "The function `nf_ct_set_timeout` processes attacker-influenced inputs including `timeout_name` (a string), `l3num`, and `l4num`. It uses these values to look up a timeout policy and attach it to a connection, but does not validate the length or content of `timeout_name` before passing it to `h->timeout_find_get()`. There are no checks for buffer overflows or invalid string lengths in the name lookup process. The function also handles RCU-protected data and uses reference counting, but there's no clear evidence of use-after-free or integer overflow issues.",
+  "seconds": 32.3,
+  "code_chars": 1467
+}

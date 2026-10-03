@@ -1,0 +1,13 @@
+{
+  "node": "nft_bitmap_location",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic operations on attacker-influenced key data without proper bounds checking, potentially leading to integer overflow/underflow.",
+  "analysis": "The function takes a key from packet data (set->klen is determined by the set configuration, not user-controlled) and performs arithmetic operations on it. The key is cast to u16 or u8 and shifted left by 1, then divided and modulo'd by BITS_PER_BYTE. No bounds checking is performed on the key value or its derived indices, which could lead to incorrect memory access if the key values are outside expected ranges. The function doesn't directly allocate or free memory, but could cause incorrect indexing if the key data is malformed.",
+  "seconds": 13.3,
+  "code_chars": 266
+}

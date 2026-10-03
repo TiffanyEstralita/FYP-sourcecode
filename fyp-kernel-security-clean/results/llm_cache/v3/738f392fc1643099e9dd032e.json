@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_getgen",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-controlled data is processed in memory operations, and all allocations are properly handled.",
+  "analysis": "The function `nf_tables_getgen` does not directly process attacker-influenced packet contents or netlink attributes for memory operations. It allocates a fixed-size skb buffer and fills it with gen info, with no user-supplied lengths, offsets, or indices used in memory operations. The only potential issue is a possible memory leak if `nf_tables_fill_gen_info` fails, but this is handled by freeing the allocated skb. No use-after-free, integer overflow, or null dereference patterns are present.",
+  "seconds": 13.2,
+  "code_chars": 508
+}

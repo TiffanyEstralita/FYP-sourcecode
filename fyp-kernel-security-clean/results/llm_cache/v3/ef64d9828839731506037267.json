@@ -1,0 +1,13 @@
+{
+  "node": "lockdep_commit_lock_is_held",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "No attacker-controlled data processing or memory operations involved.",
+  "analysis": "This function does not handle any attacker-influenced data - it only checks if a lock is held using kernel locking primitives. There are no memory operations, data copies, or index calculations involving external inputs. The function simply returns a boolean value based on kernel internal state and lock checking mechanisms.",
+  "seconds": 9.9,
+  "code_chars": 223
+}

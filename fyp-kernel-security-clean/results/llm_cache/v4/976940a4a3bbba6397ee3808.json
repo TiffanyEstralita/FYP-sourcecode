@@ -1,0 +1,13 @@
+{
+  "node": "cttimeout_exit",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 12.0,
+  "risk": 0.12,
+  "pattern": "none",
+  "justification": "Pure cleanup function with no attacker-controlled data handling",
+  "analysis": "This function does not handle any attacker-influenced data - it only performs cleanup operations by unregistering subsystems and iterating through connections. There are no memory reads, writes, copies, or indexing operations that could be triggered by external input. The function uses fixed kernel APIs and does not manipulate any user-supplied lengths, offsets, or indices.",
+  "seconds": 9.8,
+  "code_chars": 223
+}

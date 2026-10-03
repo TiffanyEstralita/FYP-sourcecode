@@ -1,0 +1,13 @@
+{
+  "node": "nfqueue_tg",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Simple value copy with no security-relevant operations or checks",
+  "analysis": "The function reads the queuenum field from the attacker-influenced tinfo structure without any validation or bounds checking. The queuenum is directly used as a return value without any sanitization, potentially allowing an attacker to specify invalid queue numbers. There are no memory operations, arithmetic checks, or object lifecycle issues present.",
+  "seconds": 9.6,
+  "code_chars": 179
+}

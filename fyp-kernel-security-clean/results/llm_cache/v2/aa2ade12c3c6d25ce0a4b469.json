@@ -1,0 +1,13 @@
+{
+  "node": "__nft_flowtable_type_get",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only performs a lookup in a linked list using a family parameter that appears to be validated elsewhere, with no direct attacker-influenced data handling.",
+  "analysis": "",
+  "seconds": 12.3,
+  "code_chars": 239
+}

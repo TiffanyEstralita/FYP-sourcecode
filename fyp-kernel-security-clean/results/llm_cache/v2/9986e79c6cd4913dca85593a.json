@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_sched_persist",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but includes proper checks and does not exhibit obvious memory safety issues or use-after-free conditions.",
+  "analysis": "",
+  "seconds": 35.1,
+  "code_chars": 4674
+}

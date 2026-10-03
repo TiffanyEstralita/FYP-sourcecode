@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_log_pernet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function is a simple per-net structure accessor with no security-relevant operations.",
+  "analysis": "This function simply retrieves a per-net structure using net_generic() with a known net_generic ID. There are no attacker-influenced inputs, memory operations, or pointer manipulations. The function performs a straightforward lookup without any bounds checking, arithmetic operations, or memory management.",
+  "seconds": 8.6,
+  "code_chars": 107
+}

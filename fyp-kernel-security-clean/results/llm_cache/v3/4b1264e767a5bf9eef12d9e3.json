@@ -1,0 +1,13 @@
+{
+  "node": "hmark_tg_v4",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function calls external parsing functions with attacker-controlled data but does not validate the results or check bounds before using parsed values.",
+  "analysis": "The function processes packet data through hmark_ct_set_htuple or hmark_pkt_set_htuple_ipv4, which likely parse packet contents or netlink attributes. Memory is read and written to the hmark_tuple structure 't', but no explicit bounds checking is visible for attacker-controlled inputs from packet data. The function returns XT_CONTINUE on error without further validation of input integrity.",
+  "seconds": 13.4,
+  "code_chars": 474
+}

@@ -1,0 +1,13 @@
+{
+  "node": "bitmap_port_do_del",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs a bit test and clear operation on a pre-validated bitmap member, no attacker-influenced data handling",
+  "analysis": "",
+  "seconds": 6.0,
+  "code_chars": 151
+}

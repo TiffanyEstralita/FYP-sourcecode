@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_dump_master",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles internal data structures and does not process attacker-influenced input, with proper error handling and no obvious memory safety issues.",
+  "analysis": "",
+  "seconds": 7.4,
+  "code_chars": 408
+}

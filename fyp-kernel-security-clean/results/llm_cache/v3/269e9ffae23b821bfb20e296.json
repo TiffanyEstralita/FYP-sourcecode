@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_delobj",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses netlink attributes without comprehensive validation of their contents or lengths before use in object lookup operations.",
+  "analysis": "The function processes attacker-controlled netlink attributes including object type, name, and handle. It performs lookups using these attributes but does not validate the attribute lengths or contents beyond basic presence checks. The object lookup and deletion logic appears sound, but there's potential for issues if the attribute parsing or object validation is bypassed due to incomplete bounds checking on netlink data.",
+  "seconds": 16.8,
+  "code_chars": 1231
+}

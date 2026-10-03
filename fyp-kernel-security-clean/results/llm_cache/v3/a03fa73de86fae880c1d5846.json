@@ -1,0 +1,13 @@
+{
+  "node": "set_target_v3",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Indices and flags from attacker-controlled netlink data are used without sufficient validation before being passed to core set functions.",
+  "analysis": "The function reads fields from `info->add_set`, `info->del_set`, and `info->map_set` which are part of the attacker-controlled `xt_set_info_target_v3` structure passed via netlink. Memory is accessed through indices and flags that could be manipulated by an attacker, particularly in `info->add_set.index`, `info->del_set.index`, and `info->map_set.index`. There are no explicit bounds checks on these indices before they are used in `ip_set_add`, `ip_set_del`, or `match_set` functions, and the `ADT_OPT` macro may use unvalidated dimensions or flags.",
+  "seconds": 24.8,
+  "code_chars": 1629
+}

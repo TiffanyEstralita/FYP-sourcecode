@@ -1,0 +1,13 @@
+{
+  "node": "xt_unregister_targets",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing bounds check on attacker-controlled count parameter allows potential out-of-bounds memory access.",
+  "analysis": "The function takes attacker-influenced parameters 'target' (pointer to target array) and 'n' (count). Memory is read from the target array using index 'n' which can be controlled by an attacker. The function performs no bounds checking on the 'n' parameter before decrementing and accessing array elements, potentially allowing out-of-bounds reads if 'n' exceeds the actual array size.",
+  "seconds": 9.9,
+  "code_chars": 125
+}

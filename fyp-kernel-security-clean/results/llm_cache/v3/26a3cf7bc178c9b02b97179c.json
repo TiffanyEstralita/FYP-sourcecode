@@ -1,0 +1,13 @@
+{
+  "node": "conn_free",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only handles kernel-managed connection objects with no attacker-controlled inputs.",
+  "analysis": "The function conn_free takes a conn parameter that is freed via kmem_cache_free. The function is called from nf_conncount_destroy which is invoked during module cleanup or when connections are destroyed. There are no attacker-influenced inputs directly affecting this function - it operates on kernel-managed connection objects. Memory is read/written in the list operations and freed, but there's no evidence of unchecked lengths, offsets, or indices that could be manipulated by an attacker.",
+  "seconds": 11.4,
+  "code_chars": 227
+}

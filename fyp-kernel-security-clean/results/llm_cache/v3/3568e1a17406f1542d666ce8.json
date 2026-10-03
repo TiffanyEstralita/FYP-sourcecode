@@ -1,0 +1,13 @@
+{
+  "node": "nf_conntrack_invert_icmp_tuple",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 9.0,
+  "risk": 0.9,
+  "pattern": "missing_bounds_check",
+  "justification": "Direct array indexing with attacker-controlled input without bounds verification creates a clear buffer overflow vulnerability.",
+  "analysis": "The function reads from orig->dst.u.icmp.type which is part of a netfilter tuple structure that could be influenced by packet data. The type value is used as an array index into invmap without proper bounds checking against the array size, and the result is used in arithmetic operations. There are no checks for integer overflow/underflow or use-after-free issues.",
+  "seconds": 11.3,
+  "code_chars": 391
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_expr_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only calls a destroy callback on a validated expression object with no obvious memory safety issues.",
+  "analysis": "The function takes a user-supplied expression pointer from netfilter context and calls its destroy callback without validating the expression structure. The expression pointer comes from packet processing or netlink configuration, and the destroy function pointer is dereferenced directly without bounds checking. There are no length/offset checks since this is just a function pointer call on a validated expression object.",
+  "seconds": 9.9,
+  "code_chars": 233
+}

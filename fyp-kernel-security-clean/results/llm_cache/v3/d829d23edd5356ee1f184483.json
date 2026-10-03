@@ -1,0 +1,13 @@
+{
+  "node": "tcpoptstrip_tg4",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function delegates to tcpoptstrip_mangle_packet with validated header length, no direct attacker-controlled memory operations.",
+  "analysis": "The function receives a sk_buff pointer and xt_action_param from netfilter, with the packet header length computed via ip_hdrlen(skb). Memory is read/written during packet mangle operations, but the only externally influenced input is the packet data itself through skb. The ip_hdrlen() call is trusted to return a valid offset, and no arithmetic overflow/underflow occurs in this function. No memory is freed or reused after being freed.",
+  "seconds": 10.7,
+  "code_chars": 156
+}

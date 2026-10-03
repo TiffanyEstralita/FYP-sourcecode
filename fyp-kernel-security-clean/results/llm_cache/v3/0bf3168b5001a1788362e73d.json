@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_get_bytes",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only reads from a validated atomic64 field with no unsafe operations or attacker-influenced data handling.",
+  "analysis": "This function takes a pointer to a struct ip_set_counter as input, which could potentially be influenced by user-supplied data through netlink operations. The function simply reads from an atomic64 field within the counter structure without any validation of the input pointer. There are no memory allocations, copies, or indexing operations involved. The function performs a direct memory read from a user-provided pointer without bounds checking.",
+  "seconds": 10.0,
+  "code_chars": 116
+}

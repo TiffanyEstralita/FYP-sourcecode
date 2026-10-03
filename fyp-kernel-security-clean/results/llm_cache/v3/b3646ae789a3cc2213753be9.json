@@ -1,0 +1,13 @@
+{
+  "node": "socket_match",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete checks on flag values before use, with no obvious memory safety issues.",
+  "analysis": "The function processes packet socket matching logic and uses attacker-influenced netfilter info flags. It reads from 'info->flags' which comes from user-supplied netlink attributes, but no bounds checking is performed on the flags value itself. The function performs conditional logic based on these flags without validating their contents, potentially leading to unexpected behavior if invalid flag bits are set. Memory access occurs through sk_buff and sock structures, but no obvious buffer overflows or use-after-free issues are present.",
+  "seconds": 15.9,
+  "code_chars": 1014
+}

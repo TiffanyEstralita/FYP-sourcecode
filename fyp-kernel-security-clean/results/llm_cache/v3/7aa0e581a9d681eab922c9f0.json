@@ -1,0 +1,13 @@
+{
+  "node": "ttl_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs simple comparisons with no unsafe memory operations or unchecked inputs.",
+  "analysis": "The function reads the TTL field from IP header and compares it against a stored value from matchinfo. The inputs come from packet contents (IP header TTL) and netlink attributes (matchinfo structure). Memory is read from the packet header and compared against stored values without any bounds checking or validation of the matchinfo structure. The function assumes info->mode contains valid enum values but doesn't validate them, potentially leading to undefined behavior.",
+  "seconds": 12.0,
+  "code_chars": 384
+}

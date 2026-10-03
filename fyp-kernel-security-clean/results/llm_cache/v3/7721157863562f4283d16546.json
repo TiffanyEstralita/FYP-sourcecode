@@ -1,0 +1,13 @@
+{
+  "node": "led_tg",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs basic validation and does not exhibit clear memory safety issues.",
+  "analysis": "The function reads from ledinfo->delay and ledinfo->always_blink which are part of the netfilter target info structure, potentially influenced by user input during rule configuration. It uses ledinfo->delay in a timer calculation without checking for negative values that could cause issues, and accesses ledinternal->timer and ledinternal->netfilter_led_trigger which are assumed to be valid but not explicitly validated. There are no obvious buffer overflows or use-after-free issues, but the delay value handling could lead to unexpected timer behavior if not properly constrained.",
+  "seconds": 15.9,
+  "code_chars": 1096
+}

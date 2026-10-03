@@ -1,0 +1,13 @@
+{
+  "node": "nft_do_chain",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No clear evidence of unchecked user inputs leading to memory corruption or use-after-free.",
+  "analysis": "The function processes netfilter packets and chains, with inputs including packet data and rule blobs that may be influenced by users. Memory is read from rule blobs and copied into stack structures, but no direct user-controlled lengths or offsets are used for memory access without validation. The function uses RCU dereferencing and handles rule iteration, but does not appear to have obvious buffer overflows or use-after-free issues.",
+  "seconds": 28.4,
+  "code_chars": 2648
+}

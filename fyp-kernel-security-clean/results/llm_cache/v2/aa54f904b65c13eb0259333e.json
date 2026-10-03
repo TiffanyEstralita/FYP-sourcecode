@@ -1,0 +1,13 @@
+{
+  "node": "hashlimit_proc_net_exit",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only handles proc entry removal and does not process any attacker-influenced data or perform unsafe memory operations.",
+  "analysis": "",
+  "seconds": 9.4,
+  "code_chars": 742
+}

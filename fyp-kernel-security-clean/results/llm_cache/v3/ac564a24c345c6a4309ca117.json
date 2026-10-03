@@ -1,0 +1,13 @@
+{
+  "node": "nf_conncount_cache_free",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "use_after_free",
+  "justification": "Function processes user-supplied list without validating its integrity before traversal, risking use of freed or corrupted memory if list structure is malformed.",
+  "analysis": "This function takes a list parameter that could be influenced by user input through netlink operations, and it iterates through a linked list of connections. Memory is freed using kmem_cache_free() on each connection node, but there's no validation that the list structure or its contents are valid before traversal. The function assumes the list is properly formed and doesn't check for corrupted pointers or invalid memory regions.",
+  "seconds": 11.0,
+  "code_chars": 215
+}

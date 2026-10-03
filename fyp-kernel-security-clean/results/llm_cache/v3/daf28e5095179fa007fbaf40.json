@@ -1,0 +1,13 @@
+{
+  "node": "connmark_tg_shift",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The shift_bits value is used directly in left/right shift operations without validation for potential overflow/underflow.",
+  "analysis": "The function processes packet connection marks and uses attacker-influenced values from 'info' structure (ctmask, ctmark, nfmask, shift_bits, shift_dir) which are passed via netlink attributes during module configuration. The shift operations on 'new_targetmark' and 'newmark' use 'info->shift_bits' directly without validation for overflow or underflow, and the function does not check if 'info->shift_bits' is within a safe range (e.g., < 32). No memory allocation, deallocation, or pointer dereferences occur that would lead to use-after-free or null dereference issues.",
+  "seconds": 22.3,
+  "code_chars": 1406
+}

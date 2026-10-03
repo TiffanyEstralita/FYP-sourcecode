@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_del_expect",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "use_after_free",
+  "justification": "The function uses nf_ct_expect_put() to decrement reference count after del_timer() and nf_ct_unlink_expect_report(), but does not ensure the object isn't accessed afterward, creating potential use-after-free if other code paths reference the object post-release.",
+  "analysis": "The function processes attacker-controlled netlink attributes including CTA_EXPECT_TUPLE, CTA_EXPECT_ID, and CTA_EXPECT_HELP_NAME. Memory is read from nla_data() and nla_get_be32(), with potential use of an ID value to validate expectation object identity. The primary risk involves the comparison of the provided ID against the expectation object's address, which could be exploited if the ID is not properly validated or if there are issues with object lifetime management.",
+  "seconds": 22.3,
+  "code_chars": 1671
+}

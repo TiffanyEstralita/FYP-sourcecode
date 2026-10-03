@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipmac_fini",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 1.0,
+  "risk": 0.1,
+  "pattern": "none",
+  "justification": "Simple cleanup function that only unregisters a netfilter type, no obvious security vulnerabilities present",
+  "analysis": "",
+  "seconds": 5.3,
+  "code_chars": 87
+}

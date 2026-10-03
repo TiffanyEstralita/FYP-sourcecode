@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_new_expect",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses netlink attributes directly without comprehensive bounds checking before passing them to parsing functions that may access memory based on attacker-controlled values.",
+  "analysis": "The function processes netlink attributes (cda) and uses values from CTA_EXPECT_TUPLE, CTA_EXPECT_MASK, CTA_EXPECT_MASTER, and CTA_EXPECT_ZONE without clear bounds checking on their contents. The tuple parsing and zone parsing functions may accept attacker-controlled data that could lead to buffer overflows or incorrect memory access. There are no obvious use-after-free issues, but the reliance on external data without complete validation poses a risk.",
+  "seconds": 17.1,
+  "code_chars": 1123
+}

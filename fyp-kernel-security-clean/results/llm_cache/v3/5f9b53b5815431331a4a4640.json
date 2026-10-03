@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_newsetelem",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "The function processes nested netlink attributes without validating the total number of elements or their individual sizes before passing them to nft_add_set_elem.",
+  "analysis": "The function processes netlink attributes including NFTA_SET_ELEM_LIST_ELEMENTS which contains attacker-controlled set elements. The nla_for_each_nested loop iterates over these elements without explicit bounds checking on the number of elements or their sizes. Each element is passed to nft_add_set_elem which may perform unvalidated memory operations on the element data, potentially leading to buffer overflows or use-after-free if the element structure is malformed.",
+  "seconds": 18.2,
+  "code_chars": 1372
+}

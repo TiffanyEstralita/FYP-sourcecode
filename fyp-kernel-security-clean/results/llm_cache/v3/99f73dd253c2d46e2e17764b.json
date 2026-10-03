@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_deltable",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses netlink attributes directly without comprehensive validation of their contents or lengths before passing them to table lookup functions.",
+  "analysis": "The function processes attacker-controlled netlink attributes (NFTA_TABLE_NAME, NFTA_TABLE_HANDLE) to look up tables. It uses these attributes directly in nft_table_lookup functions without additional validation of their structure or content beyond basic presence checks. The table lookup may return an error or a valid table pointer, but there are no explicit bounds checks on the attribute data itself before use. Memory is read from netlink attributes and used to index into internal tables, with potential for integer overflow if attribute lengths are maliciously crafted.",
+  "seconds": 17.2,
+  "code_chars": 1074
+}

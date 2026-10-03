@@ -1,0 +1,13 @@
+{
+  "node": "xt_check_proc_name",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "Size parameter can cause integer overflow in strnlen call if it's larger than the actual buffer size, leading to potential memory corruption.",
+  "analysis": "The function takes an attacker-influenced name string and size parameter. Memory is read via strnlen() and strcmp() calls, with the size parameter controlling the maximum read length. The size parameter is checked against strnlen result but not validated for sanity (could be zero or very large), and there's no check that size is within reasonable bounds relative to the string length.",
+  "seconds": 11.4,
+  "code_chars": 280
+}

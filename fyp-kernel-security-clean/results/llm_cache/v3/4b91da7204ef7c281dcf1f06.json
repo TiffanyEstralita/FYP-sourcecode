@@ -1,0 +1,13 @@
+{
+  "node": "__nft_flowtable_type_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only handles a simple input parameter with no memory operations that could be exploited.",
+  "analysis": "This function takes a single input parameter 'family' which is of type u8. The function performs a simple linear search through a linked list of flowtable types without any bounds checking or validation of the input. Memory is read from the list traversal and compared against the input family value, but there are no checks on the input parameter itself. The function returns a pointer to an element in the list without any additional validation.",
+  "seconds": 22.2,
+  "code_chars": 239
+}

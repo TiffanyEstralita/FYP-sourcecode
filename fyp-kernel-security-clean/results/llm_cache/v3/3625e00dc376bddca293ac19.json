@@ -1,0 +1,13 @@
+{
+  "node": "nft_lookup_validate_setelem",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles internal data structures without direct attacker influence and performs only safe memory accesses with no obvious vulnerabilities.",
+  "analysis": "The function processes packet-related data through the nft_set_elem structure, but does not directly handle attacker-influenced inputs like packet contents or netlink attributes. Memory access occurs via nft_set_elem_ext and nft_set_ext_data macros which are assumed to be safe if the set structure is valid. No obvious length checks, arithmetic operations, or memory management issues are present that would allow for overflow, use-after-free, or null dereference vulnerabilities.",
+  "seconds": 15.1,
+  "code_chars": 716
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_exp_dump_tuple",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "missing_bounds_check",
+  "justification": "The function passes unvalidated tuple data to another function without checking tuple integrity or bounds.",
+  "analysis": "The function takes a nf_conntrack_tuple pointer from the connection tracking structure and passes it to ctnetlink_dump_tuples without any validation of the tuple's contents. The tuple data comes from kernel-managed connection tracking structures that could potentially be corrupted or manipulated by an attacker through crafted netfilter rules or connection tracking manipulation. The function performs no bounds checking on tuple data access, and the tuple structure itself is not validated before being passed to the dump function.",
+  "seconds": 12.0,
+  "code_chars": 380
+}

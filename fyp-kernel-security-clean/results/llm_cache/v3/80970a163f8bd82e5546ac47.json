@@ -1,0 +1,13 @@
+{
+  "node": "policy_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only processes validated flags and calls other functions without direct memory manipulation or obvious vulnerability patterns.",
+  "analysis": "The function receives attacker-influenced data through the xt_policy_info structure via par->matchinfo, which contains flags and potentially other fields that could be manipulated. The function calls match_policy_in or match_policy_out based on flags, but there's no explicit checking of the info structure bounds or validation of the flags before use. The return value is determined by simple flag checks without verifying the integrity of the input data.",
+  "seconds": 12.2,
+  "code_chars": 444
+}

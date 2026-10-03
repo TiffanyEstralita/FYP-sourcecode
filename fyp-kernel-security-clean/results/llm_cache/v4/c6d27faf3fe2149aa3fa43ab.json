@@ -1,0 +1,13 @@
+{
+  "node": "get_callid",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 72.0,
+  "risk": 0.72,
+  "pattern": "missing_bounds_check",
+  "justification": "The function accesses memory using calculated offsets without ensuring they remain within the bounds of the provided packet data.",
+  "analysis": "The function accepts attacker-influenced inputs including dptr (packet data), dataoff, and datalen. Memory is read at offsets calculated from these inputs without complete validation of bounds, particularly in the line terminator check where dptr + *matchoff + *matchlen is accessed. The function does not validate that dataoff + *matchoff stays within valid packet boundaries before accessing memory.",
+  "seconds": 16.8,
+  "code_chars": 950
+}

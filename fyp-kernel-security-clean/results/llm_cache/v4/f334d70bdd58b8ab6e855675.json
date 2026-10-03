@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipportip6_data_match",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "Function is a simple wrapper that delegates to other functions without direct memory manipulation or attacker-controlled data processing.",
+  "analysis": "The function receives attacker-influenced data through the 'data' parameter which is a struct hash_ipportip6_elem containing IP addresses, ports, and other network data that could be manipulated. The function performs a match extension check and then calls hash_ipportip6_do_data_match without additional validation of the input data structure. There are no obvious length checks, offset validations, or memory safety issues in this simple wrapper function.",
+  "seconds": 11.4,
+  "code_chars": 320
+}

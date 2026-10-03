@@ -1,0 +1,13 @@
+{
+  "node": "xt_register_targets",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "Input parameter 'n' is not validated for reasonable bounds, creating potential for integer overflow in loop execution.",
+  "analysis": "The function takes attacker-influenced input 'n' (number of targets) and uses it as a loop counter without validating that it doesn't exceed system limits or cause integer overflow when used in memory operations. The loop index 'i' is used to determine how many targets to unregister in the error path, but there's no check that 'n' is within reasonable bounds before the loop executes. No direct memory access or pointer manipulation occurs that would be immediately dangerous, but the lack of bounds checking on the input parameter creates a potential for integer overflow or excessive loop iterations.",
+  "seconds": 12.9,
+  "code_chars": 275
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nft_setelem_flush",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles internal data structures without direct attacker influence and performs standard validation checks.",
+  "analysis": "The function `nft_setelem_flush` does not directly process attacker-influenced packet contents or netlink attributes. It operates on elements from a set that are already validated during set creation and element addition. The function uses fixed-size data structures and does not perform dynamic memory allocation based on external input. There are no obvious integer overflows, use-after-free issues, or null dereferences in the code path.",
+  "seconds": 13.2,
+  "code_chars": 654
+}

@@ -1,0 +1,13 @@
+{
+  "node": "secmark_tg_v0",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs simple data forwarding without direct memory manipulation or validation of attacker-controlled inputs.",
+  "analysis": "The function reads from info->secid which is user-supplied data from xt_action_param->targinfo. The data is copied into a local struct xt_secmark_target_info_v1 newinfo structure and then passed to secmark_tg(). No memory operations (read/write/copy/index/allocate/free) are performed directly in this function - it's a simple data copy and forward operation. The input is not validated or checked for bounds before use.",
+  "seconds": 11.9,
+  "code_chars": 263
+}

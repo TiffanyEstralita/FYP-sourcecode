@@ -1,0 +1,13 @@
+{
+  "node": "nflog_tg",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The 'len' field from user input is copied directly into the log info structure without validation of its bounds.",
+  "analysis": "The function accepts attacker-influenced data through the 'info' parameter which contains user-supplied values for len, group, threshold, and flags. Memory is read from the 'info' structure and copied into the 'li' local structure without apparent bounds checking on the 'len' field or other parameters. The function does not perform any validation of these values before use, potentially allowing an attacker to pass invalid lengths or offsets that could lead to memory corruption or information disclosure.",
+  "seconds": 15.2,
+  "code_chars": 591
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nft_value_dump",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Unvalidated user-provided length parameter can lead to buffer overflow when passed to nla_put function.",
+  "analysis": "The function takes an attacker-influenced length parameter 'len' and directly passes it to nla_put without validation. The 'data' pointer is user-supplied and could be manipulated to point to invalid memory. The length parameter is not checked against the actual data size, allowing potential buffer overflows or underflows if len exceeds the valid data bounds.",
+  "seconds": 10.3,
+  "code_chars": 158
+}

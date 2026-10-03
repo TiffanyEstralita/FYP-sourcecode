@@ -1,0 +1,13 @@
+{
+  "node": "ctnl_timeout_put",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles reference counting and module release with proper RCU cleanup, no attacker-influenced data processing",
+  "analysis": "",
+  "seconds": 6.7,
+  "code_chars": 249
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nft_data_init",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Attacker-controlled netlink attributes are parsed without sufficient bounds checking on data lengths or offsets.",
+  "analysis": "The function processes netlink attributes (NLA) containing packet data, with attacker-influenced inputs including attribute values and types. Memory is read and copied from parsed netlink attributes without clear bounds checking on the attribute lengths or offsets. The function relies on nested parsing but does not validate that the attribute data fits within allocated buffers or that arithmetic operations on attribute sizes are safe.",
+  "seconds": 13.5,
+  "code_chars": 715
+}

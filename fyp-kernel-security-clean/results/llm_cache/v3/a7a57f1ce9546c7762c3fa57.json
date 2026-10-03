@@ -1,0 +1,13 @@
+{
+  "node": "l2tp_mt4",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "The transport header offset par->thoff is used directly without validation against packet boundaries, creating a potential out-of-bounds read scenario.",
+  "analysis": "The function l2tp_mt4 takes attacker-influenced packet data through skb and par parameters. It uses par->thoff (transport header offset) which can be controlled by an attacker to index into packet data. The function directly passes this offset to l2tp_udp_mt and l2tp_ip_mt functions without validating that the offset is within bounds of the packet data, potentially allowing out-of-bounds memory access.",
+  "seconds": 13.7,
+  "code_chars": 372
+}

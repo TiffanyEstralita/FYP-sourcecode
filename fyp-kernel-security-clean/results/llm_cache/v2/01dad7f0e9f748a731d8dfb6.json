@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_parse_zone",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles netlink attribute data but performs complete validation with proper bounds checking and no unsafe operations.",
+  "analysis": "",
+  "seconds": 6.7,
+  "code_chars": 319
+}

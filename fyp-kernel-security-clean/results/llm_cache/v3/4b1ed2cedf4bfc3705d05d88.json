@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_fill_setelem",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function reads from attacker-controlled data without sufficient validation of lengths or offsets, particularly in the NFTA_SET_ELEM_USERDATA handling.",
+  "analysis": "The function processes netfilter set elements and copies data from kernel structures to netlink messages. Attackers could influence the set element data through packet or netlink inputs, particularly via NFTA_SET_ELEM_KEY, NFTA_SET_ELEM_DATA, and NFTA_SET_ELEM_USERDATA attributes. Memory is read from ext->key, ext->data, and udata->data without complete validation of lengths or offsets, especially for user-provided data in NFTA_SET_ELEM_USERDATA. The function does not appear to have obvious use-after-free or null dereference issues, but lacks complete bounds checking on attacker-controlled inputs.",
+  "seconds": 26.6,
+  "code_chars": 2305
+}

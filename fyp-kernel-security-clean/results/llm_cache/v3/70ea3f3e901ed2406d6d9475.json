@@ -1,0 +1,13 @@
+{
+  "node": "length_mt6",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs simple arithmetic and comparison with validated user inputs, no dangerous memory operations.",
+  "analysis": "The function reads packet length from IPv6 header payload_len field and adds sizeof(struct ipv6hdr), then compares against user-supplied min/max values from info->min/info->max. The inputs info->min and info->max come from netlink attributes during module configuration, not directly from packets. No memory allocation, copying or freeing occurs. The arithmetic operation is straightforward without overflow/underflow risks since it's just adding a constant to a network-order field. No use-after-free or null dereference patterns exist.",
+  "seconds": 13.1,
+  "code_chars": 296
+}

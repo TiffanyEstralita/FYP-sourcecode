@@ -1,0 +1,13 @@
+{
+  "node": "nft_pipapo_walk",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The code accesses f->mt[r].e without validating that r is within bounds of f->rules, which could lead to out-of-bounds memory access.",
+  "analysis": "The function reads from RCU-protected structures and iterates through rule arrays without validating bounds or checking for null pointers before dereferencing. The 'f->mt[r].e' access could be dangerous if 'r' exceeds 'f->rules' or if 'f->mt' is not properly initialized. There are no explicit checks on array indices or pointer validity before use, and the function assumes 'f->mt' contains valid data without verification.",
+  "seconds": 18.7,
+  "code_chars": 808
+}

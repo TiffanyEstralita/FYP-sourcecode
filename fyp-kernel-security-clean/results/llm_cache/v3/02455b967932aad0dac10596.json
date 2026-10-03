@@ -1,0 +1,13 @@
+{
+  "node": "length_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs basic length comparison with no obvious memory safety issues, though lacks input validation.",
+  "analysis": "The function reads packet length from ip_hdr(skb)->tot_len and compares it against min/max values from info->min/info->max which are derived from matchinfo. The inputs info->min and info->max come from user-supplied matchinfo structure, but the function only performs a simple comparison without checking if the values are valid or properly bounded. There's no validation of the packet header or bounds checking on the packet length itself.",
+  "seconds": 12.0,
+  "code_chars": 253
+}

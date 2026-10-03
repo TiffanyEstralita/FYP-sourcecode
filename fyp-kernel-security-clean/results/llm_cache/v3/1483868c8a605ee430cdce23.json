@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_gc_expired",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only handles internal connection tracking objects with no attacker-influenced data processing",
+  "analysis": "The function nf_ct_gc_expired takes a nf_conn pointer as input but does not directly process any attacker-influenced data from packet contents or netlink attributes. The function performs refcount operations and conditional checks on the connection tracking object, but all operations are performed on the provided ct parameter without any external data processing. The function follows proper reference counting patterns with refcount_inc_not_zero and nf_ct_put, and there's no direct memory manipulation or indexing that could be exploited.",
+  "seconds": 11.7,
+  "code_chars": 252
+}

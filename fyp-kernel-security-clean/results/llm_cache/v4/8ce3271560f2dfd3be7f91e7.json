@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_sip",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 72.0,
+  "risk": 0.72,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled offsets and lengths without sufficient validation, creating potential for buffer overflows or memory corruption.",
+  "analysis": "The function processes SIP packet data and uses attacker-influenced offsets and lengths from parsed headers without comprehensive validation. Memory is read and written via `dptr`, `matchoff`, `matchlen`, `poff`, `plen`, and `coff` which can be manipulated by an attacker. The code performs several `mangle_packet` operations that could lead to buffer overflows or use-after-free if bounds checks are insufficient, particularly in the `ct_sip_parse_*` and `map_addr` functions.",
+  "seconds": 47.3,
+  "code_chars": 5058
+}

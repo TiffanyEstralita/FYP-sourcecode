@@ -1,0 +1,13 @@
+{
+  "node": "nft_trace_packet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "null_deref",
+  "justification": "Direct dereference of pkt->skb->nf_trace without null pointer validation or bounds checking.",
+  "analysis": "The function receives attacker-influenced packet data through pkt->skb which contains user-supplied network packets. The function directly accesses pkt->skb->nf_trace without validating the pointer or checking if nf_trace is properly initialized. The rule parameter comes from rule lookup which could be influenced by malicious rule configuration, but the main risk is in the direct dereference of skb->nf_trace without proper bounds checking.",
+  "seconds": 14.3,
+  "code_chars": 375
+}

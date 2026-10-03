@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_offload_destroy",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "missing_bounds_check",
+  "justification": "Function assumes flow_rule array has FLOW_OFFLOAD_DIR_MAX elements without validating the input array bounds or checking if flow_rule is NULL.",
+  "analysis": "",
+  "seconds": 7.0,
+  "code_chars": 169
+}

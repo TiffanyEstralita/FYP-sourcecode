@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_expect_init",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function copies data from attacker-controlled pointers saddr and daddr without validating their contents or ensuring they point to sufficient memory.",
+  "analysis": "The function accepts attacker-influenced inputs including saddr, daddr, src, and dst pointers which are copied into internal structures. Memory operations use a calculated 'len' value based on family (AF_INET or AF_INET6) but no validation is performed on the pointer inputs themselves before copying. The function does not perform bounds checking on the address data being copied, and there's no verification that saddr/daddr point to valid memory of the expected size. No objects are freed or reused after being freed.",
+  "seconds": 21.7,
+  "code_chars": 1583
+}

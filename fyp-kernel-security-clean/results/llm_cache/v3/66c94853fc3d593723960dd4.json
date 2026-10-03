@@ -1,0 +1,13 @@
+{
+  "node": "nfulnl_recv_unsupp",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function is a simple stub with no attacker-influenced data handling or memory operations.",
+  "analysis": "This function does not process any attacker-influenced data as it simply returns -ENOTSUPP without handling any packet contents, netlink attributes, or user-supplied inputs. There are no memory operations, indexing, or pointer dereferences that could be exploited. The function is a simple stub that always returns the same error code regardless of input.",
+  "seconds": 9.2,
+  "code_chars": 149
+}

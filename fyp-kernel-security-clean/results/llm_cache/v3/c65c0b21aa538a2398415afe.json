@@ -1,0 +1,13 @@
+{
+  "node": "nft_chain_validate_hooks",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "Bit shift operation on potentially unbounded hooknum value without proper validation.",
+  "analysis": "The function takes a chain parameter and hook_flags, where hook_flags comes from user-supplied netlink attributes. The function reads basechain->ops.hooknum which is part of the chain structure that could be influenced by user input during chain creation/initialization. No bounds checking is performed on hooknum before using it in bit shift operation (1 << basechain->ops.hooknum), which could lead to unexpected behavior if hooknum is outside expected range. The function returns early without validating that hooknum is within valid bounds for the bit shift operation.",
+  "seconds": 12.9,
+  "code_chars": 304
+}

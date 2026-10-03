@@ -1,0 +1,13 @@
+{
+  "node": "nft_flowtable_type_get",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles well-defined internal data and uses proper error handling without external input influence.",
+  "analysis": "",
+  "seconds": 7.5,
+  "code_chars": 454
+}

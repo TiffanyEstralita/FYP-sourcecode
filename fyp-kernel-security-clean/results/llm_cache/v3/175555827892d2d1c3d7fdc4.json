@@ -1,0 +1,13 @@
+{
+  "node": "nfqnl_recv_config",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing comprehensive bounds checking on netlink attribute data lengths before memory access.",
+  "analysis": "The function processes netlink attributes from user space, including NFQA_CFG_CMD, NFQA_CFG_FLAGS, NFQA_CFG_MASK, NFQA_CFG_PARAMS, and NFQA_CFG_QUEUE_MAXLEN. It reads data using nla_data() without comprehensive bounds checking on attribute lengths, potentially allowing memory access beyond allocated buffers. The queue_num is derived from netlink message but not fully validated against potential out-of-bounds access in instance_lookup(). No use-after-free or null dereference patterns are evident.",
+  "seconds": 29.4,
+  "code_chars": 2862
+}

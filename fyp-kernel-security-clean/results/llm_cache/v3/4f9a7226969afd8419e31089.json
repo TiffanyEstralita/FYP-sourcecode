@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_header",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "Use of nla_data() without length validation and potential use-after-free in find_set() create a medium risk vulnerability.",
+  "analysis": "The function processes netlink attributes including IPSET_ATTR_SETNAME which is user-supplied and could be manipulated. It uses nla_data() to access attribute data without comprehensive validation of its length or structure. The set name is used directly in nla_put_string() without checking if it exceeds buffer limits, and the find_set() function may be vulnerable to use-after-free if the set is deleted concurrently. No overflow/underflow checks are performed on any arithmetic operations involving attacker-controlled data.",
+  "seconds": 17.5,
+  "code_chars": 1176
+}

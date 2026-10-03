@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_icmp_reply_translation",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function accesses packet data without comprehensive validation of packet length or structure before reading fields, potentially allowing out-of-bounds reads.",
+  "analysis": "The function processes ICMP packets and manipulates NAT translations. Attackers can influence packet contents including ICMP header and IP header data. Memory is read from skb->data with potential offset hdrlen + sizeof(*inside), and copied/modified in-place. The code does not validate the full length of the ICMP packet before accessing fields, and relies on skb_ensure_writable which may not prevent all malformed inputs. No explicit bounds checking is performed on the packet data beyond basic writability checks.",
+  "seconds": 20.9,
+  "code_chars": 1704
+}

@@ -1,0 +1,13 @@
+{
+  "node": "hash_by_src",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No direct attacker-controlled data is processed in a way that could lead to memory corruption or security vulnerability.",
+  "analysis": "The function `hash_by_src` does not directly process attacker-influenced packet contents or netlink attributes. It uses data from conntrack tuples and net information, which are not directly controllable by an external attacker in normal operation. Memory is read and written within fixed-size structures, with no dynamic allocation or use of attacker-supplied lengths/offsets. The function performs straightforward hashing without risky arithmetic operations or use-after-free scenarios.",
+  "seconds": 14.7,
+  "code_chars": 824
+}

@@ -1,0 +1,13 @@
+{
+  "node": "untimeout [nfnetlink_cttimeout.c]",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "Function only performs simple pointer assignment and NULL initialization without handling attacker-controlled data.",
+  "analysis": "The function takes a timeout parameter that could be attacker-influenced if it comes from netlink attributes, but the function only reads from the nf_conn structure and sets a pointer to NULL without any bounds checking or validation of the input. The timeout_ext pointer is dereferenced without checking if it's valid, and there's no verification that the timeout parameter is properly formatted or within expected bounds. No memory allocation, copying, or indexing occurs that could be exploited.",
+  "seconds": 10.5,
+  "code_chars": 201
+}

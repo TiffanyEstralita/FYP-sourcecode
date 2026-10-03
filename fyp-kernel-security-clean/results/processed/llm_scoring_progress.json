@@ -1,0 +1,12 @@
+{
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "done": 500,
+  "total": 500,
+  "errors": 0,
+  "status": "finished",
+  "started": "2026-10-03 19:26",
+  "updated": "2026-10-03 21:27",
+  "seconds_per_function": 14.9,
+  "estimated_hours_left": 0.0
+}

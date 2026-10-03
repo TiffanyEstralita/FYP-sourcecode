@@ -1,0 +1,13 @@
+{
+  "node": "ecn_mt6",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs basic boolean operations and calls to other match functions with validated parameters, no direct memory manipulation or attacker-influenced data handling.",
+  "analysis": "",
+  "seconds": 7.0,
+  "code_chars": 344
+}

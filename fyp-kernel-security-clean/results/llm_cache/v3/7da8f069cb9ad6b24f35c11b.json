@@ -1,0 +1,13 @@
+{
+  "node": "register_ip_vs_scheduler",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No direct memory access vulnerabilities, but potential for string handling issues if scheduler->name is malformed.",
+  "analysis": "The function takes a user-provided pointer to struct ip_vs_scheduler which contains a name field that can be controlled by an attacker. Memory is read from scheduler->name and compared with existing schedulers, but there are no checks on the length or validity of this string data. The function does not perform any bounds checking on the scheduler name or other fields, and the list operations are safe as they don't involve attacker-controlled indices or offsets.",
+  "seconds": 16.0,
+  "code_chars": 1222
+}

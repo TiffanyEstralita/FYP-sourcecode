@@ -1,0 +1,13 @@
+{
+  "node": "nf_unregister_net_hooks",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "Unbounded loop iteration based on attacker-controlled input without proper bounds checking.",
+  "analysis": "The function takes an attacker-influenced 'hookcount' parameter and uses it as a loop counter without validation. If an attacker can control this value, they could cause the loop to iterate beyond the bounds of the 'reg' array, leading to memory access violations. The function doesn't validate that hookcount is within reasonable bounds relative to the actual array size, and there's no check against potential integer overflow in the loop condition.",
+  "seconds": 11.5,
+  "code_chars": 203
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_dnat_port",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "missing_bounds_check",
+  "justification": "The function accesses skb_network_header(skb) + thoff without validating that the offset or resulting pointer is within valid packet bounds, potentially leading to memory corruption.",
+  "analysis": "",
+  "seconds": 9.0,
+  "code_chars": 656
+}

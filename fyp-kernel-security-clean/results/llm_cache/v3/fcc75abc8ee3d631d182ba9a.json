@@ -1,0 +1,13 @@
+{
+  "node": "nft_limit_dump",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-influenced data is processed; all inputs come from internal module state.",
+  "analysis": "The function `nft_limit_dump` processes data from `priv` structure which is initialized during module setup and not directly from attacker-controlled inputs. The function performs straightforward data copying and netlink attribute dumping without complex memory operations or arithmetic that could overflow. There are no obvious bounds checks needed since the data comes from internal structures, and no freed objects are referenced.",
+  "seconds": 13.9,
+  "code_chars": 625
+}

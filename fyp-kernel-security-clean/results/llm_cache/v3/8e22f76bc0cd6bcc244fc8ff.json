@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_type_register",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No attacker-controlled data is processed in a way that could lead to memory corruption.",
+  "analysis": "The function `ip_set_type_register` does not directly process attacker-influenced packet contents or netlink attributes. It reads from the `type` parameter which is supplied by kernel code during module initialization, not by userspace. Memory operations include list insertion and string printing, but no unsafe indexing, copying, or arithmetic operations are performed that could lead to overflow or use-after-free issues.",
+  "seconds": 13.7,
+  "code_chars": 884
+}

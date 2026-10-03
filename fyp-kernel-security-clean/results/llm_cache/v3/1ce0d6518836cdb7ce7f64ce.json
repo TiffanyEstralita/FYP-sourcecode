@@ -1,0 +1,13 @@
+{
+  "node": "nf_conntrack_helper_register",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function validates name length but does not fully check other attacker-influenced fields like tuple values and expect_policy->max_expected before use.",
+  "analysis": "The function accepts a user-provided struct nf_conntrack_helper pointer which includes name, tuple, expect_policy, and flags. The name length is checked with strlen(), but the tuple fields (src.l3num, dst.protonum) and expect_policy->max_expected are not fully validated against potential malicious inputs. There are no obvious memory overflows or use-after-free issues, but the function does not validate all user-supplied data before using it in hash lookups or comparisons.",
+  "seconds": 18.9,
+  "code_chars": 1309
+}

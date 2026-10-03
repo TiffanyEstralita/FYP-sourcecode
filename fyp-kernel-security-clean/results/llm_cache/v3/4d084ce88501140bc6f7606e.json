@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_expect_iterate_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-controlled data is processed and all memory operations are properly bounded and synchronized.",
+  "analysis": "The function does not directly process any attacker-influenced inputs such as packet contents or netlink attributes. All data used comes from internal kernel structures (hash table, timers, connection tracking objects) that are managed by the kernel itself. Memory operations occur on internally managed objects with no unsafe indexing or arithmetic. The function uses proper locking and follows correct reference counting patterns.",
+  "seconds": 11.7,
+  "code_chars": 536
+}

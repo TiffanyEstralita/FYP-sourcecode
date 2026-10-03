@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_set_notify",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No obvious attacker-influenced data handling or memory safety issues detected.",
+  "analysis": "The function processes netfilter context data including portid and net pointer, but does not directly handle attacker-controlled packet contents or netlink attributes. Memory is allocated with nlmsg_new and potentially freed with kfree_skb, with no obvious use-after-free or null dereference issues. The primary data flow is from nft_ctx which is validated during netfilter processing, and the function doesn't perform unchecked indexing or arithmetic operations.",
+  "seconds": 14.0,
+  "code_chars": 784
+}

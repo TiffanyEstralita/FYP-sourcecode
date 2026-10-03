@@ -1,0 +1,13 @@
+{
+  "node": "nft_extension_dump_info",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing validation of user_size against size and lack of bounds checking on memcpy operation.",
+  "analysis": "The function takes attacker-influenced inputs including 'size', 'user_size', and 'info' pointer which could come from netlink attributes. Memory is copied using memcpy with 'info_size' as length, and memory is allocated via nla_reserve. The 'user_size' parameter can be zero (using ?: operator), but the function doesn't validate that 'user_size' is within bounds of 'size' or that 'info' points to valid memory of at least 'info_size' bytes. There's no check for potential integer overflow in the alignment calculation or memcpy operations.",
+  "seconds": 14.9,
+  "code_chars": 443
+}

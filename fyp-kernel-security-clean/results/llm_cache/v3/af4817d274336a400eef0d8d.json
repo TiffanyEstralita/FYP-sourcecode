@@ -1,0 +1,13 @@
+{
+  "node": "nf_log_dump_vlan",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "While the function processes attacker-influenced packet data, the operations are simple reads and formatting with no obvious buffer overflows or memory safety issues.",
+  "analysis": "The function reads vlan tag information from skb structure which is derived from packet data. The inputs come from packet contents (skb_vlan_tag_get, skb->vlan_proto) that an attacker can control. Memory is read from the skb structure but no bounds checking is performed on the vlan tag data. The function directly uses values from the packet without validation.",
+  "seconds": 10.2,
+  "code_chars": 238
+}

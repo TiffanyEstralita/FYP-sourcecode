@@ -1,0 +1,13 @@
+{
+  "node": "xt_register_match",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "While the function accepts attacker-controlled data, it only performs basic list operations without direct memory access or manipulation that would lead to exploitable vulnerabilities.",
+  "analysis": "The function takes a pointer to a xt_match structure as input, where the match->family field and match->list field could potentially be influenced by an attacker during registration. Memory is read from match->family and written to xt[af].match via list_add operation. The function performs no validation of the match structure contents or bounds checking before adding it to the list, and there's no verification that the match pointer itself is valid or properly initialized.",
+  "seconds": 12.1,
+  "code_chars": 189
+}

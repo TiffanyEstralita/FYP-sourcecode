@@ -1,0 +1,13 @@
+{
+  "node": "nft_ctx_init",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only copies input parameters to a context structure with no unsafe memory operations or attacker-controlled data processing.",
+  "analysis": "This function initializes a netfilter context structure using inputs that may be influenced by userspace, specifically from netlink messages and socket buffers. It copies pointers and values directly from the input parameters without performing any validation or bounds checking on the data. The function does not perform any memory allocation, deallocation, or indexing operations that could lead to memory corruption.",
+  "seconds": 11.9,
+  "code_chars": 496
+}

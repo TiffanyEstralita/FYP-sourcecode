@@ -1,0 +1,13 @@
+{
+  "node": "ipvs_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No clear memory safety issues found; inputs are validated and used in controlled contexts.",
+  "analysis": "The function processes packet data through skb and netfilter parameters, with inputs like l4proto, vport, vportctl, fwd_method, and address fields potentially influenced by attackers. Memory is read from skb and matchinfo structures, with no obvious unchecked indexing or pointer arithmetic. The function uses validated protocol handlers and connection tracking, but does not perform explicit bounds checking on user-supplied data beyond basic validation.",
+  "seconds": 31.2,
+  "code_chars": 2388
+}

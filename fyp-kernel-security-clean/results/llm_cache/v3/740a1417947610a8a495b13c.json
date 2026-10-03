@@ -1,0 +1,13 @@
+{
+  "node": "nf_l4proto_log_invalid",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles logging and does not perform any unsafe memory operations or use attacker-controlled data in a way that could lead to memory corruption.",
+  "analysis": "The function accepts attacker-influenced packet data through the skb parameter and uses it in nf_log_packet without additional validation. The protonum parameter comes from the network protocol handling and can be controlled by an attacker. There are no explicit bounds checks on the packet data or the format string, though the primary risk lies in potential misuse of the logging mechanism rather than direct memory corruption.",
+  "seconds": 12.3,
+  "code_chars": 513
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_offload_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "null_deref",
+  "justification": "Function dereferences array elements without checking for NULL pointers, which could be exploited by passing malformed netlink data.",
+  "analysis": "The function takes an array of nf_flow_rule pointers from flow_rule parameter, which could be influenced by user input through netlink commands. It iterates through FLOW_OFFLOAD_DIR_MAX (typically 2) elements and calls __nf_flow_offload_destroy on each element without validating if the array elements are NULL or if the array itself is properly allocated. The function assumes all array elements are valid but doesn't check for NULL pointers or proper bounds before dereferencing.",
+  "seconds": 11.7,
+  "code_chars": 169
+}

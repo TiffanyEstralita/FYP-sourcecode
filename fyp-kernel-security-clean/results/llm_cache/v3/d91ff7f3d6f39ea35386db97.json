@@ -1,0 +1,13 @@
+{
+  "node": "hashlimit_pernet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Pure lookup function with no attacker-controlled data or memory operations.",
+  "analysis": "This function simply retrieves a per-network namespace structure using net_generic() with a predefined ID. There are no attacker-influenced inputs as this is a straightforward lookup operation. No memory is read, written, copied, indexed, allocated or freed within this function. The function only accesses already-allocated kernel memory structures through a known ID.",
+  "seconds": 9.1,
+  "code_chars": 117
+}

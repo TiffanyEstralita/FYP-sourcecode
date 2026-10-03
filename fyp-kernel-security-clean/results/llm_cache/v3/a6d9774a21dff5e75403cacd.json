@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_iterate_cleanup",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function uses bucket index without complete validation of attacker-controlled inputs from netlink data structures.",
+  "analysis": "The function processes connection tracking entries in a hash bucket loop, calling get_next_corpse() which likely retrieves entries from attacker-controlled netfilter data structures. Memory is read and written during connection tracking operations, with potential for integer overflow/underflow in bucket calculations or length checks on netlink attributes. The function doesn't appear to perform complete bounds checking on attacker-influenced indices or lengths before use.",
+  "seconds": 11.8,
+  "code_chars": 462
+}

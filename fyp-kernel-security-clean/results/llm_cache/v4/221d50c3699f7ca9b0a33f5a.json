@@ -1,0 +1,13 @@
+{
+  "node": "ecn_mt6",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "Function only uses validated parameters without handling attacker-influenced data that could lead to memory corruption.",
+  "analysis": "The function takes attacker-influenced data through the xt_ecn_info structure in par->matchinfo, which contains operation flags and potentially user-supplied parameters. The function performs conditional checks based on these flags but does not validate the structure contents or perform bounds checking on any attacker-controlled values. The match_ipv6 and match_tcp functions are called with skb and par parameters that could contain malicious data, but there's no explicit validation of the info structure before use.",
+  "seconds": 11.8,
+  "code_chars": 344
+}

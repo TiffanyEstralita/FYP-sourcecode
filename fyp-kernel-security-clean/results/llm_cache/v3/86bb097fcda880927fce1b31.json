@@ -1,0 +1,13 @@
+{
+  "node": "nft_limit_eval",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles internal kernel data with proper locking and no obvious security flaws.",
+  "analysis": "The function nft_limit_eval does not directly process attacker-influenced packet contents or netlink attributes. It operates on kernel-managed data structures (struct nft_limit_priv, struct nft_limit), using time-based calculations and atomic operations. There are no direct memory accesses, copies, or index operations that could be manipulated by an attacker. The function uses spinlocks for synchronization but does not appear to have any obvious integer overflows, use-after-free issues, or null dereferences.",
+  "seconds": 14.1,
+  "code_chars": 539
+}

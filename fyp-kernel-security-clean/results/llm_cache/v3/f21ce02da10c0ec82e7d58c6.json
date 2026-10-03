@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_uadd",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function passes attacker-controlled netlink attributes directly to downstream function without validation.",
+  "analysis": "The function receives attacker-influenced netlink attributes through the 'attr' parameter and passes them directly to ip_set_ad without any validation of attribute contents or lengths. The function doesn't perform any bounds checking on the attribute data before passing it to the downstream function, which could lead to memory corruption if malformed data is provided. There are no obvious use-after-free issues or integer overflows in this simple wrapper function.",
+  "seconds": 10.3,
+  "code_chars": 213
+}

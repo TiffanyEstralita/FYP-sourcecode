@@ -1,0 +1,13 @@
+{
+  "node": "cgroup_mt_v1",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled pointers and values without sufficient validation or bounds checking.",
+  "analysis": "The function reads from attacker-influenced data through `info->priv` and `info->classid` which are part of the matchinfo structure passed in from netlink configuration. It performs a cgroup descendant check and class ID comparison without validating the pointer `info->priv` or ensuring `skcd` is properly initialized. There are no explicit bounds checks on user-provided data, and the function assumes valid pointers without verification.",
+  "seconds": 13.7,
+  "code_chars": 539
+}

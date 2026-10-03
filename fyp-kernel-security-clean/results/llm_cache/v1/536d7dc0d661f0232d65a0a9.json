@@ -1,0 +1,13 @@
+{
+  "node": "dl_seq_start",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function properly handles allocation failure and bounds checking, no obvious security vulnerabilities present",
+  "analysis": "",
+  "seconds": 6.7,
+  "code_chars": 386
+}

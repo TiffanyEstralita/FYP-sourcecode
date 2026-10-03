@@ -1,0 +1,13 @@
+{
+  "node": "nfulnl_recv_config",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function reads netlink attributes without comprehensive length validation before use, potentially allowing memory corruption via malformed input.",
+  "analysis": "The function processes netlink attributes from user input, including packet contents and netlink message data. It reads and copies data using nla_data() and nla_get_*() functions without clear bounds checking on attribute lengths. The group_num is derived from a user-supplied field (res_id) and used to look up an instance, but there's no explicit validation of this value against valid ranges or allocation limits. No obvious use-after-free or null dereference patterns are present.",
+  "seconds": 29.4,
+  "code_chars": 2703
+}

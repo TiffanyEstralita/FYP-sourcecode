@@ -1,0 +1,13 @@
+{
+  "node": "__nf_hook_entries_try_shrink",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The computed hook_entries value may overflow when skip is close to old->num_hook_entries, leading to incorrect allocation size.",
+  "analysis": "The function processes packet hook entries and may be influenced by attacker-controlled data through the nf_hook_entries structure. Memory is read from old->hooks[i] and written to new->hooks[j], with indices i and j derived from loop counters and conditional skips. The function does not validate that hook_entries (computed as old->num_hook_entries - skip) is within valid bounds before calling allocate_hook_entries_size, which could lead to integer overflow if skip is close to old->num_hook_entries. There are no checks for potential overflows in the arithmetic or invalid memory access patterns.",
+  "seconds": 17.6,
+  "code_chars": 1023
+}

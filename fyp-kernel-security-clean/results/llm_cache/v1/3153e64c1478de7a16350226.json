@@ -1,0 +1,13 @@
+{
+  "node": "find_or_evict",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function appears to handle edge cases properly with appropriate checks for CPU affinity and age, though the age calculation could be improved to prevent potential unsigned integer underflow in rare circumstances.",
+  "analysis": "",
+  "seconds": 10.7,
+  "code_chars": 787
+}

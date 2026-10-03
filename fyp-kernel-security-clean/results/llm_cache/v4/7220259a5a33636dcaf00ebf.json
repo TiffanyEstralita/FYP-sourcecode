@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_set_timeout",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 60.0,
+  "risk": 0.6,
+  "pattern": "use_after_free",
+  "justification": "The function uses RCU locking but does not prevent potential use-after-free if the timeout object is freed while still referenced by other code paths.",
+  "analysis": "The function accepts attacker-influenced inputs via `timeout_name` string, which is passed to `h->timeout_find_get()`. Memory is read and written during timeout policy lookup and extension addition. The primary risk involves potential use-after-free if `__nf_ct_timeout_put()` is called on a timeout object that might be accessed concurrently, though no direct overflow or underflow issues are apparent.",
+  "seconds": 18.4,
+  "code_chars": 1467
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_userspace_cthelper",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs flag checks and returns verdict without direct memory manipulation or unsafe arithmetic.",
+  "analysis": "The function reads from attacker-influenced data through the nf_conn structure which can be modified by incoming packets. It performs pointer dereferences and flag checks on helper structures that may have been manipulated, but no direct memory access or arithmetic operations are performed on user-supplied values. The function uses RCU locking which provides protection against use-after-free scenarios for the helper object.",
+  "seconds": 12.7,
+  "code_chars": 734
+}

@@ -1,0 +1,13 @@
+{
+  "node": "tee_tg4",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The oif value is read directly from potentially untrusted user data without validation or bounds checking.",
+  "analysis": "The function reads from `info->priv->oif` which could be attacker-controlled if `info` or `info->priv` points to user-supplied data. The `nf_dup_ipv4` call uses this oif value directly without validation, and the function doesn't perform any bounds checking on the input parameters. The `info` pointer comes from `par->targinfo` which is user-provided through netfilter rules, making it attacker-influenced.",
+  "seconds": 11.9,
+  "code_chars": 274
+}

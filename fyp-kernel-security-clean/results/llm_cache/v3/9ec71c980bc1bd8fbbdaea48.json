@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_sip_init",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "No attacker-controlled data processing or memory manipulation occurs in this initialization function.",
+  "analysis": "This function does not handle any attacker-influenced data - it only performs initialization tasks including registering netfilter hooks and helpers. There are no memory operations, length checks, or index validations involving external inputs. The function uses fixed kernel data structures and does not manipulate packet contents or user-supplied parameters.",
+  "seconds": 8.9,
+  "code_chars": 223
+}

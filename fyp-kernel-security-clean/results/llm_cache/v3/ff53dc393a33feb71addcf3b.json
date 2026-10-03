@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_l4proto_find",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "The function only uses the input as a switch case and returns a static pointer; no dangerous memory operations or unchecked inputs.",
+  "analysis": "The function `nf_ct_l4proto_find` takes a single input parameter `l4proto` which is a u8 value. This value is used as a direct switch case index without any validation or bounds checking, making it potentially exploitable if an attacker can control this input. The function only performs a lookup in a switch statement and returns a pointer to a static struct, so there are no memory reads, writes, copies, allocations, or frees involved. Since the input is directly used as a case label, an invalid value could theoretically cause unexpected behavior, but it's bounded by the valid IPPROTO_* constants.",
+  "seconds": 18.4,
+  "code_chars": 784
+}

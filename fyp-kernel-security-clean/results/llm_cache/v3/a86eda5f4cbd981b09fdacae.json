@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_nfnl_put",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Index validation is missing before array access in ip_set() call",
+  "analysis": "The function takes an attacker-influenced index parameter that is used to access a set in the ip_set array without validation of bounds. The index is used directly in the ip_set() macro call which likely performs array indexing without checking if the index is within valid range. There are no length checks or overflow protections for the index value, and the function does not validate that the set at the given index is valid before accessing it.",
+  "seconds": 11.3,
+  "code_chars": 329
+}

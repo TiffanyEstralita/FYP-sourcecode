@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_inet_fn",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The loop iterates up to e->num_hook_entries without clear verification that this value is valid or safe.",
+  "analysis": "The function processes netfilter packets and uses attacker-influenced data from sk_buff and hook state. It reads from nf_hook_entries and iterates over hooks without clear bounds checking on e->num_hook_entries. The use of RCU dereferencing and potential manipulation of ctinfo and nat pointers introduces risks if not properly validated. No obvious use-after-free or null dereference patterns are present, but the loop index i is incremented without explicit validation against e->num_hook_entries.",
+  "seconds": 22.6,
+  "code_chars": 1987
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_iterate_cleanup_net",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles trusted kernel data flow through netlink attributes, no obvious buffer overflows or use-after-free conditions.",
+  "analysis": "This function takes a netlink attribute containing a pointer to iter_data which includes a net pointer that could be attacker-controlled. The function dereferences this pointer to get cnet and then calls nf_ct_iterate_cleanup with the same data without additional validation of the input parameters. The memory access pattern is straightforward but relies on potentially untrusted net pointer data.",
+  "seconds": 10.4,
+  "code_chars": 323
+}

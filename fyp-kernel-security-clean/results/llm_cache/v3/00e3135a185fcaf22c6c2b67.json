@@ -1,0 +1,13 @@
+{
+  "node": "dccp_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled values from netlink attributes without sufficient bounds checking on array indices or pointer arithmetic.",
+  "analysis": "The function `dccp_mt` reads attacker-influenced data from packet contents via `skb_header_pointer` and uses offsets and lengths from netlink attributes (`info->spts`, `info->dpts`, `info->typemask`, `info->option`) without clear bounds checking on array accesses or pointer arithmetic. The `DCCHECK` macro and `match_option` function may indirectly use these values in memory operations that could lead to out-of-bounds access if not properly validated. There are no obvious use-after-free issues, but the lack of explicit validation of user-supplied port ranges and option data presents a potential for memory corruption.",
+  "seconds": 23.7,
+  "code_chars": 882
+}

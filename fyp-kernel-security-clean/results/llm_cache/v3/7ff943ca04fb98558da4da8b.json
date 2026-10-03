@@ -1,0 +1,13 @@
+{
+  "node": "ctnl_timeout_find_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses strncmp with a fixed maximum length without validating that the input name is properly bounded, creating potential for buffer over-read or memory corruption.",
+  "analysis": "The function takes a user-supplied name string that could be attacker-influenced. It uses this name to compare against timeout names in a linked list without validating the length or bounds of the input string. The strncmp call uses CTNL_TIMEOUT_NAME_MAX which may not be properly validated against the actual name length, and there's no check that the name parameter is null-terminated or within expected bounds. The function returns a pointer to a timeout structure that could potentially be freed by other code paths while still being referenced.",
+  "seconds": 19.5,
+  "code_chars": 506
+}

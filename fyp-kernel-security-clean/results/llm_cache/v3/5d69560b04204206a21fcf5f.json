@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_loop_check_setelem",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "Function accesses user-supplied set element data without proper validation of bounds or structure integrity.",
+  "analysis": "The function reads from attacker-influenced data through the 'elem' parameter which contains user-supplied set element data. It accesses memory via 'nft_set_elem_ext' and 'nft_set_ext_flags' macros that could lead to out-of-bounds reads if the element data is malformed. The function doesn't perform any validation of the element data structure before accessing it, and the 'ext' pointer could point to invalid memory if the set element was not properly initialized or validated by prior code.",
+  "seconds": 19.4,
+  "code_chars": 392
+}

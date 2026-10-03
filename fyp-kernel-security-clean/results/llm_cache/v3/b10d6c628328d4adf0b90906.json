@@ -1,0 +1,13 @@
+{
+  "node": "ct_sip_header_search",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The limit calculation 'limit -= len' can overflow if len exceeds the initial limit value, leading to potential buffer overflows.",
+  "analysis": "The function takes attacker-influenced packet data through 'dptr' and 'limit' parameters. Memory is read from 'dptr' and compared with 'needle', but the function assumes 'limit' is properly calculated to prevent buffer overflows. The 'limit -= len' calculation could overflow if 'len' is larger than 'limit', and 'dptr' is incremented without bounds checking in 'sip_follow_continuation'. No explicit bounds checking is performed on the pointer arithmetic.",
+  "seconds": 17.9,
+  "code_chars": 381
+}

@@ -1,0 +1,13 @@
+{
+  "node": "xt_osf_match_packet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "This is a simple wrapper function with no direct memory operations or input validation that could introduce vulnerabilities.",
+  "analysis": "The function xt_osf_match_packet serves as a simple wrapper that forwards packet data and parameters to nf_osf_match(). The attacker can influence packet contents and netlink attributes through the sk_buff and matchinfo parameters. Memory operations occur in the called nf_osf_match() function which handles packet parsing, but this specific wrapper function performs no direct memory manipulation or validation of attacker-controlled inputs before passing them along.",
+  "seconds": 12.0,
+  "code_chars": 214
+}

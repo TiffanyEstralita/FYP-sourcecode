@@ -1,0 +1,13 @@
+{
+  "node": "cgroup_mt_destroy_v2",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "null_deref",
+  "justification": "Function dereferences user-supplied pointer without validation, potential null pointer dereference if priv field is not properly initialized.",
+  "analysis": "The function reads from info->priv which is user-supplied data from the matchinfo parameter. The input comes from netlink attributes that can be controlled by userspace during rule creation. There are no bounds checks or validation of the pointer before dereferencing it, and the cgroup_put function may be called on an invalid pointer if the priv field was not properly initialized or has been corrupted.",
+  "seconds": 13.3,
+  "code_chars": 165
+}

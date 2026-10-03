@@ -1,0 +1,13 @@
+{
+  "node": "nft_cmp16_fast_eval",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The sreg index from user-controlled netlink attributes is used to index into regs->data without bounds checking against the actual register size.",
+  "analysis": "The function reads from memory locations determined by struct offsets and indices that are part of the nft_expr and nft_cmp16_fast_expr structures. The inputs come from kernel data structures (regs, priv) which are populated from user-supplied netlink attributes during rule creation. Memory is read via pointer arithmetic on reg_data, mask, and data pointers, but there are no explicit bounds checks on the sreg index or structure offsets that could be manipulated by an attacker. The function does not perform any dynamic allocation or freeing, so use-after-free is not a concern.",
+  "seconds": 14.6,
+  "code_chars": 449
+}

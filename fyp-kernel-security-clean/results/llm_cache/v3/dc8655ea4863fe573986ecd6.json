@@ -1,0 +1,13 @@
+{
+  "node": "match_type",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only performs bounded bit operations on validated inputs without memory manipulation or object lifecycle issues.",
+  "analysis": "The function takes a net device pointer and address as inputs, but does not directly process packet contents or netlink attributes. Memory is read from the net_device structure and inet_dev_addr_type() function call, with no direct memory allocation, copying, or indexing operations. The mask parameter is used as a bit shift index, but since it's a u_int16_t with only 16 bits, the shift operation is bounded and cannot overflow. No freed objects are referenced.",
+  "seconds": 11.5,
+  "code_chars": 180
+}

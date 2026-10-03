@@ -1,0 +1,13 @@
+{
+  "node": "hash_conntrack_raw",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "No attacker-influenced data is processed, and all memory operations are safe and bounded.",
+  "analysis": "The function `hash_conntrack_raw` does not directly process any attacker-influenced inputs such as packet contents or netlink attributes. All inputs are derived from kernel-internal data structures (tuple, zoneid, net) and are not user-controlled. Memory operations are straightforward assignments and hashing with no risky arithmetic or pointer manipulations. The function uses fixed-size internal structures and does not perform any dynamic allocation or deallocation.",
+  "seconds": 15.7,
+  "code_chars": 795
+}

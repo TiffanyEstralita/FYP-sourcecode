@@ -1,0 +1,13 @@
+{
+  "node": "get_callid",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "missing_bounds_check",
+  "justification": "The function does not validate that matchoff and matchlen values when added to dataoff remain within the bounds of the available data buffer before accessing memory.",
+  "analysis": "",
+  "seconds": 12.3,
+  "code_chars": 950
+}

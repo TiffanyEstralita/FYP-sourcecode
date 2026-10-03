@@ -1,0 +1,13 @@
+{
+  "node": "nfacct_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The nfacct pointer from attacker-controlled xt_action_param is used directly without validation of its bounds or legitimacy.",
+  "analysis": "The function receives attacker-influenced data through the netfilter packet and xt_action_param structures. It uses info->nfacct which could be manipulated by an attacker to point to arbitrary memory locations. The nfnl_acct_update and nfnl_acct_overquota functions are called with this potentially malicious input without clear bounds checking on the nfacct pointer or its contents.",
+  "seconds": 13.2,
+  "code_chars": 297
+}

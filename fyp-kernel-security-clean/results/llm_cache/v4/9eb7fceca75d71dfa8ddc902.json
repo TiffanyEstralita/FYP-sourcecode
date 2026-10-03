@@ -1,0 +1,13 @@
+{
+  "node": "bitmap_port_flush",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 12.0,
+  "risk": 0.12,
+  "pattern": "none",
+  "justification": "No attacker-controlled data processing or memory manipulation occurs in this simple cleanup function.",
+  "analysis": "This function does not handle any attacker-influenced inputs directly - it operates on internal set data structures. Memory operations occur on fixed internal fields (map->members, set->elements, set->ext_size) with no user-supplied lengths, offsets, or indices involved. The function performs simple bitmap clearing and variable resets without any risky arithmetic or memory management issues.",
+  "seconds": 10.2,
+  "code_chars": 249
+}

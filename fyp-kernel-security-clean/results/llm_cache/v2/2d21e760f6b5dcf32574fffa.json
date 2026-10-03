@@ -1,0 +1,13 @@
+{
+  "node": "cttimeout_del_timeout",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses nla_data() without checking the attribute length, potentially leading to buffer overread when comparing names.",
+  "analysis": "",
+  "seconds": 9.1,
+  "code_chars": 714
+}

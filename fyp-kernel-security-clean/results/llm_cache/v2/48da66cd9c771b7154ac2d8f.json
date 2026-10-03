@@ -1,0 +1,13 @@
+{
+  "node": "connmark_tg_destroy",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only calls netfilter core API to release netns reference, no attacker-influenced data handling",
+  "analysis": "",
+  "seconds": 5.6,
+  "code_chars": 111
+}

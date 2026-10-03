@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_cthelper_get",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete checks on attacker-influenced inputs with proper bounds checking and error handling.",
+  "analysis": "",
+  "seconds": 14.1,
+  "code_chars": 1509
+}

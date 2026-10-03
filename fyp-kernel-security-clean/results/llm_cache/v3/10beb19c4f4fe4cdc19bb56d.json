@@ -1,0 +1,13 @@
+{
+  "node": "netmap_tg4",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The netmask calculation and range handling may be vulnerable to integer overflow or underflow due to lack of explicit bounds checking on user-provided values.",
+  "analysis": "The function `netmap_tg4` processes packet data and uses attacker-influenced inputs from `mr->range[0].min_ip`, `mr->range[0].max_ip`, and packet headers. It performs bitwise operations and assignments without explicit validation of the netmask calculation or range boundaries. The `mr` pointer comes from `par->targinfo`, which is user-supplied via netlink, and could lead to incorrect memory access if not properly validated.",
+  "seconds": 20.1,
+  "code_chars": 1207
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_drop_early_demux_sk",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "No attacker-controlled data processing or unsafe memory operations.",
+  "analysis": "The function takes a sk_buff pointer from input and only checks if skb->dev is set. No attacker-influenced data is processed, no memory operations occur, and no length/offset arithmetic is performed. The function simply reads a kernel-internal field and calls skb_orphan() which is a safe operation.",
+  "seconds": 8.8,
+  "code_chars": 207
+}

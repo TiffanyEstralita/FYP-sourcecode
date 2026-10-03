@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipportnet4_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function uses jhash_size(t->htable_bits) without verifying that t->htable_bits is within valid bounds, potentially leading to integer overflow in the loop counter.",
+  "analysis": "This function processes hash buckets from a netfilter set structure. It iterates through all buckets using a loop counter 'i' and accesses buckets via '__ipset_dereference(hbucket(t, i))'. The loop runs from 0 to jhash_size(t->htable_bits)-1, which is derived from the set's htable_bits field that could potentially be influenced during set creation. However, no bounds checking is performed on the htable_bits value itself before it's used in jhash_size(), and there are no checks for invalid bucket pointers or memory corruption that could occur if the hash table structure was malformed.",
+  "seconds": 16.7,
+  "code_chars": 434
+}

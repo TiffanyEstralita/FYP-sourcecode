@@ -1,0 +1,13 @@
+{
+  "node": "nfnetlink_subsys_unregister",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The subsys_id index is used to access a global table without bounds checking, allowing potential out-of-bounds array access if attacker controls the input structure.",
+  "analysis": "This function takes a pointer to a nfnetlink_subsystem structure as input, where the subsys_id field could potentially be influenced by an attacker if the structure is user-supplied. The function uses n->subsys_id as an index to access a global table array without any bounds checking against the valid range of subsystem IDs. There are no memory allocations, copies, or frees in this function, and no use-after-free or null dereference issues.",
+  "seconds": 12.5,
+  "code_chars": 193
+}

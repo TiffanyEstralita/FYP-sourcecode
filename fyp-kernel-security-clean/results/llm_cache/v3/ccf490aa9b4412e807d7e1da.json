@@ -1,0 +1,13 @@
+{
+  "node": "nfnetlink_subsys_register",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The attr_count field is checked but not the cb_count field which controls the loop bounds, creating a potential for stack buffer overflow or out-of-bounds access.",
+  "analysis": "The function accepts a pointer to a struct nfnetlink_subsystem which contains attacker-influenced data through cb_count and cb[cb_id].attr_count fields. Memory is read from n->cb[cb_id].attr_count without complete validation against NFNL_MAX_ATTR_COUNT, and the cb_id loop index is used for array access. The function does not perform overflow/underflow checks on cb_count before the loop, and there are no obvious use-after-free issues, though the RCU assignment could be problematic if not properly synchronized.",
+  "seconds": 14.5,
+  "code_chars": 481
+}

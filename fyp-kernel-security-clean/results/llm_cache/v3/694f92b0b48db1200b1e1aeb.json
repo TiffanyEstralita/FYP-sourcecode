@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_getflowtable",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Attacker can control netlink attributes used for table/flowtable lookup without complete validation.",
+  "analysis": "The function processes attacker-influenced netlink attributes, specifically the flowtable name and table name from nla[] array. It uses these to lookup tables and flowtables without comprehensive validation of attribute lengths or contents. The primary risk comes from potential misuse of the nla array indices and lack of checks on attribute data before use in lookups. No obvious use-after-free or integer overflow issues are present.",
+  "seconds": 17.5,
+  "code_chars": 1428
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_osf_find",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete checks with proper bounds validation and safe list traversal.",
+  "analysis": "",
+  "seconds": 9.8,
+  "code_chars": 753
+}

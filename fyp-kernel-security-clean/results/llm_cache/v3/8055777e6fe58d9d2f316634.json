@@ -1,0 +1,13 @@
+{
+  "node": "nf_conntrack_in",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses packet data-derived offsets and lengths without complete validation, which could lead to memory corruption if the packet is malformed.",
+  "analysis": "The function processes incoming packets and uses attacker-influenced data from the sk_buff structure, including packet contents and offsets derived from network headers. It reads and writes to memory using indices and lengths that come from parsed packet data (e.g., dataoff from get_l4proto), but there are no explicit bounds checks on these values before use. The function also handles reference counting with nf_ct_get and nf_ct_put, but does not appear to have any obvious use-after-free or null dereference issues.",
+  "seconds": 26.8,
+  "code_chars": 2176
+}

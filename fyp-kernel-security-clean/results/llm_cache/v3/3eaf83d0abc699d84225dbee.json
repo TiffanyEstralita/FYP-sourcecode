@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_parse_zone",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Direct assignment of netlink attribute value to zone ID without validation or bounds checking.",
+  "analysis": "The function reads a netlink attribute value using nla_get_be16() and assigns it directly to zone->id without any validation or bounds checking. The attacker can influence the zone ID through the netlink attribute data, which is then used as-is in the connection tracking zone structure. There are no length checks, offset validations, or overflow protections for this user-supplied value, and the function doesn't perform any sanitization of the input before storing it.",
+  "seconds": 11.6,
+  "code_chars": 319
+}

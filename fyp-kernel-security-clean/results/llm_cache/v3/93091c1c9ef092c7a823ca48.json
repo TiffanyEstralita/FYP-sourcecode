@@ -1,0 +1,13 @@
+{
+  "node": "nf_logger_find_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing validation of pf and type parameters as array indices.",
+  "analysis": "The function takes pf (protocol family) and type as inputs, where pf could be influenced by user data in netlink operations. It performs RCU dereferencing and module reference counting without validating the pf and type indices against valid ranges, potentially leading to out-of-bounds access. The function does not perform any bounds checking on the pf or type parameters before using them as array indices.",
+  "seconds": 11.8,
+  "code_chars": 530
+}

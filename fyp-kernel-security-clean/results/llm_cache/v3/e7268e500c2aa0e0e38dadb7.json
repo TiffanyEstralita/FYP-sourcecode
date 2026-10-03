@@ -1,0 +1,13 @@
+{
+  "node": "l2tp_match",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs simple field comparisons with no risky memory operations or unchecked inputs.",
+  "analysis": "The function l2tp_match reads fields from info and data structures without any input validation or bounds checking. The inputs info and data are derived from netfilter rule configuration and packet data respectively, which can be influenced by attackers. There are no length checks, offset validations, or overflow protections when accessing these structures. The function performs direct field comparisons but does not validate that the input structures are properly formed or within expected ranges.",
+  "seconds": 13.5,
+  "code_chars": 653
+}

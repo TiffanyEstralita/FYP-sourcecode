@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_proto_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only processes validated protocol numbers from internal tables without direct attacker influence on memory operations.",
+  "analysis": "This function takes an unsigned short proto parameter that can be influenced by attackers (e.g., via netlink commands or packet headers). It uses this protocol number to calculate a hash index and traverse a linked list, but performs no validation of the input before use. The hash calculation and list traversal are safe as long as the hash table is properly initialized, but there's no check that the proto value is valid or within expected ranges.",
+  "seconds": 10.6,
+  "code_chars": 258
+}

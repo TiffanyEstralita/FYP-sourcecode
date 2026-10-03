@@ -1,0 +1,13 @@
+{
+  "node": "__ip_set_put_byindex",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Unbounded array access using attacker-controlled index without size validation.",
+  "analysis": "The function reads an index from the caller and uses it to access an array element in inst->ip_set_list without any bounds checking against the array size. The index parameter comes from external input and could be out of bounds, potentially causing memory read beyond array bounds. There are no length/offset checks, and the function assumes the index is valid without verification.",
+  "seconds": 10.6,
+  "code_chars": 221
+}

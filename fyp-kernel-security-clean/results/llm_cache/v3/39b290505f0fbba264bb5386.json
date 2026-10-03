@@ -1,0 +1,13 @@
+{
+  "node": "nft_limit_init",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic operations on attacker-controlled values without sufficient overflow checks, particularly in token calculations and rate/burst additions.",
+  "analysis": "The function reads attacker-controlled data from netlink attributes including rate, unit, burst, and flags. Memory is allocated with kmalloc and written to without obvious bounds checking on the computed 'tokens' value which could overflow. The arithmetic involving rate, burst, and nsecs could lead to integer overflows that are not fully checked, particularly in the calculation of tokens and the addition of rate and burst.",
+  "seconds": 20.4,
+  "code_chars": 1416
+}

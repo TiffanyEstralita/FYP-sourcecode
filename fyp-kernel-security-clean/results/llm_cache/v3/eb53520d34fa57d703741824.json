@@ -1,0 +1,13 @@
+{
+  "node": "nfqnl_recv_unsupp",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function is a simple wrapper that doesn't process any attacker-controlled data or perform memory operations.",
+  "analysis": "This function receives a netlink socket buffer and nfnl_info structure, but does not use any of the inputs for memory operations. The function simply returns -ENOTSUPP without performing any data parsing, copying, or indexing operations on attacker-influenced data. No memory is allocated, freed, or accessed in a way that could be manipulated by an attacker.",
+  "seconds": 10.3,
+  "code_chars": 145
+}

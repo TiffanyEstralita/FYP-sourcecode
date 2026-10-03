@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_udel",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Attacker-influenced netlink attributes passed directly to downstream function without validation.",
+  "analysis": "The function receives attacker-influenced netlink attributes through the 'attr' parameter and passes them directly to ip_set_ad() without any validation or bounds checking. The attributes could contain malicious data that gets processed by the underlying set deletion logic, potentially leading to memory corruption or other vulnerabilities. No length, offset, or index checks are performed on the attacker-controlled data before it's used in the subsequent function call.",
+  "seconds": 10.4,
+  "code_chars": 213
+}

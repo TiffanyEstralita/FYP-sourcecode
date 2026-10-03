@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipportnet4_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only handles internal kernel data structures with no attacker-influenced inputs or unsafe memory operations.",
+  "analysis": "This function handles cleanup of a hash set data structure. It processes a linked list (h->ad) using list_for_each_safe, which is safe from use-after-free issues since it properly removes nodes before freeing them. The function doesn't directly process any attacker-influenced data - it only operates on internal kernel data structures. All memory operations are straightforward deallocations of kernel-allocated objects with no risky arithmetic or bounds checking needed.",
+  "seconds": 17.4,
+  "code_chars": 363
+}

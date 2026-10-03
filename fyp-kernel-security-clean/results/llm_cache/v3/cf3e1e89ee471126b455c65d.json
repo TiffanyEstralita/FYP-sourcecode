@@ -1,0 +1,13 @@
+{
+  "node": "hash_net6_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-controlled data flows into memory operations, all memory management is straightforward and bounded by pre-determined values.",
+  "analysis": "This function processes hash table buckets and performs cleanup operations. The input comes from the set structure and htable parameters which are initialized during set creation and not directly from attacker-controlled packet data or netlink attributes. Memory is read via __ipset_dereference macro, written to n pointer, and freed using kfree() and ip_set_free(). The loop index i is bounded by jhash_size(t->htable_bits) which is determined at initialization time, so no attacker-influenced lengths or offsets are used in memory operations. All memory deallocations appear safe with no use-after-free conditions.",
+  "seconds": 16.7,
+  "code_chars": 422
+}

@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipportnet4_data_equal",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only performs simple field comparisons with no external data handling or memory operations.",
+  "analysis": "This function takes two struct hash_ipportnet4_elem pointers as inputs and compares their fields without any attacker-influenced data handling. The function performs simple field comparisons and does not read, write, copy, or index into any memory that could be controlled by an attacker. There are no memory allocations, deallocations, or arithmetic operations that could overflow or underflow.",
+  "seconds": 10.6,
+  "code_chars": 310
+}

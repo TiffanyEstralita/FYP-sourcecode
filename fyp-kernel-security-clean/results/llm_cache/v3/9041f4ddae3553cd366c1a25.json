@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_scheduler_err",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only prints log messages using attacker-influenced data without direct memory operations that could be exploited.",
+  "analysis": "The function `ip_vs_scheduler_err` reads data from the `svc` structure which is passed as a parameter. The attacker could influence fields like `fwmark`, `af`, `protocol`, `addr`, and `port` through netlink commands or other means that modify service configurations. Memory is read from these fields but no direct memory manipulation (copy, allocate, free) occurs. The function uses RCU dereferencing for the scheduler name, which is safe if properly synchronized. No obvious integer overflows or use-after-free issues are present.",
+  "seconds": 16.8,
+  "code_chars": 668
+}

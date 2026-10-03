@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_del_conntrack",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function parses netlink attributes without complete validation of their contents before using them in hash lookups or comparisons.",
+  "analysis": "The function processes attacker-controlled netlink attributes including CTA_ZONE, CTA_TUPLE_ORIG, CTA_TUPLE_REPLY, and CTA_ID. Memory is read and written during parsing of tuple data and zone information, with potential use of parsed values in hash lookup and ID comparison. The primary risk involves the ctnetlink_parse_tuple function which may not fully validate lengths or offsets from netlink attributes before use, and the CTA_ID comparison could be exploited if not properly checked against the actual connection ID.",
+  "seconds": 19.5,
+  "code_chars": 1294
+}

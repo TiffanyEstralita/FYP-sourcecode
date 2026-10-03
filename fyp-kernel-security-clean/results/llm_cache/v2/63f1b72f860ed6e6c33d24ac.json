@@ -1,0 +1,13 @@
+{
+  "node": "nft_do_chain",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "other",
+  "justification": "Parses attacker-influenced packet data and uses dynamic offsets/lengths without complete validation, though checks appear to be in place.",
+  "analysis": "",
+  "seconds": 21.8,
+  "code_chars": 2648
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_exp_dump_tuple",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles netlink data but performs proper bounds checking through nla_nest_start and nla_nest_end functions, with no obvious memory safety issues.",
+  "analysis": "",
+  "seconds": 7.7,
+  "code_chars": 380
+}

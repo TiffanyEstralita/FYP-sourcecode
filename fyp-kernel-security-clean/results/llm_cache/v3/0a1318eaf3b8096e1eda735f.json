@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_dnat_port",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing validation of thoff parameter against available packet buffer size before memory access.",
+  "analysis": "The function reads from and writes to memory pointed to by `hdr`, which is derived from `skb_network_header(skb) + thoff`. The `thoff` value comes from function parameters and could be influenced by netlink attributes during flow setup. There are no explicit bounds checks on `thoff` or `skb_network_header()` offset calculations before accessing the header data, potentially allowing out-of-bounds reads/writes if `thoff` is maliciously large. The `hdr` pointer is directly used without verifying that the packet contains sufficient data at the calculated offset.",
+  "seconds": 21.6,
+  "code_chars": 656
+}

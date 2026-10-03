@@ -1,0 +1,13 @@
+{
+  "node": "expect_rtp_rtcp",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled port values without sufficient validation of their range or bounds before using them in connection tracking expectations.",
+  "analysis": "The function processes attacker-influenced H.245 transport address data from packet contents, reading port and IP address values that could be manipulated. It uses these values to create connection tracking expectations without comprehensive validation of the input data lengths or bounds. The port values are used directly in expect initialization and NAT handling without overflow/underflow checks on arithmetic operations like bitwise AND/OR with port values.",
+  "seconds": 27.9,
+  "code_chars": 2190
+}

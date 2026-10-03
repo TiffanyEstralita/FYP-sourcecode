@@ -1,0 +1,13 @@
+{
+  "node": "nft_nat_do_chain",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function acts as a simple dispatcher with no direct memory manipulation of attacker-controlled data.",
+  "analysis": "The function accepts attacker-influenced packet data through skb parameter and uses it in nft_set_pktinfo and subsequent calls. However, the function itself doesn't perform any direct memory operations on attacker-controlled data - it merely sets up packet information and delegates to nft_do_chain. The only potential issue is that the pkt structure could be corrupted if nft_set_pktinfo functions are vulnerable, but the main logic just passes through without direct unsafe operations.",
+  "seconds": 16.1,
+  "code_chars": 449
+}

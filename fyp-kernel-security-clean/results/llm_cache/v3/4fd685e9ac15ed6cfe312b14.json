@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_offload_tuple",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function iterates over a user-provided list without validating its contents or length, and does not check for potential integer overflow in the counter variable.",
+  "analysis": "The function processes attacker-influenced netlink attributes through `flow_rule` and `block_cb_list`, which could be manipulated by userspace. It performs a loop over `block_cb_list` without validating the list's integrity or bounds, and uses an incrementing counter `i` that could be abused if the list is malformed. There are no checks for integer overflow in `i` or validation of `flow_rule` contents before use.",
+  "seconds": 15.2,
+  "code_chars": 933
+}

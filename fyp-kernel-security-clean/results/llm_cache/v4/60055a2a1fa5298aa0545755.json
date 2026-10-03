@@ -1,0 +1,13 @@
+{
+  "node": "nft_target_destroy",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "missing_bounds_check",
+  "justification": "The function passes user-controlled data to a destroy callback without validating its bounds or contents.",
+  "analysis": "The function reads from attacker-influenced data through the nft_expr_priv() call which returns a pointer to user-supplied expression private data. The target->destroy function pointer is called with a parameter that includes this user data, and there are no bounds checks on the size or contents of the info pointer before passing it to the destroy function. The module reference (me) is also dereferenced without validation.",
+  "seconds": 12.2,
+  "code_chars": 421
+}

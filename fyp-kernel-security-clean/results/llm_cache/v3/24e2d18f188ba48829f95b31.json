@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_dump",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function acts as a simple dispatcher that validates protocol and delegates to netlink dump infrastructure without direct memory manipulation.",
+  "analysis": "The function handles netlink attributes through the 'attr' parameter which can be influenced by attackers. It calls netlink_dump_start with a control structure containing dump callbacks, but does not perform explicit validation of attribute values before passing them to netlink dumping functions. The protocol_min_failed check only validates minimum protocol requirements but doesn't validate the actual attribute data being processed.",
+  "seconds": 10.9,
+  "code_chars": 388
+}

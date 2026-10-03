@@ -1,0 +1,13 @@
+{
+  "node": "nft_update_chain_stats",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles attacker-influenced packet length but uses proper synchronization and no unsafe memory operations.",
+  "analysis": "The function reads packet length from pkt->skb->len which is attacker-influenced data, but does not perform any validation of this length before using it in stats update. The function uses per-CPU statistics with proper synchronization via u64_stats_update_begin/end, and there are no direct memory accesses, allocations, or frees that could lead to use-after-free or null dereference issues. The only potential risk is integer overflow if pkt->skb->len is extremely large, but this would not cause a security vulnerability.",
+  "seconds": 13.4,
+  "code_chars": 518
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_h323_error_boundary",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "Integer overflow in bit arithmetic could bypass boundary checks.",
+  "analysis": "The function takes attacker-influenced parameters 'bytes' and 'bits' which are added to the bitstream cursor position. Memory is read when checking if bs->cur + bytes > bs->end. The main risk is integer overflow in the arithmetic operations where bytes and bits could be large values that cause overflow when added together, potentially leading to a false positive boundary check. No explicit bounds checking is performed on the addition operations.",
+  "seconds": 10.5,
+  "code_chars": 232
+}

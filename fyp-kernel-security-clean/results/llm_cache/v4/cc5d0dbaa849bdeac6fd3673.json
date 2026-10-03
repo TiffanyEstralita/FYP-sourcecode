@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_change_seq_adj",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function processes attacker-influenced netlink attributes without clear validation of sequence adjustment values, risking integer overflow/underflow in underlying change_seq_adj() function.",
+  "analysis": "The function processes netlink attributes (cda[]) that can be influenced by attackers. It calls change_seq_adj() with attacker-controlled data, but the core issue is in the change_seq_adj() function which is not shown. Memory is read and written via seqadj->seq[] indexing, and there's potential for integer overflow/underflow if sequence adjustments are improperly calculated. No explicit bounds checking is visible for the sequence adjustment values.",
+  "seconds": 15.1,
+  "code_chars": 694
+}

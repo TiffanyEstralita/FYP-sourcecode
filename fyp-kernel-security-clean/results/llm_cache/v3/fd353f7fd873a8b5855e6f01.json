@@ -1,0 +1,13 @@
+{
+  "node": "nft_trace_notify",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No clear vulnerability patterns like missing bounds checks, integer overflows, or use-after-free detected.",
+  "analysis": "The function processes attacker-influenced data through packet metadata and trace information, but all memory operations are bounded by pre-calculated sizes and validated NLA put operations. No direct use of unchecked user-supplied indices or offsets occurs, and objects are not used after being freed. The size calculation accounts for string lengths and nested attributes, with proper error handling and cleanup.",
+  "seconds": 29.4,
+  "code_chars": 3031
+}

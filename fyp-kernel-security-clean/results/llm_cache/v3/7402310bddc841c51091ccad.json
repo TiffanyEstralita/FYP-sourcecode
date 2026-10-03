@@ -1,0 +1,13 @@
+{
+  "node": "total_extension_size",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "No attacker-controlled data processing or memory operations.",
+  "analysis": "This function computes the total size of connection tracking extensions at compile time using BUILD_BUG_ON to ensure NF_CT_EXT_NUM doesn't exceed 10. It does not process any attacker-influenced data, nor does it perform any dynamic memory operations, reads, writes, or allocations based on external inputs. All values are compile-time constants or conditional compilation flags.",
+  "seconds": 13.2,
+  "code_chars": 828
+}

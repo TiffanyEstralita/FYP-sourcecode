@@ -1,0 +1,13 @@
+{
+  "node": "nft_parse_register",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled data in arithmetic operations without proper range validation.",
+  "analysis": "The function takes a netlink attribute (nla_get_be32) as input which can be controlled by an attacker. The value is used directly in a switch statement and then in arithmetic operations without validation of the range or bounds. While the switch handles specific cases, there's no check that 'reg' falls within valid ranges before performing the arithmetic operations, potentially allowing out-of-bounds memory access.",
+  "seconds": 13.6,
+  "code_chars": 381
+}

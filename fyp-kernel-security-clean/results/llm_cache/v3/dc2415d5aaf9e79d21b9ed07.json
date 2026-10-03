@@ -1,0 +1,13 @@
+{
+  "node": "nf_ip6_checksum",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The 'dataoff' parameter is used in arithmetic without validation against skb->len, risking out-of-bounds access.",
+  "analysis": "The function `nf_ip6_checksum` processes packet data influenced by network input, specifically using `skb->len`, `dataoff`, and `protocol` which can be manipulated by an attacker. It performs checksum calculations based on these values without thorough validation of `dataoff` against `skb->len`, potentially allowing out-of-bounds reads or writes. The function does not appear to use freed objects or have obvious null dereferences, but the lack of bounds checking on `dataoff` is a concern.",
+  "seconds": 16.6,
+  "code_chars": 829
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nft_counter_do_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-controlled data handling, only standard kernel memory management with no unsafe operations.",
+  "analysis": "The function takes a pointer to 'priv' which is allocated and managed by the kernel, with no direct attacker-influenced inputs. Memory is freed using free_percpu() on priv->counter which was allocated via alloc_percpu(). The function performs a simple memory deallocation without any unsafe indexing or arithmetic operations.",
+  "seconds": 9.0,
+  "code_chars": 105
+}

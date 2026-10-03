@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_proto_get",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 15.0,
+  "risk": 0.15,
+  "pattern": "none",
+  "justification": "Simple lookup function with no unsafe memory operations or attacker-influenced data handling beyond the initial protocol parameter.",
+  "analysis": "This function takes a protocol number from input and uses it to calculate a hash index for accessing the ip_vs_proto_table array. The hash calculation and array indexing are straightforward without overflow/underflow risks. No memory is allocated, copied, or freed. The function only reads from a pre-initialized table structure using a validated hash index.",
+  "seconds": 10.6,
+  "code_chars": 258
+}

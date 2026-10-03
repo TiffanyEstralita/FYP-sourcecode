@@ -1,0 +1,13 @@
+{
+  "node": "nft_check_loops",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Chain reference is used without validation of its legitimacy or bounds.",
+  "analysis": "The function reads from 'data->verdict.chain' which is derived from attacker-influenced packet data through the 'nft_set_ext_data(ext)' call. The 'ext' parameter comes from netfilter attributes and could contain maliciously crafted chain references. There are no bounds checks on the chain reference before use, and the function doesn't validate that the chain pointer is valid or properly initialized. The 'data' pointer itself is not validated for null or proper initialization.",
+  "seconds": 18.4,
+  "code_chars": 342
+}

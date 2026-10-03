@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_userspace_cthelper",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles well-defined netfilter connection tracking data with proper null checks and no unsafe memory operations.",
+  "analysis": "",
+  "seconds": 11.4,
+  "code_chars": 734
+}

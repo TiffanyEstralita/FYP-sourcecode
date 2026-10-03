@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_inet_unregister_fn",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only calls other functions with fixed parameters and does not handle any attacker-influenced data",
+  "analysis": "",
+  "seconds": 6.1,
+  "code_chars": 234
+}

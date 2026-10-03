@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_acct_del",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled data without proper bounds checking on the length of the name attribute, risking out-of-bounds memory access.",
+  "analysis": "The function reads an account name from netlink attribute NFACCT_NAME, which is attacker-controlled. It uses this name to search through a list of accounting objects without validating the length or bounds of the name data. The strncmp call uses NFACCT_NAME_MAX as the maximum length but does not verify that acct_name points to valid memory of at least NFACCT_NAME_MAX bytes, potentially allowing out-of-bounds reads if the attribute data is malformed. No checks prevent use-after-free scenarios since nfnl_acct_try_del may free the object before the function returns.",
+  "seconds": 16.0,
+  "code_chars": 663
+}

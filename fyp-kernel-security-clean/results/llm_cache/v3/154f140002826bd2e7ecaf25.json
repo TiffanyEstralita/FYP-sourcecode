@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_test",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function passes attacker-controlled opt parameter to kadt without validating its contents against set->type->dimension or other constraints.",
+  "analysis": "The function receives attacker-influenced data through skb (packet data) and par (netfilter parameters) which are passed to set->variant->kadt(). The opt parameter contains user-supplied dimensions, family, and command flags that could affect control flow. Memory access occurs via the kadt function pointer call, but no explicit bounds checking is performed on the attacker-controlled opt structure before use. The function does not directly manipulate memory allocation/deallocation, but relies on the set variant's implementation which may be vulnerable.",
+  "seconds": 17.6,
+  "code_chars": 1023
+}

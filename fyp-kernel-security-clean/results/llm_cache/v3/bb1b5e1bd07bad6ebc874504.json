@@ -1,0 +1,13 @@
+{
+  "node": "nft_ct_timeout_obj_init",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The allocation size calculation uses l4proto->ctnl_timeout.obj_size without validation, which could lead to integer overflow and subsequent memory corruption.",
+  "analysis": "The function reads l4num from attacker-controlled netlink attribute NFTA_CT_TIMEOUT_L4PROTO and uses it to find a protocol handler via nf_ct_l4proto_find. The obj_size from l4proto is used in memory allocation without validation, and the data from NFTA_CT_TIMEOUT_DATA is parsed into timeout->data without checking if the parsed data fits within the allocated buffer. There are no checks for integer overflow in the allocation calculation or bounds checking on the parsed data.",
+  "seconds": 31.4,
+  "code_chars": 1250
+}

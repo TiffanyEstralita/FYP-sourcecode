@@ -1,0 +1,13 @@
+{
+  "node": "nf_do_netdev_egress",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function processes packet data but performs no unsafe operations, checks appear complete.",
+  "analysis": "The function handles attacker-influenced packet data through the skb parameter, but does not perform any direct length, offset, or index checks on packet contents. The function uses skb->mac_len which is derived from the packet data and could be manipulated by an attacker. There are no obvious integer overflows or use-after-free issues, but the function relies on potentially untrusted packet metadata.",
+  "seconds": 12.9,
+  "code_chars": 511
+}

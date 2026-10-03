@@ -1,0 +1,13 @@
+{
+  "node": "tproxy_tg4_v1",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function uses user-supplied netlink attribute values without validation, creating potential for memory corruption through invalid addresses or ports.",
+  "analysis": "The function reads from attacker-influenced netlink attributes through tgi->laddr.ip, tgi->lport, tgi->mark_mask, and tgi->mark_value. These values come from the target info structure passed in par->targinfo which is user-supplied data. The function directly passes these values to tproxy_tg4 without additional validation or bounds checking, making them potential attack vectors for memory corruption or unexpected behavior.",
+  "seconds": 11.9,
+  "code_chars": 258
+}

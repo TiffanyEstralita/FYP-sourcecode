@@ -1,0 +1,13 @@
+{
+  "node": "log_tg",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "While the function handles user-supplied data, the checks appear complete as it only copies a fixed-size structure and passes the prefix to a logging function that likely handles string validation internally.",
+  "analysis": "The function reads the loginfo structure from par->targinfo which is user-supplied data from netlink attributes. The prefix field is passed directly to nf_log_packet without validation of its length or null termination. The loginfo structure itself is copied from user space but there are no checks on the prefix string length or validity before use.",
+  "seconds": 14.4,
+  "code_chars": 438
+}

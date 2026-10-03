@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_dump_master",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function appears safe with proper error handling and no obvious vulnerability patterns",
+  "analysis": "",
+  "seconds": 6.9,
+  "code_chars": 408
+}

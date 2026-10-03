@@ -1,0 +1,13 @@
+{
+  "node": "xt_dnat_target_v0",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "Array indexing without bounds verification of attacker-controlled netlink data.",
+  "analysis": "The function reads from `par->targinfo` which contains attacker-controlled data from netlink attributes. The `xt_nat_convert_range` function processes the range data without clear bounds checking on array indices or lengths. The `mr->range[0]` access could be out-of-bounds if the attacker supplies malformed netlink data with invalid range count. No explicit validation of the range array size or bounds is performed before accessing the array elements.",
+  "seconds": 12.9,
+  "code_chars": 461
+}

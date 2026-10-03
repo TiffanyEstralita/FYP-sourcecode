@@ -1,0 +1,13 @@
+{
+  "node": "nft_trace_packet",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "missing_bounds_check",
+  "justification": "Function copies pointers from potentially malicious packet data without validation or bounds checking.",
+  "analysis": "The function nft_trace_packet takes attacker-influenced packet data through pkt->skb which contains user-supplied network packets. It copies the nf_trace pointer from the skb without validation, and passes rule and chain pointers that could be manipulated by an attacker. The function doesn't perform any bounds checking on packet contents or validate the integrity of the rule/chain structures before passing them to __nft_trace_packet.",
+  "seconds": 11.2,
+  "code_chars": 375
+}

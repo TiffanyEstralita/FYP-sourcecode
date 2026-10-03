@@ -1,0 +1,13 @@
+{
+  "node": "__nft_set_elem_expr_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "null_deref",
+  "justification": "Function dereferences attacker-controlled expr pointer without validation, risking null pointer dereference if expr or its ops/type fields are invalid.",
+  "analysis": "This function takes a const struct nft_ctx pointer and struct nft_expr *expr as inputs. The expr pointer comes from netfilter packet processing and can be influenced by attackers. Memory is read from expr->ops->destroy_clone and expr->ops->type->owner, and module_put is called on the owner. The function does not perform any bounds checking or validation of attacker-controlled data before dereferencing pointers. The expr pointer could point to corrupted memory if not properly validated during packet processing.",
+  "seconds": 11.9,
+  "code_chars": 258
+}

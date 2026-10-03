@@ -1,0 +1,15 @@
+PROMPT TUNING on the tuning CVEs only
+model: qwen3-coder:30b; pool: 27 vulnerable functions (6 CVEs) + 60 ordinary (seed 7)
+separation: 0.5 = coin flip, 1.0 = every buggy function scores above every ordinary one
+
+version   sep_cve   sep_fn  risk_vuln  risk_ord  distinct  errors    min
+v1          0.646    0.573      0.307     0.280         4       0    0.0
+v2          0.806    0.601      0.344     0.270         3       0    1.7
+v3          0.846    0.577      0.485     0.427         7       0   28.6
+v4          0.844    0.562      0.476     0.440        11       0   21.9
+
+Version descriptions:
+   v1: The project brief's prompt (0-10, no guidance)
+   v2: v1 + a scoring guide that defines each score band
+   v3: v2 + think first (where does data come from, what is checked) before scoring
+   v4: v3 with a finer 0-100 scale (fewer ties)

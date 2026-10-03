@@ -1,0 +1,13 @@
+{
+  "node": "callforward_do_filter",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function properly handles both IPv4 and IPv6 cases with correct null checks and resource management, no obvious vulnerability patterns detected.",
+  "analysis": "",
+  "seconds": 15.6,
+  "code_chars": 1398
+}

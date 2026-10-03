@@ -1,0 +1,13 @@
+{
+  "node": "hash_netportnet4_head",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles only internal data and does not process any attacker-influenced input; all operations are based on validated set configuration and computed values.",
+  "analysis": "",
+  "seconds": 14.8,
+  "code_chars": 1569
+}

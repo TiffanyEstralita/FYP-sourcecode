@@ -1,0 +1,13 @@
+{
+  "node": "nft_payload_copy_vlan",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic operations on offset and len without proper bounds checking, potentially leading to integer overflow when calculating ethlen or accessing memory beyond buffer boundaries.",
+  "analysis": "",
+  "seconds": 12.2,
+  "code_chars": 1043
+}

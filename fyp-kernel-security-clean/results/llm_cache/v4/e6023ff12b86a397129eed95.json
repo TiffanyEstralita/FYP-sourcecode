@@ -1,0 +1,13 @@
+{
+  "node": "nft_set_catchall_loops",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "No attacker-influenced data handling, relies on kernel-internal structures with proper locking and RCU usage.",
+  "analysis": "The function processes a list of catchall elements without direct attacker influence on the loop structure. The inputs come from kernel-internal data structures and context, not directly from packets or netlink attributes. Memory is read via RCU traversal and dereferenced through nft_set_elem_ext(), but no unsafe arithmetic or use-after-free patterns are evident. All accesses appear to be within valid kernel-managed bounds.",
+  "seconds": 12.6,
+  "code_chars": 464
+}

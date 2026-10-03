@@ -1,0 +1,13 @@
+{
+  "node": "nfqueue_tg_v1",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "queues_total parameter lacks validation checks before use in hash calculation",
+  "analysis": "The function accepts attacker-influenced data through the xt_NFQ_info_v1 structure which contains queuenum and queues_total fields. The queue calculation uses info->queues_total as a parameter to nfqueue_hash function, but there's no explicit bounds checking on this value. The function performs arithmetic operations and function calls using this potentially malicious input without clear validation of whether queues_total is within acceptable bounds.",
+  "seconds": 11.0,
+  "code_chars": 333
+}

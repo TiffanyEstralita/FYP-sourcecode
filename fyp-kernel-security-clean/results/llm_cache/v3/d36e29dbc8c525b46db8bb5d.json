@@ -1,0 +1,13 @@
+{
+  "node": "flow_offload_fixup_ct",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The `ct->proto.tcp.state` index into `tn->timeouts[]` is used without validation against array bounds, allowing potential out-of-bounds memory access.",
+  "analysis": "The function processes connection tracking timeouts based on protocol-specific values. Attackers could influence the `ct->proto.tcp.state` index used to access `tn->timeouts[]`, and the `l4num` value that determines which branch executes. The code performs array indexing without explicit bounds checking against the state value, and uses `READ_ONCE`/`WRITE_ONCE` which doesn't prevent use-after-free issues if ct is freed during execution. No overflow/underflow checks are performed on the timeout arithmetic.",
+  "seconds": 15.5,
+  "code_chars": 679
+}

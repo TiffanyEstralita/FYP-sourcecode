@@ -1,0 +1,13 @@
+{
+  "node": "cttimeout_new_timeout",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Unbounded strcpy() and lack of validation on obj_size from l4proto can lead to memory corruption.",
+  "analysis": "The function reads attacker-controlled data from netlink attributes including name, l3num, l4num, and CTA_TIMEOUT_DATA. It uses nla_data() directly without length checks, and strcpy() to copy the name without bounds checking. The obj_size from l4proto is used in memory allocation without validation, which could lead to integer overflow. There's also a potential use-after-free if the timeout object is freed before all references are resolved.",
+  "seconds": 35.1,
+  "code_chars": 2111
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_conntrack_helpers_register",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing validation of user-provided count parameter and lack of bounds checking on helper array access",
+  "analysis": "The function takes a user-provided array of nf_conntrack_helper structures and a count 'n' which can be influenced by an attacker through netlink communication. Memory is read from the helper array and written to kernel structures during registration. The function performs basic bounds checking with 'i < n' but does not validate that 'n' is within reasonable limits or that the helper array points to valid kernel memory. There's no check against integer overflow in the loop or validation of helper structure contents.",
+  "seconds": 13.3,
+  "code_chars": 325
+}

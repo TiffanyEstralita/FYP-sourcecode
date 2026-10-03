@@ -1,0 +1,13 @@
+{
+  "node": "nf_register_net_hook",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles netfilter hook registration with no obvious buffer overflows, use-after-free, or unchecked inputs.",
+  "analysis": "The function accepts a netlink attribute containing hook registration data, but the input validation appears to be handled in the underlying __nf_register_net_hook function. Memory is read and written during hook registration, but no obvious unchecked offsets or lengths are visible in this function's code. The function does not directly manipulate attacker-controlled buffers or perform unsafe memory operations.",
+  "seconds": 13.1,
+  "code_chars": 610
+}

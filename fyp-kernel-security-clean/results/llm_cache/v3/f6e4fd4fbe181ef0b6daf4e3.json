@@ -1,0 +1,13 @@
+{
+  "node": "nf_register_sockopt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "While the function handles user-provided data, all checks appear to be properly bounded and no obvious memory corruption patterns are present.",
+  "analysis": "The function accepts a user-provided struct nf_sockopt_ops via 'reg' parameter which contains attacker-influenced fields like set_optmin, set_optmax, get_optmin, and get_optmax. These values are used in the overlap() check without explicit validation of their ranges or bounds, potentially allowing malformed data to cause incorrect overlap detection or memory access issues. The function performs list operations on a global list but does not validate that the input structure is properly initialized or that its fields are within acceptable limits before use.",
+  "seconds": 17.1,
+  "code_chars": 727
+}

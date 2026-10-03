@@ -1,0 +1,13 @@
+{
+  "node": "nft_trans_alloc_gfp",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "Unbounded size parameter in memory allocation without validation",
+  "analysis": "The function takes a user-supplied 'size' parameter that determines the allocation size, which could be influenced by attacker-provided data through netlink attributes. The allocation uses kzalloc with this size without any validation of the size parameter, potentially allowing for excessive memory allocation or integer overflow if size is maliciously large. There are no checks on the size parameter before memory allocation occurs.",
+  "seconds": 10.3,
+  "code_chars": 335
+}

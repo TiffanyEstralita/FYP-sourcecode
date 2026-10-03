@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_type_unregister",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles internal data structures with no attacker-controlled inputs or unsafe memory operations.",
+  "analysis": "The function `ip_set_type_unregister` does not directly process attacker-influenced data as it operates on a provided `struct ip_set_type *type` parameter. The inputs come from the caller who passes in a type structure, but there are no lengths, offsets, or indices derived from packet contents or netlink attributes that could be manipulated by an attacker. Memory is read from the passed-in structure fields and written to a list via list_del_rcu(), but no unsafe memory operations or arithmetic are performed. The function properly uses RCU synchronization and locking mechanisms.",
+  "seconds": 13.6,
+  "code_chars": 531
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_destroy_timeout",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "Function only handles internal kernel data structures with proper RCU locking, no direct attacker-controlled inputs are processed.",
+  "analysis": "The function reads from RCU-protected structures and uses pointers obtained from rcu_dereference, but does not validate the input connection pointer 'ct' or the returned timeout_ext pointer before use. The function assumes these pointers are valid without checking for null or corrupted data that could come from user-controlled netfilter operations. No explicit bounds checking is performed on any attacker-influenced data.",
+  "seconds": 12.1,
+  "code_chars": 443
+}

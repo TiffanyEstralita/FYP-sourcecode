@@ -1,0 +1,13 @@
+{
+  "node": "nft_payload_copy_vlan",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 72.0,
+  "risk": 0.72,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic on offset and len without sufficient bounds checking that could lead to integer overflow or underflow, potentially causing out-of-bounds memory access.",
+  "analysis": "The function accepts attacker-influenced 'offset' and 'len' parameters from netlink attributes. Memory is read via skb_copy_bits and written via memcpy, with potential for integer overflow in arithmetic operations. The offset and length checks do not fully validate against packet boundaries, and there's a risk of using uninitialized memory if nft_payload_rebuild_vlan_hdr fails.",
+  "seconds": 16.6,
+  "code_chars": 1043
+}

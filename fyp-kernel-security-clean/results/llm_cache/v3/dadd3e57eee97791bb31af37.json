@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_ipv6_csum_update",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The iphdroff parameter is used to index into skb->data without checking that the resulting pointer stays within the valid packet bounds.",
+  "analysis": "The function takes attacker-influenced inputs through skb (packet data) and iphdroff (offset into packet), which are used to calculate the ipv6h pointer. Memory is read from the packet at calculated offsets and used in inet_proto_csum_replace16 without complete validation of the offset or packet length. The iphdroff parameter is not checked against skb->len, potentially allowing out-of-bounds reads if an attacker crafts a packet with a malicious offset.",
+  "seconds": 20.4,
+  "code_chars": 582
+}

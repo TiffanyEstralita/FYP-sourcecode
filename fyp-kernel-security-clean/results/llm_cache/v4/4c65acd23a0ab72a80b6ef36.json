@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_check_loops",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "missing_bounds_check",
+  "justification": "The function processes lists and pointers from external inputs without explicit validation of their integrity or bounds, creating potential for memory corruption.",
+  "analysis": "The function processes chain rules and set bindings to detect loops, with potential attacker-influenced data coming from packet contents via netlink attributes when setting up chains and rules. Memory is read from rule expressions and set bindings, with function calls that may dereference pointers from external data. The checks on lengths/offsets are not explicitly shown but the code relies on list traversal and pointer dereferences without clear validation of input bounds or null checks.",
+  "seconds": 20.1,
+  "code_chars": 1511
+}

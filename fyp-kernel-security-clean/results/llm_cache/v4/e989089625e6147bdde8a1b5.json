@@ -1,0 +1,13 @@
+{
+  "node": "nf_logger_put",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 75.0,
+  "risk": 0.75,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing validation of pf input against valid protocol family range allows potential out-of-bounds array access.",
+  "analysis": "The function takes pf (protocol family) and type as inputs, where pf could potentially be influenced by attacker-controlled netlink attributes. Memory is read from the loggers array using these indices, and module_put is called on logger->me. The function does not validate that pf is within valid bounds [0, NFPROTO_MAX) before accessing loggers[pf][type], and there's no check that the logger pointer is not NULL after dereferencing. The BUG_ON check only ensures non-NULL but doesn't prevent out-of-bounds access.",
+  "seconds": 12.9,
+  "code_chars": 342
+}

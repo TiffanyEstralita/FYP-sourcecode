@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_expect_alloc",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only allocates memory and sets basic fields, no attacker-controlled data processing or unsafe operations.",
+  "analysis": "This function takes a nf_conn pointer as input which could be influenced by attackers through conntrack operations. Memory is allocated using kmem_cache_alloc and assigned to a new structure. The function performs no validation of inputs or bounds checking, and the returned structure is immediately usable without additional initialization that might validate the master connection. There are no length/offset checks since this is a simple allocation function.",
+  "seconds": 10.2,
+  "code_chars": 251
+}

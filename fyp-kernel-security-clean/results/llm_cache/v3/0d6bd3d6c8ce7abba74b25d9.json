@@ -1,0 +1,13 @@
+{
+  "node": "bitmap_port_do_del",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 9.0,
+  "risk": 0.9,
+  "pattern": "missing_bounds_check",
+  "justification": "Direct use of unbounded user-provided index in bit manipulation function without size validation.",
+  "analysis": "The function takes a pointer to `bitmap_port_adt_elem` structure which could contain attacker-influenced data through `e->id`. The `e->id` value is used directly as an index to the `test_and_clear_bit()` function without any bounds checking against the bitmap size. This allows an attacker to potentially access memory outside the valid range of the `map->members` bitmap array, leading to out-of-bounds memory access.",
+  "seconds": 13.9,
+  "code_chars": 151
+}

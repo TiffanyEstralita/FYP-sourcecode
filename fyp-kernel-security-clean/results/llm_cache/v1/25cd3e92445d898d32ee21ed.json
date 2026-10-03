@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_userspace_cthelper",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function appears to have proper null checks and safe dereferences, no obvious vulnerability patterns detected",
+  "analysis": "",
+  "seconds": 8.8,
+  "code_chars": 734
+}

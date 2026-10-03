@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_offload_ipv6_hook",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic operations on offset and hdrsize without complete bounds checking, allowing for potential integer overflow/underflow vulnerabilities.",
+  "analysis": "The function processes IPv6 packets and uses attacker-influenced data from skb contents including offset, hdrsize, and tuple data. Memory is read/written using these values without complete validation, particularly in the offset and hdrsize calculations that could overflow or underflow. The function also manipulates pointers from tuplehash and dst_cache which may be corrupted or freed, creating potential use-after-free or null dereference risks.",
+  "seconds": 26.6,
+  "code_chars": 2495
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_app_seq_show",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 15.0,
+  "risk": 0.15,
+  "pattern": "none",
+  "justification": "No attacker-controlled data is processed and all memory accesses are to well-defined kernel structures.",
+  "analysis": "This function handles sequence file output for IPVS application tracking. The input 'v' is derived from seq_read operations and is validated against SEQ_START_TOKEN, but there's no direct attacker-influenced data processing. The function only reads from a kernel-internal struct ip_vs_app that's populated during module initialization and registration, with no user-supplied lengths, offsets, or indices involved in memory operations.",
+  "seconds": 11.2,
+  "code_chars": 355
+}

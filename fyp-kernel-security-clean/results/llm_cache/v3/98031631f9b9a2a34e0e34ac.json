@@ -1,0 +1,13 @@
+{
+  "node": "synproxy_send_client_ack",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The tcp_hdr_size calculation involves attacker-controlled data (opts->wscale) and could lead to integer overflow/underflow without proper bounds checking.",
+  "analysis": "The function processes TCP packet data and constructs a new ACK packet. Attackers could influence the TCP header fields (th->source, th->dest, th->seq, th->ack_seq, th->window) from incoming packets, and opts->wscale could be manipulated via netlink attributes. Memory is allocated with alloc_skb and written to using skb_put, but tcp_hdr_size calculation and bounds checking are not explicitly verified against potential overflow or underflow conditions. No use-after-free or null dereference patterns are evident.",
+  "seconds": 25.3,
+  "code_chars": 1032
+}

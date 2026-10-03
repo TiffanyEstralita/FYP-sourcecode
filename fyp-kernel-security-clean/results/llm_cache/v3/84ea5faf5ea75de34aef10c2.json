@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_pernet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 1.0,
+  "risk": 0.1,
+  "pattern": "none",
+  "justification": "Function is a simple wrapper that only accesses kernel-internal data structures with no attacker-controlled inputs or memory manipulation.",
+  "analysis": "This function takes a net pointer as input which is not directly attacker-controlled. It performs a simple lookup using net_generic() with a pernet identifier, accessing kernel memory without any attacker-influenced data processing or memory manipulation. The function only reads from a predefined kernel data structure and returns a pointer without any bounds checking, arithmetic operations, or memory allocation/deallocation.",
+  "seconds": 9.5,
+  "code_chars": 103
+}

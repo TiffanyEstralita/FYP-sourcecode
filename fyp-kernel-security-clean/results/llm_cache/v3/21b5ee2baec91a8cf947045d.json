@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_acct_put",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only handles reference counting and module management with no attacker-influenced data processing.",
+  "analysis": "This function does not directly process any attacker-influenced inputs - it only handles reference counting and module management. The function takes a nf_acct structure as input but does not perform any memory operations based on attacker-controlled data. The refcount_dec_and_test() operation is safe as it's a standard atomic operation, and kfree_rcu() is properly used with the RCU callback. There are no lengths, offsets, or indices that can be manipulated by an attacker.",
+  "seconds": 15.4,
+  "code_chars": 143
+}

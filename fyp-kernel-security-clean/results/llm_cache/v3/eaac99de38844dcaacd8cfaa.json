@@ -1,0 +1,13 @@
+{
+  "node": "nft_data_release",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "use_after_free",
+  "justification": "The function calls nft_verdict_uninit() without validating that the data pointer is still valid, creating potential use-after-free vulnerability if the verdict data was already freed.",
+  "analysis": "The function takes an attacker-influenced 'type' parameter from netlink attributes that determines which code path is taken. Memory is read/written in the nft_verdict_uninit() call which could be vulnerable to use-after-free if the verdict data was already freed, and there's no validation of the type parameter beyond a basic bounds check. The function doesn't perform any length/offset arithmetic or memory allocation/deallocation directly.",
+  "seconds": 12.5,
+  "code_chars": 223
+}

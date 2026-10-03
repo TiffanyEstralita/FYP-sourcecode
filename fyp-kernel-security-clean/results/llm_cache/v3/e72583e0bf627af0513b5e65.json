@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_table_block_offload_init",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "No attacker-influenced data handling or unsafe memory operations present.",
+  "analysis": "This function initializes a flow_block_offload structure with inputs including net, cmd, flowtable, and extack. The function performs a simple memory initialization with memset and assigns pointers from the input parameters without any bounds checking or validation of attacker-controlled data. None of the inputs are directly used in memory operations that could lead to overflow, underflow, or use-after-free conditions.",
+  "seconds": 12.3,
+  "code_chars": 495
+}

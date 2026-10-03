@@ -1,0 +1,13 @@
+{
+  "node": "nft_flowtable_type_get",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete checks; no obvious memory corruption patterns.",
+  "analysis": "The function reads the 'family' parameter directly from user input without additional validation. It uses this value to index into kernel data structures via __nft_flowtable_type_get(), but there's no explicit bounds checking on the family value. The module loading logic could be influenced by attacker-controlled family values, though the core vulnerability risk is low as the function doesn't directly manipulate memory buffers or pointers.",
+  "seconds": 11.6,
+  "code_chars": 454
+}

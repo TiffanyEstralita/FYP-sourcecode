@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_proc_seqopt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function performs a basic length check but does not validate that the input pointer 'p' points to a valid memory region or that the structure contents are properly aligned and well-formed.",
+  "analysis": "The function reads from packet data pointed to by 'p' and copies sequence data into 'opt'. The input length 'plen' is checked against the expected structure size, but there's no validation that 'p' points to a valid memory region or that the structure contents are well-formed. The function assumes 'p' points to a valid 'ip_vs_sync_conn_options' structure and directly accesses its fields without additional bounds checking beyond the overall length. No memory is freed or reallocated in this function.",
+  "seconds": 20.8,
+  "code_chars": 600
+}

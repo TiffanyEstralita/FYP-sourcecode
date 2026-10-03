@@ -1,0 +1,13 @@
+{
+  "node": "helper_hash",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs arithmetic operations on attacker-influenced tuple fields without memory manipulation, and handles potential division by zero in a safe manner.",
+  "analysis": "The function reads from tuple->src.l3num, tuple->dst.protonum, and tuple->src.u.all which are part of the nf_conntrack_tuple structure. These fields can be influenced by packet contents when connections are tracked. The hash calculation uses a modulo operation with nf_ct_helper_hsize which is user-configurable and could be zero, causing division by zero. However, the function itself doesn't perform any memory allocation, copying, or indexing operations that would lead to buffer overflows or use-after-free issues.",
+  "seconds": 11.9,
+  "code_chars": 191
+}

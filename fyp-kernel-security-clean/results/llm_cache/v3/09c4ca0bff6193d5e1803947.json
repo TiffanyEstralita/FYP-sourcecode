@@ -1,0 +1,13 @@
+{
+  "node": "__nft_chain_type_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Direct use of user-supplied indices without comprehensive bounds checking beyond initial range validation.",
+  "analysis": "The function takes two parameters: 'family' (u8) and 'type' (enum nft_chain_types). The family parameter comes from packet or netlink data and is used as an array index without additional bounds checking beyond the initial comparison. The type parameter is also user-supplied and used as an array index. Both parameters are directly used as indices into the chain_type array without further validation, potentially allowing out-of-bounds memory access if the inputs exceed the array dimensions.",
+  "seconds": 11.8,
+  "code_chars": 214
+}

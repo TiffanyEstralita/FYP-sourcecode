@@ -1,0 +1,13 @@
+{
+  "node": "nft_do_chain_ipv4",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function acts as a simple wrapper with no direct memory manipulation of attacker-controlled data",
+  "analysis": "This function takes a sk_buff and nf_hook_state from netfilter hooks, which are attacker-influenced inputs. It calls nft_set_pktinfo and nft_set_pktinfo_ipv4 to prepare packet information, then passes the pkt structure to nft_do_chain. The function itself doesn't perform any direct memory operations on attacker-controlled data, but it acts as a wrapper that processes potentially malicious packet data through the netfilter chain logic. The risk is low because the function simply forwards the packet data without directly manipulating lengths or indices.",
+  "seconds": 11.5,
+  "code_chars": 255
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_unbind_set",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs proper validation checks and uses safe RCU list operations",
+  "analysis": "The function processes netfilter set bindings and handles list operations. The inputs come from the nft_ctx context and set binding structures which could be influenced by userspace via netlink commands. Memory is read/written through list operations (list_del_rcu) and the function accesses set->bindings and set->list fields. There are no explicit bounds checks on user-supplied indices or lengths, but the function appears to properly validate that the set is anonymous before deletion. The main risk is in the RCU list operations which could be problematic if the binding or set structures were freed concurrently.",
+  "seconds": 14.0,
+  "code_chars": 347
+}

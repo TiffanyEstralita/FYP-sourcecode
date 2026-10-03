@@ -1,0 +1,13 @@
+{
+  "node": "nft_pipapo_avx2_refill",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "The function performs array indexing using attacker-controlled offset and map data without validating resulting indices against array bounds.",
+  "analysis": "The function takes an 'offset' parameter and operates on 'map', 'dst', and 'mt' arrays. The 'offset' is user-controlled as it's passed from a netlink attribute during set operations. The macro performs bit manipulation and array indexing using computed values from 'offset' and 'map' contents, but does not validate that the resulting indices (like 'i') are within bounds of 'dst' or 'mt'. There are no checks on 'map' contents or 'offset' to prevent out-of-bounds access or integer overflow in the calculation of 'i'.",
+  "seconds": 18.5,
+  "code_chars": 781
+}

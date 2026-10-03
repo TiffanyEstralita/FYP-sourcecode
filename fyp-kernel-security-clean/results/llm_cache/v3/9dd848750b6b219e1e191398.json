@@ -1,0 +1,13 @@
+{
+  "node": "conntrack_mt_v1",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses user-supplied mask values without validation, creating a potential for misuse in the called function.",
+  "analysis": "The function receives attacker-influenced data through the 'info' parameter which is derived from netlink attributes in 'par->matchinfo'. Memory is read from the 'info' structure containing 'state_mask' and 'status_mask' fields. The function directly passes these values to 'conntrack_mt' without additional validation or bounds checking, and the 'info' structure is allocated and populated by user-space via netlink socket.",
+  "seconds": 12.8,
+  "code_chars": 216
+}

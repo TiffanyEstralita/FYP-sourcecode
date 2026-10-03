@@ -1,0 +1,13 @@
+{
+  "node": "xt_dnat_target_v2",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "User-supplied range pointer is passed to nf_nat_setup_info without validation of its contents.",
+  "analysis": "The function receives a pointer to 'range' from par->targinfo which could be user-supplied data from netlink attributes. The range pointer is passed directly to nf_nat_setup_info without any validation of its contents or bounds. While the function doesn't directly index or copy memory based on attacker input, it passes unvalidated user data to a downstream function that may be vulnerable to misuse.",
+  "seconds": 12.0,
+  "code_chars": 371
+}

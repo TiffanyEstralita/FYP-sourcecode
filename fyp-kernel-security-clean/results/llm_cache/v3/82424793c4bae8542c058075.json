@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_dump_tuples",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function processes attacker-influenced tuple data without complete validation of protocol numbers or IP addresses.",
+  "analysis": "The function processes netfilter connection tracking tuples and calls helper functions that likely parse packet data. The main inputs are the tuple structure which could contain attacker-controlled protocol numbers and IP addresses. Memory is read and written through function calls, with no explicit bounds checking on tuple data before use. The function uses RCU locking but doesn't validate the tuple contents or check for malformed data from netlink attributes.",
+  "seconds": 12.1,
+  "code_chars": 386
+}

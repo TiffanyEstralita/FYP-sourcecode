@@ -1,0 +1,13 @@
+{
+  "node": "nft_reg_track_update",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic on attacker-controlled length parameter without proper overflow checking, and uses unbounded register index in loop without validation.",
+  "analysis": "The function takes attacker-influenced parameters 'dreg' and 'len' which are used to calculate 'regcount' and iterate through registers. Memory is read/written in the loop using 'dreg' as an index, but there are no bounds checks on 'dreg' or 'len' before use. The calculation 'DIV_ROUND_UP(len, NFT_REG32_SIZE)' could overflow if 'len' is very large, and 'dreg' could exceed valid register indices. No explicit checks prevent 'dreg' from becoming invalid during the loop.",
+  "seconds": 13.7,
+  "code_chars": 318
+}

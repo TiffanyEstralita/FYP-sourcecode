@@ -1,0 +1,13 @@
+{
+  "node": "ctnl_timeout_fill_info",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function calls a protocol-specific callback with user-provided data without verifying that the data is valid or within expected bounds.",
+  "analysis": "The function processes a `ctnl_timeout` structure that may contain attacker-influenced data through the `timeout->timeout.data` field, which is passed to `l4proto->ctnl_timeout.obj_to_nlattr`. The `l4proto` pointer and its method are derived from user-supplied protocol information, but there's no explicit validation of the data structure or bounds checking before calling the protocol-specific function. Memory is read and written through the netlink attribute handling functions, but no clear evidence of unchecked indices or use-after-free issues.",
+  "seconds": 29.9,
+  "code_chars": 1171
+}

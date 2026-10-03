@@ -1,0 +1,13 @@
+{
+  "node": "nft_bitwise_fast_eval",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing validation of register indices against array bounds allows potential out-of-bounds memory access.",
+  "analysis": "The function reads from regs->data[priv->sreg] and writes to regs->data[priv->dreg] using indices from the private data structure. The indices priv->sreg and priv->dreg are not validated against the bounds of the regs->data array, and the mask and xor values come from the private data which could be attacker-controlled through netlink configuration. There are no checks to ensure these indices are within valid array bounds before memory access.",
+  "seconds": 11.5,
+  "code_chars": 276
+}

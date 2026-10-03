@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_delete",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No clear memory access violation or use-after-free detected; the function handles connection tracking events and performs standard cleanup without unsafe external data handling.",
+  "analysis": "The function `nf_ct_delete` handles a connection tracking object that may be influenced by attacker-controlled data through netlink operations or packet processing. It reads from `ct->timeout` and uses `READ_ONCE()` which could be manipulated, but no direct bounds checking is performed on the timeout value before arithmetic operations. The function does not directly copy or index attacker-supplied data, nor does it free memory that might be accessed afterward.",
+  "seconds": 15.9,
+  "code_chars": 1002
+}

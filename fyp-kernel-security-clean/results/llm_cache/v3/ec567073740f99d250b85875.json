@@ -1,0 +1,13 @@
+{
+  "node": "nft_parse_register_load",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The len parameter is passed directly to nft_validate_register_load() without checking if it's within valid bounds before use.",
+  "analysis": "The function accepts a netlink attribute (attr) that can be influenced by attackers, and passes its contents to nft_parse_register() which likely parses attacker-controlled register values. The parsed register value is then passed to nft_validate_register_load() with the len parameter that could also be attacker-influenced. Memory is read/written in the validation function but no explicit bounds checking is visible in this function for the len parameter before it's passed to the validation routine. The register value is copied to the output parameter sreg without additional validation.",
+  "seconds": 13.3,
+  "code_chars": 265
+}

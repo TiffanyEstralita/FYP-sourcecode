@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipmac_fini",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "No attacker-influenced data handling, this is a simple cleanup function that unregisters a set type.",
+  "analysis": "",
+  "seconds": 5.4,
+  "code_chars": 87
+}

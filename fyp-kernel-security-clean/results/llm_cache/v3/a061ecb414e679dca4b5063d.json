@@ -1,0 +1,13 @@
+{
+  "node": "conntrack_mt_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs a simple netns reference decrement with no obvious memory safety issues.",
+  "analysis": "The function takes a pointer to xt_mtdtor_param which contains net and family fields. These inputs could potentially be influenced by an attacker during module destruction operations. The function simply calls nf_ct_netns_put with these parameters without any validation of their contents. There are no memory operations (read/write/copy/index/allocate/free) that would be directly exploitable, but the function relies on potentially untrusted input parameters.",
+  "seconds": 12.7,
+  "code_chars": 112
+}

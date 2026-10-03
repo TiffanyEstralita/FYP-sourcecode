@@ -1,0 +1,13 @@
+{
+  "node": "quota_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs subtraction without checking for underflow conditions or validating the initial quota value.",
+  "analysis": "The function reads skb->len and priv->quota without any validation of the quota value or lock state. The quota is decremented by skb->len which could be attacker-controlled, and there's no check for integer underflow or overflow. The spinlock protects access to quota but doesn't prevent invalid values from being processed.",
+  "seconds": 12.0,
+  "code_chars": 445
+}

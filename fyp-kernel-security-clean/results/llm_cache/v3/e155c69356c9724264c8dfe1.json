@@ -1,0 +1,13 @@
+{
+  "node": "nft_hash_buckets",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs safe arithmetic operations with proper bounds checking, no direct memory access patterns that could be exploited.",
+  "analysis": "The function takes a single parameter 'size' which could potentially come from user input or netlink attributes. The calculation involves multiplication and division operations that could overflow if size is very large, and the result is then checked against NFT_MAX_BUCKETS. However, the function itself doesn't directly read or write memory based on this value - it just performs arithmetic and returns a rounded power-of-two value.",
+  "seconds": 11.2,
+  "code_chars": 169
+}

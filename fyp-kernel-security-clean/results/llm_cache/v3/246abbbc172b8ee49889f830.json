@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_cthelper_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Helper name is read via nla_data() without complete bounds checking before strncmp(), allowing potential buffer overflow via malformed netlink attribute.",
+  "analysis": "The function processes attacker-controlled netlink attributes including helper name and tuple data. It uses nla_data() to access the helper name without strict bounds checking, and parses tuple data that could lead to integer overflow/underflow. The code does not appear to have use-after-free or null dereference issues, but relies on potentially untrusted input for string comparison and tuple field access.",
+  "seconds": 31.9,
+  "code_chars": 1509
+}

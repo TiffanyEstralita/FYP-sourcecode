@@ -1,0 +1,13 @@
+{
+  "node": "connsecmark_tg",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The mode field lacks proper validation before switch statement execution, allowing potential out-of-bounds access if invalid values are provided.",
+  "analysis": "The function takes attacker-influenced data through the xt_action_param structure which contains the targinfo pointer pointing to xt_connsecmark_target_info. The info->mode field is used in a switch statement without additional validation, and the function calls secmark_save() or secmark_restore() based on this mode. There are no explicit bounds checks on the mode value before use, though the default case triggers BUG() which would panic the kernel rather than allowing arbitrary execution.",
+  "seconds": 11.9,
+  "code_chars": 342
+}

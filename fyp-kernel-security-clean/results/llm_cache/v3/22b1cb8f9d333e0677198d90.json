@@ -1,0 +1,13 @@
+{
+  "node": "nf_log_ip6_packet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "Packet data is processed without complete validation of offsets and lengths that could cause integer overflow/underflow when calculating header positions.",
+  "analysis": "The function accepts attacker-influenced inputs through skb (network packet data) and loginfo (which can be NULL but is not validated for malicious content). It processes packet data via dump_ipv6_packet and nf_log_dump_packet_common without obvious bounds checking on packet offsets or lengths. The memory operations involve reading packet headers and copying them to a log buffer, but there are no explicit checks on the validity of packet structure offsets or lengths that could lead to overflows or underflows.",
+  "seconds": 14.3,
+  "code_chars": 623
+}

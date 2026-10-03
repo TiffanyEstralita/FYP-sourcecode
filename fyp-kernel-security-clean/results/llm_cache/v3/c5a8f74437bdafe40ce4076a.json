@@ -1,0 +1,13 @@
+{
+  "node": "protocol_min_failed",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Attacker can control netlink attribute indexing and data processing without proper bounds checking.",
+  "analysis": "The function reads from tb[IPSET_ATTR_PROTOCOL] which is an attacker-influenced netlink attribute array. The protocol() function is called on this attribute without checking if it's properly initialized or within bounds. The tb array is indexed by IPSET_ATTR_PROTOCOL constant which could be manipulated by an attacker through netlink messages, and the protocol() function likely processes this data without sufficient validation.",
+  "seconds": 9.5,
+  "code_chars": 147
+}

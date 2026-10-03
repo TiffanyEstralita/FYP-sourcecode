@@ -1,0 +1,13 @@
+{
+  "node": "nft_cmp_fast_eval",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing bounds check on sreg index against regs->data array size allows potential out-of-bounds memory access.",
+  "analysis": "The function reads from regs->data[priv->sreg] using an index from priv->sreg, which is derived from user-supplied netlink attributes during rule creation. The function performs no bounds checking on the sreg index against the actual size of regs->data array, and no validation that priv->mask and priv->data are properly initialized or within expected ranges. There are no memory allocations, deallocations, or complex arithmetic operations that could overflow.",
+  "seconds": 11.6,
+  "code_chars": 271
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ctnl_timeout_try_del",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles internal data structures with proper locking and reference counting, no direct attacker influence on memory operations.",
+  "analysis": "The function ctnl_timeout_try_del does not directly process attacker-influenced packet contents or netlink attributes. It operates on a timeout object that is already validated and retrieved from internal data structures. Memory operations include decrementing a reference counter, removing from a list, calling nf_ct_untimeout, and freeing via kfree_rcu. The function properly checks the reference count before deletion and uses RCU mechanisms for safe list removal, with no obvious integer overflows or use-after-free issues.",
+  "seconds": 18.6,
+  "code_chars": 450
+}

@@ -1,0 +1,13 @@
+{
+  "node": "bpf_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Direct dereference of attacker-controlled filter pointer without validation of its contents or bounds.",
+  "analysis": "The function bpf_mt takes attacker-influenced data through the xt_bpf_info structure which is populated from netlink attributes during module configuration. The info->filter pointer is dereferenced directly without validation of its contents or bounds, and the skb packet data is passed to bpf_prog_run() without any preprocessing or validation. There are no length checks, offset validations, or memory safety measures for the filter program or packet data.",
+  "seconds": 10.4,
+  "code_chars": 170
+}

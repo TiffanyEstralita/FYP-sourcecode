@@ -1,0 +1,13 @@
+{
+  "node": "cttimeout_net_exit",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "No validation of list contents or object initialization before processing, potential for use of malformed list entries.",
+  "analysis": "The function processes a linked list of timeout objects from pernet data structure. Memory is read and freed from attacker-influenced list entries through list_for_each_entry_safe traversal. The function does not validate the list contents or check if objects were properly initialized before use, and there's no explicit bounds checking on the list operations.",
+  "seconds": 16.4,
+  "code_chars": 436
+}

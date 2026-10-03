@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_parse_tuple_filter",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function parses nested netlink attributes without sufficient validation of their contents before use in memory operations.",
+  "analysis": "The function processes netlink attributes from user space, parsing nested attributes into a tuple structure. Attackers can influence inputs through the cda array and nested attributes, particularly CTA_TUPLE_IP, CTA_TUPLE_PROTO, and CTA_TUPLE_ZONE. Memory is read and written into the tuple structure based on parsed attribute data, with potential for misuse if attribute lengths or offsets are not fully validated. The function calls helper functions that may not perform complete bounds checking on user-provided data.",
+  "seconds": 19.7,
+  "code_chars": 1470
+}

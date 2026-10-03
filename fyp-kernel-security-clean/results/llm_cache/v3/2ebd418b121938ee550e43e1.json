@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_rs_hashkey",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs straightforward hash calculation with no obvious memory safety issues.",
+  "analysis": "The function takes attacker-influenced inputs including address family (af), network address (addr), and port number (port). It performs arithmetic operations on these inputs including bitwise operations and bit shifts without apparent bounds checking. The addr parameter is a pointer to user-supplied data that could be manipulated, though the function itself doesn't directly dereference or copy memory beyond what's needed for the hash calculation.",
+  "seconds": 11.2,
+  "code_chars": 392
+}

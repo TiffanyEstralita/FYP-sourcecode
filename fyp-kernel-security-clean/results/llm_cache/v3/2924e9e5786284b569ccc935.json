@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_rename",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "The strncpy call does not ensure null termination when source length equals IPSET_MAXNAMELEN, and lacks explicit bounds checking on the input name2.",
+  "analysis": "The function accepts attacker-controlled data through netlink attributes IPSET_ATTR_SETNAME and IPSET_ATTR_SETNAME2. The name2 string is copied into set->name using strncpy without checking if the source string length exceeds IPSET_MAXNAMELEN, which could lead to buffer overflow. The function does not validate that the new name is properly null-terminated or within bounds before copying.",
+  "seconds": 16.2,
+  "code_chars": 917
+}

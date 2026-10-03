@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_invert_tuple",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs straightforward tuple inversion with no obvious memory safety issues or unchecked attacker inputs beyond basic protocol numbers.",
+  "analysis": "The function takes two tuple structures as input, with 'orig' being potentially attacker-controlled data from netfilter hooks or userspace. It copies fields from 'orig' to 'inverse' without additional validation of the source data's integrity or bounds. The function does not perform any checks on the l3num or protonum values beyond basic switch cases, which could lead to incorrect memory access if invalid values are provided. No memory allocation, deallocation, or complex indexing occurs that would introduce use-after-free or overflow issues.",
+  "seconds": 15.8,
+  "code_chars": 861
+}

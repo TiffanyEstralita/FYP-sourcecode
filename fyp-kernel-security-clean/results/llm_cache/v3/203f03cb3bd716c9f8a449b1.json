@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_acct_pernet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "No attacker-controlled inputs or memory operations, just a simple data structure lookup",
+  "analysis": "This function simply retrieves a per-network generic data structure using a fixed ID. It takes a net pointer as input but doesn't process any attacker-influenced data. There are no memory operations, length checks, or index calculations involved. The function is a simple wrapper that accesses kernel-internal data structures without any external input processing.",
+  "seconds": 8.8,
+  "code_chars": 117
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_stat_ct_cpu",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only checks message flags and delegates to netlink dump infrastructure without handling attacker-influenced data directly.",
+  "analysis": "The function handles netlink message flags from the incoming packet, but does not directly process or validate any attacker-influenced data beyond the nlmsg_flags. The code only checks if the NLM_F_DUMP flag is set and calls netlink_dump_start with a fixed dump callback, without performing any length, offset, or index validation on packet contents. No memory allocation, copying, or freeing occurs in this function.",
+  "seconds": 11.4,
+  "code_chars": 330
+}

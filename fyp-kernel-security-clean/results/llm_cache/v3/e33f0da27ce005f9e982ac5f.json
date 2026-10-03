@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipport6_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "No explicit validation of hash table size or bucket indices against attacker-controlled input, though the function itself doesn't directly process user data.",
+  "analysis": "The function processes hash buckets from a hash table but does not validate any attacker-influenced inputs directly. Memory is read via __ipset_dereference and freed via kfree, but there are no explicit bounds checks on the hash table size or bucket indices. The htable_bits value comes from the set structure which could be manipulated by an attacker during set creation or modification, potentially leading to out-of-bounds access if not properly validated.",
+  "seconds": 15.1,
+  "code_chars": 428
+}

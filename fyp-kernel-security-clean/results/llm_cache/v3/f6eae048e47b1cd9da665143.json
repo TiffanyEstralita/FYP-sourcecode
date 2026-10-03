@@ -1,0 +1,13 @@
+{
+  "node": "nft_unregister_expr",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only performs list removal on a validated input parameter with proper locking, no attacker-controlled data processing.",
+  "analysis": "This function does not directly handle attacker-influenced data - it operates on a struct nft_expr_type that is passed as a parameter and removed from a linked list. The function performs a simple list deletion operation using RCU (Read-Copy-Update) synchronization. There are no memory reads, writes, copies, or index operations that could be influenced by external data, and no potential for integer overflow/underflow or use-after-free issues since it only removes an already-allocated object from a list.",
+  "seconds": 11.2,
+  "code_chars": 154
+}

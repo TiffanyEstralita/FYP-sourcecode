@@ -1,0 +1,13 @@
+{
+  "node": "connmark_tg_v2",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function passes user-supplied target info pointer directly to another function without validation of its contents or bounds.",
+  "analysis": "The function receives attacker-influenced data through the xt_action_param structure which contains a pointer to xt_connmark_tginfo2 info. The info pointer is passed directly to connmark_tg_shift() without any validation of its contents or bounds checking. The shift operation could potentially use invalid offset/length values from the user-supplied info structure, and there's no verification that the memory pointed to by info is properly initialized or within valid bounds.",
+  "seconds": 10.6,
+  "code_chars": 190
+}

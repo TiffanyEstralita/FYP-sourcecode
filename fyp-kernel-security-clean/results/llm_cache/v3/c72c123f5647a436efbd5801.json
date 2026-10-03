@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_offload_ip_hook",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The mtu calculation and offset handling involve arithmetic operations that are not fully checked for overflow/underflow conditions.",
+  "analysis": "The function processes network packets and uses attacker-influenced data from skb contents including IP header fields, offsets, and lengths. Memory is read from skb network headers and written to skb control buffers, with potential for integer overflow in mtu calculation and offset handling. The code does not fully validate all packet-derived values before use, particularly in the offset and hdrsize calculations that could lead to out-of-bounds access.",
+  "seconds": 25.4,
+  "code_chars": 2481
+}

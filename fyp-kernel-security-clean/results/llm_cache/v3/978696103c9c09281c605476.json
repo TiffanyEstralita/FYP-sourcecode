@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_lock",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing validation of subsys_id parameter against valid range before array indexing could lead to out-of-bounds memory access.",
+  "analysis": "The function takes a subsys_id parameter that could potentially come from user-supplied netlink attributes. Memory is read when accessing table[subsys_id].mutex, and the mutex is locked. The subsys_id is not validated against valid range bounds before use, allowing potential out-of-bounds access to the table array. No length, offset or index arithmetic overflow/underflow occurs, and there are no freed objects being used.",
+  "seconds": 12.0,
+  "code_chars": 72
+}

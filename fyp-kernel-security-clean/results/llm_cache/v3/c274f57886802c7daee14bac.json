@@ -1,0 +1,13 @@
+{
+  "node": "xt_ct_target_v1",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Direct use of attacker-influenced pointer without validation or bounds checking.",
+  "analysis": "The function reads a pointer from attacker-influenced netlink attributes (info->ct) without validation. The ct pointer comes from user-supplied target information in the xt_action_param structure, which could be manipulated by an attacker. There are no bounds checks or validation of the ct pointer before use, and the function directly passes this pointer to xt_ct_target without ensuring it points to a valid connection object.",
+  "seconds": 9.9,
+  "code_chars": 225
+}

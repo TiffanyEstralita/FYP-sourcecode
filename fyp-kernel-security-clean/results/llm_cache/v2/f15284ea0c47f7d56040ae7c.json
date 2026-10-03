@@ -1,0 +1,13 @@
+{
+  "node": "nft_bitwise_dump_shift",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles internal data structures with no attacker-influenced input, performs simple data dumping operation with fixed size",
+  "analysis": "",
+  "seconds": 6.9,
+  "code_chars": 215
+}

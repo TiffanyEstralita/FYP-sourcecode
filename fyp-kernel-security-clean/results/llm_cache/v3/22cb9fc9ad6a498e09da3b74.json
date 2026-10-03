@@ -1,0 +1,13 @@
+{
+  "node": "nft_set_catchall_loops",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No direct attacker-controlled data handling, all operations appear safe with proper validation.",
+  "analysis": "The function processes a linked list of catchall elements without direct attacker influence on the list traversal itself. The inputs come from the set's catchall_list which is populated during set creation and management, not directly from packet data or netlink attributes. Memory access occurs through nft_set_elem_ext() and list_for_each_entry_rcu(), with no obvious unchecked arithmetic or use-after-free issues. The function appears to properly validate elements before processing them.",
+  "seconds": 19.0,
+  "code_chars": 464
+}

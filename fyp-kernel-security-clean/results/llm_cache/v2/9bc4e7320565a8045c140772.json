@@ -1,0 +1,13 @@
+{
+  "node": "xt_compat_match_from_user",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "other",
+  "justification": "Parses attacker-influenced data from netlink/compat structures without complete bounds checking on match_size and offset arithmetic that could overflow.",
+  "analysis": "",
+  "seconds": 8.9,
+  "code_chars": 728
+}

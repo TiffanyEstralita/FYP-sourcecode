@@ -1,0 +1,13 @@
+{
+  "node": "nf_log_dump_packet_common",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "Function only handles external data but performs complete checks with safe string operations.",
+  "analysis": "The function takes attacker-influenced inputs including skb (packet data), in and out net_devices, and loginfo which may contain user-supplied log level. It reads from these inputs to construct a log message but does not perform explicit bounds checking on the data being copied or accessed. The use of device names from potentially untrusted skbs could lead to memory corruption if the device names are malformed or exceed buffer limits.",
+  "seconds": 15.4,
+  "code_chars": 815
+}

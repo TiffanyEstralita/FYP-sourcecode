@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_delchain",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Chain handle and name attributes are used directly in lookups without complete validation of their contents or bounds.",
+  "analysis": "The function processes attacker-controlled netlink attributes including chain handle and name, which are used to look up chains. It performs a chain lookup using user-supplied data without obvious bounds checking on the handle or name attribute contents. The chain lookup itself may be vulnerable to use-after-free if the chain is concurrently modified or deleted during the operation, though no explicit freeing of the chain object occurs in this function. Memory access patterns are straightforward but rely on proper validation of netlink inputs.",
+  "seconds": 19.6,
+  "code_chars": 1582
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_sip",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function parses attacker-influenced SIP data without complete bounds checking on offsets and lengths used in multiple parsing and mangle operations.",
+  "analysis": "",
+  "seconds": 45.8,
+  "code_chars": 5058
+}

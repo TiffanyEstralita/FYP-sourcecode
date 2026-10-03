@@ -1,0 +1,13 @@
+{
+  "node": "nft_unregister_obj",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "use_after_free",
+  "justification": "Function performs list deletion without validating that object is still valid, creating potential use-after-free vulnerability.",
+  "analysis": "This function takes a pointer to an nft_object_type structure as input, which could potentially be influenced by an attacker through netlink commands. The function performs list deletion using list_del_rcu() on the obj_type->list member, but there's no validation that the object is properly initialized or that the list pointer is valid. The function doesn't perform any bounds checking or input validation, and there's a potential use-after-free scenario if the object was already freed before this function is called.",
+  "seconds": 11.5,
+  "code_chars": 163
+}

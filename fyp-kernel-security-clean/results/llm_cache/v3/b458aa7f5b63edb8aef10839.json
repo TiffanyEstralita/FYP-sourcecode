@@ -1,0 +1,13 @@
+{
+  "node": "nf_hook_entries_delete_raw",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "use_after_free",
+  "justification": "The function may free memory that could still be referenced by other code paths without proper synchronization or reference counting.",
+  "analysis": "The function takes a pointer to nf_hook_entries and a nf_hook_ops structure as inputs. The attacker could influence the nf_hook_ops structure which contains hook registration data. Memory is read via rcu_dereference_raw and written through __nf_hook_entries_try_shrink, with potential memory allocation/deallocation in nf_hook_entries_free. The function does not perform explicit bounds checking on the hook operations or validate the reg parameter before use, and there's a potential use-after-free scenario if the entry is freed while still being referenced.",
+  "seconds": 15.2,
+  "code_chars": 273
+}

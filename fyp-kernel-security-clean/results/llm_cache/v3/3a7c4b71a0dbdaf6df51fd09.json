@@ -1,0 +1,13 @@
+{
+  "node": "protocol",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing bounds checking on netlink attribute index and data validation before parsing",
+  "analysis": "The function reads a u8 value from netlink attributes using nla_get_u8() on index IPSET_ATTR_PROTOCOL. The attacker can influence the netlink attribute data that gets parsed and stored in tb[] array. There are no bounds checks performed on the tb[] array index or the attribute data itself before calling nla_get_u8().",
+  "seconds": 8.8,
+  "code_chars": 108
+}

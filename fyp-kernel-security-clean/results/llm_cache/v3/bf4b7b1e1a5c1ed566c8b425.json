@@ -1,0 +1,13 @@
+{
+  "node": "bitmap_ip_ext_cleanup",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Loop control variable id is not validated against actual bitmap bounds, allowing potential out-of-bounds access if map->elements is maliciously set.",
+  "analysis": "The function processes a bitmap of IP set elements and calls ip_set_ext_destroy on each active element. The loop iterates from 0 to map->elements without checking if map->elements is valid or comes from untrusted input. If map->elements is corrupted or maliciously set, it could cause out-of-bounds memory access when calling get_ext() or ip_set_ext_destroy(). There are no explicit bounds checks on the id variable against the actual allocated bitmap size.",
+  "seconds": 15.7,
+  "code_chars": 228
+}

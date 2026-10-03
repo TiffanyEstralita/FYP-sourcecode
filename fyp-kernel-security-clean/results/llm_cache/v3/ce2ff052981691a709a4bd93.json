@@ -1,0 +1,13 @@
+{
+  "node": "notrack_tg",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Direct use of unvalidated skb->_nfct field without bounds checking",
+  "analysis": "The function reads skb->_nfct which is a user-controlled field from the packet's connection tracking context. There are no bounds checks or validation of this field before use. The function directly uses the value without any verification that it's a valid pointer or within expected ranges, and could potentially dereference invalid memory if the packet data has been tampered with.",
+  "seconds": 9.8,
+  "code_chars": 240
+}

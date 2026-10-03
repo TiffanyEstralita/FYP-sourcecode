@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_free",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function appears to be a simple memory deallocator with no obvious vulnerability patterns, though it lacks input validation.",
+  "analysis": "The function ip_set_free takes a single parameter 'members' that could potentially be influenced by attacker-controlled data if it comes from netlink attributes or packet parsing. Memory is freed using kvfree() which handles both kmalloc and vmalloc allocations. The function performs no validation of the input pointer before freeing, and there's no indication of proper reference counting or lifecycle management checks.",
+  "seconds": 10.4,
+  "code_chars": 144
+}

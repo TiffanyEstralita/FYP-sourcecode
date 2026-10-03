@@ -1,0 +1,5 @@
+version,separation_cve,separation_function,mean_risk_vulnerable,mean_risk_ordinary,distinct_scores,errors,minutes
+v1,0.646,0.573,0.307,0.28,4,0,0.0
+v2,0.806,0.601,0.344,0.27,3,0,1.7
+v3,0.846,0.577,0.485,0.427,7,0,28.6
+v4,0.844,0.562,0.476,0.44,11,0,21.9

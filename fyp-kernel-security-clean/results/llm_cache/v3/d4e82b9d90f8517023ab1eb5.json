@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_put_flags",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-influenced data handling or unsafe memory operations present.",
+  "analysis": "The function processes set flags for netfilter integration but does not directly handle attacker-influenced packet data or netlink attributes. All inputs are derived from internal set configuration flags which are not directly user-controllable through this function. The function performs standard netlink attribute packing with no unsafe memory operations, arithmetic, or object reuse.",
+  "seconds": 13.0,
+  "code_chars": 601
+}

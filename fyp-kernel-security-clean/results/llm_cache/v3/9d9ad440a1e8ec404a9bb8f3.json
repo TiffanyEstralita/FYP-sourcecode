@@ -1,0 +1,13 @@
+{
+  "node": "xt_unregister_match",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "null_deref",
+  "justification": "Function dereferences attacker-controlled pointer without validation, risking null pointer dereference if match parameter is invalid.",
+  "analysis": "The function takes a pointer to a xt_match structure as input, which could be influenced by an attacker through netlink commands. Memory is read from match->family and written to match->list via list_del operation. The function performs no validation of the input pointer or its contents before use, and there's no check that the match structure is properly initialized or valid.",
+  "seconds": 10.7,
+  "code_chars": 166
+}

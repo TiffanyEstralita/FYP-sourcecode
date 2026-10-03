@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_delsetelem",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "Attacker can control nested attribute data which is processed without complete validation of lengths or offsets.",
+  "analysis": "The function processes attacker-controlled netlink attributes, specifically NFTA_SET_ELEM_LIST_ELEMENTS which contains set element data. Memory is read and copied from nested attributes without comprehensive bounds checking on the attribute lengths or offsets. The nft_del_setelem function is called with attacker data, but there's no explicit verification that the attribute data structure is valid before processing.",
+  "seconds": 15.7,
+  "code_chars": 1164
+}

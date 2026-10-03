@@ -1,0 +1,13 @@
+{
+  "node": "nft_trace_copy_nftrace",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "null_deref",
+  "justification": "Potential null pointer dereference when accessing pkt->skb->nf_trace without validation.",
+  "analysis": "The function reads from pkt->skb->nf_trace which is user-controlled data from packet metadata. The nf_trace pointer could be NULL or point to invalid memory if the packet was not properly traced. No bounds checking or validation is performed on the nf_trace pointer before dereferencing it.",
+  "seconds": 8.8,
+  "code_chars": 224
+}

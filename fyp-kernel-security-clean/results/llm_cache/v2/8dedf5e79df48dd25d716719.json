@@ -1,0 +1,13 @@
+{
+  "node": "ctnl_timeout_find_get",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs proper reference counting and null checks, with no obvious memory safety issues.",
+  "analysis": "",
+  "seconds": 8.0,
+  "code_chars": 506
+}

@@ -1,0 +1,13 @@
+{
+  "node": "__nft_reg_track_cancel",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Direct array indexing without bounds validation of user-provided register index",
+  "analysis": "This function takes a register index 'dreg' from user input and uses it to directly index into the 'track->regs' array without any bounds checking. An attacker could provide an invalid dreg value that exceeds the array bounds, leading to memory corruption when writing to track->regs[dreg]. The function performs direct memory writes to the array elements but does not validate the register index against the array size.",
+  "seconds": 10.0,
+  "code_chars": 173
+}

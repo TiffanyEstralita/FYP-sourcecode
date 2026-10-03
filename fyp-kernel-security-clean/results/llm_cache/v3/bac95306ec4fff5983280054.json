@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_fill_expr_info",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs standard netlink attribute operations with no apparent unchecked memory access patterns.",
+  "analysis": "The function processes netfilter expression data for netlink replies. Attacker-influenced data comes from the 'expr' parameter which contains expression operations and their dump functions. Memory is read from expr->ops->type->name and written via nla_put_string and nla_nest_start_noflag calls. The function does not perform explicit bounds checking on attacker-controlled data, though it relies on the underlying netlink attribute handling which should validate inputs. No obvious use-after-free or integer overflow issues are present.",
+  "seconds": 13.4,
+  "code_chars": 478
+}

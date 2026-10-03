@@ -1,0 +1,13 @@
+{
+  "node": "get_h225_addr",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 9.0,
+  "risk": 0.9,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled offsets to calculate a pointer into the packet data without checking if the resulting pointer is within valid packet boundaries.",
+  "analysis": "The function reads attacker-influenced data through 'taddr' which comes from packet contents and can control offsets and choices. Memory is read from 'data + offset' without validation of the offset against packet boundaries, and 'len' is used directly in memcpy operations. The function does not validate that the calculated 'p' pointer stays within the bounds of the input data buffer.",
+  "seconds": 15.1,
+  "code_chars": 627
+}

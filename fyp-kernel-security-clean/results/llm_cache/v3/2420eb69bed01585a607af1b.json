@@ -1,0 +1,13 @@
+{
+  "node": "cgroup_mt_v0",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only reads from fixed-size structure fields without complex memory operations or unchecked arithmetic.",
+  "analysis": "The function reads from info->id which comes from par->matchinfo (netlink attribute data) and compares it with sock_cgroup_classid(&skb->sk->sk_cgrp_data). The attacker can influence the matchinfo structure through netlink commands, but there are no explicit bounds checks on the input data. The function performs a simple comparison operation without complex memory handling or potential overflow issues.",
+  "seconds": 11.3,
+  "code_chars": 338
+}

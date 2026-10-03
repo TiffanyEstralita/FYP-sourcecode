@@ -1,0 +1,13 @@
+{
+  "node": "nf_osf_find",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 72.0,
+  "risk": 0.72,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses an untrusted index `ctx.df` to access a list without validating its bounds, which can lead to memory corruption.",
+  "analysis": "The function reads packet data via `ip_hdr()` and `nf_osf_hdr_ctx_init()`, which may be influenced by attacker-supplied packet contents. Memory is copied into `opts[MAX_IPOPTLEN]` and indexed via `ctx.df` from parsed packet data without clear bounds checking. The `list_for_each_entry_rcu` loop uses a potentially untrusted index `ctx.df` to access the `nf_osf_fingers` list, which could lead to out-of-bounds memory access if `ctx.df` is invalid.",
+  "seconds": 15.9,
+  "code_chars": 753
+}

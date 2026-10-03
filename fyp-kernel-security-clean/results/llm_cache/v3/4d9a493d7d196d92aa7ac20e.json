@@ -1,0 +1,13 @@
+{
+  "node": "cttimeout_get_timeout",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The name length is not validated against the actual netlink attribute data, risking buffer over-read if the name exceeds CTNL_TIMEOUT_NAME_MAX.",
+  "analysis": "The function reads the timeout name from netlink attribute CTA_TIMEOUT_NAME, which is directly user-controlled. It uses this name to search through a linked list of timeouts without additional validation of the name's length or bounds. The strncmp call uses CTNL_TIMEOUT_NAME_MAX as the maximum length, but there's no check that the actual name data from the netlink attribute doesn't exceed this limit or that the attribute itself is properly formatted. No memory is freed or reallocated in a way that would cause use-after-free issues.",
+  "seconds": 18.7,
+  "code_chars": 1126
+}

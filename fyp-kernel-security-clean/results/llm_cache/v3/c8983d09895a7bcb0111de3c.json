@@ -1,0 +1,13 @@
+{
+  "node": "nft_payload_offload_mask",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic on user-controlled lengths without sufficient validation to prevent buffer overflows.",
+  "analysis": "The function takes `priv_len` and `field_len` as inputs which could be influenced by user-supplied data, particularly in the context of netfilter rules. Memory is read and written to `reg->mask` and `mask` buffers, with potential for overflow if `field_len` is large. The function does not validate that `field_len` is within reasonable bounds relative to `priv_len`, and `memcpy` could copy more data than allocated in `reg->mask` if `field_len` is unbounded.",
+  "seconds": 14.9,
+  "code_chars": 653
+}

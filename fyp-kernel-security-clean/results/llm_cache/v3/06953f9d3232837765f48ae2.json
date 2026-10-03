@@ -1,0 +1,13 @@
+{
+  "node": "nf_osf_find",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The opts buffer is filled without validating the actual IP options length against MAX_IPOPTLEN.",
+  "analysis": "The function reads packet data via `ip_hdr()` and `nf_osf_hdr_ctx_init()`, which may be influenced by attacker-supplied packet contents. Memory is copied into `opts` buffer of size `MAX_IPOPTLEN` without checking if the actual IP options length exceeds this limit. The `list_for_each_entry_rcu` loop iterates over a user-provided list head, but no direct memory corruption or use-after-free issues are apparent from this code alone.",
+  "seconds": 20.7,
+  "code_chars": 753
+}

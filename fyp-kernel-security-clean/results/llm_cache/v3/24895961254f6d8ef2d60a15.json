@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_type_lock",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function is a simple lock acquisition with no attacker-controlled inputs or memory operations.",
+  "analysis": "This function does not handle any attacker-influenced data - it only acquires a lock on a global mutex. There are no memory operations, copies, or index calculations involving external inputs. The function simply calls mutex_lock() on a statically defined mutex without any user-supplied parameters.",
+  "seconds": 8.3,
+  "code_chars": 71
+}

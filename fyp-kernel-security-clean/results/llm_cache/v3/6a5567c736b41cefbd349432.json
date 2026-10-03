@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_exp_dump_tuple",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "While the function processes kernel-managed tuple data, it lacks explicit validation of potentially malformed tuple contents that could cause issues during dumping.",
+  "analysis": "The function takes a nf_conntrack_tuple pointer from the connection tracking structure and passes it to ctnetlink_dump_tuples without any validation of the tuple's contents. The tuple data comes from kernel-managed connection tracking structures, not directly from user input, but if the tuple is malformed or corrupted in memory, it could cause issues during dumping. No length checks are performed on the tuple data before processing, and the function doesn't handle potential integer overflows or underflows in the netlink attribute handling.",
+  "seconds": 17.5,
+  "code_chars": 380
+}

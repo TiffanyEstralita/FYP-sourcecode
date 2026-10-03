@@ -1,0 +1,13 @@
+{
+  "node": "nf_static_key_dec",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs simple array indexing with no unsafe operations, though it does use potentially untrusted input for array indices.",
+  "analysis": "This function takes a pointer to nf_hook_ops structure and an integer pf as inputs. The function accesses nf_hooks_needed array using pf and hooknum indices derived from the input parameters, but there are no bounds checks on these indices. The hooknum value comes from reg->hooknum which could be attacker-controlled through netfilter hook registration, and pf is also user-provided. No memory allocation, copying or freeing occurs in this function.",
+  "seconds": 11.5,
+  "code_chars": 327
+}

@@ -1,0 +1,13 @@
+{
+  "node": "callforward_do_filter",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete checks on routing lookups without obvious memory safety issues.",
+  "analysis": "The function processes network addresses from 'src' and 'dst' parameters, which are passed in as const pointers and likely derived from netfilter packet data or netlink attributes. Memory is read from these addresses and used in routing lookups, but no explicit bounds checking is performed on the address data itself. The function does not perform any dynamic memory allocation or deallocation beyond standard kernel routing functions, and there are no obvious use-after-free or null dereference issues.",
+  "seconds": 29.5,
+  "code_chars": 1398
+}

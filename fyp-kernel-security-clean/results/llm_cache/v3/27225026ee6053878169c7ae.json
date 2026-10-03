@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_get_packets",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Simple atomic read with no attacker-controlled inputs or unsafe operations",
+  "analysis": "This function reads a 64-bit atomic value from a counter structure. The input 'counter' is a pointer to a struct ip_set_counter that is passed in as a parameter, but there are no attacker-influenced inputs since this is a simple read operation. No memory is allocated, freed, or copied, and no indexing or arithmetic operations are performed on attacker-controlled data.",
+  "seconds": 9.2,
+  "code_chars": 120
+}

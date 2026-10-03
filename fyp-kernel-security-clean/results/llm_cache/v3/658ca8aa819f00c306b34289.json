@@ -1,0 +1,13 @@
+{
+  "node": "devgroup_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs bitwise operations on validated input fields without any unsafe memory handling.",
+  "analysis": "The function reads from attacker-influenced fields in the xt_devgroup_info structure (src_group, dst_group, src_mask, dst_mask, flags) without any validation of these values. The function performs bitwise operations and XOR comparisons using these values but does not check if the mask values are valid or if the flags are properly set. There are no memory allocations, copies, or frees in this function, and no obvious integer overflows or use-after-free conditions.",
+  "seconds": 14.0,
+  "code_chars": 536
+}

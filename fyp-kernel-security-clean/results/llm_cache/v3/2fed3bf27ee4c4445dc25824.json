@@ -1,0 +1,13 @@
+{
+  "node": "ctnl_timeout_put",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only handles internal kernel object cleanup with proper reference counting and RCU synchronization, no attacker-influenced data processing.",
+  "analysis": "This function does not directly process attacker-influenced inputs as it only handles reference counting and cleanup of kernel objects. The function operates on a timeout object that is allocated internally by the kernel, not from external packet or netlink data. Memory operations are limited to reference counting and RCU-based freeing, with no direct memory copying, indexing, or arithmetic operations that could overflow. The function properly uses refcount_dec_and_test for safe reference counting and kfree_rcu for proper RCU synchronization.",
+  "seconds": 17.1,
+  "code_chars": 249
+}

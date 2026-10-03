@@ -1,0 +1,13 @@
+{
+  "node": "xt_compat_match_offset",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs safe arithmetic with proper alignment calculations and no obvious vulnerability patterns",
+  "analysis": "",
+  "seconds": 5.6,
+  "code_chars": 180
+}

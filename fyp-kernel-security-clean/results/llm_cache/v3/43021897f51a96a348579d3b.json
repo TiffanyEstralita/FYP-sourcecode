@@ -1,0 +1,13 @@
+{
+  "node": "connlabel_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses an attacker-controlled bit index without validating it against the maximum allowed bits, leading to potential out-of-bounds memory access.",
+  "analysis": "The function reads from attacker-influenced data through `info->bit` which comes from `par->matchinfo` and is user-supplied. The `info->bit` is used as an index to access `labels->bits` without validation of its bounds against the maximum number of bits allowed for connection labels. No checks are performed to ensure `info->bit` is within valid range before calling `test_bit()` and `test_and_set_bit()`. Memory is accessed via bit manipulation on `labels->bits` which could lead to out-of-bounds access if `info->bit` exceeds the allocated size.",
+  "seconds": 17.1,
+  "code_chars": 651
+}

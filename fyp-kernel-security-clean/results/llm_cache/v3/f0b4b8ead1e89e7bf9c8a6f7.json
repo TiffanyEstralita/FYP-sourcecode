@@ -1,0 +1,13 @@
+{
+  "node": "nfnetlink_unicast",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only performs simple netlink unicast operation with no vulnerable memory operations or attacker-influenced data handling beyond basic parameters.",
+  "analysis": "This function takes a sk_buff pointer and portid from netlink communication, but performs no validation of the packet contents or portid value. The skb is passed directly to nlmsg_unicast without any checks on its length, structure, or content. The portid is also not validated, potentially allowing malicious values. No memory allocation, copying, or indexing occurs in this function that could be exploited.",
+  "seconds": 11.3,
+  "code_chars": 235
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_cthelper_del",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "The helper name is read from netlink attribute without checking its length against NF_CT_HELPER_NAME_LEN, allowing potential buffer overflow or out-of-bounds access.",
+  "analysis": "The function processes attacker-controlled netlink attributes including helper name and tuple data. It uses nla_data() to access the helper name without length validation, and performs list traversal with potential use-after-free if refcnt is decremented to zero. The code does not validate the length of the netlink attribute data before use, and there's a potential race condition if the helper is freed while still referenced elsewhere.",
+  "seconds": 18.1,
+  "code_chars": 1230
+}

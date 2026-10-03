@@ -1,0 +1,13 @@
+{
+  "node": "xt_ct_tg_check",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "use_after_free",
+  "justification": "Potential use of freed object if helper or timeout strings are improperly handled after allocation.",
+  "analysis": "The function processes user-supplied data from `info` struct which includes helper name, timeout string, and zone parameters. Memory is allocated with `nf_ct_tmpl_alloc` and freed with `nf_ct_tmpl_free`, with potential use-after-free if `xt_ct_put_helper` is called on a null pointer or if `ct` is not properly initialized. The `strnlen` checks prevent buffer overflows but do not fully validate the helper and timeout strings before use in subsequent functions.",
+  "seconds": 21.0,
+  "code_chars": 1624
+}

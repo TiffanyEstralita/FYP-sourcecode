@@ -1,0 +1,13 @@
+{
+  "node": "nft_unregister_chain_type",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs array indexing with potentially untrusted data but with no actual memory manipulation or object reuse.",
+  "analysis": "This function takes a pointer to nft_chain_type structure as input, where family and type fields could potentially be influenced by user-supplied data if the structure comes from netlink input. The function uses these fields as array indices in chain_type[ctype->family][ctype->type] without any validation of their values against valid ranges. There are no memory reads, writes, copies, allocations or frees occurring in this function.",
+  "seconds": 11.1,
+  "code_chars": 188
+}

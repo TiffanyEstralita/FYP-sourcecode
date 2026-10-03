@@ -1,0 +1,13 @@
+{
+  "node": "nf_ingress_hook",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function is a simple boolean comparison with no memory access or attacker-controlled data handling.",
+  "analysis": "This function takes a const pointer to nf_hook_ops structure and an integer pf as inputs. The function only performs simple comparisons and returns a boolean value without any memory operations, allocations, or dereferences of attacker-controlled data. No attacker-influenced lengths, offsets, or indices are used in memory operations.",
+  "seconds": 9.0,
+  "code_chars": 261
+}

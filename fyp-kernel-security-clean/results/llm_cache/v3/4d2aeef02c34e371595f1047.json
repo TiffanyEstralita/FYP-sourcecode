@@ -1,0 +1,13 @@
+{
+  "node": "addrtype_mt_v1",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses user-supplied matchinfo fields without validating their contents before passing them to other functions.",
+  "analysis": "The function reads attacker-influenced data through `info->flags`, `info->source`, and `info->dest` from the matchinfo structure, which is user-supplied via netlink. It performs no explicit bounds checking on these values before use, and the `match_type` function may be called with potentially invalid addresses. There are no obvious memory allocation, deallocation, or indexing operations that could lead to use-after-free or overflow issues.",
+  "seconds": 15.0,
+  "code_chars": 822
+}

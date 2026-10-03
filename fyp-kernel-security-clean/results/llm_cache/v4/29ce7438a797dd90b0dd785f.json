@@ -1,0 +1,13 @@
+{
+  "node": "hash_mac4_uadt",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "missing_bounds_check",
+  "justification": "The function validates the netlink attribute length but does not check for potential out-of-bounds access when copying the Ethernet address.",
+  "analysis": "The function reads attacker-controlled data from netlink attributes, specifically the Ethernet address via IPSET_ATTR_ETHER. It validates that the attribute exists and has the correct length (ETH_ALEN), but does not perform additional bounds checking on the data read. The ether_addr_copy function copies the data without further validation, and the copied data is passed to the ADT function without additional sanitization.",
+  "seconds": 14.5,
+  "code_chars": 736
+}

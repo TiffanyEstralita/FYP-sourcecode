@@ -1,0 +1,13 @@
+{
+  "node": "find_set_and_id",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Loop index i is not validated against attacker-controlled ip_set_max, potentially leading to out-of-bounds memory access.",
+  "analysis": "The function takes a user-provided name string and compares it with set names, but there are no bounds checks on the ip_set_max value or the index i. The ip_set_max could be attacker-controlled through netlink attributes, and if it's large enough, the loop could access memory beyond the allocated set array. No explicit length checking is performed on the name string comparison, though STRNCMP likely handles this. The function returns a pointer that may be used without additional validation.",
+  "seconds": 12.8,
+  "code_chars": 357
+}

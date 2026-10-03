@@ -1,0 +1,13 @@
+{
+  "node": "nfnetlink_has_listeners",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs a simple lookup with minimal validation, no obvious memory safety issues.",
+  "analysis": "This function takes a group parameter from user space (netlink attributes) and passes it directly to netlink_has_listeners() without any validation. The group parameter is an unsigned int that could be attacker-controlled through netlink messages. The function performs a simple lookup operation using this group value as an index into netlink socket structures, but there's no bounds checking to ensure the group is valid or within expected ranges. No memory allocation, copying, or freeing occurs in this function.",
+  "seconds": 10.8,
+  "code_chars": 168
+}

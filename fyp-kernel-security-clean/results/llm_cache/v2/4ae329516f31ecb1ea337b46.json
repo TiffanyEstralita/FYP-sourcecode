@@ -1,0 +1,13 @@
+{
+  "node": "getorigdst",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete checks on input length and socket protocol, with proper locking and reference counting.",
+  "analysis": "",
+  "seconds": 15.2,
+  "code_chars": 1676
+}

@@ -1,0 +1,13 @@
+{
+  "node": "connmark_tg_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only performs a simple netns reference counting operation with no obvious security vulnerabilities.",
+  "analysis": "The function takes a parameter 'par' which contains net and family fields that could potentially be influenced by attackers through netlink configuration. However, the function only calls nf_ct_netns_put() with these parameters without any validation or bounds checking. The memory operations are minimal - just a function call to release netns reference. There are no direct memory reads, writes, or copies from attacker-controlled data, and no obvious integer overflows or use-after-free scenarios.",
+  "seconds": 13.2,
+  "code_chars": 111
+}

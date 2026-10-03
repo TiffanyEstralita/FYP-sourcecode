@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_app_seq_show",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function appears safe as it only reads from well-defined struct members and uses proper seq_file APIs without obvious vulnerability patterns.",
+  "analysis": "",
+  "seconds": 7.3,
+  "code_chars": 355
+}

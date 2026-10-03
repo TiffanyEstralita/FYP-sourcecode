@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_create",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "Potential integer overflow in calculation of new ip_set_max value when expanding the set list, which could lead to memory corruption.",
+  "analysis": "The function processes attacker-controlled netlink attributes including set name, type name, family, and revision. Memory is allocated for a set structure and data is copied from netlink attributes using nla_data() and nla_get_u8(). The primary risk involves potential integer overflow in the IP set list expansion logic when calculating new size with IP_SET_INC, and lack of bounds checking on the name length during strscpy(). No use-after-free or null dereference patterns are evident.",
+  "seconds": 33.5,
+  "code_chars": 3763
+}

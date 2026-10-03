@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipmark6_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-influenced data handling or obvious memory safety issues present.",
+  "analysis": "The function processes hash buckets from a hash table but does not validate any attacker-controlled inputs. The loop index 'i' is bounded by jhash_size(t->htable_bits) which is derived from the hash table configuration, not user input. No memory is read or written using attacker-influenced offsets or lengths. The function frees memory pointed to by 'n' and 't->hregion', but there's no evidence of use-after-free or null dereference issues since all pointers are validated before use.",
+  "seconds": 12.8,
+  "code_chars": 428
+}

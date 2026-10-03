@@ -1,0 +1,122 @@
+# Prompt versions for the LLM risk-scoring stage.
+#
+# Each version is a template; {name}, {file} and {code} are filled in for
+# every function. The model must answer with JSON only. `scale` is the
+# highest possible risk_score (used to normalise scores to 0-1).
+#
+# Rules for writing prompts (keeps the evaluation fair):
+#   - only GENERAL security knowledge - never hints about a specific CVE,
+#     file or feature (no "watch out for VLAN code")
+#   - versions are compared on the TUNING CVEs only (tune_prompt.py)
+#   - once a version is chosen it is frozen and used for the final run
+
+patterns: [missing_bounds_check, integer_overflow_underflow, use_after_free,
+           null_deref, race_condition, uninitialized_memory, other, none]
+
+versions:
+  v1:
+    description: The project brief's prompt (0-10, no guidance)
+    scale: 10
+    template: |
+      You are a Linux kernel security reviewer. Rate how likely this netfilter
+      function contains a security vulnerability.
+
+      Respond with JSON only, no other text:
+      {{"risk_score": <integer 0-10>, "pattern": "<one of: {patterns}>", "justification": "<one line>"}}
+
+      Function `{name}` from {file}:
+      ```c
+      {code}
+      ```
+
+  v2:
+    description: v1 + a scoring guide that defines each score band
+    scale: 10
+    template: |
+      You are a Linux kernel security reviewer. Rate how likely this netfilter
+      function contains a security vulnerability that an attacker could trigger.
+
+      Scoring guide:
+      - 9-10: clear bug - memory is read/written using a length, offset or index
+        that can come from packet or netlink data without a complete check; or an
+        object is used after it may have been freed.
+      - 6-8: risky - parses or copies attacker-influenced data, does length or
+        offset arithmetic that could overflow/underflow, or frees objects that
+        other code may still reference, and the checks are hard to confirm.
+      - 3-5: handles external data or shared objects but the checks look complete.
+      - 0-2: no attacker-influenced data handling: simple wrappers, lock/unlock,
+        reference counting, registration, init/exit, printing or dumping.
+
+      Respond with JSON only, no other text:
+      {{"risk_score": <integer 0-10>, "pattern": "<one of: {patterns}>", "justification": "<one line>"}}
+
+      Function `{name}` from {file}:
+      ```c
+      {code}
+      ```
+
+  v3:
+    description: v2 + think first (where does data come from, what is checked) before scoring
+    scale: 10
+    template: |
+      You are a Linux kernel security reviewer. Rate how likely this netfilter
+      function contains a security vulnerability that an attacker could trigger.
+
+      First analyse briefly:
+      1. Which inputs could an attacker influence (packet contents, netlink
+         attributes, user-supplied lengths/offsets/indices)?
+      2. Where is memory read, written, copied, indexed, allocated or freed?
+      3. Are lengths, offsets and indices fully checked before use, including
+         arithmetic that could overflow or underflow? Can freed objects still be used?
+
+      Scoring guide:
+      - 9-10: clear bug - memory is read/written using a length, offset or index
+        that can come from packet or netlink data without a complete check; or an
+        object is used after it may have been freed.
+      - 6-8: risky - parses or copies attacker-influenced data, does length or
+        offset arithmetic that could overflow/underflow, or frees objects that
+        other code may still reference, and the checks are hard to confirm.
+      - 3-5: handles external data or shared objects but the checks look complete.
+      - 0-2: no attacker-influenced data handling: simple wrappers, lock/unlock,
+        reference counting, registration, init/exit, printing or dumping.
+
+      Respond with JSON only, no other text, with the analysis first:
+      {{"analysis": "<2-4 sentences answering 1-3>", "risk_score": <integer 0-10>, "pattern": "<one of: {patterns}>", "justification": "<one line>"}}
+
+      Function `{name}` from {file}:
+      ```c
+      {code}
+      ```
+
+  v4:
+    description: v3 with a finer 0-100 scale (fewer ties)
+    scale: 100
+    template: |
+      You are a Linux kernel security reviewer. Rate how likely this netfilter
+      function contains a security vulnerability that an attacker could trigger.
+
+      First analyse briefly:
+      1. Which inputs could an attacker influence (packet contents, netlink
+         attributes, user-supplied lengths/offsets/indices)?
+      2. Where is memory read, written, copied, indexed, allocated or freed?
+      3. Are lengths, offsets and indices fully checked before use, including
+         arithmetic that could overflow or underflow? Can freed objects still be used?
+
+      Scoring guide (use the whole range; pick a precise value within a band):
+      - 85-100: clear bug - memory is read/written using a length, offset or index
+        that can come from packet or netlink data without a complete check; or an
+        object is used after it may have been freed.
+      - 60-84: risky - parses or copies attacker-influenced data, does length or
+        offset arithmetic that could overflow/underflow, or frees objects that
+        other code may still reference, and the checks are hard to confirm.
+      - 25-59: handles external data or shared objects but the checks look complete.
+      - 0-24: no attacker-influenced data handling: simple wrappers, lock/unlock,
+        reference counting, registration, init/exit, printing or dumping.
+
+      Respond with JSON only, no other text, with the analysis first:
+      {{"analysis": "<2-4 sentences answering 1-3>", "risk_score": <integer 0-100>, "pattern": "<one of: {patterns}>", "justification": "<one line>"}}
+
+      Function `{name}` from {file}:
+      ```c
+      {code}
+      ```

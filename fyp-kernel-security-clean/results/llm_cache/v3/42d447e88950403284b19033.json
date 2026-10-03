@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_seqadj_set",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete checks and does not exhibit clear memory safety issues.",
+  "analysis": "The function takes attacker-influenced parameters 'seq' and 'off' from packet processing, but these are not directly used in memory operations or indexing. The 'off' parameter is checked for zero before use, and 'seq' is converted using ntohl() before comparison. No direct memory access, allocation, or deallocation occurs based on attacker input. The function only updates internal connection tracking state with no obvious buffer overflows or use-after-free issues.",
+  "seconds": 14.9,
+  "code_chars": 748
+}

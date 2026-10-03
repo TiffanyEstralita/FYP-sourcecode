@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_conn_del",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "use_after_free",
+  "justification": "Function accesses timer and control fields without validating input pointer or checking if structure has been freed, creating potential use-after-free vulnerability.",
+  "analysis": "The function `ip_vs_conn_del` takes a pointer to `struct ip_vs_conn` as input, which could be influenced by attacker-controlled data through netlink operations or packet processing. The function accesses `cp->timer` and `cp->control` fields without validating that the input pointer is valid or that the structure is properly initialized. There are no bounds checks or null validations before accessing these fields, and the timer deletion could lead to use-after-free if the structure is freed before the timer callback completes.",
+  "seconds": 13.2,
+  "code_chars": 193
+}

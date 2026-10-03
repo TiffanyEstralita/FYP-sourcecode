@@ -1,0 +1,13 @@
+{
+  "node": "esp_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs basic checks; no clear memory safety violations detected.",
+  "analysis": "The function reads packet data using skb_header_pointer with a length derived from par->thoff, which is user-controlled. The espinfo structure contains attacker-influenced spi values that are used in spi_match. No obvious buffer overflows or use-after-free issues are present, but the function relies on proper validation of packet headers and matchinfo parameters.",
+  "seconds": 14.3,
+  "code_chars": 642
+}

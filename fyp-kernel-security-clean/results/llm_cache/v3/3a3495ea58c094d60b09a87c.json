@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_getsetelem",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The nested attribute parsing lacks complete validation of attribute structure and content before passing to nft_get_set_elem.",
+  "analysis": "The function processes netlink attributes including NFTA_SET_ELEM_LIST_ELEMENTS which contains attacker-controlled data. The nla_for_each_nested loop iterates over these attributes without clear bounds checking on the nested structure, and nft_get_set_elem is called with the attribute directly. There are no obvious integer overflows or use-after-free issues, but the nested attribute parsing could allow memory access violations if the attribute structure is malformed.",
+  "seconds": 18.6,
+  "code_chars": 1433
+}

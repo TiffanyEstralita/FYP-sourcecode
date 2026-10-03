@@ -1,0 +1,13 @@
+{
+  "node": "classify_tg",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only copies a fixed value from target info to skb priority without any attacker-influenced data handling or memory operations.",
+  "analysis": "",
+  "seconds": 6.3,
+  "code_chars": 211
+}

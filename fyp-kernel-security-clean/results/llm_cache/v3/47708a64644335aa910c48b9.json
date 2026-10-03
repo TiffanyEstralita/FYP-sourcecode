@@ -1,0 +1,13 @@
+{
+  "node": "nf_hook_slow",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No attacker-influenced data leads to unsafe memory access or control flow.",
+  "analysis": "The function `nf_hook_slow` processes network packets through a series of hooks, with the index `s` controlled by the loop condition and potentially influenced by the number of hook entries in `e->num_hook_entries`. Memory is read from `e->hooks[s]` and written to `verdict`, but no attacker-controlled inputs directly affect the loop bounds or memory access. The function does not perform any unsafe memory operations, arithmetic checks, or use-after-free scenarios.",
+  "seconds": 14.8,
+  "code_chars": 736
+}

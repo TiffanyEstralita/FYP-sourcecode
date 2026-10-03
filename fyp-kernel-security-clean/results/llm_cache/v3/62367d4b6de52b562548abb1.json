@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_read_estimator",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "No validation of attacker-controlled estimator fields before arithmetic operations.",
+  "analysis": "The function reads from stats->est which is a user-supplied structure that could be influenced by an attacker through netlink operations. The function performs arithmetic operations on fields from the estimator structure but does not validate or check the values before use. There are no bounds checks on the input data, and the attacker could potentially manipulate the estimator fields to cause unexpected behavior.",
+  "seconds": 11.1,
+  "code_chars": 319
+}

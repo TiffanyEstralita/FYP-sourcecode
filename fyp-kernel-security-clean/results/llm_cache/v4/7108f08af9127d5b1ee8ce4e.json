@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_offload_destroy",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "use_after_free",
+  "justification": "Function calls __nf_flow_offload_destroy on potentially invalid array elements without proper validation, risking use-after-free if elements are freed or NULL.",
+  "analysis": "The function takes an array of nf_flow_rule pointers from user space via flow_rule parameter. It iterates through FLOW_OFFLOAD_DIR_MAX (typically 2) entries and calls __nf_flow_offload_destroy on each. The loop index i is bounded by FLOW_OFFLOAD_DIR_MAX, but the function doesn't validate that the input array elements are valid or non-NULL before dereferencing them. If flow_rule contains NULL pointers or invalid entries, this could lead to use-after-free or null pointer dereference issues.",
+  "seconds": 13.2,
+  "code_chars": 169
+}

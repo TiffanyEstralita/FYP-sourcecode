@@ -1,0 +1,13 @@
+{
+  "node": "hash_mac4_uadt",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete checks on netlink attributes including length validation and ether address verification.",
+  "analysis": "",
+  "seconds": 9.5,
+  "code_chars": 736
+}

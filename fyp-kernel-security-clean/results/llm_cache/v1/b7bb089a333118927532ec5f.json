@@ -1,0 +1,13 @@
+{
+  "node": "ctnl_timeout_try_del",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function properly handles reference counting with refcount_dec_if_one and uses RCU-safe list deletion, preventing use-after-free scenarios.",
+  "analysis": "",
+  "seconds": 7.7,
+  "code_chars": 450
+}

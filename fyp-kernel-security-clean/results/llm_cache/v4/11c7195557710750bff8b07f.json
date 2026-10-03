@@ -1,0 +1,13 @@
+{
+  "node": "cttimeout_net_exit",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "No attacker-influenced data handling or obvious memory safety issues present.",
+  "analysis": "The function processes a linked list of timeout objects from pernet data structure. Attackers could influence the contents of the freelist through netlink operations that add entries to it. Memory is read and freed during list traversal, but no attacker-controlled lengths or offsets are used directly in memory operations. The code properly checks reference counts before freeing objects.",
+  "seconds": 10.9,
+  "code_chars": 436
+}

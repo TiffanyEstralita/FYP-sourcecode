@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_match_counter",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function is a simple comparison utility with no memory access or attacker-influenced data handling beyond basic arithmetic operations.",
+  "analysis": "This function takes three parameters: counter (u64), match (u64), and op (u8). The op parameter is likely derived from user-supplied netlink attributes during set operations, making it attacker-influenced. However, the function only performs a switch operation on the op value and compares two u64 values without any memory operations, bounds checking, or pointer dereferences. The function simply returns boolean results based on comparisons and switch cases.",
+  "seconds": 12.9,
+  "code_chars": 343
+}

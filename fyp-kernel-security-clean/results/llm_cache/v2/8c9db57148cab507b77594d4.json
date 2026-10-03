@@ -1,0 +1,13 @@
+{
+  "node": "get_callid",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic on dataoff and uses matchoff/matchlen as offsets into dptr without sufficient bounds checking against the original datalen, risking integer overflow or underflow.",
+  "analysis": "",
+  "seconds": 12.4,
+  "code_chars": 950
+}

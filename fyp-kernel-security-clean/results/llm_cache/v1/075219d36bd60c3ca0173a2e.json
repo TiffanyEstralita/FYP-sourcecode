@@ -1,0 +1,13 @@
+{
+  "node": "nft_chain_validate",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs proper bounds checking and error handling without obvious vulnerabilities",
+  "analysis": "",
+  "seconds": 7.3,
+  "code_chars": 553
+}

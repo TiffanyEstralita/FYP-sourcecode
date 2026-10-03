@@ -1,0 +1,13 @@
+{
+  "node": "xt_dnat_target_v1",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "uninitialized_memory",
+  "justification": "Function copies attacker-controlled data without validation, potentially leaving uninitialized memory in the destination structure.",
+  "analysis": "The function copies data from `par->targinfo` (which contains attacker-controlled netlink attributes) into a local `range` structure without validating the input size or contents. The `memcpy` operation uses `sizeof(*range_v1)` which is fixed, but if the input data is smaller than expected, it may leave uninitialized bytes in the destination. There are no checks on the validity of the input data before copying, and no overflow/underflow protection for potential length fields. No memory is freed or reused after use.",
+  "seconds": 14.5,
+  "code_chars": 507
+}

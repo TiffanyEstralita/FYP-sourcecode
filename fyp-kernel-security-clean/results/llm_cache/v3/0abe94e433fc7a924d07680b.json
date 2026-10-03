@@ -1,0 +1,13 @@
+{
+  "node": "hashlimit_mt_v2",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The cfg_copy function is called with a fixed length of 2 that may not be validated against the actual size of the user-provided data structure.",
+  "analysis": "The function receives attacker-influenced data through `par->matchinfo` which contains `xt_hashlimit_mtinfo2` structure. The `cfg_copy` function is called with a length parameter of 2, which could be controlled by an attacker if the input structure is not properly validated. Memory is copied from user space into the local `cfg` structure, and the return value is directly used without additional validation of the copy operation results.",
+  "seconds": 16.2,
+  "code_chars": 366
+}

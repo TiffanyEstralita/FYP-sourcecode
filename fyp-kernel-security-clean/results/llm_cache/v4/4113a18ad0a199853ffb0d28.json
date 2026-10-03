@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_userspace_cthelper",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "Function only reads from RCU-protected data and uses fixed flag checks without attacker-controlled memory operations.",
+  "analysis": "The function reads from attacker-influenced packet data via 'skb' and 'ct' parameters, but does not perform any direct memory access or manipulation based on user-supplied lengths/offsets. It dereferences RCU-protected pointers and uses helper configuration flags, which are not directly controlled by attackers in a way that would lead to memory corruption. No obvious integer overflows, use-after-free, or null dereferences are present.",
+  "seconds": 15.2,
+  "code_chars": 734
+}

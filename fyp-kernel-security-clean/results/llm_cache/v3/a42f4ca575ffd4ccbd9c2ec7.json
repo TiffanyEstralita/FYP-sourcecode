@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_expect_dst_hash",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles internal conntrack tuple data with no obvious bounds violations, overflows, or use-after-free conditions.",
+  "analysis": "The function processes packet tuple data including destination address, port, and protocol information, but does not directly handle attacker-influenced inputs beyond the tuple parameter which is derived from conntrack data. Memory operations are straightforward: memset, assignment, and hash calculation using fixed-size structures. No unsafe arithmetic, pointer dereferences, or memory management issues are present.",
+  "seconds": 17.1,
+  "code_chars": 695
+}

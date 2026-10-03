@@ -1,0 +1,13 @@
+{
+  "node": "nft_flowtable_type_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "use_after_free",
+  "justification": "Potential use-after-free when accessing type->owner after try_module_get() without proper locking or reference counting guarantees.",
+  "analysis": "The function receives 'family' as input which could be influenced by userspace via netlink commands. It calls __nft_flowtable_type_get() which may return a type structure, and then calls try_module_get() on type->owner which could lead to use-after-free if the module is unloaded concurrently. The function doesn't perform any bounds checking on the family parameter before using it as an index, and there's potential for race conditions with module loading/unloading.",
+  "seconds": 18.8,
+  "code_chars": 454
+}

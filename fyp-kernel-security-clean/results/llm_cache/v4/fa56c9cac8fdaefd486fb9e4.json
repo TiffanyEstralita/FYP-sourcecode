@@ -1,0 +1,13 @@
+{
+  "node": "nf_register_sockopt",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "No direct memory access, read, write, or allocation occurs; the function only performs list traversal and comparison of user-supplied values.",
+  "analysis": "The function accepts a user-provided struct nf_sockopt_ops via 'reg' parameter, which contains fields like set_optmin, set_optmax, get_optmin, and get_optmax that could be attacker-controlled. These values are used in the overlap() function without explicit validation of their ranges or bounds. The list operations themselves are safe, but the overlap check relies on potentially untrusted input that could lead to incorrect behavior if not properly validated.",
+  "seconds": 16.3,
+  "code_chars": 727
+}

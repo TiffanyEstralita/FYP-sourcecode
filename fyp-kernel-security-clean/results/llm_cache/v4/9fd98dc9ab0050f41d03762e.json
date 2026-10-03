@@ -1,0 +1,13 @@
+{
+  "node": "xt_compat_match_to_user",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs arithmetic on user-supplied match sizes without comprehensive validation of resulting values.",
+  "analysis": "The function handles user-supplied data through the 'm' parameter which contains match data that could be influenced by an attacker. Memory is read/written via pointers to user space and copied using XT_OBJ_TO_USER and COMPAT_XT_DATA_TO_USER macros. The function performs arithmetic operations on 'msize' and 'off' but does not validate that these values are within safe bounds before use, potentially allowing for integer overflow or underflow issues.",
+  "seconds": 13.6,
+  "code_chars": 621
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_unlock",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing bounds check on attacker-influenced subsys_id parameter before array indexing.",
+  "analysis": "The function nfnl_unlock takes a subsys_id parameter that could potentially be influenced by an attacker through netlink messages. It uses this parameter as an index to access the table array and unlock a mutex. However, there are no bounds checks on subsys_id before using it as an array index, which could lead to out-of-bounds memory access if an invalid subsys_id is provided. The function directly accesses table[subsys_id] without validating that subsys_id is within valid range.",
+  "seconds": 11.8,
+  "code_chars": 76
+}

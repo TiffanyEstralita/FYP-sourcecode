@@ -1,0 +1,13 @@
+{
+  "node": "physdev_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete checks on all inputs before use.",
+  "analysis": "The function reads from attacker-influenced fields in `info` structure (bitmask, invert flags, physindev, physoutdev, in_mask, out_mask) without comprehensive validation. It uses these values to index into or compare against device names, but does not validate the lengths or alignment of the device name strings. There are no obvious use-after-free or null dereference issues, and the function primarily performs logical checks and string comparisons with validated inputs.",
+  "seconds": 23.6,
+  "code_chars": 2080
+}

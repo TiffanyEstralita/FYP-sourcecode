@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_compat_get_rcu",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing validation of netlink attribute contents before use in string formatting and function calls.",
+  "analysis": "The function processes attacker-controlled netlink attributes including name, revision, and type. It uses nla_data() and nla_get_be32() to extract these values without comprehensive validation of their bounds or sanity checks. The name string is used in a format string without verification of its contents, and the target value is passed directly to xt_find_revision() which could lead to incorrect behavior if not properly validated. There are no obvious use-after-free issues but the lack of input validation makes it vulnerable to malformed data.",
+  "seconds": 20.0,
+  "code_chars": 1564
+}

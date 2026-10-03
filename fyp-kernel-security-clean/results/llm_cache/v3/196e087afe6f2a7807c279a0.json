@@ -1,0 +1,13 @@
+{
+  "node": "nfnetlink_set_err",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function is a simple wrapper with no memory operations, but accepts unvalidated netlink inputs",
+  "analysis": "This function takes attacker-influenced parameters (portid, group, error) from netlink messages but performs no validation or bounds checking on them before passing to netlink_set_err. The inputs are directly passed through without any sanitization or range checking. The function simply acts as a wrapper that forwards these parameters to the netlink subsystem without any memory operations or object management that could lead to use-after-free or similar issues.",
+  "seconds": 10.8,
+  "code_chars": 185
+}

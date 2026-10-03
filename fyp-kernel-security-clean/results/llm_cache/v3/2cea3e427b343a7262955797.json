@@ -1,0 +1,13 @@
+{
+  "node": "secmark_tg_check",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs basic validation and comparison operations without handling attacker-controlled memory access patterns.",
+  "analysis": "The function accepts a pointer to xt_secmark_target_info_v1 which contains user-supplied mode value. There are no direct memory operations, allocations, or frees occurring in this function. The only potential issue is that info->mode is used in comparisons without additional validation of its bounds beyond the switch statement, though the switch does cover all valid modes. No attacker-controlled data is used for memory access, indexing, or length calculations.",
+  "seconds": 13.8,
+  "code_chars": 715
+}

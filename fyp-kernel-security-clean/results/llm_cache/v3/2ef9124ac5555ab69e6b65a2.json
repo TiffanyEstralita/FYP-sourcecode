@@ -1,0 +1,13 @@
+{
+  "node": "__nft_reg_track_update",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Unbounded array indexing with attacker-controlled parameters dreg and num_reg",
+  "analysis": "This function takes attacker-influenced parameters dreg and num_reg which are used as array indices and values without any bounds checking. The dreg parameter is used to index into track->regs[] array without verifying it's within valid range, and num_reg is directly assigned without validation. There are no length checks or overflow protections for these parameters.",
+  "seconds": 9.9,
+  "code_chars": 241
+}

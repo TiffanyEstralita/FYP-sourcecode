@@ -1,0 +1,13 @@
+{
+  "node": "ctnl_timeout_fill_info",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses user-supplied data without explicit bounds checking on string or data buffer lengths.",
+  "analysis": "The function processes attacker-influenced data through the 'timeout' parameter which contains user-supplied netlink attributes. Memory is read from 'timeout->name', 'timeout->timeout.l3num', 'l4proto->l4proto', and 'timeout->timeout.data', and written to netlink messages. The function does not perform explicit bounds checking on the length or content of 'timeout->name' or 'timeout->timeout.data' before use, and relies on the l4proto's 'obj_to_nlattr' callback which could be maliciously crafted. There are no obvious use-after-free issues, but the lack of validation on user-provided data could lead to memory corruption.",
+  "seconds": 20.1,
+  "code_chars": 1171
+}

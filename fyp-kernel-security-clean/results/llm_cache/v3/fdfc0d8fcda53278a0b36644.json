@@ -1,0 +1,13 @@
+{
+  "node": "nf_conntrack_alter_reply",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Direct assignment of attacker-controlled tuple without validation of its contents or structure.",
+  "analysis": "The function takes a new reply tuple from user space via the 'newreply' parameter, which could be attacker-influenced. It directly assigns this tuple to ct->tuplehash[IP_CT_DIR_REPLY].tuple without any validation or bounds checking of the tuple contents. The function doesn't perform any length checks on the tuple data, and there's no verification that the tuple is properly formed before assignment.",
+  "seconds": 11.5,
+  "code_chars": 444
+}

@@ -1,0 +1,13 @@
+{
+  "node": "secmark_tg_v1",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function passes attacker-influenced target info without bounds checking, relying on downstream function to validate input.",
+  "analysis": "The function `secmark_tg_v1` simply calls `secmark_tg` with the target info from `par->targinfo`. The attacker could influence `par->targinfo` through netlink attributes when configuring the xt_SECMARK target. Memory is read from `par->targinfo` which contains user-supplied data, but no explicit bounds checking is performed in this wrapper function before passing it to `secmark_tg`. The security risk depends on the implementation of `secmark_tg` which is not shown here.",
+  "seconds": 12.0,
+  "code_chars": 133
+}

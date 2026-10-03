@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_destroy_timeout",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles shared objects safely with proper RCU locking and doesn't process attacker-controlled data directly.",
+  "analysis": "The function reads from RCU-protected data structures but doesn't directly process attacker-influenced inputs. The main data flow involves dereferencing pointers from RCU lists and calling hook functions, with no obvious buffer overflows or memory corruption risks. The function properly uses RCU mechanisms and doesn't appear to have obvious use-after-free issues.",
+  "seconds": 14.9,
+  "code_chars": 443
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nft_trace_packet",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs basic null check on nf_trace before dereferencing and has no obvious vulnerability patterns",
+  "analysis": "",
+  "seconds": 6.3,
+  "code_chars": 375
+}

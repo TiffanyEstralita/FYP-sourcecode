@@ -1,0 +1,13 @@
+{
+  "node": "__nf_ct_change_status",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Input parameters are not validated against maximum bit limits, allowing potential out-of-bounds bit manipulation.",
+  "analysis": "The function takes attacker-influenced parameters 'on' and 'off' which are bitwise operations on the connection status. Memory is read/written using bit manipulation on ct->status without any validation of the input values. The loop iterates from 0 to __IPS_MAX_BIT (which could be user-defined or based on kernel configuration) without checking if the input bits exceed valid range, potentially allowing out-of-bounds bit operations.",
+  "seconds": 11.8,
+  "code_chars": 370
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_ipv4_fn",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No unsafe memory operations or unchecked attacker inputs detected.",
+  "analysis": "The function processes netfilter packets and uses attacker-influenced packet data through nf_ct_get() and ip_hdr(). However, it only reads packet headers and uses them for conditional checks without performing any unsafe memory operations, length validations, or index arithmetic that could be manipulated by an attacker. The code follows a straightforward flow and delegates to other functions that properly handle the data.",
+  "seconds": 11.6,
+  "code_chars": 521
+}

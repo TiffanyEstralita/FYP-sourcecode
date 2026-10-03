@@ -1,0 +1,13 @@
+{
+  "node": "nft_validate_register_store",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data with complete checks but does not appear to have any obvious security vulnerabilities.",
+  "analysis": "",
+  "seconds": 11.0,
+  "code_chars": 821
+}

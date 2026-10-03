@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_free",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only performs memory deallocation using kvfree() with no attacker-influenced data handling.",
+  "analysis": "",
+  "seconds": 5.8,
+  "code_chars": 144
+}

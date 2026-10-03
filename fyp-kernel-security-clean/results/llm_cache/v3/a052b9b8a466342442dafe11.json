@@ -1,0 +1,13 @@
+{
+  "node": "nft_value_init",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs length validation but doesn't ensure desc->size is properly bounded, leaving room for integer overflow/underflow in the comparison.",
+  "analysis": "The function reads attacker-influenced data through nla_len(nla) and nla_memcpy, where len comes from netlink attribute length. Memory is copied using nla_memcpy with the potentially attacker-controlled len value. The checks validate that len is not zero and does not exceed desc->size, but there's no verification that desc->size itself is properly initialized or validated against potential overflow/underflow in the arithmetic operations.",
+  "seconds": 13.7,
+  "code_chars": 402
+}

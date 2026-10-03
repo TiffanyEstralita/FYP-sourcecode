@@ -1,0 +1,13 @@
+{
+  "node": "hashlimit_mt_common",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The cost variable is calculated using skb->len which can be controlled by an attacker, and there's no overflow protection when adding to dh->rateinfo.current_rate.",
+  "analysis": "The function processes packet data through hashlimit_init_dst and uses attacker-influenced skb contents for rate limiting calculations. Memory is read and written to dh->rateinfo structures, with potential issues in cost calculation and credit handling. The code does not perform complete bounds checking on skb length or rate limit values that could be manipulated by an attacker.",
+  "seconds": 22.5,
+  "code_chars": 1916
+}

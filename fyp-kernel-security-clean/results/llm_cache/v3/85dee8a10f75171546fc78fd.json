@@ -1,0 +1,13 @@
+{
+  "node": "__nft_reg_track_clobber",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Unbounded array indexing with attacker-controlled offset and potential integer underflow in arithmetic operation.",
+  "analysis": "The function reads from track->regs[dreg].num_reg which could be influenced by attacker-controlled data through netlink attributes when setting up nftables rules. The variable 'dreg' is used as an index to access track->regs[] array and is also used in arithmetic operations (dreg - i) without proper bounds checking. The loop counter 'i' starts from num_reg and decrements, but there's no validation that dreg is within valid array bounds or that dreg - i doesn't underflow to negative values.",
+  "seconds": 12.1,
+  "code_chars": 179
+}

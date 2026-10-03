@@ -1,0 +1,13 @@
+{
+  "node": "recent_mt_check",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The hit_count value is used in arithmetic that can overflow and is used as a loop bound without sufficient checks.",
+  "analysis": "The function processes user-supplied netlink attributes through `info` parameter which includes `check_set`, `seconds`, `hit_count`, `name`, and `mask`. It uses `info->hit_count` to compute `nstamp_mask` and later as a loop bound in `recent_table_lookup`, but no overflow checks are performed on the arithmetic or loop bounds. The `nstamp_mask` is used to allocate memory via `kvzalloc` and may be used in subsequent operations without further validation.",
+  "seconds": 33.6,
+  "code_chars": 2727
+}

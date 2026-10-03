@@ -1,0 +1,13 @@
+{
+  "node": "nft_pipapo_avx2_fill",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs unchecked arithmetic on attacker-controlled parameters start and len, which can lead to buffer overflows or underflows when calculating data pointer offsets.",
+  "analysis": "The function takes start and len parameters that could be influenced by attacker-controlled data, such as from netfilter packet parsing or netlink configuration. Memory is written to the data array based on these parameters without comprehensive bounds checking against the actual size of the allocated buffer. The arithmetic operations on len and offset could potentially overflow or underflow, and there's no validation that the final data pointer access remains within valid memory boundaries.",
+  "seconds": 16.6,
+  "code_chars": 715
+}

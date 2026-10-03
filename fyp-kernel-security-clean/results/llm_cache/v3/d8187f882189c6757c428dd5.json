@@ -1,0 +1,13 @@
+{
+  "node": "flow_offload_teardown",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "use_after_free",
+  "justification": "Function accesses flow->ct pointer without validating it's not freed or NULL, potential use-after-free vulnerability.",
+  "analysis": "The function `flow_offload_teardown` takes a `flow_offload` structure as input, which is derived from netfilter flow offloading. The function accesses `flow->ct` (connection tracking) and modifies `flow->flags`. While the function itself doesn't directly parse or copy attacker-controlled data, it relies on the integrity of the `flow_offload` structure that could be corrupted or manipulated by an attacker during flow offloading operations. The main risk is that if `flow` or `flow->ct` pointers are invalid or have been freed, this could lead to use-after-free or null pointer dereference issues.",
+  "seconds": 13.6,
+  "code_chars": 181
+}

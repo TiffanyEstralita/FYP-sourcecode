@@ -1,0 +1,13 @@
+{
+  "node": "tee_tg6",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Attacker can control oif and gateway address through netlink configuration without proper validation.",
+  "analysis": "The function reads from attacker-influenced data through `info->priv->oif` and `info->gw.in6` which are part of the target info structure that can be set via netlink configuration. Memory is read from the `info` structure but no bounds checking is performed on the potentially attacker-controlled offsets or lengths. The function doesn't perform any memory allocation, copying, or freeing operations.",
+  "seconds": 11.4,
+  "code_chars": 275
+}

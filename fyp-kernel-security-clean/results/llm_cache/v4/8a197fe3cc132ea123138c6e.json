@@ -1,0 +1,13 @@
+{
+  "node": "ctnl_timeout_find_get",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "missing_bounds_check",
+  "justification": "The name parameter is used in strncmp without proper bounds checking against CTNL_TIMEOUT_NAME_MAX, allowing potential buffer over-read if name exceeds the maximum allowed length.",
+  "analysis": "The function takes a name string from user space which could be attacker-influenced. It uses strncmp with CTNL_TIMEOUT_NAME_MAX without checking if the name length exceeds this limit, and the name is directly compared against timeout->name. The function does not validate that the name parameter is null-terminated or within bounds before comparison.",
+  "seconds": 12.0,
+  "code_chars": 506
+}

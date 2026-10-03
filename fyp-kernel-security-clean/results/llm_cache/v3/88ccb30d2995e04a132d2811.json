@@ -1,0 +1,13 @@
+{
+  "node": "cttimeout_del_timeout",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The strncmp call uses CTNL_TIMEOUT_NAME_MAX as the length limit but doesn't ensure the input name is null-terminated or properly bounded, creating a potential buffer overread risk.",
+  "analysis": "The function reads a timeout name from netlink attribute CTA_TIMEOUT_NAME, which is attacker-controlled. It uses this name in strncmp without validating its length or null termination, potentially leading to memory access issues if the attribute data is malformed. The function iterates through a linked list of timeouts and calls ctnl_timeout_try_del on a matched entry, but does not validate that the list entries are valid or that the name comparison is safe.",
+  "seconds": 21.8,
+  "code_chars": 714
+}

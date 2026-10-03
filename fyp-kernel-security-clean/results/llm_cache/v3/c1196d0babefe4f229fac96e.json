@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_put_extensions",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Extension data pointers are dereferenced without verifying they point to valid memory within the set's extension structure boundaries.",
+  "analysis": "The function processes netfilter packet data and calls nla_put_net32() and other netlink attribute functions with data derived from set extensions. The inputs come from packet contents via 'e' (extension data) and 'set' configuration, which could be influenced by userspace. Memory is read from extension pointers (timeout, counter, comment, skbinfo) without explicit bounds checking against the set's extension structure layout. The function does not perform overflow/underflow checks on arithmetic operations or handle potential use-after-free scenarios.",
+  "seconds": 15.3,
+  "code_chars": 638
+}

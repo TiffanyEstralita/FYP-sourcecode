@@ -1,0 +1,13 @@
+{
+  "node": "dl_seq_start",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 60.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The position parameter from seq_file is used directly without proper bounds checking against htable->cfg.size before memory allocation.",
+  "analysis": "The function takes a position parameter from seq_file that could be influenced by userspace, and uses it directly as an index without checking if it's within valid bounds of htable->cfg.size. The bucket allocation can fail but the function still returns ERR_PTR(-ENOMEM) which is valid. However, there's no check that *pos is actually less than htable->cfg.size before using it to allocate memory and set the bucket value.",
+  "seconds": 12.9,
+  "code_chars": 386
+}

@@ -1,0 +1,13 @@
+{
+  "node": "hash_mac4_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The loop iterates based on jhash_size(t->htable_bits) without explicit validation that htable_bits is within safe bounds, risking integer overflow or underflow.",
+  "analysis": "The function processes hash buckets from a hash table but does not validate any attacker-influenced inputs directly. Memory is read via __ipset_dereference and freed via kfree, but there are no explicit bounds checks on the hash table size or bucket indices. The htable_bits value comes from the table structure which could be manipulated during set creation, potentially leading to out-of-bounds iteration if not properly validated.",
+  "seconds": 14.2,
+  "code_chars": 422
+}

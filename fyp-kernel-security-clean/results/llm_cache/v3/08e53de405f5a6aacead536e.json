@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_new_conntrack",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Tuple parsing uses attacker-controlled netlink attributes without explicit bounds checking on their contents.",
+  "analysis": "The function processes netlink attributes (cda) and tuple data from user input. Attackers can influence tuple parsing via CTA_TUPLE_ORIG and CTA_TUPLE_REPLY attributes, which are passed to ctnetlink_parse_tuple(). The function uses parsed tuples for hash lookups and connection creation, but does not appear to perform explicit bounds checking on attribute lengths or offsets before use. Memory is allocated during conntrack creation and freed via nf_ct_put(), with no obvious use-after-free patterns.",
+  "seconds": 27.6,
+  "code_chars": 2481
+}

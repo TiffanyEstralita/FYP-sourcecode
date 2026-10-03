@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_protocol",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-controlled data is processed in a way that could lead to memory corruption or security vulnerabilities.",
+  "analysis": "The function does not directly process attacker-influenced packet contents or netlink attributes for memory operations. All data used in memory allocation and message construction comes from fixed constants or controlled kernel APIs. There are no obvious length checks, index arithmetic, or use-after-free issues present.",
+  "seconds": 13.2,
+  "code_chars": 825
+}

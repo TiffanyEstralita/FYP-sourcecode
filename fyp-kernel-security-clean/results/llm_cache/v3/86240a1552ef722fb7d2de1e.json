@@ -1,0 +1,13 @@
+{
+  "node": "nft_table_lookup",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The nla attribute input is not validated for proper length before being passed to nla_strcmp, creating a potential for memory corruption if the attribute is malformed.",
+  "analysis": "The function accepts a netlink attribute (nla) that can be controlled by an attacker, and uses nla_strcmp to compare it with table names. However, there are no explicit bounds checks on the nla length before passing it to nla_strcmp, which could lead to memory access violations if the attribute is malformed. The function does not perform any direct memory allocation, copying, or freeing operations, and all data access is bounded by list traversal and string comparison functions that are assumed to be safe.",
+  "seconds": 14.9,
+  "code_chars": 652
+}

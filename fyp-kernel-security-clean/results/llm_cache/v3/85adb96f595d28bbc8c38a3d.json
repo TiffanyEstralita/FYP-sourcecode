@@ -1,0 +1,13 @@
+{
+  "node": "nft_synproxy_do_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function performs standard cleanup operations without handling attacker-controlled data or unsafe memory operations.",
+  "analysis": "The function nft_synproxy_do_destroy does not directly process attacker-influenced packet contents or netlink attributes. It operates on netfilter context data including network namespace and family type, which are typically validated during rule setup. The function performs standard cleanup operations by calling fini functions for IPv4/IPv6 proxy modules and then calls nf_ct_netns_put with the provided context. There are no obvious memory access violations, integer overflows, or use-after-free issues in this code path.",
+  "seconds": 13.6,
+  "code_chars": 509
+}

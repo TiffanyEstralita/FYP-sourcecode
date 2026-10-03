@@ -1,0 +1,13 @@
+{
+  "node": "masquerade_tg6",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "other",
+  "justification": "Function delegates to netfilter NAT subsystem that handles the actual validation, but lacks explicit input sanitization in this wrapper function.",
+  "analysis": "The function receives attacker-influenced packet data through skb parameter and uses netlink attributes via par->targinfo. It calls nf_nat_masquerade_ipv6 which likely processes these inputs without additional validation. The function directly passes these parameters to another function without intermediate checks on lengths, offsets, or indices.",
+  "seconds": 9.8,
+  "code_chars": 159
+}

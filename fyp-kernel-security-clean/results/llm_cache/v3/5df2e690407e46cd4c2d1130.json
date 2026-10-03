@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_change_seq_adj",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Attacker-controlled netlink attributes are passed to change_seq_adj without validation of their contents or lengths.",
+  "analysis": "The function processes netlink attributes (cda array) that can be influenced by attackers. It calls change_seq_adj with attacker-controlled data without validating the attribute contents or lengths before use. The seqadj pointer is dereferenced after checking for null, but there's no validation of the attribute data itself. No explicit bounds checking or overflow protection is evident in the attribute processing.",
+  "seconds": 18.6,
+  "code_chars": 694
+}

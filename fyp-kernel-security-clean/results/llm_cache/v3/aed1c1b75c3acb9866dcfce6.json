@@ -1,0 +1,13 @@
+{
+  "node": "tos_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only reads existing packet header fields and compares them with pre-validated matchinfo values, no obvious memory safety issues.",
+  "analysis": "The function reads packet headers (IPv4 IP header or IPv6 header) and compares TOS fields with user-provided mask and value. The inputs come from the packet data (header fields) and netlink attributes (matchinfo structure). Memory is read from packet headers and compared against values in matchinfo, but no explicit bounds checking is performed on the packet data itself. The function assumes valid packet headers exist and are properly formatted.",
+  "seconds": 13.9,
+  "code_chars": 379
+}

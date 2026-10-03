@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_byindex",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Index from netlink attribute is used without re-validation after initial bounds check.",
+  "analysis": "The function reads an index from netlink attribute IPSET_ATTR_INDEX which can be controlled by an attacker. It uses this index to access a set in the array inst->ip_set_max without proper bounds checking beyond the initial comparison against inst->ip_set_max. The index is not rechecked after being retrieved, and there's no validation that the set at that index is valid or initialized before use. Memory is allocated with nlmsg_new and freed in error paths, but no use-after-free occurs as the object is not referenced after freeing.",
+  "seconds": 17.1,
+  "code_chars": 1094
+}

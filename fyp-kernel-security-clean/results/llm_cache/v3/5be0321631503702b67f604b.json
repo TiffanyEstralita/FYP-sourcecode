@@ -1,0 +1,13 @@
+{
+  "node": "nft_chain_del",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only performs standard kernel cleanup operations on validated internal data structures with no attacker-controlled inputs.",
+  "analysis": "The function nft_chain_del takes a chain parameter that is already validated as part of the netfilter subsystem flow. The function performs standard list removal and hash table removal operations using the chain's existing rhlhead and list pointers. There are no attacker-influenced inputs directly processed by this function - it operates on kernel-internal data structures. The memory operations are standard RCU list and hash table operations with no unsafe arithmetic or pointer manipulations.",
+  "seconds": 10.7,
+  "code_chars": 216
+}

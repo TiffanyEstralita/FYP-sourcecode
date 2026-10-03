@@ -1,0 +1,13 @@
+{
+  "node": "xt_snat_target_v1",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Unbounded memcpy of attacker-controlled data without size validation.",
+  "analysis": "The function copies data from `par->targinfo` (which contains attacker-controlled netlink attributes) into a local `range` structure without validating the size or contents. The `memcpy` operation uses `sizeof(*range_v1)` which is fixed, but if the input data is malformed or larger than expected, it could overwrite adjacent memory. There are no checks on the size of the input data before copying, and the function does not validate that the input structure matches the expected layout.",
+  "seconds": 13.8,
+  "code_chars": 544
+}

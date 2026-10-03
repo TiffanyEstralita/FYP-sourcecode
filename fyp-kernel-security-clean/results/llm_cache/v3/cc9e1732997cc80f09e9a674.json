@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_proto_data_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs read-only operations on pre-existing data structures with no obvious bounds checking issues.",
+  "analysis": "This function takes a protocol number from user input and uses it to calculate a hash index for accessing a hash table. The hash calculation itself is straightforward and doesn't involve direct user data manipulation. However, the function assumes that the ipvs->proto_data_table array is properly initialized and that pd->next pointers are valid, but there's no explicit bounds checking on the hash value or validation of the linked list structure. The function only reads from existing data structures without performing any memory allocation, copying, or freeing operations.",
+  "seconds": 12.0,
+  "code_chars": 301
+}

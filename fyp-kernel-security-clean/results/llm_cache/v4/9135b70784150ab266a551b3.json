@@ -1,0 +1,13 @@
+{
+  "node": "hashlimit_proc_net_exit",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 15.0,
+  "risk": 0.15,
+  "pattern": "none",
+  "justification": "Function only handles internal kernel cleanup without processing external inputs or exhibiting memory safety issues.",
+  "analysis": "The function handles netfilter proc entry cleanup and does not directly process attacker-influenced data. It uses internal kernel data structures and locks, with no obvious memory corruption risks or use-after-free conditions. The operations are straightforward removals of proc entries and hash table nodes.",
+  "seconds": 11.8,
+  "code_chars": 742
+}

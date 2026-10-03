@@ -1,0 +1,13 @@
+{
+  "node": "l2tp_mt6",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The ipv6_find_hdr call uses attacker-controlled packet data for offset calculation without complete bounds checking.",
+  "analysis": "The function l2tp_mt6 processes IPv6 packets and uses attacker-influenced data from the packet via ipv6_find_hdr which can read packet headers. The function reads thoff and fragoff values that come from packet parsing without complete validation of their bounds or overflow protection. While the function doesn't directly manipulate memory buffers, it relies on potentially malicious packet data for control flow decisions and offset calculations.",
+  "seconds": 15.7,
+  "code_chars": 462
+}

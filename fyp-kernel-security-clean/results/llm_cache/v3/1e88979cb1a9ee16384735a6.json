@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_netns_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only handles net namespace and protocol type parameters without direct memory manipulation or unsafe indexing.",
+  "analysis": "The function `nf_ct_netns_get` takes a net namespace pointer and an nfproto value from user space. The nfproto parameter is used as a switch case index and passed to `nf_ct_netns_do_get` without validation, potentially allowing out-of-bounds access if nfproto contains unexpected values. The function performs conditional logic based on nfproto but does not validate that the value is within expected bounds before use in function calls or switch statement. No memory allocation, copying, or freeing occurs directly in this function.",
+  "seconds": 14.4,
+  "code_chars": 447
+}

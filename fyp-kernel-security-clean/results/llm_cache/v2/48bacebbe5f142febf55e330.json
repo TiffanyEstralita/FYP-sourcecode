@@ -1,0 +1,13 @@
+{
+  "node": "nft_chain_validate",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs proper validation checks with appropriate error handling and uses safe iteration patterns.",
+  "analysis": "",
+  "seconds": 7.8,
+  "code_chars": 553
+}

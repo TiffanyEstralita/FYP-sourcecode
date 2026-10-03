@@ -1,0 +1,13 @@
+{
+  "node": "bitmap_port_flush",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "No attacker-influenced data handling - this is a simple cleanup function that operates on kernel-allocated structures with no external input.",
+  "analysis": "",
+  "seconds": 6.4,
+  "code_chars": 249
+}

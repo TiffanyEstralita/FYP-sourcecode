@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipportnet4_destroy",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 15.0,
+  "risk": 0.15,
+  "pattern": "none",
+  "justification": "Function only handles kernel-allocated memory cleanup with no attacker-controlled inputs or unsafe memory operations.",
+  "analysis": "The function handles kernel memory management for a hash set data structure. It iterates through a linked list 'h->ad' and frees each node, then frees the main hash table structure. There are no attacker-influenced inputs directly affecting this function - it only operates on kernel-allocated data structures. The memory operations appear to be straightforward deallocation without bounds checking issues or use-after-free conditions.",
+  "seconds": 13.4,
+  "code_chars": 363
+}

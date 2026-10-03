@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_ipv4_csum_recalc",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 60.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled lengths without validation, potentially leading to memory corruption.",
+  "analysis": "The function takes attacker-influenced inputs via 'data', 'check', 'datalen', and 'oldlen' parameters, which may come from packet contents or netlink attributes. Memory is read and written through pointer arithmetic and checksum calculations, with no explicit bounds checking on datalen or oldlen before use. The function does not perform overflow/underflow checks on length parameters and does not free any objects.",
+  "seconds": 16.8,
+  "code_chars": 568
+}

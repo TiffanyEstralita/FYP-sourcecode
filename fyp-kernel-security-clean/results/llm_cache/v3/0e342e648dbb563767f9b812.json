@@ -1,0 +1,13 @@
+{
+  "node": "nft_bitwise_dump_shift",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function passes user-provided data directly to nft_data_dump without validation of data size or structure.",
+  "analysis": "The function takes a pointer to nft_bitwise structure as input, where priv->data is copied from user space during netfilter rule setup. The function directly passes priv->data to nft_data_dump without any validation of the data length or structure. The nft_data_dump function likely accesses memory based on the data size, and if the user-supplied data is malformed or exceeds expected bounds, it could cause memory corruption. There are no length checks or bounds verification before using the data.",
+  "seconds": 15.4,
+  "code_chars": 215
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_dump_setelem",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function uses attacker-influenced netlink data without proper validation or bounds checking before passing to downstream functions.",
+  "analysis": "The function receives attacker-influenced data through the nft_ctx and nft_set parameters which can come from netlink messages. It uses container_of to extract args from iter, then calls nf_tables_fill_setelem with a skb that could contain malicious data. The function doesn't perform any validation of the input parameters before passing them to the downstream function, and the skb buffer is directly used without bounds checking.",
+  "seconds": 11.0,
+  "code_chars": 311
+}

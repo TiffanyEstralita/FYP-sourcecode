@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_flush",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The nla_data() result is used as a set name without checking its length or validating its contents against the expected set name format.",
+  "analysis": "The function processes attacker-influenced netlink attributes including IPSET_ATTR_SETNAME which is used in nla_data() to find a set. Memory is read via nla_data() and used as an index in find_set(), but there are no explicit bounds checks on the attribute data length or validation of the set name format before use. The ip_set_flush_set() function is called on the found set without additional validation.",
+  "seconds": 13.4,
+  "code_chars": 555
+}

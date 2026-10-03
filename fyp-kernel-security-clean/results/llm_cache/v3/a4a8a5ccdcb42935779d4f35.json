@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_use_count_inc",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "No attacker-controlled data or memory operations present",
+  "analysis": "This function does not handle any attacker-influenced data - it simply calls try_module_get with THIS_MODULE which is a kernel internal constant. There are no memory operations, length checks, or index manipulations involved. The function is a simple wrapper that increments a module reference count.",
+  "seconds": 7.7,
+  "code_chars": 70
+}

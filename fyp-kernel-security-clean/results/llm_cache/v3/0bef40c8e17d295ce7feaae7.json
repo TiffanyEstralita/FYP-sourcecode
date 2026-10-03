@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_type_unlock",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function performs only a simple mutex unlock operation with no external data handling or memory operations.",
+  "analysis": "This function is a simple mutex unlock operation that takes no inputs from external sources. It only operates on a global kernel mutex variable without any memory operations, indexing, or data handling. There are no attacker-influenced parameters, memory accesses, or pointer operations that could lead to security vulnerabilities.",
+  "seconds": 8.1,
+  "code_chars": 75
+}

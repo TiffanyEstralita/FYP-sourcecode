@@ -1,0 +1,13 @@
+{
+  "node": "nft_synproxy_do_destroy",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs valid bounds checking through switch statement and proper null checks, with no obvious vulnerability patterns.",
+  "analysis": "",
+  "seconds": 8.7,
+  "code_chars": 509
+}

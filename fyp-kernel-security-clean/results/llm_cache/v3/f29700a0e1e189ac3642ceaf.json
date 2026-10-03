@@ -1,0 +1,13 @@
+{
+  "node": "connmark_tg",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No direct memory access or manipulation occurs in this function, and the data flow is straightforward with no obvious overflow/underflow conditions.",
+  "analysis": "The function reads data from `info->ctmark`, `info->ctmask`, `info->nfmask`, and `info->mode` which are part of the `xt_connmark_tginfo1` structure passed in `par->targinfo`. These values come from user-supplied netlink attributes during module configuration, not from packet contents directly. The function copies these values into a local `info2` structure and passes it to `connmark_tg_shift`, but there are no explicit bounds checks on the values before use. The `info` pointer is derived from `par->targinfo` which is validated by the netfilter framework, but the individual fields within the structure may not be fully validated.",
+  "seconds": 15.2,
+  "code_chars": 337
+}

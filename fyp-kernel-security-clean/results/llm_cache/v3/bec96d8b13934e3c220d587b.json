@@ -1,0 +1,13 @@
+{
+  "node": "sip_follow_continuation",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function does not validate that the initial dptr parameter is within valid bounds before incrementing it, potentially allowing out-of-bounds reads.",
+  "analysis": "The function sip_follow_continuation processes packet data pointed to by dptr and limited by limit. Attackers can influence the dptr and limit values through SIP packet contents. The function performs boundary checks against limit but does not validate that the initial dptr value is within valid bounds before incrementing, and there's no check that the initial dptr is properly initialized or comes from a trusted source. The function uses pointer arithmetic and dereferences without ensuring the starting position is valid.",
+  "seconds": 13.5,
+  "code_chars": 465
+}

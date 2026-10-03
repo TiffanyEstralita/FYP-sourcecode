@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_delrule",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-supplied netlink attributes for rule and chain lookups without complete validation of their contents, which could lead to incorrect behavior or exploitation.",
+  "analysis": "The function processes attacker-controlled netlink attributes including rule handles, IDs, and chain names. It uses these attributes to look up rules and chains without comprehensive validation of their contents or bounds. The primary risk comes from potential misuse of the lookup functions with unvalidated inputs, though direct memory corruption is not clearly shown. No obvious use-after-free or null dereference patterns are present.",
+  "seconds": 20.1,
+  "code_chars": 1699
+}

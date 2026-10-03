@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_copy_stats",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-influenced data handling, all operations on kernel-managed structures with proper locking.",
+  "analysis": "The function reads from src->kstats.c and src->kstats0.c fields without any attacker-influenced inputs. The src parameter comes from kernel data structures managed by the IPVS subsystem, not from user input. All operations are within kernel memory space with proper locking. There are no unchecked lengths, offsets, or indices that could be manipulated by an attacker.",
+  "seconds": 11.4,
+  "code_chars": 430
+}

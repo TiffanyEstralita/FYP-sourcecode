@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_update_counter",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function reads from attacker-influenced netlink attributes without comprehensive validation of all data bounds and pointer validity.",
+  "analysis": "The function reads from ext->packets and ext->bytes which are part of the ip_set_ext structure that could be influenced by user-supplied netlink attributes during set creation/update operations. The function performs a bounds check on ext->packets against ULLONG_MAX but doesn't validate that ext->bytes or the counter structure itself are properly initialized or within valid ranges. There's no explicit checking of whether the ext pointer or counter pointer is NULL before dereferencing.",
+  "seconds": 11.5,
+  "code_chars": 292
+}

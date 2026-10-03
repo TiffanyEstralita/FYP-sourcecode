@@ -1,0 +1,13 @@
+{
+  "node": "nf_conntrack_helper_unregister",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles kernel-internal cleanup without attacker-influenced data, proper synchronization, and no obvious memory safety issues.",
+  "analysis": "This function handles unregistering a netfilter connection tracking helper. The inputs are controlled by kernel code during module removal, not directly by userspace packets or netlink attributes. Memory operations include deleting from a hash list (hlist_del_rcu) and calling iterator functions that may access the helper object. There are no obvious length checks, offset arithmetic, or memory management issues like use-after-free since the helper is properly removed from lists before destruction.",
+  "seconds": 11.7,
+  "code_chars": 403
+}

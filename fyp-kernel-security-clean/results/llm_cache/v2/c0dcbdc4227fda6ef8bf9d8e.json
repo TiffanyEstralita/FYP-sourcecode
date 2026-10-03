@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_sip_init",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only performs initialization operations with no attacker-influenced data handling.",
+  "analysis": "",
+  "seconds": 67.3,
+  "code_chars": 223
+}

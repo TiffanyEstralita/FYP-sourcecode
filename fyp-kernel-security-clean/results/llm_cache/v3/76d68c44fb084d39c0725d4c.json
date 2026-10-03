@@ -1,0 +1,13 @@
+{
+  "node": "flow_offload_mangle",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing validation of offset parameter and pointer inputs allows potential buffer overflow or memory corruption when copying data into the flow action entry structure.",
+  "analysis": "The function takes attacker-influenced parameters including 'offset' and 'value/mask' pointers that could come from netlink attributes or packet data. Memory is copied using memcpy with lengths of sizeof(u32) (4 bytes) but no validation is performed on the offset value or the validity of the pointer inputs. The 'offset' parameter is used directly without checking if it would cause buffer overflows when accessing entry->mangle.offset, and the 'value' and 'mask' pointers are copied without verifying they point to valid memory regions.",
+  "seconds": 13.2,
+  "code_chars": 358
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_remove_expect",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only operates on a validated expect structure pointer and performs standard cleanup operations without handling attacker-controlled data.",
+  "analysis": "The function takes a single parameter 'exp' which is a pointer to nf_conntrack_expect structure. The function doesn't directly process any attacker-influenced inputs from packet contents or netlink attributes. Memory operations include timer deletion, unlinking, and reference counting operations on the expect structure. The function performs basic validation by checking if timer deletion succeeds before proceeding with cleanup operations, but there's no explicit bounds checking or input validation of the expect structure itself.",
+  "seconds": 11.1,
+  "code_chars": 180
+}

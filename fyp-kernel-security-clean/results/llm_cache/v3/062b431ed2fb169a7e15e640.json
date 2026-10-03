@@ -1,0 +1,13 @@
+{
+  "node": "audit_tg",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but appears to perform complete checks with proper bounds validation in audit functions.",
+  "analysis": "The function processes netfilter packets and calls audit functions that may read packet data. The main inputs from attackers are packet contents (eth_hdr, skb->mark) which are used in audit_ip4/audit_ip6 functions without explicit bounds checking. Memory is read from packet headers and copied to audit buffers, but there's no clear evidence of unchecked offsets or lengths that could lead to overflow/underflow or use-after-free issues.",
+  "seconds": 14.9,
+  "code_chars": 863
+}

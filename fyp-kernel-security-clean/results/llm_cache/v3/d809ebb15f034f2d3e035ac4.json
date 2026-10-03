@@ -1,0 +1,13 @@
+{
+  "node": "nft_data_dump",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "The 'len' parameter is used in nft_value_dump without validation against actual data size, creating potential for buffer over-reads or over-writes.",
+  "analysis": "The function nft_data_dump takes attacker-influenced inputs through the 'data' parameter which could be derived from netlink attributes, and uses 'len' parameter to control data copying in nft_value_dump. The 'len' parameter is not validated against the actual data size, and there's no check on whether 'data' points to valid memory. Memory is read and copied without complete bounds checking, and the function does not validate that the data buffer is properly initialized or that the length parameter is within acceptable limits.",
+  "seconds": 14.6,
+  "code_chars": 508
+}

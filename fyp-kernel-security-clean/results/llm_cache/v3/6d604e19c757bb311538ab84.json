@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipportip4_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-influenced data handling, purely internal memory management with no unsafe operations.",
+  "analysis": "This function processes hash buckets from a hash table but does not directly handle attacker-influenced data. The loop iterates over a fixed-size hash table based on htable_bits which is determined during initialization, not from external input. No memory is read or written using attacker-controlled offsets or lengths, and no use-after-free occurs as objects are freed in a controlled manner. The function only operates on internal kernel data structures.",
+  "seconds": 13.7,
+  "code_chars": 432
+}

@@ -1,0 +1,13 @@
+{
+  "node": "__bpf_mt_check_bytecode",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Length validation is insufficient - only checks against a maximum constant but doesn't verify memory accessibility or proper formatting of BPF bytecode.",
+  "analysis": "The function takes attacker-influenced inputs including 'len' and 'insns' from netfilter packet matching context. Memory is read from insns pointer and copied into program.filter, with len used as a length parameter. The len check only ensures it doesn't exceed XT_BPF_MAX_NUM_INSTR but doesn't validate that the actual memory pointed to by insns is accessible or properly formatted. No overflow/underflow checking is performed on the length parameter before use in bpf_prog_create().",
+  "seconds": 12.9,
+  "code_chars": 364
+}

@@ -1,0 +1,13 @@
+{
+  "node": "cpu_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-influenced memory operations or complex data handling, just a simple CPU ID comparison.",
+  "analysis": "The function reads a single byte from the attacker-controlled 'cpu' field in xt_cpu_info structure and compares it with the current CPU ID. The input comes from netlink attributes passed during rule configuration, but there are no memory operations, arithmetic calculations, or pointer dereferences involved. The function simply performs a direct comparison without any complex data handling.",
+  "seconds": 11.3,
+  "code_chars": 187
+}

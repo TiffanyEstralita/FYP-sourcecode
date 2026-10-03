@@ -1,0 +1,13 @@
+{
+  "node": "nf_conntrack_all_unlock",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "No attacker-controlled inputs or memory operations present in this lock management function.",
+  "analysis": "This function does not handle any attacker-influenced data - it only manages internal lock state for connection tracking. The function performs a simple store release operation and spin unlock on fixed kernel-internal variables without any memory operations, indexing, or external input processing.",
+  "seconds": 10.7,
+  "code_chars": 441
+}

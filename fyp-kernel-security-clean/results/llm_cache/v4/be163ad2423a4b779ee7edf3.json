@@ -1,0 +1,13 @@
+{
+  "node": "callforward_do_filter",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "Function handles external data but performs complete checks with no obvious memory safety issues.",
+  "analysis": "The function takes attacker-influenced inputs via 'src' and 'dst' addresses, but these are only used as destination addresses in routing lookups. Memory is read from and written to stack-allocated flowi structures and rtable/rt6_info objects returned by routing functions. No unchecked lengths, offsets, or indices are used; the function performs standard routing lookups with no arithmetic that could overflow. Objects are properly released via dst_release() before function exit.",
+  "seconds": 20.3,
+  "code_chars": 1398
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_unregister_net_hook",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled pf and hooknum values without validation, creating potential for out-of-bounds array access in the underlying __nf_unregister_net_hook implementation.",
+  "analysis": "The function takes a net pointer and nf_hook_ops structure from user space. It uses reg->pf and reg->hooknum fields directly without validation, and calls __nf_unregister_net_hook which likely accesses these values to index into arrays or perform operations on netfilter hooks. There are no bounds checks on the packet family or hook number values that could lead to out-of-bounds memory access.",
+  "seconds": 13.2,
+  "code_chars": 386
+}

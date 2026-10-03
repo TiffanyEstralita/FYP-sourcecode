@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_inet_unregister_fn",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only performs simple function calls with compile-time constant parameters, no attacker-influenced data processing.",
+  "analysis": "This function takes a net pointer and nf_hook_ops structure as inputs, but does not directly process packet contents or user-supplied data. The function simply calls two other functions with fixed array sizes (ARRAY_SIZE(nf_nat_ipv4_ops) and ARRAY_SIZE(nf_nat_ipv6_ops)) which are compile-time constants. No memory allocation, copying, or indexing operations occur within this function that could be influenced by attacker-controlled data.",
+  "seconds": 11.8,
+  "code_chars": 234
+}

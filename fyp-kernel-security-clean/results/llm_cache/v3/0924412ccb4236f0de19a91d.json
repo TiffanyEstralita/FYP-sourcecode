@@ -1,0 +1,13 @@
+{
+  "node": "untimeout [nfnetlink_cttimeout.c]",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only performs a simple null pointer check and RCU operation without handling any attacker-controlled data.",
+  "analysis": "The function takes a nf_conn pointer and timeout parameter, but the timeout parameter is not used in the function body. The function only checks if timeout_ext exists and sets it to NULL using RCU_INIT_POINTER, which doesn't involve any attacker-influenced data processing or memory operations that could be exploited. There are no lengths, offsets, or indices being manipulated from external input.",
+  "seconds": 13.1,
+  "code_chars": 201
+}

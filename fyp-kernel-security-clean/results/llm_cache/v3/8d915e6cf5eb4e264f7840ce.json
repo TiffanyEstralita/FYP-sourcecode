@@ -1,0 +1,13 @@
+{
+  "node": "optlen [xt_TCPOPTSTRIP.c]",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Function accesses packet data with unvalidated offset that could lead to out-of-bounds read.",
+  "analysis": "The function reads from attacker-influenced packet data through the 'opt' pointer and 'offset' parameter. Memory is read at opt[offset] and opt[offset+1] without bounds checking against the packet length. The offset parameter comes from user-supplied TCP options parsing, and there's no validation that the offset plus 1 stays within valid packet boundaries before dereferencing.",
+  "seconds": 10.2,
+  "code_chars": 231
+}

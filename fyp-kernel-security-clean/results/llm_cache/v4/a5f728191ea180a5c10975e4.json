@@ -1,0 +1,13 @@
+{
+  "node": "synproxy_send_client_ack",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The tcp_hdr_size calculation could overflow due to unchecked user-supplied wscale value, leading to incorrect memory allocation and potential memory corruption.",
+  "analysis": "The function handles attacker-influenced data through packet contents (skb, th) and netlink attributes (opts), but performs no explicit bounds checking on the size calculation or option parsing. Memory is allocated based on a computed size that could be manipulated, and the tcp_hdr_size calculation may overflow if opts->wscale is large. The function does not appear to use freed objects or have clear null dereferences.",
+  "seconds": 16.9,
+  "code_chars": 1032
+}

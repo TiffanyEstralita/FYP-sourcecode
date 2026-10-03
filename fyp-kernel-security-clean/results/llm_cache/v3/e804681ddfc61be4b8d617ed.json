@@ -1,0 +1,13 @@
+{
+  "node": "nft_base_seq",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function performs only a simple memory read with no attacker-controlled inputs or unsafe operations.",
+  "analysis": "This function reads from a netfilter pernet structure and returns a sequence number. There are no attacker-influenced inputs as this is a simple read operation from kernel memory. The function performs no memory allocation, copying, or indexing operations that could be compromised. The base_seq field is managed internally by the kernel and not derived from any external data.",
+  "seconds": 9.8,
+  "code_chars": 149
+}

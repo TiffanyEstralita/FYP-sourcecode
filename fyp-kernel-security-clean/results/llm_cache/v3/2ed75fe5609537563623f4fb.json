@@ -1,0 +1,13 @@
+{
+  "node": "pipapo_refill",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The index calculation 'k * BITS_PER_LONG + r' can overflow and lead to out-of-bounds memory access.",
+  "analysis": "The function processes attacker-influenced data through the 'map' array and 'mt' structure, which could be derived from netlink attributes or packet contents. Memory is read from 'map' and 'mt[i]' and written to 'dst', with indices calculated from 'k' and 'r'. The index 'i' is checked against 'rules' but the calculation 'k * BITS_PER_LONG + r' could overflow if 'k' is large, and 'mt[i].to' and 'mt[i].n' are used without bounds checking. No explicit freeing occurs, but the function may access invalid memory if 'rules' is smaller than expected.",
+  "seconds": 17.3,
+  "code_chars": 595
+}

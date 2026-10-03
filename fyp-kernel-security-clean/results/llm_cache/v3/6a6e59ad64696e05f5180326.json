@@ -1,0 +1,13 @@
+{
+  "node": "hashlimit_mt_v1",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function copies attacker-controlled data without clear bounds checking on the source length or content.",
+  "analysis": "The function receives attacker-influenced data through `par->matchinfo` which contains `info->cfg` that could be manipulated via netlink attributes during module configuration. Memory is copied using `cfg_copy` function with a length parameter of 1, and the result is passed to `hashlimit_mt_common`. The function does not perform explicit bounds checking on the input data before copying or using it, and the `cfg_copy` function's behavior with the fixed length parameter of 1 is unclear. There are no obvious use-after-free patterns, but the lack of comprehensive input validation raises concerns.",
+  "seconds": 14.7,
+  "code_chars": 366
+}

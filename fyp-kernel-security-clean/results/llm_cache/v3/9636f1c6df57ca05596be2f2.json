@@ -1,0 +1,13 @@
+{
+  "node": "xt_compat_match_to_user",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function computes 'msize' and uses it in arithmetic operations without complete bounds checking against attacker-controlled inputs.",
+  "analysis": "The function handles user-supplied data through the 'm' parameter which contains match data that could be influenced by an attacker. Memory is read/written using offsets and sizes derived from packet data without complete validation, particularly in the 'xt_compat_match_offset' and 'msize' calculations. The function performs memory copies and uses computed offsets that could overflow or underflow if not properly checked.",
+  "seconds": 18.5,
+  "code_chars": 621
+}

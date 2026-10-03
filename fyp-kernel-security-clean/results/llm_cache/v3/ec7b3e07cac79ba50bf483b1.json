@@ -1,0 +1,13 @@
+{
+  "node": "xt_snat_target_v2",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Attacker can control the targinfo parameter which is passed directly to nf_nat_setup_info without validation.",
+  "analysis": "The function receives a pointer to nf_nat_range2 data through par->targinfo which could be attacker-controlled via netlink configuration. The range pointer is passed directly to nf_nat_setup_info without any validation of its contents or bounds checking. While the function doesn't directly manipulate memory indices or perform arithmetic operations, it blindly trusts the attacker-provided range structure which could contain invalid offsets or lengths that might cause issues in the downstream nf_nat_setup_info function.",
+  "seconds": 14.3,
+  "code_chars": 408
+}

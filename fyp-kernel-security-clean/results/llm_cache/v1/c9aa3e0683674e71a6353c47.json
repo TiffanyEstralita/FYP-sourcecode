@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_proto_get",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 1.0,
+  "risk": 0.1,
+  "pattern": "none",
+  "justification": "Function performs safe hash lookup with proper null termination check and no unsafe memory operations.",
+  "analysis": "",
+  "seconds": 6.1,
+  "code_chars": 258
+}

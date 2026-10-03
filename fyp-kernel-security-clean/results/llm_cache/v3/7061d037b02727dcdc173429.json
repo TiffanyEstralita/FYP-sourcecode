@@ -1,0 +1,13 @@
+{
+  "node": "iprange_mt6",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function directly compares IPv6 addresses from packet headers against user-provided range limits without validating that the matchinfo structure contains valid data.",
+  "analysis": "The function processes IPv6 packet headers and compares them against configured IP ranges. Attackers can influence the packet contents (IPv6 source/destination addresses) and the matchinfo structure which contains the range limits. The function reads from packet headers and the matchinfo structure without apparent bounds checking on the input data, and performs direct pointer comparisons. There are no obvious checks for malformed or maliciously crafted IP ranges in the matchinfo structure.",
+  "seconds": 19.1,
+  "code_chars": 1011
+}

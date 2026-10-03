@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_netns_do_put",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "No direct attacker-controlled memory access or unsafe operations detected.",
+  "analysis": "The function `nf_ct_netns_do_put` takes a net namespace and protocol family (nfproto) as inputs, where nfproto is derived from user-supplied data in netlink operations. It performs conditional decrements on reference counters (users4, users6, users_bridge) and checks if they reach zero before unregistering hooks. The function does not directly read or write attacker-controlled memory, but it relies on the integrity of the nfproto value and the state of pernet data structures. There are no obvious buffer overflows, use-after-free issues, or integer overflows present in this code path.",
+  "seconds": 18.7,
+  "code_chars": 902
+}

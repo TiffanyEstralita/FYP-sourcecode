@@ -1,0 +1,13 @@
+{
+  "node": "nft_reg_track_cancel",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "integer_overflow_underflow",
+  "justification": "Unbounded register index calculation and iteration without proper bounds checking on attacker-controlled length parameter.",
+  "analysis": "The function takes attacker-influenced parameters 'dreg' and 'len' which are used to calculate regcount and iterate through registers. Memory is read/written via the track structure and dreg index, with regcount calculated from len without overflow checking. The loop uses dreg as an index without validating it against register limits, and __nft_reg_track_cancel is called with potentially unbounded dreg values.",
+  "seconds": 11.3,
+  "code_chars": 275
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_state_name",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "State value used as array index lacks complete bounds checking against table size.",
+  "analysis": "The function reads from cp->state which is derived from user-controlled connection data, and uses this value as an array index into ip_vs_ctpl_state_name_table without sufficient bounds checking beyond the initial IP_VS_CTPL_S_LAST validation. The state value comes from packet processing and could be crafted by an attacker to cause out-of-bounds memory access. No integer overflow/underflow issues are present, and there are no use-after-free or null dereference scenarios.",
+  "seconds": 17.1,
+  "code_chars": 442
+}

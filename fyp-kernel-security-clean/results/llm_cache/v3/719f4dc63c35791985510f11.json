@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_acct_get",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Unvalidated netlink attribute length could lead to buffer overflow in strncmp().",
+  "analysis": "The function reads the account name from netlink attribute NFACCT_NAME without validating its length, which could lead to buffer overflow if the name exceeds NFACCT_NAME_MAX. The code uses strncmp() with this unvalidated input, and there's no check on the attribute's actual length before use. Memory is allocated with nlmsg_new() and freed with kfree_skb(), but no obvious use-after-free or null dereference patterns are present.",
+  "seconds": 17.8,
+  "code_chars": 1179
+}

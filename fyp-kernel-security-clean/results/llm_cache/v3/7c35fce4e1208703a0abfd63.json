@@ -1,0 +1,13 @@
+{
+  "node": "helper_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses strlen(helper->name) as length parameter in strncmp without ensuring info->name is properly bounded, allowing potential buffer over-read if helper name is longer than expected.",
+  "analysis": "The function reads the helper name from info->name which is user-supplied data from netlink attributes. It uses strncmp with strlen(helper->name) as the length parameter, but does not validate that info->name is null-terminated or within bounds before passing it to strncmp. The helper name comes from a netfilter match rule configuration and could be crafted by an attacker.",
+  "seconds": 15.3,
+  "code_chars": 699
+}

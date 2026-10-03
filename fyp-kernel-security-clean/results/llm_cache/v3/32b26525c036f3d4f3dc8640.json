@@ -1,0 +1,13 @@
+{
+  "node": "nft_ct_set_init",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The key value from NFTA_CT_KEY is used directly in a switch statement without checking if it's a valid enum value, which could lead to unexpected behavior or access to uninitialized memory.",
+  "analysis": "The function processes attacker-controlled netlink attributes (tb[]) to determine the key type and length for conntrack set operations. It reads values from NFTA_CT_KEY and NFTA_CT_DIRECTION without comprehensive validation of the key value against supported options, potentially allowing out-of-bounds access. The switch statement handles various config-defined cases but does not validate that the parsed key value is within expected bounds before proceeding with length assignment and subsequent operations.",
+  "seconds": 22.9,
+  "code_chars": 1782
+}

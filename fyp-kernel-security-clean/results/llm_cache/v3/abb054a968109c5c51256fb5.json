@@ -1,0 +1,13 @@
+{
+  "node": "mark_tg",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Simple bitwise operation with no obvious memory safety issues, though the values come from userspace and could be maliciously crafted.",
+  "analysis": "The function reads two values from info->mask and info->mark which are part of the xt_mark_tginfo2 structure. These values come from the target information passed in through netfilter rules, which can be controlled by userspace. The function performs a bitwise operation on skb->mark without any validation of the mask or mark values, potentially allowing manipulation of the packet mark to unexpected values. There are no memory allocations, deallocations, or complex indexing operations that could lead to use-after-free or buffer overflows.",
+  "seconds": 12.8,
+  "code_chars": 215
+}

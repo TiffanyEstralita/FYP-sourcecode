@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_cthelper_new",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The helper name length is not validated before strncmp, allowing potential buffer overread if the input exceeds NF_CT_HELPER_NAME_LEN.",
+  "analysis": "The function reads attacker-controlled data via netlink attributes NFCTH_NAME and NFCTH_TUPLE, which are used to construct a helper name and tuple. The helper name is compared using strncmp with a fixed buffer size (NF_CT_HELPER_NAME_LEN), but there's no check that the input string length is within bounds before the comparison. The tuple parsing is done via nfnl_cthelper_parse_tuple, which may not fully validate all fields. No memory is freed or reallocated in this function, and there are no obvious use-after-free or null dereference issues.",
+  "seconds": 18.1,
+  "code_chars": 1013
+}

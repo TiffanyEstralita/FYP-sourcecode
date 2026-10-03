@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_send_or_cont",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles network packet data but performs no unsafe operations on attacker-influenced inputs.",
+  "analysis": "The function processes packet data through skb (sk_buff) which is influenced by network input. It reads from skb->dev and calls skb_dst(skb)->dev without checking if these pointers are valid or properly initialized. The function doesn't perform any length checks on attacker-controlled data, but does rely on kernel networking infrastructure that should validate inputs. No obvious use-after-free or integer overflow issues are present.",
+  "seconds": 12.3,
+  "code_chars": 485
+}

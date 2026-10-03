@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_dump_done",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles netlink callback data but performs complete checks with proper reference counting and no obvious memory safety issues.",
+  "analysis": "",
+  "seconds": 7.4,
+  "code_chars": 437
+}

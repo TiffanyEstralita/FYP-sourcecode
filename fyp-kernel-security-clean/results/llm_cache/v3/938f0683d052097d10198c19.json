@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_proto_name",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only handles known protocol constants with safe static buffer usage, no attacker-influenced memory operations.",
+  "analysis": "The function ip_vs_proto_name takes an unsigned int proto parameter that could potentially be influenced by attackers in some contexts. However, the function only uses this parameter for a switch statement comparison against known protocol constants and only uses it as a format argument in sprintf when it's not one of the known protocols. The buffer buf is static and large enough to handle the formatted output, so there are no obvious memory safety issues like buffer overflows or use-after-free. The function does not parse external packet data or handle netlink attributes directly.",
+  "seconds": 14.1,
+  "code_chars": 402
+}

@@ -1,0 +1,13 @@
+{
+  "node": "idletimer_tg_target",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing validation of user-supplied timeout value and timer object pointer before use.",
+  "analysis": "The function reads from attacker-influenced data through 'info' which comes from 'par->targinfo' - a user-supplied pointer that could be manipulated during netlink configuration. The 'info' structure contains 'label' (string) and 'timeout' (integer) fields that could be controlled by an attacker. No bounds checking is performed on the 'timeout' value or the 'label' string before use, and the timer is modified without validation of the timer object's validity. The 'info->timer' pointer is dereferenced directly without checking if it's NULL or properly initialized.",
+  "seconds": 13.0,
+  "code_chars": 356
+}

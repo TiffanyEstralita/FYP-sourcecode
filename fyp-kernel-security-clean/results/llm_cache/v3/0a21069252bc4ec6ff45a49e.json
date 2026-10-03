@@ -1,0 +1,13 @@
+{
+  "node": "cfg_copy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "No explicit bounds checking on user-provided data before memcpy or struct assignments, risking out-of-bounds reads if input is malformed.",
+  "analysis": "The function accepts a 'from' pointer and a revision parameter, where 'from' likely points to user-supplied netlink attributes or packet data. The function copies data based on the revision, with revision 3 using memcpy of a fixed size struct. No explicit bounds checking is performed on the 'from' pointer contents before copying, and the revision value is not validated beyond being in the range 1-3, potentially allowing out-of-bounds reads if the input data is malformed. The function does not allocate or free memory directly, but relies on external data that could be maliciously crafted.",
+  "seconds": 18.5,
+  "code_chars": 870
+}

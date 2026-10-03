@@ -1,0 +1,13 @@
+{
+  "node": "nft_do_chain_inet_ingress",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-influenced packet data without explicit bounds checking before passing it to downstream functions.",
+  "analysis": "The function processes incoming packets based on their Ethernet protocol type (IPv4 or IPv6), using attacker-influenced packet data. It copies the hook state and calls functions that set up packet information structures, but does not perform explicit bounds checking on packet contents before use. The primary risk comes from potential misuse of the skb pointer and its contents in downstream functions like nft_set_pktinfo_ipv4_ingress and nft_set_pktinfo_ipv6_ingress, which may not fully validate the packet data. No direct memory allocation or freeing occurs here, but the function relies on external packet data that could be crafted to cause issues in the called functions.",
+  "seconds": 18.6,
+  "code_chars": 797
+}

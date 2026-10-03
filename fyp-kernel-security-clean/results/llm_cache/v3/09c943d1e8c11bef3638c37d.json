@@ -1,0 +1,13 @@
+{
+  "node": "bitmap_ipmac_test",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The 'e->id' field is used as an array index without validation against the bitmap size, allowing potential out-of-bounds access.",
+  "analysis": "The function receives attacker-influenced data through the 'value' parameter which contains a bitmap_ipmac_adt_elem structure. The 'e->id' field is used as an index to call get_ext() which likely performs array indexing without proper bounds checking. The 'x' pointer returned from get_ext() is then passed to ip_set_match_extensions(), but there's no verification that the index 'e->id' is within valid bounds for the bitmap array.",
+  "seconds": 13.6,
+  "code_chars": 401
+}

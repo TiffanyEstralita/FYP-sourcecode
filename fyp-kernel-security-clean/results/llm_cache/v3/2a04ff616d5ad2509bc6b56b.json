@@ -1,0 +1,13 @@
+{
+  "node": "xt_unregister_target",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only performs basic list operations on a validated target pointer with no unsafe memory handling.",
+  "analysis": "The function xt_unregister_target takes a struct xt_target pointer as input, which could potentially be influenced by an attacker through netlink operations. The function performs a list deletion operation on target->list without any validation of the target pointer or its contents. There are no length checks, offset validations, or overflow/underflow protections needed here since the function only operates on a linked list node structure that should have been properly initialized. No memory is allocated, copied, or freed beyond the standard list operations.",
+  "seconds": 11.0,
+  "code_chars": 171
+}

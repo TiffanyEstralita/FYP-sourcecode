@@ -1,0 +1,13 @@
+{
+  "node": "get_unique_tuple",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses external data from 'range' and 'orig_tuple' without clear evidence of complete bounds checking for memory accesses.",
+  "analysis": "The function processes attacker-influenced NAT range data and tuple structures, with potential for memory access issues if bounds are not properly checked during tuple manipulation. It uses values from 'range' and 'orig_tuple' without clear evidence of comprehensive validation for offsets or lengths. No obvious use-after-free or null dereference patterns are present, but the function relies on external data that could lead to out-of-bounds accesses if not fully validated.",
+  "seconds": 21.0,
+  "code_chars": 1960
+}

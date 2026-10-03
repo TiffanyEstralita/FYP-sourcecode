@@ -1,0 +1,13 @@
+{
+  "node": "process_olca",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function processes parsed H.323 protocol data with proper conditional checks but no obvious memory safety issues or attacker-influenced data handling without validation.",
+  "analysis": "",
+  "seconds": 16.9,
+  "code_chars": 2101
+}

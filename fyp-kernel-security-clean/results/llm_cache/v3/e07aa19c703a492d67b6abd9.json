@@ -1,0 +1,13 @@
+{
+  "node": "nft_rbtree_interval_end",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs simple flag checking on kernel-internal data structures without handling attacker-controlled inputs.",
+  "analysis": "This function reads from a struct nft_rbtree_elem that is passed as a parameter. The function accesses the ext field and calls nft_set_ext_exists and nft_set_ext_flags macros which likely dereference pointers within the ext structure. There are no obvious length checks, offset arithmetic, or memory allocation/deallocation operations in this code. The function appears to be a simple accessor that doesn't handle attacker-controlled data directly.",
+  "seconds": 10.5,
+  "code_chars": 203
+}

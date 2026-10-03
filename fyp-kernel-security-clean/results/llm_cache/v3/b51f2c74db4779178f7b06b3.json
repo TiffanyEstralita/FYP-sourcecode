@@ -1,0 +1,13 @@
+{
+  "node": "nf_log_dump_packet_common",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles external data but performs only safe string operations with no obvious memory safety issues.",
+  "analysis": "The function takes attacker-influenced inputs including skb (packet data), in/out net_devices, and loginfo which may contain user-supplied log level. Memory is read from packet data via nf_bridge_get_physindev() and nf_bridge_get_physoutdev() functions, and written to the log buffer via nf_log_buf_add(). No explicit bounds checking is performed on the packet data or device names before use, though the function itself does not perform any direct memory allocation or deallocation that could lead to use-after-free. The primary risk comes from potential manipulation of packet metadata that could affect string formatting.",
+  "seconds": 16.2,
+  "code_chars": 815
+}

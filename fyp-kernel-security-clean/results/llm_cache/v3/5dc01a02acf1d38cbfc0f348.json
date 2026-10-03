@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_ipv6_fn",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses packet-influenced data without complete validation of header parsing results.",
+  "analysis": "The function processes IPv6 packets and uses attacker-influenced data from the packet header including nexthdr and frag_off. Memory is read via ipv6_skip_exthdr which can be influenced by packet contents, and hdrlen is used in a conditional check. The function does not perform complete bounds checking on the parsed header data before use, and there are no obvious signs of memory allocation or freeing that could lead to use-after-free issues.",
+  "seconds": 15.0,
+  "code_chars": 926
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_init_comment",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The ext_size calculation involves unchecked addition that could overflow, potentially leading to memory corruption or incorrect size tracking.",
+  "analysis": "The function handles attacker-influenced data through `ext->comment` which comes from user-supplied netlink attributes. Memory is allocated with `kmalloc` and copied with `strscpy`, but there's a potential integer overflow in the calculation of `set->ext_size` due to unchecked addition of `sizeof(*c) + strlen(c->str) + 1`. The `len` parameter is checked against `IPSET_MAX_COMMENT_SIZE` but the subsequent arithmetic for `set->ext_size` lacks overflow checks.",
+  "seconds": 15.1,
+  "code_chars": 685
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nft_synproxy_do_destroy",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only handles internal netfilter context and calls existing netfilter functions without processing external packet data or manipulating attacker-influenced inputs.",
+  "analysis": "",
+  "seconds": 8.5,
+  "code_chars": 509
+}

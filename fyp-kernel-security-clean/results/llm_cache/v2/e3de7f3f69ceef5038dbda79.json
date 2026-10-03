@@ -1,0 +1,13 @@
+{
+  "node": "nf_logger_put",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "use_after_free",
+  "justification": "The function dereferences a logger pointer that may have been freed by module_put() without proper synchronization or validation to ensure the object remains valid.",
+  "analysis": "",
+  "seconds": 7.2,
+  "code_chars": 342
+}

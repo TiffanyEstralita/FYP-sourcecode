@@ -1,0 +1,13 @@
+{
+  "node": "__nf_unregister_net_hook",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function dereferences hook entries without validating the integrity or bounds of the attacker-controlled reg parameter.",
+  "analysis": "The function processes attacker-influenced data through the 'reg' parameter which contains hook operations that could be manipulated by an attacker. It performs memory access via nf_remove_net_hook() and nf_entry_dereference() using indices and pointers derived from netfilter hooks, but no explicit bounds checking is performed on these values before use. The function uses a mutex for synchronization but does not validate the integrity of the hook entries structure or ensure that 'reg' points to valid memory.",
+  "seconds": 16.9,
+  "code_chars": 871
+}

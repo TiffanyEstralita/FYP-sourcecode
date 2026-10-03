@@ -1,0 +1,13 @@
+{
+  "node": "nft_ct_timeout_obj_eval",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "missing_bounds_check",
+  "justification": "The function accesses timeout data without validating array bounds or ensuring the data is properly initialized, allowing potential out-of-bounds reads.",
+  "analysis": "The function reads from `priv->timeout` and uses it to set `timeout->timeout` via `rcu_assign_pointer`. The `values` pointer is obtained from `nf_ct_timeout_data(timeout)`, which could be influenced by attacker-controlled data if the timeout extension was initialized with malicious input. There are no explicit bounds checks on the timeout data or its indices, and the function does not validate that `values[0]` is within valid bounds before use. The `timeout` pointer itself comes from `nf_ct_timeout_find()` and `nf_ct_timeout_ext_add()`, which may be influenced by packet contents or netlink attributes during connection tracking setup.",
+  "seconds": 17.5,
+  "code_chars": 886
+}

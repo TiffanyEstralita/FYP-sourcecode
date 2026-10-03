@@ -1,0 +1,13 @@
+{
+  "node": "ecn_mt6",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs basic bit operations on validated input without memory manipulation.",
+  "analysis": "The function reads from attacker-influenced data through the 'info' pointer which comes from netlink attributes during module initialization or configuration. The function performs bitwise operations and boolean checks on the 'operation' field but does not validate the bounds or sanity of this field before use. No memory allocation, copying, or freeing occurs in this function.",
+  "seconds": 13.8,
+  "code_chars": 344
+}

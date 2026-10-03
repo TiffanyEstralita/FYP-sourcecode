@@ -1,0 +1,13 @@
+{
+  "node": "nft_do_chain_arp",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function acts as a simple wrapper that passes through attacker-influenced packet data without performing any unsafe operations or checks.",
+  "analysis": "This function takes a sk_buff and nf_hook_state from netfilter hooks, which are attacker-influenced inputs. It calls nft_set_pktinfo to set up packet information, then passes the packet info to nft_do_chain which processes the packet through the chain. The function itself doesn't perform any direct memory operations or handle user-supplied indices/lengths, but relies on the nft_set_pktinfo and nft_do_chain functions which may process attacker-controlled packet data.",
+  "seconds": 11.4,
+  "code_chars": 245
+}

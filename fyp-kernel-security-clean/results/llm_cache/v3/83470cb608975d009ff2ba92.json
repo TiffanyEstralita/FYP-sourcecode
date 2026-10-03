@@ -1,0 +1,13 @@
+{
+  "node": "nft_verdict_uninit",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "null_deref",
+  "justification": "Missing null check on user-supplied chain pointer before dereferencing",
+  "analysis": "The function reads from data->verdict.chain which is user-supplied and could be NULL or invalid. It dereferences chain without checking if it's valid before using it. The chain pointer is used in multiple operations including chain->use-- and nft_chain_is_bound(chain) without null checks. There's no validation that the chain pointer points to a valid, allocated object.",
+  "seconds": 10.9,
+  "code_chars": 396
+}

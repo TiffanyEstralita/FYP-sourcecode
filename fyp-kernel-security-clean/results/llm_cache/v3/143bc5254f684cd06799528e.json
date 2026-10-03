@@ -1,0 +1,13 @@
+{
+  "node": "hash_ipport4_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "No bounds checking on hash table iteration, potential for out-of-bounds access if htable_bits is corrupted.",
+  "analysis": "The function processes hash buckets from a hash table but does not validate any attacker-controlled inputs. It iterates through all buckets using a loop counter 'i' and directly accesses 'hbucket(t, i)' without checking if the bucket index is valid or if the bucket pointer is NULL after dereferencing. The function assumes that 't->htable_bits' is valid and that the hash table structure is properly initialized, but there are no checks for malformed input data that could cause out-of-bounds access or use-after-free conditions.",
+  "seconds": 20.2,
+  "code_chars": 428
+}

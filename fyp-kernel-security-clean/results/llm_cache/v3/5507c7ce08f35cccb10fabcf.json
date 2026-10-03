@@ -1,0 +1,13 @@
+{
+  "node": "xt_register_matches",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing validation of array bounds and element count parameter against actual array size allows potential out-of-bounds memory access.",
+  "analysis": "The function takes attacker-influenced input through the 'match' array and 'n' parameter from netlink attributes. It iterates through the match array without validating the array bounds or the number of elements 'n', allowing potential out-of-bounds access if 'n' is larger than the actual array size. The function does not check for integer overflow in the loop condition or validate that the match array elements are properly initialized before use.",
+  "seconds": 11.3,
+  "code_chars": 270
+}

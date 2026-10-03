@@ -1,0 +1,13 @@
+{
+  "node": "nft_set_elem_expr_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The nft_setelem_expr_foreach macro processes user-supplied set element expressions without clear bounds validation on the size parameter.",
+  "analysis": "The function processes attacker-influenced netfilter set element expressions but doesn't directly handle packet contents or netlink attributes. Memory is read and processed through the nft_setelem_expr_foreach macro which iterates over elements without explicit bounds checking on the size parameter that could come from user data. The function relies on external iteration logic that may not validate the size or number of elements before processing.",
+  "seconds": 10.8,
+  "code_chars": 242
+}

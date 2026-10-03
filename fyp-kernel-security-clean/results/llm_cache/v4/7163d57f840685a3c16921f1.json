@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_loop_check_setelem",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 62.0,
+  "risk": 0.62,
+  "pattern": "missing_bounds_check",
+  "justification": "Function accesses user-supplied set element data without complete bounds checking of the element structure.",
+  "analysis": "The function reads from attacker-influenced data through the 'elem' parameter which contains user-supplied set element data. It accesses memory via 'nft_set_elem_ext()' and dereferences pointers from 'ext' without comprehensive bounds checking on the element data structure. The function does not perform overflow/underflow checks on any arithmetic operations and there are no obvious use-after-free patterns, but the reliance on potentially malformed user data without complete validation poses a risk.",
+  "seconds": 12.1,
+  "code_chars": 392
+}

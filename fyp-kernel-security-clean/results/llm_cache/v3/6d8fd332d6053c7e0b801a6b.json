@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_none",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function is a simple error return with no memory manipulation or attacker-influenced data processing.",
+  "analysis": "This function takes attacker-influenced inputs through the netlink attributes array 'attr[]' and skb packet data, but performs no operations on these inputs. It simply returns an error code without reading, writing, copying, or manipulating any memory. There are no memory accesses, length checks, or index operations that could be exploited.",
+  "seconds": 8.9,
+  "code_chars": 143
+}

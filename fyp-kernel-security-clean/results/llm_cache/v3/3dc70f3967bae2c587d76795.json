@@ -1,0 +1,13 @@
+{
+  "node": "__ip_set_put",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only handles reference counting with basic locking, no attacker-influenced data processing or memory safety issues.",
+  "analysis": "This function takes a pointer to an 'ip_set' structure as input, which could potentially be influenced by attackers through netlink commands that manipulate set references. The function reads from and writes to the 'ref' field of the set structure, but performs no validation of the input pointer itself. There are no length checks, offset arithmetic, or memory allocation/deallocation operations in this function.",
+  "seconds": 10.9,
+  "code_chars": 155
+}

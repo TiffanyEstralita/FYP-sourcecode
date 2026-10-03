@@ -1,0 +1,13 @@
+{
+  "node": "comment_mt",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function is a trivial matcher that doesn't handle any external data or memory operations.",
+  "analysis": "This function does not process any attacker-influenced data as it simply returns true without examining packet contents, netlink attributes, or user-supplied parameters. No memory is read, written, copied, indexed, allocated, or freed within this function. The function is a simple boolean return that always matches regardless of input.",
+  "seconds": 9.8,
+  "code_chars": 119
+}

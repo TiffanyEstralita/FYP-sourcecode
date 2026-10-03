@@ -1,0 +1,13 @@
+{
+  "node": "nft_set_catchall_loops",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only processes internally managed data structures with proper RCU locking and no attacker-controlled inputs",
+  "analysis": "",
+  "seconds": 8.0,
+  "code_chars": 464
+}

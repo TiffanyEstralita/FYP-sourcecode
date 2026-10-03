@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_key_equal",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-controlled data is processed, and no unsafe memory operations are performed.",
+  "analysis": "The function nf_ct_key_equal does not directly process attacker-influenced data as it operates on internal conntrack structures and zones. It reads from hash entries, conntrack objects, and network contexts but these are not directly controlled by external inputs. The function performs simple equality checks and net context comparisons without any memory allocation, copying, or indexing operations that could be exploited.",
+  "seconds": 11.6,
+  "code_chars": 524
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_jiffies64_to_msecs",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Simple wrapper function with no attacker-influenced memory operations or unsafe arithmetic",
+  "analysis": "This function takes a u64 input parameter that could potentially be influenced by an attacker through netlink commands or packet data. It performs a simple conversion from jiffies to milliseconds using the kernel's built-in jiffies64_to_msecs() function, with no memory operations, indexing, or pointer dereferences. The function does not perform any bounds checking or arithmetic operations that could overflow/underflow since it just passes through the input value unchanged except for byte order conversion.",
+  "seconds": 10.7,
+  "code_chars": 91
+}

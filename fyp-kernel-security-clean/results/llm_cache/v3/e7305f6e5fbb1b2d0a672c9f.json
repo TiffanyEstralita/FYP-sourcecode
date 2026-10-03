@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_acct_new",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The size variable is incremented based on flags without proper overflow checking, which could lead to an integer overflow during memory allocation.",
+  "analysis": "The function processes user-provided netlink attributes including NFACCT_NAME, NFACCT_FLAGS, NFACCT_QUOTA, NFACCT_BYTES, and NFACCT_PKTS. The acct_name is read from nla_data without a complete bounds check on its length before being used in strncmp and nla_strscpy. The size calculation for allocation uses a potentially untrusted flag value that could lead to integer overflow. There are no use-after-free issues or null dereferences present.",
+  "seconds": 25.8,
+  "code_chars": 2100
+}

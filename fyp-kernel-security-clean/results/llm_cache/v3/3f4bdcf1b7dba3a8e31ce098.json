@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_unregister_fn",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "The function does not fully validate the 'ops_count' parameter or derived indices before array access, allowing for potential out-of-bounds reads/writes.",
+  "analysis": "The function processes attacker-influenced data through 'ops' and 'ops_count' parameters which could be manipulated by userspace via netlink. It performs array indexing with 'hooknum' and 'i' that is derived from user input without complete bounds checking, and uses 'nf_hook_entries_delete_raw' which may lead to use-after-free if entries are accessed after deletion. The function also has potential integer overflow in arithmetic operations involving 'ops_count'.",
+  "seconds": 17.1,
+  "code_chars": 1107
+}

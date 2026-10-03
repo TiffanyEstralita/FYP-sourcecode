@@ -1,0 +1,13 @@
+{
+  "node": "untimeout [nfnetlink_cttimeout.c]",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 0.0,
+  "risk": 0.0,
+  "pattern": "none",
+  "justification": "Function only handles internal connection timeout reference and does not process any attacker-influenced data",
+  "analysis": "",
+  "seconds": 5.9,
+  "code_chars": 201
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_nat_helper_unregister",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs list removal without validating input pointer or checking if helper was properly initialized, but doesn't directly manipulate memory in dangerous ways.",
+  "analysis": "This function takes a pointer to a nf_conntrack_nat_helper structure as input, which could potentially be influenced by an attacker through netlink commands or other kernel interfaces that register NAT helpers. The function performs list deletion using list_del_rcu() on the helper's list entry, but there are no checks to ensure the pointer is valid or that the helper was properly initialized before being unregistered. The function does not perform any memory allocation, copying, or arithmetic operations that could overflow, and there's no indication of use-after-free issues since it only removes from a list without freeing the object itself.",
+  "seconds": 13.2,
+  "code_chars": 177
+}

@@ -1,0 +1,13 @@
+{
+  "node": "hmark_tg_v6",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Helper functions may not fully validate attacker-controlled packet data leading to potential memory corruption.",
+  "analysis": "The function processes packet data through hmark_ct_set_htuple or hmark_pkt_set_htuple functions which likely parse IPv6 headers and extract fields into the hmark_tuple structure. The attacker could influence packet contents that are parsed by these helper functions, potentially leading to memory access violations if bounds checking is insufficient. The function itself doesn't directly handle user-supplied lengths/offsets but relies on helper functions that may not fully validate packet data.",
+  "seconds": 12.5,
+  "code_chars": 474
+}

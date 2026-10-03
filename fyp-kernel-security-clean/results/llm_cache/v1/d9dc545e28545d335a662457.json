@@ -1,0 +1,13 @@
+{
+  "node": "nf_log_dump_packet_common",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function performs safe null checks and uses validated device names without direct memory manipulation or obvious vulnerability patterns.",
+  "analysis": "",
+  "seconds": 9.5,
+  "code_chars": 815
+}

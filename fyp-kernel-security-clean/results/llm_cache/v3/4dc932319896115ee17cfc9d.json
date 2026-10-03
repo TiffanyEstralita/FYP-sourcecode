@@ -1,0 +1,13 @@
+{
+  "node": "nft_do_chain_bridge",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Packet data is passed to validation functions without explicit bounds checking on the packet contents.",
+  "analysis": "The function processes network packets and calls helper functions that validate packet contents based on Ethernet protocol type. The attacker can influence packet contents including protocol headers that determine which validation path is taken. Memory is read from skb data and passed to validation functions, but no explicit bounds checking is performed on the packet data itself before being passed to nft_set_pktinfo_ipv4_validate or nft_set_pktinfo_ipv6_validate. The function does not directly allocate or free memory, and there are no obvious use-after-free scenarios.",
+  "seconds": 13.9,
+  "code_chars": 453
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_nfnl_get_byindex",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Basic bounds check on index against ip_set_max but no validation that the index is valid for the actual set array allocation.",
+  "analysis": "The function takes an attacker-influenced index parameter from netlink attributes. It uses this index to directly access inst->ip_set_max without additional validation beyond a basic bounds check. The index is used in a direct array access via ip_set() macro, but the bounds check only verifies against inst->ip_set_max without ensuring the index is valid for the actual set array allocation. No memory is freed or reused in this function.",
+  "seconds": 15.4,
+  "code_chars": 377
+}

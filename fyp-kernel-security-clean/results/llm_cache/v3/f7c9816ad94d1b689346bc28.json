@@ -1,0 +1,13 @@
+{
+  "node": "nft_payload_fast_eval",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The function performs pointer arithmetic without checking for potential integer overflow in ptr + priv->len calculation, which could lead to out-of-bounds memory access.",
+  "analysis": "The function reads attacker-influenced data through priv->offset, priv->len, and priv->base which are part of the nft_payload structure. Memory is read from skb using calculated pointer ptr, with potential for out-of-bounds access if ptr + priv->len exceeds skb_tail_pointer(skb). The bounds check only verifies that ptr + priv->len does not exceed skb_tail_pointer(skb), but does not validate that ptr itself is within valid skb bounds before the addition, and there's no check against integer overflow in the ptr calculation.",
+  "seconds": 16.4,
+  "code_chars": 751
+}

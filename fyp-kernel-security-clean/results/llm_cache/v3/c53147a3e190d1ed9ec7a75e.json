@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_offload_init",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function performs simple struct initialization with no dangerous memory operations or unchecked attacker inputs that could lead to exploitation.",
+  "analysis": "The function takes attacker-influenced inputs including proto (__be16), priority (int), cmd (enum), tuple (const pointer), and extack (struct netlink_ext_ack *). It copies these values directly to struct members without validation or bounds checking. The tuple pointer is cast to unsigned long and stored as cookie without any verification of its validity or contents. No memory allocation, deallocation, or complex indexing occurs in this simple initialization function.",
+  "seconds": 12.8,
+  "code_chars": 392
+}

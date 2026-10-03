@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_dump_done",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 25.0,
+  "risk": 0.25,
+  "pattern": "none",
+  "justification": "No obvious memory corruption patterns, relies on proper netlink subsystem initialization and argument handling.",
+  "analysis": "The function reads from netlink callback arguments (cb->args) which can be influenced by userspace. It dereferences a pointer from cb->args[IPSET_CB_NET] and uses it to lookup a set, then calls functions on the set variant. There are no explicit bounds checks on the argument indices or validation of the pointers before use, though the code appears to rely on proper initialization by the netlink subsystem.",
+  "seconds": 12.6,
+  "code_chars": 437
+}

@@ -1,0 +1,13 @@
+{
+  "node": "masquerade_tg",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Attacker can control netlink attributes that are copied without validation, creating potential for malformed data handling.",
+  "analysis": "The function reads from `mr->range[0].flags`, `mr->range[0].min`, and `mr->range[0].max` where `mr` points to `par->targinfo`. The attacker can influence this data through netlink attributes when configuring the MASQUERADE target. However, the function only copies these values into a local struct without performing any validation or bounds checking on the input data. The `range` struct is then passed to `nf_nat_masquerade_ipv4()` which likely performs its own validation, but the initial copy operation lacks checks for potentially malformed input.",
+  "seconds": 15.2,
+  "code_chars": 389
+}

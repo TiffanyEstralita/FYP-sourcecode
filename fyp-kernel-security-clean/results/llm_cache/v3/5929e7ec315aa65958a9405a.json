@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_newflowtable",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function parses attacker-controlled netlink attributes without complete validation of lengths or offsets, particularly in the hook parsing and attribute handling.",
+  "analysis": "The function processes netlink attributes including flowtable name, flags, and hook data. Attackers can influence packet contents through NLA attributes, particularly NFTA_FLOWTABLE_NAME, NFTA_FLOWTABLE_FLAGS, and NFTA_FLOWTABLE_HOOK. Memory is allocated for flowtable structures and hooks, with potential for use-after-free if error paths are taken incorrectly. The parsing of hook data via nft_flowtable_parse_hook() could lead to memory corruption if bounds checks are insufficient.",
+  "seconds": 31.0,
+  "code_chars": 3222
+}

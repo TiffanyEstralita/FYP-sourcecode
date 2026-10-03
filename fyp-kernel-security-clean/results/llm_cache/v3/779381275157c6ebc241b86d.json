@@ -1,0 +1,13 @@
+{
+  "node": "nf_ip_checksum",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The dataoff parameter is used in arithmetic without validation that it doesn't cause underflow or exceed packet boundaries.",
+  "analysis": "The function reads packet data via ip_hdr() and skb->len, but does not validate that dataoff is within the packet bounds before use in csum_tcpudp_nofold. The protocol parameter is checked against known values but not validated against the actual packet contents. No memory is allocated or freed, and there are no obvious use-after-free or null dereference issues.",
+  "seconds": 14.3,
+  "code_chars": 852
+}

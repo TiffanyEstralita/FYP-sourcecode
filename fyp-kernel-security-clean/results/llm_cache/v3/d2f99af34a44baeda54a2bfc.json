@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_stat_exp_cpu",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No direct memory access or manipulation of attacker-influenced data beyond a simple flag check.",
+  "analysis": "This function handles netlink message processing for connection tracking statistics. The attacker can influence the netlink message flags through the nlmsg_flags field in the nlh structure. Memory is read from the netlink header and passed to netlink_dump_start, but no direct memory manipulation occurs. The function only checks if NLM_F_DUMP flag is set and calls netlink_dump_start without additional validation of attacker-controlled data.",
+  "seconds": 11.1,
+  "code_chars": 334
+}

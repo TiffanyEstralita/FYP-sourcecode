@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_dest_set_eraseall",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only processes pre-existing list elements without direct attacker-controlled memory operations or unsafe pointer arithmetic.",
+  "analysis": "The function processes a linked list of elements from an attacker-controlled data structure (ip_vs_dest_set). It iterates through the list using list_for_each_entry_safe and removes each element with list_del_rcu. The list is accessed via set->list which could be manipulated by an attacker if the set structure is externally accessible. However, the function only operates on elements that are already part of the list and doesn't perform any direct memory operations based on attacker inputs beyond the list traversal itself.",
+  "seconds": 12.9,
+  "code_chars": 240
+}

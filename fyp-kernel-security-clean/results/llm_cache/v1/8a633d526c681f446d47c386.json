@@ -1,0 +1,13 @@
+{
+  "node": "cgroup_mt_destroy_v2",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "null_deref",
+  "justification": "The code dereferences info->priv without checking if info is NULL, which could lead to a null pointer dereference if the matchinfo parameter is not properly initialized.",
+  "analysis": "",
+  "seconds": 6.5,
+  "code_chars": 165
+}

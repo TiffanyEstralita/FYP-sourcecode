@@ -1,0 +1,13 @@
+{
+  "node": "nf_route_table_inet",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function acts as a simple dispatcher with no obvious memory safety violations, though it passes raw packet data to downstream functions without explicit validation.",
+  "analysis": "The function accepts attacker-influenced inputs through skb (network packet data) and state parameters. It performs a switch on state->pf which could be controlled by an attacker, then calls nf_route_table_hook4 or nf_route_table_hook6 functions. The function doesn't perform any explicit bounds checking on packet data before passing it to the hook functions, and there's no clear evidence of proper validation of packet contents or lengths. The nft_set_pktinfo call appears to be a simple setup without obvious memory safety issues.",
+  "seconds": 15.8,
+  "code_chars": 401
+}

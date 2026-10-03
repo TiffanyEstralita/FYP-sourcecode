@@ -1,0 +1,13 @@
+{
+  "node": "ctnetlink_get_expect",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "other",
+  "justification": "The function parses attacker-controlled netlink attributes without complete validation of lengths or offsets, and relies on external parsing functions that may not fully validate input data.",
+  "analysis": "The function processes netlink attributes including CTA_EXPECT_ID, CTA_EXPECT_TUPLE, and CTA_EXPECT_MASTER, which can be controlled by attackers. It parses tuple data and uses a zone ID from CTA_EXPECT_ZONE, but does not perform comprehensive bounds checking on parsed lengths or indices before use. The function retrieves an expectation object via nf_ct_expect_find_get and later releases it with nf_ct_expect_put, but there are no obvious use-after-free issues as the object is properly released after use.",
+  "seconds": 22.5,
+  "code_chars": 1727
+}

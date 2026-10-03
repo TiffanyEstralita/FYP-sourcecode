@@ -1,0 +1,13 @@
+{
+  "node": "nft_set_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "Function only handles internal kernel data structures with no attacker-controlled inputs or obvious memory safety issues.",
+  "analysis": "The function nft_set_destroy does not directly process attacker-influenced data from packet contents or netlink attributes. It operates on kernel-internal structures (nft_set) that are managed through proper kernel APIs and reference counting. The function performs standard cleanup operations including freeing memory allocated for set expressions, name string, and the set structure itself. There are no obvious bounds checks needed since it iterates over pre-validated array indices and uses standard kernel memory management functions.",
+  "seconds": 11.9,
+  "code_chars": 301
+}

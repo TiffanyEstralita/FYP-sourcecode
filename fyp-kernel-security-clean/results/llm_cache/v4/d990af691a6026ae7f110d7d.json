@@ -1,0 +1,13 @@
+{
+  "node": "cgroup_mt_destroy_v2",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 60.0,
+  "risk": 0.6,
+  "pattern": "use_after_free",
+  "justification": "Function uses user-supplied pointer without validation that it's a valid cgroup reference, potentially leading to use-after-free or invalid memory access.",
+  "analysis": "The function reads from info->priv which is user-supplied data from the matchinfo parameter. The input comes from netlink attributes during rule configuration, and there's no validation that priv points to a valid cgroup reference before calling cgroup_put(). The function assumes priv is a valid pointer without checking if it was properly initialized or if the cgroup reference is still valid.",
+  "seconds": 11.3,
+  "code_chars": 165
+}

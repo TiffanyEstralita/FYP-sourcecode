@@ -1,0 +1,13 @@
+{
+  "node": "redirect_tg4",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "other",
+  "justification": "Delegates to netfilter NAT function that may process attacker-influenced data without clear bounds checking in the provided code.",
+  "analysis": "The function receives attacker-influenced packet data through skb and uses par->targinfo which could contain user-supplied configuration. The function delegates to nf_nat_redirect_ipv4 which likely processes packet contents and target information, potentially involving memory operations with attacker-controlled offsets or lengths. The security risk depends on how nf_nat_redirect_ipv4 handles these inputs without proper validation.",
+  "seconds": 10.3,
+  "code_chars": 159
+}

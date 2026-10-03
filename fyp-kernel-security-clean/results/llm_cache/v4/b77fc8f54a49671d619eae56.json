@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_state_name",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "missing_bounds_check",
+  "justification": "The state value from user-controlled connection data is used as an array index without complete validation against the table size.",
+  "analysis": "The function reads from cp->state which is derived from user-controlled connection data, and uses this value as an array index into ip_vs_ctpl_state_name_table without sufficient bounds checking beyond the initial >= IP_VS_CTPL_S_LAST comparison. The pp->state_name function pointer is called with the state parameter, but there's no validation that the state value is within valid bounds for the protocol-specific state name function. No memory is allocated, freed, or copied in a way that would introduce use-after-free or similar issues.",
+  "seconds": 15.1,
+  "code_chars": 442
+}

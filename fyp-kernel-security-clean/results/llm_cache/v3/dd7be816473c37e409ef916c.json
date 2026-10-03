@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_genl_find_service",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "The function processes attacker-controlled netlink attributes without complete input validation, creating potential for buffer overflows or memory corruption.",
+  "analysis": "The function receives a netlink attribute (nla) from user space which could contain attacker-influenced data. The function calls ip_vs_genl_parse_service which likely parses this data and may use lengths, offsets or indices from the parsed netlink attributes without complete validation. The return value is directly used as a service pointer without additional checks for validity or bounds.",
+  "seconds": 13.9,
+  "code_chars": 287
+}

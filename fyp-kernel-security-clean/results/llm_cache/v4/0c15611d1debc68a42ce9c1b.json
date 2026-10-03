@@ -1,0 +1,13 @@
+{
+  "node": "nfnl_acct_put",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 15.0,
+  "risk": 0.15,
+  "pattern": "none",
+  "justification": "Function only handles internal reference counting and module management with no attacker-influenced data processing.",
+  "analysis": "This function does not directly process any attacker-influenced inputs - it only handles reference counting and module management. The acct parameter comes from internal kernel data structures, not from packet contents or netlink attributes. Memory is freed using kfree_rcu when the reference count reaches zero, which is a standard pattern. There are no unsafe length/offset operations or arithmetic that could overflow/underflow.",
+  "seconds": 11.6,
+  "code_chars": 143
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nft_validate_register_load",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The register index calculation and bounds check have potential for integer overflow/underflow vulnerabilities.",
+  "analysis": "The function takes an attacker-influenced register index and length parameter. Memory is accessed via reg * NFT_REG32_SIZE + len calculation, and the bounds check uses sizeof_field which may not properly validate the arithmetic. The register index can come from packet or netlink data without complete validation of its range against NFT_REG_1 * NFT_REG_SIZE / NFT_REG32_SIZE boundary.",
+  "seconds": 11.2,
+  "code_chars": 289
+}

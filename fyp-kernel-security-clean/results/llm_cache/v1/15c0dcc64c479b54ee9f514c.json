@@ -1,0 +1,13 @@
+{
+  "node": "nf_tables_check_loops",
+  "version": "v1",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function performs proper null checks and loop detection without obvious vulnerability patterns.",
+  "analysis": "",
+  "seconds": 13.3,
+  "code_chars": 1511
+}

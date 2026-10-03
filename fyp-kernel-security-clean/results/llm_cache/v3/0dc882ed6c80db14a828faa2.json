@@ -1,0 +1,13 @@
+{
+  "node": "unregister_ip_vs_scheduler",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "use_after_free",
+  "justification": "No validation of scheduler pointer contents or lifetime before dereferencing, potential for use-after-free if attacker controls scheduler object.",
+  "analysis": "The function takes a scheduler pointer from user space but performs no validation of its contents beyond checking for NULL. The scheduler pointer is dereferenced to access scheduler->name and scheduler->n_list without any bounds checking or verification that the memory is valid or properly initialized. If an attacker can control the scheduler pointer, they could trigger a use-after-free or null-dereference if the object was already freed, or read arbitrary memory if the pointer points to a crafted structure.",
+  "seconds": 13.3,
+  "code_chars": 637
+}

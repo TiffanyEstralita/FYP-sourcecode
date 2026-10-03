@@ -1,0 +1,13 @@
+{
+  "node": "nf_flow_dnat_port",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function accesses packet data without verifying that the thoff offset and protocol header layout are valid or within packet bounds before dereferencing hdr pointer.",
+  "analysis": "",
+  "seconds": 8.9,
+  "code_chars": 656
+}

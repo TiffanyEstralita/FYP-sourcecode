@@ -1,0 +1,13 @@
+{
+  "node": "idletimer_tg_target_v1",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Missing validation of user-supplied timeout value and label length, potential use of uninitialized timer pointer.",
+  "analysis": "The function reads from info->label and info->timeout which are derived from user-supplied netlink attributes during module initialization, but there are no explicit bounds checks on the label string length or validation of the timeout value. The timer pointer is dereferenced without verification that it points to a valid, allocated object. No overflow/underflow checks are performed on the timeout arithmetic.",
+  "seconds": 12.2,
+  "code_chars": 526
+}

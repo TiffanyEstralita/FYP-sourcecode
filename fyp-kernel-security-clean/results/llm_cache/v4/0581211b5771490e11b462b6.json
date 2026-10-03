@@ -1,0 +1,13 @@
+{
+  "node": "untimeout [nf_conntrack_timeout.c]",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 15.0,
+  "risk": 0.15,
+  "pattern": "none",
+  "justification": "No attacker-influenced memory operations or unsafe pointer manipulations detected.",
+  "analysis": "The function takes a timeout parameter that could be attacker-controlled, but it's only used in a comparison check (t == timeout) and doesn't directly influence memory operations. The function performs a simple pointer comparison and assignment without any memory allocation, copying, or indexing operations that could be exploited. The RCU access is properly handled with RCU_INIT_POINTER.",
+  "seconds": 10.2,
+  "code_chars": 375
+}

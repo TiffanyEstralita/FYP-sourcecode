@@ -1,0 +1,13 @@
+{
+  "node": "bpf_mt_v1",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 9.0,
+  "risk": 0.9,
+  "pattern": "missing_bounds_check",
+  "justification": "Direct use of user-supplied BPF program without validation or bounds checking creates a clear vulnerability allowing attackers to execute arbitrary code.",
+  "analysis": "The function receives attacker-influenced data through the 'info' pointer which contains user-supplied BPF program code and filter information. Memory is read from the 'info->filter' field which could point to maliciously crafted BPF program data. The function directly passes this unvalidated data to 'bpf_prog_run_save_cb' without any bounds checking or validation of the BPF program structure.",
+  "seconds": 10.6,
+  "code_chars": 205
+}

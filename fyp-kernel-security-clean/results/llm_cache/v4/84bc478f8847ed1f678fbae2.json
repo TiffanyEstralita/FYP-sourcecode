@@ -1,0 +1,13 @@
+{
+  "node": "bitmap_port_do_del",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 60.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The id field from attacker-controlled input is used as a direct bit index without bounds checking against the bitmap size.",
+  "analysis": "The function takes a pointer to `bitmap_port_adt_elem` which could contain attacker-controlled data, and uses `e->id` as an index to clear a bit in `map->members`. The `id` field is not validated against the bitmap size before use, allowing potential out-of-bounds bit manipulation. No memory allocation, copying, or freeing occurs in this function.",
+  "seconds": 10.1,
+  "code_chars": 151
+}

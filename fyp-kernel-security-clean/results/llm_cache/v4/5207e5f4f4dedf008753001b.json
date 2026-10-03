@@ -1,0 +1,13 @@
+{
+  "node": "bitmap_ipmac_test",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "missing_bounds_check",
+  "justification": "The 'id' field from attacker-controlled 'value' is used as an index without bounds checking, creating a potential out-of-bounds memory access.",
+  "analysis": "The function reads from 'value' which contains attacker-influenced data including 'e->id' and 'e->ip' fields. The 'get_ext' function is called with 'e->id' as an index to access memory in 'map', but there's no explicit bounds checking on the 'id' value before use. The 'bitmap_ipmac_do_test' function may also process attacker data, though its implementation isn't shown. No obvious integer overflows or use-after-free patterns are present.",
+  "seconds": 14.8,
+  "code_chars": 401
+}

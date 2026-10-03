@@ -1,0 +1,13 @@
+{
+  "node": "nf_ct_iterate_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles internal kernel data structures with no direct attacker-controlled inputs and performs safe synchronization operations.",
+  "analysis": "The function `nf_ct_iterate_destroy` does not directly process attacker-influenced packet contents or netlink attributes. It operates on kernel data structures related to connection tracking and network namespaces, using internal counters and RCU mechanisms. Memory is read and written in a controlled manner through standard kernel APIs like `atomic_read`, `nf_queue_nf_hook_drop`, and `synchronize_rcu`. There are no obvious unchecked indices, lengths, or offsets that could be manipulated by an attacker, nor any use-after-free scenarios.",
+  "seconds": 15.8,
+  "code_chars": 1079
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_sched_persist",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "missing_bounds_check",
+  "justification": "Function uses packet data without complete validation of lengths/offsets, particularly in ip_vs_conn_fill_param_persist call.",
+  "analysis": "The function processes packet data through iph (IP header) and svc (service) structures, with inputs like src_port, dst_port, and skb data potentially influenced by attackers. Memory is read from iph->protocol and svc->port, written to param structure, and allocated/freed during connection template creation. The code performs checks on svc->port and protocol but does not fully validate lengths or offsets from packet data before use, particularly in the ip_vs_conn_fill_param_persist call which may use attacker-controlled values without complete bounds checking.",
+  "seconds": 43.8,
+  "code_chars": 4674
+}

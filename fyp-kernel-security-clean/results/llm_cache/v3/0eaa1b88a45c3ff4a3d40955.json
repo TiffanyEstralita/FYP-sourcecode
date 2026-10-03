@@ -1,0 +1,13 @@
+{
+  "node": "hash_netport4_ahash_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No attacker-controlled data is processed and all memory operations are safe.",
+  "analysis": "The function processes hash buckets from a hash table but does not validate any attacker-controlled inputs. The loop index 'i' is bounded by jhash_size(t->htable_bits) which is derived from the hash table configuration, not user input. No memory is read or written using attacker-influenced offsets or lengths. The function frees memory that was allocated during initialization and does not appear to use any freed objects afterward.",
+  "seconds": 14.2,
+  "code_chars": 430
+}

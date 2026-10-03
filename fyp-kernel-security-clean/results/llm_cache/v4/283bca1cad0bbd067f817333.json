@@ -1,0 +1,13 @@
+{
+  "node": "nft_bitwise_dump_shift",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 60.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "The function passes attacker-controlled data to nft_data_dump without validating its contents or size before dumping.",
+  "analysis": "The function takes a pointer to nft_bitwise structure which contains attacker-influenced data in priv->data. The function calls nft_data_dump with this data without additional validation of the data contents or size. The sizeof(u32) parameter is fixed but the actual data being dumped could be maliciously crafted by an attacker who controls the netfilter rule configuration.",
+  "seconds": 10.4,
+  "code_chars": 215
+}

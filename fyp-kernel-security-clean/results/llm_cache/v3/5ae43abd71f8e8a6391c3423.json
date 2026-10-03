@@ -1,0 +1,13 @@
+{
+  "node": "nfqnl_recv_verdict",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The payload_len variable is used in arithmetic operations that could overflow, and there are no complete bounds checks before using this value in memory operations.",
+  "analysis": "The function processes netlink attributes from user-supplied packets, including NFQA_PAYLOAD, NFQA_MARK, and NFQA_PRIORITY. Memory is read and written using lengths and data from these attributes without complete validation of bounds or overflow conditions. The payload_len from NFQA_PAYLOAD is used in diff calculation and passed to nfqnl_mangle() without sufficient checks on whether the payload data fits within allocated buffers or causes integer overflow.",
+  "seconds": 20.9,
+  "code_chars": 1631
+}

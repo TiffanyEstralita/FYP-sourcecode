@@ -1,0 +1,13 @@
+{
+  "node": "nf_ip6_checksum_partial",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 7.0,
+  "risk": 0.7,
+  "pattern": "missing_bounds_check",
+  "justification": "The function uses attacker-controlled 'dataoff' and 'len' without validating they stay within packet bounds.",
+  "analysis": "The function takes attacker-influenced parameters 'dataoff', 'len', and 'protocol' which are used in checksum calculations. Memory is read via skb_checksum and csum_ipv6_magic, with 'len' and 'dataoff' potentially leading to out-of-bounds access if not properly validated. The function does not perform explicit bounds checking on 'len' or 'dataoff' against the actual packet size, which could allow an attacker to cause memory corruption.",
+  "seconds": 14.7,
+  "code_chars": 722
+}

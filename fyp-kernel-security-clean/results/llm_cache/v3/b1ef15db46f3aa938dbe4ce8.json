@@ -1,0 +1,13 @@
+{
+  "node": "nft_expr_dump",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "Function processes attacker-controlled netlink attributes and expression data without complete bounds checking before memory operations.",
+  "analysis": "The function takes attacker-influenced inputs through the 'attr' parameter and 'expr' pointer which could come from netlink messages. Memory is read from the 'expr' structure and written to the netlink socket buffer 'skb'. The function performs basic validation with nla_nest_start_noflag but doesn't validate the 'expr' structure contents or ensure proper bounds checking before calling nf_tables_fill_expr_info, which could lead to memory corruption if the expression data is malformed. No explicit length checks are performed on the attacker-controlled 'attr' value or the 'expr' data.",
+  "seconds": 13.5,
+  "code_chars": 332
+}

@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_put_byindex",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "Direct use of attacker-controlled index without bounds checking against array size",
+  "analysis": "The function takes an attacker-influenced index parameter that is passed directly to __ip_set_put_byindex without any validation. The index is used as an array offset to access inst->sets[index] without bounds checking against the actual number of sets. No length, offset or index arithmetic overflow/underflow issues are present, but the direct use of attacker-controlled index creates a potential out-of-bounds memory access vulnerability.",
+  "seconds": 10.0,
+  "code_chars": 147
+}

@@ -1,0 +1,13 @@
+{
+  "node": "nf_hook_entries_free",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles kernel-internal data structures with basic bounds checking, no clear vulnerability pattern present",
+  "analysis": "The function takes a nf_hook_entries pointer as input which could be influenced by kernel code but not directly by userspace. It reads the num_hook_entries field and uses it to calculate a pointer offset to access ops[num] which is then used as an RCU head. The main risk is that if num_hook_entries is corrupted or maliciously set, it could cause out-of-bounds memory access when calculating the head pointer location. However, the function itself doesn't directly copy or parse attacker-controlled data, and the memory operations are relatively straightforward with only one potential bounds check on the num value.",
+  "seconds": 12.9,
+  "code_chars": 336
+}

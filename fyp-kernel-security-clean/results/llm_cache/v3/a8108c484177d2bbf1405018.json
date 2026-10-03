@@ -1,0 +1,13 @@
+{
+  "node": "socket_mt_enable_defrag",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 2.0,
+  "risk": 0.2,
+  "pattern": "none",
+  "justification": "No direct memory operations or attacker-controlled data handling beyond a simple switch statement.",
+  "analysis": "This function takes a 'family' parameter that could potentially come from netlink attributes or packet parsing contexts. It performs a simple switch statement lookup on this family value without additional validation beyond the switch cases. The function only calls other netfilter functions with the net pointer and family value, with no direct memory manipulation or allocation/deallocation operations occurring within this function.",
+  "seconds": 9.9,
+  "code_chars": 306
+}

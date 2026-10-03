@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_ad",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "integer_overflow_underflow",
+  "justification": "The nla_for_each_nested loop uses nla_len() without explicit overflow/underflow checks on the length field, which can be attacker-controlled.",
+  "analysis": "The function processes netlink attributes from user input, including nested attributes and data from IPSET_ATTR_DATA and IPSET_ATTR_ADT. Memory is read via nla_data() and nla_parse_nested(), with potential for integer overflow/underflow in nla_for_each_nested loop if nla_len() is not properly validated. No obvious use-after-free or null dereference patterns are present, but the function relies on nested attribute parsing that could be exploited if validation is insufficient.",
+  "seconds": 21.0,
+  "code_chars": 1629
+}

@@ -1,0 +1,13 @@
+{
+  "node": "get_callid",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 8.0,
+  "risk": 0.8,
+  "pattern": "missing_bounds_check",
+  "justification": "The function accesses memory using attacker-controlled offsets without ensuring they stay within packet bounds, risking out-of-bounds reads.",
+  "analysis": "The function `get_callid` reads from attacker-influenced packet data via `dptr`, `dataoff`, and `datalen` parameters. Memory is accessed at offsets calculated from these inputs without complete validation of bounds, particularly in the line terminator check where `*(dptr + *matchoff + *matchlen)` is read. The function does not validate that `*matchoff + *matchlen` remains within the bounds of `datalen` before accessing memory.",
+  "seconds": 17.0,
+  "code_chars": 950
+}

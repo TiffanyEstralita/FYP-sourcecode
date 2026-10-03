@@ -1,0 +1,13 @@
+{
+  "node": "xt_compat_match_offset",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only performs simple arithmetic on kernel-internal data structures with no attacker-controlled inputs or memory safety issues.",
+  "analysis": "The function takes a const pointer to xt_match structure as input, where match->compatsize and match->matchsize are read from the structure. These values come from kernel data structures that are populated during module initialization or netlink configuration, not directly from attacker-controlled packet data. The function performs simple arithmetic operations with these values without any bounds checking or overflow protection. No memory allocation, copying, or freeing occurs in this function.",
+  "seconds": 15.5,
+  "code_chars": 180
+}

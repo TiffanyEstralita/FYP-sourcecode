@@ -1,0 +1,13 @@
+{
+  "node": "nft_target_destroy",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 6.0,
+  "risk": 0.6,
+  "pattern": "missing_bounds_check",
+  "justification": "No validation of attacker-controlled pointers before dereference, potential for use of invalid memory locations.",
+  "analysis": "The function processes attacker-influenced data through the nft_expr *expr parameter which contains user-supplied packet match/target information. Memory is read from expr->ops->data and info pointer, with no explicit bounds checking on these values. The function dereferences pointers without validating they point to valid memory regions or have been properly initialized.",
+  "seconds": 14.7,
+  "code_chars": 421
+}

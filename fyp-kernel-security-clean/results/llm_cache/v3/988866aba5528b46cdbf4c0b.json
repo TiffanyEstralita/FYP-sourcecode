@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_conn_hashkey_param",
+  "version": "v3",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function only uses attacker-influenced data for hash computation with no obvious memory safety issues.",
+  "analysis": "The function takes a pointer to struct ip_vs_conn_param which contains attacker-influenced data like caddr, cport, vaddr, vport, and protocol. These fields are used directly in hash key computation without explicit bounds checking beyond the initial null check of pe_data. The function does not perform any memory allocation, deallocation, or indexing operations that could lead to use-after-free or buffer overflows.",
+  "seconds": 12.1,
+  "code_chars": 460
+}

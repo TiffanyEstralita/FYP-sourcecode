@@ -1,0 +1,13 @@
+{
+  "node": "ip_set_dump_do",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 72.0,
+  "risk": 0.72,
+  "pattern": "missing_bounds_check",
+  "justification": "The index from cb->args[IPSET_CB_INDEX] is used to access ip_set() without rechecking bounds after potential modification, creating a risk of out-of-bounds memory access.",
+  "analysis": "The function reads attacker-influenced data through netlink callback arguments (cb->args) which control dump type, flags, and index. Memory is accessed via ip_set() using an index that comes from cb->args[IPSET_CB_INDEX] without sufficient bounds checking against inst->ip_set_max. The index is incremented and used directly in set operations without revalidating it remains within valid range during loop iterations.",
+  "seconds": 39.5,
+  "code_chars": 3970
+}

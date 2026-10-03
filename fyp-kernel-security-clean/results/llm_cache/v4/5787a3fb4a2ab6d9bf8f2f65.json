@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_genl_find_service",
+  "version": "v4",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 65.0,
+  "risk": 0.65,
+  "pattern": "missing_bounds_check",
+  "justification": "The function processes attacker-controlled netlink attributes without complete validation of parsed lengths/offsets before use.",
+  "analysis": "The function receives a netlink attribute (nla) that can be controlled by attackers. The attacker-influenced data flows through ip_vs_genl_parse_service() which processes the netlink attributes and may use unvalidated lengths/offsets when parsing service parameters. The parsed data is used to allocate and return a service object without additional validation of the parsed parameters, potentially leading to memory corruption or incorrect behavior if malformed data is provided.",
+  "seconds": 11.4,
+  "code_chars": 287
+}

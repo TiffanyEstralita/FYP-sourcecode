@@ -1,0 +1,13 @@
+{
+  "node": "ip_vs_genl_set_config",
+  "version": "v2",
+  "model": "qwen3-coder:30b",
+  "repeat": 0,
+  "risk_score": 3.0,
+  "risk": 0.3,
+  "pattern": "none",
+  "justification": "Function handles netlink attributes safely with proper bounds checking via nla_get_u32, and all data is validated before use.",
+  "analysis": "",
+  "seconds": 8.1,
+  "code_chars": 516
+}
