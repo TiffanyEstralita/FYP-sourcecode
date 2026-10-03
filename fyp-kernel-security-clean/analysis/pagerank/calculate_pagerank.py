@@ -127,19 +127,17 @@ class PageRankAnalyzer:
         
         # Save top 100 with metadata
         top_100_detailed = []
-        for func, score in stats['top_100']:
-            # Find which file this function is in
-            for filename, funcs in self.functions.items():
-                if any(f['name'] == func for f in funcs):
-                    func_info = next(f for f in funcs if f['name'] == func)
-                    top_100_detailed.append({
-                        'rank': len(top_100_detailed) + 1,
-                        'function': func,
-                        'pagerank': score,
-                        'file': filename,
-                        'line': func_info['line']
-                    })
-                    break
+        for node, score in stats['top_100']:
+            # File and line are stored on the graph node (see analysis/callgraph.py)
+            info = self.graph.nodes[node]
+            top_100_detailed.append({
+                'rank': len(top_100_detailed) + 1,
+                'function': info['name'],
+                'node': node,
+                'pagerank': score,
+                'file': info['file'],
+                'line': info['line']
+            })
         
         top_100_file = OUTPUT_PATH / "top_100_functions.json"
         with open(top_100_file, 'w') as f:
@@ -160,12 +158,9 @@ class PageRankAnalyzer:
             f.write("\n" + "=" * 70 + "\n")
             f.write("TOP 50 FUNCTIONS BY PAGERANK\n")
             f.write("=" * 70 + "\n\n")
-            for i, (func, score) in enumerate(stats['top_50'], 1):
-                # Find file
-                for filename, funcs in self.functions.items():
-                    if any(f['name'] == func for f in funcs):
-                        f.write(f"{i:3d}. {func:45s} {score:.6f} ({filename})\n")
-                        break
+            for i, (node, score) in enumerate(stats['top_50'], 1):
+                info = self.graph.nodes[node]
+                f.write(f"{i:3d}. {info['name']:45s} {score:.6f} ({info['file']})\n")
 
         print(f"   ✅ Saved summary: {summary_file}")
 

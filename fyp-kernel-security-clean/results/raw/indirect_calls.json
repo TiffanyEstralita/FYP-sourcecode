@@ -1,11 +1,11 @@
 {
   "stats": {
     "fields_with_registrations": 138,
-    "registrations": 1209,
+    "registrations": 1216,
     "ipset_template_registrations_resolved": 55,
     "functions_with_dispatch": 156,
     "new_indirect_edges": 3205,
-    "direct_edges": 4629,
+    "direct_edges": 4647,
     "largest_fields": [
       [
         "destroy",
@@ -48,11 +48,11 @@
         27
       ],
       [
-        "hook",
-        23
+        "start",
+        25
       ],
       [
-        "start",
+        "hook",
         23
       ],
       [
@@ -65,7 +65,7 @@
       ],
       [
         "show",
-        18
+        20
       ]
     ]
   },
@@ -4782,7 +4782,6 @@
       "amanda_help",
       "conntrack_pptp_help",
       "h245_help",
-      "help",
       "netbios_ns_help",
       "nfnl_userspace_cthelper",
       "q931_help",
@@ -5071,7 +5070,9 @@
       "ip_vs_info_seq_next",
       "nf_flow_table_cpu_seq_next",
       "recent_seq_next",
-      "seq_next",
+      "seq_next [nf_log.c]",
+      "seq_next [nfnetlink_log.c]",
+      "seq_next [nfnetlink_queue.c]",
       "synproxy_cpu_seq_next",
       "xt_match_seq_next",
       "xt_table_seq_next",
@@ -5170,7 +5171,7 @@
       "nft_nat_inet_unreg"
     ],
     "optlen": [
-      "optlen"
+      "optlen [nft_exthdr.c]"
     ],
     "outfn": [
       "nfqnl_enqueue_packet"
@@ -5347,7 +5348,9 @@
       "ip_vs_info_seq_show",
       "nf_flow_table_cpu_seq_show",
       "recent_seq_show",
-      "seq_show",
+      "seq_show [nf_log.c]",
+      "seq_show [nfnetlink_log.c]",
+      "seq_show [nfnetlink_queue.c]",
       "synproxy_cpu_seq_show",
       "xt_match_seq_show",
       "xt_table_seq_show",
@@ -5380,7 +5383,9 @@
       "nfnl_acct_start",
       "nfnl_hook_dump_start",
       "recent_seq_start",
-      "seq_start",
+      "seq_start [nf_log.c]",
+      "seq_start [nfnetlink_log.c]",
+      "seq_start [nfnetlink_queue.c]",
       "synproxy_cpu_seq_start",
       "xt_match_seq_start",
       "xt_table_seq_start",
@@ -5406,7 +5411,9 @@
       "ip_vs_info_seq_stop",
       "nf_flow_table_cpu_seq_stop",
       "recent_seq_stop",
-      "seq_stop",
+      "seq_stop [nf_log.c]",
+      "seq_stop [nfnetlink_log.c]",
+      "seq_stop [nfnetlink_queue.c]",
       "synproxy_cpu_seq_stop",
       "xt_mttg_seq_stop",
       "xt_table_seq_stop"

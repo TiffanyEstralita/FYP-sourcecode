@@ -5,11 +5,11 @@ INDIRECT CALL EXTRACTION (function pointers)
 Field-based resolution: a call through ->field() is linked to every
 function registered as .field = fn (matched on field name only).
 
-Registrations (.field = function):  1209 across 138 fields
+Registrations (.field = function):  1216 across 138 fields
 ipset mtype_* templates resolved:   55
 Functions that dispatch:            156
 New indirect edges:                 3205
-Direct edges (for comparison):      4629
+Direct edges (for comparison):      4647
 
 Fields with the most registered functions (biggest fan-out):
    .destroy                94 functions
@@ -22,8 +22,8 @@ Fields with the most registered functions (biggest fan-out):
    .target                 48 functions
    .kadt                   27 functions
    .uadt                   27 functions
+   .start                  25 functions
    .hook                   23 functions
-   .start                  23 functions
    .reduce                 22 functions
    .validate               21 functions
-   .show                   18 functions
+   .show                   20 functions

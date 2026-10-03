@@ -149,7 +149,8 @@ class Visualizer:
         vuln = entry["function"]
         file_name = entry["file"]
 
-        in_file = [f["name"] for f in self.functions.get(file_name, []) if f["name"] in self.pagerank]
+        in_file = [node for node, info in self.graph.nodes(data=True)
+                   if info.get("file") == file_name and node in self.pagerank]
         in_file.sort(key=lambda name: self.pagerank[name], reverse=True)
 
         # Show the top 30, but always include the vulnerable function
