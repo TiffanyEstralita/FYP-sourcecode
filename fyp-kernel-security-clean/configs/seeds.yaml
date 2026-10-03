@@ -1,0 +1,96 @@
+# Seed functions ("front doors") for personalized PageRank.
+#
+# A seed is where attacker-controlled input enters netfilter. Personalized
+# PageRank starts its random walks at the seeds, so functions that attacker
+# input can flow into get a high score.
+#
+# Seeds are chosen by RULE, not by hand:
+#   slot:      every function registered in a struct field of this name,
+#              e.g. "hook" = every function written as `.hook = some_function`
+#              (found by extract_indirect_calls.py)
+#   functions: functions listed by name
+#
+# Two attack paths (see the project brief):
+#   packet - a network packet sent by the attacker
+#   config - a configuration message (netlink / setsockopt) sent by a program
+#
+# Set enabled: false to leave a group out. build_seeds.py warns if a known
+# vulnerable function (validation/cve_data/vulnerable_functions.json) is
+# itself a seed, because that makes the evaluation circular.
+
+groups:
+  # ---------------- packet path ----------------
+  netfilter_hooks:
+    path: packet
+    enabled: true
+    slot: hook
+    reason: >-
+      Registered in struct nf_hook_ops; called by nf_hook_slow for every
+      packet that passes the hook point (conntrack, IPVS, synproxy, ...).
+
+  nft_chain_hooks:
+    path: packet
+    enabled: true
+    slot: hooks
+    reason: >-
+      nf_tables chain types' per-family packet entry points
+      (nft_do_chain_ipv4, nft_do_chain_ipv6, ...).
+
+  xtables_match_target:
+    path: packet
+    enabled: true
+    slot: [match, target]
+    reason: >-
+      iptables/ip6tables/arptables/ebtables matches and targets; called for
+      each packet by the table walker in net/ipv4|ipv6/netfilter, which is
+      outside the analysed code.
+
+  netfilter_core:
+    path: packet
+    enabled: true
+    functions: [nf_hook_slow, nf_hook_slow_list]
+    reason: >-
+      Called by the IP stack (NF_HOOK) for every hooked packet - where
+      packets enter netfilter.
+
+  # ---------------- config path ----------------
+  nfnetlink_handlers:
+    path: config
+    enabled: true
+    slot: call
+    reason: >-
+      struct nfnl_callback message handlers: one per netlink message type
+      for nf_tables, ipset, conntrack, queue, log, ... Their input is the
+      message sent by a userspace program.
+
+  nfnetlink_input:
+    path: config
+    enabled: true
+    functions: [nfnetlink_rcv]
+    reason: Where every netfilter netlink message arrives (.input of the nfnetlink socket).
+
+  xtables_checkentry:
+    path: config
+    enabled: true
+    slot: checkentry
+    reason: >-
+      Validates a new iptables rule's match/target options; runs when a
+      program installs rules via setsockopt.
+
+  # ---------------- optional, OFF for the main results ----------------
+  # Suggested in the brief. Kept for an extra (sensitivity) experiment only.
+  nft_expr_eval:
+    path: packet
+    enabled: false
+    slot: eval
+    reason: >-
+      nf_tables expression evaluators. Already one step below nft_do_chain,
+      so seeding them mainly over-weights nf_tables code.
+
+  ipset_uadt:
+    path: config
+    enabled: false
+    slot: uadt
+    reason: >-
+      ipset userspace add/del/test handlers. CIRCULAR for CVE-2024-53141:
+      its vulnerable function bitmap_ip_uadt is itself a uadt function.

@@ -1,0 +1,3263 @@
+{
+  "config": "configs\\seeds.yaml",
+  "included_disabled_groups": [],
+  "groups": {
+    "netfilter_hooks": {
+      "path": "packet",
+      "enabled": true,
+      "reason": "Registered in struct nf_hook_ops; called by nf_hook_slow for every packet that passes the hook point (conntrack, IPVS, synproxy, ...).",
+      "count": 23,
+      "functions": [
+        "accept_all",
+        "ip_vs_forward_icmp",
+        "ip_vs_in_hook",
+        "ip_vs_out_hook",
+        "ipv4_confirm",
+        "ipv4_conntrack_in",
+        "ipv4_conntrack_local",
+        "ipv4_synproxy_hook",
+        "ipv6_confirm",
+        "ipv6_conntrack_in",
+        "ipv6_conntrack_local",
+        "ipv6_synproxy_hook",
+        "nf_flow_offload_inet_hook",
+        "nf_flow_offload_ip_hook",
+        "nf_flow_offload_ipv6_hook",
+        "nf_nat_ipv4_local_fn",
+        "nf_nat_ipv4_local_in",
+        "nf_nat_ipv4_out",
+        "nf_nat_ipv4_pre_routing",
+        "nf_nat_ipv6_fn",
+        "nf_nat_ipv6_in",
+        "nf_nat_ipv6_local_fn",
+        "nf_nat_ipv6_out"
+      ]
+    },
+    "nft_chain_hooks": {
+      "path": "packet",
+      "enabled": true,
+      "reason": "nf_tables chain types' per-family packet entry points (nft_do_chain_ipv4, nft_do_chain_ipv6, ...).",
+      "count": 11,
+      "functions": [
+        "nf_route_table_hook4",
+        "nf_route_table_hook6",
+        "nf_route_table_inet",
+        "nft_do_chain_arp",
+        "nft_do_chain_bridge",
+        "nft_do_chain_inet",
+        "nft_do_chain_inet_ingress",
+        "nft_do_chain_ipv4",
+        "nft_do_chain_ipv6",
+        "nft_do_chain_netdev",
+        "nft_nat_do_chain"
+      ]
+    },
+    "xtables_match_target": {
+      "path": "packet",
+      "enabled": true,
+      "reason": "iptables/ip6tables/arptables/ebtables matches and targets; called for each packet by the table walker in net/ipv4|ipv6/netfilter, which is outside the analysed code.",
+      "count": 117,
+      "functions": [
+        "addrtype_mt_v0",
+        "addrtype_mt_v1",
+        "audit_tg",
+        "audit_tg_ebt",
+        "bpf_mt",
+        "bpf_mt_v1",
+        "cgroup_mt_v0",
+        "cgroup_mt_v1",
+        "cgroup_mt_v2",
+        "checksum_tg",
+        "classify_tg",
+        "comment_mt",
+        "comp_mt",
+        "connbytes_mt",
+        "connlabel_mt",
+        "connlimit_mt",
+        "connmark_mt",
+        "connmark_tg",
+        "connmark_tg_v2",
+        "connsecmark_tg",
+        "conntrack_mt_v1",
+        "conntrack_mt_v2",
+        "conntrack_mt_v3",
+        "cpu_mt",
+        "dccp_mt",
+        "devgroup_mt",
+        "dscp_mt",
+        "dscp_mt6",
+        "ecn_mt4",
+        "ecn_mt6",
+        "esp_mt",
+        "hashlimit_mt",
+        "hashlimit_mt_v1",
+        "hashlimit_mt_v2",
+        "helper_mt",
+        "hl_mt6",
+        "hmark_tg_v4",
+        "hmark_tg_v6",
+        "idletimer_tg_target",
+        "idletimer_tg_target_v1",
+        "iprange_mt4",
+        "iprange_mt6",
+        "ipvs_mt",
+        "l2tp_mt4",
+        "l2tp_mt6",
+        "led_tg",
+        "length_mt",
+        "length_mt6",
+        "limit_mt",
+        "log_tg",
+        "mac_mt",
+        "mark_mt",
+        "mark_tg",
+        "masquerade_tg",
+        "masquerade_tg6",
+        "multiport_mt",
+        "netmap_tg4",
+        "netmap_tg6",
+        "nfacct_mt",
+        "nflog_tg",
+        "nfqueue_tg",
+        "nfqueue_tg_v1",
+        "nfqueue_tg_v2",
+        "nfqueue_tg_v3",
+        "notrack_tg",
+        "owner_mt",
+        "physdev_mt",
+        "pkttype_mt",
+        "policy_mt",
+        "quota_mt",
+        "realm_mt",
+        "recent_mt",
+        "redirect_tg4",
+        "redirect_tg6",
+        "sctp_mt",
+        "secmark_tg_v0",
+        "secmark_tg_v1",
+        "set_match_v0",
+        "set_match_v1",
+        "set_match_v3",
+        "set_match_v4",
+        "set_target_v0",
+        "set_target_v1",
+        "set_target_v2",
+        "set_target_v3",
+        "socket_mt4_v0",
+        "socket_mt4_v1_v2_v3",
+        "socket_mt6_v1_v2_v3",
+        "state_mt",
+        "statistic_mt",
+        "string_mt",
+        "tcp_mt",
+        "tcpmss_mt",
+        "tcpoptstrip_tg4",
+        "tcpoptstrip_tg6",
+        "tee_tg4",
+        "tee_tg6",
+        "time_mt",
+        "tos_mt",
+        "tproxy_tg4_v0",
+        "tproxy_tg4_v1",
+        "tproxy_tg6_v1",
+        "trace_tg",
+        "ttl_mt",
+        "u32_mt",
+        "udp_mt",
+        "xt_cluster_mt",
+        "xt_ct_target_v0",
+        "xt_ct_target_v1",
+        "xt_dnat_target_v0",
+        "xt_dnat_target_v1",
+        "xt_dnat_target_v2",
+        "xt_osf_match_packet",
+        "xt_rateest_mt",
+        "xt_snat_target_v0",
+        "xt_snat_target_v1",
+        "xt_snat_target_v2"
+      ]
+    },
+    "netfilter_core": {
+      "path": "packet",
+      "enabled": true,
+      "reason": "Called by the IP stack (NF_HOOK) for every hooked packet - where packets enter netfilter.",
+      "count": 2,
+      "functions": [
+        "nf_hook_slow",
+        "nf_hook_slow_list"
+      ]
+    },
+    "nfnetlink_handlers": {
+      "path": "config",
+      "enabled": true,
+      "reason": "struct nfnl_callback message handlers: one per netlink message type for nf_tables, ipset, conntrack, queue, log, ... Their input is the message sent by a userspace program.",
+      "count": 69,
+      "functions": [
+        "ctnetlink_del_conntrack",
+        "ctnetlink_del_expect",
+        "ctnetlink_get_conntrack",
+        "ctnetlink_get_ct_dying",
+        "ctnetlink_get_ct_unconfirmed",
+        "ctnetlink_get_expect",
+        "ctnetlink_new_conntrack",
+        "ctnetlink_new_expect",
+        "ctnetlink_stat_ct",
+        "ctnetlink_stat_ct_cpu",
+        "ctnetlink_stat_exp_cpu",
+        "cttimeout_default_get",
+        "cttimeout_default_set",
+        "cttimeout_del_timeout",
+        "cttimeout_get_timeout",
+        "cttimeout_new_timeout",
+        "ip_set_byindex",
+        "ip_set_byname",
+        "ip_set_create",
+        "ip_set_destroy",
+        "ip_set_dump",
+        "ip_set_flush",
+        "ip_set_header",
+        "ip_set_none",
+        "ip_set_protocol",
+        "ip_set_rename",
+        "ip_set_swap",
+        "ip_set_type",
+        "ip_set_uadd",
+        "ip_set_udel",
+        "ip_set_utest",
+        "nf_tables_delchain",
+        "nf_tables_delflowtable",
+        "nf_tables_delobj",
+        "nf_tables_delrule",
+        "nf_tables_delset",
+        "nf_tables_delsetelem",
+        "nf_tables_deltable",
+        "nf_tables_getchain",
+        "nf_tables_getflowtable",
+        "nf_tables_getgen",
+        "nf_tables_getobj",
+        "nf_tables_getrule",
+        "nf_tables_getset",
+        "nf_tables_getsetelem",
+        "nf_tables_gettable",
+        "nf_tables_newchain",
+        "nf_tables_newflowtable",
+        "nf_tables_newobj",
+        "nf_tables_newrule",
+        "nf_tables_newset",
+        "nf_tables_newsetelem",
+        "nf_tables_newtable",
+        "nfnl_acct_del",
+        "nfnl_acct_get",
+        "nfnl_acct_new",
+        "nfnl_compat_get_rcu",
+        "nfnl_cthelper_del",
+        "nfnl_cthelper_get",
+        "nfnl_cthelper_new",
+        "nfnl_hook_get",
+        "nfnl_osf_add_callback",
+        "nfnl_osf_remove_callback",
+        "nfqnl_recv_config",
+        "nfqnl_recv_unsupp",
+        "nfqnl_recv_verdict",
+        "nfqnl_recv_verdict_batch",
+        "nfulnl_recv_config",
+        "nfulnl_recv_unsupp"
+      ]
+    },
+    "nfnetlink_input": {
+      "path": "config",
+      "enabled": true,
+      "reason": "Where every netfilter netlink message arrives (.input of the nfnetlink socket).",
+      "count": 1,
+      "functions": [
+        "nfnetlink_rcv"
+      ]
+    },
+    "xtables_checkentry": {
+      "path": "config",
+      "enabled": true,
+      "reason": "Validates a new iptables rule's match/target options; runs when a program installs rules via setsockopt.",
+      "count": 81,
+      "functions": [
+        "addrtype_mt_checkentry_v1",
+        "audit_tg_check",
+        "bpf_mt_check",
+        "bpf_mt_check_v1",
+        "cgroup_mt_check_v0",
+        "cgroup_mt_check_v1",
+        "cgroup_mt_check_v2",
+        "checksum_tg_check",
+        "comp_mt_check",
+        "connbytes_mt_check",
+        "connlabel_mt_check",
+        "connlimit_mt_check",
+        "connmark_mt_check",
+        "connmark_tg_check",
+        "connsecmark_tg_check",
+        "conntrack_mt_check",
+        "cpu_mt_check",
+        "dccp_mt_check",
+        "devgroup_mt_checkentry",
+        "dscp_mt_check",
+        "ecn_mt_check4",
+        "ecn_mt_check6",
+        "esp_mt_check",
+        "hashlimit_mt_check",
+        "hashlimit_mt_check_v1",
+        "hashlimit_mt_check_v2",
+        "helper_mt_check",
+        "hmark_tg_check",
+        "idletimer_tg_checkentry",
+        "idletimer_tg_checkentry_v1",
+        "ipvs_mt_check",
+        "l2tp_mt_check4",
+        "l2tp_mt_check6",
+        "led_tg_check",
+        "limit_mt_check",
+        "log_tg_check",
+        "masquerade_tg6_checkentry",
+        "masquerade_tg_check",
+        "multiport_mt6_check",
+        "multiport_mt_check",
+        "netmap_tg4_check",
+        "netmap_tg6_checkentry",
+        "nfacct_mt_checkentry",
+        "nflog_tg_check",
+        "nfqueue_tg_check",
+        "owner_check",
+        "physdev_mt_check",
+        "policy_mt_check",
+        "quota_mt_check",
+        "recent_mt_check_v0",
+        "recent_mt_check_v1",
+        "redirect_tg4_check",
+        "redirect_tg6_checkentry",
+        "sctp_mt_check",
+        "secmark_tg_check_v0",
+        "secmark_tg_check_v1",
+        "set_match_v0_checkentry",
+        "set_match_v1_checkentry",
+        "set_target_v0_checkentry",
+        "set_target_v1_checkentry",
+        "set_target_v3_checkentry",
+        "socket_mt_v1_check",
+        "socket_mt_v2_check",
+        "socket_mt_v3_check",
+        "state_mt_check",
+        "statistic_mt_check",
+        "string_mt_check",
+        "tcp_mt_check",
+        "tee_tg_check",
+        "time_mt_check",
+        "tproxy_tg4_check",
+        "tproxy_tg6_check",
+        "trace_tg_check",
+        "udp_mt_check",
+        "xt_cluster_mt_checkentry",
+        "xt_ct_tg_check_v0",
+        "xt_ct_tg_check_v1",
+        "xt_ct_tg_check_v2",
+        "xt_nat_checkentry",
+        "xt_nat_checkentry_v0",
+        "xt_rateest_mt_checkentry"
+      ]
+    },
+    "nft_expr_eval": {
+      "path": "packet",
+      "enabled": false,
+      "reason": "nf_tables expression evaluators. Already one step below nft_do_chain, so seeding them mainly over-weights nf_tables code.",
+      "count": 74,
+      "functions": [
+        "nft_bitwise_eval",
+        "nft_byteorder_eval",
+        "nft_cmp_eval",
+        "nft_connlimit_eval",
+        "nft_connlimit_obj_eval",
+        "nft_counter_eval",
+        "nft_counter_obj_eval",
+        "nft_ct_expect_obj_eval",
+        "nft_ct_get_eval",
+        "nft_ct_helper_obj_eval",
+        "nft_ct_set_eval",
+        "nft_ct_set_zone_eval",
+        "nft_ct_timeout_obj_eval",
+        "nft_dup_netdev_eval",
+        "nft_dynset_eval",
+        "nft_exthdr_ipv4_eval",
+        "nft_exthdr_ipv6_eval",
+        "nft_exthdr_sctp_eval",
+        "nft_exthdr_tcp_eval",
+        "nft_exthdr_tcp_set_eval",
+        "nft_exthdr_tcp_strip_eval",
+        "nft_fib_inet_eval",
+        "nft_fib_netdev_eval",
+        "nft_flow_offload_eval",
+        "nft_fwd_neigh_eval",
+        "nft_fwd_netdev_eval",
+        "nft_immediate_eval",
+        "nft_jhash_eval",
+        "nft_last_eval",
+        "nft_limit_bytes_eval",
+        "nft_limit_obj_bytes_eval",
+        "nft_limit_obj_pkts_eval",
+        "nft_limit_pkts_eval",
+        "nft_log_eval",
+        "nft_lookup_eval",
+        "nft_masq_inet_eval",
+        "nft_masq_ipv4_eval",
+        "nft_masq_ipv6_eval",
+        "nft_match_eval",
+        "nft_match_large_eval",
+        "nft_meta_get_eval",
+        "nft_meta_set_eval",
+        "nft_nat_eval",
+        "nft_nat_inet_eval",
+        "nft_ng_inc_eval",
+        "nft_ng_random_eval",
+        "nft_notrack_eval",
+        "nft_objref_eval",
+        "nft_objref_map_eval",
+        "nft_osf_eval",
+        "nft_payload_eval",
+        "nft_payload_set_eval",
+        "nft_queue_eval",
+        "nft_queue_sreg_eval",
+        "nft_quota_eval",
+        "nft_quota_obj_eval",
+        "nft_range_eval",
+        "nft_redir_inet_eval",
+        "nft_redir_ipv4_eval",
+        "nft_redir_ipv6_eval",
+        "nft_reject_inet_eval",
+        "nft_reject_netdev_eval",
+        "nft_rt_get_eval",
+        "nft_secmark_obj_eval",
+        "nft_socket_eval",
+        "nft_symhash_eval",
+        "nft_synproxy_eval",
+        "nft_synproxy_obj_eval",
+        "nft_target_eval_bridge",
+        "nft_target_eval_xt",
+        "nft_tproxy_eval",
+        "nft_tunnel_get_eval",
+        "nft_tunnel_obj_eval",
+        "nft_xfrm_get_eval"
+      ]
+    },
+    "ipset_uadt": {
+      "path": "config",
+      "enabled": false,
+      "reason": "ipset userspace add/del/test handlers. CIRCULAR for CVE-2024-53141: its vulnerable function bitmap_ip_uadt is itself a uadt function.",
+      "count": 27,
+      "functions": [
+        "bitmap_ip_uadt",
+        "bitmap_ipmac_uadt",
+        "bitmap_port_uadt",
+        "hash_ip4_uadt",
+        "hash_ip6_uadt",
+        "hash_ipmac4_uadt",
+        "hash_ipmac6_uadt",
+        "hash_ipmark4_uadt",
+        "hash_ipmark6_uadt",
+        "hash_ipport4_uadt",
+        "hash_ipport6_uadt",
+        "hash_ipportip4_uadt",
+        "hash_ipportip6_uadt",
+        "hash_ipportnet4_uadt",
+        "hash_ipportnet6_uadt",
+        "hash_mac4_uadt",
+        "hash_net4_uadt",
+        "hash_net6_uadt",
+        "hash_netiface4_uadt",
+        "hash_netiface6_uadt",
+        "hash_netnet4_uadt",
+        "hash_netnet6_uadt",
+        "hash_netport4_uadt",
+        "hash_netport6_uadt",
+        "hash_netportnet4_uadt",
+        "hash_netportnet6_uadt",
+        "list_set_uadt"
+      ]
+    }
+  },
+  "seeds": {
+    "accept_all": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "addrtype_mt_checkentry_v1": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "addrtype_mt_v0": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "addrtype_mt_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "audit_tg": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "audit_tg_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "audit_tg_ebt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "bpf_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "bpf_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "bpf_mt_check_v1": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "bpf_mt_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "cgroup_mt_check_v0": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "cgroup_mt_check_v1": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "cgroup_mt_check_v2": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "cgroup_mt_v0": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "cgroup_mt_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "cgroup_mt_v2": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "checksum_tg": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "checksum_tg_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "classify_tg": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "comment_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "comp_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "comp_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "connbytes_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "connbytes_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "connlabel_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "connlabel_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "connlimit_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "connlimit_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "connmark_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "connmark_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "connmark_tg": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "connmark_tg_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "connmark_tg_v2": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "connsecmark_tg": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "connsecmark_tg_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "conntrack_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "conntrack_mt_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "conntrack_mt_v2": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "conntrack_mt_v3": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "cpu_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "cpu_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "ctnetlink_del_conntrack": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ctnetlink_del_expect": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ctnetlink_get_conntrack": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ctnetlink_get_ct_dying": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ctnetlink_get_ct_unconfirmed": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ctnetlink_get_expect": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ctnetlink_new_conntrack": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ctnetlink_new_expect": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ctnetlink_stat_ct": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ctnetlink_stat_ct_cpu": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ctnetlink_stat_exp_cpu": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "cttimeout_default_get": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "cttimeout_default_set": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "cttimeout_del_timeout": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "cttimeout_get_timeout": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "cttimeout_new_timeout": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "dccp_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "dccp_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "devgroup_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "devgroup_mt_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "dscp_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "dscp_mt6": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "dscp_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "ecn_mt4": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "ecn_mt6": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "ecn_mt_check4": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "ecn_mt_check6": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "esp_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "esp_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "hashlimit_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "hashlimit_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "hashlimit_mt_check_v1": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "hashlimit_mt_check_v2": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "hashlimit_mt_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "hashlimit_mt_v2": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "helper_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "helper_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "hl_mt6": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "hmark_tg_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "hmark_tg_v4": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "hmark_tg_v6": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "idletimer_tg_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "idletimer_tg_checkentry_v1": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "idletimer_tg_target": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "idletimer_tg_target_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "ip_set_byindex": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_set_byname": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_set_create": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_set_destroy": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_set_dump": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_set_flush": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_set_header": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_set_none": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_set_protocol": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_set_rename": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_set_swap": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_set_type": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_set_uadd": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_set_udel": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_set_utest": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "ip_vs_forward_icmp": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "ip_vs_in_hook": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "ip_vs_out_hook": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "iprange_mt4": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "iprange_mt6": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "ipv4_confirm": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "ipv4_conntrack_in": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "ipv4_conntrack_local": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "ipv4_synproxy_hook": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "ipv6_confirm": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "ipv6_conntrack_in": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "ipv6_conntrack_local": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "ipv6_synproxy_hook": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "ipvs_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "ipvs_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "l2tp_mt4": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "l2tp_mt6": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "l2tp_mt_check4": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "l2tp_mt_check6": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "led_tg": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "led_tg_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "length_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "length_mt6": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "limit_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "limit_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "log_tg": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "log_tg_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "mac_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "mark_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "mark_tg": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "masquerade_tg": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "masquerade_tg6": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "masquerade_tg6_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "masquerade_tg_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "multiport_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "multiport_mt6_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "multiport_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "netmap_tg4": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "netmap_tg4_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "netmap_tg6": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "netmap_tg6_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "nf_flow_offload_inet_hook": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "nf_flow_offload_ip_hook": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "nf_flow_offload_ipv6_hook": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "nf_hook_slow": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_core"
+      ]
+    },
+    "nf_hook_slow_list": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_core"
+      ]
+    },
+    "nf_nat_ipv4_local_fn": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "nf_nat_ipv4_local_in": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "nf_nat_ipv4_out": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "nf_nat_ipv4_pre_routing": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "nf_nat_ipv6_fn": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "nf_nat_ipv6_in": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "nf_nat_ipv6_local_fn": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "nf_nat_ipv6_out": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "nf_route_table_hook4": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "nft_chain_hooks"
+      ]
+    },
+    "nf_route_table_hook6": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "nft_chain_hooks"
+      ]
+    },
+    "nf_route_table_inet": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "nft_chain_hooks"
+      ]
+    },
+    "nf_tables_delchain": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_delflowtable": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_delobj": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_delrule": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_delset": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_delsetelem": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_deltable": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_getchain": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_getflowtable": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_getgen": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_getobj": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_getrule": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_getset": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_getsetelem": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_gettable": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_newchain": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_newflowtable": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_newobj": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_newrule": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_newset": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_newsetelem": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_newtable": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfacct_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "nfacct_mt_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "nflog_tg": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "nflog_tg_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "nfnetlink_rcv": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_input"
+      ]
+    },
+    "nfnl_acct_del": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfnl_acct_get": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfnl_acct_new": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfnl_compat_get_rcu": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfnl_cthelper_del": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfnl_cthelper_get": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfnl_cthelper_new": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfnl_hook_get": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfnl_osf_add_callback": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfnl_osf_remove_callback": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfqnl_recv_config": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfqnl_recv_unsupp": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfqnl_recv_verdict": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfqnl_recv_verdict_batch": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfqueue_tg": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "nfqueue_tg_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "nfqueue_tg_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "nfqueue_tg_v2": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "nfqueue_tg_v3": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "nft_do_chain_arp": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "nft_chain_hooks"
+      ]
+    },
+    "nft_do_chain_bridge": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "nft_chain_hooks"
+      ]
+    },
+    "nft_do_chain_inet": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "nft_chain_hooks"
+      ]
+    },
+    "nft_do_chain_inet_ingress": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "nft_chain_hooks"
+      ]
+    },
+    "nft_do_chain_ipv4": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "nft_chain_hooks"
+      ]
+    },
+    "nft_do_chain_ipv6": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "nft_chain_hooks"
+      ]
+    },
+    "nft_do_chain_netdev": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "nft_chain_hooks"
+      ]
+    },
+    "nft_nat_do_chain": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "nft_chain_hooks"
+      ]
+    },
+    "nfulnl_recv_config": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nfulnl_recv_unsupp": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "notrack_tg": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "owner_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "owner_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "physdev_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "physdev_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "pkttype_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "policy_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "policy_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "quota_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "quota_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "realm_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "recent_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "recent_mt_check_v0": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "recent_mt_check_v1": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "redirect_tg4": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "redirect_tg4_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "redirect_tg6": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "redirect_tg6_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "sctp_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "sctp_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "secmark_tg_check_v0": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "secmark_tg_check_v1": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "secmark_tg_v0": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "secmark_tg_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "set_match_v0": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "set_match_v0_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "set_match_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "set_match_v1_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "set_match_v3": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "set_match_v4": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "set_target_v0": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "set_target_v0_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "set_target_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "set_target_v1_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "set_target_v2": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "set_target_v3": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "set_target_v3_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "socket_mt4_v0": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "socket_mt4_v1_v2_v3": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "socket_mt6_v1_v2_v3": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "socket_mt_v1_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "socket_mt_v2_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "socket_mt_v3_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "state_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "state_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "statistic_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "statistic_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "string_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "string_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "tcp_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "tcp_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "tcpmss_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "tcpoptstrip_tg4": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "tcpoptstrip_tg6": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "tee_tg4": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "tee_tg6": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "tee_tg_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "time_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "time_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "tos_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "tproxy_tg4_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "tproxy_tg4_v0": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "tproxy_tg4_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "tproxy_tg6_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "tproxy_tg6_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "trace_tg": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "trace_tg_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "ttl_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "u32_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "udp_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "udp_mt_check": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "xt_cluster_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "xt_cluster_mt_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "xt_ct_target_v0": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "xt_ct_target_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "xt_ct_tg_check_v0": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "xt_ct_tg_check_v1": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "xt_ct_tg_check_v2": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "xt_dnat_target_v0": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "xt_dnat_target_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "xt_dnat_target_v2": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "xt_nat_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "xt_nat_checkentry_v0": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "xt_osf_match_packet": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "xt_rateest_mt": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "xt_rateest_mt_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "xt_snat_target_v0": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "xt_snat_target_v1": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "xt_snat_target_v2": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    }
+  },
+  "by_path": {
+    "config": [
+      "addrtype_mt_checkentry_v1",
+      "audit_tg_check",
+      "bpf_mt_check",
+      "bpf_mt_check_v1",
+      "cgroup_mt_check_v0",
+      "cgroup_mt_check_v1",
+      "cgroup_mt_check_v2",
+      "checksum_tg_check",
+      "comp_mt_check",
+      "connbytes_mt_check",
+      "connlabel_mt_check",
+      "connlimit_mt_check",
+      "connmark_mt_check",
+      "connmark_tg_check",
+      "connsecmark_tg_check",
+      "conntrack_mt_check",
+      "cpu_mt_check",
+      "ctnetlink_del_conntrack",
+      "ctnetlink_del_expect",
+      "ctnetlink_get_conntrack",
+      "ctnetlink_get_ct_dying",
+      "ctnetlink_get_ct_unconfirmed",
+      "ctnetlink_get_expect",
+      "ctnetlink_new_conntrack",
+      "ctnetlink_new_expect",
+      "ctnetlink_stat_ct",
+      "ctnetlink_stat_ct_cpu",
+      "ctnetlink_stat_exp_cpu",
+      "cttimeout_default_get",
+      "cttimeout_default_set",
+      "cttimeout_del_timeout",
+      "cttimeout_get_timeout",
+      "cttimeout_new_timeout",
+      "dccp_mt_check",
+      "devgroup_mt_checkentry",
+      "dscp_mt_check",
+      "ecn_mt_check4",
+      "ecn_mt_check6",
+      "esp_mt_check",
+      "hashlimit_mt_check",
+      "hashlimit_mt_check_v1",
+      "hashlimit_mt_check_v2",
+      "helper_mt_check",
+      "hmark_tg_check",
+      "idletimer_tg_checkentry",
+      "idletimer_tg_checkentry_v1",
+      "ip_set_byindex",
+      "ip_set_byname",
+      "ip_set_create",
+      "ip_set_destroy",
+      "ip_set_dump",
+      "ip_set_flush",
+      "ip_set_header",
+      "ip_set_none",
+      "ip_set_protocol",
+      "ip_set_rename",
+      "ip_set_swap",
+      "ip_set_type",
+      "ip_set_uadd",
+      "ip_set_udel",
+      "ip_set_utest",
+      "ipvs_mt_check",
+      "l2tp_mt_check4",
+      "l2tp_mt_check6",
+      "led_tg_check",
+      "limit_mt_check",
+      "log_tg_check",
+      "masquerade_tg6_checkentry",
+      "masquerade_tg_check",
+      "multiport_mt6_check",
+      "multiport_mt_check",
+      "netmap_tg4_check",
+      "netmap_tg6_checkentry",
+      "nf_tables_delchain",
+      "nf_tables_delflowtable",
+      "nf_tables_delobj",
+      "nf_tables_delrule",
+      "nf_tables_delset",
+      "nf_tables_delsetelem",
+      "nf_tables_deltable",
+      "nf_tables_getchain",
+      "nf_tables_getflowtable",
+      "nf_tables_getgen",
+      "nf_tables_getobj",
+      "nf_tables_getrule",
+      "nf_tables_getset",
+      "nf_tables_getsetelem",
+      "nf_tables_gettable",
+      "nf_tables_newchain",
+      "nf_tables_newflowtable",
+      "nf_tables_newobj",
+      "nf_tables_newrule",
+      "nf_tables_newset",
+      "nf_tables_newsetelem",
+      "nf_tables_newtable",
+      "nfacct_mt_checkentry",
+      "nflog_tg_check",
+      "nfnetlink_rcv",
+      "nfnl_acct_del",
+      "nfnl_acct_get",
+      "nfnl_acct_new",
+      "nfnl_compat_get_rcu",
+      "nfnl_cthelper_del",
+      "nfnl_cthelper_get",
+      "nfnl_cthelper_new",
+      "nfnl_hook_get",
+      "nfnl_osf_add_callback",
+      "nfnl_osf_remove_callback",
+      "nfqnl_recv_config",
+      "nfqnl_recv_unsupp",
+      "nfqnl_recv_verdict",
+      "nfqnl_recv_verdict_batch",
+      "nfqueue_tg_check",
+      "nfulnl_recv_config",
+      "nfulnl_recv_unsupp",
+      "owner_check",
+      "physdev_mt_check",
+      "policy_mt_check",
+      "quota_mt_check",
+      "recent_mt_check_v0",
+      "recent_mt_check_v1",
+      "redirect_tg4_check",
+      "redirect_tg6_checkentry",
+      "sctp_mt_check",
+      "secmark_tg_check_v0",
+      "secmark_tg_check_v1",
+      "set_match_v0_checkentry",
+      "set_match_v1_checkentry",
+      "set_target_v0_checkentry",
+      "set_target_v1_checkentry",
+      "set_target_v3_checkentry",
+      "socket_mt_v1_check",
+      "socket_mt_v2_check",
+      "socket_mt_v3_check",
+      "state_mt_check",
+      "statistic_mt_check",
+      "string_mt_check",
+      "tcp_mt_check",
+      "tee_tg_check",
+      "time_mt_check",
+      "tproxy_tg4_check",
+      "tproxy_tg6_check",
+      "trace_tg_check",
+      "udp_mt_check",
+      "xt_cluster_mt_checkentry",
+      "xt_ct_tg_check_v0",
+      "xt_ct_tg_check_v1",
+      "xt_ct_tg_check_v2",
+      "xt_nat_checkentry",
+      "xt_nat_checkentry_v0",
+      "xt_rateest_mt_checkentry"
+    ],
+    "packet": [
+      "accept_all",
+      "addrtype_mt_v0",
+      "addrtype_mt_v1",
+      "audit_tg",
+      "audit_tg_ebt",
+      "bpf_mt",
+      "bpf_mt_v1",
+      "cgroup_mt_v0",
+      "cgroup_mt_v1",
+      "cgroup_mt_v2",
+      "checksum_tg",
+      "classify_tg",
+      "comment_mt",
+      "comp_mt",
+      "connbytes_mt",
+      "connlabel_mt",
+      "connlimit_mt",
+      "connmark_mt",
+      "connmark_tg",
+      "connmark_tg_v2",
+      "connsecmark_tg",
+      "conntrack_mt_v1",
+      "conntrack_mt_v2",
+      "conntrack_mt_v3",
+      "cpu_mt",
+      "dccp_mt",
+      "devgroup_mt",
+      "dscp_mt",
+      "dscp_mt6",
+      "ecn_mt4",
+      "ecn_mt6",
+      "esp_mt",
+      "hashlimit_mt",
+      "hashlimit_mt_v1",
+      "hashlimit_mt_v2",
+      "helper_mt",
+      "hl_mt6",
+      "hmark_tg_v4",
+      "hmark_tg_v6",
+      "idletimer_tg_target",
+      "idletimer_tg_target_v1",
+      "ip_vs_forward_icmp",
+      "ip_vs_in_hook",
+      "ip_vs_out_hook",
+      "iprange_mt4",
+      "iprange_mt6",
+      "ipv4_confirm",
+      "ipv4_conntrack_in",
+      "ipv4_conntrack_local",
+      "ipv4_synproxy_hook",
+      "ipv6_confirm",
+      "ipv6_conntrack_in",
+      "ipv6_conntrack_local",
+      "ipv6_synproxy_hook",
+      "ipvs_mt",
+      "l2tp_mt4",
+      "l2tp_mt6",
+      "led_tg",
+      "length_mt",
+      "length_mt6",
+      "limit_mt",
+      "log_tg",
+      "mac_mt",
+      "mark_mt",
+      "mark_tg",
+      "masquerade_tg",
+      "masquerade_tg6",
+      "multiport_mt",
+      "netmap_tg4",
+      "netmap_tg6",
+      "nf_flow_offload_inet_hook",
+      "nf_flow_offload_ip_hook",
+      "nf_flow_offload_ipv6_hook",
+      "nf_hook_slow",
+      "nf_hook_slow_list",
+      "nf_nat_ipv4_local_fn",
+      "nf_nat_ipv4_local_in",
+      "nf_nat_ipv4_out",
+      "nf_nat_ipv4_pre_routing",
+      "nf_nat_ipv6_fn",
+      "nf_nat_ipv6_in",
+      "nf_nat_ipv6_local_fn",
+      "nf_nat_ipv6_out",
+      "nf_route_table_hook4",
+      "nf_route_table_hook6",
+      "nf_route_table_inet",
+      "nfacct_mt",
+      "nflog_tg",
+      "nfqueue_tg",
+      "nfqueue_tg_v1",
+      "nfqueue_tg_v2",
+      "nfqueue_tg_v3",
+      "nft_do_chain_arp",
+      "nft_do_chain_bridge",
+      "nft_do_chain_inet",
+      "nft_do_chain_inet_ingress",
+      "nft_do_chain_ipv4",
+      "nft_do_chain_ipv6",
+      "nft_do_chain_netdev",
+      "nft_nat_do_chain",
+      "notrack_tg",
+      "owner_mt",
+      "physdev_mt",
+      "pkttype_mt",
+      "policy_mt",
+      "quota_mt",
+      "realm_mt",
+      "recent_mt",
+      "redirect_tg4",
+      "redirect_tg6",
+      "sctp_mt",
+      "secmark_tg_v0",
+      "secmark_tg_v1",
+      "set_match_v0",
+      "set_match_v1",
+      "set_match_v3",
+      "set_match_v4",
+      "set_target_v0",
+      "set_target_v1",
+      "set_target_v2",
+      "set_target_v3",
+      "socket_mt4_v0",
+      "socket_mt4_v1_v2_v3",
+      "socket_mt6_v1_v2_v3",
+      "state_mt",
+      "statistic_mt",
+      "string_mt",
+      "tcp_mt",
+      "tcpmss_mt",
+      "tcpoptstrip_tg4",
+      "tcpoptstrip_tg6",
+      "tee_tg4",
+      "tee_tg6",
+      "time_mt",
+      "tos_mt",
+      "tproxy_tg4_v0",
+      "tproxy_tg4_v1",
+      "tproxy_tg6_v1",
+      "trace_tg",
+      "ttl_mt",
+      "u32_mt",
+      "udp_mt",
+      "xt_cluster_mt",
+      "xt_ct_target_v0",
+      "xt_ct_target_v1",
+      "xt_dnat_target_v0",
+      "xt_dnat_target_v1",
+      "xt_dnat_target_v2",
+      "xt_osf_match_packet",
+      "xt_rateest_mt",
+      "xt_snat_target_v0",
+      "xt_snat_target_v1",
+      "xt_snat_target_v2"
+    ]
+  },
+  "coverage": {
+    "config": {
+      "reachable": 2827,
+      "percent": 64.9
+    },
+    "packet": {
+      "reachable": 2726,
+      "percent": 62.6
+    },
+    "any": {
+      "reachable": 3241,
+      "percent": 74.5
+    }
+  },
+  "vulnerable_functions": {
+    "CVE-2023-0179:nft_payload_copy_vlan": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2024-53141:bitmap_ip_uadt": {
+      "is_seed": false,
+      "reachable_from": [
+        "config"
+      ]
+    },
+    "CVE-2025-22064:nf_tables_updchain": {
+      "is_seed": false,
+      "reachable_from": [
+        "config"
+      ]
+    }
+  },
+  "warnings": []
+}

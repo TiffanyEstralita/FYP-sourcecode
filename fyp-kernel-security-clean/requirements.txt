@@ -13,6 +13,9 @@ pandas==2.3.3
 matplotlib==3.10.6
 seaborn==0.13.2
 
+# Reading config files (configs/*.yaml)
+PyYAML==6.0.3
+
 # Talking to the local Ollama LLM server
 requests==2.32.5
 

@@ -1,33 +1,27 @@
 {
-  "entry_points": {
-    "packet": [
-      "nf_hook_slow",
-      "nft_do_chain"
-    ],
-    "netlink": [
-      "nfnetlink_rcv_msg",
-      "nfnetlink_rcv_batch"
-    ]
+  "seed_counts": {
+    "config": 151,
+    "packet": 153
   },
   "results": {
     "CVE-2023-0179:nft_payload_copy_vlan": {
       "direct_only": {
-        "packet": null,
-        "netlink": null
+        "config": null,
+        "packet": null
       },
       "with_indirect": {
-        "packet": [
+        "config": [
+          "nfqnl_recv_verdict",
+          "nfqnl_reinject",
+          "nf_reinject",
+          "nf_route_table_hook4",
           "nft_do_chain",
           "expr_call_ops_eval",
           "nft_payload_eval",
           "nft_payload_copy_vlan"
         ],
-        "netlink": [
-          "nfnetlink_rcv_msg",
-          "nfqnl_recv_verdict_batch",
-          "nfqnl_reinject",
-          "nf_reinject",
-          "nft_do_chain_ipv4",
+        "packet": [
+          "nf_route_table_hook4",
           "nft_do_chain",
           "expr_call_ops_eval",
           "nft_payload_eval",
@@ -37,30 +31,31 @@
     },
     "CVE-2024-53141:bitmap_ip_uadt": {
       "direct_only": {
-        "packet": null,
-        "netlink": null
+        "config": null,
+        "packet": null
       },
       "with_indirect": {
-        "packet": null,
-        "netlink": [
-          "nfnetlink_rcv_msg",
+        "config": [
           "ip_set_utest",
           "bitmap_ip_uadt"
-        ]
+        ],
+        "packet": null
       }
     },
     "CVE-2025-22064:nf_tables_updchain": {
       "direct_only": {
-        "packet": null,
-        "netlink": null
-      },
-      "with_indirect": {
-        "packet": null,
-        "netlink": [
-          "nfnetlink_rcv_msg",
+        "config": [
           "nf_tables_newchain",
           "nf_tables_updchain"
-        ]
+        ],
+        "packet": null
+      },
+      "with_indirect": {
+        "config": [
+          "nf_tables_newchain",
+          "nf_tables_updchain"
+        ],
+        "packet": null
       }
     }
   }

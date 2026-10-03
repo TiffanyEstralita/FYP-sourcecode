@@ -1,24 +1,24 @@
 ======================================================================
-REACHABILITY CHECK: entry points -> vulnerable functions
+REACHABILITY CHECK: seeds -> vulnerable functions
 ======================================================================
 
-packet entry points: nf_hook_slow, nft_do_chain
-netlink entry points: nfnetlink_rcv_msg, nfnetlink_rcv_batch
+config seeds: 151 (see seeds_summary.txt)
+packet seeds: 153 (see seeds_summary.txt)
 
 CVE-2023-0179:nft_payload_copy_vlan
+   direct_only   config   NO PATH
    direct_only   packet   NO PATH
-   direct_only   netlink  NO PATH
-   with_indirect packet   nft_do_chain -> expr_call_ops_eval -> nft_payload_eval -> nft_payload_copy_vlan
-   with_indirect netlink  nfnetlink_rcv_msg -> nfqnl_recv_verdict_batch -> nfqnl_reinject -> nf_reinject -> nft_do_chain_ipv4 -> nft_do_chain -> expr_call_ops_eval -> nft_payload_eval -> nft_payload_copy_vlan
+   with_indirect config   nfqnl_recv_verdict -> nfqnl_reinject -> nf_reinject -> nf_route_table_hook4 -> nft_do_chain -> expr_call_ops_eval -> nft_payload_eval -> nft_payload_copy_vlan
+   with_indirect packet   nf_route_table_hook4 -> nft_do_chain -> expr_call_ops_eval -> nft_payload_eval -> nft_payload_copy_vlan
 
 CVE-2024-53141:bitmap_ip_uadt
+   direct_only   config   NO PATH
    direct_only   packet   NO PATH
-   direct_only   netlink  NO PATH
+   with_indirect config   ip_set_utest -> bitmap_ip_uadt
    with_indirect packet   NO PATH
-   with_indirect netlink  nfnetlink_rcv_msg -> ip_set_utest -> bitmap_ip_uadt
 
 CVE-2025-22064:nf_tables_updchain
+   direct_only   config   nf_tables_newchain -> nf_tables_updchain
    direct_only   packet   NO PATH
-   direct_only   netlink  NO PATH
+   with_indirect config   nf_tables_newchain -> nf_tables_updchain
    with_indirect packet   NO PATH
-   with_indirect netlink  nfnetlink_rcv_msg -> nf_tables_newchain -> nf_tables_updchain

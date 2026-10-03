@@ -1,0 +1,342 @@
+======================================================================
+SEEDS (attacker entry points) FOR PERSONALIZED PAGERANK
+======================================================================
+
+[ON ] netfilter_hooks (packet, 23 functions)
+      Registered in struct nf_hook_ops; called by nf_hook_slow for every packet that passes the hook point (conntrack, IPVS, synproxy, ...).
+[ON ] nft_chain_hooks (packet, 11 functions)
+      nf_tables chain types' per-family packet entry points (nft_do_chain_ipv4, nft_do_chain_ipv6, ...).
+[ON ] xtables_match_target (packet, 117 functions)
+      iptables/ip6tables/arptables/ebtables matches and targets; called for each packet by the table walker in net/ipv4|ipv6/netfilter, which is outside the analysed code.
+[ON ] netfilter_core (packet, 2 functions)
+      Called by the IP stack (NF_HOOK) for every hooked packet - where packets enter netfilter.
+[ON ] nfnetlink_handlers (config, 69 functions)
+      struct nfnl_callback message handlers: one per netlink message type for nf_tables, ipset, conntrack, queue, log, ... Their input is the message sent by a userspace program.
+[ON ] nfnetlink_input (config, 1 functions)
+      Where every netfilter netlink message arrives (.input of the nfnetlink socket).
+[ON ] xtables_checkentry (config, 81 functions)
+      Validates a new iptables rule's match/target options; runs when a program installs rules via setsockopt.
+[off] nft_expr_eval (packet, 74 functions)
+      nf_tables expression evaluators. Already one step below nft_do_chain, so seeding them mainly over-weights nf_tables code.
+[off] ipset_uadt (config, 27 functions)
+      ipset userspace add/del/test handlers. CIRCULAR for CVE-2024-53141: its vulnerable function bitmap_ip_uadt is itself a uadt function.
+
+Unique seeds: 304
+Reachable from config  seeds: 2827 of 4353 (64.9%)
+Reachable from packet  seeds: 2726 of 4353 (62.6%)
+Reachable from any     seeds: 3241 of 4353 (74.5%)
+
+Vulnerable functions:
+   CVE-2023-0179:nft_payload_copy_vlan           seed=False  reachable from: ['config', 'packet']
+   CVE-2024-53141:bitmap_ip_uadt                 seed=False  reachable from: ['config']
+   CVE-2025-22064:nf_tables_updchain             seed=False  reachable from: ['config']
+
+Seed list by path:
+
+config (151):
+   addrtype_mt_checkentry_v1
+   audit_tg_check
+   bpf_mt_check
+   bpf_mt_check_v1
+   cgroup_mt_check_v0
+   cgroup_mt_check_v1
+   cgroup_mt_check_v2
+   checksum_tg_check
+   comp_mt_check
+   connbytes_mt_check
+   connlabel_mt_check
+   connlimit_mt_check
+   connmark_mt_check
+   connmark_tg_check
+   connsecmark_tg_check
+   conntrack_mt_check
+   cpu_mt_check
+   ctnetlink_del_conntrack
+   ctnetlink_del_expect
+   ctnetlink_get_conntrack
+   ctnetlink_get_ct_dying
+   ctnetlink_get_ct_unconfirmed
+   ctnetlink_get_expect
+   ctnetlink_new_conntrack
+   ctnetlink_new_expect
+   ctnetlink_stat_ct
+   ctnetlink_stat_ct_cpu
+   ctnetlink_stat_exp_cpu
+   cttimeout_default_get
+   cttimeout_default_set
+   cttimeout_del_timeout
+   cttimeout_get_timeout
+   cttimeout_new_timeout
+   dccp_mt_check
+   devgroup_mt_checkentry
+   dscp_mt_check
+   ecn_mt_check4
+   ecn_mt_check6
+   esp_mt_check
+   hashlimit_mt_check
+   hashlimit_mt_check_v1
+   hashlimit_mt_check_v2
+   helper_mt_check
+   hmark_tg_check
+   idletimer_tg_checkentry
+   idletimer_tg_checkentry_v1
+   ip_set_byindex
+   ip_set_byname
+   ip_set_create
+   ip_set_destroy
+   ip_set_dump
+   ip_set_flush
+   ip_set_header
+   ip_set_none
+   ip_set_protocol
+   ip_set_rename
+   ip_set_swap
+   ip_set_type
+   ip_set_uadd
+   ip_set_udel
+   ip_set_utest
+   ipvs_mt_check
+   l2tp_mt_check4
+   l2tp_mt_check6
+   led_tg_check
+   limit_mt_check
+   log_tg_check
+   masquerade_tg6_checkentry
+   masquerade_tg_check
+   multiport_mt6_check
+   multiport_mt_check
+   netmap_tg4_check
+   netmap_tg6_checkentry
+   nf_tables_delchain
+   nf_tables_delflowtable
+   nf_tables_delobj
+   nf_tables_delrule
+   nf_tables_delset
+   nf_tables_delsetelem
+   nf_tables_deltable
+   nf_tables_getchain
+   nf_tables_getflowtable
+   nf_tables_getgen
+   nf_tables_getobj
+   nf_tables_getrule
+   nf_tables_getset
+   nf_tables_getsetelem
+   nf_tables_gettable
+   nf_tables_newchain
+   nf_tables_newflowtable
+   nf_tables_newobj
+   nf_tables_newrule
+   nf_tables_newset
+   nf_tables_newsetelem
+   nf_tables_newtable
+   nfacct_mt_checkentry
+   nflog_tg_check
+   nfnetlink_rcv
+   nfnl_acct_del
+   nfnl_acct_get
+   nfnl_acct_new
+   nfnl_compat_get_rcu
+   nfnl_cthelper_del
+   nfnl_cthelper_get
+   nfnl_cthelper_new
+   nfnl_hook_get
+   nfnl_osf_add_callback
+   nfnl_osf_remove_callback
+   nfqnl_recv_config
+   nfqnl_recv_unsupp
+   nfqnl_recv_verdict
+   nfqnl_recv_verdict_batch
+   nfqueue_tg_check
+   nfulnl_recv_config
+   nfulnl_recv_unsupp
+   owner_check
+   physdev_mt_check
+   policy_mt_check
+   quota_mt_check
+   recent_mt_check_v0
+   recent_mt_check_v1
+   redirect_tg4_check
+   redirect_tg6_checkentry
+   sctp_mt_check
+   secmark_tg_check_v0
+   secmark_tg_check_v1
+   set_match_v0_checkentry
+   set_match_v1_checkentry
+   set_target_v0_checkentry
+   set_target_v1_checkentry
+   set_target_v3_checkentry
+   socket_mt_v1_check
+   socket_mt_v2_check
+   socket_mt_v3_check
+   state_mt_check
+   statistic_mt_check
+   string_mt_check
+   tcp_mt_check
+   tee_tg_check
+   time_mt_check
+   tproxy_tg4_check
+   tproxy_tg6_check
+   trace_tg_check
+   udp_mt_check
+   xt_cluster_mt_checkentry
+   xt_ct_tg_check_v0
+   xt_ct_tg_check_v1
+   xt_ct_tg_check_v2
+   xt_nat_checkentry
+   xt_nat_checkentry_v0
+   xt_rateest_mt_checkentry
+
+packet (153):
+   accept_all
+   addrtype_mt_v0
+   addrtype_mt_v1
+   audit_tg
+   audit_tg_ebt
+   bpf_mt
+   bpf_mt_v1
+   cgroup_mt_v0
+   cgroup_mt_v1
+   cgroup_mt_v2
+   checksum_tg
+   classify_tg
+   comment_mt
+   comp_mt
+   connbytes_mt
+   connlabel_mt
+   connlimit_mt
+   connmark_mt
+   connmark_tg
+   connmark_tg_v2
+   connsecmark_tg
+   conntrack_mt_v1
+   conntrack_mt_v2
+   conntrack_mt_v3
+   cpu_mt
+   dccp_mt
+   devgroup_mt
+   dscp_mt
+   dscp_mt6
+   ecn_mt4
+   ecn_mt6
+   esp_mt
+   hashlimit_mt
+   hashlimit_mt_v1
+   hashlimit_mt_v2
+   helper_mt
+   hl_mt6
+   hmark_tg_v4
+   hmark_tg_v6
+   idletimer_tg_target
+   idletimer_tg_target_v1
+   ip_vs_forward_icmp
+   ip_vs_in_hook
+   ip_vs_out_hook
+   iprange_mt4
+   iprange_mt6
+   ipv4_confirm
+   ipv4_conntrack_in
+   ipv4_conntrack_local
+   ipv4_synproxy_hook
+   ipv6_confirm
+   ipv6_conntrack_in
+   ipv6_conntrack_local
+   ipv6_synproxy_hook
+   ipvs_mt
+   l2tp_mt4
+   l2tp_mt6
+   led_tg
+   length_mt
+   length_mt6
+   limit_mt
+   log_tg
+   mac_mt
+   mark_mt
+   mark_tg
+   masquerade_tg
+   masquerade_tg6
+   multiport_mt
+   netmap_tg4
+   netmap_tg6
+   nf_flow_offload_inet_hook
+   nf_flow_offload_ip_hook
+   nf_flow_offload_ipv6_hook
+   nf_hook_slow
+   nf_hook_slow_list
+   nf_nat_ipv4_local_fn
+   nf_nat_ipv4_local_in
+   nf_nat_ipv4_out
+   nf_nat_ipv4_pre_routing
+   nf_nat_ipv6_fn
+   nf_nat_ipv6_in
+   nf_nat_ipv6_local_fn
+   nf_nat_ipv6_out
+   nf_route_table_hook4
+   nf_route_table_hook6
+   nf_route_table_inet
+   nfacct_mt
+   nflog_tg
+   nfqueue_tg
+   nfqueue_tg_v1
+   nfqueue_tg_v2
+   nfqueue_tg_v3
+   nft_do_chain_arp
+   nft_do_chain_bridge
+   nft_do_chain_inet
+   nft_do_chain_inet_ingress
+   nft_do_chain_ipv4
+   nft_do_chain_ipv6
+   nft_do_chain_netdev
+   nft_nat_do_chain
+   notrack_tg
+   owner_mt
+   physdev_mt
+   pkttype_mt
+   policy_mt
+   quota_mt
+   realm_mt
+   recent_mt
+   redirect_tg4
+   redirect_tg6
+   sctp_mt
+   secmark_tg_v0
+   secmark_tg_v1
+   set_match_v0
+   set_match_v1
+   set_match_v3
+   set_match_v4
+   set_target_v0
+   set_target_v1
+   set_target_v2
+   set_target_v3
+   socket_mt4_v0
+   socket_mt4_v1_v2_v3
+   socket_mt6_v1_v2_v3
+   state_mt
+   statistic_mt
+   string_mt
+   tcp_mt
+   tcpmss_mt
+   tcpoptstrip_tg4
+   tcpoptstrip_tg6
+   tee_tg4
+   tee_tg6
+   time_mt
+   tos_mt
+   tproxy_tg4_v0
+   tproxy_tg4_v1
+   tproxy_tg6_v1
+   trace_tg
+   ttl_mt
+   u32_mt
+   udp_mt
+   xt_cluster_mt
+   xt_ct_target_v0
+   xt_ct_target_v1
+   xt_dnat_target_v0
+   xt_dnat_target_v1
+   xt_dnat_target_v2
+   xt_osf_match_packet
+   xt_rateest_mt
+   xt_snat_target_v0
+   xt_snat_target_v1
+   xt_snat_target_v2
