@@ -1,251 +1,251 @@
 {
-  "total_callers": 3004,
-  "total_callees": 2065,
-  "total_call_edges": 8583,
-  "unique_functions_involved": 3534,
-  "avg_calls_per_function": 2.857190412782956,
+  "total_callers": 2272,
+  "total_callees": 2015,
+  "total_call_edges": 4648,
+  "unique_functions_involved": 3245,
+  "avg_calls_per_function": 2.045774647887324,
   "top_30_in_degree": [
     [
-      "ntohl",
-      189
+      "nf_ct_netns_put",
+      36
     ],
     [
-      "kfree",
-      173
+      "nft_unregister_expr",
+      36
     ],
     [
-      "ARRAY_SIZE",
-      134
+      "nft_dump_register",
+      36
     ],
     [
-      "htons",
-      127
+      "nf_ct_expect_put",
+      34
     ],
     [
-      "spin_unlock_bh",
-      109
+      "nf_ct_netns_get",
+      31
     ],
     [
-      "spin_lock_bh",
-      107
+      "nft_register_expr",
+      31
     ],
     [
-      "memset",
-      107
+      "ip_set_get_extensions",
+      27
     ],
     [
-      "mutex_unlock",
-      98
+      "xt_register_match",
+      26
     ],
     [
-      "memcpy",
-      88
+      "xt_unregister_matches",
+      26
     ],
     [
-      "mutex_lock",
-      85
+      "xt_unregister_match",
+      26
     ],
     [
-      "rcu_read_unlock",
-      85
+      "nfnetlink_unicast",
+      24
     ],
     [
-      "PTR_ERR",
-      80
+      "nft_parse_register_load",
+      23
     ],
     [
-      "rcu_read_lock",
-      80
+      "xt_register_matches",
+      23
     ],
     [
-      "IP_VS_DBG",
-      73
+      "nf_ct_helper_log",
+      21
     ],
     [
-      "NETLINK_CB",
-      72
+      "nft_table_lookup",
+      21
     ],
     [
-      "atomic_read",
-      68
+      "xt_unregister_targets",
+      21
     ],
     [
-      "ip_hdr",
-      67
+      "nfnl_unlock",
+      20
     ],
     [
-      "nf_ct_l3num",
-      64
+      "nfnl_lock",
+      20
     ],
     [
-      "kfree_skb",
-      61
+      "ip_set_pernet",
+      20
     ],
     [
-      "nla_get_u8",
-      57
+      "nf_ct_expect_alloc",
+      20
     ],
     [
-      "nla_data",
-      57
+      "nft_parse_register_store",
+      19
     ],
     [
-      "WARN_ON_ONCE",
-      56
+      "nft_chain_validate_hooks",
+      19
     ],
     [
-      "ipv6_hdr",
-      54
+      "nf_ct_expect_init",
+      18
     ],
     [
-      "nla_nest_end",
-      54
+      "nf_nat_setup_info",
+      18
     ],
     [
-      "adtfn",
-      53
+      "xt_register_targets",
+      17
     ],
     [
-      "pr_info_ratelimited",
-      52
+      "ip_set_type_register",
+      16
     ],
     [
-      "IP_VS_DBG_BUF",
-      50
+      "ip_set_type_unregister",
+      16
     ],
     [
-      "list_del",
-      49
+      "ip_vs_proto_data_get",
+      16
     ],
     [
-      "net_eq",
-      46
+      "nft_ctx_init",
+      16
     ],
     [
-      "module_put",
-      46
+      "nfnetlink_subsys_unregister",
+      15
     ]
   ],
   "top_30_out_degree": [
     [
       "pipapo_base_sum",
-      46
+      34
     ],
     [
       "nf_tables_commit",
-      41
-    ],
-    [
-      "__nf_tables_abort",
-      27
-    ],
-    [
-      "do_ip_vs_set_ctl",
-      24
-    ],
-    [
-      "ctnetlink_conntrack_event",
-      23
-    ],
-    [
-      "ctnetlink_create_conntrack",
-      23
-    ],
-    [
-      "nf_tables_newrule",
-      21
-    ],
-    [
-      "nf_tables_newset",
-      21
+      33
     ],
     [
       "nft_add_set_elem",
-      21
-    ],
-    [
-      "nf_tables_newflowtable",
       20
     ],
     [
-      "nf_conntrack_tcp_packet",
+      "ctnetlink_conntrack_event",
+      19
+    ],
+    [
+      "__nf_tables_abort",
       18
     ],
     [
-      "nf_tables_addchain",
-      18
-    ],
-    [
-      "nfulnl_recv_config",
-      18
-    ],
-    [
-      "ip_vs_in_icmp",
-      17
-    ],
-    [
-      "__nf_conntrack_confirm",
-      17
-    ],
-    [
-      "ip_vs_in_hook",
+      "do_ip_vs_set_ctl",
       16
     ],
     [
-      "ip_vs_add_service",
+      "nf_tables_newrule",
       16
     ],
     [
-      "ip_vs_proc_conn",
-      16
+      "ctnetlink_create_conntrack",
+      15
     ],
     [
       "__ctnetlink_glue_build",
-      16
-    ],
-    [
-      "nf_flow_offload_ip_hook",
-      16
-    ],
-    [
-      "nf_flow_offload_ipv6_hook",
-      16
-    ],
-    [
-      "do_ip_vs_get_ctl",
       15
+    ],
+    [
+      "nfulnl_recv_config",
+      14
     ],
     [
       "ip_vs_genl_set_cmd",
-      15
+      13
     ],
     [
-      "nfqnl_recv_config",
-      15
+      "nf_tables_newset",
+      13
     ],
     [
-      "start_sync_thread",
-      14
+      "ip_vs_in_icmp",
+      12
+    ],
+    [
+      "ip_vs_add_service",
+      12
+    ],
+    [
+      "nf_flow_offload_ip_hook",
+      12
+    ],
+    [
+      "nf_flow_offload_ipv6_hook",
+      12
+    ],
+    [
+      "nf_tables_addchain",
+      12
+    ],
+    [
+      "ip_vs_out_hook",
+      11
+    ],
+    [
+      "ip_vs_in_hook",
+      11
+    ],
+    [
+      "__ip_vs_init",
+      11
+    ],
+    [
+      "nf_conntrack_tcp_packet",
+      11
+    ],
+    [
+      "nf_tables_newflowtable",
+      11
+    ],
+    [
+      "ip_vs_lblcr_schedule",
+      10
     ],
     [
       "__ip_vs_get_out_rt_v6",
-      14
+      10
     ],
     [
-      "WRITE_ONCE",
-      14
+      "__nf_conntrack_confirm",
+      10
     ],
     [
-      "ct_seq_show",
-      14
+      "process_ras",
+      10
     ],
     [
-      "nfnetlink_rcv_batch",
-      14
+      "nf_nat_sip",
+      10
     ],
     [
-      "ip_set_create",
-      13
+      "nft_do_chain",
+      10
+    ],
+    [
+      "__ip_vs_get_out_rt",
+      9
+    ],
+    [
+      "nf_conntrack_handle_packet",
+      9
     ]
   ]
 }

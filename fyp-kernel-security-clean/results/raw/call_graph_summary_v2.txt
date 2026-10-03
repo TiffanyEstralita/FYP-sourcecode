@@ -2,80 +2,80 @@
 NETFILTER CALL GRAPH ANALYSIS (IMPROVED)
 ======================================================================
 
-Functions that call others:        3004
-Functions that are called:         2065
-Total call relationships (edges):  8583
-Unique functions in graph:         3534
-Average calls per function:        2.86
+Functions that call others:        2272
+Functions that are called:         2015
+Total call relationships (edges):  4648
+Unique functions in graph:         3245
+Average calls per function:        2.05
 
 ======================================================================
 TOP 30 MOST CALLED FUNCTIONS (High In-Degree)
 ======================================================================
 These are the most critical/central functions
 
-  1. ntohl                                              called   189 times
-  2. kfree                                              called   173 times
-  3. ARRAY_SIZE                                         called   134 times
-  4. htons                                              called   127 times
-  5. spin_unlock_bh                                     called   109 times
-  6. spin_lock_bh                                       called   107 times
-  7. memset                                             called   107 times
-  8. mutex_unlock                                       called    98 times
-  9. memcpy                                             called    88 times
- 10. mutex_lock                                         called    85 times
- 11. rcu_read_unlock                                    called    85 times
- 12. PTR_ERR                                            called    80 times
- 13. rcu_read_lock                                      called    80 times
- 14. IP_VS_DBG                                          called    73 times
- 15. NETLINK_CB                                         called    72 times
- 16. atomic_read                                        called    68 times
- 17. ip_hdr                                             called    67 times
- 18. nf_ct_l3num                                        called    64 times
- 19. kfree_skb                                          called    61 times
- 20. nla_get_u8                                         called    57 times
- 21. nla_data                                           called    57 times
- 22. WARN_ON_ONCE                                       called    56 times
- 23. ipv6_hdr                                           called    54 times
- 24. nla_nest_end                                       called    54 times
- 25. adtfn                                              called    53 times
- 26. pr_info_ratelimited                                called    52 times
- 27. IP_VS_DBG_BUF                                      called    50 times
- 28. list_del                                           called    49 times
- 29. net_eq                                             called    46 times
- 30. module_put                                         called    46 times
+  1. nf_ct_netns_put                                    called    36 times
+  2. nft_unregister_expr                                called    36 times
+  3. nft_dump_register                                  called    36 times
+  4. nf_ct_expect_put                                   called    34 times
+  5. nf_ct_netns_get                                    called    31 times
+  6. nft_register_expr                                  called    31 times
+  7. ip_set_get_extensions                              called    27 times
+  8. xt_register_match                                  called    26 times
+  9. xt_unregister_matches                              called    26 times
+ 10. xt_unregister_match                                called    26 times
+ 11. nfnetlink_unicast                                  called    24 times
+ 12. nft_parse_register_load                            called    23 times
+ 13. xt_register_matches                                called    23 times
+ 14. nf_ct_helper_log                                   called    21 times
+ 15. nft_table_lookup                                   called    21 times
+ 16. xt_unregister_targets                              called    21 times
+ 17. nfnl_unlock                                        called    20 times
+ 18. nfnl_lock                                          called    20 times
+ 19. ip_set_pernet                                      called    20 times
+ 20. nf_ct_expect_alloc                                 called    20 times
+ 21. nft_parse_register_store                           called    19 times
+ 22. nft_chain_validate_hooks                           called    19 times
+ 23. nf_ct_expect_init                                  called    18 times
+ 24. nf_nat_setup_info                                  called    18 times
+ 25. xt_register_targets                                called    17 times
+ 26. ip_set_type_register                               called    16 times
+ 27. ip_set_type_unregister                             called    16 times
+ 28. ip_vs_proto_data_get                               called    16 times
+ 29. nft_ctx_init                                       called    16 times
+ 30. nfnetlink_subsys_unregister                        called    15 times
 
 ======================================================================
 TOP 30 FUNCTIONS WITH HIGHEST OUT-DEGREE
 ======================================================================
 These functions call many others (high complexity)
 
-  1. pipapo_base_sum                                    calls    46 functions
-  2. nf_tables_commit                                   calls    41 functions
-  3. __nf_tables_abort                                  calls    27 functions
-  4. do_ip_vs_set_ctl                                   calls    24 functions
-  5. ctnetlink_conntrack_event                          calls    23 functions
-  6. ctnetlink_create_conntrack                         calls    23 functions
-  7. nf_tables_newrule                                  calls    21 functions
-  8. nf_tables_newset                                   calls    21 functions
-  9. nft_add_set_elem                                   calls    21 functions
- 10. nf_tables_newflowtable                             calls    20 functions
- 11. nf_conntrack_tcp_packet                            calls    18 functions
- 12. nf_tables_addchain                                 calls    18 functions
- 13. nfulnl_recv_config                                 calls    18 functions
- 14. ip_vs_in_icmp                                      calls    17 functions
- 15. __nf_conntrack_confirm                             calls    17 functions
- 16. ip_vs_in_hook                                      calls    16 functions
- 17. ip_vs_add_service                                  calls    16 functions
- 18. ip_vs_proc_conn                                    calls    16 functions
- 19. __ctnetlink_glue_build                             calls    16 functions
- 20. nf_flow_offload_ip_hook                            calls    16 functions
- 21. nf_flow_offload_ipv6_hook                          calls    16 functions
- 22. do_ip_vs_get_ctl                                   calls    15 functions
- 23. ip_vs_genl_set_cmd                                 calls    15 functions
- 24. nfqnl_recv_config                                  calls    15 functions
- 25. start_sync_thread                                  calls    14 functions
- 26. __ip_vs_get_out_rt_v6                              calls    14 functions
- 27. WRITE_ONCE                                         calls    14 functions
- 28. ct_seq_show                                        calls    14 functions
- 29. nfnetlink_rcv_batch                                calls    14 functions
- 30. ip_set_create                                      calls    13 functions
+  1. pipapo_base_sum                                    calls    34 functions
+  2. nf_tables_commit                                   calls    33 functions
+  3. nft_add_set_elem                                   calls    20 functions
+  4. ctnetlink_conntrack_event                          calls    19 functions
+  5. __nf_tables_abort                                  calls    18 functions
+  6. do_ip_vs_set_ctl                                   calls    16 functions
+  7. nf_tables_newrule                                  calls    16 functions
+  8. ctnetlink_create_conntrack                         calls    15 functions
+  9. __ctnetlink_glue_build                             calls    15 functions
+ 10. nfulnl_recv_config                                 calls    14 functions
+ 11. ip_vs_genl_set_cmd                                 calls    13 functions
+ 12. nf_tables_newset                                   calls    13 functions
+ 13. ip_vs_in_icmp                                      calls    12 functions
+ 14. ip_vs_add_service                                  calls    12 functions
+ 15. nf_flow_offload_ip_hook                            calls    12 functions
+ 16. nf_flow_offload_ipv6_hook                          calls    12 functions
+ 17. nf_tables_addchain                                 calls    12 functions
+ 18. ip_vs_out_hook                                     calls    11 functions
+ 19. ip_vs_in_hook                                      calls    11 functions
+ 20. __ip_vs_init                                       calls    11 functions
+ 21. nf_conntrack_tcp_packet                            calls    11 functions
+ 22. nf_tables_newflowtable                             calls    11 functions
+ 23. ip_vs_lblcr_schedule                               calls    10 functions
+ 24. __ip_vs_get_out_rt_v6                              calls    10 functions
+ 25. __nf_conntrack_confirm                             calls    10 functions
+ 26. process_ras                                        calls    10 functions
+ 27. nf_nat_sip                                         calls    10 functions
+ 28. nft_do_chain                                       calls    10 functions
+ 29. __ip_vs_get_out_rt                                 calls     9 functions
+ 30. nf_conntrack_handle_packet                         calls     9 functions

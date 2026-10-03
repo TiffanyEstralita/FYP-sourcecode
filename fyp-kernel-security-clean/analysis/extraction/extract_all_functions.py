@@ -23,20 +23,35 @@ KERNEL_PATH = PROJECT_ROOT / "data/kernel/linux-shallow"
 NETFILTER_PATH = KERNEL_PATH / "net/netfilter"
 OUTPUT_PATH = PROJECT_ROOT / "results/raw"
 
-def is_function_definition(lines, index):
+def opens_body(joined, lines, end_index):
     """
-    Check if line at index is actually a function definition
-    Look for { on same line or next few lines
+    Check that the signature is followed by a function body: after the ')'
+    that closes the parameter list, a '{' must come BEFORE any ';'.
+    A ';' first means a call statement or a prototype, not a definition.
+    `joined` is the signature text, which ends on line `end_index`.
     """
-    # Check current line and next 3 lines for opening brace
-    for i in range(index, min(index + 4, len(lines))):
-        if '{' in lines[i]:
-            # Make sure it's not just in a comment or string
-            line = lines[i].split('//')[0]  # Remove // comments
-            line = re.sub(r'/\*.*?\*/', '', line)  # Remove /* */ comments
-            if '{' in line:
-                return True
-    return False
+    # find the ')' that closes the parameter list
+    depth = 0
+    close = None
+    for pos, ch in enumerate(joined):
+        if ch == '(':
+            depth += 1
+        elif ch == ')':
+            depth -= 1
+            if depth == 0:
+                close = pos
+                break
+    if close is None:
+        return False
+
+    # text after the signature: rest of its last line + the next 3 lines
+    tail = joined[close + 1:] + ' ' + ' '.join(lines[end_index + 1:end_index + 4])
+    tail = re.sub(r'/\*.*?\*/', '', tail)  # remove /* */ comments
+    tail = re.sub(r'//[^\n]*', '', tail)   # remove // comments
+
+    brace = tail.find('{')
+    semicolon = tail.find(';')
+    return brace != -1 and (semicolon == -1 or brace < semicolon)
 
 KEYWORDS = {
     'if', 'for', 'while', 'switch', 'return', 'do', 'else',
@@ -49,8 +64,10 @@ KEYWORDS = {
     'EXPORT_SYMBOL', 'EXPORT_SYMBOL_GPL'
 }
 
-# type/name on one line, opening paren present (rest of params may wrap)
-SIG_START_PATTERN = re.compile(r'^([\w\s\*]+?)\s+(\w+)\s*\(')
+# type/name on one line, opening paren present (rest of params may wrap).
+# The separator before the name may be '*' as well as spaces, so functions
+# returning a pointer ("static void *foo(") are found too.
+SIG_START_PATTERN = re.compile(r'^([\w\s\*]+?)[\s\*]+(\w+)\s*\(')
 # a line that is ONLY a return type / modifiers, e.g. "static int" or
 # "static bool" or "static struct foo *" - no parens, no semicolon
 BARE_TYPE_PATTERN = re.compile(r'^[\w\s\*]+$')
@@ -96,6 +113,14 @@ def extract_functions(file_path):
             i += 1
             continue
 
+        # Kernel style: a function definition always starts at the left
+        # margin. Indented lines are statements INSIDE a function, e.g.
+        # "\treturn ERR_PTR(-EINVAL);" or "\tmutex_lock(&lock);" - without
+        # this check those were mistaken for definitions of ERR_PTR etc.
+        if line[:1].isspace():
+            i += 1
+            continue
+
         sig_line_idx = i
         sig_text = line
         func_name = None
@@ -108,7 +133,7 @@ def extract_functions(file_path):
             # Candidate "return type on its own line" - check next line for
             # a bare function name immediately followed by '('
             next_line = lines[i + 1]
-            nm = BARE_NAME_PATTERN.match(next_line.strip())
+            nm = BARE_NAME_PATTERN.match(next_line)  # must also start at the left margin
             if nm:
                 func_name = nm.group(1)
                 sig_text = line + ' ' + next_line
@@ -131,8 +156,8 @@ def extract_functions(file_path):
             i += 1
             continue
 
-        # Must have opening brace nearby (real definition, not a prototype)
-        if is_function_definition(lines, j) and func_name not in seen:
+        # Must be followed by a body '{' (real definition, not a call or prototype)
+        if opens_body(joined, lines, j) and func_name not in seen:
             functions.append({
                 'name': func_name,
                 'file': file_path.name,

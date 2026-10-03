@@ -1,11 +1,11 @@
 {
   "stats": {
-    "fields_with_registrations": 136,
-    "registrations": 1169,
+    "fields_with_registrations": 138,
+    "registrations": 1209,
     "ipset_template_registrations_resolved": 55,
-    "functions_with_dispatch": 152,
-    "new_indirect_edges": 3095,
-    "direct_edges": 8522,
+    "functions_with_dispatch": 156,
+    "new_indirect_edges": 3205,
+    "direct_edges": 4629,
     "largest_fields": [
       [
         "destroy",
@@ -52,6 +52,10 @@
         23
       ],
       [
+        "start",
+        23
+      ],
+      [
         "reduce",
         22
       ],
@@ -62,14 +66,13 @@
       [
         "show",
         18
-      ],
-      [
-        "exit",
-        16
       ]
     ]
   },
   "edges": {
+    "__ip_vs_rs_conn_out": [
+      "ip_vs_sip_conn_out"
+    ],
     "__ip_vs_unlink_dest": [
       "ip_vs_dh_dest_changed",
       "ip_vs_mh_dest_changed",
@@ -272,12 +275,17 @@
       "nft_counter_destroy"
     ],
     "__nft_setelem_deactivate": [
+      "nft_bitmap_deactivate",
       "nft_dynset_deactivate",
       "nft_flow_offload_deactivate",
+      "nft_hash_deactivate",
       "nft_immediate_deactivate",
       "nft_lookup_deactivate",
       "nft_objref_deactivate",
-      "nft_objref_map_deactivate"
+      "nft_objref_map_deactivate",
+      "nft_pipapo_deactivate",
+      "nft_rbtree_deactivate",
+      "nft_rhash_deactivate"
     ],
     "app_tcp_pkt_in": [
       "ip_vs_ftp_in"
@@ -452,13 +460,6 @@
       "dccp_can_early_drop",
       "sctp_can_early_drop",
       "tcp_can_early_drop"
-    ],
-    "hlist_for_each_entry_rcu": [
-      "nf_tables_bind_check_setelem",
-      "nf_tables_dump_setelem",
-      "nf_tables_loop_check_setelem",
-      "nft_lookup_validate_setelem",
-      "nft_setelem_flush"
     ],
     "init_conntrack": [
       "ip_vs_nfct_expect_callback",
@@ -833,6 +834,9 @@
     "ip_vs_conn_seq_show": [
       "ip_vs_sip_show_pe_data"
     ],
+    "ip_vs_ct_in_get": [
+      "ip_vs_sip_ct_match"
+    ],
     "ip_vs_icmp_xmit": [
       "ip_vs_bypass_xmit",
       "ip_vs_bypass_xmit_v6",
@@ -902,6 +906,7 @@
       "ip_vs_rr_schedule",
       "ip_vs_sed_schedule",
       "ip_vs_sh_schedule",
+      "ip_vs_twos_schedule",
       "ip_vs_wlc_schedule",
       "ip_vs_wrr_schedule"
     ],
@@ -917,6 +922,7 @@
       "ip_vs_rr_schedule",
       "ip_vs_sed_schedule",
       "ip_vs_sh_schedule",
+      "ip_vs_twos_schedule",
       "ip_vs_wlc_schedule",
       "ip_vs_wrr_schedule"
     ],
@@ -924,6 +930,11 @@
       "sctp_state_transition",
       "tcp_state_transition",
       "udp_state_transition"
+    ],
+    "ip_vs_state_name": [
+      "sctp_state_name",
+      "tcp_state_name",
+      "udp_state_name"
     ],
     "ip_vs_try_to_schedule": [
       "ah_esp_conn_schedule",
@@ -948,23 +959,6 @@
     ],
     "make_receive_sock": [
       "nfnetlink_bind"
-    ],
-    "memset": [
-      "nft_bitwise_select_ops",
-      "nft_cmp_select_ops",
-      "nft_ct_select_ops",
-      "nft_exthdr_select_ops",
-      "nft_fwd_select_ops",
-      "nft_hash_select_ops",
-      "nft_limit_obj_select_ops",
-      "nft_limit_select_ops",
-      "nft_match_select_ops",
-      "nft_meta_select_ops",
-      "nft_ng_select_ops",
-      "nft_objref_select_ops",
-      "nft_payload_select_ops",
-      "nft_queue_select_ops",
-      "nft_target_select_ops"
     ],
     "nf_confirm": [
       "amanda_help",
@@ -1279,6 +1273,9 @@
       "xt_nat_destroy",
       "xt_rateest_mt_destroy"
     ],
+    "nf_ct_set_timeout": [
+      "ctnl_timeout_find_get"
+    ],
     "nf_flow_offload_rule_alloc": [
       "nf_flow_rule_route_inet",
       "nf_flow_rule_route_ipv4",
@@ -1288,7 +1285,12 @@
       "do_ip_vs_get_ctl",
       "getorigdst",
       "ip_set_sockfn_get",
-      "ipv6_getorigdst"
+      "ipv6_getorigdst",
+      "nft_bitmap_get",
+      "nft_hash_get",
+      "nft_pipapo_get",
+      "nft_rbtree_get",
+      "nft_rhash_get"
     ],
     "nf_log_packet": [
       "nf_log_arp_packet",
@@ -2173,6 +2175,10 @@
       "ctnetlink_glue_build",
       "ctnetlink_glue_build_size"
     ],
+    "nfqnl_ct_parse": [
+      "ctnetlink_glue_attach_expect",
+      "ctnetlink_glue_parse"
+    ],
     "nfqnl_nf_hook_drop": [
       "__ip_vs_ftp_exit",
       "__ip_vs_ftp_init",
@@ -2339,6 +2345,26 @@
       "nft_limit_pkts_clone",
       "nft_quota_clone"
     ],
+    "nft_expr_init": [
+      "nft_match_release_ops",
+      "nft_target_release_ops"
+    ],
+    "nft_flow_rule_create": [
+      "nft_bitwise_fast_offload",
+      "nft_bitwise_offload",
+      "nft_cmp16_fast_offload",
+      "nft_cmp_fast_offload",
+      "nft_cmp_offload",
+      "nft_counter_offload",
+      "nft_dup_netdev_offload",
+      "nft_dup_netdev_offload_action",
+      "nft_fwd_netdev_offload",
+      "nft_fwd_netdev_offload_action",
+      "nft_immediate_offload",
+      "nft_immediate_offload_action",
+      "nft_meta_get_offload",
+      "nft_payload_offload"
+    ],
     "nft_flow_rule_stats": [
       "nft_counter_offload_stats"
     ],
@@ -2457,6 +2483,116 @@
       "xt_ct_tg_destroy_v1",
       "xt_nat_destroy",
       "xt_rateest_mt_destroy"
+    ],
+    "nft_obj_init": [
+      "__ip_vs_ftp_init",
+      "__ip_vs_init",
+      "__ip_vs_lblc_init",
+      "__ip_vs_lblcr_init",
+      "ctnetlink_net_init",
+      "cttimeout_net_init",
+      "hashlimit_net_init",
+      "ip_set_net_init",
+      "netfilter_net_init",
+      "nf_conntrack_pernet_init",
+      "nf_flow_table_init",
+      "nf_flow_table_pernet_init",
+      "nf_log_net_init",
+      "nf_log_syslog_net_init",
+      "nf_tables_init_net",
+      "nfnetlink_net_init",
+      "nfnl_acct_net_init",
+      "nfnl_log_net_init",
+      "nfnl_queue_net_init",
+      "nft_bitmap_init",
+      "nft_bitwise_fast_init",
+      "nft_bitwise_init",
+      "nft_bitwise_select_ops",
+      "nft_byteorder_init",
+      "nft_cmp16_fast_init",
+      "nft_cmp_fast_init",
+      "nft_cmp_init",
+      "nft_cmp_select_ops",
+      "nft_connlimit_init",
+      "nft_connlimit_obj_init",
+      "nft_counter_init",
+      "nft_counter_obj_init",
+      "nft_ct_expect_obj_init",
+      "nft_ct_get_init",
+      "nft_ct_helper_obj_init",
+      "nft_ct_select_ops",
+      "nft_ct_set_init",
+      "nft_ct_timeout_obj_init",
+      "nft_dup_netdev_init",
+      "nft_dynset_init",
+      "nft_exthdr_init",
+      "nft_exthdr_ipv4_init",
+      "nft_exthdr_select_ops",
+      "nft_exthdr_tcp_set_init",
+      "nft_exthdr_tcp_strip_init",
+      "nft_fib_init",
+      "nft_flow_offload_init",
+      "nft_fwd_neigh_init",
+      "nft_fwd_netdev_init",
+      "nft_fwd_select_ops",
+      "nft_hash_init",
+      "nft_hash_select_ops",
+      "nft_immediate_init",
+      "nft_jhash_init",
+      "nft_last_init",
+      "nft_limit_bytes_init",
+      "nft_limit_obj_bytes_init",
+      "nft_limit_obj_pkts_init",
+      "nft_limit_obj_select_ops",
+      "nft_limit_pkts_init",
+      "nft_limit_select_ops",
+      "nft_log_init",
+      "nft_lookup_init",
+      "nft_masq_init",
+      "nft_match_init",
+      "nft_match_large_init",
+      "nft_match_select_ops",
+      "nft_meta_get_init",
+      "nft_meta_select_ops",
+      "nft_meta_set_init",
+      "nft_nat_init",
+      "nft_ng_inc_init",
+      "nft_ng_random_init",
+      "nft_ng_select_ops",
+      "nft_objref_init",
+      "nft_objref_map_init",
+      "nft_objref_select_ops",
+      "nft_osf_init",
+      "nft_payload_init",
+      "nft_payload_select_ops",
+      "nft_payload_set_init",
+      "nft_pipapo_init",
+      "nft_queue_init",
+      "nft_queue_select_ops",
+      "nft_queue_sreg_init",
+      "nft_quota_init",
+      "nft_quota_obj_init",
+      "nft_range_init",
+      "nft_rbtree_init",
+      "nft_redir_init",
+      "nft_reject_init",
+      "nft_rhash_init",
+      "nft_rt_get_init",
+      "nft_secmark_obj_init",
+      "nft_socket_init",
+      "nft_symhash_init",
+      "nft_synproxy_init",
+      "nft_synproxy_obj_init",
+      "nft_target_init",
+      "nft_target_select_ops",
+      "nft_tproxy_init",
+      "nft_tunnel_get_init",
+      "nft_tunnel_obj_init",
+      "nft_xfrm_get_init",
+      "recent_net_init",
+      "synproxy_net_init",
+      "tee_net_init",
+      "xt_net_init"
     ],
     "nft_object_dump": [
       "ctnetlink_ct_stat_cpu_dump",
@@ -2734,35 +2870,17 @@
       "nft_rhash_activate"
     ],
     "nft_rule_expr_deactivate": [
+      "nft_bitmap_deactivate",
       "nft_dynset_deactivate",
       "nft_flow_offload_deactivate",
+      "nft_hash_deactivate",
       "nft_immediate_deactivate",
       "nft_lookup_deactivate",
       "nft_objref_deactivate",
-      "nft_objref_map_deactivate"
-    ],
-    "nft_rule_for_each_expr": [
-      "nft_fib_validate",
-      "nft_flow_offload_validate",
-      "nft_fwd_validate",
-      "nft_immediate_validate",
-      "nft_lookup_validate",
-      "nft_masq_validate",
-      "nft_match_validate",
-      "nft_meta_get_validate",
-      "nft_meta_set_validate",
-      "nft_nat_validate",
-      "nft_osf_validate",
-      "nft_queue_validate",
-      "nft_redir_validate",
-      "nft_reject_inet_validate",
-      "nft_reject_netdev_validate",
-      "nft_rt_validate",
-      "nft_socket_validate",
-      "nft_synproxy_validate",
-      "nft_target_validate",
-      "nft_tproxy_validate",
-      "nft_xfrm_validate"
+      "nft_objref_map_deactivate",
+      "nft_pipapo_deactivate",
+      "nft_rbtree_deactivate",
+      "nft_rhash_deactivate"
     ],
     "nft_select_set_ops": [
       "nft_bitmap_estimate",
@@ -2869,6 +2987,10 @@
       "xt_nat_destroy",
       "xt_rateest_mt_destroy"
     ],
+    "nft_set_elem_expr_alloc": [
+      "nft_pipapo_gc_init",
+      "nft_rhash_gc_init"
+    ],
     "nft_set_flush": [
       "nft_bitmap_walk",
       "nft_hash_walk",
@@ -2901,7 +3023,12 @@
       "do_ip_vs_get_ctl",
       "getorigdst",
       "ip_set_sockfn_get",
-      "ipv6_getorigdst"
+      "ipv6_getorigdst",
+      "nft_bitmap_get",
+      "nft_hash_get",
+      "nft_pipapo_get",
+      "nft_rbtree_get",
+      "nft_rhash_get"
     ],
     "nft_setelem_insert": [
       "nft_bitmap_insert",
@@ -3140,12 +3267,6 @@
     "process_sip_msg": [
       "nf_nat_sip"
     ],
-    "rcu_read_lock": [
-      "nf_conntrack_update",
-      "nft_quota_obj_update",
-      "nft_rhash_update",
-      "nft_synproxy_obj_update"
-    ],
     "register_ip_vs_proto_netns": [
       "__ip_vs_sctp_init",
       "__ip_vs_tcp_init",
@@ -3248,9 +3369,6 @@
     ],
     "sctp_app_conn_bind": [
       "ip_vs_ftp_init_conn"
-    ],
-    "seq_puts": [
-      "ip_vs_sip_show_pe_data"
     ],
     "set_expected_rtp_rtcp": [
       "nf_nat_sdp_media",
@@ -3469,6 +3587,9 @@
     ]
   },
   "dispatches": {
+    "__ip_vs_rs_conn_out": [
+      "conn_out"
+    ],
     "__ip_vs_unlink_dest": [
       "del_dest"
     ],
@@ -3551,9 +3672,6 @@
     "gc_worker_can_early_drop": [
       "can_early_drop"
     ],
-    "hlist_for_each_entry_rcu": [
-      "fn"
-    ],
     "init_conntrack": [
       "expectfn"
     ],
@@ -3611,6 +3729,9 @@
     "ip_vs_conn_seq_show": [
       "show_pe_data"
     ],
+    "ip_vs_ct_in_get": [
+      "ct_match"
+    ],
     "ip_vs_icmp_xmit": [
       "packet_xmit"
     ],
@@ -3641,6 +3762,9 @@
     "ip_vs_set_state": [
       "state_transition"
     ],
+    "ip_vs_state_name": [
+      "state_name"
+    ],
     "ip_vs_try_to_schedule": [
       "conn_schedule"
     ],
@@ -3655,9 +3779,6 @@
     ],
     "make_receive_sock": [
       "bind"
-    ],
-    "memset": [
-      "select_ops"
     ],
     "nf_confirm": [
       "help"
@@ -3685,6 +3806,9 @@
     ],
     "nf_ct_helper_destroy": [
       "destroy"
+    ],
+    "nf_ct_set_timeout": [
+      "timeout_find_get"
     ],
     "nf_flow_offload_rule_alloc": [
       "action"
@@ -3761,6 +3885,10 @@
       "build",
       "build_size"
     ],
+    "nfqnl_ct_parse": [
+      "attach_expect",
+      "parse"
+    ],
     "nfqnl_nf_hook_drop": [
       "exit",
       "init"
@@ -3784,6 +3912,13 @@
     "nft_expr_clone": [
       "clone"
     ],
+    "nft_expr_init": [
+      "release_ops"
+    ],
+    "nft_flow_rule_create": [
+      "offload",
+      "offload_action"
+    ],
     "nft_flow_rule_stats": [
       "offload_stats"
     ],
@@ -3798,6 +3933,10 @@
     ],
     "nft_obj_destroy": [
       "destroy"
+    ],
+    "nft_obj_init": [
+      "init",
+      "select_ops"
     ],
     "nft_object_dump": [
       "dump"
@@ -3829,9 +3968,6 @@
     "nft_rule_expr_deactivate": [
       "deactivate"
     ],
-    "nft_rule_for_each_expr": [
-      "validate"
-    ],
     "nft_select_set_ops": [
       "estimate"
     ],
@@ -3840,6 +3976,9 @@
     ],
     "nft_set_do_lookup": [
       "lookup"
+    ],
+    "nft_set_elem_expr_alloc": [
+      "gc_init"
     ],
     "nft_set_flush": [
       "walk"
@@ -3890,9 +4029,6 @@
     "process_sip_msg": [
       "msg"
     ],
-    "rcu_read_lock": [
-      "update"
-    ],
     "register_ip_vs_proto_netns": [
       "init_netns"
     ],
@@ -3901,9 +4037,6 @@
     ],
     "sctp_app_conn_bind": [
       "init_conn"
-    ],
-    "seq_puts": [
-      "show_pe_data"
     ],
     "set_expected_rtp_rtcp": [
       "sdp_media",
@@ -4200,12 +4333,17 @@
       "ip_vs_sip_ct_match"
     ],
     "deactivate": [
+      "nft_bitmap_deactivate",
       "nft_dynset_deactivate",
       "nft_flow_offload_deactivate",
+      "nft_hash_deactivate",
       "nft_immediate_deactivate",
       "nft_lookup_deactivate",
       "nft_objref_deactivate",
-      "nft_objref_map_deactivate"
+      "nft_objref_map_deactivate",
+      "nft_pipapo_deactivate",
+      "nft_rbtree_deactivate",
+      "nft_rhash_deactivate"
     ],
     "debug_packet": [
       "ip_vs_tcpudp_debug_packet"
@@ -4612,7 +4750,12 @@
       "do_ip_vs_get_ctl",
       "getorigdst",
       "ip_set_sockfn_get",
-      "ipv6_getorigdst"
+      "ipv6_getorigdst",
+      "nft_bitmap_get",
+      "nft_hash_get",
+      "nft_pipapo_get",
+      "nft_rbtree_get",
+      "nft_rhash_get"
     ],
     "get_tuple_skb": [
       "nf_conntrack_get_tuple_skb"
@@ -4918,6 +5061,22 @@
     "msg": [
       "nf_nat_sip"
     ],
+    "next": [
+      "ct_cpu_seq_next",
+      "ct_seq_next",
+      "dl_seq_next",
+      "exp_seq_next",
+      "ip_vs_app_seq_next",
+      "ip_vs_conn_seq_next",
+      "ip_vs_info_seq_next",
+      "nf_flow_table_cpu_seq_next",
+      "recent_seq_next",
+      "seq_next",
+      "synproxy_cpu_seq_next",
+      "xt_match_seq_next",
+      "xt_table_seq_next",
+      "xt_target_seq_next"
+    ],
     "nf_hook_drop": [
       "nfqnl_nf_hook_drop"
     ],
@@ -5131,6 +5290,7 @@
       "ip_vs_rr_schedule",
       "ip_vs_sed_schedule",
       "ip_vs_sh_schedule",
+      "ip_vs_twos_schedule",
       "ip_vs_wlc_schedule",
       "ip_vs_wrr_schedule"
     ],
@@ -5202,15 +5362,29 @@
       "udp_snat_handler"
     ],
     "start": [
+      "ct_cpu_seq_start",
+      "ct_seq_start",
       "ctnetlink_start",
+      "dl_seq_start",
+      "exp_seq_start",
       "ip_set_dump_start",
+      "ip_vs_app_seq_start",
+      "ip_vs_conn_seq_start",
+      "ip_vs_info_seq_start",
+      "nf_flow_table_cpu_seq_start",
       "nf_tables_dump_flowtable_start",
       "nf_tables_dump_obj_start",
       "nf_tables_dump_rules_start",
       "nf_tables_dump_set_start",
       "nf_tables_dump_sets_start",
       "nfnl_acct_start",
-      "nfnl_hook_dump_start"
+      "nfnl_hook_dump_start",
+      "recent_seq_start",
+      "seq_start",
+      "synproxy_cpu_seq_start",
+      "xt_match_seq_start",
+      "xt_table_seq_start",
+      "xt_target_seq_start"
     ],
     "state_name": [
       "sctp_state_name",
@@ -5289,6 +5463,9 @@
     ],
     "timeout_change": [
       "tcp_timeout_change"
+    ],
+    "timeout_find_get": [
+      "ctnl_timeout_find_get"
     ],
     "timeout_put": [
       "ctnl_timeout_put"

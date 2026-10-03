@@ -1,6 +1,11 @@
 {
   "core.c": [
     {
+      "name": "allocate_hook_entries_size",
+      "file": "core.c",
+      "line": 50
+    },
+    {
       "name": "__nf_hook_entries_free",
       "file": "core.c",
       "line": 67
@@ -29,6 +34,11 @@
       "name": "nf_hook_entries_insert_raw",
       "file": "core.c",
       "line": 185
+    },
+    {
+      "name": "__nf_hook_entries_try_shrink",
+      "file": "core.c",
+      "line": 222
     },
     {
       "name": "nf_hook_entry_head",
@@ -74,11 +84,6 @@
       "name": "__nf_unregister_net_hook",
       "file": "core.c",
       "line": 476
-    },
-    {
-      "name": "net_dec_egress_queue",
-      "file": "core.c",
-      "line": 501
     },
     {
       "name": "nf_unregister_net_hook",
@@ -198,16 +203,6 @@
       "line": 129
     },
     {
-      "name": "adtfn",
-      "file": "ip_set_bitmap_ip.c",
-      "line": 159
-    },
-    {
-      "name": "ip_set_mask_from_to",
-      "file": "ip_set_bitmap_ip.c",
-      "line": 176
-    },
-    {
       "name": "bitmap_ip_same_set",
       "file": "ip_set_bitmap_ip.c",
       "line": 196
@@ -226,16 +221,6 @@
       "name": "bitmap_ip_create",
       "file": "ip_set_bitmap_ip.c",
       "line": 252
-    },
-    {
-      "name": "swap",
-      "file": "ip_set_bitmap_ip.c",
-      "line": 276
-    },
-    {
-      "name": "ip_set_free",
-      "file": "ip_set_bitmap_ip.c",
-      "line": 329
     },
     {
       "name": "bitmap_ip_init",
@@ -275,19 +260,9 @@
       "line": 115
     },
     {
-      "name": "ip_set_timeout_set",
-      "file": "ip_set_bitmap_ipmac.c",
-      "line": 127
-    },
-    {
       "name": "bitmap_ipmac_do_add",
       "file": "ip_set_bitmap_ipmac.c",
       "line": 142
-    },
-    {
-      "name": "ether_addr_copy",
-      "file": "ip_set_bitmap_ipmac.c",
-      "line": 166
     },
     {
       "name": "bitmap_ipmac_do_del",
@@ -328,21 +303,6 @@
       "name": "bitmap_ipmac_create",
       "file": "ip_set_bitmap_ipmac.c",
       "line": 317
-    },
-    {
-      "name": "swap",
-      "file": "ip_set_bitmap_ipmac.c",
-      "line": 340
-    },
-    {
-      "name": "ip_set_mask_from_to",
-      "file": "ip_set_bitmap_ipmac.c",
-      "line": 346
-    },
-    {
-      "name": "ip_set_free",
-      "file": "ip_set_bitmap_ipmac.c",
-      "line": 366
     },
     {
       "name": "bitmap_ipmac_init",
@@ -407,11 +367,6 @@
       "line": 152
     },
     {
-      "name": "adtfn",
-      "file": "ip_set_bitmap_port.c",
-      "line": 180
-    },
-    {
       "name": "bitmap_port_same_set",
       "file": "ip_set_bitmap_port.c",
       "line": 209
@@ -427,11 +382,6 @@
       "line": 248
     },
     {
-      "name": "ip_set_free",
-      "file": "ip_set_bitmap_port.c",
-      "line": 277
-    },
-    {
       "name": "bitmap_port_init",
       "file": "ip_set_bitmap_port.c",
       "line": 318
@@ -444,14 +394,9 @@
   ],
   "ip_set_core.c": [
     {
-      "name": "DEFINE_MUTEX",
+      "name": "ip_set_pernet",
       "file": "ip_set_core.c",
-      "line": 26
-    },
-    {
-      "name": "DEFINE_RWLOCK",
-      "file": "ip_set_core.c",
-      "line": 27
+      "line": 38
     },
     {
       "name": "ip_set_type_lock",
@@ -557,11 +502,6 @@
       "name": "ip_set_get_extensions",
       "file": "ip_set_core.c",
       "line": 458
-    },
-    {
-      "name": "be32_to_cpu",
-      "file": "ip_set_core.c",
-      "line": 503
     },
     {
       "name": "ip_set_get_bytes",
@@ -744,11 +684,6 @@
       "line": 1040
     },
     {
-      "name": "kvfree",
-      "file": "ip_set_core.c",
-      "line": 1141
-    },
-    {
       "name": "ip_set_destroy_set",
       "file": "ip_set_core.c",
       "line": 1171
@@ -757,11 +692,6 @@
       "name": "ip_set_destroy",
       "file": "ip_set_core.c",
       "line": 1182
-    },
-    {
-      "name": "read_unlock_bh",
-      "file": "ip_set_core.c",
-      "line": 1216
     },
     {
       "name": "ip_set_flush_set",
@@ -809,16 +739,6 @@
       "line": 1521
     },
     {
-      "name": "write_lock_bh",
-      "file": "ip_set_core.c",
-      "line": 1548
-    },
-    {
-      "name": "write_unlock_bh",
-      "file": "ip_set_core.c",
-      "line": 1552
-    },
-    {
       "name": "ip_set_dump",
       "file": "ip_set_core.c",
       "line": 1660
@@ -832,11 +752,6 @@
       "name": "ip_set_ad",
       "file": "ip_set_core.c",
       "line": 1752
-    },
-    {
-      "name": "nla_for_each_nested",
-      "file": "ip_set_core.c",
-      "line": 1793
     },
     {
       "name": "ip_set_uadd",
@@ -882,11 +797,6 @@
       "name": "ip_set_sockfn_get",
       "file": "ip_set_core.c",
       "line": 2188
-    },
-    {
-      "name": "nfnl_unlock",
-      "file": "ip_set_core.c",
-      "line": 2255
     },
     {
       "name": "ip_set_net_init",
@@ -953,16 +863,6 @@
       "line": 97
     },
     {
-      "name": "adtfn",
-      "file": "ip_set_hash_ip.c",
-      "line": 128
-    },
-    {
-      "name": "swap",
-      "file": "ip_set_hash_ip.c",
-      "line": 138
-    },
-    {
       "name": "hash_ip6_data_equal",
       "file": "ip_set_hash_ip.c",
       "line": 180
@@ -991,11 +891,6 @@
       "name": "hash_ip6_uadt",
       "file": "ip_set_hash_ip.c",
       "line": 237
-    },
-    {
-      "name": "ip_set_eexist",
-      "file": "ip_set_hash_ip.c",
-      "line": 275
     },
     {
       "name": "hash_ip_init",
@@ -1060,11 +955,6 @@
       "line": 225
     },
     {
-      "name": "adtfn",
-      "file": "ip_set_hash_ipmac.c",
-      "line": 260
-    },
-    {
       "name": "hash_ipmac_init",
       "file": "ip_set_hash_ipmac.c",
       "line": 298
@@ -1100,11 +990,6 @@
       "name": "hash_ipmark4_uadt",
       "file": "ip_set_hash_ipmark.c",
       "line": 96
-    },
-    {
-      "name": "swap",
-      "file": "ip_set_hash_ipmark.c",
-      "line": 141
     },
     {
       "name": "hash_ipmark6_data_equal",
@@ -1169,11 +1054,6 @@
       "line": 104
     },
     {
-      "name": "swap",
-      "file": "ip_set_hash_ipport.c",
-      "line": 160
-    },
-    {
       "name": "hash_ipport6_data_equal",
       "file": "ip_set_hash_ipport.c",
       "line": 210
@@ -1234,11 +1114,6 @@
       "name": "hash_ipportip4_uadt",
       "file": "ip_set_hash_ipportip.c",
       "line": 107
-    },
-    {
-      "name": "swap",
-      "file": "ip_set_hash_ipportip.c",
-      "line": 167
     },
     {
       "name": "hash_ipportip6_data_equal",
@@ -1323,16 +1198,6 @@
       "line": 159
     },
     {
-      "name": "swap",
-      "file": "ip_set_hash_ipportnet.c",
-      "line": 240
-    },
-    {
-      "name": "ip_set_mask_from_to",
-      "file": "ip_set_hash_ipportnet.c",
-      "line": 266
-    },
-    {
       "name": "hash_ipportnet6_data_equal",
       "file": "ip_set_hash_ipportnet.c",
       "line": 318
@@ -1413,11 +1278,6 @@
       "name": "hash_mac4_uadt",
       "file": "ip_set_hash_mac.c",
       "line": 94
-    },
-    {
-      "name": "adtfn",
-      "file": "ip_set_hash_mac.c",
-      "line": 117
     },
     {
       "name": "hash_mac_init",
@@ -1522,11 +1382,6 @@
       "line": 309
     },
     {
-      "name": "ip_set_eexist",
-      "file": "ip_set_hash_net.c",
-      "line": 353
-    },
-    {
       "name": "hash_net_init",
       "file": "ip_set_hash_net.c",
       "line": 393
@@ -1574,29 +1429,24 @@
       "line": 128
     },
     {
+      "name": "get_physindev_name",
+      "file": "ip_set_hash_netiface.c",
+      "line": 141
+    },
+    {
+      "name": "get_physoutdev_name",
+      "file": "ip_set_hash_netiface.c",
+      "line": 148
+    },
+    {
       "name": "hash_netiface4_kadt",
       "file": "ip_set_hash_netiface.c",
       "line": 156
     },
     {
-      "name": "STRLCPY",
-      "file": "ip_set_hash_netiface.c",
-      "line": 185
-    },
-    {
       "name": "hash_netiface4_uadt",
       "file": "ip_set_hash_netiface.c",
       "line": 197
-    },
-    {
-      "name": "ip_set_eexist",
-      "file": "ip_set_hash_netiface.c",
-      "line": 245
-    },
-    {
-      "name": "swap",
-      "file": "ip_set_hash_netiface.c",
-      "line": 253
     },
     {
       "name": "hash_netiface6_data_equal",
@@ -1711,16 +1561,6 @@
       "line": 162
     },
     {
-      "name": "swap",
-      "file": "ip_set_hash_netnet.c",
-      "line": 228
-    },
-    {
-      "name": "ip_set_mask_from_to",
-      "file": "ip_set_hash_netnet.c",
-      "line": 245
-    },
-    {
       "name": "hash_netnet6_data_equal",
       "file": "ip_set_hash_netnet.c",
       "line": 291
@@ -1751,11 +1591,6 @@
       "line": 326
     },
     {
-      "name": "ip6_netmask",
-      "file": "ip_set_hash_netnet.c",
-      "line": 330
-    },
-    {
       "name": "hash_netnet6_data_list",
       "file": "ip_set_hash_netnet.c",
       "line": 338
@@ -1779,11 +1614,6 @@
       "name": "hash_netnet6_uadt",
       "file": "ip_set_hash_netnet.c",
       "line": 401
-    },
-    {
-      "name": "ip_set_eexist",
-      "file": "ip_set_hash_netnet.c",
-      "line": 457
     },
     {
       "name": "hash_netnet_init",
@@ -1841,16 +1671,6 @@
       "name": "hash_netport4_uadt",
       "file": "ip_set_hash_netport.c",
       "line": 153
-    },
-    {
-      "name": "swap",
-      "file": "ip_set_hash_netport.c",
-      "line": 225
-    },
-    {
-      "name": "ip_set_mask_from_to",
-      "file": "ip_set_hash_netport.c",
-      "line": 236
     },
     {
       "name": "hash_netport6_data_equal",
@@ -1970,16 +1790,6 @@
       "line": 186
     },
     {
-      "name": "swap",
-      "file": "ip_set_hash_netportnet.c",
-      "line": 271
-    },
-    {
-      "name": "ip_set_mask_from_to",
-      "file": "ip_set_hash_netportnet.c",
-      "line": 295
-    },
-    {
       "name": "hash_netportnet6_data_equal",
       "file": "ip_set_hash_netportnet.c",
       "line": 351
@@ -2008,11 +1818,6 @@
       "name": "hash_netportnet6_data_netmask",
       "file": "ip_set_hash_netportnet.c",
       "line": 388
-    },
-    {
-      "name": "ip6_netmask",
-      "file": "ip_set_hash_netportnet.c",
-      "line": 393
     },
     {
       "name": "hash_netportnet6_data_list",
@@ -2107,11 +1912,6 @@
       "line": 231
     },
     {
-      "name": "list_last_entry",
-      "file": "ip_set_list_set.c",
-      "line": 277
-    },
-    {
       "name": "list_set_udel",
       "file": "ip_set_list_set.c",
       "line": 313
@@ -2122,11 +1922,6 @@
       "line": 345
     },
     {
-      "name": "nla_data",
-      "file": "ip_set_list_set.c",
-      "line": 388
-    },
-    {
       "name": "list_set_flush",
       "file": "ip_set_list_set.c",
       "line": 411
@@ -2135,11 +1930,6 @@
       "name": "list_set_destroy",
       "file": "ip_set_list_set.c",
       "line": 423
-    },
-    {
-      "name": "del_timer_sync",
-      "file": "ip_set_list_set.c",
-      "line": 430
     },
     {
       "name": "list_set_memsize",
@@ -2155,11 +1945,6 @@
       "name": "list_set_list",
       "file": "ip_set_list_set.c",
       "line": 482
-    },
-    {
-      "name": "nla_nest_cancel",
-      "file": "ip_set_list_set.c",
-      "line": 525
     },
     {
       "name": "list_set_same_set",
@@ -2231,11 +2016,6 @@
       "line": 72
     },
     {
-      "name": "ip_vs_create_timeout_table",
-      "file": "ip_vs_app.c",
-      "line": 97
-    },
-    {
       "name": "ip_vs_app_inc_release",
       "file": "ip_vs_app.c",
       "line": 124
@@ -2256,6 +2036,11 @@
       "line": 172
     },
     {
+      "name": "register_ip_vs_app",
+      "file": "ip_vs_app.c",
+      "line": 189
+    },
+    {
       "name": "unregister_ip_vs_app",
       "file": "ip_vs_app.c",
       "line": 232
@@ -2274,11 +2059,6 @@
       "name": "vs_fix_seq",
       "file": "ip_vs_app.c",
       "line": 288
-    },
-    {
-      "name": "IP_VS_DBG",
-      "file": "ip_vs_app.c",
-      "line": 300
     },
     {
       "name": "vs_fix_ack_seq",
@@ -2311,9 +2091,19 @@
       "line": 488
     },
     {
-      "name": "list_entry",
+      "name": "ip_vs_app_idx",
       "file": "ip_vs_app.c",
-      "line": 558
+      "line": 519
+    },
+    {
+      "name": "ip_vs_app_seq_start",
+      "file": "ip_vs_app.c",
+      "line": 533
+    },
+    {
+      "name": "ip_vs_app_seq_next",
+      "file": "ip_vs_app.c",
+      "line": 543
     },
     {
       "name": "ip_vs_app_seq_stop",
@@ -2324,11 +2114,6 @@
       "name": "ip_vs_app_seq_show",
       "file": "ip_vs_app.c",
       "line": 575
-    },
-    {
-      "name": "seq_puts",
-      "file": "ip_vs_app.c",
-      "line": 578
     },
     {
       "name": "ip_vs_app_net_init",
@@ -2373,16 +2158,6 @@
       "line": 163
     },
     {
-      "name": "refcount_inc",
-      "file": "ip_vs_conn.c",
-      "line": 179
-    },
-    {
-      "name": "hlist_add_head_rcu",
-      "file": "ip_vs_conn.c",
-      "line": 180
-    },
-    {
       "name": "ip_vs_conn_unhash",
       "file": "ip_vs_conn.c",
       "line": 199
@@ -2398,9 +2173,9 @@
       "line": 262
     },
     {
-      "name": "ip_vs_addr_equal",
+      "name": "ip_vs_conn_in_get",
       "file": "ip_vs_conn.c",
-      "line": 276
+      "line": 293
     },
     {
       "name": "ip_vs_conn_fill_param_proto",
@@ -2411,6 +2186,16 @@
       "name": "ip_vs_conn_in_get_proto",
       "file": "ip_vs_conn.c",
       "line": 334
+    },
+    {
+      "name": "ip_vs_ct_in_get",
+      "file": "ip_vs_conn.c",
+      "line": 349
+    },
+    {
+      "name": "ip_vs_conn_out_get",
+      "file": "ip_vs_conn.c",
+      "line": 401
     },
     {
       "name": "ip_vs_conn_out_get_proto",
@@ -2433,11 +2218,6 @@
       "line": 491
     },
     {
-      "name": "spin_lock_bh",
-      "file": "ip_vs_conn.c",
-      "line": 494
-    },
-    {
       "name": "ip_vs_bind_xmit",
       "file": "ip_vs_conn.c",
       "line": 512
@@ -2458,11 +2238,6 @@
       "line": 583
     },
     {
-      "name": "atomic_inc",
-      "file": "ip_vs_conn.c",
-      "line": 632
-    },
-    {
       "name": "ip_vs_try_bind_dest",
       "file": "ip_vs_conn.c",
       "line": 651
@@ -2471,11 +2246,6 @@
       "name": "ip_vs_unbind_dest",
       "file": "ip_vs_conn.c",
       "line": 704
-    },
-    {
-      "name": "atomic_dec",
-      "file": "ip_vs_conn.c",
-      "line": 727
     },
     {
       "name": "expire_quiescent_template",
@@ -2503,24 +2273,9 @@
       "line": 834
     },
     {
-      "name": "__ip_vs_conn_put",
-      "file": "ip_vs_conn.c",
-      "line": 840
-    },
-    {
       "name": "ip_vs_conn_expire",
       "file": "ip_vs_conn.c",
-      "line": 841
-    },
-    {
-      "name": "del_timer",
-      "file": "ip_vs_conn.c",
-      "line": 863
-    },
-    {
-      "name": "IP_VS_DBG",
-      "file": "ip_vs_conn.c",
-      "line": 874
+      "line": 847
     },
     {
       "name": "ip_vs_conn_expire_now",
@@ -2533,14 +2288,19 @@
       "line": 940
     },
     {
-      "name": "hlist_for_each_entry_rcu",
+      "name": "ip_vs_conn_array",
       "file": "ip_vs_conn.c",
-      "line": 1059
+      "line": 1052
     },
     {
-      "name": "hlist_entry",
+      "name": "ip_vs_conn_seq_start",
       "file": "ip_vs_conn.c",
-      "line": 1099
+      "line": 1074
+    },
+    {
+      "name": "ip_vs_conn_seq_next",
+      "file": "ip_vs_conn.c",
+      "line": 1084
     },
     {
       "name": "ip_vs_conn_seq_stop",
@@ -2553,9 +2313,9 @@
       "line": 1119
     },
     {
-      "name": "seq_puts",
+      "name": "ip_vs_origin_name",
       "file": "ip_vs_conn.c",
-      "line": 1123
+      "line": 1188
     },
     {
       "name": "ip_vs_conn_sync_seq_show",
@@ -2603,17 +2363,17 @@
       "line": 1482
     },
     {
-      "name": "INIT_HLIST_HEAD",
-      "file": "ip_vs_conn.c",
-      "line": 1519
-    },
-    {
       "name": "ip_vs_conn_cleanup",
       "file": "ip_vs_conn.c",
       "line": 1531
     }
   ],
   "ip_vs_core.c": [
+    {
+      "name": "ip_vs_proto_name",
+      "file": "ip_vs_core.c",
+      "line": 90
+    },
     {
       "name": "ip_vs_init_hash_table",
       "file": "ip_vs_core.c",
@@ -2650,11 +2410,6 @@
       "line": 252
     },
     {
-      "name": "smp_rmb",
-      "file": "ip_vs_core.c",
-      "line": 352
-    },
-    {
       "name": "ip_vs_schedule",
       "file": "ip_vs_core.c",
       "line": 440
@@ -2668,11 +2423,6 @@
       "name": "ip_vs_leave",
       "file": "ip_vs_core.c",
       "line": 585
-    },
-    {
-      "name": "IP_VS_DBG",
-      "file": "ip_vs_core.c",
-      "line": 611
     },
     {
       "name": "sysctl_snat_reroute",
@@ -2708,11 +2458,6 @@
       "name": "ip_vs_nat_icmp",
       "file": "ip_vs_core.c",
       "line": 748
-    },
-    {
-      "name": "ip_send_check",
-      "file": "ip_vs_core.c",
-      "line": 759
     },
     {
       "name": "ip_vs_nat_icmp_v6",
@@ -2755,19 +2500,19 @@
       "line": 1100
     },
     {
-      "name": "ip_vs_conn_put",
+      "name": "ip_vs_new_conn_out",
       "file": "ip_vs_core.c",
-      "line": 1194
+      "line": 1129
+    },
+    {
+      "name": "__ip_vs_rs_conn_out",
+      "file": "ip_vs_core.c",
+      "line": 1222
     },
     {
       "name": "handle_response",
       "file": "ip_vs_core.c",
       "line": 1259
-    },
-    {
-      "name": "ipv6_hdr",
-      "file": "ip_vs_core.c",
-      "line": 1281
     },
     {
       "name": "ip_vs_out_hook",
@@ -2862,11 +2607,6 @@
       "line": 94
     },
     {
-      "name": "atomic_set",
-      "file": "ip_vs_ctl.c",
-      "line": 117
-    },
-    {
       "name": "expire_nodest_conn_handler",
       "file": "ip_vs_ctl.c",
       "line": 217
@@ -2902,19 +2642,9 @@
       "line": 306
     },
     {
-      "name": "hlist_add_head_rcu",
-      "file": "ip_vs_ctl.c",
-      "line": 322
-    },
-    {
       "name": "ip_vs_svc_unhash",
       "file": "ip_vs_ctl.c",
       "line": 342
-    },
-    {
-      "name": "hlist_del_rcu",
-      "file": "ip_vs_ctl.c",
-      "line": 352
     },
     {
       "name": "__ip_vs_service_find",
@@ -2930,11 +2660,6 @@
       "name": "ip_vs_service_find",
       "file": "ip_vs_ctl.c",
       "line": 416
-    },
-    {
-      "name": "atomic_read",
-      "file": "ip_vs_ctl.c",
-      "line": 438
     },
     {
       "name": "__ip_vs_bind_svc",
@@ -2977,14 +2702,24 @@
       "line": 574
     },
     {
-      "name": "ip_vs_addr_equal",
+      "name": "ip_vs_find_real_service",
       "file": "ip_vs_ctl.c",
-      "line": 586
+      "line": 603
+    },
+    {
+      "name": "ip_vs_find_tunnel",
+      "file": "ip_vs_ctl.c",
+      "line": 634
     },
     {
       "name": "ip_vs_lookup_dest",
       "file": "ip_vs_ctl.c",
       "line": 660
+    },
+    {
+      "name": "ip_vs_find_dest",
+      "file": "ip_vs_ctl.c",
+      "line": 689
     },
     {
       "name": "ip_vs_dest_dst_rcu_free",
@@ -3072,19 +2807,9 @@
       "line": 1283
     },
     {
-      "name": "ip_vs_unregister_hooks",
-      "file": "ip_vs_ctl.c",
-      "line": 1416
-    },
-    {
       "name": "ip_vs_edit_service",
       "file": "ip_vs_ctl.c",
       "line": 1434
-    },
-    {
-      "name": "synchronize_rcu",
-      "file": "ip_vs_ctl.c",
-      "line": 1483
     },
     {
       "name": "__ip_vs_del_service",
@@ -3105,11 +2830,6 @@
       "name": "ip_vs_flush",
       "file": "ip_vs_ctl.c",
       "line": 1612
-    },
-    {
-      "name": "hlist_for_each_entry_safe",
-      "file": "ip_vs_ctl.c",
-      "line": 1622
     },
     {
       "name": "ip_vs_service_nets_cleanup",
@@ -3152,14 +2872,24 @@
       "line": 1822
     },
     {
-      "name": "hlist_for_each_entry_rcu",
+      "name": "ip_vs_fwd_name",
       "file": "ip_vs_ctl.c",
-      "line": 2074
+      "line": 2048
     },
     {
-      "name": "hlist_entry",
+      "name": "ip_vs_info_array",
       "file": "ip_vs_ctl.c",
-      "line": 2123
+      "line": 2064
+    },
+    {
+      "name": "ip_vs_info_seq_start",
+      "file": "ip_vs_ctl.c",
+      "line": 2098
+    },
+    {
+      "name": "ip_vs_info_seq_next",
+      "file": "ip_vs_ctl.c",
+      "line": 2106
     },
     {
       "name": "ip_vs_info_seq_stop",
@@ -3170,21 +2900,6 @@
       "name": "ip_vs_info_seq_show",
       "file": "ip_vs_ctl.c",
       "line": 2161
-    },
-    {
-      "name": "seq_puts",
-      "file": "ip_vs_ctl.c",
-      "line": 2167
-    },
-    {
-      "name": "seq_printf",
-      "file": "ip_vs_ctl.c",
-      "line": 2192
-    },
-    {
-      "name": "seq_putc",
-      "file": "ip_vs_ctl.c",
-      "line": 2208
     },
     {
       "name": "ip_vs_stats_show",
@@ -3217,11 +2932,6 @@
       "line": 2455
     },
     {
-      "name": "strnlen",
-      "file": "ip_vs_ctl.c",
-      "line": 2536
-    },
-    {
       "name": "ip_vs_copy_service",
       "file": "ip_vs_ctl.c",
       "line": 2601
@@ -3230,11 +2940,6 @@
       "name": "__ip_vs_get_service_entries",
       "file": "ip_vs_ctl.c",
       "line": 2623
-    },
-    {
-      "name": "memset",
-      "file": "ip_vs_ctl.c",
-      "line": 2641
     },
     {
       "name": "__ip_vs_get_dest_entries",
@@ -3250,26 +2955,6 @@
       "name": "do_ip_vs_get_ctl",
       "file": "ip_vs_ctl.c",
       "line": 2773
-    },
-    {
-      "name": "mutex_lock",
-      "file": "ip_vs_ctl.c",
-      "line": 2805
-    },
-    {
-      "name": "strscpy",
-      "file": "ip_vs_ctl.c",
-      "line": 2808
-    },
-    {
-      "name": "sprintf",
-      "file": "ip_vs_ctl.c",
-      "line": 2830
-    },
-    {
-      "name": "rcu_read_unlock",
-      "file": "ip_vs_ctl.c",
-      "line": 2882
     },
     {
       "name": "ip_vs_genl_fill_stats",
@@ -3305,6 +2990,11 @@
       "name": "ip_vs_genl_parse_service",
       "file": "ip_vs_ctl.c",
       "line": 3199
+    },
+    {
+      "name": "ip_vs_genl_find_service",
+      "file": "ip_vs_ctl.c",
+      "line": 3280
     },
     {
       "name": "ip_vs_genl_fill_dest",
@@ -3439,16 +3129,6 @@
       "line": 97
     },
     {
-      "name": "ip_vs_dest_put",
-      "file": "ip_vs_dh.c",
-      "line": 112
-    },
-    {
-      "name": "RCU_INIT_POINTER",
-      "file": "ip_vs_dh.c",
-      "line": 114
-    },
-    {
       "name": "ip_vs_dh_flush",
       "file": "ip_vs_dh.c",
       "line": 134
@@ -3550,6 +3230,11 @@
   ],
   "ip_vs_ftp.c": [
     {
+      "name": "ip_vs_ftp_data_ptr",
+      "file": "ip_vs_ftp.c",
+      "line": 66
+    },
+    {
       "name": "ip_vs_ftp_init_conn",
       "file": "ip_vs_ftp.c",
       "line": 76
@@ -3570,26 +3255,6 @@
       "line": 248
     },
     {
-      "name": "IP_VS_DBG",
-      "file": "ip_vs_ftp.c",
-      "line": 288
-    },
-    {
-      "name": "IP_VS_DBG_BUF",
-      "file": "ip_vs_ftp.c",
-      "line": 309
-    },
-    {
-      "name": "ip_vs_conn_fill_param",
-      "file": "ip_vs_ftp.c",
-      "line": 320
-    },
-    {
-      "name": "snprintf",
-      "file": "ip_vs_ftp.c",
-      "line": 346
-    },
-    {
       "name": "ip_vs_ftp_in",
       "file": "ip_vs_ftp.c",
       "line": 418
@@ -3598,11 +3263,6 @@
       "name": "__ip_vs_ftp_init",
       "file": "ip_vs_ftp.c",
       "line": 575
-    },
-    {
-      "name": "PTR_ERR",
-      "file": "ip_vs_ftp.c",
-      "line": 586
     },
     {
       "name": "__ip_vs_ftp_exit",
@@ -3657,11 +3317,6 @@
       "line": 229
     },
     {
-      "name": "hlist_for_each_entry_safe",
-      "file": "ip_vs_lblc.c",
-      "line": 239
-    },
-    {
       "name": "sysctl_lblc_expiration",
       "file": "ip_vs_lblc.c",
       "line": 247
@@ -3670,11 +3325,6 @@
       "name": "ip_vs_lblc_full_check",
       "file": "ip_vs_lblc.c",
       "line": 256
-    },
-    {
-      "name": "spin_lock",
-      "file": "ip_vs_lblc.c",
-      "line": 267
     },
     {
       "name": "ip_vs_lblc_check_expire",
@@ -3710,11 +3360,6 @@
       "name": "__ip_vs_lblc_init",
       "file": "ip_vs_lblc.c",
       "line": 550
-    },
-    {
-      "name": "register_net_sysctl",
-      "file": "ip_vs_lblc.c",
-      "line": 574
     },
     {
       "name": "__ip_vs_lblc_exit",
@@ -3754,6 +3399,16 @@
       "line": 150
     },
     {
+      "name": "ip_vs_dest_set_min",
+      "file": "ip_vs_lblcr.c",
+      "line": 161
+    },
+    {
+      "name": "ip_vs_dest_set_max",
+      "file": "ip_vs_lblcr.c",
+      "line": 210
+    },
+    {
       "name": "ip_vs_lblcr_free",
       "file": "ip_vs_lblcr.c",
       "line": 301
@@ -3784,11 +3439,6 @@
       "line": 395
     },
     {
-      "name": "hlist_for_each_entry_safe",
-      "file": "ip_vs_lblcr.c",
-      "line": 405
-    },
-    {
       "name": "sysctl_lblcr_expiration",
       "file": "ip_vs_lblcr.c",
       "line": 412
@@ -3797,11 +3447,6 @@
       "name": "ip_vs_lblcr_full_check",
       "file": "ip_vs_lblcr.c",
       "line": 421
-    },
-    {
-      "name": "spin_lock",
-      "file": "ip_vs_lblcr.c",
-      "line": 432
     },
     {
       "name": "ip_vs_lblcr_check_expire",
@@ -3834,19 +3479,9 @@
       "line": 644
     },
     {
-      "name": "spin_lock_bh",
-      "file": "ip_vs_lblcr.c",
-      "line": 666
-    },
-    {
       "name": "__ip_vs_lblcr_init",
       "file": "ip_vs_lblcr.c",
       "line": 736
-    },
-    {
-      "name": "register_net_sysctl",
-      "file": "ip_vs_lblcr.c",
-      "line": 759
     },
     {
       "name": "__ip_vs_lblcr_exit",
@@ -4003,16 +3638,6 @@
       "name": "ip_vs_conn_drop_conntrack",
       "file": "ip_vs_nfct.c",
       "line": 242
-    },
-    {
-      "name": "IP_VS_DBG_BUF",
-      "file": "ip_vs_nfct.c",
-      "line": 266
-    },
-    {
-      "name": "nf_ct_put",
-      "file": "ip_vs_nfct.c",
-      "line": 274
     }
   ],
   "ip_vs_nq.c": [
@@ -4044,11 +3669,6 @@
       "line": 24
     },
     {
-      "name": "atomic_read",
-      "file": "ip_vs_ovf.c",
-      "line": 38
-    },
-    {
       "name": "ip_vs_ovf_init",
       "file": "ip_vs_ovf.c",
       "line": 68
@@ -4061,6 +3681,16 @@
   ],
   "ip_vs_pe.c": [
     {
+      "name": "__ip_vs_pe_getbyname",
+      "file": "ip_vs_pe.c",
+      "line": 21
+    },
+    {
+      "name": "ip_vs_pe_getbyname",
+      "file": "ip_vs_pe.c",
+      "line": 49
+    },
+    {
       "name": "register_ip_vs_pe",
       "file": "ip_vs_pe.c",
       "line": 66
@@ -4072,6 +3702,11 @@
     }
   ],
   "ip_vs_pe_sip.c": [
+    {
+      "name": "ip_vs_dbg_callid",
+      "file": "ip_vs_pe_sip.c",
+      "line": 13
+    },
     {
       "name": "get_callid",
       "file": "ip_vs_pe_sip.c",
@@ -4155,14 +3790,14 @@
       "line": 189
     },
     {
+      "name": "ip_vs_state_name",
+      "file": "ip_vs_proto.c",
+      "line": 196
+    },
+    {
       "name": "ip_vs_tcpudp_debug_packet_v4",
       "file": "ip_vs_proto.c",
       "line": 214
-    },
-    {
-      "name": "sprintf",
-      "file": "ip_vs_proto.c",
-      "line": 225
     },
     {
       "name": "ip_vs_tcpudp_debug_packet_v6",
@@ -4244,19 +3879,14 @@
       "line": 185
     },
     {
+      "name": "sctp_state_name",
+      "file": "ip_vs_proto_sctp.c",
+      "line": 368
+    },
+    {
       "name": "set_sctp_state",
       "file": "ip_vs_proto_sctp.c",
       "line": 377
-    },
-    {
-      "name": "sctp_state_name",
-      "file": "ip_vs_proto_sctp.c",
-      "line": 448
-    },
-    {
-      "name": "atomic_inc",
-      "file": "ip_vs_proto_sctp.c",
-      "line": 455
     },
     {
       "name": "sctp_state_transition",
@@ -4326,16 +3956,6 @@
       "line": 303
     },
     {
-      "name": "ipv6_hdr",
-      "file": "ip_vs_proto_tcp.c",
-      "line": 325
-    },
-    {
-      "name": "ip_hdr",
-      "file": "ip_vs_proto_tcp.c",
-      "line": 334
-    },
-    {
       "name": "tcp_state_name",
       "file": "ip_vs_proto_tcp.c",
       "line": 425
@@ -4359,11 +3979,6 @@
       "name": "set_tcp_state",
       "file": "ip_vs_proto_tcp.c",
       "line": 511
-    },
-    {
-      "name": "atomic_inc",
-      "file": "ip_vs_proto_tcp.c",
-      "line": 565
     },
     {
       "name": "tcp_state_transition",
@@ -4438,16 +4053,6 @@
       "line": 299
     },
     {
-      "name": "ipv6_hdr",
-      "file": "ip_vs_proto_udp.c",
-      "line": 328
-    },
-    {
-      "name": "ip_hdr",
-      "file": "ip_vs_proto_udp.c",
-      "line": 337
-    },
-    {
       "name": "udp_app_hashkey",
       "file": "ip_vs_proto_udp.c",
       "line": 354
@@ -4505,11 +4110,6 @@
       "line": 52
     },
     {
-      "name": "list_for_each_entry_continue_rcu",
-      "file": "ip_vs_rr.c",
-      "line": 67
-    },
-    {
       "name": "ip_vs_rr_init",
       "file": "ip_vs_rr.c",
       "line": 112
@@ -4532,6 +4132,16 @@
       "line": 60
     },
     {
+      "name": "ip_vs_sched_getbyname",
+      "file": "ip_vs_sched.c",
+      "line": 79
+    },
+    {
+      "name": "ip_vs_scheduler_get",
+      "file": "ip_vs_sched.c",
+      "line": 113
+    },
+    {
       "name": "ip_vs_scheduler_put",
       "file": "ip_vs_sched.c",
       "line": 133
@@ -4540,11 +4150,6 @@
       "name": "ip_vs_scheduler_err",
       "file": "ip_vs_sched.c",
       "line": 143
-    },
-    {
-      "name": "IP_VS_ERR_RL",
-      "file": "ip_vs_sched.c",
-      "line": 149
     },
     {
       "name": "register_ip_vs_scheduler",
@@ -4606,21 +4211,6 @@
       "line": 162
     },
     {
-      "name": "ip_vs_dest_put",
-      "file": "ip_vs_sh.c",
-      "line": 179
-    },
-    {
-      "name": "RCU_INIT_POINTER",
-      "file": "ip_vs_sh.c",
-      "line": 181
-    },
-    {
-      "name": "IP_VS_DBG_BUF",
-      "file": "ip_vs_sh.c",
-      "line": 190
-    },
-    {
       "name": "ip_vs_sh_flush",
       "file": "ip_vs_sh.c",
       "line": 210
@@ -4678,11 +4268,6 @@
       "line": 303
     },
     {
-      "name": "__set_current_state",
-      "file": "ip_vs_sync.c",
-      "line": 311
-    },
-    {
       "name": "ip_vs_sync_buff_create",
       "file": "ip_vs_sync.c",
       "line": 328
@@ -4696,16 +4281,6 @@
       "name": "sb_queue_tail",
       "file": "ip_vs_sync.c",
       "line": 362
-    },
-    {
-      "name": "schedule_delayed_work",
-      "file": "ip_vs_sync.c",
-      "line": 371
-    },
-    {
-      "name": "list_add_tail",
-      "file": "ip_vs_sync.c",
-      "line": 374
     },
     {
       "name": "get_curr_sync_buff",
@@ -4743,24 +4318,9 @@
       "line": 630
     },
     {
-      "name": "memcpy",
-      "file": "ip_vs_sync.c",
-      "line": 760
-    },
-    {
       "name": "ip_vs_conn_fill_param_sync",
       "file": "ip_vs_sync.c",
       "line": 788
-    },
-    {
-      "name": "ip_vs_conn_fill_param",
-      "file": "ip_vs_sync.c",
-      "line": 803
-    },
-    {
-      "name": "IP_VS_DBG",
-      "file": "ip_vs_sync.c",
-      "line": 817
     },
     {
       "name": "ip_vs_proc_conn",
@@ -4768,59 +4328,9 @@
       "line": 842
     },
     {
-      "name": "ip_vs_conn_expire_now",
-      "file": "ip_vs_sync.c",
-      "line": 857
-    },
-    {
-      "name": "__ip_vs_conn_put",
-      "file": "ip_vs_sync.c",
-      "line": 858
-    },
-    {
-      "name": "spin_lock_bh",
-      "file": "ip_vs_sync.c",
-      "line": 879
-    },
-    {
-      "name": "atomic_dec",
-      "file": "ip_vs_sync.c",
-      "line": 883
-    },
-    {
-      "name": "atomic_inc",
-      "file": "ip_vs_sync.c",
-      "line": 884
-    },
-    {
-      "name": "spin_unlock_bh",
-      "file": "ip_vs_sync.c",
-      "line": 893
-    },
-    {
-      "name": "ip_vs_try_bind_dest",
-      "file": "ip_vs_sync.c",
-      "line": 895
-    },
-    {
-      "name": "rcu_read_unlock",
-      "file": "ip_vs_sync.c",
-      "line": 914
-    },
-    {
-      "name": "kfree",
-      "file": "ip_vs_sync.c",
-      "line": 921
-    },
-    {
       "name": "ip_vs_process_message_v0",
       "file": "ip_vs_sync.c",
       "line": 959
-    },
-    {
-      "name": "IP_VS_ERR_RL",
-      "file": "ip_vs_sync.c",
-      "line": 985
     },
     {
       "name": "ip_vs_proc_seqopt",
@@ -4928,11 +4438,6 @@
       "line": 1661
     },
     {
-      "name": "schedule_timeout",
-      "file": "ip_vs_sync.c",
-      "line": 1678
-    },
-    {
       "name": "sync_thread_backup",
       "file": "ip_vs_sync.c",
       "line": 1713
@@ -4941,16 +4446,6 @@
       "name": "start_sync_thread",
       "file": "ip_vs_sync.c",
       "line": 1750
-    },
-    {
-      "name": "mutex_unlock",
-      "file": "ip_vs_sync.c",
-      "line": 1779
-    },
-    {
-      "name": "kthread_stop",
-      "file": "ip_vs_sync.c",
-      "line": 1911
     },
     {
       "name": "stop_sync_thread",
@@ -4969,6 +4464,11 @@
     }
   ],
   "ip_vs_twos.c": [
+    {
+      "name": "ip_vs_twos_schedule",
+      "file": "ip_vs_twos.c",
+      "line": 44
+    },
     {
       "name": "ip_vs_twos_init",
       "file": "ip_vs_twos.c",
@@ -5029,11 +4529,6 @@
       "line": 159
     },
     {
-      "name": "list_for_each_entry_continue_rcu",
-      "file": "ip_vs_wrr.c",
-      "line": 177
-    },
-    {
       "name": "ip_vs_wrr_init",
       "file": "ip_vs_wrr.c",
       "line": 252
@@ -5045,6 +4540,11 @@
     }
   ],
   "ip_vs_xmit.c": [
+    {
+      "name": "ip_vs_dest_dst_alloc",
+      "file": "ip_vs_xmit.c",
+      "line": 59
+    },
     {
       "name": "ip_vs_dest_dst_free",
       "file": "ip_vs_xmit.c",
@@ -5066,9 +4566,9 @@
       "line": 106
     },
     {
-      "name": "IP_VS_DBG_RL",
+      "name": "do_output_route4",
       "file": "ip_vs_xmit.c",
-      "line": 145
+      "line": 123
     },
     {
       "name": "__ip_vs_is_local_route6",
@@ -5096,19 +4596,9 @@
       "line": 256
     },
     {
-      "name": "ipv6_hdr",
-      "file": "ip_vs_xmit.c",
-      "line": 283
-    },
-    {
       "name": "__ip_vs_get_out_rt",
       "file": "ip_vs_xmit.c",
       "line": 306
-    },
-    {
-      "name": "spin_lock_bh",
-      "file": "ip_vs_xmit.c",
-      "line": 324
     },
     {
       "name": "__ip_vs_route_output_v6",
@@ -5139,11 +4629,6 @@
       "name": "ip_vs_send_or_cont",
       "file": "ip_vs_xmit.c",
       "line": 665
-    },
-    {
-      "name": "ip_vs_notrack",
-      "file": "ip_vs_xmit.c",
-      "line": 672
     },
     {
       "name": "ip_vs_null_xmit",
@@ -5248,16 +4733,6 @@
       "line": 125
     },
     {
-      "name": "nf_ct_zone_id",
-      "file": "nf_conncount.c",
-      "line": 148
-    },
-    {
-      "name": "nf_ct_put",
-      "file": "nf_conncount.c",
-      "line": 167
-    },
-    {
       "name": "nf_conncount_add",
       "file": "nf_conncount.c",
       "line": 201
@@ -5281,11 +4756,6 @@
       "name": "tree_nodes_free",
       "file": "nf_conncount.c",
       "line": 287
-    },
-    {
-      "name": "spin_lock",
-      "file": "nf_conncount.c",
-      "line": 295
     },
     {
       "name": "schedule_gc_worker",
@@ -5313,9 +4783,9 @@
       "line": 517
     },
     {
-      "name": "ERR_PTR",
+      "name": "nf_conncount_init",
       "file": "nf_conncount.c",
-      "line": 542
+      "line": 527
     },
     {
       "name": "nf_conncount_cache_free",
@@ -5379,9 +4849,9 @@
       "line": 100
     },
     {
-      "name": "ERR_PTR",
+      "name": "__bpf_nf_ct_lookup",
       "file": "nf_conntrack_bpf.c",
-      "line": 124
+      "line": 147
     },
     {
       "name": "_nf_conntrack_btf_struct_access",
@@ -5407,6 +4877,11 @@
       "name": "bpf_skb_ct_lookup",
       "file": "nf_conntrack_bpf.c",
       "line": 357
+    },
+    {
+      "name": "bpf_ct_insert_entry",
+      "file": "nf_conntrack_bpf.c",
+      "line": 382
     },
     {
       "name": "bpf_ct_release",
@@ -5449,11 +4924,6 @@
       "name": "nf_conntrack_broadcast_help",
       "file": "nf_conntrack_broadcast.c",
       "line": 18
-    },
-    {
-      "name": "in_dev_for_each_ifa_rcu",
-      "file": "nf_conntrack_broadcast.c",
-      "line": 43
     }
   ],
   "nf_conntrack_core.c": [
@@ -5471,11 +4941,6 @@
       "name": "nf_conntrack_double_lock",
       "file": "nf_conntrack_core.c",
       "line": 139
-    },
-    {
-      "name": "spin_lock_nested",
-      "file": "nf_conntrack_core.c",
-      "line": 147
     },
     {
       "name": "nf_conntrack_all_lock",
@@ -5551,6 +5016,11 @@
       "name": "clean_from_lists",
       "file": "nf_conntrack_core.c",
       "line": 518
+    },
+    {
+      "name": "nf_ct_tmpl_alloc",
+      "file": "nf_conntrack_core.c",
+      "line": 532
     },
     {
       "name": "nf_ct_tmpl_free",
@@ -5688,11 +5158,6 @@
       "line": 1418
     },
     {
-      "name": "rcu_read_unlock",
-      "file": "nf_conntrack_core.c",
-      "line": 1434
-    },
-    {
       "name": "gc_worker_skip_ct",
       "file": "nf_conntrack_core.c",
       "line": 1445
@@ -5708,26 +5173,6 @@
       "line": 1464
     },
     {
-      "name": "rcu_read_lock",
-      "file": "nf_conntrack_core.c",
-      "line": 1497
-    },
-    {
-      "name": "nf_conntrack_get_ht",
-      "file": "nf_conntrack_core.c",
-      "line": 1499
-    },
-    {
-      "name": "hlist_nulls_for_each_entry_rcu",
-      "file": "nf_conntrack_core.c",
-      "line": 1505
-    },
-    {
-      "name": "smp_acquire__after_ctrl_dep",
-      "file": "nf_conntrack_core.c",
-      "line": 1554
-    },
-    {
       "name": "conntrack_gc_work_init",
       "file": "nf_conntrack_core.c",
       "line": 1607
@@ -5738,6 +5183,11 @@
       "line": 1613
     },
     {
+      "name": "nf_conntrack_alloc",
+      "file": "nf_conntrack_core.c",
+      "line": 1668
+    },
+    {
       "name": "nf_conntrack_free",
       "file": "nf_conntrack_core.c",
       "line": 1678
@@ -5746,16 +5196,6 @@
       "name": "init_conntrack",
       "file": "nf_conntrack_core.c",
       "line": 1710
-    },
-    {
-      "name": "spin_lock_bh",
-      "file": "nf_conntrack_core.c",
-      "line": 1768
-    },
-    {
-      "name": "__set_bit",
-      "file": "nf_conntrack_core.c",
-      "line": 1774
     },
     {
       "name": "resolve_normal_ct",
@@ -5843,16 +5283,6 @@
       "line": 2369
     },
     {
-      "name": "local_bh_disable",
-      "file": "nf_conntrack_core.c",
-      "line": 2385
-    },
-    {
-      "name": "hlist_nulls_for_each_entry",
-      "file": "nf_conntrack_core.c",
-      "line": 2387
-    },
-    {
       "name": "nf_ct_iterate_cleanup",
       "file": "nf_conntrack_core.c",
       "line": 2423
@@ -5893,6 +5323,11 @@
       "line": 2548
     },
     {
+      "name": "nf_ct_alloc_hashtable",
+      "file": "nf_conntrack_core.c",
+      "line": 2582
+    },
+    {
       "name": "nf_conntrack_hash_resize",
       "file": "nf_conntrack_core.c",
       "line": 2603
@@ -5906,11 +5341,6 @@
       "name": "nf_conntrack_init_start",
       "file": "nf_conntrack_core.c",
       "line": 2686
-    },
-    {
-      "name": "spin_lock_init",
-      "file": "nf_conntrack_core.c",
-      "line": 2697
     },
     {
       "name": "nf_conntrack_init_end",
@@ -5940,19 +5370,14 @@
   ],
   "nf_conntrack_ecache.c": [
     {
+      "name": "nf_conn_pernet_ecache",
+      "file": "nf_conntrack_ecache.c",
+      "line": 41
+    },
+    {
       "name": "ecache_work_evict_list",
       "file": "nf_conntrack_ecache.c",
       "line": 51
-    },
-    {
-      "name": "hlist_nulls_del_rcu",
-      "file": "nf_conntrack_ecache.c",
-      "line": 77
-    },
-    {
-      "name": "hlist_nulls_add_head",
-      "file": "nf_conntrack_ecache.c",
-      "line": 78
     },
     {
       "name": "ecache_work",
@@ -5993,11 +5418,6 @@
       "name": "nf_conntrack_ecache_work",
       "file": "nf_conntrack_ecache.c",
       "line": 284
-    },
-    {
-      "name": "schedule_delayed_work",
-      "file": "nf_conntrack_ecache.c",
-      "line": 290
     },
     {
       "name": "nf_ct_ecache_ext_add",
@@ -6057,11 +5477,6 @@
       "line": 171
     },
     {
-      "name": "refcount_inc",
-      "file": "nf_conntrack_expect.c",
-      "line": 215
-    },
-    {
       "name": "nf_ct_remove_expectations",
       "file": "nf_conntrack_expect.c",
       "line": 228
@@ -6087,14 +5502,14 @@
       "line": 287
     },
     {
+      "name": "nf_ct_expect_alloc",
+      "file": "nf_conntrack_expect.c",
+      "line": 298
+    },
+    {
       "name": "nf_ct_expect_init",
       "file": "nf_conntrack_expect.c",
       "line": 312
-    },
-    {
-      "name": "memset",
-      "file": "nf_conntrack_expect.c",
-      "line": 340
     },
     {
       "name": "nf_ct_expect_free_rcu",
@@ -6132,14 +5547,34 @@
       "line": 510
     },
     {
-      "name": "hlist_for_each_entry_safe",
-      "file": "nf_conntrack_expect.c",
-      "line": 520
-    },
-    {
       "name": "nf_ct_expect_iterate_net",
       "file": "nf_conntrack_expect.c",
       "line": 534
+    },
+    {
+      "name": "ct_expect_get_first",
+      "file": "nf_conntrack_expect.c",
+      "line": 570
+    },
+    {
+      "name": "ct_expect_get_next",
+      "file": "nf_conntrack_expect.c",
+      "line": 583
+    },
+    {
+      "name": "ct_expect_get_idx",
+      "file": "nf_conntrack_expect.c",
+      "line": 597
+    },
+    {
+      "name": "exp_seq_start",
+      "file": "nf_conntrack_expect.c",
+      "line": 607
+    },
+    {
+      "name": "exp_seq_next",
+      "file": "nf_conntrack_expect.c",
+      "line": 614
     },
     {
       "name": "exp_seq_stop",
@@ -6150,16 +5585,6 @@
       "name": "exp_seq_show",
       "file": "nf_conntrack_expect.c",
       "line": 626
-    },
-    {
-      "name": "seq_puts",
-      "file": "nf_conntrack_expect.c",
-      "line": 647
-    },
-    {
-      "name": "seq_printf",
-      "file": "nf_conntrack_expect.c",
-      "line": 655
     },
     {
       "name": "exp_proc_init",
@@ -6199,17 +5624,22 @@
       "line": 59
     },
     {
+      "name": "nf_ct_ext_add",
+      "file": "nf_conntrack_extend.c",
+      "line": 92
+    },
+    {
+      "name": "__nf_ct_ext_find",
+      "file": "nf_conntrack_extend.c",
+      "line": 136
+    },
+    {
       "name": "nf_ct_ext_bump_genid",
       "file": "nf_conntrack_extend.c",
       "line": 151
     }
   ],
   "nf_conntrack_ftp.c": [
-    {
-      "name": "try_epsv_response",
-      "file": "nf_conntrack_ftp.c",
-      "line": 61
-    },
     {
       "name": "get_ipv6_addr",
       "file": "nf_conntrack_ftp.c",
@@ -6241,6 +5671,11 @@
       "line": 221
     },
     {
+      "name": "try_epsv_response",
+      "file": "nf_conntrack_ftp.c",
+      "line": 269
+    },
+    {
       "name": "find_pattern",
       "file": "nf_conntrack_ftp.c",
       "line": 286
@@ -6259,16 +5694,6 @@
       "name": "help",
       "file": "nf_conntrack_ftp.c",
       "line": 369
-    },
-    {
-      "name": "nf_ct_helper_log",
-      "file": "nf_conntrack_ftp.c",
-      "line": 461
-    },
-    {
-      "name": "problem",
-      "file": "nf_conntrack_ftp.c",
-      "line": 506
     },
     {
       "name": "nf_ct_ftp_from_nlattr",
@@ -6338,19 +5763,9 @@
       "line": 314
     },
     {
-      "name": "BYTE_ALIGN",
-      "file": "nf_conntrack_h323_asn1.c",
-      "line": 334
-    },
-    {
       "name": "decode_enum",
       "file": "nf_conntrack_h323_asn1.c",
       "line": 361
-    },
-    {
-      "name": "INC_BITS",
-      "file": "nf_conntrack_h323_asn1.c",
-      "line": 367
     },
     {
       "name": "decode_bitstr",
@@ -6425,16 +5840,6 @@
       "line": 205
     },
     {
-      "name": "nf_ct_l3num",
-      "file": "nf_conntrack_h323_main.c",
-      "line": 253
-    },
-    {
-      "name": "nf_ct_dump_tuple",
-      "file": "nf_conntrack_h323_main.c",
-      "line": 262
-    },
-    {
       "name": "expect_t120",
       "file": "nf_conntrack_h323_main.c",
       "line": 279
@@ -6478,11 +5883,6 @@
       "name": "callforward_do_filter",
       "file": "nf_conntrack_h323_main.c",
       "line": 673
-    },
-    {
-      "name": "memset",
-      "file": "nf_conntrack_h323_main.c",
-      "line": 688
     },
     {
       "name": "expect_callforwarding",
@@ -6530,6 +5930,16 @@
       "line": 1088
     },
     {
+      "name": "get_udp_data",
+      "file": "nf_conntrack_h323_main.c",
+      "line": 1163
+    },
+    {
+      "name": "find_expect",
+      "file": "nf_conntrack_h323_main.c",
+      "line": 1183
+    },
+    {
       "name": "expect_q931",
       "file": "nf_conntrack_h323_main.c",
       "line": 1203
@@ -6553,11 +5963,6 @@
       "name": "process_rcf",
       "file": "nf_conntrack_h323_main.c",
       "line": 1357
-    },
-    {
-      "name": "spin_lock_bh",
-      "file": "nf_conntrack_h323_main.c",
-      "line": 1391
     },
     {
       "name": "process_urq",
@@ -6620,13 +6025,6 @@
       "line": 1775
     }
   ],
-  "nf_conntrack_h323_types.c": [
-    {
-      "name": "offsetof",
-      "file": "nf_conntrack_h323_types.c",
-      "line": 9
-    }
-  ],
   "nf_conntrack_helper.c": [
     {
       "name": "helper_hash",
@@ -6639,24 +6037,9 @@
       "line": 49
     },
     {
-      "name": "hlist_for_each_entry_rcu",
-      "file": "nf_conntrack_helper.c",
-      "line": 56
-    },
-    {
       "name": "nf_conntrack_helper_try_module_get",
       "file": "nf_conntrack_helper.c",
       "line": 72
-    },
-    {
-      "name": "rcu_read_unlock",
-      "file": "nf_conntrack_helper.c",
-      "line": 82
-    },
-    {
-      "name": "rcu_read_lock",
-      "file": "nf_conntrack_helper.c",
-      "line": 84
     },
     {
       "name": "nf_conntrack_helper_put",
@@ -6699,11 +6082,6 @@
       "line": 257
     },
     {
-      "name": "LIST_HEAD",
-      "file": "nf_conntrack_helper.c",
-      "line": 271
-    },
-    {
       "name": "nf_ct_helper_expectfn_register",
       "file": "nf_conntrack_helper.c",
       "line": 273
@@ -6742,11 +6120,6 @@
       "name": "nf_conntrack_helper_unregister",
       "file": "nf_conntrack_helper.c",
       "line": 410
-    },
-    {
-      "name": "int",
-      "file": "nf_conntrack_helper.c",
-      "line": 435
     },
     {
       "name": "nf_conntrack_helpers_register",
@@ -6803,11 +6176,6 @@
   ],
   "nf_conntrack_labels.c": [
     {
-      "name": "DEFINE_SPINLOCK",
-      "file": "nf_conntrack_labels.c",
-      "line": 14
-    },
-    {
       "name": "replace_u32",
       "file": "nf_conntrack_labels.c",
       "line": 16
@@ -6833,11 +6201,6 @@
       "name": "netbios_ns_help",
       "file": "nf_conntrack_netbios_ns.c",
       "line": 40
-    },
-    {
-      "name": "nf_conntrack_broadcast_help",
-      "file": "nf_conntrack_netbios_ns.c",
-      "line": 44
     },
     {
       "name": "nf_conntrack_netbios_ns_init",
@@ -7062,26 +6425,6 @@
       "line": 1176
     },
     {
-      "name": "nf_conntrack_lock",
-      "file": "nf_conntrack_netlink.c",
-      "line": 1202
-    },
-    {
-      "name": "hlist_nulls_for_each_entry",
-      "file": "nf_conntrack_netlink.c",
-      "line": 1207
-    },
-    {
-      "name": "spin_unlock",
-      "file": "nf_conntrack_netlink.c",
-      "line": 1244
-    },
-    {
-      "name": "nf_ct_put",
-      "file": "nf_conntrack_netlink.c",
-      "line": 1257
-    },
-    {
       "name": "ipv4_nlattr_to_tuple",
       "file": "nf_conntrack_netlink.c",
       "line": 1270
@@ -7147,11 +6490,6 @@
       "line": 1649
     },
     {
-      "name": "NFNL_MSG_TYPE",
-      "file": "nf_conntrack_netlink.c",
-      "line": 1702
-    },
-    {
       "name": "ctnetlink_done_list",
       "file": "nf_conntrack_netlink.c",
       "line": 1713
@@ -7185,16 +6523,6 @@
       "name": "ctnetlink_parse_nat_setup",
       "file": "nf_conntrack_netlink.c",
       "line": 1851
-    },
-    {
-      "name": "rcu_read_unlock",
-      "file": "nf_conntrack_netlink.c",
-      "line": 1863
-    },
-    {
-      "name": "nfnl_unlock",
-      "file": "nf_conntrack_netlink.c",
-      "line": 1864
     },
     {
       "name": "ctnetlink_change_status",
@@ -7237,11 +6565,6 @@
       "line": 2080
     },
     {
-      "name": "set_bit",
-      "file": "nf_conntrack_netlink.c",
-      "line": 2097
-    },
-    {
       "name": "ctnetlink_change_synproxy",
       "file": "nf_conntrack_netlink.c",
       "line": 2122
@@ -7260,11 +6583,6 @@
       "name": "ctnetlink_create_conntrack",
       "file": "nf_conntrack_netlink.c",
       "line": 2235
-    },
-    {
-      "name": "nf_ct_l3num",
-      "file": "nf_conntrack_netlink.c",
-      "line": 2280
     },
     {
       "name": "ctnetlink_new_conntrack",
@@ -7295,11 +6613,6 @@
       "name": "ctnetlink_stat_ct",
       "file": "nf_conntrack_netlink.c",
       "line": 2599
-    },
-    {
-      "name": "nfnetlink_unicast",
-      "file": "nf_conntrack_netlink.c",
-      "line": 2618
     },
     {
       "name": "ctnetlink_glue_build_size",
@@ -7387,16 +6700,6 @@
       "line": 3153
     },
     {
-      "name": "hlist_for_each_entry_rcu",
-      "file": "nf_conntrack_netlink.c",
-      "line": 3165
-    },
-    {
-      "name": "NETLINK_CB",
-      "file": "nf_conntrack_netlink.c",
-      "line": 3179
-    },
-    {
       "name": "ctnetlink_exp_ct_dump_table",
       "file": "nf_conntrack_netlink.c",
       "line": 3202
@@ -7427,21 +6730,6 @@
       "line": 3388
     },
     {
-      "name": "spin_lock_bh",
-      "file": "nf_conntrack_netlink.c",
-      "line": 3423
-    },
-    {
-      "name": "nf_ct_expect_put",
-      "file": "nf_conntrack_netlink.c",
-      "line": 3432
-    },
-    {
-      "name": "nf_ct_expect_iterate_net",
-      "file": "nf_conntrack_netlink.c",
-      "line": 3436
-    },
-    {
       "name": "ctnetlink_change_expect",
       "file": "nf_conntrack_netlink.c",
       "line": 3448
@@ -7457,29 +6745,14 @@
       "line": 3502
     },
     {
-      "name": "ERR_PTR",
-      "file": "nf_conntrack_netlink.c",
-      "line": 3515
-    },
-    {
       "name": "ctnetlink_create_expect",
       "file": "nf_conntrack_netlink.c",
       "line": 3564
     },
     {
-      "name": "rcu_read_lock",
-      "file": "nf_conntrack_netlink.c",
-      "line": 3610
-    },
-    {
       "name": "ctnetlink_new_expect",
       "file": "nf_conntrack_netlink.c",
       "line": 3639
-    },
-    {
-      "name": "spin_unlock_bh",
-      "file": "nf_conntrack_netlink.c",
-      "line": 3666
     },
     {
       "name": "ctnetlink_exp_stat_fill_info",
@@ -7519,39 +6792,19 @@
   ],
   "nf_conntrack_pptp.c": [
     {
+      "name": "pptp_msg_name",
+      "file": "nf_conntrack_pptp.c",
+      "line": 72
+    },
+    {
       "name": "pptp_expectfn",
       "file": "nf_conntrack_pptp.c",
       "line": 89
     },
     {
-      "name": "nf_ct_dump_tuple",
-      "file": "nf_conntrack_pptp.c",
-      "line": 113
-    },
-    {
-      "name": "nf_ct_unexpect_related",
-      "file": "nf_conntrack_pptp.c",
-      "line": 119
-    },
-    {
-      "name": "nf_ct_expect_put",
-      "file": "nf_conntrack_pptp.c",
-      "line": 120
-    },
-    {
       "name": "destroy_sibling_or_exp",
       "file": "nf_conntrack_pptp.c",
       "line": 127
-    },
-    {
-      "name": "nf_ct_kill",
-      "file": "nf_conntrack_pptp.c",
-      "line": 145
-    },
-    {
-      "name": "nf_ct_put",
-      "file": "nf_conntrack_pptp.c",
-      "line": 146
     },
     {
       "name": "pptp_destroy_siblings",
@@ -7601,6 +6854,11 @@
       "line": 73
     },
     {
+      "name": "nf_ct_l4proto_find",
+      "file": "nf_conntrack_proto.c",
+      "line": 97
+    },
+    {
       "name": "nf_confirm",
       "file": "nf_conntrack_proto.c",
       "line": 124
@@ -7636,11 +6894,6 @@
       "line": 317
     },
     {
-      "name": "copy_to_user",
-      "file": "nf_conntrack_proto.c",
-      "line": 365
-    },
-    {
       "name": "ipv6_confirm",
       "file": "nf_conntrack_proto.c",
       "line": 376
@@ -7654,11 +6907,6 @@
       "name": "ipv6_conntrack_local",
       "file": "nf_conntrack_proto.c",
       "line": 410
-    },
-    {
-      "name": "nf_conntrack_in",
-      "file": "nf_conntrack_proto.c",
-      "line": 414
     },
     {
       "name": "nf_ct_tcp_fixup",
@@ -7758,11 +7006,6 @@
       "line": 637
     },
     {
-      "name": "nla_get_u8",
-      "file": "nf_conntrack_proto_dccp.c",
-      "line": 653
-    },
-    {
       "name": "dccp_timeout_nlattr_to_obj",
       "file": "nf_conntrack_proto_dccp.c",
       "line": 681
@@ -7785,11 +7028,6 @@
       "line": 20
     },
     {
-      "name": "ntohl",
-      "file": "nf_conntrack_proto_generic.c",
-      "line": 31
-    },
-    {
       "name": "generic_timeout_obj_to_nlattr",
       "file": "nf_conntrack_proto_generic.c",
       "line": 40
@@ -7802,9 +7040,9 @@
   ],
   "nf_conntrack_proto_gre.c": [
     {
-      "name": "DEFINE_SPINLOCK",
+      "name": "gre_pernet",
       "file": "nf_conntrack_proto_gre.c",
-      "line": 51
+      "line": 53
     },
     {
       "name": "gre_key_cmpfn",
@@ -7837,6 +7075,11 @@
       "line": 188
     },
     {
+      "name": "gre_get_timeouts",
+      "file": "nf_conntrack_proto_gre.c",
+      "line": 196
+    },
+    {
       "name": "nf_conntrack_gre_packet",
       "file": "nf_conntrack_proto_gre.c",
       "line": 202
@@ -7845,11 +7088,6 @@
       "name": "gre_timeout_nlattr_to_obj",
       "file": "nf_conntrack_proto_gre.c",
       "line": 240
-    },
-    {
-      "name": "ntohl",
-      "file": "nf_conntrack_proto_gre.c",
-      "line": 254
     },
     {
       "name": "gre_timeout_obj_to_nlattr",
@@ -7884,11 +7122,6 @@
       "line": 106
     },
     {
-      "name": "nf_l4proto_log_invalid",
-      "file": "nf_conntrack_proto_icmp.c",
-      "line": 173
-    },
-    {
       "name": "icmp_error_log",
       "file": "nf_conntrack_proto_icmp.c",
       "line": 196
@@ -7919,11 +7152,6 @@
       "line": 321
     },
     {
-      "name": "ntohl",
-      "file": "nf_conntrack_proto_icmp.c",
-      "line": 331
-    },
-    {
       "name": "icmp_timeout_obj_to_nlattr",
       "file": "nf_conntrack_proto_icmp.c",
       "line": 339
@@ -7944,6 +7172,11 @@
       "name": "nf_conntrack_invert_icmpv6_tuple",
       "file": "nf_conntrack_proto_icmpv6.c",
       "line": 68
+    },
+    {
+      "name": "icmpv6_get_timeouts",
+      "file": "nf_conntrack_proto_icmpv6.c",
+      "line": 81
     },
     {
       "name": "nf_conntrack_icmpv6_packet",
@@ -7984,11 +7217,6 @@
       "name": "icmpv6_timeout_nlattr_to_obj",
       "file": "nf_conntrack_proto_icmpv6.c",
       "line": 297
-    },
-    {
-      "name": "ntohl",
-      "file": "nf_conntrack_proto_icmpv6.c",
-      "line": 307
     },
     {
       "name": "icmpv6_timeout_obj_to_nlattr",
@@ -8105,19 +7333,9 @@
       "line": 507
     },
     {
-      "name": "after",
-      "file": "nf_conntrack_proto_tcp.c",
-      "line": 575
-    },
-    {
       "name": "nf_tcp_handle_invalid",
       "file": "nf_conntrack_proto_tcp.c",
       "line": 720
-    },
-    {
-      "name": "WRITE_ONCE",
-      "file": "nf_conntrack_proto_tcp.c",
-      "line": 769
     },
     {
       "name": "tcp_error_log",
@@ -8150,11 +7368,6 @@
       "line": 925
     },
     {
-      "name": "nf_conntrack_event_cache",
-      "file": "nf_conntrack_proto_tcp.c",
-      "line": 1253
-    },
-    {
       "name": "tcp_to_nlattr",
       "file": "nf_conntrack_proto_tcp.c",
       "line": 1300
@@ -8175,11 +7388,6 @@
       "line": 1425
     },
     {
-      "name": "ntohl",
-      "file": "nf_conntrack_proto_tcp.c",
-      "line": 1440
-    },
-    {
       "name": "tcp_timeout_obj_to_nlattr",
       "file": "nf_conntrack_proto_tcp.c",
       "line": 1488
@@ -8191,6 +7399,11 @@
     }
   ],
   "nf_conntrack_proto_udp.c": [
+    {
+      "name": "udp_get_timeouts",
+      "file": "nf_conntrack_proto_udp.c",
+      "line": 32
+    },
     {
       "name": "udp_error_log",
       "file": "nf_conntrack_proto_udp.c",
@@ -8205,11 +7418,6 @@
       "name": "nf_conntrack_udp_packet",
       "file": "nf_conntrack_proto_udp.c",
       "line": 84
-    },
-    {
-      "name": "nf_conntrack_event_cache",
-      "file": "nf_conntrack_proto_udp.c",
-      "line": 123
     },
     {
       "name": "udplite_error_log",
@@ -8230,11 +7438,6 @@
       "name": "udp_timeout_nlattr_to_obj",
       "file": "nf_conntrack_proto_udp.c",
       "line": 220
-    },
-    {
-      "name": "ntohl",
-      "file": "nf_conntrack_proto_udp.c",
-      "line": 235
     },
     {
       "name": "udp_timeout_obj_to_nlattr",
@@ -8353,6 +7556,21 @@
       "line": 237
     },
     {
+      "name": "sip_follow_continuation",
+      "file": "nf_conntrack_sip.c",
+      "line": 312
+    },
+    {
+      "name": "sip_skip_whitespace",
+      "file": "nf_conntrack_sip.c",
+      "line": 336
+    },
+    {
+      "name": "ct_sip_header_search",
+      "file": "nf_conntrack_sip.c",
+      "line": 350
+    },
+    {
       "name": "ct_sip_get_header",
       "file": "nf_conntrack_sip.c",
       "line": 367
@@ -8403,6 +7621,11 @@
       "line": 673
     },
     {
+      "name": "ct_sdp_header_search",
+      "file": "nf_conntrack_sip.c",
+      "line": 711
+    },
+    {
       "name": "ct_sip_get_sdp_header",
       "file": "nf_conntrack_sip.c",
       "line": 727
@@ -8428,19 +7651,14 @@
       "line": 846
     },
     {
-      "name": "memset",
+      "name": "sdp_media_type",
       "file": "nf_conntrack_sip.c",
-      "line": 876
+      "line": 1009
     },
     {
       "name": "process_sdp",
       "file": "nf_conntrack_sip.c",
       "line": 1026
-    },
-    {
-      "name": "memcpy",
-      "file": "nf_conntrack_sip.c",
-      "line": 1093
     },
     {
       "name": "process_invite_response",
@@ -8537,6 +7755,31 @@
       "line": 37
     },
     {
+      "name": "ct_get_first",
+      "file": "nf_conntrack_standalone.c",
+      "line": 108
+    },
+    {
+      "name": "ct_get_next",
+      "file": "nf_conntrack_standalone.c",
+      "line": 124
+    },
+    {
+      "name": "ct_get_idx",
+      "file": "nf_conntrack_standalone.c",
+      "line": 141
+    },
+    {
+      "name": "ct_seq_start",
+      "file": "nf_conntrack_standalone.c",
+      "line": 151
+    },
+    {
+      "name": "ct_seq_next",
+      "file": "nf_conntrack_standalone.c",
+      "line": 163
+    },
+    {
       "name": "ct_seq_stop",
       "file": "nf_conntrack_standalone.c",
       "line": 169
@@ -8575,6 +7818,16 @@
       "name": "ct_seq_show",
       "file": "nf_conntrack_standalone.c",
       "line": 297
+    },
+    {
+      "name": "ct_cpu_seq_start",
+      "file": "nf_conntrack_standalone.c",
+      "line": 394
+    },
+    {
+      "name": "ct_cpu_seq_next",
+      "file": "nf_conntrack_standalone.c",
+      "line": 412
     },
     {
       "name": "ct_cpu_seq_stop",
@@ -8657,11 +7910,6 @@
       "line": 1213
     },
     {
-      "name": "register_net_sysctl",
-      "file": "nf_conntrack_standalone.c",
-      "line": 1223
-    },
-    {
       "name": "nf_conntrack_standalone_fini",
       "file": "nf_conntrack_standalone.c",
       "line": 1250
@@ -8672,11 +7920,6 @@
       "name": "tftp_help",
       "file": "nf_conntrack_tftp.c",
       "line": 40
-    },
-    {
-      "name": "nf_ct_dump_tuple",
-      "file": "nf_conntrack_tftp.c",
-      "line": 62
     },
     {
       "name": "nf_conntrack_tftp_fini",
@@ -8750,6 +7993,11 @@
       "name": "flow_offload_fill_dir",
       "file": "nf_flow_table_core.c",
       "line": 20
+    },
+    {
+      "name": "flow_offload_alloc",
+      "file": "nf_flow_table_core.c",
+      "line": 52
     },
     {
       "name": "flow_offload_dst_cookie",
@@ -8850,11 +8098,6 @@
       "name": "nf_flow_offload_gc_step",
       "file": "nf_flow_table_core.c",
       "line": 419
-    },
-    {
-      "name": "nf_flow_offload_del",
-      "file": "nf_flow_table_core.c",
-      "line": 429
     },
     {
       "name": "nf_flow_table_gc_run",
@@ -9006,11 +8249,6 @@
       "line": 121
     },
     {
-      "name": "nf_flow_snat_port",
-      "file": "nf_flow_table_ip.c",
-      "line": 126
-    },
-    {
       "name": "ip_has_options",
       "file": "nf_flow_table_ip.c",
       "line": 135
@@ -9046,19 +8284,9 @@
       "line": 270
     },
     {
-      "name": "htons",
-      "file": "nf_flow_table_ip.c",
-      "line": 276
-    },
-    {
       "name": "nf_flow_encap_pop",
       "file": "nf_flow_table_ip.c",
       "line": 294
-    },
-    {
-      "name": "__vlan_hwaccel_clear_tag",
-      "file": "nf_flow_table_ip.c",
-      "line": 302
     },
     {
       "name": "nf_flow_queue_xmit",
@@ -9069,11 +8297,6 @@
       "name": "nf_flow_offload_ip_hook",
       "file": "nf_flow_table_ip.c",
       "line": 339
-    },
-    {
-      "name": "nf_ct_acct_update",
-      "file": "nf_flow_table_ip.c",
-      "line": 399
     },
     {
       "name": "nf_flow_nat_ipv6_tcp",
@@ -9121,11 +8344,6 @@
       "name": "nf_flow_rule_lwt_match",
       "file": "nf_flow_table_offload.c",
       "line": 32
-    },
-    {
-      "name": "BIT",
-      "file": "nf_flow_table_offload.c",
-      "line": 47
     },
     {
       "name": "nf_flow_rule_vlan_match",
@@ -9308,16 +8526,6 @@
       "line": 995
     },
     {
-      "name": "NF_FLOW_TABLE_STAT_INC_ATOMIC",
-      "file": "nf_flow_table_offload.c",
-      "line": 1000
-    },
-    {
-      "name": "queue_work",
-      "file": "nf_flow_table_offload.c",
-      "line": 1001
-    },
-    {
       "name": "nf_flow_offload_work_alloc",
       "file": "nf_flow_table_offload.c",
       "line": 1011
@@ -9351,11 +8559,6 @@
       "name": "nf_flow_table_block_setup",
       "file": "nf_flow_table_offload.c",
       "line": 1094
-    },
-    {
-      "name": "list_splice",
-      "file": "nf_flow_table_offload.c",
-      "line": 1104
     },
     {
       "name": "nf_flow_table_block_offload_init",
@@ -9394,6 +8597,16 @@
     }
   ],
   "nf_flow_table_procfs.c": [
+    {
+      "name": "nf_flow_table_cpu_seq_start",
+      "file": "nf_flow_table_procfs.c",
+      "line": 6
+    },
+    {
+      "name": "nf_flow_table_cpu_seq_next",
+      "file": "nf_flow_table_procfs.c",
+      "line": 24
+    },
     {
       "name": "nf_flow_table_cpu_seq_stop",
       "file": "nf_flow_table_procfs.c",
@@ -9434,6 +8647,11 @@
   ],
   "nf_log.c": [
     {
+      "name": "__find_logger",
+      "file": "nf_log.c",
+      "line": 28
+    },
+    {
       "name": "nf_log_set",
       "file": "nf_log.c",
       "line": 45
@@ -9447,11 +8665,6 @@
       "name": "nf_log_register",
       "file": "nf_log.c",
       "line": 79
-    },
-    {
-      "name": "rcu_assign_pointer",
-      "file": "nf_log.c",
-      "line": 97
     },
     {
       "name": "nf_log_unregister",
@@ -9489,19 +8702,9 @@
       "line": 234
     },
     {
-      "name": "va_start",
+      "name": "nf_log_buf_open",
       "file": "nf_log.c",
-      "line": 272
-    },
-    {
-      "name": "va_end",
-      "file": "nf_log.c",
-      "line": 274
-    },
-    {
-      "name": "local_bh_disable",
-      "file": "nf_log.c",
-      "line": 291
+      "line": 286
     },
     {
       "name": "nf_log_buf_close",
@@ -9509,9 +8712,14 @@
       "line": 301
     },
     {
-      "name": "kfree",
+      "name": "seq_start",
       "file": "nf_log.c",
-      "line": 307
+      "line": 316
+    },
+    {
+      "name": "seq_next",
+      "file": "nf_log.c",
+      "line": 328
     },
     {
       "name": "seq_stop",
@@ -9527,16 +8735,6 @@
       "name": "nf_log_proc_dostring",
       "file": "nf_log.c",
       "line": 406
-    },
-    {
-      "name": "mutex_lock",
-      "file": "nf_log.c",
-      "line": 431
-    },
-    {
-      "name": "mutex_unlock",
-      "file": "nf_log.c",
-      "line": 438
     },
     {
       "name": "netfilter_log_sysctl_init",
@@ -9609,11 +8807,6 @@
       "name": "dump_ipv4_packet",
       "file": "nf_log_syslog.c",
       "line": 297
-    },
-    {
-      "name": "nf_log_buf_add",
-      "file": "nf_log_syslog.c",
-      "line": 338
     },
     {
       "name": "dump_ipv6_packet",
@@ -9747,11 +8940,6 @@
       "line": 275
     },
     {
-      "name": "net_eq",
-      "file": "nf_nat_core.c",
-      "line": 287
-    },
-    {
       "name": "find_best_ips_proto",
       "file": "nf_nat_core.c",
       "line": 307
@@ -9765,6 +8953,11 @@
       "name": "get_unique_tuple",
       "file": "nf_nat_core.c",
       "line": 503
+    },
+    {
+      "name": "nf_ct_nat_ext_add",
+      "file": "nf_nat_core.c",
+      "line": 566
     },
     {
       "name": "nf_nat_setup_info",
@@ -9852,19 +9045,9 @@
       "line": 1066
     },
     {
-      "name": "nf_unregister_net_hooks",
-      "file": "nf_nat_core.c",
-      "line": 1100
-    },
-    {
       "name": "nf_nat_init",
       "file": "nf_nat_core.c",
       "line": 1128
-    },
-    {
-      "name": "spin_lock_init",
-      "file": "nf_nat_core.c",
-      "line": 1142
     },
     {
       "name": "nf_nat_cleanup",
@@ -9904,16 +9087,6 @@
       "name": "mangle_contents",
       "file": "nf_nat_helper.c",
       "line": 25
-    },
-    {
-      "name": "skb_put",
-      "file": "nf_nat_helper.c",
-      "line": 50
-    },
-    {
-      "name": "__skb_trim",
-      "file": "nf_nat_helper.c",
-      "line": 54
     },
     {
       "name": "enlarge_skb",
@@ -10020,11 +9193,6 @@
       "line": 304
     },
     {
-      "name": "register_inet6addr_notifier",
-      "file": "nf_nat_masquerade.c",
-      "line": 306
-    },
-    {
       "name": "nf_nat_masquerade_inet_register_notifiers",
       "file": "nf_nat_masquerade.c",
       "line": 312
@@ -10090,11 +9258,6 @@
       "name": "nf_nat_ipv4_manip_pkt",
       "file": "nf_nat_proto.c",
       "line": 353
-    },
-    {
-      "name": "csum_replace4",
-      "file": "nf_nat_proto.c",
-      "line": 372
     },
     {
       "name": "nf_nat_ipv6_manip_pkt",
@@ -10237,11 +9400,6 @@
       "name": "nf_nat_redirect_ipv6",
       "file": "nf_nat_redirect.c",
       "line": 80
-    },
-    {
-      "name": "read_lock_bh",
-      "file": "nf_nat_redirect.c",
-      "line": 99
     }
   ],
   "nf_nat_sip.c": [
@@ -10254,11 +9412,6 @@
       "name": "sip_sprintf_addr",
       "file": "nf_nat_sip.c",
       "line": 70
-    },
-    {
-      "name": "sprintf",
-      "file": "nf_nat_sip.c",
-      "line": 74
     },
     {
       "name": "sip_sprintf_addr_port",
@@ -10281,16 +9434,6 @@
       "line": 145
     },
     {
-      "name": "nf_inet_addr_cmp",
-      "file": "nf_nat_sip.c",
-      "line": 213
-    },
-    {
-      "name": "htons",
-      "file": "nf_nat_sip.c",
-      "line": 247
-    },
-    {
       "name": "nf_nat_sip_seq_adjust",
       "file": "nf_nat_sip.c",
       "line": 303
@@ -10299,11 +9442,6 @@
       "name": "nf_nat_sip_expected",
       "file": "nf_nat_sip.c",
       "line": 318
-    },
-    {
-      "name": "spin_lock_bh",
-      "file": "nf_nat_sip.c",
-      "line": 339
     },
     {
       "name": "nf_nat_sip_expect",
@@ -10339,11 +9477,6 @@
       "name": "nf_nat_sdp_media",
       "file": "nf_nat_sip.c",
       "line": 559
-    },
-    {
-      "name": "nf_ct_unexpect_related",
-      "file": "nf_nat_sip.c",
-      "line": 612
     },
     {
       "name": "nf_nat_sip_fini",
@@ -10440,6 +9573,11 @@
       "line": 254
     },
     {
+      "name": "nf_hook_entries_head",
+      "file": "nf_queue.c",
+      "line": 279
+    },
+    {
       "name": "nf_reinject",
       "file": "nf_queue.c",
       "line": 299
@@ -10460,6 +9598,11 @@
       "name": "nf_unregister_sockopt",
       "file": "nf_sockopt.c",
       "line": 54
+    },
+    {
+      "name": "nf_sockopt_find",
+      "file": "nf_sockopt.c",
+      "line": 62
     },
     {
       "name": "nf_setsockopt",
@@ -10502,6 +9645,16 @@
       "name": "synproxy_tstamp_adjust",
       "file": "nf_synproxy_core.c",
       "line": 184
+    },
+    {
+      "name": "synproxy_cpu_seq_start",
+      "file": "nf_synproxy_core.c",
+      "line": 240
+    },
+    {
+      "name": "synproxy_cpu_seq_next",
+      "file": "nf_synproxy_core.c",
+      "line": 258
     },
     {
       "name": "synproxy_cpu_seq_stop",
@@ -10584,16 +9737,6 @@
       "line": 638
     },
     {
-      "name": "this_cpu_inc",
-      "file": "nf_synproxy_core.c",
-      "line": 702
-    },
-    {
-      "name": "consume_skb",
-      "file": "nf_synproxy_core.c",
-      "line": 703
-    },
-    {
       "name": "nf_synproxy_ipv4_init",
       "file": "nf_synproxy_core.c",
       "line": 767
@@ -10656,26 +9799,6 @@
   ],
   "nf_tables_api.c": [
     {
-      "name": "LIST_HEAD",
-      "file": "nf_tables_api.c",
-      "line": 33
-    },
-    {
-      "name": "DEFINE_SPINLOCK",
-      "file": "nf_tables_api.c",
-      "line": 34
-    },
-    {
-      "name": "nft_objname_hash_obj",
-      "file": "nf_tables_api.c",
-      "line": 49
-    },
-    {
-      "name": "nft_objname_hash_cmp",
-      "file": "nf_tables_api.c",
-      "line": 50
-    },
-    {
       "name": "nft_validate_state_update",
       "file": "nf_tables_api.c",
       "line": 105
@@ -10684,6 +9807,16 @@
       "name": "nft_ctx_init",
       "file": "nf_tables_api.c",
       "line": 125
+    },
+    {
+      "name": "nft_trans_alloc_gfp",
+      "file": "nf_tables_api.c",
+      "line": 146
+    },
+    {
+      "name": "nft_trans_alloc",
+      "file": "nf_tables_api.c",
+      "line": 162
     },
     {
       "name": "nft_trans_destroy",
@@ -10704,11 +9837,6 @@
       "name": "nft_netdev_unregister_hooks",
       "file": "nf_tables_api.c",
       "line": 224
-    },
-    {
-      "name": "nf_unregister_net_hook",
-      "file": "nf_tables_api.c",
-      "line": 231
     },
     {
       "name": "nf_tables_register_hook",
@@ -10741,14 +9869,9 @@
       "line": 315
     },
     {
-      "name": "ERR_PTR",
+      "name": "nft_trans_chain_add",
       "file": "nf_tables_api.c",
-      "line": 333
-    },
-    {
-      "name": "nft_activate_next",
-      "file": "nf_tables_api.c",
-      "line": 336
+      "line": 327
     },
     {
       "name": "nft_delchain",
@@ -10769,6 +9892,11 @@
       "name": "nf_tables_delrule_deactivate",
       "file": "nf_tables_api.c",
       "line": 391
+    },
+    {
+      "name": "nft_trans_rule_add",
+      "file": "nf_tables_api.c",
+      "line": 403
     },
     {
       "name": "nft_delrule",
@@ -10841,6 +9969,16 @@
       "line": 625
     },
     {
+      "name": "nft_table_lookup",
+      "file": "nf_tables_api.c",
+      "line": 637
+    },
+    {
+      "name": "nft_table_lookup_byhandle",
+      "file": "nf_tables_api.c",
+      "line": 664
+    },
+    {
       "name": "nf_tables_alloc_handle",
       "file": "nf_tables_api.c",
       "line": 686
@@ -10869,11 +10007,6 @@
       "name": "nft_base_seq",
       "file": "nf_tables_api.c",
       "line": 795
-    },
-    {
-      "name": "htons",
-      "file": "nf_tables_api.c",
-      "line": 799
     },
     {
       "name": "nf_tables_fill_table_info",
@@ -10946,6 +10079,16 @@
       "line": 1127
     },
     {
+      "name": "nft_objname_hash_obj",
+      "file": "nf_tables_api.c",
+      "line": 1136
+    },
+    {
+      "name": "nft_objname_hash_cmp",
+      "file": "nf_tables_api.c",
+      "line": 1143
+    },
+    {
       "name": "nft_supported_family",
       "file": "nf_tables_api.c",
       "line": 1155
@@ -10954,11 +10097,6 @@
       "name": "nf_tables_newtable",
       "file": "nf_tables_api.c",
       "line": 1179
-    },
-    {
-      "name": "PTR_ERR",
-      "file": "nf_tables_api.c",
-      "line": 1202
     },
     {
       "name": "nft_flush_table",
@@ -11001,6 +10139,11 @@
       "line": 1467
     },
     {
+      "name": "nft_chain_lookup",
+      "file": "nf_tables_api.c",
+      "line": 1478
+    },
+    {
       "name": "nft_dump_stats",
       "file": "nf_tables_api.c",
       "line": 1534
@@ -11031,6 +10174,11 @@
       "line": 1754
     },
     {
+      "name": "nft_stats_alloc",
+      "file": "nf_tables_api.c",
+      "line": 1809
+    },
+    {
       "name": "nft_chain_stats_replace",
       "file": "nf_tables_api.c",
       "line": 1840
@@ -11046,24 +10194,19 @@
       "line": 1869
     },
     {
-      "name": "module_put",
+      "name": "nft_netdev_hook_alloc",
       "file": "nf_tables_api.c",
-      "line": 1890
+      "line": 1905
     },
     {
-      "name": "kfree",
+      "name": "nft_hook_list_find",
       "file": "nf_tables_api.c",
-      "line": 1895
+      "line": 1939
     },
     {
       "name": "nf_tables_parse_netdev_hooks",
       "file": "nf_tables_api.c",
       "line": 1952
-    },
-    {
-      "name": "list_add_tail",
-      "file": "nf_tables_api.c",
-      "line": 1976
     },
     {
       "name": "nft_chain_parse_netdev",
@@ -11086,6 +10229,11 @@
       "line": 2114
     },
     {
+      "name": "nf_tables_chain_alloc_rules",
+      "file": "nf_tables_api.c",
+      "line": 2123
+    },
+    {
       "name": "nft_basechain_hook_init",
       "file": "nf_tables_api.c",
       "line": 2145
@@ -11106,16 +10254,6 @@
       "line": 2207
     },
     {
-      "name": "static_branch_inc",
-      "file": "nf_tables_api.c",
-      "line": 2262
-    },
-    {
-      "name": "nft_trans_chain_policy",
-      "file": "nf_tables_api.c",
-      "line": 2329
-    },
-    {
       "name": "nft_hook_list_equal",
       "file": "nf_tables_api.c",
       "line": 2348
@@ -11126,19 +10264,9 @@
       "line": 2367
     },
     {
-      "name": "NL_SET_BAD_ATTR",
+      "name": "nft_chain_lookup_byid",
       "file": "nf_tables_api.c",
-      "line": 2405
-    },
-    {
-      "name": "nft_trans_chain_update",
-      "file": "nf_tables_api.c",
-      "line": 2470
-    },
-    {
-      "name": "nft_trans_chain_name",
-      "file": "nf_tables_api.c",
-      "line": 2471
+      "line": 2490
     },
     {
       "name": "nf_tables_newchain",
@@ -11161,9 +10289,19 @@
       "line": 2703
     },
     {
+      "name": "__nft_expr_type_get",
+      "file": "nf_tables_api.c",
+      "line": 2711
+    },
+    {
       "name": "nft_expr_type_request_module",
       "file": "nf_tables_api.c",
       "line": 2728
+    },
+    {
+      "name": "nft_expr_type_get",
+      "file": "nf_tables_api.c",
+      "line": 2739
     },
     {
       "name": "nf_tables_fill_expr_info",
@@ -11181,11 +10319,6 @@
       "line": 2818
     },
     {
-      "name": "memset",
-      "file": "nf_tables_api.c",
-      "line": 2843
-    },
-    {
       "name": "nf_tables_newexpr",
       "file": "nf_tables_api.c",
       "line": 2872
@@ -11194,6 +10327,11 @@
       "name": "nf_tables_expr_destroy",
       "file": "nf_tables_api.c",
       "line": 2892
+    },
+    {
+      "name": "nft_expr_init",
+      "file": "nf_tables_api.c",
+      "line": 2902
     },
     {
       "name": "nft_expr_clone",
@@ -11208,7 +10346,12 @@
     {
       "name": "__nft_rule_lookup",
       "file": "nf_tables_api.c",
-      "line": 2988
+      "line": 2968
+    },
+    {
+      "name": "nft_rule_lookup",
+      "file": "nf_tables_api.c",
+      "line": 2982
     },
     {
       "name": "nf_tables_fill_rule_info",
@@ -11229,11 +10372,6 @@
       "name": "nf_tables_dump_rules",
       "file": "nf_tables_api.c",
       "line": 3156
-    },
-    {
-      "name": "rhl_for_each_entry_rcu",
-      "file": "nf_tables_api.c",
-      "line": 3187
     },
     {
       "name": "nf_tables_dump_rules_start",
@@ -11266,11 +10404,6 @@
       "line": 3342
     },
     {
-      "name": "nft_rule_for_each_expr",
-      "file": "nf_tables_api.c",
-      "line": 3356
-    },
-    {
       "name": "nft_table_validate",
       "file": "nf_tables_api.c",
       "line": 3372
@@ -11281,19 +10414,9 @@
       "line": 3400
     },
     {
-      "name": "nla_for_each_nested",
+      "name": "nft_rule_lookup_byid",
       "file": "nf_tables_api.c",
-      "line": 3503
-    },
-    {
-      "name": "list_add_tail_rcu",
-      "file": "nf_tables_api.c",
-      "line": 3579
-    },
-    {
-      "name": "list_add_rcu",
-      "file": "nf_tables_api.c",
-      "line": 3589
+      "line": 3628
     },
     {
       "name": "nf_tables_delrule",
@@ -11309,6 +10432,26 @@
       "name": "nft_select_set_ops",
       "file": "nf_tables_api.c",
       "line": 3744
+    },
+    {
+      "name": "nft_set_lookup",
+      "file": "nf_tables_api.c",
+      "line": 3837
+    },
+    {
+      "name": "nft_set_lookup_byhandle",
+      "file": "nf_tables_api.c",
+      "line": 3853
+    },
+    {
+      "name": "nft_set_lookup_byid",
+      "file": "nf_tables_api.c",
+      "line": 3867
+    },
+    {
+      "name": "nft_set_lookup_global",
+      "file": "nf_tables_api.c",
+      "line": 3888
     },
     {
       "name": "nf_tables_set_alloc_name",
@@ -11334,11 +10477,6 @@
       "name": "nf_tables_fill_set",
       "file": "nf_tables_api.c",
       "line": 4008
-    },
-    {
-      "name": "nla_nest_end",
-      "file": "nf_tables_api.c",
-      "line": 4086
     },
     {
       "name": "nf_tables_set_notify",
@@ -11451,11 +10589,6 @@
       "line": 4976
     },
     {
-      "name": "nft_setelem_expr_foreach",
-      "file": "nf_tables_api.c",
-      "line": 5000
-    },
-    {
       "name": "nf_tables_fill_setelem",
       "file": "nf_tables_api.c",
       "line": 5013
@@ -11506,6 +10639,11 @@
       "line": 5310
     },
     {
+      "name": "nft_setelem_catchall_get",
+      "file": "nf_tables_api.c",
+      "line": 5330
+    },
+    {
       "name": "nft_setelem_get",
       "file": "nf_tables_api.c",
       "line": 5351
@@ -11526,6 +10664,16 @@
       "line": 5484
     },
     {
+      "name": "nft_trans_elem_alloc",
+      "file": "nf_tables_api.c",
+      "line": 5520
+    },
+    {
+      "name": "nft_set_elem_expr_alloc",
+      "file": "nf_tables_api.c",
+      "line": 5534
+    },
+    {
       "name": "nft_set_ext_check",
       "file": "nf_tables_api.c",
       "line": 5561
@@ -11534,6 +10682,11 @@
       "name": "nft_set_ext_memcpy",
       "file": "nf_tables_api.c",
       "line": 5571
+    },
+    {
+      "name": "nft_set_elem_init",
+      "file": "nf_tables_api.c",
+      "line": 5582
     },
     {
       "name": "__nft_set_elem_expr_destroy",
@@ -11566,6 +10719,16 @@
       "line": 5712
     },
     {
+      "name": "nft_set_catchall_lookup",
+      "file": "nf_tables_api.c",
+      "line": 5754
+    },
+    {
+      "name": "nft_set_catchall_gc",
+      "file": "nf_tables_api.c",
+      "line": 5772
+    },
+    {
       "name": "nft_setelem_catchall_insert",
       "file": "nf_tables_api.c",
       "line": 5795
@@ -11584,16 +10747,6 @@
       "name": "nft_setelem_activate",
       "file": "nf_tables_api.c",
       "line": 5849
-    },
-    {
-      "name": "nft_set_elem_change_active",
-      "file": "nf_tables_api.c",
-      "line": 5855
-    },
-    {
-      "name": "nft_set_elem_clear_busy",
-      "file": "nf_tables_api.c",
-      "line": 5856
     },
     {
       "name": "nft_setelem_catchall_deactivate",
@@ -11629,11 +10782,6 @@
       "name": "nft_add_set_elem",
       "file": "nf_tables_api.c",
       "line": 5959
-    },
-    {
-      "name": "nla_memcpy",
-      "file": "nf_tables_api.c",
-      "line": 6243
     },
     {
       "name": "nf_tables_newsetelem",
@@ -11691,6 +10839,11 @@
       "line": 6653
     },
     {
+      "name": "nft_set_gc_batch_alloc",
+      "file": "nf_tables_api.c",
+      "line": 6664
+    },
+    {
       "name": "nft_register_obj",
       "file": "nf_tables_api.c",
       "line": 6687
@@ -11701,9 +10854,29 @@
       "line": 6705
     },
     {
+      "name": "nft_obj_lookup",
+      "file": "nf_tables_api.c",
+      "line": 6713
+    },
+    {
+      "name": "nft_obj_lookup_byhandle",
+      "file": "nf_tables_api.c",
+      "line": 6747
+    },
+    {
+      "name": "nft_obj_init",
+      "file": "nf_tables_api.c",
+      "line": 6774
+    },
+    {
       "name": "nft_object_dump",
       "file": "nf_tables_api.c",
       "line": 6827
+    },
+    {
+      "name": "__nft_obj_type_get",
+      "file": "nf_tables_api.c",
+      "line": 6844
     },
     {
       "name": "nft_obj_type_get",
@@ -11776,6 +10949,11 @@
       "line": 7362
     },
     {
+      "name": "nft_flowtable_lookup",
+      "file": "nf_tables_api.c",
+      "line": 7380
+    },
+    {
       "name": "nf_tables_deactivate_flowtable",
       "file": "nf_tables_api.c",
       "line": 7394
@@ -11789,6 +10967,11 @@
       "name": "nft_flowtable_parse_hook",
       "file": "nf_tables_api.c",
       "line": 7436
+    },
+    {
+      "name": "__nft_flowtable_type_get",
+      "file": "nf_tables_api.c",
+      "line": 7502
     },
     {
       "name": "nft_flowtable_type_get",
@@ -11829,11 +11012,6 @@
       "name": "nf_tables_newflowtable",
       "file": "nf_tables_api.c",
       "line": 7701
-    },
-    {
-      "name": "ntohl",
-      "file": "nf_tables_api.c",
-      "line": 7772
     },
     {
       "name": "nft_flowtable_hook_release",
@@ -11976,11 +11154,6 @@
       "line": 8720
     },
     {
-      "name": "rcu_assign_pointer",
-      "file": "nf_tables_api.c",
-      "line": 8742
-    },
-    {
       "name": "nft_obj_del",
       "file": "nf_tables_api.c",
       "line": 8768
@@ -12031,21 +11204,6 @@
       "line": 8927
     },
     {
-      "name": "nft_flow_rule_destroy",
-      "file": "nf_tables_api.c",
-      "line": 9056
-    },
-    {
-      "name": "WRITE_ONCE",
-      "file": "nf_tables_api.c",
-      "line": 9062
-    },
-    {
-      "name": "list_splice",
-      "file": "nf_tables_api.c",
-      "line": 9130
-    },
-    {
       "name": "nf_tables_module_autoload",
       "file": "nf_tables_api.c",
       "line": 9170
@@ -12059,11 +11217,6 @@
       "name": "__nf_tables_abort",
       "file": "nf_tables_api.c",
       "line": 9218
-    },
-    {
-      "name": "free_percpu",
-      "file": "nf_tables_api.c",
-      "line": 9255
     },
     {
       "name": "nf_tables_cleanup",
@@ -12171,11 +11324,6 @@
       "line": 9895
     },
     {
-      "name": "nla_put",
-      "file": "nf_tables_api.c",
-      "line": 9898
-    },
-    {
       "name": "nft_data_init",
       "file": "nf_tables_api.c",
       "line": 9920
@@ -12219,11 +11367,6 @@
       "name": "nft_rcv_nl_event",
       "file": "nf_tables_api.c",
       "line": 10108
-    },
-    {
-      "name": "rcu_barrier",
-      "file": "nf_tables_api.c",
-      "line": 10125
     },
     {
       "name": "nf_tables_init_net",
@@ -12313,16 +11456,6 @@
       "line": 227
     },
     {
-      "name": "nft_rule_dp_for_each_expr",
-      "file": "nf_tables_core.c",
-      "line": 255
-    },
-    {
-      "name": "WARN_ON_ONCE",
-      "file": "nf_tables_core.c",
-      "line": 309
-    },
-    {
       "name": "nf_tables_core_module_init",
       "file": "nf_tables_core.c",
       "line": 352
@@ -12335,19 +11468,24 @@
   ],
   "nf_tables_offload.c": [
     {
+      "name": "nft_flow_rule_alloc",
+      "file": "nf_tables_offload.c",
+      "line": 10
+    },
+    {
       "name": "nft_flow_rule_set_addr_type",
       "file": "nf_tables_offload.c",
       "line": 31
     },
     {
-      "name": "offsetof",
-      "file": "nf_tables_offload.c",
-      "line": 45
-    },
-    {
       "name": "nft_flow_rule_transfer_vlan",
       "file": "nf_tables_offload.c",
       "line": 53
+    },
+    {
+      "name": "nft_flow_rule_create",
+      "file": "nf_tables_offload.c",
+      "line": 87
     },
     {
       "name": "nft_flow_rule_destroy",
@@ -12465,6 +11603,11 @@
       "line": 558
     },
     {
+      "name": "__nft_offload_get_chain",
+      "file": "nf_tables_offload.c",
+      "line": 620
+    },
+    {
       "name": "nft_offload_netdev_event",
       "file": "nf_tables_offload.c",
       "line": 656
@@ -12524,9 +11667,9 @@
   ],
   "nfnetlink.c": [
     {
-      "name": "DEFINE_SPINLOCK",
+      "name": "nfnl_pernet",
       "file": "nfnetlink.c",
-      "line": 48
+      "line": 90
     },
     {
       "name": "nfnl_lock",
@@ -12552,6 +11695,11 @@
       "name": "nfnetlink_subsys_unregister",
       "file": "nfnetlink.c",
       "line": 136
+    },
+    {
+      "name": "nfnetlink_get_subsys",
+      "file": "nfnetlink.c",
+      "line": 146
     },
     {
       "name": "nfnetlink_find_client",
@@ -12589,11 +11737,6 @@
       "line": 215
     },
     {
-      "name": "rcu_read_unlock",
-      "file": "nfnetlink.c",
-      "line": 293
-    },
-    {
       "name": "nfnl_err_add",
       "file": "nfnetlink.c",
       "line": 322
@@ -12617,26 +11760,6 @@
       "name": "nfnetlink_rcv_batch",
       "file": "nfnetlink.c",
       "line": 370
-    },
-    {
-      "name": "kfree_skb",
-      "file": "nfnetlink.c",
-      "line": 411
-    },
-    {
-      "name": "skb_pull",
-      "file": "nfnetlink.c",
-      "line": 557
-    },
-    {
-      "name": "module_put",
-      "file": "nfnetlink.c",
-      "line": 564
-    },
-    {
-      "name": "netlink_ack",
-      "file": "nfnetlink.c",
-      "line": 573
     },
     {
       "name": "nfnetlink_rcv_skb_batch",
@@ -12686,14 +11809,14 @@
   ],
   "nfnetlink_acct.c": [
     {
+      "name": "nfnl_acct_pernet",
+      "file": "nfnetlink_acct.c",
+      "line": 51
+    },
+    {
       "name": "nfnl_acct_new",
       "file": "nfnetlink_acct.c",
       "line": 59
-    },
-    {
-      "name": "atomic64_set",
-      "file": "nfnetlink_acct.c",
-      "line": 129
     },
     {
       "name": "nfnl_acct_fill_info",
@@ -12701,29 +11824,9 @@
       "line": 141
     },
     {
-      "name": "smp_mb__before_atomic",
-      "file": "nfnetlink_acct.c",
-      "line": 163
-    },
-    {
-      "name": "clear_bit",
-      "file": "nfnetlink_acct.c",
-      "line": 165
-    },
-    {
-      "name": "nla_put_be64",
-      "file": "nfnetlink_acct.c",
-      "line": 172
-    },
-    {
       "name": "nfnl_acct_dump",
       "file": "nfnetlink_acct.c",
       "line": 193
-    },
-    {
-      "name": "NFNL_MSG_TYPE",
-      "file": "nfnetlink_acct.c",
-      "line": 222
     },
     {
       "name": "nfnl_acct_done",
@@ -12746,19 +11849,14 @@
       "line": 326
     },
     {
-      "name": "list_del_rcu",
-      "file": "nfnetlink_acct.c",
-      "line": 335
-    },
-    {
-      "name": "kfree_rcu",
-      "file": "nfnetlink_acct.c",
-      "line": 336
-    },
-    {
       "name": "nfnl_acct_del",
       "file": "nfnetlink_acct.c",
       "line": 343
+    },
+    {
+      "name": "nfnl_acct_find_get",
+      "file": "nfnetlink_acct.c",
+      "line": 417
     },
     {
       "name": "nfnl_acct_put",
@@ -12806,11 +11904,6 @@
       "name": "nfnl_userspace_cthelper",
       "file": "nfnetlink_cthelper.c",
       "line": 40
-    },
-    {
-      "name": "NF_QUEUE_NR",
-      "file": "nfnetlink_cthelper.c",
-      "line": 63
     },
     {
       "name": "nfnl_cthelper_parse_tuple",
@@ -12888,21 +11981,6 @@
       "line": 576
     },
     {
-      "name": "hlist_for_each_entry_rcu",
-      "file": "nfnetlink_cthelper.c",
-      "line": 585
-    },
-    {
-      "name": "NETLINK_CB",
-      "file": "nfnetlink_cthelper.c",
-      "line": 598
-    },
-    {
-      "name": "NFNL_MSG_TYPE",
-      "file": "nfnetlink_cthelper.c",
-      "line": 600
-    },
-    {
       "name": "nfnl_cthelper_get",
       "file": "nfnetlink_cthelper.c",
       "line": 616
@@ -12911,16 +11989,6 @@
       "name": "nfnl_cthelper_del",
       "file": "nfnetlink_cthelper.c",
       "line": 681
-    },
-    {
-      "name": "list_del",
-      "file": "nfnetlink_cthelper.c",
-      "line": 724
-    },
-    {
-      "name": "kfree",
-      "file": "nfnetlink_cthelper.c",
-      "line": 725
     },
     {
       "name": "nfnl_cthelper_init",
@@ -12934,6 +12002,11 @@
     }
   ],
   "nfnetlink_cttimeout.c": [
+    {
+      "name": "nfct_timeout_pernet",
+      "file": "nfnetlink_cttimeout.c",
+      "line": 64
+    },
     {
       "name": "ctnl_timeout_parse_policy",
       "file": "nfnetlink_cttimeout.c",
@@ -12955,11 +12028,6 @@
       "line": 226
     },
     {
-      "name": "NFNL_MSG_TYPE",
-      "file": "nfnetlink_cttimeout.c",
-      "line": 251
-    },
-    {
       "name": "cttimeout_get_timeout",
       "file": "nfnetlink_cttimeout.c",
       "line": 263
@@ -12968,21 +12036,6 @@
       "name": "ctnl_timeout_try_del",
       "file": "nfnetlink_cttimeout.c",
       "line": 312
-    },
-    {
-      "name": "list_del_rcu",
-      "file": "nfnetlink_cttimeout.c",
-      "line": 321
-    },
-    {
-      "name": "nf_ct_untimeout",
-      "file": "nfnetlink_cttimeout.c",
-      "line": 322
-    },
-    {
-      "name": "kfree_rcu",
-      "file": "nfnetlink_cttimeout.c",
-      "line": 323
     },
     {
       "name": "cttimeout_del_timeout",
@@ -13005,14 +12058,14 @@
       "line": 433
     },
     {
+      "name": "ctnl_timeout_find_get",
+      "file": "nfnetlink_cttimeout.c",
+      "line": 512
+    },
+    {
       "name": "ctnl_timeout_put",
       "file": "nfnetlink_cttimeout.c",
       "line": 531
-    },
-    {
-      "name": "container_of",
-      "file": "nfnetlink_cttimeout.c",
-      "line": 534
     },
     {
       "name": "cttimeout_net_init",
@@ -13098,6 +12151,11 @@
     }
   ],
   "nfnetlink_log.c": [
+    {
+      "name": "nfnl_log_pernet",
+      "file": "nfnetlink_log.c",
+      "line": 95
+    },
     {
       "name": "instance_hashfn",
       "file": "nfnetlink_log.c",
@@ -13199,26 +12257,6 @@
       "line": 411
     },
     {
-      "name": "nla_nest_end",
-      "file": "nfnetlink_log.c",
-      "line": 427
-    },
-    {
-      "name": "skb_mac_header_was_set",
-      "file": "nfnetlink_log.c",
-      "line": 561
-    },
-    {
-      "name": "memset",
-      "file": "nfnetlink_log.c",
-      "line": 566
-    },
-    {
-      "name": "read_lock_bh",
-      "file": "nfnetlink_log.c",
-      "line": 606
-    },
-    {
       "name": "nfulnl_log_packet",
       "file": "nfnetlink_log.c",
       "line": 675
@@ -13227,16 +12265,6 @@
       "name": "nfulnl_rcv_nl_event",
       "file": "nfnetlink_log.c",
       "line": 821
-    },
-    {
-      "name": "spin_lock_bh",
-      "file": "nfnetlink_log.c",
-      "line": 832
-    },
-    {
-      "name": "hlist_for_each_entry_safe",
-      "file": "nfnetlink_log.c",
-      "line": 838
     },
     {
       "name": "nfulnl_recv_unsupp",
@@ -13249,24 +12277,29 @@
       "line": 874
     },
     {
-      "name": "nfnl_unlock",
+      "name": "get_first",
       "file": "nfnetlink_log.c",
-      "line": 913
+      "line": 1021
     },
     {
-      "name": "request_module",
+      "name": "get_next",
       "file": "nfnetlink_log.c",
-      "line": 914
+      "line": 1038
     },
     {
-      "name": "nfnl_lock",
+      "name": "get_idx",
       "file": "nfnetlink_log.c",
-      "line": 915
+      "line": 1056
     },
     {
-      "name": "NETLINK_CB",
+      "name": "seq_start",
       "file": "nfnetlink_log.c",
-      "line": 935
+      "line": 1068
+    },
+    {
+      "name": "seq_next",
+      "file": "nfnetlink_log.c",
+      "line": 1075
     },
     {
       "name": "seq_stop",
@@ -13289,11 +12322,6 @@
       "line": 1136
     },
     {
-      "name": "WARN_ON_ONCE",
-      "file": "nfnetlink_log.c",
-      "line": 1146
-    },
-    {
       "name": "nfnetlink_log_init",
       "file": "nfnetlink_log.c",
       "line": 1156
@@ -13314,6 +12342,11 @@
       "name": "nf_osf_match_one",
       "file": "nfnetlink_osf.c",
       "line": 64
+    },
+    {
+      "name": "nf_osf_hdr_ctx_init",
+      "file": "nfnetlink_osf.c",
+      "line": 165
     },
     {
       "name": "nf_osf_match",
@@ -13341,17 +12374,17 @@
       "line": 400
     },
     {
-      "name": "INIT_LIST_HEAD",
-      "file": "nfnetlink_osf.c",
-      "line": 406
-    },
-    {
       "name": "nfnl_osf_fini",
       "file": "nfnetlink_osf.c",
       "line": 419
     }
   ],
   "nfnetlink_queue.c": [
+    {
+      "name": "nfnl_queue_pernet",
+      "file": "nfnetlink_queue.c",
+      "line": 91
+    },
     {
       "name": "instance_hashfn",
       "file": "nfnetlink_queue.c",
@@ -13403,11 +12436,6 @@
       "line": 226
     },
     {
-      "name": "rcu_read_lock",
-      "file": "nfnetlink_queue.c",
-      "line": 234
-    },
-    {
       "name": "nfqnl_flush",
       "file": "nfnetlink_queue.c",
       "line": 246
@@ -13438,29 +12466,9 @@
       "line": 340
     },
     {
-      "name": "nla_nest_end",
-      "file": "nfnetlink_queue.c",
-      "line": 358
-    },
-    {
       "name": "nfqnl_build_packet_message",
       "file": "nfnetlink_queue.c",
       "line": 374
-    },
-    {
-      "name": "nfnl_msg_type",
-      "file": "nfnetlink_queue.c",
-      "line": 477
-    },
-    {
-      "name": "skb_mac_header_was_set",
-      "file": "nfnetlink_queue.c",
-      "line": 570
-    },
-    {
-      "name": "memset",
-      "file": "nfnetlink_queue.c",
-      "line": 575
     },
     {
       "name": "nf_ct_drop_unconfirmed",
@@ -13488,11 +12496,6 @@
       "line": 742
     },
     {
-      "name": "__skb_pull",
-      "file": "nfnetlink_queue.c",
-      "line": 745
-    },
-    {
       "name": "__nfqnl_enqueue_packet_gso",
       "file": "nfnetlink_queue.c",
       "line": 752
@@ -13501,11 +12504,6 @@
       "name": "nfqnl_enqueue_packet",
       "file": "nfnetlink_queue.c",
       "line": 782
-    },
-    {
-      "name": "kfree_skb",
-      "file": "nfnetlink_queue.c",
-      "line": 830
     },
     {
       "name": "nfqnl_mangle",
@@ -13543,16 +12541,6 @@
       "line": 992
     },
     {
-      "name": "spin_lock",
-      "file": "nfnetlink_queue.c",
-      "line": 1003
-    },
-    {
-      "name": "hlist_for_each_entry_safe",
-      "file": "nfnetlink_queue.c",
-      "line": 1009
-    },
-    {
       "name": "verdict_instance_lookup",
       "file": "nfnetlink_queue.c",
       "line": 1044
@@ -13573,14 +12561,14 @@
       "line": 1080
     },
     {
+      "name": "nfqnl_ct_parse",
+      "file": "nfnetlink_queue.c",
+      "line": 1130
+    },
+    {
       "name": "nfqa_parse_bridge",
       "file": "nfnetlink_queue.c",
       "line": 1156
-    },
-    {
-      "name": "__vlan_hwaccel_put_tag",
-      "file": "nfnetlink_queue.c",
-      "line": 1172
     },
     {
       "name": "nfqnl_recv_verdict",
@@ -13598,9 +12586,29 @@
       "line": 1277
     },
     {
-      "name": "spin_unlock_bh",
+      "name": "get_first",
       "file": "nfnetlink_queue.c",
-      "line": 1386
+      "line": 1440
+    },
+    {
+      "name": "get_next",
+      "file": "nfnetlink_queue.c",
+      "line": 1458
+    },
+    {
+      "name": "get_idx",
+      "file": "nfnetlink_queue.c",
+      "line": 1476
+    },
+    {
+      "name": "seq_start",
+      "file": "nfnetlink_queue.c",
+      "line": 1487
+    },
+    {
+      "name": "seq_next",
+      "file": "nfnetlink_queue.c",
+      "line": 1494
     },
     {
       "name": "seq_stop",
@@ -13621,11 +12629,6 @@
       "name": "nfnl_queue_net_exit",
       "file": "nfnetlink_queue.c",
       "line": 1545
-    },
-    {
-      "name": "WARN_ON_ONCE",
-      "file": "nfnetlink_queue.c",
-      "line": 1554
     },
     {
       "name": "nfnetlink_queue_init",
@@ -13762,11 +12765,6 @@
       "name": "nft_do_chain_ipv4",
       "file": "nft_chain_filter.c",
       "line": 14
-    },
-    {
-      "name": "nft_do_chain",
-      "file": "nft_chain_filter.c",
-      "line": 23
     },
     {
       "name": "nft_chain_filter_ipv4_init",
@@ -13918,24 +12916,9 @@
       "line": 65
     },
     {
-      "name": "memcmp",
-      "file": "nft_chain_route.c",
-      "line": 91
-    },
-    {
-      "name": "ipv6_hdr",
-      "file": "nft_chain_route.c",
-      "line": 93
-    },
-    {
       "name": "nf_route_table_inet",
       "file": "nft_chain_route.c",
       "line": 115
-    },
-    {
-      "name": "nft_do_chain",
-      "file": "nft_chain_route.c",
-      "line": 131
     },
     {
       "name": "nft_chain_route_init",
@@ -14028,11 +13011,6 @@
       "name": "nft_cmp_select_ops",
       "file": "nft_cmp.c",
       "line": 380
-    },
-    {
-      "name": "ERR_PTR",
-      "file": "nft_cmp.c",
-      "line": 395
     }
   ],
   "nft_compat.c": [
@@ -14065,11 +13043,6 @@
       "name": "target_compat_from_user",
       "file": "nft_compat.c",
       "line": 185
-    },
-    {
-      "name": "memset",
-      "file": "nft_compat.c",
-      "line": 192
     },
     {
       "name": "nft_parse_compat",
@@ -14197,11 +13170,6 @@
       "line": 639
     },
     {
-      "name": "NFNL_MSG_TYPE",
-      "file": "nft_compat.c",
-      "line": 694
-    },
-    {
       "name": "nft_match_reduce",
       "file": "nft_compat.c",
       "line": 734
@@ -14210,11 +13178,6 @@
       "name": "nft_match_select_ops",
       "file": "nft_compat.c",
       "line": 742
-    },
-    {
-      "name": "ERR_PTR",
-      "file": "nft_compat.c",
-      "line": 764
     },
     {
       "name": "nft_match_release_ops",
@@ -14346,11 +13309,6 @@
       "line": 59
     },
     {
-      "name": "be64_to_cpu",
-      "file": "nft_counter.c",
-      "line": 73
-    },
-    {
       "name": "nft_counter_obj_init",
       "file": "nft_counter.c",
       "line": 84
@@ -14438,34 +13396,9 @@
       "line": 60
     },
     {
-      "name": "strncpy",
-      "file": "nft_ct.c",
-      "line": 121
-    },
-    {
-      "name": "memcpy",
-      "file": "nft_ct.c",
-      "line": 142
-    },
-    {
-      "name": "nft_reg_store8",
-      "file": "nft_ct.c",
-      "line": 165
-    },
-    {
       "name": "nft_ct_set_zone_eval",
       "file": "nft_ct.c",
       "line": 233
-    },
-    {
-      "name": "refcount_inc",
-      "file": "nft_ct.c",
-      "line": 264
-    },
-    {
-      "name": "nf_ct_zone_add",
-      "file": "nft_ct.c",
-      "line": 265
     },
     {
       "name": "nft_ct_set_eval",
@@ -14496,11 +13429,6 @@
       "name": "nft_ct_set_init",
       "file": "nft_ct.c",
       "line": 543
-    },
-    {
-      "name": "mutex_lock",
-      "file": "nft_ct.c",
-      "line": 573
     },
     {
       "name": "nft_ct_get_destroy",
@@ -14536,11 +13464,6 @@
       "name": "nft_ct_select_ops",
       "file": "nft_ct.c",
       "line": 782
-    },
-    {
-      "name": "ERR_PTR",
-      "file": "nft_ct.c",
-      "line": 803
     },
     {
       "name": "nft_notrack_eval",
@@ -14667,6 +13590,11 @@
       "line": 29
     },
     {
+      "name": "nft_dynset_new",
+      "file": "nft_dynset.c",
+      "line": 47
+    },
+    {
       "name": "nft_dynset_eval",
       "file": "nft_dynset.c",
       "line": 80
@@ -14682,19 +13610,9 @@
       "line": 124
     },
     {
-      "name": "ERR_PTR",
-      "file": "nft_dynset.c",
-      "line": 144
-    },
-    {
       "name": "nft_dynset_init",
       "file": "nft_dynset.c",
       "line": 160
-    },
-    {
-      "name": "nla_for_each_nested",
-      "file": "nft_dynset.c",
-      "line": 262
     },
     {
       "name": "nft_dynset_deactivate",
@@ -14715,11 +13633,6 @@
       "name": "nft_dynset_dump",
       "file": "nft_dynset.c",
       "line": 360
-    },
-    {
-      "name": "nf_jiffies64_to_msecs",
-      "file": "nft_dynset.c",
-      "line": 376
     }
   ],
   "nft_exthdr.c": [
@@ -14732,11 +13645,6 @@
       "name": "nft_exthdr_ipv6_eval",
       "file": "nft_exthdr.c",
       "line": 38
-    },
-    {
-      "name": "nft_reg_store8",
-      "file": "nft_exthdr.c",
-      "line": 52
     },
     {
       "name": "ipv4_find_option",
@@ -14819,19 +13727,9 @@
       "line": 606
     },
     {
-      "name": "nft_expr_reduce_bitwise",
-      "file": "nft_exthdr.c",
-      "line": 630
-    },
-    {
       "name": "nft_exthdr_select_ops",
       "file": "nft_exthdr.c",
       "line": 687
-    },
-    {
-      "name": "ERR_PTR",
-      "file": "nft_exthdr.c",
-      "line": 697
     }
   ],
   "nft_fib.c": [
@@ -14917,19 +13815,9 @@
       "line": 48
     },
     {
-      "name": "dev_fill_forward_path",
-      "file": "nft_flow_offload.c",
-      "line": 76
-    },
-    {
       "name": "nft_dev_path_info",
       "file": "nft_flow_offload.c",
       "line": 94
-    },
-    {
-      "name": "memcpy",
-      "file": "nft_flow_offload.c",
-      "line": 136
     },
     {
       "name": "nft_flowtable_find_dev",
@@ -14960,11 +13848,6 @@
       "name": "nft_flow_offload_validate",
       "file": "nft_flow_offload.c",
       "line": 377
-    },
-    {
-      "name": "nft_chain_validate_hooks",
-      "file": "nft_flow_offload.c",
-      "line": 383
     },
     {
       "name": "nft_flow_offload_init",
@@ -15059,11 +13942,6 @@
       "line": 235
     },
     {
-      "name": "ERR_PTR",
-      "file": "nft_fwd_netdev.c",
-      "line": 244
-    },
-    {
       "name": "nft_fwd_netdev_module_init",
       "file": "nft_fwd_netdev.c",
       "line": 256
@@ -15119,11 +13997,6 @@
       "name": "nft_hash_select_ops",
       "file": "nft_hash.c",
       "line": 241
-    },
-    {
-      "name": "ERR_PTR",
-      "file": "nft_hash.c",
-      "line": 259
     },
     {
       "name": "nft_hash_module_init",
@@ -15307,11 +14180,6 @@
       "line": 288
     },
     {
-      "name": "ERR_PTR",
-      "file": "nft_limit.c",
-      "line": 301
-    },
-    {
       "name": "nft_limit_obj_pkts_eval",
       "file": "nft_limit.c",
       "line": 313
@@ -15397,16 +14265,6 @@
       "name": "nft_log_init",
       "file": "nft_log.c",
       "line": 145
-    },
-    {
-      "name": "nla_strscpy",
-      "file": "nft_log.c",
-      "line": 169
-    },
-    {
-      "name": "ntohl",
-      "file": "nft_log.c",
-      "line": 178
     },
     {
       "name": "nft_log_destroy",
@@ -15580,16 +14438,6 @@
       "line": 79
     },
     {
-      "name": "nft_reg_store8",
-      "file": "nft_meta.c",
-      "line": 93
-    },
-    {
-      "name": "htons",
-      "file": "nft_meta.c",
-      "line": 97
-    },
-    {
       "name": "nft_meta_get_eval_skugid",
       "file": "nft_meta.c",
       "line": 129
@@ -15718,11 +14566,6 @@
       "name": "nft_meta_select_ops",
       "file": "nft_meta.c",
       "line": 811
-    },
-    {
-      "name": "ERR_PTR",
-      "file": "nft_meta.c",
-      "line": 831
     },
     {
       "name": "nft_secmark_compute_secid",
@@ -15884,11 +14727,6 @@
       "line": 209
     },
     {
-      "name": "ERR_PTR",
-      "file": "nft_numgen.c",
-      "line": 228
-    },
-    {
       "name": "nft_ng_module_init",
       "file": "nft_numgen.c",
       "line": 239
@@ -15961,11 +14799,6 @@
       "line": 211
     },
     {
-      "name": "ERR_PTR",
-      "file": "nft_objref.c",
-      "line": 223
-    },
-    {
       "name": "nft_objref_module_init",
       "file": "nft_objref.c",
       "line": 244
@@ -15981,11 +14814,6 @@
       "name": "nft_osf_eval",
       "file": "nft_osf.c",
       "line": 20
-    },
-    {
-      "name": "strncpy",
-      "file": "nft_osf.c",
-      "line": 48
     },
     {
       "name": "nft_osf_init",
@@ -16063,11 +14891,6 @@
       "name": "nft_payload_offload_mask",
       "file": "nft_payload.c",
       "line": 238
-    },
-    {
-      "name": "memset",
-      "file": "nft_payload.c",
-      "line": 246
     },
     {
       "name": "nft_payload_offload_ll",
@@ -16163,11 +14986,6 @@
       "name": "nft_payload_select_ops",
       "file": "nft_payload.c",
       "line": 837
-    },
-    {
-      "name": "ERR_PTR",
-      "file": "nft_payload.c",
-      "line": 848
     }
   ],
   "nft_queue.c": [
@@ -16185,11 +15003,6 @@
       "name": "nft_queue_validate",
       "file": "nft_queue.c",
       "line": 71
-    },
-    {
-      "name": "nft_chain_validate_hooks",
-      "file": "nft_queue.c",
-      "line": 93
     },
     {
       "name": "nft_queue_init",
@@ -16215,11 +15028,6 @@
       "name": "nft_queue_select_ops",
       "file": "nft_queue.c",
       "line": 206
-    },
-    {
-      "name": "ERR_PTR",
-      "file": "nft_queue.c",
-      "line": 221
     },
     {
       "name": "nft_queue_module_init",
@@ -16393,11 +15201,6 @@
       "line": 242
     },
     {
-      "name": "nft_register_expr",
-      "file": "nft_redir.c",
-      "line": 244
-    },
-    {
       "name": "nft_redir_module_init",
       "file": "nft_redir.c",
       "line": 250
@@ -16489,11 +15292,6 @@
       "line": 84
     },
     {
-      "name": "htons",
-      "file": "nft_reject_netdev.c",
-      "line": 97
-    },
-    {
       "name": "nft_reject_netdev_validate",
       "file": "nft_reject_netdev.c",
       "line": 147
@@ -16534,11 +15332,6 @@
       "name": "nft_rt_validate",
       "file": "nft_rt.c",
       "line": 163
-    },
-    {
-      "name": "nft_chain_validate_hooks",
-      "file": "nft_rt.c",
-      "line": 184
     }
   ],
   "nft_set_bitmap.c": [
@@ -16563,6 +15356,11 @@
       "line": 89
     },
     {
+      "name": "nft_bitmap_get",
+      "file": "nft_set_bitmap.c",
+      "line": 107
+    },
+    {
       "name": "nft_bitmap_insert",
       "file": "nft_set_bitmap.c",
       "line": 124
@@ -16581,6 +15379,11 @@
       "name": "nft_bitmap_flush",
       "file": "nft_set_bitmap.c",
       "line": 177
+    },
+    {
+      "name": "nft_bitmap_deactivate",
+      "file": "nft_set_bitmap.c",
+      "line": 193
     },
     {
       "name": "nft_bitmap_walk",
@@ -16640,6 +15443,11 @@
       "line": 78
     },
     {
+      "name": "nft_rhash_get",
+      "file": "nft_set_hash.c",
+      "line": 96
+    },
+    {
       "name": "nft_rhash_update",
       "file": "nft_set_hash.c",
       "line": 114
@@ -16650,11 +15458,6 @@
       "line": 161
     },
     {
-      "name": "PTR_ERR",
-      "file": "nft_set_hash.c",
-      "line": 177
-    },
-    {
       "name": "nft_rhash_activate",
       "file": "nft_set_hash.c",
       "line": 185
@@ -16663,6 +15466,11 @@
       "name": "nft_rhash_flush",
       "file": "nft_set_hash.c",
       "line": 194
+    },
+    {
+      "name": "nft_rhash_deactivate",
+      "file": "nft_set_hash.c",
+      "line": 207
     },
     {
       "name": "nft_rhash_remove",
@@ -16730,6 +15538,11 @@
       "line": 453
     },
     {
+      "name": "nft_hash_get",
+      "file": "nft_set_hash.c",
+      "line": 473
+    },
+    {
       "name": "nft_hash_lookup_fast",
       "file": "nft_set_hash.c",
       "line": 492
@@ -16755,6 +15568,11 @@
       "line": 562
     },
     {
+      "name": "nft_hash_deactivate",
+      "file": "nft_set_hash.c",
+      "line": 571
+    },
+    {
       "name": "nft_hash_remove",
       "file": "nft_set_hash.c",
       "line": 592
@@ -16763,11 +15581,6 @@
       "name": "nft_hash_walk",
       "file": "nft_set_hash.c",
       "line": 601
-    },
-    {
-      "name": "hlist_for_each_entry_rcu",
-      "file": "nft_set_hash.c",
-      "line": 610
     },
     {
       "name": "nft_hash_privsize",
@@ -16783,11 +15596,6 @@
       "name": "nft_hash_destroy",
       "file": "nft_set_hash.c",
       "line": 646
-    },
-    {
-      "name": "hlist_for_each_entry_safe",
-      "file": "nft_set_hash.c",
-      "line": 654
     },
     {
       "name": "nft_hash_estimate",
@@ -16812,14 +15620,19 @@
       "line": 411
     },
     {
+      "name": "pipapo_get",
+      "file": "nft_set_pipapo.c",
+      "line": 514
+    },
+    {
+      "name": "nft_pipapo_get",
+      "file": "nft_set_pipapo.c",
+      "line": 601
+    },
+    {
       "name": "pipapo_resize",
       "file": "nft_set_pipapo.c",
       "line": 620
-    },
-    {
-      "name": "memset",
-      "file": "nft_set_pipapo.c",
-      "line": 673
     },
     {
       "name": "pipapo_bucket_set",
@@ -16882,6 +15695,11 @@
       "line": 1153
     },
     {
+      "name": "pipapo_clone",
+      "file": "nft_set_pipapo.c",
+      "line": 1271
+    },
+    {
       "name": "pipapo_rules_same_key",
       "file": "nft_set_pipapo.c",
       "line": 1385
@@ -16897,19 +15715,9 @@
       "line": 1493
     },
     {
-      "name": "NFT_PIPAPO_BUCKETS",
-      "file": "nft_set_pipapo.c",
-      "line": 1507
-    },
-    {
       "name": "pipapo_gc",
       "file": "nft_set_pipapo.c",
       "line": 1537
-    },
-    {
-      "name": "nft_pipapo_for_each_field",
-      "file": "nft_set_pipapo.c",
-      "line": 1551
     },
     {
       "name": "pipapo_free_fields",
@@ -16930,6 +15738,16 @@
       "name": "nft_pipapo_activate",
       "file": "nft_set_pipapo.c",
       "line": 1675
+    },
+    {
+      "name": "pipapo_deactivate",
+      "file": "nft_set_pipapo.c",
+      "line": 1704
+    },
+    {
+      "name": "nft_pipapo_deactivate",
+      "file": "nft_set_pipapo.c",
+      "line": 1726
     },
     {
       "name": "nft_pipapo_flush",
@@ -17009,16 +15827,6 @@
       "line": 217
     },
     {
-      "name": "NFT_PIPAPO_AVX2_BUCKET_LOAD4",
-      "file": "nft_set_pipapo_avx2.c",
-      "line": 230
-    },
-    {
-      "name": "NFT_PIPAPO_AVX2_AND",
-      "file": "nft_set_pipapo_avx2.c",
-      "line": 232
-    },
-    {
       "name": "nft_pipapo_avx2_lookup_4b_4",
       "file": "nft_set_pipapo_avx2.c",
       "line": 279
@@ -17042,11 +15850,6 @@
       "name": "nft_pipapo_avx2_lookup_8b_1",
       "file": "nft_set_pipapo_avx2.c",
       "line": 674
-    },
-    {
-      "name": "NFT_PIPAPO_AVX2_BUCKET_LOAD8",
-      "file": "nft_set_pipapo_avx2.c",
-      "line": 686
     },
     {
       "name": "nft_pipapo_avx2_lookup_8b_2",
@@ -17074,11 +15877,6 @@
       "line": 1047
     },
     {
-      "name": "memset",
-      "file": "nft_set_pipapo_avx2.c",
-      "line": 1055
-    },
-    {
       "name": "nft_pipapo_avx2_estimate",
       "file": "nft_set_pipapo_avx2.c",
       "line": 1084
@@ -17087,11 +15885,6 @@
       "name": "nft_pipapo_avx2_lookup",
       "file": "nft_set_pipapo_avx2.c",
       "line": 1119
-    },
-    {
-      "name": "NFT_SET_PIPAPO_AVX2_LOOKUP",
-      "file": "nft_set_pipapo_avx2.c",
-      "line": 1169
     }
   ],
   "nft_set_rbtree.c": [
@@ -17116,11 +15909,6 @@
       "line": 47
     },
     {
-      "name": "nft_set_elem_active",
-      "file": "nft_set_rbtree.c",
-      "line": 100
-    },
-    {
       "name": "nft_rbtree_lookup",
       "file": "nft_set_rbtree.c",
       "line": 111
@@ -17131,14 +15919,14 @@
       "line": 130
     },
     {
+      "name": "nft_rbtree_get",
+      "file": "nft_set_rbtree.c",
+      "line": 194
+    },
+    {
       "name": "__nft_rbtree_insert",
       "file": "nft_set_rbtree.c",
       "line": 218
-    },
-    {
-      "name": "nft_set_ext_key",
-      "file": "nft_set_rbtree.c",
-      "line": 288
     },
     {
       "name": "nft_rbtree_insert",
@@ -17161,6 +15949,11 @@
       "line": 412
     },
     {
+      "name": "nft_rbtree_deactivate",
+      "file": "nft_set_rbtree.c",
+      "line": 425
+    },
+    {
       "name": "nft_rbtree_walk",
       "file": "nft_set_rbtree.c",
       "line": 464
@@ -17169,11 +15962,6 @@
       "name": "nft_rbtree_gc",
       "file": "nft_set_rbtree.c",
       "line": 497
-    },
-    {
-      "name": "nft_set_gc_batch_add",
-      "file": "nft_set_rbtree.c",
-      "line": 531
     },
     {
       "name": "nft_rbtree_privsize",
@@ -17208,19 +15996,14 @@
       "line": 39
     },
     {
+      "name": "nft_socket_do_lookup",
+      "file": "nft_socket.c",
+      "line": 58
+    },
+    {
       "name": "nft_socket_eval",
       "file": "nft_socket.c",
       "line": 84
-    },
-    {
-      "name": "nft_reg_store8",
-      "file": "nft_socket.c",
-      "line": 106
-    },
-    {
-      "name": "sock_gen_put",
-      "file": "nft_socket.c",
-      "line": 137
     },
     {
       "name": "nft_socket_init",
@@ -17265,24 +16048,9 @@
       "line": 44
     },
     {
-      "name": "synproxy_send_client_synack",
-      "file": "nft_synproxy.c",
-      "line": 59
-    },
-    {
-      "name": "consume_skb",
-      "file": "nft_synproxy.c",
-      "line": 60
-    },
-    {
       "name": "nft_synproxy_eval_v6",
       "file": "nft_synproxy.c",
       "line": 75
-    },
-    {
-      "name": "synproxy_send_client_synack_ipv6",
-      "file": "nft_synproxy.c",
-      "line": 90
     },
     {
       "name": "nft_synproxy_do_eval",
@@ -17419,11 +16187,6 @@
       "line": 23
     },
     {
-      "name": "nft_reg_store8",
-      "file": "nft_tunnel.c",
-      "line": 45
-    },
-    {
       "name": "nft_tunnel_get_init",
       "file": "nft_tunnel.c",
       "line": 74
@@ -17447,11 +16210,6 @@
       "name": "nft_tunnel_obj_ip6_init",
       "file": "nft_tunnel.c",
       "line": 220
-    },
-    {
-      "name": "memcpy",
-      "file": "nft_tunnel.c",
-      "line": 236
     },
     {
       "name": "nft_tunnel_obj_vxlan_init",
@@ -17487,16 +16245,6 @@
       "name": "nft_tunnel_ip_dump",
       "file": "nft_tunnel.c",
       "line": 537
-    },
-    {
-      "name": "nla_put_in6_addr",
-      "file": "nft_tunnel.c",
-      "line": 548
-    },
-    {
-      "name": "nla_nest_end",
-      "file": "nft_tunnel.c",
-      "line": 556
     },
     {
       "name": "nft_tunnel_opts_dump",
@@ -17680,14 +16428,24 @@
       "line": 181
     },
     {
-      "name": "ERR_PTR",
+      "name": "xt_find_match",
       "file": "x_tables.c",
-      "line": 203
+      "line": 197
     },
     {
       "name": "xt_request_find_match",
       "file": "x_tables.c",
       "line": 227
+    },
+    {
+      "name": "xt_find_target",
+      "file": "x_tables.c",
+      "line": 246
+    },
+    {
+      "name": "xt_request_find_target",
+      "file": "x_tables.c",
+      "line": 275
     },
     {
       "name": "xt_obj_to_user",
@@ -17730,11 +16488,6 @@
       "line": 416
     },
     {
-      "name": "ARRAY_SIZE",
-      "file": "x_tables.c",
-      "line": 434
-    },
-    {
       "name": "xt_check_proc_name",
       "file": "x_tables.c",
       "line": 463
@@ -17743,11 +16496,6 @@
       "name": "xt_check_match",
       "file": "x_tables.c",
       "line": 480
-    },
-    {
-      "name": "pr_info_ratelimited",
-      "file": "x_tables.c",
-      "line": 499
     },
     {
       "name": "xt_check_entry_match",
@@ -17815,6 +16563,11 @@
       "line": 912
     },
     {
+      "name": "xt_alloc_entry_offsets",
+      "file": "x_tables.c",
+      "line": 963
+    },
+    {
       "name": "xt_find_jump_offset",
       "file": "x_tables.c",
       "line": 980
@@ -17823,6 +16576,11 @@
       "name": "xt_check_target",
       "file": "x_tables.c",
       "line": 1000
+    },
+    {
+      "name": "xt_copy_counters",
+      "file": "x_tables.c",
+      "line": 1069
     },
     {
       "name": "xt_compat_target_offset",
@@ -17840,14 +16598,29 @@
       "line": 1158
     },
     {
+      "name": "xt_alloc_table_info",
+      "file": "x_tables.c",
+      "line": 1184
+    },
+    {
       "name": "xt_free_table_info",
       "file": "x_tables.c",
       "line": 1202
     },
     {
-      "name": "mutex_unlock",
+      "name": "xt_find_table",
       "file": "x_tables.c",
-      "line": 1258
+      "line": 1216
+    },
+    {
+      "name": "xt_find_table_lock",
+      "file": "x_tables.c",
+      "line": 1234
+    },
+    {
+      "name": "xt_request_find_table_lock",
+      "file": "x_tables.c",
+      "line": 1281
     },
     {
       "name": "xt_table_unlock",
@@ -17870,9 +16643,34 @@
       "line": 1325
     },
     {
+      "name": "xt_counters_alloc",
+      "file": "x_tables.c",
+      "line": 1368
+    },
+    {
       "name": "xt_replace_table",
       "file": "x_tables.c",
       "line": 1383
+    },
+    {
+      "name": "xt_register_table",
+      "file": "x_tables.c",
+      "line": 1450
+    },
+    {
+      "name": "xt_unregister_table",
+      "file": "x_tables.c",
+      "line": 1500
+    },
+    {
+      "name": "xt_table_seq_start",
+      "file": "x_tables.c",
+      "line": 1518
+    },
+    {
+      "name": "xt_table_seq_next",
+      "file": "x_tables.c",
+      "line": 1530
     },
     {
       "name": "xt_table_seq_stop",
@@ -17885,14 +16683,44 @@
       "line": 1548
     },
     {
+      "name": "xt_mttg_seq_next",
+      "file": "x_tables.c",
+      "line": 1580
+    },
+    {
+      "name": "xt_mttg_seq_start",
+      "file": "x_tables.c",
+      "line": 1621
+    },
+    {
       "name": "xt_mttg_seq_stop",
       "file": "x_tables.c",
       "line": 1634
     },
     {
+      "name": "xt_match_seq_start",
+      "file": "x_tables.c",
+      "line": 1649
+    },
+    {
+      "name": "xt_match_seq_next",
+      "file": "x_tables.c",
+      "line": 1654
+    },
+    {
       "name": "xt_match_seq_show",
       "file": "x_tables.c",
       "line": 1659
+    },
+    {
+      "name": "xt_target_seq_start",
+      "file": "x_tables.c",
+      "line": 1683
+    },
+    {
+      "name": "xt_target_seq_next",
+      "file": "x_tables.c",
+      "line": 1688
     },
     {
       "name": "xt_target_seq_show",
@@ -17943,11 +16771,6 @@
       "name": "xt_net_exit",
       "file": "x_tables.c",
       "line": 1964
-    },
-    {
-      "name": "WARN_ON_ONCE",
-      "file": "x_tables.c",
-      "line": 1970
     },
     {
       "name": "xt_init",
@@ -18143,11 +16966,6 @@
       "line": 157
     },
     {
-      "name": "cgroup_put",
-      "file": "xt_cgroup.c",
-      "line": 162
-    },
-    {
       "name": "cgroup_mt_init",
       "file": "xt_cgroup.c",
       "line": 208
@@ -18204,6 +17022,11 @@
       "line": 16
     },
     {
+      "name": "nf_ct_orig_ipv6_src",
+      "file": "xt_cluster.c",
+      "line": 21
+    },
+    {
       "name": "xt_cluster_hash_ipv4",
       "file": "xt_cluster.c",
       "line": 26
@@ -18232,11 +17055,6 @@
       "name": "xt_cluster_mt_checkentry",
       "file": "xt_cluster.c",
       "line": 122
-    },
-    {
-      "name": "pr_info_ratelimited",
-      "file": "xt_cluster.c",
-      "line": 128
     },
     {
       "name": "xt_cluster_mt_destroy",
@@ -18330,11 +17148,6 @@
       "name": "connlimit_mt",
       "file": "xt_connlimit.c",
       "line": 29
-    },
-    {
-      "name": "memcpy",
-      "file": "xt_connlimit.c",
-      "line": 61
     },
     {
       "name": "connlimit_mt_check",
@@ -18555,16 +17368,6 @@
       "name": "xt_ct_target",
       "file": "xt_CT.c",
       "line": 20
-    },
-    {
-      "name": "refcount_inc",
-      "file": "xt_CT.c",
-      "line": 27
-    },
-    {
-      "name": "nf_ct_set",
-      "file": "xt_CT.c",
-      "line": 28
     },
     {
       "name": "xt_ct_target_v0",
@@ -18819,14 +17622,14 @@
   ],
   "xt_hashlimit.c": [
     {
+      "name": "hashlimit_pernet",
+      "file": "xt_hashlimit.c",
+      "line": 61
+    },
+    {
       "name": "cfg_copy",
       "file": "xt_hashlimit.c",
       "line": 138
-    },
-    {
-      "name": "memcpy",
-      "file": "xt_hashlimit.c",
-      "line": 166
     },
     {
       "name": "dst_cmp",
@@ -18842,11 +17645,6 @@
       "name": "dsthash_find",
       "file": "xt_hashlimit.c",
       "line": 198
-    },
-    {
-      "name": "hlist_for_each_entry_rcu",
-      "file": "xt_hashlimit.c",
-      "line": 206
     },
     {
       "name": "dsthash_alloc_init",
@@ -18874,16 +17672,6 @@
       "line": 361
     },
     {
-      "name": "spin_lock_bh",
-      "file": "xt_hashlimit.c",
-      "line": 369
-    },
-    {
-      "name": "hlist_for_each_entry_safe",
-      "file": "xt_hashlimit.c",
-      "line": 370
-    },
-    {
       "name": "htable_gc",
       "file": "xt_hashlimit.c",
       "line": 379
@@ -18892,6 +17680,11 @@
       "name": "htable_remove_proc_entry",
       "file": "xt_hashlimit.c",
       "line": 391
+    },
+    {
+      "name": "htable_find_get",
+      "file": "xt_hashlimit.c",
+      "line": 405
     },
     {
       "name": "htable_put",
@@ -18917,11 +17710,6 @@
       "name": "user2rate",
       "file": "xt_hashlimit.c",
       "line": 510
-    },
-    {
-      "name": "div64_u64",
-      "file": "xt_hashlimit.c",
-      "line": 513
     },
     {
       "name": "user2rate_bytes",
@@ -18964,16 +17752,6 @@
       "line": 724
     },
     {
-      "name": "local_bh_enable",
-      "file": "xt_hashlimit.c",
-      "line": 743
-    },
-    {
-      "name": "spin_unlock",
-      "file": "xt_hashlimit.c",
-      "line": 765
-    },
-    {
       "name": "hashlimit_mt_v1",
       "file": "xt_hashlimit.c",
       "line": 797
@@ -18992,11 +17770,6 @@
       "name": "hashlimit_mt_check_common",
       "file": "xt_hashlimit.c",
       "line": 838
-    },
-    {
-      "name": "pr_info_ratelimited",
-      "file": "xt_hashlimit.c",
-      "line": 850
     },
     {
       "name": "hashlimit_mt_check_v1",
@@ -19027,6 +17800,16 @@
       "name": "hashlimit_mt_destroy",
       "file": "xt_hashlimit.c",
       "line": 973
+    },
+    {
+      "name": "dl_seq_start",
+      "file": "xt_hashlimit.c",
+      "line": 1052
+    },
+    {
+      "name": "dl_seq_next",
+      "file": "xt_hashlimit.c",
+      "line": 1070
     },
     {
       "name": "dl_seq_stop",
@@ -19227,6 +18010,11 @@
   ],
   "xt_IDLETIMER.c": [
     {
+      "name": "__idletimer_tg_find_by_label",
+      "file": "xt_IDLETIMER.c",
+      "line": 51
+    },
+    {
       "name": "idletimer_tg_show",
       "file": "xt_IDLETIMER.c",
       "line": 63
@@ -19262,11 +18050,6 @@
       "line": 185
     },
     {
-      "name": "alarm_start_relative",
-      "file": "xt_IDLETIMER.c",
-      "line": 230
-    },
-    {
       "name": "idletimer_tg_target",
       "file": "xt_IDLETIMER.c",
       "line": 250
@@ -19297,29 +18080,9 @@
       "line": 404
     },
     {
-      "name": "sysfs_remove_file",
-      "file": "xt_IDLETIMER.c",
-      "line": 418
-    },
-    {
-      "name": "kfree",
-      "file": "xt_IDLETIMER.c",
-      "line": 419
-    },
-    {
       "name": "idletimer_tg_destroy_v1",
       "file": "xt_IDLETIMER.c",
       "line": 429
-    },
-    {
-      "name": "list_del",
-      "file": "xt_IDLETIMER.c",
-      "line": 440
-    },
-    {
-      "name": "alarm_cancel",
-      "file": "xt_IDLETIMER.c",
-      "line": 442
     },
     {
       "name": "idletimer_tg_init",
@@ -19472,19 +18235,14 @@
       "line": 41
     },
     {
-      "name": "led_trigger_event",
-      "file": "xt_LED.c",
-      "line": 56
-    },
-    {
-      "name": "mod_timer",
-      "file": "xt_LED.c",
-      "line": 61
-    },
-    {
       "name": "led_timeout_callback",
       "file": "xt_LED.c",
       "line": 74
+    },
+    {
+      "name": "led_trigger_lookup",
+      "file": "xt_LED.c",
+      "line": 82
     },
     {
       "name": "led_tg_check",
@@ -19763,11 +18521,6 @@
       "line": 136
     },
     {
-      "name": "nf_nat_setup_info",
-      "file": "xt_nat.c",
-      "line": 147
-    },
-    {
       "name": "xt_nat_init",
       "file": "xt_nat.c",
       "line": 227
@@ -19803,11 +18556,6 @@
       "name": "netmap_tg4_check",
       "file": "xt_NETMAP.c",
       "line": 104
-    },
-    {
-      "name": "nf_ct_netns_get",
-      "file": "xt_NETMAP.c",
-      "line": 116
     },
     {
       "name": "netmap_tg_init",
@@ -19916,11 +18664,6 @@
       "name": "xt_osf_match_packet",
       "file": "xt_osf.c",
       "line": 27
-    },
-    {
-      "name": "nf_osf_match",
-      "file": "xt_osf.c",
-      "line": 30
     },
     {
       "name": "xt_osf_init",
@@ -20070,11 +18813,6 @@
       "line": 14
     },
     {
-      "name": "gen_estimator_read",
-      "file": "xt_rateest.c",
-      "line": 36
-    },
-    {
       "name": "xt_rateest_mt_checkentry",
       "file": "xt_rateest.c",
       "line": 72
@@ -20083,11 +18821,6 @@
       "name": "xt_rateest_mt_destroy",
       "file": "xt_rateest.c",
       "line": 116
-    },
-    {
-      "name": "xt_rateest_put",
-      "file": "xt_rateest.c",
-      "line": 122
     },
     {
       "name": "xt_rateest_mt_init",
@@ -20118,6 +18851,11 @@
     }
   ],
   "xt_recent.c": [
+    {
+      "name": "recent_pernet",
+      "file": "xt_recent.c",
+      "line": 97
+    },
     {
       "name": "recent_entry_hash4",
       "file": "xt_recent.c",
@@ -20154,6 +18892,11 @@
       "line": 209
     },
     {
+      "name": "recent_table_lookup",
+      "file": "xt_recent.c",
+      "line": 218
+    },
+    {
       "name": "recent_table_flush",
       "file": "xt_recent.c",
       "line": 229
@@ -20187,6 +18930,16 @@
       "name": "recent_mt_destroy",
       "file": "xt_recent.c",
       "line": 451
+    },
+    {
+      "name": "recent_seq_start",
+      "file": "xt_recent.c",
+      "line": 479
+    },
+    {
+      "name": "recent_seq_next",
+      "file": "xt_recent.c",
+      "line": 496
     },
     {
       "name": "recent_seq_stop",
@@ -20266,11 +19019,6 @@
       "line": 65
     },
     {
-      "name": "nf_nat_redirect_ipv4",
-      "file": "xt_REDIRECT.c",
-      "line": 68
-    },
-    {
       "name": "redirect_tg_init",
       "file": "xt_REDIRECT.c",
       "line": 100
@@ -20291,11 +19039,6 @@
       "name": "match_packet",
       "file": "xt_sctp.c",
       "line": 39
-    },
-    {
-      "name": "SCTP_CHUNKMAP_COPY",
-      "file": "xt_sctp.c",
-      "line": 57
     },
     {
       "name": "sctp_mt",
@@ -20392,11 +19135,6 @@
       "line": 82
     },
     {
-      "name": "pr_info_ratelimited",
-      "file": "xt_set.c",
-      "line": 91
-    },
-    {
       "name": "set_match_v0_destroy",
       "file": "xt_set.c",
       "line": 107
@@ -20467,16 +19205,6 @@
       "line": 388
     },
     {
-      "name": "ip_set_add",
-      "file": "xt_set.c",
-      "line": 409
-    },
-    {
-      "name": "ip_set_del",
-      "file": "xt_set.c",
-      "line": 411
-    },
-    {
       "name": "set_target_v3_checkentry",
       "file": "xt_set.c",
       "line": 433
@@ -20485,11 +19213,6 @@
       "name": "set_target_v3_destroy",
       "file": "xt_set.c",
       "line": 507
-    },
-    {
-      "name": "ip_set_nfnl_put",
-      "file": "xt_set.c",
-      "line": 517
     },
     {
       "name": "xt_set_init",
