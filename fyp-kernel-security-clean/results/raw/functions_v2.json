@@ -17960,864 +17960,6 @@
       "line": 2009
     }
   ],
-  "xt_AUDIT.c": [
-    {
-      "name": "audit_ip4",
-      "file": "xt_AUDIT.c",
-      "line": 31
-    },
-    {
-      "name": "audit_ip6",
-      "file": "xt_AUDIT.c",
-      "line": 46
-    },
-    {
-      "name": "audit_tg",
-      "file": "xt_AUDIT.c",
-      "line": 66
-    },
-    {
-      "name": "audit_tg_ebt",
-      "file": "xt_AUDIT.c",
-      "line": 108
-    },
-    {
-      "name": "audit_tg_check",
-      "file": "xt_AUDIT.c",
-      "line": 115
-    },
-    {
-      "name": "audit_tg_init",
-      "file": "xt_AUDIT.c",
-      "line": 147
-    },
-    {
-      "name": "audit_tg_exit",
-      "file": "xt_AUDIT.c",
-      "line": 152
-    }
-  ],
-  "xt_CHECKSUM.c": [
-    {
-      "name": "checksum_tg",
-      "file": "xt_CHECKSUM.c",
-      "line": 25
-    },
-    {
-      "name": "checksum_tg_check",
-      "file": "xt_CHECKSUM.c",
-      "line": 34
-    },
-    {
-      "name": "checksum_tg_init",
-      "file": "xt_CHECKSUM.c",
-      "line": 76
-    },
-    {
-      "name": "checksum_tg_exit",
-      "file": "xt_CHECKSUM.c",
-      "line": 81
-    }
-  ],
-  "xt_CLASSIFY.c": [
-    {
-      "name": "classify_tg",
-      "file": "xt_CLASSIFY.c",
-      "line": 28
-    },
-    {
-      "name": "classify_tg_init",
-      "file": "xt_CLASSIFY.c",
-      "line": 59
-    },
-    {
-      "name": "classify_tg_exit",
-      "file": "xt_CLASSIFY.c",
-      "line": 64
-    }
-  ],
-  "xt_CONNSECMARK.c": [
-    {
-      "name": "secmark_save",
-      "file": "xt_CONNSECMARK.c",
-      "line": 32
-    },
-    {
-      "name": "secmark_restore",
-      "file": "xt_CONNSECMARK.c",
-      "line": 50
-    },
-    {
-      "name": "connsecmark_tg",
-      "file": "xt_CONNSECMARK.c",
-      "line": 62
-    },
-    {
-      "name": "connsecmark_tg_check",
-      "file": "xt_CONNSECMARK.c",
-      "line": 83
-    },
-    {
-      "name": "connsecmark_tg_destroy",
-      "file": "xt_CONNSECMARK.c",
-      "line": 112
-    },
-    {
-      "name": "connsecmark_tg_init",
-      "file": "xt_CONNSECMARK.c",
-      "line": 128
-    },
-    {
-      "name": "connsecmark_tg_exit",
-      "file": "xt_CONNSECMARK.c",
-      "line": 133
-    }
-  ],
-  "xt_CT.c": [
-    {
-      "name": "xt_ct_target",
-      "file": "xt_CT.c",
-      "line": 20
-    },
-    {
-      "name": "refcount_inc",
-      "file": "xt_CT.c",
-      "line": 27
-    },
-    {
-      "name": "nf_ct_set",
-      "file": "xt_CT.c",
-      "line": 28
-    },
-    {
-      "name": "xt_ct_target_v0",
-      "file": "xt_CT.c",
-      "line": 36
-    },
-    {
-      "name": "xt_ct_target_v1",
-      "file": "xt_CT.c",
-      "line": 45
-    },
-    {
-      "name": "xt_ct_find_proto",
-      "file": "xt_CT.c",
-      "line": 54
-    },
-    {
-      "name": "xt_ct_set_helper",
-      "file": "xt_CT.c",
-      "line": 72
-    },
-    {
-      "name": "xt_ct_set_timeout",
-      "file": "xt_CT.c",
-      "line": 103
-    },
-    {
-      "name": "xt_ct_flags_to_dir",
-      "file": "xt_CT.c",
-      "line": 126
-    },
-    {
-      "name": "xt_ct_put_helper",
-      "file": "xt_CT.c",
-      "line": 139
-    },
-    {
-      "name": "xt_ct_tg_check",
-      "file": "xt_CT.c",
-      "line": 154
-    },
-    {
-      "name": "xt_ct_tg_check_v0",
-      "file": "xt_CT.c",
-      "line": 234
-    },
-    {
-      "name": "xt_ct_tg_check_v1",
-      "file": "xt_CT.c",
-      "line": 259
-    },
-    {
-      "name": "xt_ct_tg_check_v2",
-      "file": "xt_CT.c",
-      "line": 269
-    },
-    {
-      "name": "xt_ct_tg_destroy",
-      "file": "xt_CT.c",
-      "line": 279
-    },
-    {
-      "name": "xt_ct_tg_destroy_v0",
-      "file": "xt_CT.c",
-      "line": 296
-    },
-    {
-      "name": "xt_ct_tg_destroy_v1",
-      "file": "xt_CT.c",
-      "line": 311
-    },
-    {
-      "name": "notrack_tg",
-      "file": "xt_CT.c",
-      "line": 354
-    },
-    {
-      "name": "xt_ct_tg_init",
-      "file": "xt_CT.c",
-      "line": 375
-    },
-    {
-      "name": "xt_ct_tg_exit",
-      "file": "xt_CT.c",
-      "line": 391
-    }
-  ],
-  "xt_HMARK.c": [
-    {
-      "name": "hmark_addr6_mask",
-      "file": "xt_HMARK.c",
-      "line": 40
-    },
-    {
-      "name": "hmark_addr_mask",
-      "file": "xt_HMARK.c",
-      "line": 48
-    },
-    {
-      "name": "hmark_swap_ports",
-      "file": "xt_HMARK.c",
-      "line": 60
-    },
-    {
-      "name": "hmark_ct_set_htuple",
-      "file": "xt_HMARK.c",
-      "line": 76
-    },
-    {
-      "name": "hmark_hash",
-      "file": "xt_HMARK.c",
-      "line": 115
-    },
-    {
-      "name": "hmark_set_tuple_ports",
-      "file": "xt_HMARK.c",
-      "line": 131
-    },
-    {
-      "name": "get_inner6_hdr",
-      "file": "xt_HMARK.c",
-      "line": 149
-    },
-    {
-      "name": "hmark_pkt_set_htuple_ipv6",
-      "file": "xt_HMARK.c",
-      "line": 164
-    },
-    {
-      "name": "hmark_tg_v6",
-      "file": "xt_HMARK.c",
-      "line": 210
-    },
-    {
-      "name": "get_inner_hdr",
-      "file": "xt_HMARK.c",
-      "line": 231
-    },
-    {
-      "name": "hmark_pkt_set_htuple_ipv4",
-      "file": "xt_HMARK.c",
-      "line": 249
-    },
-    {
-      "name": "hmark_tg_v4",
-      "file": "xt_HMARK.c",
-      "line": 287
-    },
-    {
-      "name": "hmark_tg_check",
-      "file": "xt_HMARK.c",
-      "line": 307
-    },
-    {
-      "name": "hmark_tg_init",
-      "file": "xt_HMARK.c",
-      "line": 357
-    },
-    {
-      "name": "hmark_tg_exit",
-      "file": "xt_HMARK.c",
-      "line": 362
-    }
-  ],
-  "xt_IDLETIMER.c": [
-    {
-      "name": "idletimer_tg_show",
-      "file": "xt_IDLETIMER.c",
-      "line": 63
-    },
-    {
-      "name": "idletimer_tg_work",
-      "file": "xt_IDLETIMER.c",
-      "line": 93
-    },
-    {
-      "name": "idletimer_tg_expired",
-      "file": "xt_IDLETIMER.c",
-      "line": 101
-    },
-    {
-      "name": "idletimer_tg_alarmproc",
-      "file": "xt_IDLETIMER.c",
-      "line": 110
-    },
-    {
-      "name": "idletimer_check_sysfs_name",
-      "file": "xt_IDLETIMER.c",
-      "line": 120
-    },
-    {
-      "name": "idletimer_tg_create",
-      "file": "xt_IDLETIMER.c",
-      "line": 136
-    },
-    {
-      "name": "idletimer_tg_create_v1",
-      "file": "xt_IDLETIMER.c",
-      "line": 185
-    },
-    {
-      "name": "alarm_start_relative",
-      "file": "xt_IDLETIMER.c",
-      "line": 230
-    },
-    {
-      "name": "idletimer_tg_target",
-      "file": "xt_IDLETIMER.c",
-      "line": 250
-    },
-    {
-      "name": "idletimer_tg_target_v1",
-      "file": "xt_IDLETIMER.c",
-      "line": 267
-    },
-    {
-      "name": "idletimer_tg_helper",
-      "file": "xt_IDLETIMER.c",
-      "line": 286
-    },
-    {
-      "name": "idletimer_tg_checkentry",
-      "file": "xt_IDLETIMER.c",
-      "line": 306
-    },
-    {
-      "name": "idletimer_tg_checkentry_v1",
-      "file": "xt_IDLETIMER.c",
-      "line": 342
-    },
-    {
-      "name": "idletimer_tg_destroy",
-      "file": "xt_IDLETIMER.c",
-      "line": 404
-    },
-    {
-      "name": "sysfs_remove_file",
-      "file": "xt_IDLETIMER.c",
-      "line": 418
-    },
-    {
-      "name": "kfree",
-      "file": "xt_IDLETIMER.c",
-      "line": 419
-    },
-    {
-      "name": "idletimer_tg_destroy_v1",
-      "file": "xt_IDLETIMER.c",
-      "line": 429
-    },
-    {
-      "name": "list_del",
-      "file": "xt_IDLETIMER.c",
-      "line": 440
-    },
-    {
-      "name": "alarm_cancel",
-      "file": "xt_IDLETIMER.c",
-      "line": 442
-    },
-    {
-      "name": "idletimer_tg_init",
-      "file": "xt_IDLETIMER.c",
-      "line": 489
-    },
-    {
-      "name": "idletimer_tg_exit",
-      "file": "xt_IDLETIMER.c",
-      "line": 526
-    }
-  ],
-  "xt_LED.c": [
-    {
-      "name": "led_tg",
-      "file": "xt_LED.c",
-      "line": 41
-    },
-    {
-      "name": "led_trigger_event",
-      "file": "xt_LED.c",
-      "line": 56
-    },
-    {
-      "name": "mod_timer",
-      "file": "xt_LED.c",
-      "line": 61
-    },
-    {
-      "name": "led_timeout_callback",
-      "file": "xt_LED.c",
-      "line": 74
-    },
-    {
-      "name": "led_tg_check",
-      "file": "xt_LED.c",
-      "line": 94
-    },
-    {
-      "name": "led_tg_destroy",
-      "file": "xt_LED.c",
-      "line": 155
-    },
-    {
-      "name": "led_tg_init",
-      "file": "xt_LED.c",
-      "line": 191
-    },
-    {
-      "name": "led_tg_exit",
-      "file": "xt_LED.c",
-      "line": 196
-    }
-  ],
-  "xt_LOG.c": [
-    {
-      "name": "log_tg",
-      "file": "xt_LOG.c",
-      "line": 28
-    },
-    {
-      "name": "log_tg_check",
-      "file": "xt_LOG.c",
-      "line": 44
-    },
-    {
-      "name": "log_tg_destroy",
-      "file": "xt_LOG.c",
-      "line": 72
-    },
-    {
-      "name": "log_tg_init",
-      "file": "xt_LOG.c",
-      "line": 100
-    },
-    {
-      "name": "log_tg_exit",
-      "file": "xt_LOG.c",
-      "line": 105
-    }
-  ],
-  "xt_MASQUERADE.c": [
-    {
-      "name": "masquerade_tg_check",
-      "file": "xt_MASQUERADE.c",
-      "line": 19
-    },
-    {
-      "name": "masquerade_tg",
-      "file": "xt_MASQUERADE.c",
-      "line": 34
-    },
-    {
-      "name": "masquerade_tg_destroy",
-      "file": "xt_MASQUERADE.c",
-      "line": 49
-    },
-    {
-      "name": "masquerade_tg6",
-      "file": "xt_MASQUERADE.c",
-      "line": 55
-    },
-    {
-      "name": "masquerade_tg6_checkentry",
-      "file": "xt_MASQUERADE.c",
-      "line": 61
-    },
-    {
-      "name": "masquerade_tg_init",
-      "file": "xt_MASQUERADE.c",
-      "line": 98
-    },
-    {
-      "name": "masquerade_tg_exit",
-      "file": "xt_MASQUERADE.c",
-      "line": 117
-    }
-  ],
-  "xt_NETMAP.c": [
-    {
-      "name": "netmap_tg6",
-      "file": "xt_NETMAP.c",
-      "line": 18
-    },
-    {
-      "name": "netmap_tg6_checkentry",
-      "file": "xt_NETMAP.c",
-      "line": 54
-    },
-    {
-      "name": "netmap_tg_destroy",
-      "file": "xt_NETMAP.c",
-      "line": 63
-    },
-    {
-      "name": "netmap_tg4",
-      "file": "xt_NETMAP.c",
-      "line": 68
-    },
-    {
-      "name": "netmap_tg4_check",
-      "file": "xt_NETMAP.c",
-      "line": 104
-    },
-    {
-      "name": "nf_ct_netns_get",
-      "file": "xt_NETMAP.c",
-      "line": 116
-    },
-    {
-      "name": "netmap_tg_init",
-      "file": "xt_NETMAP.c",
-      "line": 152
-    },
-    {
-      "name": "netmap_tg_exit",
-      "file": "xt_NETMAP.c",
-      "line": 157
-    }
-  ],
-  "xt_NFLOG.c": [
-    {
-      "name": "nflog_tg",
-      "file": "xt_NFLOG.c",
-      "line": 20
-    },
-    {
-      "name": "nflog_tg_check",
-      "file": "xt_NFLOG.c",
-      "line": 42
-    },
-    {
-      "name": "nflog_tg_destroy",
-      "file": "xt_NFLOG.c",
-      "line": 62
-    },
-    {
-      "name": "nflog_tg_init",
-      "file": "xt_NFLOG.c",
-      "line": 78
-    },
-    {
-      "name": "nflog_tg_exit",
-      "file": "xt_NFLOG.c",
-      "line": 83
-    }
-  ],
-  "xt_NFQUEUE.c": [
-    {
-      "name": "nfqueue_tg",
-      "file": "xt_NFQUEUE.c",
-      "line": 28
-    },
-    {
-      "name": "nfqueue_tg_v1",
-      "file": "xt_NFQUEUE.c",
-      "line": 36
-    },
-    {
-      "name": "nfqueue_tg_v2",
-      "file": "xt_NFQUEUE.c",
-      "line": 49
-    },
-    {
-      "name": "nfqueue_tg_check",
-      "file": "xt_NFQUEUE.c",
-      "line": 60
-    },
-    {
-      "name": "nfqueue_tg_v3",
-      "file": "xt_NFQUEUE.c",
-      "line": 85
-    },
-    {
-      "name": "nfqueue_tg_init",
-      "file": "xt_NFQUEUE.c",
-      "line": 147
-    },
-    {
-      "name": "nfqueue_tg_exit",
-      "file": "xt_NFQUEUE.c",
-      "line": 152
-    }
-  ],
-  "xt_REDIRECT.c": [
-    {
-      "name": "redirect_tg6",
-      "file": "xt_REDIRECT.c",
-      "line": 28
-    },
-    {
-      "name": "redirect_tg6_checkentry",
-      "file": "xt_REDIRECT.c",
-      "line": 34
-    },
-    {
-      "name": "redirect_tg_destroy",
-      "file": "xt_REDIRECT.c",
-      "line": 44
-    },
-    {
-      "name": "redirect_tg4_check",
-      "file": "xt_REDIRECT.c",
-      "line": 50
-    },
-    {
-      "name": "redirect_tg4",
-      "file": "xt_REDIRECT.c",
-      "line": 65
-    },
-    {
-      "name": "nf_nat_redirect_ipv4",
-      "file": "xt_REDIRECT.c",
-      "line": 68
-    },
-    {
-      "name": "redirect_tg_init",
-      "file": "xt_REDIRECT.c",
-      "line": 100
-    },
-    {
-      "name": "redirect_tg_exit",
-      "file": "xt_REDIRECT.c",
-      "line": 106
-    }
-  ],
-  "xt_SECMARK.c": [
-    {
-      "name": "secmark_tg",
-      "file": "xt_SECMARK.c",
-      "line": 26
-    },
-    {
-      "name": "checkentry_lsm",
-      "file": "xt_SECMARK.c",
-      "line": 43
-    },
-    {
-      "name": "secmark_tg_check",
-      "file": "xt_SECMARK.c",
-      "line": 75
-    },
-    {
-      "name": "secmark_tg_destroy",
-      "file": "xt_SECMARK.c",
-      "line": 110
-    },
-    {
-      "name": "secmark_tg_check_v0",
-      "file": "xt_SECMARK.c",
-      "line": 118
-    },
-    {
-      "name": "secmark_tg_v0",
-      "file": "xt_SECMARK.c",
-      "line": 134
-    },
-    {
-      "name": "secmark_tg_check_v1",
-      "file": "xt_SECMARK.c",
-      "line": 145
-    },
-    {
-      "name": "secmark_tg_v1",
-      "file": "xt_SECMARK.c",
-      "line": 150
-    },
-    {
-      "name": "secmark_tg_init",
-      "file": "xt_SECMARK.c",
-      "line": 180
-    },
-    {
-      "name": "secmark_tg_exit",
-      "file": "xt_SECMARK.c",
-      "line": 185
-    }
-  ],
-  "xt_TCPOPTSTRIP.c": [
-    {
-      "name": "optlen",
-      "file": "xt_TCPOPTSTRIP.c",
-      "line": 19
-    },
-    {
-      "name": "tcpoptstrip_mangle_packet",
-      "file": "xt_TCPOPTSTRIP.c",
-      "line": 28
-    },
-    {
-      "name": "tcpoptstrip_tg4",
-      "file": "xt_TCPOPTSTRIP.c",
-      "line": 88
-    },
-    {
-      "name": "tcpoptstrip_tg6",
-      "file": "xt_TCPOPTSTRIP.c",
-      "line": 95
-    },
-    {
-      "name": "tcpoptstrip_tg_init",
-      "file": "xt_TCPOPTSTRIP.c",
-      "line": 135
-    },
-    {
-      "name": "tcpoptstrip_tg_exit",
-      "file": "xt_TCPOPTSTRIP.c",
-      "line": 141
-    }
-  ],
-  "xt_TEE.c": [
-    {
-      "name": "tee_tg4",
-      "file": "xt_TEE.c",
-      "line": 36
-    },
-    {
-      "name": "tee_tg6",
-      "file": "xt_TEE.c",
-      "line": 48
-    },
-    {
-      "name": "tee_netdev_event",
-      "file": "xt_TEE.c",
-      "line": 60
-    },
-    {
-      "name": "tee_tg_check",
-      "file": "xt_TEE.c",
-      "line": 92
-    },
-    {
-      "name": "tee_tg_destroy",
-      "file": "xt_TEE.c",
-      "line": 132
-    },
-    {
-      "name": "tee_net_init",
-      "file": "xt_TEE.c",
-      "line": 173
-    },
-    {
-      "name": "tee_tg_init",
-      "file": "xt_TEE.c",
-      "line": 192
-    },
-    {
-      "name": "tee_tg_exit",
-      "file": "xt_TEE.c",
-      "line": 217
-    }
-  ],
-  "xt_TPROXY.c": [
-    {
-      "name": "tproxy_tg4",
-      "file": "xt_TPROXY.c",
-      "line": 35
-    },
-    {
-      "name": "tproxy_tg4_v0",
-      "file": "xt_TPROXY.c",
-      "line": 84
-    },
-    {
-      "name": "tproxy_tg4_v1",
-      "file": "xt_TPROXY.c",
-      "line": 93
-    },
-    {
-      "name": "tproxy_tg6_v1",
-      "file": "xt_TPROXY.c",
-      "line": 104
-    },
-    {
-      "name": "tproxy_tg6_check",
-      "file": "xt_TPROXY.c",
-      "line": 166
-    },
-    {
-      "name": "tproxy_tg6_destroy",
-      "file": "xt_TPROXY.c",
-      "line": 183
-    },
-    {
-      "name": "tproxy_tg4_check",
-      "file": "xt_TPROXY.c",
-      "line": 189
-    },
-    {
-      "name": "tproxy_tg4_destroy",
-      "file": "xt_TPROXY.c",
-      "line": 206
-    },
-    {
-      "name": "tproxy_tg_init",
-      "file": "xt_TPROXY.c",
-      "line": 253
-    },
-    {
-      "name": "tproxy_tg_exit",
-      "file": "xt_TPROXY.c",
-      "line": 258
-    }
-  ],
-  "xt_TRACE.c": [
-    {
-      "name": "trace_tg_check",
-      "file": "xt_TRACE.c",
-      "line": 15
-    },
-    {
-      "name": "trace_tg_destroy",
-      "file": "xt_TRACE.c",
-      "line": 20
-    },
-    {
-      "name": "trace_tg",
-      "file": "xt_TRACE.c",
-      "line": 25
-    },
-    {
-      "name": "trace_tg_init",
-      "file": "xt_TRACE.c",
-      "line": 43
-    },
-    {
-      "name": "trace_tg_exit",
-      "file": "xt_TRACE.c",
-      "line": 48
-    }
-  ],
   "xt_addrtype.c": [
     {
       "name": "match_lookup_rt6",
@@ -18863,6 +18005,43 @@
       "name": "addrtype_mt_exit",
       "file": "xt_addrtype.c",
       "line": 226
+    }
+  ],
+  "xt_AUDIT.c": [
+    {
+      "name": "audit_ip4",
+      "file": "xt_AUDIT.c",
+      "line": 31
+    },
+    {
+      "name": "audit_ip6",
+      "file": "xt_AUDIT.c",
+      "line": 46
+    },
+    {
+      "name": "audit_tg",
+      "file": "xt_AUDIT.c",
+      "line": 66
+    },
+    {
+      "name": "audit_tg_ebt",
+      "file": "xt_AUDIT.c",
+      "line": 108
+    },
+    {
+      "name": "audit_tg_check",
+      "file": "xt_AUDIT.c",
+      "line": 115
+    },
+    {
+      "name": "audit_tg_init",
+      "file": "xt_AUDIT.c",
+      "line": 147
+    },
+    {
+      "name": "audit_tg_exit",
+      "file": "xt_AUDIT.c",
+      "line": 152
     }
   ],
   "xt_bpf.c": [
@@ -18977,6 +18156,45 @@
       "name": "cgroup_mt_exit",
       "file": "xt_cgroup.c",
       "line": 213
+    }
+  ],
+  "xt_CHECKSUM.c": [
+    {
+      "name": "checksum_tg",
+      "file": "xt_CHECKSUM.c",
+      "line": 25
+    },
+    {
+      "name": "checksum_tg_check",
+      "file": "xt_CHECKSUM.c",
+      "line": 34
+    },
+    {
+      "name": "checksum_tg_init",
+      "file": "xt_CHECKSUM.c",
+      "line": 76
+    },
+    {
+      "name": "checksum_tg_exit",
+      "file": "xt_CHECKSUM.c",
+      "line": 81
+    }
+  ],
+  "xt_CLASSIFY.c": [
+    {
+      "name": "classify_tg",
+      "file": "xt_CLASSIFY.c",
+      "line": 28
+    },
+    {
+      "name": "classify_tg_init",
+      "file": "xt_CLASSIFY.c",
+      "line": 59
+    },
+    {
+      "name": "classify_tg_exit",
+      "file": "xt_CLASSIFY.c",
+      "line": 64
     }
   ],
   "xt_cluster.c": [
@@ -19191,6 +18409,43 @@
       "line": 201
     }
   ],
+  "xt_CONNSECMARK.c": [
+    {
+      "name": "secmark_save",
+      "file": "xt_CONNSECMARK.c",
+      "line": 32
+    },
+    {
+      "name": "secmark_restore",
+      "file": "xt_CONNSECMARK.c",
+      "line": 50
+    },
+    {
+      "name": "connsecmark_tg",
+      "file": "xt_CONNSECMARK.c",
+      "line": 62
+    },
+    {
+      "name": "connsecmark_tg_check",
+      "file": "xt_CONNSECMARK.c",
+      "line": 83
+    },
+    {
+      "name": "connsecmark_tg_destroy",
+      "file": "xt_CONNSECMARK.c",
+      "line": 112
+    },
+    {
+      "name": "connsecmark_tg_init",
+      "file": "xt_CONNSECMARK.c",
+      "line": 128
+    },
+    {
+      "name": "connsecmark_tg_exit",
+      "file": "xt_CONNSECMARK.c",
+      "line": 133
+    }
+  ],
   "xt_conntrack.c": [
     {
       "name": "conntrack_addrcmp",
@@ -19293,6 +18548,108 @@
       "name": "cpu_mt_exit",
       "file": "xt_cpu.c",
       "line": 55
+    }
+  ],
+  "xt_CT.c": [
+    {
+      "name": "xt_ct_target",
+      "file": "xt_CT.c",
+      "line": 20
+    },
+    {
+      "name": "refcount_inc",
+      "file": "xt_CT.c",
+      "line": 27
+    },
+    {
+      "name": "nf_ct_set",
+      "file": "xt_CT.c",
+      "line": 28
+    },
+    {
+      "name": "xt_ct_target_v0",
+      "file": "xt_CT.c",
+      "line": 36
+    },
+    {
+      "name": "xt_ct_target_v1",
+      "file": "xt_CT.c",
+      "line": 45
+    },
+    {
+      "name": "xt_ct_find_proto",
+      "file": "xt_CT.c",
+      "line": 54
+    },
+    {
+      "name": "xt_ct_set_helper",
+      "file": "xt_CT.c",
+      "line": 72
+    },
+    {
+      "name": "xt_ct_set_timeout",
+      "file": "xt_CT.c",
+      "line": 103
+    },
+    {
+      "name": "xt_ct_flags_to_dir",
+      "file": "xt_CT.c",
+      "line": 126
+    },
+    {
+      "name": "xt_ct_put_helper",
+      "file": "xt_CT.c",
+      "line": 139
+    },
+    {
+      "name": "xt_ct_tg_check",
+      "file": "xt_CT.c",
+      "line": 154
+    },
+    {
+      "name": "xt_ct_tg_check_v0",
+      "file": "xt_CT.c",
+      "line": 234
+    },
+    {
+      "name": "xt_ct_tg_check_v1",
+      "file": "xt_CT.c",
+      "line": 259
+    },
+    {
+      "name": "xt_ct_tg_check_v2",
+      "file": "xt_CT.c",
+      "line": 269
+    },
+    {
+      "name": "xt_ct_tg_destroy",
+      "file": "xt_CT.c",
+      "line": 279
+    },
+    {
+      "name": "xt_ct_tg_destroy_v0",
+      "file": "xt_CT.c",
+      "line": 296
+    },
+    {
+      "name": "xt_ct_tg_destroy_v1",
+      "file": "xt_CT.c",
+      "line": 311
+    },
+    {
+      "name": "notrack_tg",
+      "file": "xt_CT.c",
+      "line": 354
+    },
+    {
+      "name": "xt_ct_tg_init",
+      "file": "xt_CT.c",
+      "line": 375
+    },
+    {
+      "name": "xt_ct_tg_exit",
+      "file": "xt_CT.c",
+      "line": 391
     }
   ],
   "xt_dccp.c": [
@@ -19791,6 +19148,190 @@
       "line": 87
     }
   ],
+  "xt_HMARK.c": [
+    {
+      "name": "hmark_addr6_mask",
+      "file": "xt_HMARK.c",
+      "line": 40
+    },
+    {
+      "name": "hmark_addr_mask",
+      "file": "xt_HMARK.c",
+      "line": 48
+    },
+    {
+      "name": "hmark_swap_ports",
+      "file": "xt_HMARK.c",
+      "line": 60
+    },
+    {
+      "name": "hmark_ct_set_htuple",
+      "file": "xt_HMARK.c",
+      "line": 76
+    },
+    {
+      "name": "hmark_hash",
+      "file": "xt_HMARK.c",
+      "line": 115
+    },
+    {
+      "name": "hmark_set_tuple_ports",
+      "file": "xt_HMARK.c",
+      "line": 131
+    },
+    {
+      "name": "get_inner6_hdr",
+      "file": "xt_HMARK.c",
+      "line": 149
+    },
+    {
+      "name": "hmark_pkt_set_htuple_ipv6",
+      "file": "xt_HMARK.c",
+      "line": 164
+    },
+    {
+      "name": "hmark_tg_v6",
+      "file": "xt_HMARK.c",
+      "line": 210
+    },
+    {
+      "name": "get_inner_hdr",
+      "file": "xt_HMARK.c",
+      "line": 231
+    },
+    {
+      "name": "hmark_pkt_set_htuple_ipv4",
+      "file": "xt_HMARK.c",
+      "line": 249
+    },
+    {
+      "name": "hmark_tg_v4",
+      "file": "xt_HMARK.c",
+      "line": 287
+    },
+    {
+      "name": "hmark_tg_check",
+      "file": "xt_HMARK.c",
+      "line": 307
+    },
+    {
+      "name": "hmark_tg_init",
+      "file": "xt_HMARK.c",
+      "line": 357
+    },
+    {
+      "name": "hmark_tg_exit",
+      "file": "xt_HMARK.c",
+      "line": 362
+    }
+  ],
+  "xt_IDLETIMER.c": [
+    {
+      "name": "idletimer_tg_show",
+      "file": "xt_IDLETIMER.c",
+      "line": 63
+    },
+    {
+      "name": "idletimer_tg_work",
+      "file": "xt_IDLETIMER.c",
+      "line": 93
+    },
+    {
+      "name": "idletimer_tg_expired",
+      "file": "xt_IDLETIMER.c",
+      "line": 101
+    },
+    {
+      "name": "idletimer_tg_alarmproc",
+      "file": "xt_IDLETIMER.c",
+      "line": 110
+    },
+    {
+      "name": "idletimer_check_sysfs_name",
+      "file": "xt_IDLETIMER.c",
+      "line": 120
+    },
+    {
+      "name": "idletimer_tg_create",
+      "file": "xt_IDLETIMER.c",
+      "line": 136
+    },
+    {
+      "name": "idletimer_tg_create_v1",
+      "file": "xt_IDLETIMER.c",
+      "line": 185
+    },
+    {
+      "name": "alarm_start_relative",
+      "file": "xt_IDLETIMER.c",
+      "line": 230
+    },
+    {
+      "name": "idletimer_tg_target",
+      "file": "xt_IDLETIMER.c",
+      "line": 250
+    },
+    {
+      "name": "idletimer_tg_target_v1",
+      "file": "xt_IDLETIMER.c",
+      "line": 267
+    },
+    {
+      "name": "idletimer_tg_helper",
+      "file": "xt_IDLETIMER.c",
+      "line": 286
+    },
+    {
+      "name": "idletimer_tg_checkentry",
+      "file": "xt_IDLETIMER.c",
+      "line": 306
+    },
+    {
+      "name": "idletimer_tg_checkentry_v1",
+      "file": "xt_IDLETIMER.c",
+      "line": 342
+    },
+    {
+      "name": "idletimer_tg_destroy",
+      "file": "xt_IDLETIMER.c",
+      "line": 404
+    },
+    {
+      "name": "sysfs_remove_file",
+      "file": "xt_IDLETIMER.c",
+      "line": 418
+    },
+    {
+      "name": "kfree",
+      "file": "xt_IDLETIMER.c",
+      "line": 419
+    },
+    {
+      "name": "idletimer_tg_destroy_v1",
+      "file": "xt_IDLETIMER.c",
+      "line": 429
+    },
+    {
+      "name": "list_del",
+      "file": "xt_IDLETIMER.c",
+      "line": 440
+    },
+    {
+      "name": "alarm_cancel",
+      "file": "xt_IDLETIMER.c",
+      "line": 442
+    },
+    {
+      "name": "idletimer_tg_init",
+      "file": "xt_IDLETIMER.c",
+      "line": 489
+    },
+    {
+      "name": "idletimer_tg_exit",
+      "file": "xt_IDLETIMER.c",
+      "line": 526
+    }
+  ],
   "xt_ipcomp.c": [
     {
       "name": "spi_match",
@@ -19924,6 +19465,48 @@
       "line": 349
     }
   ],
+  "xt_LED.c": [
+    {
+      "name": "led_tg",
+      "file": "xt_LED.c",
+      "line": 41
+    },
+    {
+      "name": "led_trigger_event",
+      "file": "xt_LED.c",
+      "line": 56
+    },
+    {
+      "name": "mod_timer",
+      "file": "xt_LED.c",
+      "line": 61
+    },
+    {
+      "name": "led_timeout_callback",
+      "file": "xt_LED.c",
+      "line": 74
+    },
+    {
+      "name": "led_tg_check",
+      "file": "xt_LED.c",
+      "line": 94
+    },
+    {
+      "name": "led_tg_destroy",
+      "file": "xt_LED.c",
+      "line": 155
+    },
+    {
+      "name": "led_tg_init",
+      "file": "xt_LED.c",
+      "line": 191
+    },
+    {
+      "name": "led_tg_exit",
+      "file": "xt_LED.c",
+      "line": 196
+    }
+  ],
   "xt_length.c": [
     {
       "name": "length_mt",
@@ -19988,6 +19571,33 @@
       "line": 209
     }
   ],
+  "xt_LOG.c": [
+    {
+      "name": "log_tg",
+      "file": "xt_LOG.c",
+      "line": 28
+    },
+    {
+      "name": "log_tg_check",
+      "file": "xt_LOG.c",
+      "line": 44
+    },
+    {
+      "name": "log_tg_destroy",
+      "file": "xt_LOG.c",
+      "line": 72
+    },
+    {
+      "name": "log_tg_init",
+      "file": "xt_LOG.c",
+      "line": 100
+    },
+    {
+      "name": "log_tg_exit",
+      "file": "xt_LOG.c",
+      "line": 105
+    }
+  ],
   "xt_mac.c": [
     {
       "name": "mac_mt",
@@ -20025,6 +19635,43 @@
       "name": "mark_mt_exit",
       "file": "xt_mark.c",
       "line": 75
+    }
+  ],
+  "xt_MASQUERADE.c": [
+    {
+      "name": "masquerade_tg_check",
+      "file": "xt_MASQUERADE.c",
+      "line": 19
+    },
+    {
+      "name": "masquerade_tg",
+      "file": "xt_MASQUERADE.c",
+      "line": 34
+    },
+    {
+      "name": "masquerade_tg_destroy",
+      "file": "xt_MASQUERADE.c",
+      "line": 49
+    },
+    {
+      "name": "masquerade_tg6",
+      "file": "xt_MASQUERADE.c",
+      "line": 55
+    },
+    {
+      "name": "masquerade_tg6_checkentry",
+      "file": "xt_MASQUERADE.c",
+      "line": 61
+    },
+    {
+      "name": "masquerade_tg_init",
+      "file": "xt_MASQUERADE.c",
+      "line": 98
+    },
+    {
+      "name": "masquerade_tg_exit",
+      "file": "xt_MASQUERADE.c",
+      "line": 117
     }
   ],
   "xt_multiport.c": [
@@ -20131,6 +19778,48 @@
       "line": 233
     }
   ],
+  "xt_NETMAP.c": [
+    {
+      "name": "netmap_tg6",
+      "file": "xt_NETMAP.c",
+      "line": 18
+    },
+    {
+      "name": "netmap_tg6_checkentry",
+      "file": "xt_NETMAP.c",
+      "line": 54
+    },
+    {
+      "name": "netmap_tg_destroy",
+      "file": "xt_NETMAP.c",
+      "line": 63
+    },
+    {
+      "name": "netmap_tg4",
+      "file": "xt_NETMAP.c",
+      "line": 68
+    },
+    {
+      "name": "netmap_tg4_check",
+      "file": "xt_NETMAP.c",
+      "line": 104
+    },
+    {
+      "name": "nf_ct_netns_get",
+      "file": "xt_NETMAP.c",
+      "line": 116
+    },
+    {
+      "name": "netmap_tg_init",
+      "file": "xt_NETMAP.c",
+      "line": 152
+    },
+    {
+      "name": "netmap_tg_exit",
+      "file": "xt_NETMAP.c",
+      "line": 157
+    }
+  ],
   "xt_nfacct.c": [
     {
       "name": "nfacct_mt",
@@ -20156,6 +19845,70 @@
       "name": "nfacct_mt_exit",
       "file": "xt_nfacct.c",
       "line": 87
+    }
+  ],
+  "xt_NFLOG.c": [
+    {
+      "name": "nflog_tg",
+      "file": "xt_NFLOG.c",
+      "line": 20
+    },
+    {
+      "name": "nflog_tg_check",
+      "file": "xt_NFLOG.c",
+      "line": 42
+    },
+    {
+      "name": "nflog_tg_destroy",
+      "file": "xt_NFLOG.c",
+      "line": 62
+    },
+    {
+      "name": "nflog_tg_init",
+      "file": "xt_NFLOG.c",
+      "line": 78
+    },
+    {
+      "name": "nflog_tg_exit",
+      "file": "xt_NFLOG.c",
+      "line": 83
+    }
+  ],
+  "xt_NFQUEUE.c": [
+    {
+      "name": "nfqueue_tg",
+      "file": "xt_NFQUEUE.c",
+      "line": 28
+    },
+    {
+      "name": "nfqueue_tg_v1",
+      "file": "xt_NFQUEUE.c",
+      "line": 36
+    },
+    {
+      "name": "nfqueue_tg_v2",
+      "file": "xt_NFQUEUE.c",
+      "line": 49
+    },
+    {
+      "name": "nfqueue_tg_check",
+      "file": "xt_NFQUEUE.c",
+      "line": 60
+    },
+    {
+      "name": "nfqueue_tg_v3",
+      "file": "xt_NFQUEUE.c",
+      "line": 85
+    },
+    {
+      "name": "nfqueue_tg_init",
+      "file": "xt_NFQUEUE.c",
+      "line": 147
+    },
+    {
+      "name": "nfqueue_tg_exit",
+      "file": "xt_NFQUEUE.c",
+      "line": 152
     }
   ],
   "xt_osf.c": [
@@ -20486,6 +20239,48 @@
       "line": 756
     }
   ],
+  "xt_REDIRECT.c": [
+    {
+      "name": "redirect_tg6",
+      "file": "xt_REDIRECT.c",
+      "line": 28
+    },
+    {
+      "name": "redirect_tg6_checkentry",
+      "file": "xt_REDIRECT.c",
+      "line": 34
+    },
+    {
+      "name": "redirect_tg_destroy",
+      "file": "xt_REDIRECT.c",
+      "line": 44
+    },
+    {
+      "name": "redirect_tg4_check",
+      "file": "xt_REDIRECT.c",
+      "line": 50
+    },
+    {
+      "name": "redirect_tg4",
+      "file": "xt_REDIRECT.c",
+      "line": 65
+    },
+    {
+      "name": "nf_nat_redirect_ipv4",
+      "file": "xt_REDIRECT.c",
+      "line": 68
+    },
+    {
+      "name": "redirect_tg_init",
+      "file": "xt_REDIRECT.c",
+      "line": 100
+    },
+    {
+      "name": "redirect_tg_exit",
+      "file": "xt_REDIRECT.c",
+      "line": 106
+    }
+  ],
   "xt_sctp.c": [
     {
       "name": "match_flags",
@@ -20521,6 +20316,58 @@
       "name": "sctp_mt_exit",
       "file": "xt_sctp.c",
       "line": 193
+    }
+  ],
+  "xt_SECMARK.c": [
+    {
+      "name": "secmark_tg",
+      "file": "xt_SECMARK.c",
+      "line": 26
+    },
+    {
+      "name": "checkentry_lsm",
+      "file": "xt_SECMARK.c",
+      "line": 43
+    },
+    {
+      "name": "secmark_tg_check",
+      "file": "xt_SECMARK.c",
+      "line": 75
+    },
+    {
+      "name": "secmark_tg_destroy",
+      "file": "xt_SECMARK.c",
+      "line": 110
+    },
+    {
+      "name": "secmark_tg_check_v0",
+      "file": "xt_SECMARK.c",
+      "line": 118
+    },
+    {
+      "name": "secmark_tg_v0",
+      "file": "xt_SECMARK.c",
+      "line": 134
+    },
+    {
+      "name": "secmark_tg_check_v1",
+      "file": "xt_SECMARK.c",
+      "line": 145
+    },
+    {
+      "name": "secmark_tg_v1",
+      "file": "xt_SECMARK.c",
+      "line": 150
+    },
+    {
+      "name": "secmark_tg_init",
+      "file": "xt_SECMARK.c",
+      "line": 180
+    },
+    {
+      "name": "secmark_tg_exit",
+      "file": "xt_SECMARK.c",
+      "line": 185
     }
   ],
   "xt_set.c": [
@@ -20810,6 +20657,38 @@
       "line": 101
     }
   ],
+  "xt_TCPOPTSTRIP.c": [
+    {
+      "name": "optlen",
+      "file": "xt_TCPOPTSTRIP.c",
+      "line": 19
+    },
+    {
+      "name": "tcpoptstrip_mangle_packet",
+      "file": "xt_TCPOPTSTRIP.c",
+      "line": 28
+    },
+    {
+      "name": "tcpoptstrip_tg4",
+      "file": "xt_TCPOPTSTRIP.c",
+      "line": 88
+    },
+    {
+      "name": "tcpoptstrip_tg6",
+      "file": "xt_TCPOPTSTRIP.c",
+      "line": 95
+    },
+    {
+      "name": "tcpoptstrip_tg_init",
+      "file": "xt_TCPOPTSTRIP.c",
+      "line": 135
+    },
+    {
+      "name": "tcpoptstrip_tg_exit",
+      "file": "xt_TCPOPTSTRIP.c",
+      "line": 141
+    }
+  ],
   "xt_tcpudp.c": [
     {
       "name": "port_match",
@@ -20852,6 +20731,48 @@
       "line": 226
     }
   ],
+  "xt_TEE.c": [
+    {
+      "name": "tee_tg4",
+      "file": "xt_TEE.c",
+      "line": 36
+    },
+    {
+      "name": "tee_tg6",
+      "file": "xt_TEE.c",
+      "line": 48
+    },
+    {
+      "name": "tee_netdev_event",
+      "file": "xt_TEE.c",
+      "line": 60
+    },
+    {
+      "name": "tee_tg_check",
+      "file": "xt_TEE.c",
+      "line": 92
+    },
+    {
+      "name": "tee_tg_destroy",
+      "file": "xt_TEE.c",
+      "line": 132
+    },
+    {
+      "name": "tee_net_init",
+      "file": "xt_TEE.c",
+      "line": 173
+    },
+    {
+      "name": "tee_tg_init",
+      "file": "xt_TEE.c",
+      "line": 192
+    },
+    {
+      "name": "tee_tg_exit",
+      "file": "xt_TEE.c",
+      "line": 217
+    }
+  ],
   "xt_time.c": [
     {
       "name": "is_leap",
@@ -20892,6 +20813,85 @@
       "name": "time_mt_exit",
       "file": "xt_time.c",
       "line": 289
+    }
+  ],
+  "xt_TPROXY.c": [
+    {
+      "name": "tproxy_tg4",
+      "file": "xt_TPROXY.c",
+      "line": 35
+    },
+    {
+      "name": "tproxy_tg4_v0",
+      "file": "xt_TPROXY.c",
+      "line": 84
+    },
+    {
+      "name": "tproxy_tg4_v1",
+      "file": "xt_TPROXY.c",
+      "line": 93
+    },
+    {
+      "name": "tproxy_tg6_v1",
+      "file": "xt_TPROXY.c",
+      "line": 104
+    },
+    {
+      "name": "tproxy_tg6_check",
+      "file": "xt_TPROXY.c",
+      "line": 166
+    },
+    {
+      "name": "tproxy_tg6_destroy",
+      "file": "xt_TPROXY.c",
+      "line": 183
+    },
+    {
+      "name": "tproxy_tg4_check",
+      "file": "xt_TPROXY.c",
+      "line": 189
+    },
+    {
+      "name": "tproxy_tg4_destroy",
+      "file": "xt_TPROXY.c",
+      "line": 206
+    },
+    {
+      "name": "tproxy_tg_init",
+      "file": "xt_TPROXY.c",
+      "line": 253
+    },
+    {
+      "name": "tproxy_tg_exit",
+      "file": "xt_TPROXY.c",
+      "line": 258
+    }
+  ],
+  "xt_TRACE.c": [
+    {
+      "name": "trace_tg_check",
+      "file": "xt_TRACE.c",
+      "line": 15
+    },
+    {
+      "name": "trace_tg_destroy",
+      "file": "xt_TRACE.c",
+      "line": 20
+    },
+    {
+      "name": "trace_tg",
+      "file": "xt_TRACE.c",
+      "line": 25
+    },
+    {
+      "name": "trace_tg_init",
+      "file": "xt_TRACE.c",
+      "line": 43
+    },
+    {
+      "name": "trace_tg_exit",
+      "file": "xt_TRACE.c",
+      "line": 48
     }
   ],
   "xt_u32.c": [

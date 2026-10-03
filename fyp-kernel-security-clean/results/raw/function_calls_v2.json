@@ -13337,571 +13337,6 @@
       "kfree"
     ]
   },
-  "xt_AUDIT.c": {
-    "audit_tg": [
-      "htons",
-      "audit_ip4",
-      "audit_ip6"
-    ],
-    "audit_tg_ebt": [
-      "audit_tg"
-    ],
-    "audit_tg_check": [
-      "pr_info_ratelimited"
-    ],
-    "audit_tg_init": [
-      "xt_register_targets",
-      "ARRAY_SIZE"
-    ],
-    "audit_tg_exit": [
-      "xt_unregister_targets",
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_CHECKSUM.c": {
-    "checksum_tg_check": [
-      "pr_info_ratelimited"
-    ],
-    "checksum_tg_init": [
-      "xt_register_target"
-    ],
-    "checksum_tg_exit": [
-      "xt_unregister_target"
-    ]
-  },
-  "xt_CLASSIFY.c": {
-    "classify_tg_init": [
-      "xt_register_targets",
-      "ARRAY_SIZE"
-    ],
-    "classify_tg_exit": [
-      "xt_unregister_targets",
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_CONNSECMARK.c": {
-    "secmark_save": [
-      "nf_conntrack_event_cache"
-    ],
-    "connsecmark_tg": [
-      "secmark_save",
-      "secmark_restore"
-    ],
-    "connsecmark_tg_check": [
-      "pr_info_ratelimited",
-      "nf_ct_netns_get"
-    ],
-    "connsecmark_tg_destroy": [
-      "nf_ct_netns_put"
-    ],
-    "connsecmark_tg_init": [
-      "xt_register_target"
-    ],
-    "connsecmark_tg_exit": [
-      "xt_unregister_target"
-    ]
-  },
-  "xt_CT.c": {
-    "xt_ct_target": [
-      "refcount_inc",
-      "nf_ct_set"
-    ],
-    "xt_ct_target_v0": [
-      "xt_ct_target"
-    ],
-    "xt_ct_target_v1": [
-      "xt_ct_target"
-    ],
-    "xt_ct_set_helper": [
-      "xt_ct_find_proto",
-      "pr_info_ratelimited",
-      "nf_conntrack_helper_try_module_get",
-      "nf_ct_helper_ext_add",
-      "nf_conntrack_helper_put",
-      "rcu_assign_pointer"
-    ],
-    "xt_ct_set_timeout": [
-      "xt_ct_find_proto",
-      "pr_info_ratelimited",
-      "nf_ct_set_timeout"
-    ],
-    "xt_ct_put_helper": [
-      "nf_conntrack_helper_put"
-    ],
-    "xt_ct_tg_check": [
-      "nf_ct_netns_get",
-      "memset",
-      "xt_ct_flags_to_dir",
-      "nf_ct_ecache_ext_add",
-      "strnlen",
-      "xt_ct_set_helper",
-      "xt_ct_set_timeout",
-      "__set_bit",
-      "xt_ct_put_helper",
-      "nf_ct_tmpl_free",
-      "nf_ct_netns_put"
-    ],
-    "xt_ct_tg_check_v0": [
-      "memcpy",
-      "xt_ct_tg_check"
-    ],
-    "xt_ct_tg_check_v1": [
-      "xt_ct_tg_check"
-    ],
-    "xt_ct_tg_check_v2": [
-      "xt_ct_tg_check"
-    ],
-    "xt_ct_tg_destroy": [
-      "xt_ct_put_helper",
-      "nf_ct_netns_put",
-      "nf_ct_destroy_timeout",
-      "nf_ct_put"
-    ],
-    "xt_ct_tg_destroy_v0": [
-      "memcpy",
-      "xt_ct_tg_destroy"
-    ],
-    "xt_ct_tg_destroy_v1": [
-      "xt_ct_tg_destroy"
-    ],
-    "notrack_tg": [
-      "nf_ct_set"
-    ],
-    "xt_ct_tg_init": [
-      "xt_register_target",
-      "xt_register_targets",
-      "ARRAY_SIZE",
-      "xt_unregister_target"
-    ],
-    "xt_ct_tg_exit": [
-      "xt_unregister_targets",
-      "ARRAY_SIZE",
-      "xt_unregister_target"
-    ]
-  },
-  "xt_HMARK.c": {
-    "hmark_addr_mask": [
-      "hmark_addr6_mask"
-    ],
-    "hmark_ct_set_htuple": [
-      "hmark_addr_mask",
-      "hmark_swap_ports"
-    ],
-    "hmark_hash": [
-      "ntohl",
-      "swap"
-    ],
-    "hmark_set_tuple_ports": [
-      "hmark_swap_ports"
-    ],
-    "hmark_pkt_set_htuple_ipv6": [
-      "get_inner6_hdr",
-      "hmark_addr6_mask",
-      "hmark_set_tuple_ports"
-    ],
-    "hmark_tg_v6": [
-      "memset",
-      "hmark_ct_set_htuple",
-      "hmark_pkt_set_htuple_ipv6",
-      "hmark_hash"
-    ],
-    "hmark_pkt_set_htuple_ipv4": [
-      "get_inner_hdr",
-      "hmark_set_tuple_ports"
-    ],
-    "hmark_tg_v4": [
-      "memset",
-      "hmark_ct_set_htuple",
-      "hmark_pkt_set_htuple_ipv4",
-      "hmark_hash"
-    ],
-    "hmark_tg_check": [
-      "pr_info_ratelimited"
-    ],
-    "hmark_tg_init": [
-      "xt_register_targets",
-      "ARRAY_SIZE"
-    ],
-    "hmark_tg_exit": [
-      "xt_unregister_targets",
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_IDLETIMER.c": {
-    "idletimer_tg_show": [
-      "mutex_lock",
-      "mutex_unlock"
-    ],
-    "idletimer_check_sysfs_name": [
-      "xt_check_proc_name"
-    ],
-    "idletimer_tg_create": [
-      "idletimer_check_sysfs_name",
-      "mod_timer",
-      "kfree"
-    ],
-    "idletimer_tg_create_v1": [
-      "idletimer_check_sysfs_name",
-      "alarm_start_relative",
-      "mod_timer",
-      "kfree"
-    ],
-    "idletimer_tg_target": [
-      "mod_timer"
-    ],
-    "idletimer_tg_target_v1": [
-      "alarm_start_relative",
-      "mod_timer"
-    ],
-    "idletimer_tg_helper": [
-      "strnlen"
-    ],
-    "idletimer_tg_checkentry": [
-      "idletimer_tg_helper",
-      "mutex_lock",
-      "mod_timer",
-      "idletimer_tg_create",
-      "mutex_unlock"
-    ],
-    "idletimer_tg_checkentry_v1": [
-      "idletimer_tg_helper",
-      "mutex_lock",
-      "mutex_unlock",
-      "alarm_start_relative",
-      "mod_timer",
-      "idletimer_tg_create_v1"
-    ],
-    "idletimer_tg_destroy": [
-      "mutex_lock",
-      "list_del",
-      "del_timer_sync",
-      "sysfs_remove_file",
-      "kfree",
-      "mutex_unlock"
-    ],
-    "idletimer_tg_destroy_v1": [
-      "mutex_lock",
-      "list_del",
-      "alarm_cancel",
-      "del_timer_sync",
-      "sysfs_remove_file",
-      "kfree",
-      "mutex_unlock"
-    ],
-    "list_del": [
-      "alarm_cancel",
-      "del_timer_sync"
-    ],
-    "idletimer_tg_init": [
-      "PTR_ERR",
-      "xt_register_targets",
-      "ARRAY_SIZE"
-    ],
-    "idletimer_tg_exit": [
-      "xt_unregister_targets",
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_LED.c": {
-    "led_tg": [
-      "led_trigger_event",
-      "mod_timer"
-    ],
-    "led_trigger_event": [
-      "mod_timer"
-    ],
-    "led_timeout_callback": [
-      "led_trigger_event"
-    ],
-    "led_tg_check": [
-      "mutex_lock",
-      "pr_info_ratelimited",
-      "list_add_tail",
-      "mutex_unlock",
-      "kfree"
-    ],
-    "led_tg_destroy": [
-      "mutex_lock",
-      "mutex_unlock",
-      "list_del",
-      "del_timer_sync",
-      "kfree"
-    ],
-    "led_tg_init": [
-      "xt_register_target"
-    ],
-    "led_tg_exit": [
-      "xt_unregister_target"
-    ]
-  },
-  "xt_LOG.c": {
-    "log_tg": [
-      "nf_log_packet"
-    ],
-    "log_tg_check": [
-      "nf_logger_find_get",
-      "request_module"
-    ],
-    "log_tg_destroy": [
-      "nf_logger_put"
-    ],
-    "log_tg_init": [
-      "xt_register_targets",
-      "ARRAY_SIZE"
-    ],
-    "log_tg_exit": [
-      "xt_unregister_targets",
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_MASQUERADE.c": {
-    "masquerade_tg_check": [
-      "nf_ct_netns_get"
-    ],
-    "masquerade_tg": [
-      "nf_nat_masquerade_ipv4"
-    ],
-    "masquerade_tg_destroy": [
-      "nf_ct_netns_put"
-    ],
-    "masquerade_tg6": [
-      "nf_nat_masquerade_ipv6"
-    ],
-    "masquerade_tg6_checkentry": [
-      "nf_ct_netns_get"
-    ],
-    "masquerade_tg_init": [
-      "xt_register_targets",
-      "ARRAY_SIZE",
-      "nf_nat_masquerade_inet_register_notifiers",
-      "xt_unregister_targets"
-    ],
-    "masquerade_tg_exit": [
-      "xt_unregister_targets",
-      "ARRAY_SIZE",
-      "nf_nat_masquerade_inet_unregister_notifiers"
-    ]
-  },
-  "xt_NETMAP.c": {
-    "netmap_tg6": [
-      "ARRAY_SIZE",
-      "ipv6_hdr",
-      "nf_nat_setup_info"
-    ],
-    "netmap_tg6_checkentry": [
-      "nf_ct_netns_get"
-    ],
-    "netmap_tg_destroy": [
-      "nf_ct_netns_put"
-    ],
-    "netmap_tg4": [
-      "ip_hdr",
-      "memset",
-      "nf_nat_setup_info"
-    ],
-    "netmap_tg4_check": [
-      "nf_ct_netns_get"
-    ],
-    "netmap_tg_init": [
-      "xt_register_targets",
-      "ARRAY_SIZE"
-    ],
-    "netmap_tg_exit": [
-      "xt_unregister_targets",
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_NFLOG.c": {
-    "nflog_tg": [
-      "nf_log_packet"
-    ],
-    "nflog_tg_check": [
-      "nf_logger_find_get",
-      "request_module"
-    ],
-    "nflog_tg_destroy": [
-      "nf_logger_put"
-    ],
-    "nflog_tg_init": [
-      "xt_register_target"
-    ],
-    "nflog_tg_exit": [
-      "xt_unregister_target"
-    ]
-  },
-  "xt_NFQUEUE.c": {
-    "nfqueue_tg": [
-      "NF_QUEUE_NR"
-    ],
-    "nfqueue_tg_v1": [
-      "NF_QUEUE_NR"
-    ],
-    "nfqueue_tg_v2": [
-      "nfqueue_tg_v1"
-    ],
-    "nfqueue_tg_check": [
-      "pr_info_ratelimited"
-    ],
-    "nfqueue_tg_v3": [
-      "NF_QUEUE_NR"
-    ],
-    "nfqueue_tg_init": [
-      "xt_register_targets",
-      "ARRAY_SIZE"
-    ],
-    "nfqueue_tg_exit": [
-      "xt_unregister_targets",
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_REDIRECT.c": {
-    "redirect_tg6": [
-      "nf_nat_redirect_ipv6"
-    ],
-    "redirect_tg6_checkentry": [
-      "nf_ct_netns_get"
-    ],
-    "redirect_tg_destroy": [
-      "nf_ct_netns_put"
-    ],
-    "redirect_tg4_check": [
-      "nf_ct_netns_get"
-    ],
-    "redirect_tg4": [
-      "nf_nat_redirect_ipv4"
-    ],
-    "redirect_tg_init": [
-      "xt_register_targets",
-      "ARRAY_SIZE"
-    ],
-    "redirect_tg_exit": [
-      "xt_unregister_targets",
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_SECMARK.c": {
-    "checkentry_lsm": [
-      "pr_info_ratelimited"
-    ],
-    "secmark_tg_check": [
-      "pr_info_ratelimited",
-      "checkentry_lsm"
-    ],
-    "secmark_tg_check_v0": [
-      "memcpy",
-      "secmark_tg_check"
-    ],
-    "secmark_tg_v0": [
-      "secmark_tg"
-    ],
-    "secmark_tg_check_v1": [
-      "secmark_tg_check"
-    ],
-    "secmark_tg_v1": [
-      "secmark_tg"
-    ],
-    "secmark_tg_init": [
-      "xt_register_targets",
-      "ARRAY_SIZE"
-    ],
-    "secmark_tg_exit": [
-      "xt_unregister_targets",
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_TCPOPTSTRIP.c": {
-    "tcpoptstrip_mangle_packet": [
-      "optlen",
-      "htons",
-      "memset"
-    ],
-    "tcpoptstrip_tg4": [
-      "tcpoptstrip_mangle_packet"
-    ],
-    "tcpoptstrip_tg6": [
-      "ipv6_hdr",
-      "tcpoptstrip_mangle_packet"
-    ],
-    "tcpoptstrip_tg_init": [
-      "xt_register_targets",
-      "ARRAY_SIZE"
-    ],
-    "tcpoptstrip_tg_exit": [
-      "xt_unregister_targets",
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_TEE.c": {
-    "tee_netdev_event": [
-      "mutex_lock",
-      "mutex_unlock"
-    ],
-    "tee_tg_check": [
-      "memcmp",
-      "mutex_lock",
-      "mutex_unlock"
-    ],
-    "tee_tg_destroy": [
-      "mutex_lock",
-      "list_del",
-      "mutex_unlock",
-      "kfree"
-    ],
-    "tee_net_init": [
-      "INIT_LIST_HEAD"
-    ],
-    "tee_tg_init": [
-      "xt_register_targets",
-      "ARRAY_SIZE",
-      "xt_unregister_targets"
-    ],
-    "tee_tg_exit": [
-      "xt_unregister_targets",
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_TPROXY.c": {
-    "tproxy_tg4": [
-      "ip_hdr"
-    ],
-    "tproxy_tg4_v0": [
-      "tproxy_tg4"
-    ],
-    "tproxy_tg4_v1": [
-      "tproxy_tg4"
-    ],
-    "tproxy_tg6_v1": [
-      "ipv6_hdr"
-    ],
-    "tproxy_tg6_check": [
-      "pr_info_ratelimited"
-    ],
-    "tproxy_tg4_check": [
-      "pr_info_ratelimited"
-    ],
-    "tproxy_tg_init": [
-      "xt_register_targets",
-      "ARRAY_SIZE"
-    ],
-    "tproxy_tg_exit": [
-      "xt_unregister_targets",
-      "ARRAY_SIZE"
-    ]
-  },
-  "xt_TRACE.c": {
-    "trace_tg_check": [
-      "nf_logger_find_get"
-    ],
-    "trace_tg_destroy": [
-      "nf_logger_put"
-    ],
-    "trace_tg_init": [
-      "xt_register_target"
-    ],
-    "trace_tg_exit": [
-      "xt_unregister_target"
-    ]
-  },
   "xt_addrtype.c": {
     "match_lookup_rt6": [
       "memset"
@@ -13931,6 +13366,27 @@
     ],
     "addrtype_mt_exit": [
       "xt_unregister_matches",
+      "ARRAY_SIZE"
+    ]
+  },
+  "xt_AUDIT.c": {
+    "audit_tg": [
+      "htons",
+      "audit_ip4",
+      "audit_ip6"
+    ],
+    "audit_tg_ebt": [
+      "audit_tg"
+    ],
+    "audit_tg_check": [
+      "pr_info_ratelimited"
+    ],
+    "audit_tg_init": [
+      "xt_register_targets",
+      "ARRAY_SIZE"
+    ],
+    "audit_tg_exit": [
+      "xt_unregister_targets",
       "ARRAY_SIZE"
     ]
   },
@@ -13991,6 +13447,27 @@
     ],
     "cgroup_mt_exit": [
       "xt_unregister_matches",
+      "ARRAY_SIZE"
+    ]
+  },
+  "xt_CHECKSUM.c": {
+    "checksum_tg_check": [
+      "pr_info_ratelimited"
+    ],
+    "checksum_tg_init": [
+      "xt_register_target"
+    ],
+    "checksum_tg_exit": [
+      "xt_unregister_target"
+    ]
+  },
+  "xt_CLASSIFY.c": {
+    "classify_tg_init": [
+      "xt_register_targets",
+      "ARRAY_SIZE"
+    ],
+    "classify_tg_exit": [
+      "xt_unregister_targets",
       "ARRAY_SIZE"
     ]
   },
@@ -14126,6 +13603,28 @@
       "ARRAY_SIZE"
     ]
   },
+  "xt_CONNSECMARK.c": {
+    "secmark_save": [
+      "nf_conntrack_event_cache"
+    ],
+    "connsecmark_tg": [
+      "secmark_save",
+      "secmark_restore"
+    ],
+    "connsecmark_tg_check": [
+      "pr_info_ratelimited",
+      "nf_ct_netns_get"
+    ],
+    "connsecmark_tg_destroy": [
+      "nf_ct_netns_put"
+    ],
+    "connsecmark_tg_init": [
+      "xt_register_target"
+    ],
+    "connsecmark_tg_exit": [
+      "xt_unregister_target"
+    ]
+  },
   "xt_conntrack.c": {
     "conntrack_mt_origsrc": [
       "conntrack_addrcmp"
@@ -14181,6 +13680,84 @@
     ],
     "cpu_mt_exit": [
       "xt_unregister_match"
+    ]
+  },
+  "xt_CT.c": {
+    "xt_ct_target": [
+      "refcount_inc",
+      "nf_ct_set"
+    ],
+    "xt_ct_target_v0": [
+      "xt_ct_target"
+    ],
+    "xt_ct_target_v1": [
+      "xt_ct_target"
+    ],
+    "xt_ct_set_helper": [
+      "xt_ct_find_proto",
+      "pr_info_ratelimited",
+      "nf_conntrack_helper_try_module_get",
+      "nf_ct_helper_ext_add",
+      "nf_conntrack_helper_put",
+      "rcu_assign_pointer"
+    ],
+    "xt_ct_set_timeout": [
+      "xt_ct_find_proto",
+      "pr_info_ratelimited",
+      "nf_ct_set_timeout"
+    ],
+    "xt_ct_put_helper": [
+      "nf_conntrack_helper_put"
+    ],
+    "xt_ct_tg_check": [
+      "nf_ct_netns_get",
+      "memset",
+      "xt_ct_flags_to_dir",
+      "nf_ct_ecache_ext_add",
+      "strnlen",
+      "xt_ct_set_helper",
+      "xt_ct_set_timeout",
+      "__set_bit",
+      "xt_ct_put_helper",
+      "nf_ct_tmpl_free",
+      "nf_ct_netns_put"
+    ],
+    "xt_ct_tg_check_v0": [
+      "memcpy",
+      "xt_ct_tg_check"
+    ],
+    "xt_ct_tg_check_v1": [
+      "xt_ct_tg_check"
+    ],
+    "xt_ct_tg_check_v2": [
+      "xt_ct_tg_check"
+    ],
+    "xt_ct_tg_destroy": [
+      "xt_ct_put_helper",
+      "nf_ct_netns_put",
+      "nf_ct_destroy_timeout",
+      "nf_ct_put"
+    ],
+    "xt_ct_tg_destroy_v0": [
+      "memcpy",
+      "xt_ct_tg_destroy"
+    ],
+    "xt_ct_tg_destroy_v1": [
+      "xt_ct_tg_destroy"
+    ],
+    "notrack_tg": [
+      "nf_ct_set"
+    ],
+    "xt_ct_tg_init": [
+      "xt_register_target",
+      "xt_register_targets",
+      "ARRAY_SIZE",
+      "xt_unregister_target"
+    ],
+    "xt_ct_tg_exit": [
+      "xt_unregister_targets",
+      "ARRAY_SIZE",
+      "xt_unregister_target"
     ]
   },
   "xt_dccp.c": {
@@ -14506,6 +14083,129 @@
       "ARRAY_SIZE"
     ]
   },
+  "xt_HMARK.c": {
+    "hmark_addr_mask": [
+      "hmark_addr6_mask"
+    ],
+    "hmark_ct_set_htuple": [
+      "hmark_addr_mask",
+      "hmark_swap_ports"
+    ],
+    "hmark_hash": [
+      "ntohl",
+      "swap"
+    ],
+    "hmark_set_tuple_ports": [
+      "hmark_swap_ports"
+    ],
+    "hmark_pkt_set_htuple_ipv6": [
+      "get_inner6_hdr",
+      "hmark_addr6_mask",
+      "hmark_set_tuple_ports"
+    ],
+    "hmark_tg_v6": [
+      "memset",
+      "hmark_ct_set_htuple",
+      "hmark_pkt_set_htuple_ipv6",
+      "hmark_hash"
+    ],
+    "hmark_pkt_set_htuple_ipv4": [
+      "get_inner_hdr",
+      "hmark_set_tuple_ports"
+    ],
+    "hmark_tg_v4": [
+      "memset",
+      "hmark_ct_set_htuple",
+      "hmark_pkt_set_htuple_ipv4",
+      "hmark_hash"
+    ],
+    "hmark_tg_check": [
+      "pr_info_ratelimited"
+    ],
+    "hmark_tg_init": [
+      "xt_register_targets",
+      "ARRAY_SIZE"
+    ],
+    "hmark_tg_exit": [
+      "xt_unregister_targets",
+      "ARRAY_SIZE"
+    ]
+  },
+  "xt_IDLETIMER.c": {
+    "idletimer_tg_show": [
+      "mutex_lock",
+      "mutex_unlock"
+    ],
+    "idletimer_check_sysfs_name": [
+      "xt_check_proc_name"
+    ],
+    "idletimer_tg_create": [
+      "idletimer_check_sysfs_name",
+      "mod_timer",
+      "kfree"
+    ],
+    "idletimer_tg_create_v1": [
+      "idletimer_check_sysfs_name",
+      "alarm_start_relative",
+      "mod_timer",
+      "kfree"
+    ],
+    "idletimer_tg_target": [
+      "mod_timer"
+    ],
+    "idletimer_tg_target_v1": [
+      "alarm_start_relative",
+      "mod_timer"
+    ],
+    "idletimer_tg_helper": [
+      "strnlen"
+    ],
+    "idletimer_tg_checkentry": [
+      "idletimer_tg_helper",
+      "mutex_lock",
+      "mod_timer",
+      "idletimer_tg_create",
+      "mutex_unlock"
+    ],
+    "idletimer_tg_checkentry_v1": [
+      "idletimer_tg_helper",
+      "mutex_lock",
+      "mutex_unlock",
+      "alarm_start_relative",
+      "mod_timer",
+      "idletimer_tg_create_v1"
+    ],
+    "idletimer_tg_destroy": [
+      "mutex_lock",
+      "list_del",
+      "del_timer_sync",
+      "sysfs_remove_file",
+      "kfree",
+      "mutex_unlock"
+    ],
+    "idletimer_tg_destroy_v1": [
+      "mutex_lock",
+      "list_del",
+      "alarm_cancel",
+      "del_timer_sync",
+      "sysfs_remove_file",
+      "kfree",
+      "mutex_unlock"
+    ],
+    "list_del": [
+      "alarm_cancel",
+      "del_timer_sync"
+    ],
+    "idletimer_tg_init": [
+      "PTR_ERR",
+      "xt_register_targets",
+      "ARRAY_SIZE"
+    ],
+    "idletimer_tg_exit": [
+      "xt_unregister_targets",
+      "ARRAY_SIZE"
+    ]
+  },
   "xt_ipcomp.c": {
     "comp_mt": [
       "spi_match"
@@ -14597,6 +14297,38 @@
       "ARRAY_SIZE"
     ]
   },
+  "xt_LED.c": {
+    "led_tg": [
+      "led_trigger_event",
+      "mod_timer"
+    ],
+    "led_trigger_event": [
+      "mod_timer"
+    ],
+    "led_timeout_callback": [
+      "led_trigger_event"
+    ],
+    "led_tg_check": [
+      "mutex_lock",
+      "pr_info_ratelimited",
+      "list_add_tail",
+      "mutex_unlock",
+      "kfree"
+    ],
+    "led_tg_destroy": [
+      "mutex_lock",
+      "mutex_unlock",
+      "list_del",
+      "del_timer_sync",
+      "kfree"
+    ],
+    "led_tg_init": [
+      "xt_register_target"
+    ],
+    "led_tg_exit": [
+      "xt_unregister_target"
+    ]
+  },
   "xt_length.c": {
     "length_mt": [
       "ip_hdr"
@@ -14634,6 +14366,26 @@
       "xt_unregister_match"
     ]
   },
+  "xt_LOG.c": {
+    "log_tg": [
+      "nf_log_packet"
+    ],
+    "log_tg_check": [
+      "nf_logger_find_get",
+      "request_module"
+    ],
+    "log_tg_destroy": [
+      "nf_logger_put"
+    ],
+    "log_tg_init": [
+      "xt_register_targets",
+      "ARRAY_SIZE"
+    ],
+    "log_tg_exit": [
+      "xt_unregister_targets",
+      "ARRAY_SIZE"
+    ]
+  },
   "xt_mac.c": {
     "mac_mt_init": [
       "xt_register_match"
@@ -14651,6 +14403,34 @@
     "mark_mt_exit": [
       "xt_unregister_match",
       "xt_unregister_target"
+    ]
+  },
+  "xt_MASQUERADE.c": {
+    "masquerade_tg_check": [
+      "nf_ct_netns_get"
+    ],
+    "masquerade_tg": [
+      "nf_nat_masquerade_ipv4"
+    ],
+    "masquerade_tg_destroy": [
+      "nf_ct_netns_put"
+    ],
+    "masquerade_tg6": [
+      "nf_nat_masquerade_ipv6"
+    ],
+    "masquerade_tg6_checkentry": [
+      "nf_ct_netns_get"
+    ],
+    "masquerade_tg_init": [
+      "xt_register_targets",
+      "ARRAY_SIZE",
+      "nf_nat_masquerade_inet_register_notifiers",
+      "xt_unregister_targets"
+    ],
+    "masquerade_tg_exit": [
+      "xt_unregister_targets",
+      "ARRAY_SIZE",
+      "nf_nat_masquerade_inet_unregister_notifiers"
     ]
   },
   "xt_multiport.c": {
@@ -14719,6 +14499,35 @@
       "ARRAY_SIZE"
     ]
   },
+  "xt_NETMAP.c": {
+    "netmap_tg6": [
+      "ARRAY_SIZE",
+      "ipv6_hdr",
+      "nf_nat_setup_info"
+    ],
+    "netmap_tg6_checkentry": [
+      "nf_ct_netns_get"
+    ],
+    "netmap_tg_destroy": [
+      "nf_ct_netns_put"
+    ],
+    "netmap_tg4": [
+      "ip_hdr",
+      "memset",
+      "nf_nat_setup_info"
+    ],
+    "netmap_tg4_check": [
+      "nf_ct_netns_get"
+    ],
+    "netmap_tg_init": [
+      "xt_register_targets",
+      "ARRAY_SIZE"
+    ],
+    "netmap_tg_exit": [
+      "xt_unregister_targets",
+      "ARRAY_SIZE"
+    ]
+  },
   "xt_nfacct.c": {
     "nfacct_mt": [
       "nfnl_acct_update",
@@ -14736,6 +14545,49 @@
     ],
     "nfacct_mt_exit": [
       "xt_unregister_matches",
+      "ARRAY_SIZE"
+    ]
+  },
+  "xt_NFLOG.c": {
+    "nflog_tg": [
+      "nf_log_packet"
+    ],
+    "nflog_tg_check": [
+      "nf_logger_find_get",
+      "request_module"
+    ],
+    "nflog_tg_destroy": [
+      "nf_logger_put"
+    ],
+    "nflog_tg_init": [
+      "xt_register_target"
+    ],
+    "nflog_tg_exit": [
+      "xt_unregister_target"
+    ]
+  },
+  "xt_NFQUEUE.c": {
+    "nfqueue_tg": [
+      "NF_QUEUE_NR"
+    ],
+    "nfqueue_tg_v1": [
+      "NF_QUEUE_NR"
+    ],
+    "nfqueue_tg_v2": [
+      "nfqueue_tg_v1"
+    ],
+    "nfqueue_tg_check": [
+      "pr_info_ratelimited"
+    ],
+    "nfqueue_tg_v3": [
+      "NF_QUEUE_NR"
+    ],
+    "nfqueue_tg_init": [
+      "xt_register_targets",
+      "ARRAY_SIZE"
+    ],
+    "nfqueue_tg_exit": [
+      "xt_unregister_targets",
       "ARRAY_SIZE"
     ]
   },
@@ -14964,6 +14816,31 @@
       "ARRAY_SIZE"
     ]
   },
+  "xt_REDIRECT.c": {
+    "redirect_tg6": [
+      "nf_nat_redirect_ipv6"
+    ],
+    "redirect_tg6_checkentry": [
+      "nf_ct_netns_get"
+    ],
+    "redirect_tg_destroy": [
+      "nf_ct_netns_put"
+    ],
+    "redirect_tg4_check": [
+      "nf_ct_netns_get"
+    ],
+    "redirect_tg4": [
+      "nf_nat_redirect_ipv4"
+    ],
+    "redirect_tg_init": [
+      "xt_register_targets",
+      "ARRAY_SIZE"
+    ],
+    "redirect_tg_exit": [
+      "xt_unregister_targets",
+      "ARRAY_SIZE"
+    ]
+  },
   "xt_sctp.c": {
     "match_packet": [
       "SCTP_CHUNKMAP_COPY",
@@ -14983,6 +14860,36 @@
     ],
     "sctp_mt_exit": [
       "xt_unregister_matches",
+      "ARRAY_SIZE"
+    ]
+  },
+  "xt_SECMARK.c": {
+    "checkentry_lsm": [
+      "pr_info_ratelimited"
+    ],
+    "secmark_tg_check": [
+      "pr_info_ratelimited",
+      "checkentry_lsm"
+    ],
+    "secmark_tg_check_v0": [
+      "memcpy",
+      "secmark_tg_check"
+    ],
+    "secmark_tg_v0": [
+      "secmark_tg"
+    ],
+    "secmark_tg_check_v1": [
+      "secmark_tg_check"
+    ],
+    "secmark_tg_v1": [
+      "secmark_tg"
+    ],
+    "secmark_tg_init": [
+      "xt_register_targets",
+      "ARRAY_SIZE"
+    ],
+    "secmark_tg_exit": [
+      "xt_unregister_targets",
       "ARRAY_SIZE"
     ]
   },
@@ -15168,6 +15075,28 @@
       "ARRAY_SIZE"
     ]
   },
+  "xt_TCPOPTSTRIP.c": {
+    "tcpoptstrip_mangle_packet": [
+      "optlen",
+      "htons",
+      "memset"
+    ],
+    "tcpoptstrip_tg4": [
+      "tcpoptstrip_mangle_packet"
+    ],
+    "tcpoptstrip_tg6": [
+      "ipv6_hdr",
+      "tcpoptstrip_mangle_packet"
+    ],
+    "tcpoptstrip_tg_init": [
+      "xt_register_targets",
+      "ARRAY_SIZE"
+    ],
+    "tcpoptstrip_tg_exit": [
+      "xt_unregister_targets",
+      "ARRAY_SIZE"
+    ]
+  },
   "xt_tcpudp.c": {
     "tcp_mt": [
       "port_match",
@@ -15182,6 +15111,35 @@
     ],
     "tcpudp_mt_exit": [
       "xt_unregister_matches",
+      "ARRAY_SIZE"
+    ]
+  },
+  "xt_TEE.c": {
+    "tee_netdev_event": [
+      "mutex_lock",
+      "mutex_unlock"
+    ],
+    "tee_tg_check": [
+      "memcmp",
+      "mutex_lock",
+      "mutex_unlock"
+    ],
+    "tee_tg_destroy": [
+      "mutex_lock",
+      "list_del",
+      "mutex_unlock",
+      "kfree"
+    ],
+    "tee_net_init": [
+      "INIT_LIST_HEAD"
+    ],
+    "tee_tg_init": [
+      "xt_register_targets",
+      "ARRAY_SIZE",
+      "xt_unregister_targets"
+    ],
+    "tee_tg_exit": [
+      "xt_unregister_targets",
       "ARRAY_SIZE"
     ]
   },
@@ -15203,6 +15161,48 @@
     ],
     "time_mt_exit": [
       "xt_unregister_match"
+    ]
+  },
+  "xt_TPROXY.c": {
+    "tproxy_tg4": [
+      "ip_hdr"
+    ],
+    "tproxy_tg4_v0": [
+      "tproxy_tg4"
+    ],
+    "tproxy_tg4_v1": [
+      "tproxy_tg4"
+    ],
+    "tproxy_tg6_v1": [
+      "ipv6_hdr"
+    ],
+    "tproxy_tg6_check": [
+      "pr_info_ratelimited"
+    ],
+    "tproxy_tg4_check": [
+      "pr_info_ratelimited"
+    ],
+    "tproxy_tg_init": [
+      "xt_register_targets",
+      "ARRAY_SIZE"
+    ],
+    "tproxy_tg_exit": [
+      "xt_unregister_targets",
+      "ARRAY_SIZE"
+    ]
+  },
+  "xt_TRACE.c": {
+    "trace_tg_check": [
+      "nf_logger_find_get"
+    ],
+    "trace_tg_destroy": [
+      "nf_logger_put"
+    ],
+    "trace_tg_init": [
+      "xt_register_target"
+    ],
+    "trace_tg_exit": [
+      "xt_unregister_target"
     ]
   },
   "xt_u32.c": {

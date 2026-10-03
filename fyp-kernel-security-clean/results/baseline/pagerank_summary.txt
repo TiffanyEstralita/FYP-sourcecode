@@ -1,0 +1,63 @@
+======================================================================
+PAGERANK ANALYSIS SUMMARY
+======================================================================
+
+Total functions analyzed:  3815
+Mean PageRank score:       0.000262
+Max PageRank score:        0.015774
+Min PageRank score:        0.000099
+
+======================================================================
+TOP 50 FUNCTIONS BY PAGERANK
+======================================================================
+
+  1. mutex_unlock                                  0.015774 (ip_vs_sync.c)
+  2. ntohl                                         0.015241 (nf_conntrack_proto_generic.c)
+  3. kfree                                         0.013259 (ip_vs_sync.c)
+  4. mutex_lock                                    0.012805 (ip_vs_ctl.c)
+  5. local_bh_enable                               0.012239 (xt_hashlimit.c)
+  6. module_put                                    0.011249 (nf_tables_api.c)
+  7. free_percpu                                   0.010573 (nf_tables_api.c)
+  8. rcu_read_unlock                               0.009755 (ip_vs_ctl.c)
+  9. memset                                        0.009115 (ip_vs_ctl.c)
+ 10. htons                                         0.008502 (nf_flow_table_ip.c)
+ 11. ERR_PTR                                       0.008425 (nf_conncount.c)
+ 12. PTR_ERR                                       0.007633 (ip_vs_ftp.c)
+ 13. register_ip_vs_app_inc                        0.006610 (ip_vs_app.c)
+ 14. memcpy                                        0.006545 (ip_vs_sync.c)
+ 15. BIT                                           0.006389 (nf_flow_table_offload.c)
+ 16. ARRAY_SIZE                                    0.006166 (x_tables.c)
+ 17. atomic_read                                   0.006084 (ip_vs_ctl.c)
+ 18. ip_hdr                                        0.005866 (ip_vs_proto_tcp.c)
+ 19. snprintf                                      0.005789 (ip_vs_ftp.c)
+ 20. ipv6_hdr                                      0.005713 (ip_vs_core.c)
+ 21. __ip_vs_service_find                          0.005327 (ip_vs_ctl.c)
+ 22. spin_unlock_bh                                0.005143 (ip_vs_sync.c)
+ 23. nf_ct_l3num                                   0.005077 (nf_conntrack_h323_main.c)
+ 24. list_del                                      0.004938 (nfnetlink_cthelper.c)
+ 25. spin_lock_bh                                  0.004861 (ip_vs_conn.c)
+ 26. rcu_read_lock                                 0.004744 (nf_conntrack_core.c)
+ 27. nfnl_lock                                     0.004466 (nfnetlink.c)
+ 28. WARN_ON_ONCE                                  0.004367 (nf_tables_core.c)
+ 29. strscpy                                       0.004322 (ip_vs_ctl.c)
+ 30. nf_ct_put                                     0.004219 (ip_vs_nfct.c)
+ 31. NETLINK_CB                                    0.004196 (nf_conntrack_netlink.c)
+ 32. kfree_skb                                     0.003874 (nfnetlink.c)
+ 33. memcmp                                        0.003754 (nft_chain_route.c)
+ 34. already_closed                                0.003753 (nf_conncount.c)
+ 35. nft_ct_tmpl_alloc_pcpu                        0.003728 (nft_ct.c)
+ 36. nfnl_unlock                                   0.003684 (ip_set_core.c)
+ 37. nla_nest_end                                  0.003626 (nf_tables_api.c)
+ 38. list_del_rcu                                  0.003611 (nfnetlink_acct.c)
+ 39. hlist_for_each_entry_rcu                      0.003436 (ip_vs_conn.c)
+ 40. IP_VS_DBG                                     0.003387 (ip_vs_app.c)
+ 41. xt_unregister_match                           0.003383 (x_tables.c)
+ 42. nf_ct_unexpect_related                        0.003339 (nf_conntrack_expect.c)
+ 43. nft_ct_tmpl_put_pcpu                          0.003301 (nft_ct.c)
+ 44. nf_ct_dump_tuple                              0.003205 (nf_conntrack_h323_main.c)
+ 45. net_eq                                        0.003178 (nf_nat_core.c)
+ 46. pr_info_ratelimited                           0.003088 (x_tables.c)
+ 47. nf_ct_netns_put                               0.003087 (nf_conntrack_proto.c)
+ 48. nla_data                                      0.003062 (ip_set_list_set.c)
+ 49. kvfree                                        0.002981 (ip_set_core.c)
+ 50. nla_get_u8                                    0.002823 (nf_conntrack_proto_dccp.c)
