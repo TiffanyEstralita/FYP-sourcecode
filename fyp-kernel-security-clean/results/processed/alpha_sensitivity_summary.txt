@@ -1,0 +1,22 @@
+ALPHA SENSITIVITY - rank of each vulnerable function (personalized PageRank)
+
+Scope: all
+    alpha     nft_payload_copy_vlan            bitmap_ip_uadt        nf_tables_updchain     MRR
+      0.5                      2384                       891                       601   0.001
+      0.6                      2357                       971                       635   0.001
+      0.7                      2337                      1083                       664   0.001
+      0.8                      2265                      1188                       729   0.001
+     0.85                      2260                      1240                       752   0.001
+      0.9                      2222                      1290                       766   0.001
+     0.95                      2183                      1328                       785   0.001
+
+Scope: non_seed
+    alpha     nft_payload_copy_vlan            bitmap_ip_uadt        nf_tables_updchain     MRR
+      0.5                      2080                       587                       297   0.002
+      0.6                      2053                       667                       331   0.002
+      0.7                      2033                       779                       360   0.002
+      0.8                      1961                       884                       425   0.001
+     0.85                      1956                       936                       448   0.001
+      0.9                      1918                       986                       462   0.001
+     0.95                      1879                      1024                       481   0.001
+

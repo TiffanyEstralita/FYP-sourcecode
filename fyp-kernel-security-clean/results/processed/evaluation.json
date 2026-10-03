@@ -1,0 +1,106 @@
+{
+  "targets": {
+    "nft_payload_copy_vlan": "CVE-2023-0179",
+    "bitmap_ip_uadt": "CVE-2024-53141",
+    "nf_tables_updchain": "CVE-2025-22064"
+  },
+  "seed_count": 304,
+  "results": {
+    "baseline": {
+      "all": {
+        "ranked_functions": 3815,
+        "ranks": {
+          "nft_payload_copy_vlan": 1534.5,
+          "bitmap_ip_uadt": 2940.5,
+          "nf_tables_updchain": 1883.0
+        },
+        "recall": {
+          "10": 0.0,
+          "20": 0.0,
+          "50": 0.0,
+          "100": 0.0
+        },
+        "mrr": 0.0005076079115295448
+      },
+      "non_seed": {
+        "ranked_functions": 3511,
+        "ranks": {
+          "nft_payload_copy_vlan": 1526.0,
+          "bitmap_ip_uadt": 2784.0,
+          "nf_tables_updchain": 1874.0
+        },
+        "recall": {
+          "10": 0.0,
+          "20": 0.0,
+          "50": 0.0,
+          "100": 0.0
+        },
+        "mrr": 0.0005160404422062734
+      }
+    },
+    "standard": {
+      "all": {
+        "ranked_functions": 4353,
+        "ranks": {
+          "nft_payload_copy_vlan": 1637.0,
+          "bitmap_ip_uadt": 3160.0,
+          "nf_tables_updchain": 2631.0
+        },
+        "recall": {
+          "10": 0.0,
+          "20": 0.0,
+          "50": 0.0,
+          "100": 0.0
+        },
+        "mrr": 0.0004358042879246331
+      },
+      "non_seed": {
+        "ranked_functions": 4049,
+        "ranks": {
+          "nft_payload_copy_vlan": 1621.0,
+          "bitmap_ip_uadt": 3142.0,
+          "nf_tables_updchain": 2613.0
+        },
+        "recall": {
+          "10": 0.0,
+          "20": 0.0,
+          "50": 0.0,
+          "100": 0.0
+        },
+        "mrr": 0.00043929121338647637
+      }
+    },
+    "personalized": {
+      "all": {
+        "ranked_functions": 4353,
+        "ranks": {
+          "nft_payload_copy_vlan": 2263.0,
+          "bitmap_ip_uadt": 1243.0,
+          "nf_tables_updchain": 751.0
+        },
+        "recall": {
+          "10": 0.0,
+          "20": 0.0,
+          "50": 0.0,
+          "100": 0.0
+        },
+        "mrr": 0.0008593181489317082
+      },
+      "non_seed": {
+        "ranked_functions": 4049,
+        "ranks": {
+          "nft_payload_copy_vlan": 1959.0,
+          "bitmap_ip_uadt": 939.0,
+          "nf_tables_updchain": 447.0
+        },
+        "recall": {
+          "10": 0.0,
+          "20": 0.0,
+          "50": 0.0,
+          "100": 0.0
+        },
+        "mrr": 0.0012708545714482117
+      }
+    }
+  }
+}

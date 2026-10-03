@@ -1,7 +1,8 @@
 ======================================================================
-PAGERANK ANALYSIS SUMMARY
+PAGERANK (STANDARD) SUMMARY
 ======================================================================
 
+alpha (damping factor):    0.85
 Total functions analyzed:  4353
 Mean PageRank score:       0.000230
 Max PageRank score:        0.005505

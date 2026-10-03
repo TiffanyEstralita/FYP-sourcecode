@@ -2,7 +2,14 @@
 """
 SCRIPT #3: Build Graph and Calculate PageRank
 Purpose: Identify critical functions using PageRank algorithm
-Date: November 2025
+
+Two versions are computed:
+  standard     - every function is an equally likely starting point
+                 -> pagerank_scores.json, top_100_functions.json, pagerank_summary.txt
+  personalized - random walks start only at the seeds (attacker entry points
+                 from build_seeds.py), so a function scores high when attacker
+                 input can flow into it
+                 -> ppr_scores.json, ppr_top_100_functions.json, ppr_summary.txt
 """
 
 import argparse
@@ -20,8 +27,24 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 INPUT_FUNCTIONS = PROJECT_ROOT / "results/raw/functions_v2.json"
 INPUT_CALLS = PROJECT_ROOT / "results/raw/function_calls_v2.json"
+SEEDS_FILE = PROJECT_ROOT / "results/processed/seeds.json"
 OUTPUT_PATH = PROJECT_ROOT / "results/processed"
 GRAPHS_PATH = PROJECT_ROOT / "results/visualizations"
+
+# output file names for each version
+OUTPUTS = {
+    "standard": {"scores": "pagerank_scores.json", "top_100": "top_100_functions.json",
+                 "summary": "pagerank_summary.txt", "title": "PAGERANK (STANDARD)"},
+    "personalized": {"scores": "ppr_scores.json", "top_100": "ppr_top_100_functions.json",
+                     "summary": "ppr_summary.txt", "title": "PERSONALIZED PAGERANK (SEEDS)"},
+}
+
+
+def load_seeds():
+    """Seed functions from build_seeds.py, as a uniform personalization vector"""
+    with open(SEEDS_FILE, 'r') as f:
+        seeds = list(json.load(f)["seeds"])
+    return {node: 1.0 for node in seeds}   # networkx normalises these to sum to 1
 
 sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
 from callgraph import load_call_graph, count_edges
@@ -69,21 +92,23 @@ class PageRankAnalyzer:
         print(f"      indirect:       {indirect}" +
               ("" if include_indirect else "  (disabled with --no-indirect)"))
     
-    def calculate_pagerank(self):
-        """Calculate PageRank scores"""
-        print("\n📊 Calculating PageRank...")
-        
+    def calculate_pagerank(self, alpha=0.85, personalization=None):
+        """Calculate PageRank scores (personalized when a seed vector is given)"""
+        kind = "personalized PageRank" if personalization else "PageRank"
+        print(f"\n📊 Calculating {kind} (alpha={alpha})...")
+
         try:
             pagerank = nx.pagerank(
                 self.graph,
-                alpha=0.85,      # Damping factor (standard)
-                max_iter=100,    # Maximum iterations
-                tol=1e-06        # Convergence tolerance
+                alpha=alpha,                      # Damping factor (0.85 is standard)
+                personalization=personalization,  # None = standard PageRank
+                max_iter=100,                     # Maximum iterations
+                tol=1e-06                         # Convergence tolerance
             )
-            print("✅ PageRank calculation complete!")
+            print(f"✅ {kind} calculation complete!")
             return pagerank
         except Exception as e:
-            print(f"❌ Error calculating PageRank: {e}")
+            print(f"❌ Error calculating {kind}: {e}")
             return None
     
     def analyze_pagerank(self, pagerank):
@@ -113,14 +138,15 @@ class PageRankAnalyzer:
         
         return stats
     
-    def save_results(self, pagerank, stats):
-        """Save all results"""
+    def save_results(self, pagerank, stats, mode, alpha):
+        """Save all results for one version ('standard' or 'personalized')"""
         OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
-        
+        names = OUTPUTS[mode]
+
         print("\n💾 Saving results...")
-        
+
         # Save PageRank scores
-        pr_file = OUTPUT_PATH / "pagerank_scores.json"
+        pr_file = OUTPUT_PATH / names["scores"]
         with open(pr_file, 'w') as f:
             json.dump(pagerank, f, indent=2)
         print(f"   ✅ Saved PageRank scores: {pr_file}")
@@ -139,17 +165,18 @@ class PageRankAnalyzer:
                 'line': info['line']
             })
         
-        top_100_file = OUTPUT_PATH / "top_100_functions.json"
+        top_100_file = OUTPUT_PATH / names["top_100"]
         with open(top_100_file, 'w') as f:
             json.dump(top_100_detailed, f, indent=2)
         print(f"   ✅ Saved top 100 functions: {top_100_file}")
         
         # Create human-readable summary
-        summary_file = OUTPUT_PATH / "pagerank_summary.txt"
+        summary_file = OUTPUT_PATH / names["summary"]
         with open(summary_file, 'w') as f:
             f.write("=" * 70 + "\n")
-            f.write("PAGERANK ANALYSIS SUMMARY\n")
+            f.write(f"{names['title']} SUMMARY\n")
             f.write("=" * 70 + "\n\n")
+            f.write(f"alpha (damping factor):    {alpha}\n")
             f.write(f"Total functions analyzed:  {stats['total_functions']}\n")
             f.write(f"Mean PageRank score:       {stats['mean_pagerank']:.6f}\n")
             f.write(f"Max PageRank score:        {stats['max_pagerank']:.6f}\n")
@@ -171,6 +198,10 @@ def main():
     parser = argparse.ArgumentParser(description="Build the call graph and run PageRank")
     parser.add_argument("--no-indirect", action="store_true",
                         help="ignore function-pointer edges (reproduces the Phase 0 baseline)")
+    parser.add_argument("--mode", choices=["standard", "personalized", "both"], default="both",
+                        help="which PageRank version(s) to compute (default: both)")
+    parser.add_argument("--alpha", type=float, default=0.85,
+                        help="damping factor (default: 0.85)")
     args = parser.parse_args()
 
     print("=" * 70)
@@ -185,27 +216,37 @@ def main():
 
     # Build graph
     analyzer.build_graph(include_indirect=not args.no_indirect)
-    
-    # Calculate PageRank
-    pagerank = analyzer.calculate_pagerank()
-    if not pagerank:
-        return 1
-    
-    # Analyze results
-    stats = analyzer.analyze_pagerank(pagerank)
-    
-    # Print top 20
-    print("\n📈 TOP 20 FUNCTIONS BY PAGERANK:")
-    for i, (func, score) in enumerate(stats['top_20'], 1):
-        print(f"   {i:2d}. {func:45s} {score:.6f}")
-    
-    # Save results
-    analyzer.save_results(pagerank, stats)
+
+    modes = ["standard", "personalized"] if args.mode == "both" else [args.mode]
+    for mode in modes:
+        personalization = None
+        if mode == "personalized":
+            if not SEEDS_FILE.exists():
+                print(f"❌ {SEEDS_FILE} not found - run build_seeds.py first")
+                return 1
+            personalization = load_seeds()
+            print(f"\n🚪 Using {len(personalization)} seed functions from {SEEDS_FILE.name}")
+
+        # Calculate PageRank
+        pagerank = analyzer.calculate_pagerank(args.alpha, personalization)
+        if not pagerank:
+            return 1
+
+        # Analyze results
+        stats = analyzer.analyze_pagerank(pagerank)
+
+        # Print top 20
+        print(f"\n📈 TOP 20 FUNCTIONS ({OUTPUTS[mode]['title']}):")
+        for i, (func, score) in enumerate(stats['top_20'], 1):
+            print(f"   {i:2d}. {func:45s} {score:.6f}")
+
+        # Save results
+        analyzer.save_results(pagerank, stats, mode, args.alpha)
 
     print("\n" + "=" * 70)
     print("✅ PAGERANK ANALYSIS COMPLETE!")
     print("=" * 70)
-    print("\nNext step: run analyze_cve_functions.py for CVE-specific ground-truth analysis")
+    print("\nNext step: run evaluate_rankings.py to compare the rankings on the CVEs")
     
     return 0
 

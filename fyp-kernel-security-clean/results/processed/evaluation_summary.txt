@@ -1,0 +1,25 @@
+======================================================================
+EVALUATION: RANK OF KNOWN VULNERABLE FUNCTIONS
+======================================================================
+Rankings: baseline, standard, personalized   (seeds excluded in non_seed scope: 304)
+Ties share the average position. Lower rank = found earlier.
+
+Rank of each vulnerable function - scope: all
+   CVE / function                                     baseline      standard  personalized
+   CVE-2023-0179 nft_payload_copy_vlan               1534/3815     1637/4353     2263/4353
+   CVE-2024-53141 bitmap_ip_uadt                     2940/3815     3160/4353     1243/4353
+   CVE-2025-22064 nf_tables_updchain                 1883/3815     2631/4353      751/4353
+   recall@10                                             0.000         0.000         0.000
+   recall@20                                             0.000         0.000         0.000
+   recall@100                                            0.000         0.000         0.000
+   MRR                                                   0.001         0.000         0.001
+
+Rank of each vulnerable function - scope: non_seed
+   CVE / function                                     baseline      standard  personalized
+   CVE-2023-0179 nft_payload_copy_vlan               1526/3511     1621/4049     1959/4049
+   CVE-2024-53141 bitmap_ip_uadt                     2784/3511     3142/4049      939/4049
+   CVE-2025-22064 nf_tables_updchain                 1874/3511     2613/4049      447/4049
+   recall@10                                             0.000         0.000         0.000
+   recall@20                                             0.000         0.000         0.000
+   recall@100                                            0.000         0.000         0.000
+   MRR                                                   0.001         0.000         0.001

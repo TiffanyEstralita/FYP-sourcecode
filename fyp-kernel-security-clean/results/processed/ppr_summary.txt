@@ -1,0 +1,64 @@
+======================================================================
+PERSONALIZED PAGERANK (SEEDS) SUMMARY
+======================================================================
+
+alpha (damping factor):    0.85
+Total functions analyzed:  4353
+Mean PageRank score:       0.000230
+Max PageRank score:        0.021168
+Min PageRank score:        0.000000
+
+======================================================================
+TOP 50 FUNCTIONS BY PAGERANK
+======================================================================
+
+  1. nf_ct_netns_get                               0.021168 (nf_conntrack_proto.c)
+  2. nft_do_chain                                  0.017655 (nf_tables_core.c)
+  3. nf_nat_setup_info                             0.011565 (nf_nat_core.c)
+  4. nf_ct_netns_put                               0.009714 (nf_conntrack_proto.c)
+  5. nf_unregister_net_hooks                       0.008609 (core.c)
+  6. nf_ct_netns_do_get                            0.008533 (nf_conntrack_proto.c)
+  7. nf_ct_netns_do_put                            0.008254 (nf_conntrack_proto.c)
+  8. nf_unregister_net_hook                        0.007365 (core.c)
+  9. __nf_unregister_net_hook                      0.007000 (core.c)
+ 10. nfnetlink_unicast                             0.006710 (nfnetlink.c)
+ 11. nfnl_pernet                                   0.006400 (nfnetlink.c)
+ 12. nf_ct_netns_inet_get                          0.005989 (nf_conntrack_proto.c)
+ 13. match_set                                     0.005227 (xt_set.c)
+ 14. nf_conntrack_in                               0.004824 (nf_conntrack_core.c)
+ 15. ip_set_test                                   0.004470 (ip_set_core.c)
+ 16. protocol                                      0.004298 (ip_set_core.c)
+ 17. nf_ct_iterate_cleanup_net                     0.004131 (nf_conntrack_core.c)
+ 18. nft_table_lookup                              0.004015 (nf_tables_api.c)
+ 19. nf_nat_ipv6_fn                                0.003830 (nf_nat_proto.c)
+ 20. nf_ct_invert_tuple                            0.003817 (nf_conntrack_core.c)
+ 21. ip_set_pernet                                 0.003787 (ip_set_core.c)
+ 22. nf_register_net_hooks                         0.003643 (core.c)
+ 23. nf_logger_find_get                            0.003627 (nf_log.c)
+ 24. conntrack_mt                                  0.003619 (xt_conntrack.c)
+ 25. xt_ct_tg_check                                0.003618 (xt_CT.c)
+ 26. socket_mt_enable_defrag                       0.003618 (xt_socket.c)
+ 27. nf_nat_ipv4_fn                                0.003618 (nf_nat_proto.c)
+ 28. nf_ct_iterate_cleanup                         0.003598 (nf_conntrack_core.c)
+ 29. protocol_min_failed                           0.003494 (ip_set_core.c)
+ 30. nfnl_acct_pernet                              0.003276 (nfnetlink_acct.c)
+ 31. nf_log_packet                                 0.003194 (nf_log.c)
+ 32. nf_nat_inet_fn                                0.003163 (nf_nat_core.c)
+ 33. nf_logger_put                                 0.003145 (nf_log.c)
+ 34. nft_ctx_init                                  0.002779 (nf_tables_api.c)
+ 35. ip_set_nfnl_put                               0.002695 (ip_set_core.c)
+ 36. audit_tg                                      0.002625 (xt_AUDIT.c)
+ 37. nfqueue_tg_v1                                 0.002625 (xt_NFQUEUE.c)
+ 38. nf_hook_slow                                  0.002624 (core.c)
+ 39. hash_by_src                                   0.002613 (nf_nat_core.c)
+ 40. ip_set_nfnl_get_byindex                       0.002613 (ip_set_core.c)
+ 41. nf_conntrack_alter_reply                      0.002495 (nf_conntrack_core.c)
+ 42. get_unique_tuple                              0.002456 (nf_nat_core.c)
+ 43. nf_route_table_hook4                          0.002446 (nft_chain_route.c)
+ 44. nf_route_table_hook6                          0.002446 (nft_chain_route.c)
+ 45. ip_set_ad                                     0.002430 (ip_set_core.c)
+ 46. check                                         0.002425 (xt_multiport.c)
+ 47. connmark_tg_shift                             0.002413 (xt_connmark.c)
+ 48. xt_ct_target                                  0.002413 (xt_CT.c)
+ 49. secmark_tg                                    0.002413 (xt_SECMARK.c)
+ 50. tcpoptstrip_mangle_packet                     0.002413 (xt_TCPOPTSTRIP.c)

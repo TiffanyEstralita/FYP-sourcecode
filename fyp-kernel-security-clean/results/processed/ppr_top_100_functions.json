@@ -1,0 +1,802 @@
+[
+  {
+    "rank": 1,
+    "function": "nf_ct_netns_get",
+    "node": "nf_ct_netns_get",
+    "pagerank": 0.02116786214651844,
+    "file": "nf_conntrack_proto.c",
+    "line": 607
+  },
+  {
+    "rank": 2,
+    "function": "nft_do_chain",
+    "node": "nft_do_chain",
+    "pagerank": 0.017654945418648305,
+    "file": "nf_tables_core.c",
+    "line": 227
+  },
+  {
+    "rank": 3,
+    "function": "nf_nat_setup_info",
+    "node": "nf_nat_setup_info",
+    "pagerank": 0.011565017345764504,
+    "file": "nf_nat_core.c",
+    "line": 579
+  },
+  {
+    "rank": 4,
+    "function": "nf_ct_netns_put",
+    "node": "nf_ct_netns_put",
+    "pagerank": 0.00971419181361077,
+    "file": "nf_conntrack_proto.c",
+    "line": 634
+  },
+  {
+    "rank": 5,
+    "function": "nf_unregister_net_hooks",
+    "node": "nf_unregister_net_hooks",
+    "pagerank": 0.00860910328067435,
+    "file": "core.c",
+    "line": 595
+  },
+  {
+    "rank": 6,
+    "function": "nf_ct_netns_do_get",
+    "node": "nf_ct_netns_do_get",
+    "pagerank": 0.008532550642311796,
+    "file": "nf_conntrack_proto.c",
+    "line": 463
+  },
+  {
+    "rank": 7,
+    "function": "nf_ct_netns_do_put",
+    "node": "nf_ct_netns_do_put",
+    "pagerank": 0.00825433192640082,
+    "file": "nf_conntrack_proto.c",
+    "line": 552
+  },
+  {
+    "rank": 8,
+    "function": "nf_unregister_net_hook",
+    "node": "nf_unregister_net_hook",
+    "pagerank": 0.007365217585793827,
+    "file": "core.c",
+    "line": 517
+  },
+  {
+    "rank": 9,
+    "function": "__nf_unregister_net_hook",
+    "node": "__nf_unregister_net_hook",
+    "pagerank": 0.007000106042147644,
+    "file": "core.c",
+    "line": 476
+  },
+  {
+    "rank": 10,
+    "function": "nfnetlink_unicast",
+    "node": "nfnetlink_unicast",
+    "pagerank": 0.00670997370569837,
+    "file": "nfnetlink.c",
+    "line": 192
+  },
+  {
+    "rank": 11,
+    "function": "nfnl_pernet",
+    "node": "nfnl_pernet",
+    "pagerank": 0.0064004948573493925,
+    "file": "nfnetlink.c",
+    "line": 90
+  },
+  {
+    "rank": 12,
+    "function": "nf_ct_netns_inet_get",
+    "node": "nf_ct_netns_inet_get",
+    "pagerank": 0.005989486481608057,
+    "file": "nf_conntrack_proto.c",
+    "line": 587
+  },
+  {
+    "rank": 13,
+    "function": "match_set",
+    "node": "match_set",
+    "pagerank": 0.005226931382940543,
+    "file": "xt_set.c",
+    "line": 28
+  },
+  {
+    "rank": 14,
+    "function": "nf_conntrack_in",
+    "node": "nf_conntrack_in",
+    "pagerank": 0.004823586609090243,
+    "file": "nf_conntrack_core.c",
+    "line": 1975
+  },
+  {
+    "rank": 15,
+    "function": "ip_set_test",
+    "node": "ip_set_test",
+    "pagerank": 0.004469839526428177,
+    "file": "ip_set_core.c",
+    "line": 728
+  },
+  {
+    "rank": 16,
+    "function": "protocol",
+    "node": "protocol",
+    "pagerank": 0.0042979015396171225,
+    "file": "ip_set_core.c",
+    "line": 939
+  },
+  {
+    "rank": 17,
+    "function": "nf_ct_iterate_cleanup_net",
+    "node": "nf_ct_iterate_cleanup_net",
+    "pagerank": 0.004131235991205175,
+    "file": "nf_conntrack_core.c",
+    "line": 2442
+  },
+  {
+    "rank": 18,
+    "function": "nft_table_lookup",
+    "node": "nft_table_lookup",
+    "pagerank": 0.004014765389631751,
+    "file": "nf_tables_api.c",
+    "line": 637
+  },
+  {
+    "rank": 19,
+    "function": "nf_nat_ipv6_fn",
+    "node": "nf_nat_ipv6_fn",
+    "pagerank": 0.0038301110782813803,
+    "file": "nf_nat_proto.c",
+    "line": 903
+  },
+  {
+    "rank": 20,
+    "function": "nf_ct_invert_tuple",
+    "node": "nf_ct_invert_tuple",
+    "pagerank": 0.0038171837792483317,
+    "file": "nf_conntrack_core.c",
+    "line": 444
+  },
+  {
+    "rank": 21,
+    "function": "ip_set_pernet",
+    "node": "ip_set_pernet",
+    "pagerank": 0.003787177109060143,
+    "file": "ip_set_core.c",
+    "line": 38
+  },
+  {
+    "rank": 22,
+    "function": "nf_register_net_hooks",
+    "node": "nf_register_net_hooks",
+    "pagerank": 0.003643216226345284,
+    "file": "core.c",
+    "line": 575
+  },
+  {
+    "rank": 23,
+    "function": "nf_logger_find_get",
+    "node": "nf_logger_find_get",
+    "pagerank": 0.0036273428602064143,
+    "file": "nf_log.c",
+    "line": 154
+  },
+  {
+    "rank": 24,
+    "function": "conntrack_mt",
+    "node": "conntrack_mt",
+    "pagerank": 0.0036185989374525546,
+    "file": "xt_conntrack.c",
+    "line": 161
+  },
+  {
+    "rank": 25,
+    "function": "xt_ct_tg_check",
+    "node": "xt_ct_tg_check",
+    "pagerank": 0.0036179292080904396,
+    "file": "xt_CT.c",
+    "line": 154
+  },
+  {
+    "rank": 26,
+    "function": "socket_mt_enable_defrag",
+    "node": "socket_mt_enable_defrag",
+    "pagerank": 0.0036179292080904396,
+    "file": "xt_socket.c",
+    "line": 154
+  },
+  {
+    "rank": 27,
+    "function": "nf_nat_ipv4_fn",
+    "node": "nf_nat_ipv4_fn",
+    "pagerank": 0.0036176899568176823,
+    "file": "nf_nat_proto.c",
+    "line": 624
+  },
+  {
+    "rank": 28,
+    "function": "nf_ct_iterate_cleanup",
+    "node": "nf_ct_iterate_cleanup",
+    "pagerank": 0.0035982445894404856,
+    "file": "nf_conntrack_core.c",
+    "line": 2423
+  },
+  {
+    "rank": 29,
+    "function": "protocol_min_failed",
+    "node": "protocol_min_failed",
+    "pagerank": 0.0034944645211516423,
+    "file": "ip_set_core.c",
+    "line": 950
+  },
+  {
+    "rank": 30,
+    "function": "nfnl_acct_pernet",
+    "node": "nfnl_acct_pernet",
+    "pagerank": 0.0032758470336457972,
+    "file": "nfnetlink_acct.c",
+    "line": 51
+  },
+  {
+    "rank": 31,
+    "function": "nf_log_packet",
+    "node": "nf_log_packet",
+    "pagerank": 0.0031943094208201498,
+    "file": "nf_log.c",
+    "line": 205
+  },
+  {
+    "rank": 32,
+    "function": "nf_nat_inet_fn",
+    "node": "nf_nat_inet_fn",
+    "pagerank": 0.003163179486768611,
+    "file": "nf_nat_core.c",
+    "line": 712
+  },
+  {
+    "rank": 33,
+    "function": "nf_logger_put",
+    "node": "nf_logger_put",
+    "pagerank": 0.003145143080082489,
+    "file": "nf_log.c",
+    "line": 186
+  },
+  {
+    "rank": 34,
+    "function": "nft_ctx_init",
+    "node": "nft_ctx_init",
+    "pagerank": 0.0027793467649816074,
+    "file": "nf_tables_api.c",
+    "line": 125
+  },
+  {
+    "rank": 35,
+    "function": "ip_set_nfnl_put",
+    "node": "ip_set_nfnl_put",
+    "pagerank": 0.0026949359872068617,
+    "file": "ip_set_core.c",
+    "line": 918
+  },
+  {
+    "rank": 36,
+    "function": "audit_tg",
+    "node": "audit_tg",
+    "pagerank": 0.0026253107299312886,
+    "file": "xt_AUDIT.c",
+    "line": 66
+  },
+  {
+    "rank": 37,
+    "function": "nfqueue_tg_v1",
+    "node": "nfqueue_tg_v1",
+    "pagerank": 0.0026253107299312886,
+    "file": "xt_NFQUEUE.c",
+    "line": 36
+  },
+  {
+    "rank": 38,
+    "function": "nf_hook_slow",
+    "node": "nf_hook_slow",
+    "pagerank": 0.002624214426008819,
+    "file": "core.c",
+    "line": 607
+  },
+  {
+    "rank": 39,
+    "function": "hash_by_src",
+    "node": "hash_by_src",
+    "pagerank": 0.0026131392817961958,
+    "file": "nf_nat_core.c",
+    "line": 152
+  },
+  {
+    "rank": 40,
+    "function": "ip_set_nfnl_get_byindex",
+    "node": "ip_set_nfnl_get_byindex",
+    "pagerank": 0.0026129488725097614,
+    "file": "ip_set_core.c",
+    "line": 891
+  },
+  {
+    "rank": 41,
+    "function": "nf_conntrack_alter_reply",
+    "node": "nf_conntrack_alter_reply",
+    "pagerank": 0.002495196965723916,
+    "file": "nf_conntrack_core.c",
+    "line": 2065
+  },
+  {
+    "rank": 42,
+    "function": "get_unique_tuple",
+    "node": "get_unique_tuple",
+    "pagerank": 0.002455529187143658,
+    "file": "nf_nat_core.c",
+    "line": 503
+  },
+  {
+    "rank": 43,
+    "function": "nf_route_table_hook4",
+    "node": "nf_route_table_hook4",
+    "pagerank": 0.0024462503243074902,
+    "file": "nft_chain_route.c",
+    "line": 16
+  },
+  {
+    "rank": 44,
+    "function": "nf_route_table_hook6",
+    "node": "nf_route_table_hook6",
+    "pagerank": 0.0024462503243074902,
+    "file": "nft_chain_route.c",
+    "line": 65
+  },
+  {
+    "rank": 45,
+    "function": "ip_set_ad",
+    "node": "ip_set_ad",
+    "pagerank": 0.0024303317206232325,
+    "file": "ip_set_core.c",
+    "line": 1752
+  },
+  {
+    "rank": 46,
+    "function": "check",
+    "node": "check",
+    "pagerank": 0.002425444452602251,
+    "file": "xt_multiport.c",
+    "line": 108
+  },
+  {
+    "rank": 47,
+    "function": "connmark_tg_shift",
+    "node": "connmark_tg_shift",
+    "pagerank": 0.0024127967980228176,
+    "file": "xt_connmark.c",
+    "line": 26
+  },
+  {
+    "rank": 48,
+    "function": "xt_ct_target",
+    "node": "xt_ct_target",
+    "pagerank": 0.0024127967980228176,
+    "file": "xt_CT.c",
+    "line": 20
+  },
+  {
+    "rank": 49,
+    "function": "secmark_tg",
+    "node": "secmark_tg",
+    "pagerank": 0.0024127967980228176,
+    "file": "xt_SECMARK.c",
+    "line": 26
+  },
+  {
+    "rank": 50,
+    "function": "tcpoptstrip_mangle_packet",
+    "node": "tcpoptstrip_mangle_packet",
+    "pagerank": 0.0024127967980228176,
+    "file": "xt_TCPOPTSTRIP.c",
+    "line": 28
+  },
+  {
+    "rank": 51,
+    "function": "tproxy_tg4",
+    "node": "tproxy_tg4",
+    "pagerank": 0.0024127967980228176,
+    "file": "xt_TPROXY.c",
+    "line": 35
+  },
+  {
+    "rank": 52,
+    "function": "hashlimit_mt_common",
+    "node": "hashlimit_mt_common",
+    "pagerank": 0.0024123992916350364,
+    "file": "xt_hashlimit.c",
+    "line": 724
+  },
+  {
+    "rank": 53,
+    "function": "socket_match",
+    "node": "socket_match",
+    "pagerank": 0.0024123992916350364,
+    "file": "xt_socket.c",
+    "line": 48
+  },
+  {
+    "rank": 54,
+    "function": "l2tp_mt_check",
+    "node": "l2tp_mt_check",
+    "pagerank": 0.002411952805393626,
+    "file": "xt_l2tp.c",
+    "line": 209
+  },
+  {
+    "rank": 55,
+    "function": "recent_mt_check",
+    "node": "recent_mt_check",
+    "pagerank": 0.002411952805393626,
+    "file": "xt_recent.c",
+    "line": 332
+  },
+  {
+    "rank": 56,
+    "function": "secmark_tg_check",
+    "node": "secmark_tg_check",
+    "pagerank": 0.002411952805393626,
+    "file": "xt_SECMARK.c",
+    "line": 75
+  },
+  {
+    "rank": 57,
+    "function": "nf_xfrm_me_harder",
+    "node": "nf_xfrm_me_harder",
+    "pagerank": 0.0024117933045451215,
+    "file": "nf_nat_proto.c",
+    "line": 663
+  },
+  {
+    "rank": 58,
+    "function": "xt_check_proc_name",
+    "node": "xt_check_proc_name",
+    "pagerank": 0.00239617495966787,
+    "file": "x_tables.c",
+    "line": 463
+  },
+  {
+    "rank": 59,
+    "function": "__nft_trace_packet",
+    "node": "__nft_trace_packet",
+    "pagerank": 0.0022781427649042566,
+    "file": "nf_tables_core.c",
+    "line": 24
+  },
+  {
+    "rank": 60,
+    "function": "ip_set_add",
+    "node": "ip_set_add",
+    "pagerank": 0.0022735659961905684,
+    "file": "ip_set_core.c",
+    "line": 766
+  },
+  {
+    "rank": 61,
+    "function": "ip_set_del",
+    "node": "ip_set_del",
+    "pagerank": 0.0022735659961905684,
+    "file": "ip_set_core.c",
+    "line": 788
+  },
+  {
+    "rank": 62,
+    "function": "cfg_copy",
+    "node": "cfg_copy",
+    "pagerank": 0.0021369578752159,
+    "file": "xt_hashlimit.c",
+    "line": 138
+  },
+  {
+    "rank": 63,
+    "function": "optlen",
+    "node": "optlen [xt_TCPOPTSTRIP.c]",
+    "pagerank": 0.0020490506243486,
+    "file": "xt_TCPOPTSTRIP.c",
+    "line": 19
+  },
+  {
+    "rank": 64,
+    "function": "l2tp_match",
+    "node": "l2tp_match",
+    "pagerank": 0.0020487066450176256,
+    "file": "xt_l2tp.c",
+    "line": 49
+  },
+  {
+    "rank": 65,
+    "function": "checkentry_lsm",
+    "node": "checkentry_lsm",
+    "pagerank": 0.0020483219136439926,
+    "file": "xt_SECMARK.c",
+    "line": 43
+  },
+  {
+    "rank": 66,
+    "function": "nf_flow_offload_ip_hook",
+    "node": "nf_flow_offload_ip_hook",
+    "pagerank": 0.002021266099872539,
+    "file": "nf_flow_table_ip.c",
+    "line": 339
+  },
+  {
+    "rank": 67,
+    "function": "nf_flow_offload_ipv6_hook",
+    "node": "nf_flow_offload_ipv6_hook",
+    "pagerank": 0.002021266099872539,
+    "file": "nf_flow_table_ip.c",
+    "line": 601
+  },
+  {
+    "rank": 68,
+    "function": "find_set_and_id",
+    "node": "find_set_and_id",
+    "pagerank": 0.0019506728190220857,
+    "file": "ip_set_core.c",
+    "line": 984
+  },
+  {
+    "rank": 69,
+    "function": "nft_trace_notify",
+    "node": "nft_trace_notify",
+    "pagerank": 0.001942323155326839,
+    "file": "nf_tables_trace.c",
+    "line": 167
+  },
+  {
+    "rank": 70,
+    "function": "nf_ct_delete",
+    "node": "nf_ct_delete",
+    "pagerank": 0.0019207155031955696,
+    "file": "nf_conntrack_core.c",
+    "line": 657
+  },
+  {
+    "rank": 71,
+    "function": "nft_do_chain_ipv4",
+    "node": "nft_do_chain_ipv4",
+    "pagerank": 0.001906008956148549,
+    "file": "nft_chain_filter.c",
+    "line": 14
+  },
+  {
+    "rank": 72,
+    "function": "nft_do_chain_arp",
+    "node": "nft_do_chain_arp",
+    "pagerank": 0.001906008956148549,
+    "file": "nft_chain_filter.c",
+    "line": 59
+  },
+  {
+    "rank": 73,
+    "function": "nft_do_chain_ipv6",
+    "node": "nft_do_chain_ipv6",
+    "pagerank": 0.001906008956148549,
+    "file": "nft_chain_filter.c",
+    "line": 98
+  },
+  {
+    "rank": 74,
+    "function": "nft_do_chain_inet",
+    "node": "nft_do_chain_inet",
+    "pagerank": 0.001906008956148549,
+    "file": "nft_chain_filter.c",
+    "line": 143
+  },
+  {
+    "rank": 75,
+    "function": "nft_do_chain_inet_ingress",
+    "node": "nft_do_chain_inet_ingress",
+    "pagerank": 0.001906008956148549,
+    "file": "nft_chain_filter.c",
+    "line": 164
+  },
+  {
+    "rank": 76,
+    "function": "nft_do_chain_bridge",
+    "node": "nft_do_chain_bridge",
+    "pagerank": 0.001906008956148549,
+    "file": "nft_chain_filter.c",
+    "line": 230
+  },
+  {
+    "rank": 77,
+    "function": "nft_do_chain_netdev",
+    "node": "nft_do_chain_netdev",
+    "pagerank": 0.001906008956148549,
+    "file": "nft_chain_filter.c",
+    "line": 287
+  },
+  {
+    "rank": 78,
+    "function": "nft_nat_do_chain",
+    "node": "nft_nat_do_chain",
+    "pagerank": 0.001906008956148549,
+    "file": "nft_chain_nat.c",
+    "line": 10
+  },
+  {
+    "rank": 79,
+    "function": "nf_route_table_inet",
+    "node": "nf_route_table_inet",
+    "pagerank": 0.001906008956148549,
+    "file": "nft_chain_route.c",
+    "line": 115
+  },
+  {
+    "rank": 80,
+    "function": "match_type",
+    "node": "match_type",
+    "pagerank": 0.0018092994687262773,
+    "file": "xt_addrtype.c",
+    "line": 104
+  },
+  {
+    "rank": 81,
+    "function": "port_match",
+    "node": "port_match [xt_tcpudp.c]",
+    "pagerank": 0.0018092994687262773,
+    "file": "xt_tcpudp.c",
+    "line": 25
+  },
+  {
+    "rank": 82,
+    "function": "conntrack_addrcmp",
+    "node": "conntrack_addrcmp",
+    "pagerank": 0.0017389272843353616,
+    "file": "xt_conntrack.c",
+    "line": 25
+  },
+  {
+    "rank": 83,
+    "function": "nft_netlink_dump_start_rcu",
+    "node": "nft_netlink_dump_start_rcu",
+    "pagerank": 0.0016809794400977356,
+    "file": "nf_tables_api.c",
+    "line": 933
+  },
+  {
+    "rank": 84,
+    "function": "nf_ct_l4proto_find",
+    "node": "nf_ct_l4proto_find",
+    "pagerank": 0.0016499562470304037,
+    "file": "nf_conntrack_proto.c",
+    "line": 97
+  },
+  {
+    "rank": 85,
+    "function": "nf_nat_icmpv6_reply_translation",
+    "node": "nf_nat_icmpv6_reply_translation",
+    "pagerank": 0.0016270407903892128,
+    "file": "nf_nat_proto.c",
+    "line": 836
+  },
+  {
+    "rank": 86,
+    "function": "nf_conntrack_invert_icmp_tuple",
+    "node": "nf_conntrack_invert_icmp_tuple",
+    "pagerank": 0.0016247396142452537,
+    "file": "nf_conntrack_proto_icmp.c",
+    "line": 56
+  },
+  {
+    "rank": 87,
+    "function": "nf_conntrack_invert_icmpv6_tuple",
+    "node": "nf_conntrack_invert_icmpv6_tuple",
+    "pagerank": 0.0016247396142452537,
+    "file": "nf_conntrack_proto_icmpv6.c",
+    "line": 68
+  },
+  {
+    "rank": 88,
+    "function": "__bpf_mt_check_bytecode",
+    "node": "__bpf_mt_check_bytecode",
+    "pagerank": 0.001607968536929084,
+    "file": "xt_bpf.c",
+    "line": 24
+  },
+  {
+    "rank": 89,
+    "function": "nf_register_net_hook",
+    "node": "nf_register_net_hook",
+    "pagerank": 0.0015668663443213597,
+    "file": "core.c",
+    "line": 545
+  },
+  {
+    "rank": 90,
+    "function": "start_msg",
+    "node": "start_msg",
+    "pagerank": 0.0015594909437904837,
+    "file": "ip_set_core.c",
+    "line": 962
+  },
+  {
+    "rank": 91,
+    "function": "ctnetlink_parse_zone",
+    "node": "ctnetlink_parse_zone",
+    "pagerank": 0.0015418632698595582,
+    "file": "nf_conntrack_netlink.c",
+    "line": 1381
+  },
+  {
+    "rank": 92,
+    "function": "get_next_corpse",
+    "node": "get_next_corpse",
+    "pagerank": 0.0015381767841618464,
+    "file": "nf_conntrack_core.c",
+    "line": 2369
+  },
+  {
+    "rank": 93,
+    "function": "nf_nat_icmp_reply_translation",
+    "node": "nf_nat_icmp_reply_translation",
+    "pagerank": 0.0015361386963793986,
+    "file": "nf_nat_proto.c",
+    "line": 559
+  },
+  {
+    "rank": 94,
+    "function": "nft_trace_packet",
+    "node": "nft_trace_packet",
+    "pagerank": 0.0014814092972241042,
+    "file": "nf_tables_core.c",
+    "line": 37
+  },
+  {
+    "rank": 95,
+    "function": "nft_trace_copy_nftrace",
+    "node": "nft_trace_copy_nftrace",
+    "pagerank": 0.0014814092972241042,
+    "file": "nf_tables_core.c",
+    "line": 50
+  },
+  {
+    "rank": 96,
+    "function": "nft_bitwise_fast_eval",
+    "node": "nft_bitwise_fast_eval",
+    "pagerank": 0.0014814092972241042,
+    "file": "nf_tables_core.c",
+    "line": 59
+  },
+  {
+    "rank": 97,
+    "function": "nft_cmp_fast_eval",
+    "node": "nft_cmp_fast_eval",
+    "pagerank": 0.0014814092972241042,
+    "file": "nf_tables_core.c",
+    "line": 69
+  },
+  {
+    "rank": 98,
+    "function": "nft_cmp16_fast_eval",
+    "node": "nft_cmp16_fast_eval",
+    "pagerank": 0.0014814092972241042,
+    "file": "nf_tables_core.c",
+    "line": 79
+  },
+  {
+    "rank": 99,
+    "function": "nft_trace_verdict",
+    "node": "nft_trace_verdict",
+    "pagerank": 0.0014814092972241042,
+    "file": "nf_tables_core.c",
+    "line": 119
+  },
+  {
+    "rank": 100,
+    "function": "nft_payload_fast_eval",
+    "node": "nft_payload_fast_eval",
+    "pagerank": 0.0014814092972241042,
+    "file": "nf_tables_core.c",
+    "line": 130
+  }
+]
