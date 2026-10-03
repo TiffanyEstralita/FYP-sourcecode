@@ -15,27 +15,463 @@ Rank:       #1636 of 4353
 Percentile: top 37.58%
 Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
 
+CVE-2023-52620
+----------------------------------------------------------------------
+netfilter: nf_tables: disallow timeout for anonymous sets
+
+Function:   nf_tables_newset
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2023/CVE-2023-52620.json)
+File:       nf_tables_api.c, line 4438
+PageRank:   0.000121
+Rank:       #3241 of 4353
+Percentile: top 74.45%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+CVE-2024-35898
+----------------------------------------------------------------------
+netfilter: nf_tables: Fix potential data-race in __nft_flowtable_type_get()
+
+Function:   __nft_flowtable_type_get
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-35898.json)
+File:       nf_tables_api.c, line 7502
+PageRank:   0.000166
+Rank:       #1717 of 4353
+Percentile: top 39.44%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   nft_flowtable_type_get
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-35898.json)
+File:       nf_tables_api.c, line 7513
+PageRank:   0.000117
+Rank:       #3613 of 4353
+Percentile: top 83.00%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+CVE-2024-41042
+----------------------------------------------------------------------
+netfilter: nf_tables: prefer nft_chain_validate
+
+Function:   nft_chain_validate
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-41042.json)
+File:       nf_tables_api.c, line 3342
+PageRank:   0.000842
+Rank:       #111 of 4353
+Percentile: top 2.55%
+Top 1%: False   Top 5%: True   Top 10%: True   Top 20%: True
+
+Function:   nf_tables_check_loops
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-41042.json)
+File:       nf_tables_api.c, line 9526
+PageRank:   0.002022
+Rank:       #28 of 4353
+Percentile: top 0.64%
+Top 1%: True   Top 5%: True   Top 10%: True   Top 20%: True
+
+Function:   nf_tables_loop_check_setelem
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-41042.json)
+File:       nf_tables_api.c, line 9491
+PageRank:   0.000517
+Rank:       #223 of 4353
+Percentile: top 5.12%
+Top 1%: False   Top 5%: False   Top 10%: True   Top 20%: True
+
+Function:   nft_check_loops
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-41042.json)
+File:       nf_tables_api.c, line 9471
+PageRank:   0.000865
+Rank:       #107 of 4353
+Percentile: top 2.46%
+Top 1%: False   Top 5%: True   Top 10%: True   Top 20%: True
+
+Function:   nft_set_catchall_loops
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-41042.json)
+File:       nf_tables_api.c, line 9505
+PageRank:   0.000394
+Rank:       #409 of 4353
+Percentile: top 9.40%
+Top 1%: False   Top 5%: False   Top 10%: True   Top 20%: True
+
+Function:   nft_validate_register_store
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-41042.json)
+File:       nf_tables_api.c, line 9692
+PageRank:   0.001375
+Rank:       #43 of 4353
+Percentile: top 0.99%
+Top 1%: True   Top 5%: True   Top 10%: True   Top 20%: True
+
 CVE-2024-53141
 ----------------------------------------------------------------------
-Missing range check in bitmap_ip_uadt: when IPSET_ATTR_IP_TO is absent but IPSET_ATTR_CIDR is present, ip/ip_to values are swapped and the range check for ip is skipped, allowing an out-of-bounds write.
+netfilter: ipset: add missing range check in bitmap_ip_uadt
 
 Function:   bitmap_ip_uadt
-Verified:   True  (source: https://cveawg.mitre.org/api/cve/CVE-2024-53141)
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-53141.json)
 File:       ip_set_bitmap_ip.c, line 129
 PageRank:   0.000122
 Rank:       #3147 of 4353
 Percentile: top 72.29%
 Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
 
-CVE-2025-22064
+CVE-2025-71160
 ----------------------------------------------------------------------
-nf_tables_updchain rolls back hook registration on error unconditionally, but the hook is never registered when the table is flagged dormant (inactive), so the rollback path unregisters a hook that was never registered.
+netfilter: nf_tables: avoid chain re-validation if possible
 
-Function:   nf_tables_updchain
-Verified:   True  (source: https://cveawg.mitre.org/api/cve/CVE-2025-22064)
-File:       nf_tables_api.c, line 2367
-PageRank:   0.000133
-Rank:       #2631 of 4353
-Percentile: top 60.44%
+Function:   nft_validate_state_update
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-71160.json)
+File:       nf_tables_api.c, line 105
+PageRank:   0.000291
+Rank:       #705 of 4353
+Percentile: top 16.20%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: True
+
+Function:   nft_table_validate
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-71160.json)
+File:       nf_tables_api.c, line 3372
+PageRank:   0.000204
+Rank:       #1209 of 4353
+Percentile: top 27.77%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+CVE-2026-23274
+----------------------------------------------------------------------
+netfilter: xt_IDLETIMER: reject rev0 reuse of ALARM timer labels
+
+Function:   idletimer_tg_checkentry
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23274.json)
+File:       xt_IDLETIMER.c, line 306
+PageRank:   0.000120
+Rank:       #3425 of 4353
+Percentile: top 78.68%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+CVE-2026-43027
+----------------------------------------------------------------------
+netfilter: nf_conntrack_helper: pass helper to expect cleanup
+
+Function:   nf_conntrack_helper_unregister
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43027.json)
+File:       nf_conntrack_helper.c, line 410
+PageRank:   0.001556
+Rank:       #34 of 4353
+Percentile: top 0.78%
+Top 1%: True   Top 5%: True   Top 10%: True   Top 20%: True
+
+CVE-2026-53001
+----------------------------------------------------------------------
+netfilter: xtables: restrict several matches to inet family
+
+Function:   mac_mt_exit
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53001.json)
+File:       xt_mac.c, line 57
+PageRank:   0.000116
+Rank:       #4231 of 4353
+Percentile: top 97.20%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   mac_mt_init
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53001.json)
+File:       xt_mac.c, line 52
+PageRank:   0.000116
+Rank:       #4230 of 4353
+Percentile: top 97.17%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   owner_mt_exit
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53001.json)
+File:       xt_owner.c, line 139
+PageRank:   0.000116
+Rank:       #4251 of 4353
+Percentile: top 97.66%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   owner_mt_init
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53001.json)
+File:       xt_owner.c, line 134
+PageRank:   0.000116
+Rank:       #4250 of 4353
+Percentile: top 97.63%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   physdev_mt_exit
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53001.json)
+File:       xt_physdev.c, line 133
+PageRank:   0.000116
+Rank:       #4253 of 4353
+Percentile: top 97.70%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   physdev_mt_init
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53001.json)
+File:       xt_physdev.c, line 128
+PageRank:   0.000116
+Rank:       #4252 of 4353
+Percentile: top 97.68%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+CVE-2026-53218
+----------------------------------------------------------------------
+netfilter: nft_exthdr: fix register tracking for F_PRESENT flag
+
+Function:   nft_exthdr_init
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53218.json)
+File:       nft_exthdr.c, line 420
+PageRank:   0.000238
+Rank:       #927 of 4353
+Percentile: top 21.30%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+CVE-2026-64189
+----------------------------------------------------------------------
+netfilter: ipset: fix race between dump and ip_set_list resize
+
+Function:   ip_set_dump_done
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-64189.json)
+File:       ip_set_core.c, line 1431
+PageRank:   0.000116
+Rank:       #3642 of 4353
+Percentile: top 83.67%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   ip_set_dump_do
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-64189.json)
+File:       ip_set_core.c, line 1521
+PageRank:   0.000125
+Rank:       #2946 of 4353
+Percentile: top 67.68%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+CVE-2026-72020
+----------------------------------------------------------------------
+ipvs: reset full ip_vs_seq structs in ip_vs_conn_new
+
+Function:   ip_vs_conn_new
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72020.json)
+File:       ip_vs_conn.c, line 940
+PageRank:   0.000271
+Rank:       #778 of 4353
+Percentile: top 17.87%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: True
+
+CVE-2026-72251
+----------------------------------------------------------------------
+netfilter: nf_nat_sip: reload possible stale data pointer
+
+Function:   nf_nat_sip
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72251.json)
+File:       nf_nat_sip.c, line 145
+PageRank:   0.000170
+Rank:       #1592 of 4353
+Percentile: top 36.57%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+CVE-2026-72419
+----------------------------------------------------------------------
+netfilter: nf_nat: avoid invalid nat_net pointer use on failed nf_nat_init()
+
+Function:   nf_nat_register_fn
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72419.json)
+File:       nf_nat_core.c, line 991
+PageRank:   0.000472
+Rank:       #285 of 4353
+Percentile: top 6.55%
+Top 1%: False   Top 5%: False   Top 10%: True   Top 20%: True
+
+CVE-2026-74347
+----------------------------------------------------------------------
+netfilter: cttimeout: detach dataplane timeout policy and repurpose refcount
+
+Function:   nf_conntrack_free
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nf_conntrack_core.c, line 1678
+PageRank:   0.000212
+Rank:       #1150 of 4353
+Percentile: top 26.42%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   untimeout [nf_conntrack_timeout.c]
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nf_conntrack_timeout.c, line 28
+PageRank:   0.000191
+Rank:       #1323 of 4353
+Percentile: top 30.39%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   nf_ct_set_timeout
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nf_conntrack_timeout.c, line 64
+PageRank:   0.000161
+Rank:       #1821 of 4353
+Percentile: top 41.83%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   nf_ct_destroy_timeout
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nf_conntrack_timeout.c, line 125
+PageRank:   0.000215
+Rank:       #1123 of 4353
+Percentile: top 25.80%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   cttimeout_new_timeout
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nfnetlink_cttimeout.c, line 98
+PageRank:   0.000121
+Rank:       #3260 of 4353
+Percentile: top 74.89%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   ctnl_timeout_fill_info
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nfnetlink_cttimeout.c, line 183
+PageRank:   0.000204
+Rank:       #1210 of 4353
+Percentile: top 27.80%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   ctnl_timeout_try_del
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nfnetlink_cttimeout.c, line 312
+PageRank:   0.000168
+Rank:       #1655 of 4353
+Percentile: top 38.02%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   cttimeout_del_timeout
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nfnetlink_cttimeout.c, line 330
+PageRank:   0.000121
+Rank:       #3262 of 4353
+Percentile: top 74.94%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   ctnl_timeout_find_get
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nfnetlink_cttimeout.c, line 512
+PageRank:   0.000185
+Rank:       #1400 of 4353
+Percentile: top 32.16%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   ctnl_timeout_put
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nfnetlink_cttimeout.c, line 531
+PageRank:   0.000457
+Rank:       #305 of 4353
+Percentile: top 7.01%
+Top 1%: False   Top 5%: False   Top 10%: True   Top 20%: True
+
+Function:   cttimeout_net_exit
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nfnetlink_cttimeout.c, line 607
+PageRank:   0.000137
+Rank:       #2536 of 4353
+Percentile: top 58.26%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   cttimeout_exit
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nfnetlink_cttimeout.c, line 670
+PageRank:   0.000116
+Rank:       #3981 of 4353
+Percentile: top 91.45%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   untimeout [nfnetlink_cttimeout.c]
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nfnetlink_cttimeout.c, line 660
+PageRank:   0.000191
+Rank:       #1325 of 4353
+Percentile: top 30.44%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   nft_ct_timeout_obj_eval
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nft_ct.c, line 879
+PageRank:   0.000123
+Rank:       #3095 of 4353
+Percentile: top 71.10%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   nft_ct_timeout_obj_init
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74347.json)
+File:       nft_ct.c, line 913
+PageRank:   0.000130
+Rank:       #2783 of 4353
+Percentile: top 63.93%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+CVE-2026-74579
+----------------------------------------------------------------------
+netfilter: nft_payload: fix mask build for partial field offload
+
+Function:   nft_payload_offload_mask
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74579.json)
+File:       nft_payload.c, line 238
+PageRank:   0.000591
+Rank:       #183 of 4353
+Percentile: top 4.20%
+Top 1%: False   Top 5%: True   Top 10%: True   Top 20%: True
+
+CVE-2026-74724
+----------------------------------------------------------------------
+ipvs: avoid out-of-bounds write in ip_vs_nat_icmp
+
+Function:   ip_vs_out_icmp
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74724.json)
+File:       ip_vs_core.c, line 914
+PageRank:   0.000125
+Rank:       #3030 of 4353
+Percentile: top 69.61%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+Function:   ip_vs_in_icmp
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74724.json)
+File:       ip_vs_core.c, line 1582
+PageRank:   0.000171
+Rank:       #1578 of 4353
+Percentile: top 36.25%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+CVE-2026-74748
+----------------------------------------------------------------------
+netfilter: ipset: fix refcount race between list:set GC and swap
+
+Function:   __ip_set_put
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74748.json)
+File:       ip_set_core.c, line 673
+PageRank:   0.000687
+Rank:       #151 of 4353
+Percentile: top 3.47%
+Top 1%: False   Top 5%: True   Top 10%: True   Top 20%: True
+
+Function:   __ip_set_put_byindex
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74748.json)
+File:       ip_set_core.c, line 843
+PageRank:   0.000486
+Rank:       #258 of 4353
+Percentile: top 5.93%
+Top 1%: False   Top 5%: False   Top 10%: True   Top 20%: True
+
+CVE-2026-80744
+----------------------------------------------------------------------
+netfilter: nf_tables_offload: suppress WARN_ON_ONCE for ENOMEM in abort path
+
+Function:   nft_flow_rule_offload_abort
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-80744.json)
+File:       nf_tables_offload.c, line 508
+PageRank:   0.000150
+Rank:       #2026 of 4353
+Percentile: top 46.54%
+Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
+
+CVE-2026-90141
+----------------------------------------------------------------------
+ipvs: fix integer overflow in ftp helper port/address parsing
+
+Function:   ip_vs_ftp_get_addrport
+Verified:   True  (source: https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-90141.json)
+File:       ip_vs_ftp.c, line 96
+PageRank:   0.000178
+Rank:       #1484 of 4353
+Percentile: top 34.09%
 Top 1%: False   Top 5%: False   Top 10%: False   Top 20%: False
 

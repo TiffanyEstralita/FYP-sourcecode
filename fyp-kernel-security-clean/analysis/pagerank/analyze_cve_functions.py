@@ -26,13 +26,16 @@ def load_json(path):
         return json.load(f)
 
 
-def find_function_location(functions, name):
-    """Find (file, line) for a function name anywhere in the extracted codebase"""
-    for filename, funcs in functions.items():
-        for func in funcs:
-            if func['name'] == name:
-                return filename, func['line']
-    return None, None
+def find_function_location(functions, name, prefer_file=None):
+    """Find (file, line) for a function name in the extracted codebase,
+    preferring `prefer_file` when several files define the same name"""
+    found = [(filename, func['line'])
+             for filename, funcs in functions.items()
+             for func in funcs if func['name'] == name]
+    for filename, line in found:
+        if filename == prefer_file:
+            return filename, line
+    return found[0] if found else (None, None)
 
 
 def analyze_function(name, vf, functions, pagerank, all_sorted, total):
@@ -47,7 +50,8 @@ def analyze_function(name, vf, functions, pagerank, all_sorted, total):
         entry['status'] = 'SKIPPED - not verified against a primary source. Confirm before including in analysis.'
         return entry
 
-    actual_file, line = find_function_location(functions, name)
+    # `name` is the graph node (e.g. "help [nf_conntrack_ftp.c]"); vf['function'] the plain name
+    actual_file, line = find_function_location(functions, vf.get('function', name), vf['file'])
     if actual_file is None:
         entry['status'] = 'NOT FOUND in results/raw/functions_v2.json - extraction may not have captured this function'
         return entry

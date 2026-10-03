@@ -2,24 +2,77 @@
 EVALUATION: RANK OF KNOWN VULNERABLE FUNCTIONS
 ======================================================================
 Rankings: baseline, standard, personalized   (seeds excluded in non_seed scope: 304)
-Ties share the average position. Lower rank = found earlier.
+A CVE's rank = rank of its best-ranked vulnerable function. Ties share the average position. Lower = found earlier.
 
-Rank of each vulnerable function - scope: all
-   CVE / function                                     baseline      standard  personalized
-   CVE-2023-0179 nft_payload_copy_vlan               1534/3815     1637/4353     2263/4353
-   CVE-2024-53141 bitmap_ip_uadt                     2940/3815     3160/4353     1243/4353
-   CVE-2025-22064 nf_tables_updchain                 1883/3815     2631/4353      751/4353
-   recall@10                                             0.000         0.000         0.000
-   recall@20                                             0.000         0.000         0.000
-   recall@100                                            0.000         0.000         0.000
-   MRR                                                   0.001         0.000         0.001
+Rank of each CVE (best-ranked vulnerable function, among all functions)
+   CVE              split        baseline      standard  personalized
+   CVE-2023-0179    tuning           1534          1637          2263
+   CVE-2023-52620   test             2940          3240           140
+   CVE-2024-35898   tuning           2024          1717          2032
+   CVE-2024-41042   tuning            140            28           608
+   CVE-2024-53141   test             2940          3160          1243
+   CVE-2025-71160   test              532           705           623
+   CVE-2026-23274   test             2940          3434           330
+   CVE-2026-43027   test              122            34           478
+   CVE-2026-53001   test             2940          3990          3798
+   CVE-2026-53218   test              776           927          1279
+   CVE-2026-64189   tuning           2940          2987          2602
+   CVE-2026-72020   test              186           778          2044
+   CVE-2026-72251   tuning           2940          1591          1898
+   CVE-2026-72419   test              596           285          1975
+   CVE-2026-74347   tuning           1053           305           140
+   CVE-2026-74579   test              245           183          2490
+   CVE-2026-74724   test             1252          1578           464
+   CVE-2026-74748   test              130           151           535
+   CVE-2026-80744   test             1605          2026          3046
+   CVE-2026-90141   test             1560          1484          2813
 
-Rank of each vulnerable function - scope: non_seed
-   CVE / function                                     baseline      standard  personalized
-   CVE-2023-0179 nft_payload_copy_vlan               1526/3511     1621/4049     1959/4049
-   CVE-2024-53141 bitmap_ip_uadt                     2784/3511     3142/4049      939/4049
-   CVE-2025-22064 nf_tables_updchain                 1874/3511     2613/4049      447/4049
-   recall@10                                             0.000         0.000         0.000
-   recall@20                                             0.000         0.000         0.000
-   recall@100                                            0.000         0.000         0.000
-   MRR                                                   0.001         0.000         0.001
+CVEs whose vulnerable functions are all entry points (seeds), not scored in the non_seed scope: CVE-2023-52620, CVE-2026-23274
+
+Summary - all CVEs (20), scope: all
+   recall@10                         0.00          0.00          0.00
+   recall@20                         0.00          0.00          0.00
+   recall@100                        0.00          0.10          0.00
+   recall@500                        0.25          0.30          0.25
+   MRR                             0.0022        0.0046        0.0016
+   median rank                       1534          1578          1898
+
+Summary - all CVEs (18), scope: non_seed
+   recall@10                         0.00          0.00          0.00
+   recall@20                         0.00          0.00          0.00
+   recall@100                        0.00          0.11          0.00
+   recall@500                        0.28          0.33          0.33
+   MRR                             0.0024        0.0051        0.0020
+   median rank                       1248          1468          1671
+
+Summary - tuning CVEs (6), scope: all
+   recall@10                         0.00          0.00          0.00
+   recall@20                         0.00          0.00          0.00
+   recall@100                        0.00          0.17          0.00
+   recall@500                        0.17          0.33          0.17
+   MRR                             0.0017        0.0069        0.0018
+   median rank                       2024          1637          2032
+
+Summary - tuning CVEs (6), scope: non_seed
+   recall@10                         0.00          0.00          0.00
+   recall@20                         0.00          0.00          0.00
+   recall@100                        0.00          0.17          0.00
+   recall@500                        0.17          0.33          0.33
+   MRR                             0.0017        0.0069        0.0019
+   median rank                       2014          1621          1728
+
+Summary - test CVEs (14), scope: all
+   recall@10                         0.00          0.00          0.00
+   recall@20                         0.00          0.00          0.00
+   recall@100                        0.00          0.07          0.00
+   recall@500                        0.29          0.29          0.29
+   MRR                             0.0024        0.0037        0.0016
+   median rank                       1252          1484          1279
+
+Summary - test CVEs (12), scope: non_seed
+   recall@10                         0.00          0.00          0.00
+   recall@20                         0.00          0.00          0.00
+   recall@100                        0.00          0.08          0.00
+   recall@500                        0.33          0.33          0.33
+   MRR                             0.0027        0.0043        0.0020
+   median rank                        774           915          1671

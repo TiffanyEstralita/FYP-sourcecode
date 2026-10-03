@@ -1,0 +1,21 @@
+{
+  "_about": "CVEs checked by hand. 'include' entries are always part of the evaluation set; 'exclude' entries are kept here only to document why they were dropped.",
+  "include": {
+    "CVE-2023-0179": {
+      "subject": "netfilter: nft_payload: incorrect arithmetics when fetching VLAN header bits",
+      "description": "Stack-based buffer overflow in nf_tables VLAN payload handling. An integer underflow when computing 'ethlen' (u8) lets an attacker-controlled memcpy write up to 255 bytes into a 4-byte stack buffer.",
+      "bug_type": "out-of-bounds",
+      "vulnerable_functions": [
+        {"function": "nft_payload_copy_vlan", "file": "nft_payload.c"}
+      ],
+      "source": "https://seclists.org/oss-sec/2023/q1/20",
+      "note": "Not in the kernel CNA database (assigned by Red Hat). Verified by hand: Linux 6.1.6 still contains the buggy line 'ethlen -= offset + len - VLAN_ETH_HLEN + vlan_hlen;' (the fix changes '+ vlan_hlen' to '- vlan_hlen')."
+    }
+  },
+  "exclude": {
+    "CVE-2025-22064": {
+      "reason": "Not present in Linux 6.1.6: the official record says the bug was introduced in Linux 6.4 (commit b9703ed44ffb). nf_tables_updchain exists in 6.1.6 but without the buggy hook-update code.",
+      "source": "https://cveawg.mitre.org/api/cve/CVE-2025-22064"
+    }
+  }
+}

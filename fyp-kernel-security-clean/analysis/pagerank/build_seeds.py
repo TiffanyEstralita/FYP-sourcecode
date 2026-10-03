@@ -133,8 +133,14 @@ def main():
             fn = vf["name"]
             is_seed = fn in seeds
             if is_seed:
-                warnings.append(f"CIRCULAR: {cve_id} vulnerable function {fn} is itself a seed "
-                                f"(groups: {', '.join(seeds[fn]['groups'])})")
+                optional = [g for g in seeds[fn]["groups"] if g in args.include]
+                if optional:   # a normally-off group was switched on and contains the answer
+                    warnings.append(f"CIRCULAR: {cve_id} vulnerable function {fn} is a seed only "
+                                    f"because of optional group(s) {', '.join(optional)}")
+                else:          # the bug is in an entry point chosen by the normal rules
+                    warnings.append(f"NOTE: {cve_id} vulnerable function {fn} is itself an entry point "
+                                    f"(groups: {', '.join(seeds[fn]['groups'])}); it is left out of "
+                                    f"the non_seed evaluation scope")
             cve_check[f"{cve_id}:{fn}"] = {
                 "is_seed": is_seed,
                 "reachable_from": [p for p in by_path if fn in reach[p]],

@@ -1,0 +1,45 @@
+EVALUATION SET: 20 netfilter CVEs present in Linux 6.1.6
+Selection: hand-verified + brief CVEs, then random sample (seed 2026) from 174 usable candidates
+Split: 6 tuning / 14 test (seed 2027)
+Excluded: CVE-2025-22064 (Not present in Linux 6.1.6: the official record says the bug...)
+
+CVE-2023-0179    tuning  out-of-bounds   netfilter: nft_payload: incorrect arithmetics when fetching VLAN heade
+                 functions: nft_payload_copy_vlan
+CVE-2023-52620   test    other           netfilter: nf_tables: disallow timeout for anonymous sets
+                 functions: nf_tables_newset
+CVE-2024-35898   tuning  race/locking    netfilter: nf_tables: Fix potential data-race in __nft_flowtable_type_
+                 functions: __nft_flowtable_type_get, nft_flowtable_type_get
+CVE-2024-41042   tuning  out-of-bounds   netfilter: nf_tables: prefer nft_chain_validate
+                 functions: nft_chain_validate, nf_tables_check_loops, nf_tables_loop_check_setelem, nft_check_loops, nft_set_catchall_loops, nft_validate_register_store
+CVE-2024-53141   test    other           netfilter: ipset: add missing range check in bitmap_ip_uadt
+                 functions: bitmap_ip_uadt
+CVE-2025-71160   test    race/locking    netfilter: nf_tables: avoid chain re-validation if possible
+                 functions: nft_validate_state_update, nft_table_validate
+CVE-2026-23274   test    uninitialized   netfilter: xt_IDLETIMER: reject rev0 reuse of ALARM timer labels
+                 functions: idletimer_tg_checkentry
+CVE-2026-43027   test    use-after-free  netfilter: nf_conntrack_helper: pass helper to expect cleanup
+                 functions: nf_conntrack_helper_unregister
+CVE-2026-53001   test    other           netfilter: xtables: restrict several matches to inet family
+                 functions: mac_mt_exit, mac_mt_init, owner_mt_exit, owner_mt_init, physdev_mt_exit, physdev_mt_init
+CVE-2026-53218   test    out-of-bounds   netfilter: nft_exthdr: fix register tracking for F_PRESENT flag
+                 functions: nft_exthdr_init
+CVE-2026-64189   tuning  use-after-free  netfilter: ipset: fix race between dump and ip_set_list resize
+                 functions: ip_set_dump_done, ip_set_dump_do
+CVE-2026-72020   test    uninitialized   ipvs: reset full ip_vs_seq structs in ip_vs_conn_new
+                 functions: ip_vs_conn_new
+CVE-2026-72251   tuning  other           netfilter: nf_nat_sip: reload possible stale data pointer
+                 functions: nf_nat_sip
+CVE-2026-72419   test    out-of-bounds   netfilter: nf_nat: avoid invalid nat_net pointer use on failed nf_nat_
+                 functions: nf_nat_register_fn
+CVE-2026-74347   tuning  other           netfilter: cttimeout: detach dataplane timeout policy and repurpose re
+                 functions: nf_conntrack_free, untimeout [nf_conntrack_timeout.c], nf_ct_set_timeout, nf_ct_destroy_timeout, cttimeout_new_timeout, ctnl_timeout_fill_info, ctnl_timeout_try_del, cttimeout_del_timeout, ctnl_timeout_find_get, ctnl_timeout_put, cttimeout_net_exit, cttimeout_exit, untimeout [nfnetlink_cttimeout.c], nft_ct_timeout_obj_eval, nft_ct_timeout_obj_init
+CVE-2026-74579   test    out-of-bounds   netfilter: nft_payload: fix mask build for partial field offload
+                 functions: nft_payload_offload_mask
+CVE-2026-74724   test    out-of-bounds   ipvs: avoid out-of-bounds write in ip_vs_nat_icmp
+                 functions: ip_vs_out_icmp, ip_vs_in_icmp
+CVE-2026-74748   test    race/locking    netfilter: ipset: fix refcount race between list:set GC and swap
+                 functions: __ip_set_put, __ip_set_put_byindex
+CVE-2026-80744   test    other           netfilter: nf_tables_offload: suppress WARN_ON_ONCE for ENOMEM in abor
+                 functions: nft_flow_rule_offload_abort
+CVE-2026-90141   test    out-of-bounds   ipvs: fix integer overflow in ftp helper port/address parsing
+                 functions: ip_vs_ftp_get_addrport

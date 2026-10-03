@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 """
 SCRIPT #4: Visualize CVE PageRank Results
-Purpose: Draw charts for EVERY CVE in the function-level CVE analysis
-         (results/processed/cve_function_analysis.json, written by
-         analyze_cve_functions.py). No CVE is hardcoded - add a CVE to
-         validation/cve_data/vulnerable_functions.json and it gets charts.
+Purpose: Draw standard-PageRank charts, with detailed per-function charts for
+         the CASE_STUDIES CVEs (discussed in depth in the report), using the
+         function-level CVE analysis (results/processed/cve_function_analysis.json,
+         written by analyze_cve_functions.py). Results for ALL evaluation CVEs
+         are charted by evaluate_rankings.py (chart 7).
 
 Charts:
   1_pagerank_distribution.png - histogram of all PageRank scores
   2_top_20_functions.png - the 20 highest-PageRank functions overall
   3_<cve>_top_30.png     - functions in the vulnerable file, ranked by PageRank,
                            with the vulnerable function highlighted
-  4_cve_rank_summary.png - every CVE's vulnerable function and its overall rank
+  4_cve_rank_summary.png - each case-study vulnerable function and its overall rank
   6_<cve>_callgraph.png  - who calls / is called by the vulnerable function
 """
 
@@ -36,6 +37,9 @@ OUTPUT_PATH = PROJECT_ROOT / "results/visualizations"
 
 sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
 from callgraph import load_call_graph
+
+# CVEs that get detailed per-function charts (3, 4, 6)
+CASE_STUDIES = ("CVE-2023-0179", "CVE-2024-53141")
 
 VULN_COLOR = "#d62728"   # red - the known vulnerable function
 OTHER_COLOR = "#9e9e9e"  # grey - everything else
@@ -81,8 +85,10 @@ class Visualizer:
         print(f"✅ Loaded {len(self.cves)} CVEs: {', '.join(self.cves)}")
 
     def ok_entries(self):
-        """Yield (cve_id, entry) for every vulnerable function that was ranked"""
+        """Yield (cve_id, entry) for every case-study vulnerable function that was ranked"""
         for cve_id, data in self.cves.items():
+            if cve_id not in CASE_STUDIES:
+                continue
             for entry in data["functions"]:
                 if entry["status"] == "OK":
                     yield cve_id, entry
@@ -221,7 +227,7 @@ class Visualizer:
 
         ax.set_xlim(0, 100)
         ax.set_xlabel("Rank percentile (lower = ranked higher = better)", fontsize=12)
-        ax.set_title("Where each CVE's vulnerable function ranks (standard PageRank)",
+        ax.set_title("Where each case-study CVE's vulnerable function ranks (standard PageRank)",
                      fontsize=13, fontweight="bold")
         ax.legend(loc="lower right")
 

@@ -3246,18 +3246,308 @@
         "packet"
       ]
     },
+    "CVE-2023-52620:nf_tables_newset": {
+      "is_seed": true,
+      "reachable_from": [
+        "config"
+      ]
+    },
+    "CVE-2024-35898:__nft_flowtable_type_get": {
+      "is_seed": false,
+      "reachable_from": [
+        "config"
+      ]
+    },
+    "CVE-2024-35898:nft_flowtable_type_get": {
+      "is_seed": false,
+      "reachable_from": [
+        "config"
+      ]
+    },
+    "CVE-2024-41042:nft_chain_validate": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2024-41042:nf_tables_check_loops": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2024-41042:nf_tables_loop_check_setelem": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2024-41042:nft_check_loops": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2024-41042:nft_set_catchall_loops": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2024-41042:nft_validate_register_store": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
     "CVE-2024-53141:bitmap_ip_uadt": {
       "is_seed": false,
       "reachable_from": [
         "config"
       ]
     },
-    "CVE-2025-22064:nf_tables_updchain": {
+    "CVE-2025-71160:nft_validate_state_update": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2025-71160:nft_table_validate": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-23274:idletimer_tg_checkentry": {
+      "is_seed": true,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-43027:nf_conntrack_helper_unregister": {
       "is_seed": false,
       "reachable_from": [
         "config"
       ]
+    },
+    "CVE-2026-53001:mac_mt_exit": {
+      "is_seed": false,
+      "reachable_from": []
+    },
+    "CVE-2026-53001:mac_mt_init": {
+      "is_seed": false,
+      "reachable_from": []
+    },
+    "CVE-2026-53001:owner_mt_exit": {
+      "is_seed": false,
+      "reachable_from": []
+    },
+    "CVE-2026-53001:owner_mt_init": {
+      "is_seed": false,
+      "reachable_from": []
+    },
+    "CVE-2026-53001:physdev_mt_exit": {
+      "is_seed": false,
+      "reachable_from": []
+    },
+    "CVE-2026-53001:physdev_mt_init": {
+      "is_seed": false,
+      "reachable_from": []
+    },
+    "CVE-2026-53218:nft_exthdr_init": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-64189:ip_set_dump_done": {
+      "is_seed": false,
+      "reachable_from": []
+    },
+    "CVE-2026-64189:ip_set_dump_do": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-72020:ip_vs_conn_new": {
+      "is_seed": false,
+      "reachable_from": [
+        "packet"
+      ]
+    },
+    "CVE-2026-72251:nf_nat_sip": {
+      "is_seed": false,
+      "reachable_from": [
+        "packet"
+      ]
+    },
+    "CVE-2026-72419:nf_nat_register_fn": {
+      "is_seed": false,
+      "reachable_from": [
+        "config"
+      ]
+    },
+    "CVE-2026-74347:nf_conntrack_free": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-74347:untimeout [nf_conntrack_timeout.c]": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-74347:nf_ct_set_timeout": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-74347:nf_ct_destroy_timeout": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-74347:cttimeout_new_timeout": {
+      "is_seed": true,
+      "reachable_from": [
+        "config"
+      ]
+    },
+    "CVE-2026-74347:ctnl_timeout_fill_info": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-74347:ctnl_timeout_try_del": {
+      "is_seed": false,
+      "reachable_from": [
+        "config"
+      ]
+    },
+    "CVE-2026-74347:cttimeout_del_timeout": {
+      "is_seed": true,
+      "reachable_from": [
+        "config"
+      ]
+    },
+    "CVE-2026-74347:ctnl_timeout_find_get": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-74347:ctnl_timeout_put": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-74347:cttimeout_net_exit": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-74347:cttimeout_exit": {
+      "is_seed": false,
+      "reachable_from": []
+    },
+    "CVE-2026-74347:untimeout [nfnetlink_cttimeout.c]": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-74347:nft_ct_timeout_obj_eval": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-74347:nft_ct_timeout_obj_init": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-74579:nft_payload_offload_mask": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-74724:ip_vs_out_icmp": {
+      "is_seed": false,
+      "reachable_from": [
+        "packet"
+      ]
+    },
+    "CVE-2026-74724:ip_vs_in_icmp": {
+      "is_seed": false,
+      "reachable_from": [
+        "packet"
+      ]
+    },
+    "CVE-2026-74748:__ip_set_put": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-74748:__ip_set_put_byindex": {
+      "is_seed": false,
+      "reachable_from": [
+        "config",
+        "packet"
+      ]
+    },
+    "CVE-2026-80744:nft_flow_rule_offload_abort": {
+      "is_seed": false,
+      "reachable_from": [
+        "config"
+      ]
+    },
+    "CVE-2026-90141:ip_vs_ftp_get_addrport": {
+      "is_seed": false,
+      "reachable_from": [
+        "packet"
+      ]
     }
   },
-  "warnings": []
+  "warnings": [
+    "NOTE: CVE-2023-52620 vulnerable function nf_tables_newset is itself an entry point (groups: nfnetlink_handlers); it is left out of the non_seed evaluation scope",
+    "NOTE: CVE-2026-23274 vulnerable function idletimer_tg_checkentry is itself an entry point (groups: xtables_checkentry); it is left out of the non_seed evaluation scope",
+    "NOTE: CVE-2026-74347 vulnerable function cttimeout_new_timeout is itself an entry point (groups: nfnetlink_handlers); it is left out of the non_seed evaluation scope",
+    "NOTE: CVE-2026-74347 vulnerable function cttimeout_del_timeout is itself an entry point (groups: nfnetlink_handlers); it is left out of the non_seed evaluation scope"
+  ]
 }
