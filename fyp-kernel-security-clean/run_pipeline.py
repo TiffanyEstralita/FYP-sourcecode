@@ -58,8 +58,10 @@ STAGES = [
      "combine PageRank shortlist + saved LLM scores; ablation and efficiency curve"),
     ("final", "analysis/report/final_results.py",
      "final tables, random baseline, uncertainty, results/RESULTS.md"),
+    ("charts", "analysis/report/report_charts.py",
+     "report charts 12 (where each test bug landed) and 13 (bugs found vs functions read)"),
 ]
-REPORT_STAGES = {"fusion", "final"}
+REPORT_STAGES = {"fusion", "final", "charts"}
 STAGE_NAMES = [name for name, _, _ in STAGES]
 
 
