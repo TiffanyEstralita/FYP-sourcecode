@@ -120,3 +120,49 @@ versions:
       ```c
       {code}
       ```
+
+# ---------------------------------------------------------------------------
+# VulnSC-style reranker (analysis/llm/vulnsc.py), after Wu et al., ISSTA 2025.
+# Step 1: every callee is SUMMARISED bottom-up (deepest first); a summary
+#         includes the summaries of that callee's own callees.
+# Step 2: the function under review is shown WITH its callees' summaries as
+#         comments, plus a checklist; the model lists concrete findings.
+#         The score is computed in code from the findings (configs/llm.yaml).
+# Same fairness rules as above: general security knowledge only.
+vulnsc:
+  summary_template: |
+    You are summarising a Linux kernel function so that a security reviewer
+    of its CALLERS knows what it does without reading it.
+
+    {callee_summaries}Function `{name}` from {file}:
+    ```c
+    {code}
+    ```
+
+    Respond with JSON only, no other text, each value one short sentence:
+    {{"input": "<what the parameters are and which ones it trusts or checks>", "output": "<return value and what it writes or allocates>", "behaviour": "<what it does, incl. frees, locks taken/released, length or bounds checks>"}}
+
+  review_template: |
+    You are a Linux kernel security reviewer. Review the netfilter function
+    below for vulnerabilities an attacker could trigger (packet contents or
+    netlink/setsockopt data). The functions it calls are summarised in the
+    comments above it, so you can follow data into them.
+
+    Checklist - look for each of these:
+    {checklist}
+
+    Report only problems you can point to in the code. For each one give the
+    type (one of the checklist items), the evidence (the code and why it is
+    wrong, one or two sentences) and the severity:
+    high = likely exploitable memory corruption or use-after-free,
+    medium = plausible bug that needs specific conditions,
+    low = defensive weakness or unlikely to be reachable.
+    If you find nothing, return an empty list.
+
+    Respond with JSON only, no other text:
+    {{"findings": [{{"type": "<checklist item>", "evidence": "<code + reason>", "severity": "<low|medium|high>"}}]}}
+
+    ```c
+    {callee_comments}// function under review: `{name}` from {file}
+    {code}
+    ```

@@ -9,7 +9,6 @@ IMPROVED CALL EXTRACTION - Cross-file calls
 Finds ALL function calls, not just within same file
 """
 
-from fileinput import filename
 import re
 import json
 from pathlib import Path
@@ -19,21 +18,15 @@ import sys
 # Windows terminals use a non-UTF-8 encoding by default and crash on emoji output
 sys.stdout.reconfigure(encoding="utf-8")
 
-# Paths
-# KERNEL_PATH = Path.home() / "fyp-kernel-security/data/kernel/linux-shallow"
-# NETFILTER_PATH = KERNEL_PATH / "net/netfilter"
-# INPUT_FILE = Path.home() / "fyp-kernel-security/results/raw/functions_v2.json"
-# OUTPUT_PATH = Path.home() / "fyp-kernel-security/results/raw"
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-KERNEL_PATH = PROJECT_ROOT / "data/kernel/linux-shallow"
-NETFILTER_PATH = KERNEL_PATH / "net/netfilter"
-INPUT_FILE = PROJECT_ROOT / "results/raw/functions_v2.json"
-OUTPUT_PATH = PROJECT_ROOT / "results/raw"
-
 sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
+from callgraph import DIRECT_CALLS_FILE, FUNCTIONS_FILE, load_functions as load_function_list
+from config import PATHS, kernel_info
 from sources import find_source
+
+INPUT_FILE = FUNCTIONS_FILE
+OUTPUT_PATH = PATHS.raw
 
 class ImprovedCallExtractor:
     """Extract ALL function calls including cross-file"""
@@ -219,22 +212,23 @@ def save_results(all_calls: Dict, stats: Dict):
     OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
     
     # Save complete call graph
-    calls_file = OUTPUT_PATH / "function_calls_v2.json"
+    calls_file = DIRECT_CALLS_FILE
     with open(calls_file, 'w') as f:
-        json.dump(all_calls, f, indent=2)
+        json.dump({"kernel": kernel_info(), "files": all_calls}, f, indent=1)
     print(f"\n💾 Saved call graph to: {calls_file}")
     
     # Save statistics
-    stats_file = OUTPUT_PATH / "call_graph_stats_v2.json"
+    stats_file = OUTPUT_PATH / "call_graph_stats.json"
     with open(stats_file, 'w') as f:
-        json.dump(stats, f, indent=2)
+        json.dump({"kernel": kernel_info(), **stats}, f, indent=2)
     print(f"💾 Saved statistics to: {stats_file}")
     
     # Create detailed summary
-    summary_file = OUTPUT_PATH / "call_graph_summary_v2.txt"
+    summary_file = OUTPUT_PATH / "call_graph_summary.txt"
     with open(summary_file, 'w') as f:
         f.write("=" * 70 + "\n")
         f.write("NETFILTER CALL GRAPH ANALYSIS (IMPROVED)\n")
+        f.write(f"Kernel: {kernel_info()['tag']} ({kernel_info()['commit']})\n")
         f.write("=" * 70 + "\n\n")
         f.write(f"Functions that call others:        {stats['total_callers']}\n")
         f.write(f"Functions that are called:         {stats['total_callees']}\n")
@@ -265,8 +259,7 @@ def load_functions():
         print(f"❌ Error: {INPUT_FILE} not found!")
         sys.exit(1)
     
-    with open(INPUT_FILE, 'r') as f:
-        return json.load(f)
+    return load_function_list()
 
 
 def main():
@@ -307,25 +300,6 @@ def main():
     print("\n📈 Top 15 Most Called Functions (Highest Centrality):")
     for i, (func, count) in enumerate(stats['top_30_in_degree'][:15], 1):
         print(f"   {i:2d}. {func:45s} called {count:4d} times")
-    
-    # Check CVE file
-    print("\n🎯 CVE-2023-0179 FILE:")
-    if 'nf_tables_api.c' in all_calls:
-        cve_calls = all_calls['nf_tables_api.c']
-        total_calls_in_cve = sum(len(v) for v in cve_calls.values())
-        print(f"   ✅ {len(cve_calls)} functions make calls")
-        print(f"   ✅ Total {total_calls_in_cve} call relationships")
-        
-        # Show example
-        if cve_calls:
-            first_func = list(cve_calls.keys())[0]
-            print(f"\n   Example - {first_func} calls:")
-            for callee in cve_calls[first_func][:8]:
-                print(f"      → {callee}")
-            if len(cve_calls[first_func]) > 8:
-                print(f"      ... and {len(cve_calls[first_func]) - 8} more")
-    else:
-        print("   ⚠️  nf_tables_api.c has no calls detected")
     
     # Save results
     print("\n" + "=" * 70)

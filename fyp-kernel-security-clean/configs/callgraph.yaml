@@ -1,0 +1,61 @@
+# Settings for the call graph (analysis/extraction/extract_indirect_calls.py).
+#
+# Function-pointer calls are matched by STRUCT TYPE + field:
+#     expr->ops->eval(...)   with expr a `struct nft_expr *`
+#     -> expr->ops is a `struct nft_expr_ops *`
+#     -> linked only to functions written as `.eval = ...` in a
+#        `struct nft_expr_ops` initializer (or assigned to that field).
+# Only when the type cannot be worked out does it fall back to the old
+# rule "every function registered in any `.eval` field" (logged).
+
+# Extra kernel headers outside the sparse checkout that define structs used
+# by netfilter (read with `git show <tag>:<path>`, nothing is checked out).
+extra_headers:
+  - include/linux/netfilter.h
+  - include/linux/netfilter_defs.h
+  - include/linux/netfilter_ipv4.h
+  - include/linux/netfilter_ipv6.h
+  - include/linux/netfilter_bridge.h
+  - include/linux/netlink.h
+  - include/net/netlink.h
+  - include/linux/rhashtable-types.h
+
+# Callbacks handed to core kernel APIs. The code that finally calls them is
+# outside net/netfilter (or hidden in a header macro), so no `->field(`
+# call is ever seen. These rules add the missing edges.
+api_callbacks:
+  # A struct field whose functions are called by known dispatcher function(s).
+  dispatchers:
+    - struct: nf_hook_ops
+      field: hook
+      called_by: [nf_hook_slow, nf_hook_slow_list]
+      reason: >-
+        nf_register_net_hook(s) copies .hook into the hook table; nf_hook_slow
+        runs it for every packet (via nf_hook_entry_hookfn in a header).
+    - struct: nfnl_callback
+      field: call
+      called_by: [nfnetlink_rcv_msg, nfnetlink_rcv_batch]
+      reason: >-
+        nfnetlink callback tables (.cb of struct nfnetlink_subsystem): the
+        handler for each netlink message type.
+
+  # Callbacks in a struct that is filled in inside a function and handed to
+  # the kernel (e.g. netlink_dump_start(..., &c)); the function that fills in
+  # the struct gets an edge to each callback.
+  local_structs:
+    - struct: netlink_dump_control
+      fields: [start, dump, done]
+      reason: netlink dump callbacks, run by the netlink core after the request handler.
+
+  # A function passed as an argument to a kernel API that will call it later;
+  # the function that calls the API gets an edge to the callback.
+  # arg = 0-based argument position of the callback.
+  call_arguments:
+    - {function: timer_setup, arg: 1}
+    - {function: INIT_WORK, arg: 1}
+    - {function: INIT_DELAYED_WORK, arg: 1}
+    - {function: INIT_DEFERRABLE_WORK, arg: 1}
+    - {function: call_rcu, arg: 1}
+    - {function: queue_rcu_work, arg: 1}
+    - {function: hrtimer_setup, arg: 1}
+    - {function: kthread_run, arg: 0}

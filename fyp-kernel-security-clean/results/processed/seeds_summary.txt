@@ -1,91 +1,37 @@
 ======================================================================
 SEEDS (attacker entry points) FOR PERSONALIZED PAGERANK
 ======================================================================
+Kernel: v6.12 (adc218676eef25575469234709c2d87185ca223a)
 
 [ON ] netfilter_hooks (packet, 23 functions)
       Registered in struct nf_hook_ops; called by nf_hook_slow for every packet that passes the hook point (conntrack, IPVS, synproxy, ...).
 [ON ] nft_chain_hooks (packet, 11 functions)
       nf_tables chain types' per-family packet entry points (nft_do_chain_ipv4, nft_do_chain_ipv6, ...).
-[ON ] xtables_match_target (packet, 117 functions)
+[ON ] xtables_match_target (packet, 113 functions)
       iptables/ip6tables/arptables/ebtables matches and targets; called for each packet by the table walker in net/ipv4|ipv6/netfilter, which is outside the analysed code.
 [ON ] netfilter_core (packet, 2 functions)
       Called by the IP stack (NF_HOOK) for every hooked packet - where packets enter netfilter.
-[ON ] nfnetlink_handlers (config, 69 functions)
+[ON ] nfnetlink_handlers (config, 72 functions)
       struct nfnl_callback message handlers: one per netlink message type for nf_tables, ipset, conntrack, queue, log, ... Their input is the message sent by a userspace program.
 [ON ] nfnetlink_input (config, 1 functions)
       Where every netfilter netlink message arrives (.input of the nfnetlink socket).
-[ON ] xtables_checkentry (config, 81 functions)
+[ON ] xtables_checkentry (config, 80 functions)
       Validates a new iptables rule's match/target options; runs when a program installs rules via setsockopt.
-[off] nft_expr_eval (packet, 74 functions)
+[off] nft_expr_eval (packet, 73 functions)
       nf_tables expression evaluators. Already one step below nft_do_chain, so seeding them mainly over-weights nf_tables code.
 [off] ipset_uadt (config, 27 functions)
       ipset userspace add/del/test handlers. CIRCULAR for CVE-2024-53141: its vulnerable function bitmap_ip_uadt is itself a uadt function.
 
-Unique seeds: 304
-Reachable from config  seeds: 2827 of 4353 (64.9%)
-Reachable from packet  seeds: 2726 of 4353 (62.6%)
-Reachable from any     seeds: 3241 of 4353 (74.5%)
+Unique seeds: 302
+Reachable from config  seeds: 2151 of 4552 (47.3%)
+Reachable from packet  seeds: 2050 of 4552 (45.0%)
+Reachable from any     seeds: 3177 of 4552 (69.8%)
 
 Vulnerable functions:
-   CVE-2023-0179:nft_payload_copy_vlan           seed=False  reachable from: ['config', 'packet']
-   CVE-2023-52620:nf_tables_newset               seed=True  reachable from: ['config']
-   CVE-2024-35898:__nft_flowtable_type_get       seed=False  reachable from: ['config']
-   CVE-2024-35898:nft_flowtable_type_get         seed=False  reachable from: ['config']
-   CVE-2024-41042:nft_chain_validate             seed=False  reachable from: ['config', 'packet']
-   CVE-2024-41042:nf_tables_check_loops          seed=False  reachable from: ['config', 'packet']
-   CVE-2024-41042:nf_tables_loop_check_setelem   seed=False  reachable from: ['config', 'packet']
-   CVE-2024-41042:nft_check_loops                seed=False  reachable from: ['config', 'packet']
-   CVE-2024-41042:nft_set_catchall_loops         seed=False  reachable from: ['config', 'packet']
-   CVE-2024-41042:nft_validate_register_store    seed=False  reachable from: ['config', 'packet']
-   CVE-2024-53141:bitmap_ip_uadt                 seed=False  reachable from: ['config']
-   CVE-2025-71160:nft_validate_state_update      seed=False  reachable from: ['config', 'packet']
-   CVE-2025-71160:nft_table_validate             seed=False  reachable from: ['config', 'packet']
-   CVE-2026-23274:idletimer_tg_checkentry        seed=True  reachable from: ['config', 'packet']
-   CVE-2026-43027:nf_conntrack_helper_unregister seed=False  reachable from: ['config']
-   CVE-2026-53001:mac_mt_exit                    seed=False  reachable from: NOTHING
-   CVE-2026-53001:mac_mt_init                    seed=False  reachable from: NOTHING
-   CVE-2026-53001:owner_mt_exit                  seed=False  reachable from: NOTHING
-   CVE-2026-53001:owner_mt_init                  seed=False  reachable from: NOTHING
-   CVE-2026-53001:physdev_mt_exit                seed=False  reachable from: NOTHING
-   CVE-2026-53001:physdev_mt_init                seed=False  reachable from: NOTHING
-   CVE-2026-53218:nft_exthdr_init                seed=False  reachable from: ['config', 'packet']
-   CVE-2026-64189:ip_set_dump_done               seed=False  reachable from: NOTHING
-   CVE-2026-64189:ip_set_dump_do                 seed=False  reachable from: ['config', 'packet']
-   CVE-2026-72020:ip_vs_conn_new                 seed=False  reachable from: ['packet']
-   CVE-2026-72251:nf_nat_sip                     seed=False  reachable from: ['packet']
-   CVE-2026-72419:nf_nat_register_fn             seed=False  reachable from: ['config']
-   CVE-2026-74347:nf_conntrack_free              seed=False  reachable from: ['config', 'packet']
-   CVE-2026-74347:untimeout [nf_conntrack_timeout.c] seed=False  reachable from: ['config', 'packet']
-   CVE-2026-74347:nf_ct_set_timeout              seed=False  reachable from: ['config', 'packet']
-   CVE-2026-74347:nf_ct_destroy_timeout          seed=False  reachable from: ['config', 'packet']
-   CVE-2026-74347:cttimeout_new_timeout          seed=True  reachable from: ['config']
-   CVE-2026-74347:ctnl_timeout_fill_info         seed=False  reachable from: ['config', 'packet']
-   CVE-2026-74347:ctnl_timeout_try_del           seed=False  reachable from: ['config']
-   CVE-2026-74347:cttimeout_del_timeout          seed=True  reachable from: ['config']
-   CVE-2026-74347:ctnl_timeout_find_get          seed=False  reachable from: ['config', 'packet']
-   CVE-2026-74347:ctnl_timeout_put               seed=False  reachable from: ['config', 'packet']
-   CVE-2026-74347:cttimeout_net_exit             seed=False  reachable from: ['config', 'packet']
-   CVE-2026-74347:cttimeout_exit                 seed=False  reachable from: NOTHING
-   CVE-2026-74347:untimeout [nfnetlink_cttimeout.c] seed=False  reachable from: ['config', 'packet']
-   CVE-2026-74347:nft_ct_timeout_obj_eval        seed=False  reachable from: ['config', 'packet']
-   CVE-2026-74347:nft_ct_timeout_obj_init        seed=False  reachable from: ['config', 'packet']
-   CVE-2026-74579:nft_payload_offload_mask       seed=False  reachable from: ['config', 'packet']
-   CVE-2026-74724:ip_vs_out_icmp                 seed=False  reachable from: ['packet']
-   CVE-2026-74724:ip_vs_in_icmp                  seed=False  reachable from: ['packet']
-   CVE-2026-74748:__ip_set_put                   seed=False  reachable from: ['config', 'packet']
-   CVE-2026-74748:__ip_set_put_byindex           seed=False  reachable from: ['config', 'packet']
-   CVE-2026-80744:nft_flow_rule_offload_abort    seed=False  reachable from: ['config']
-   CVE-2026-90141:ip_vs_ftp_get_addrport         seed=False  reachable from: ['packet']
-
-Warnings:
-   NOTE: CVE-2023-52620 vulnerable function nf_tables_newset is itself an entry point (groups: nfnetlink_handlers); it is left out of the non_seed evaluation scope
-   NOTE: CVE-2026-23274 vulnerable function idletimer_tg_checkentry is itself an entry point (groups: xtables_checkentry); it is left out of the non_seed evaluation scope
-   NOTE: CVE-2026-74347 vulnerable function cttimeout_new_timeout is itself an entry point (groups: nfnetlink_handlers); it is left out of the non_seed evaluation scope
-   NOTE: CVE-2026-74347 vulnerable function cttimeout_del_timeout is itself an entry point (groups: nfnetlink_handlers); it is left out of the non_seed evaluation scope
 
 Seed list by path:
 
-config (151):
+config (153):
    addrtype_mt_checkentry_v1
    audit_tg_check
    bpf_mt_check
@@ -130,6 +76,8 @@ config (151):
    hashlimit_mt_check_v2
    helper_mt_check
    hmark_tg_check
+   icmp6_checkentry
+   icmp_checkentry
    idletimer_tg_checkentry
    idletimer_tg_checkentry_v1
    ip_set_byindex
@@ -149,7 +97,6 @@ config (151):
    ip_set_utest
    ipvs_mt_check
    l2tp_mt_check4
-   l2tp_mt_check6
    led_tg_check
    limit_mt_check
    log_tg_check
@@ -170,9 +117,12 @@ config (151):
    nf_tables_getflowtable
    nf_tables_getgen
    nf_tables_getobj
+   nf_tables_getobj_reset
    nf_tables_getrule
+   nf_tables_getrule_reset
    nf_tables_getset
    nf_tables_getsetelem
+   nf_tables_getsetelem_reset
    nf_tables_gettable
    nf_tables_newchain
    nf_tables_newflowtable
@@ -218,8 +168,6 @@ config (151):
    set_target_v1_checkentry
    set_target_v3_checkentry
    socket_mt_v1_check
-   socket_mt_v2_check
-   socket_mt_v3_check
    state_mt_check
    statistic_mt_check
    string_mt_check
@@ -227,8 +175,8 @@ config (151):
    tee_tg_check
    time_mt_check
    tproxy_tg4_check
-   tproxy_tg6_check
    trace_tg_check
+   u32_mt_checkentry
    udp_mt_check
    xt_cluster_mt_checkentry
    xt_ct_tg_check_v0
@@ -238,7 +186,7 @@ config (151):
    xt_nat_checkentry_v0
    xt_rateest_mt_checkentry
 
-packet (153):
+packet (149):
    accept_all
    addrtype_mt_v0
    addrtype_mt_v1
@@ -277,7 +225,8 @@ packet (153):
    helper_mt
    hl_mt6
    hmark_tg_v4
-   hmark_tg_v6
+   icmp6_match
+   icmp_match
    idletimer_tg_target
    idletimer_tg_target_v1
    ip_vs_forward_icmp
@@ -285,17 +234,14 @@ packet (153):
    ip_vs_out_hook
    iprange_mt4
    iprange_mt6
-   ipv4_confirm
    ipv4_conntrack_in
    ipv4_conntrack_local
    ipv4_synproxy_hook
-   ipv6_confirm
    ipv6_conntrack_in
    ipv6_conntrack_local
    ipv6_synproxy_hook
    ipvs_mt
    l2tp_mt4
-   l2tp_mt6
    led_tg
    length_mt
    length_mt6
@@ -309,18 +255,20 @@ packet (153):
    multiport_mt
    netmap_tg4
    netmap_tg6
+   nf_confirm
    nf_flow_offload_inet_hook
    nf_flow_offload_ip_hook
    nf_flow_offload_ipv6_hook
+   nf_hook_run_bpf
    nf_hook_slow
    nf_hook_slow_list
    nf_nat_ipv4_local_fn
    nf_nat_ipv4_local_in
    nf_nat_ipv4_out
    nf_nat_ipv4_pre_routing
-   nf_nat_ipv6_fn
    nf_nat_ipv6_in
    nf_nat_ipv6_local_fn
+   nf_nat_ipv6_local_in
    nf_nat_ipv6_out
    nf_route_table_hook4
    nf_route_table_hook6
@@ -362,21 +310,17 @@ packet (153):
    set_target_v3
    socket_mt4_v0
    socket_mt4_v1_v2_v3
-   socket_mt6_v1_v2_v3
    state_mt
    statistic_mt
    string_mt
    tcp_mt
    tcpmss_mt
    tcpoptstrip_tg4
-   tcpoptstrip_tg6
    tee_tg4
-   tee_tg6
    time_mt
    tos_mt
    tproxy_tg4_v0
    tproxy_tg4_v1
-   tproxy_tg6_v1
    trace_tg
    ttl_mt
    u32_mt

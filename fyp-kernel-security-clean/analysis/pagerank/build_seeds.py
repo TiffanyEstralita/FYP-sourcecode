@@ -27,12 +27,13 @@ sys.stdout.reconfigure(encoding="utf-8")
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 CONFIG_FILE = PROJECT_ROOT / "configs/seeds.yaml"
-INDIRECT_CALLS_FILE = PROJECT_ROOT / "results/raw/indirect_calls.json"
-GROUND_TRUTH_FILE = PROJECT_ROOT / "validation/cve_data/vulnerable_functions.json"
-OUTPUT_PATH = PROJECT_ROOT / "results/processed"
 
 sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
-from callgraph import load_call_graph
+from callgraph import INDIRECT_CALLS_FILE, load_call_graph
+from config import PATHS, kernel_info
+
+GROUND_TRUTH_FILE = PATHS.validation / "vulnerable_functions.json"
+OUTPUT_PATH = PATHS.processed
 
 
 def as_list(value):
@@ -78,8 +79,12 @@ def main():
         config = yaml.safe_load(f)
     with open(INDIRECT_CALLS_FILE, "r") as f:
         field_targets = json.load(f)["field_targets"]
-    with open(GROUND_TRUTH_FILE, "r") as f:
-        ground_truth = json.load(f)
+    # the CVE set is built AFTER the seeds (it needs them for the leakage
+    # check), so on the very first run there is no ground truth yet
+    ground_truth = {}
+    if GROUND_TRUTH_FILE.exists():
+        with open(GROUND_TRUTH_FILE, "r") as f:
+            ground_truth = json.load(f)["cves"]
 
     unknown = [g for g in args.include if g not in config["groups"]]
     if unknown:
@@ -128,6 +133,7 @@ def main():
 
     # Vulnerable functions: never a seed (circular), ideally reachable
     cve_check = {}
+    leaks = []
     for cve_id, cve_data in ground_truth.items():
         for vf in cve_data["vulnerable_functions"]:
             fn = vf["name"]
@@ -138,9 +144,9 @@ def main():
                     warnings.append(f"CIRCULAR: {cve_id} vulnerable function {fn} is a seed only "
                                     f"because of optional group(s) {', '.join(optional)}")
                 else:          # the bug is in an entry point chosen by the normal rules
-                    warnings.append(f"NOTE: {cve_id} vulnerable function {fn} is itself an entry point "
-                                    f"(groups: {', '.join(seeds[fn]['groups'])}); it is left out of "
-                                    f"the non_seed evaluation scope")
+                    warnings.append(f"LEAK: {cve_id} vulnerable function {fn} is itself an entry point "
+                                    f"(groups: {', '.join(seeds[fn]['groups'])})")
+                leaks.append(f"{cve_id}:{fn}")
             cve_check[f"{cve_id}:{fn}"] = {
                 "is_seed": is_seed,
                 "reachable_from": [p for p in by_path if fn in reach[p]],
@@ -161,6 +167,7 @@ def main():
     out_json = OUTPUT_PATH / "seeds.json"
     with open(out_json, "w") as f:
         json.dump({
+            "kernel": kernel_info(),
             "config": str(CONFIG_FILE.relative_to(PROJECT_ROOT)),
             "included_disabled_groups": args.include,
             "groups": groups,
@@ -174,7 +181,8 @@ def main():
 
     out_txt = OUTPUT_PATH / "seeds_summary.txt"
     with open(out_txt, "w") as f:
-        f.write("=" * 70 + "\nSEEDS (attacker entry points) FOR PERSONALIZED PAGERANK\n" + "=" * 70 + "\n\n")
+        f.write("=" * 70 + "\nSEEDS (attacker entry points) FOR PERSONALIZED PAGERANK\n" + "=" * 70 + "\n")
+        f.write(f"Kernel: {kernel_info()['tag']} ({kernel_info()['commit']})\n\n")
         for name, g in groups.items():
             f.write(f"[{'ON ' if g['enabled'] else 'off'}] {name} ({g['path']}, {g['count']} functions)\n")
             f.write(f"      {g['reason']}\n")
@@ -191,6 +199,13 @@ def main():
             f.write(f"\n{p} ({len(nodes)}):\n" + "".join(f"   {n}\n" for n in nodes))
     print(f"💾 Saved: {out_txt}")
 
+    # Leakage check: a ground-truth function must never be a seed, because
+    # personalized PageRank puts the seeds at the top (the answer would be
+    # given away). build_cve_set.py removes them, so this should never fire.
+    if leaks:
+        print(f"\n❌ LEAKAGE: {len(leaks)} ground-truth function(s) are seeds: {', '.join(leaks)}")
+        print("   Rebuild the CVE set (analysis/validation/build_cve_set.py) after changing the seeds.")
+        return 1
     return 0
 
 

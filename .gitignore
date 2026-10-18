@@ -14,3 +14,7 @@ __pycache__/
 # Kernel CVE database (500 MB) - re-download with:
 #   git clone --depth 1 https://git.kernel.org/pub/scm/linux/security/vulns.git data/vulns
 **/data/vulns/
+
+# Downloaded from the kernel git clone; recreated automatically when needed
+**/results/raw/cve_fixes/
+**/results/raw/extra_headers/

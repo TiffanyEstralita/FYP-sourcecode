@@ -1,0 +1,28 @@
+# How the CVE evaluation set is built (analysis/validation/build_cve_set.py).
+# Fixed BEFORE any results exist, so the set is not chosen to look good.
+#
+# A CVE is a candidate when:
+#   1. its official record (kernel CVE database) lists a file in net/netfilter
+#   2. its mainline fix commit is NOT in the base version
+#        git merge-base --is-ancestor <fix> <base_tag>   -> false
+#   3. the bug IS in the base version: a `Fixes:` commit of the fix is in it
+#      (if the fix has no Fixes: tag, the CVE record's "introduced" commit is used)
+#   4. the fix changes at least one function that also exists in the base
+#      version, and none of them is a seed (leakage rule, see seeds.yaml)
+#   5. at most max_functions_per_cve functions changed (huge rewrites make
+#      "the buggy function" meaningless)
+
+target_size: 36            # brief: 30-40 CVEs
+# Share of the set taken from fixes committed BEFORE the model release date
+# (configs/project.yaml). The rest are "after" fixes, which the model cannot
+# have seen in training - preferred, but a few "before" ones are kept so the
+# before/after comparison is possible.
+before_share: 0.25
+max_functions_per_cve: 10
+selection_seed: 2026
+
+# Tuning / test split. Written ONCE to split_file when the set is first
+# built (stratified by before/after); later runs reuse that file unchanged.
+# Delete the file (or use --resplit) only if you really want a new split.
+tuning_share: 0.33
+split_file: configs/cve_split.yaml

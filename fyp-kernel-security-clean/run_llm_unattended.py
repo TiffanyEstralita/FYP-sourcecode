@@ -1,39 +1,50 @@
 #!/usr/bin/env python3
 """
-Run the whole LLM stage unattended (e.g. overnight). Started by double-clicking
-RUN_LLM_OVERNIGHT.bat, or:
+Run the LLM jobs unattended. Started by double-clicking RUN_LLM_OVERNIGHT.bat, or:
 
-    .venv\\Scripts\\python.exe run_llm_unattended.py              # all functions
-    .venv\\Scripts\\python.exe run_llm_unattended.py --top 500    # first 500 only
+    .venv\\Scripts\\python.exe run_llm_unattended.py                       # all jobs, in order
+    .venv\\Scripts\\python.exe run_llm_unattended.py --jobs check-v3       # one job
+    .venv\\Scripts\\python.exe run_llm_unattended.py --max-hours 1         # shorter run
 
-Steps:
-  1. prompt practice round  (analysis/llm/tune_prompt.py)
-  2. score functions with the winning prompt, most important first
-     (analysis/llm/score_functions.py --version best)
+Jobs (in this order):
+  check-v3          Phase 5 LLM check with the old prompt v3        (~45 min)
+  shortlist-v3      score the top-K shortlist with prompt v3        (~40 min)
+  check-vulnsc      Phase 5 LLM check with the VulnSC reranker      (~2-3.5 h)
+  shortlist-vulnsc  score the top-K shortlist with VulnSC           (~2-3.5 h)
 
+- ONE run lasts at most max_hours_per_run (configs/llm.yaml, 3 h) in total;
+  then it stops by itself. Every answer is cached the moment it arrives, so
+  just start it again: finished jobs are skipped in seconds and the
+  unfinished one continues. Repeat until the log says "All jobs finished".
 - keeps Windows awake while running (laptop must stay plugged in)
-- every answer is saved as it arrives; if the run is interrupted, just start
-  it again and it continues where it stopped
 - everything printed is also written to results/processed/llm_run.log
 """
 
 import argparse
 import ctypes
+import json
 import subprocess
 import sys
 import time
 from datetime import datetime
 from pathlib import Path
 
-# Windows terminals use a non-UTF-8 encoding by default and crash on emoji output
 sys.stdout.reconfigure(encoding="utf-8")
 
 PROJECT_ROOT = Path(__file__).resolve().parent
-LOG_FILE = PROJECT_ROOT / "results/processed/llm_run.log"
-
 sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
 sys.path.insert(0, str(PROJECT_ROOT / "analysis/llm"))
+from config import PATHS, load_yaml
 from llm_client import MODEL, ollama_available
+
+LOG_FILE = PATHS.processed / "llm_run.log"
+JOBS = {
+    "check-v3": (["analysis/llm/llm_check.py", "--prompt", "v3"], "llm_check_v3.json"),
+    "shortlist-v3": (["analysis/llm/score_shortlist.py", "--prompt", "v3"], "llm_scores_shortlist_v3.json"),
+    "check-vulnsc": (["analysis/llm/llm_check.py", "--prompt", "vulnsc"], "llm_check_vulnsc.json"),
+    "shortlist-vulnsc": (["analysis/llm/score_shortlist.py", "--prompt", "vulnsc"],
+                         "llm_scores_shortlist_vulnsc.json"),
+}
 
 # Windows: ask the system not to sleep while this program runs
 ES_CONTINUOUS, ES_SYSTEM_REQUIRED = 0x80000000, 0x00000001
@@ -63,22 +74,30 @@ def run_step(log_file, title, args):
         log_file.write(line + "\n")
         log_file.flush()
     process.wait()
-    log(log_file, f"===== {title}: finished with exit code {process.returncode} =====")
+    log(log_file, f"===== {title}: exit code {process.returncode} =====")
     return process.returncode
 
 
+def job_finished(output_name):
+    path = PATHS.processed / output_name
+    if not path.exists():
+        return False
+    with open(path) as f:
+        return json.load(f)["progress"]["status"] == "finished"
+
+
 def main():
-    parser = argparse.ArgumentParser(description="Run the LLM stage unattended")
-    parser.add_argument("--top", type=int, help="only score this many functions (most important first)")
-    parser.add_argument("--skip-tuning", action="store_true", help="skip the prompt practice round")
+    parser = argparse.ArgumentParser(description="Run the LLM jobs unattended (resumable, time-capped)")
+    parser.add_argument("--jobs", nargs="*", choices=list(JOBS), default=list(JOBS))
+    parser.add_argument("--max-hours", type=float, default=load_yaml("llm.yaml")["max_hours_per_run"],
+                        help="total time for this run (default: max_hours_per_run in configs/llm.yaml)")
     args = parser.parse_args()
 
     LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(LOG_FILE, "a", encoding="utf-8") as log_file:
-        log(log_file, f"LLM unattended run started (model {MODEL})")
-
-        # wait up to 2 minutes for Ollama (it may still be starting after a reboot)
-        for _ in range(24):
+        log(log_file, f"LLM unattended run started (model {MODEL}, at most {args.max_hours} h): "
+                      f"{', '.join(args.jobs)}")
+        for _ in range(24):          # wait up to 2 minutes for Ollama (may still be starting)
             if ollama_available():
                 break
             log(log_file, "waiting for Ollama... (is the llama icon in the system tray?)")
@@ -87,27 +106,30 @@ def main():
             log(log_file, "❌ Ollama is not running. Open the Ollama app, then start this again.")
             return 1
 
+        started = time.time()
         keep_awake(True)
         try:
-            if not args.skip_tuning:
-                if run_step(log_file, "STEP 1/2: prompt practice round",
-                            ["analysis/llm/tune_prompt.py"]) != 0:
-                    log(log_file, "❌ Step 1 failed - see the messages above. Start again to retry.")
-                    return 1
-            score_args = ["analysis/llm/score_functions.py", "--version", "best"]
-            if args.top:
-                score_args += ["--top", str(args.top)]
-            code = run_step(log_file, "STEP 2/2: score functions with the best prompt", score_args)
+            for name in args.jobs:
+                script, output = JOBS[name]
+                left = args.max_hours - (time.time() - started) / 3600
+                if left <= 0.01:
+                    log(log_file, f"⏸️  Time cap of {args.max_hours} h reached before job {name}. "
+                                  "Start again to continue.")
+                    return 0
+                code = run_step(log_file, f"JOB {name} (up to {left:.2f} h)", script + ["--max-hours", f"{left:.3f}"])
+                if code != 0:
+                    log(log_file, f"❌ Job {name} failed - see the messages above. Start again to retry.")
+                    return code
+                if not job_finished(output):
+                    log(log_file, f"⏸️  Job {name} not finished (time cap). Start again to continue.")
+                    return 0
         except KeyboardInterrupt:
             log(log_file, "⏸️  Stopped by user. Start again to continue where it stopped.")
             return 1
         finally:
             keep_awake(False)
-
-        log(log_file, "✅ All done." if code == 0 else "❌ Step 2 failed - start again to retry.")
-        log(log_file, "Results: results/processed/prompt_tuning_summary.txt, "
-                      "llm_scoring_progress.json, llm_scores_<version>.json")
-        return code
+        log(log_file, "✅ All jobs finished. Next: .venv\\Scripts\\python.exe run_pipeline.py --only evaluate")
+        return 0
 
 
 if __name__ == "__main__":

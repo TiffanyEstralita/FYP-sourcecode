@@ -1,0 +1,133 @@
+CVE SET for v6.12 (adc218676eef25575469234709c2d87185ca223a)
+
+netfilter CVEs in database                    298
+fix already in base (bug gone)                109
+bug introduced after base                     13
+candidate: usable                             145
+candidate: all changed functions are seeds    13
+candidate: no function mapped                 5
+candidate: too many functions                 9
+
+usable: 145 (128 after / 17 before the model release 2025-08-01)
+chosen: 36 (27 after / 9 before), split 12 tuning / 24 test
+
+CVE-2024-53141   test    before other           netfilter: ipset: add missing range check in bitmap_ip_uadt
+                 functions: bitmap_ip_uadt
+CVE-2024-53680   test    before null-deref      ipvs: fix UB due to uninitialized stack access in ip_vs_prot
+                 functions: ip_vs_protocol_init
+CVE-2024-56638   tuning  before other           netfilter: nft_inner: incorrect percpu area handling under s
+                 functions: nft_inner_eval, nft_inner_parse, nft_inner_parse_needed
+CVE-2025-21648   test    before other           netfilter: conntrack: clamp maximum hashtable size to INT_MA
+                 functions: nf_ct_alloc_hashtable
+CVE-2025-21959   tuning  before uninitialized   netfilter: nf_conncount: Fully initialize struct nf_conncoun
+                 functions: insert_tree
+CVE-2025-37961   tuning  before uninitialized   ipvs: fix uninit-value for saddr in do_output_route4
+                 functions: __ip_vs_get_out_rt, do_output_route4
+CVE-2025-38120   test    before memory-leak     netfilter: nf_set_pipapo_avx2: fix initial map fill
+                 functions: nft_pipapo_avx2_lookup
+CVE-2025-38201   test    before other           netfilter: nft_set_pipapo: clamp maximum map bucket size to 
+                 functions: pipapo_base_sum, pipapo_clone, pipapo_realloc_mt
+CVE-2025-38472   test    before uninitialized   netfilter: nf_conntrack: fix crash due to removal of uniniti
+                 functions: __nf_conntrack_confirm, nf_ct_resolve_clash_harder
+CVE-2026-23278   tuning  after  other           netfilter: nf_tables: always walk all pending catchall eleme
+                 functions: nft_map_catchall_activate, nft_map_catchall_deactivate
+CVE-2026-31665   test    after  use-after-free  netfilter: nft_ct: fix use-after-free in timeout object dest
+                 functions: nft_ct_timeout_obj_destroy
+CVE-2026-43024   tuning  after  other           netfilter: nf_tables: reject immediate NF_QUEUE verdict
+                 functions: nft_verdict_init
+CVE-2026-43452   tuning  after  other           netfilter: x_tables: guard option walkers against 1-byte tai
+                 functions: dccp_find_option, tcp_find_option
+CVE-2026-52920   test    after  other           netfilter: xt_policy: fix strict mode inbound policy matchin
+                 functions: match_policy_in
+CVE-2026-52970   tuning  after  other           netfilter: nft_ct: fix missing expect put in obj eval
+                 functions: nft_ct_expect_obj_eval
+CVE-2026-53002   test    after  out-of-bounds   netfilter: conntrack: remove sprintf usage
+                 functions: help [nf_nat_amanda.c], mangle_content_len, map_addr, nf_nat_sdp_addr, nf_nat_sdp_port, nf_nat_sdp_session, nf_nat_sip, nf_nat_sip_expect, sip_sprintf_addr, sip_sprintf_addr_port
+CVE-2026-53212   test    after  use-after-free  netfilter: nft_tunnel: fix use-after-free on object destroy
+                 functions: nft_tunnel_obj_destroy
+CVE-2026-53218   test    after  out-of-bounds   netfilter: nft_exthdr: fix register tracking for F_PRESENT f
+                 functions: nft_exthdr_init
+CVE-2026-53270   test    after  race/locking    ipvs: clear the svc scheduler ptr early on edit
+                 functions: __ip_vs_del_service, ip_vs_add_service, ip_vs_edit_service, ip_vs_unbind_scheduler
+CVE-2026-53349   tuning  after  race/locking    netfilter: nf_conntrack: destroy stale expectfn expectations
+                 functions: nf_nat_cleanup, nf_nat_init, nf_nat_sip_fini
+CVE-2026-64006   test    after  other           netfilter: nf_tables: fix dst corruption in same register op
+                 functions: nft_bitwise_eval_lshift, nft_bitwise_eval_rshift, nft_bitwise_init, nft_bitwise_init_bool, nft_byteorder_init
+CVE-2026-64078   tuning  after  other           netfilter: x_tables: add and use xtables_unregister_table_ex
+                 functions: xt_net_exit, xt_net_init, xt_unregister_table
+CVE-2026-64079   test    after  null-deref      netfilter: x_tables: allocate hook ops while under mutex
+                 functions: xt_register_table, xt_replace_table
+CVE-2026-68476   tuning  after  other           ipvs: reload ip header after head reallocation
+                 functions: ip_vs_bypass_xmit
+CVE-2026-72021   test    after  other           ipvs: use parsed transport offset in SCTP state lookup
+                 functions: sctp_state_transition, set_sctp_state
+CVE-2026-72419   test    after  out-of-bounds   netfilter: nf_nat: avoid invalid nat_net pointer use on fail
+                 functions: nf_nat_register_fn
+CVE-2026-74564   test    after  uninitialized   netfilter: xt_hashlimit: validate hashtable supports XT_HASH
+                 functions: hashlimit_mt_check_common, htable_create
+CVE-2026-74569   test    after  use-after-free  netfilter: nf_conntrack_sip: widen NAT rewrite delta to s32 
+                 functions: sip_help_tcp, nf_nat_sip_seq_adjust
+CVE-2026-74579   test    after  out-of-bounds   netfilter: nft_payload: fix mask build for partial field off
+                 functions: nft_payload_offload_mask
+CVE-2026-74624   tuning  after  race/locking    netfilter: nf_conntrack: defer invalid log until after unloc
+                 functions: nf_ct_l4proto_log_invalid, nf_conntrack_sctp_packet, nf_conntrack_tcp_packet, nf_tcp_handle_invalid, nf_tcp_log_invalid, tcp_in_window
+CVE-2026-74746   test    after  use-after-free  netfilter: flowtable: publish GC-visible tuple last
+                 functions: flow_offload_add
+CVE-2026-74747   tuning  after  out-of-bounds   ipvs: revalidate ihl to prevent out-of-bounds access
+                 functions: handle_response_icmp, ip_vs_nat_icmp, ip_vs_icmp_xmit
+CVE-2026-80636   test    after  other           netfilter: conntrack: revert ct extension genid infrastructu
+                 functions: __nf_conntrack_confirm, nf_conntrack_hash_check_insert, nf_ct_ext_valid_post, nf_ct_ext_valid_pre, nf_ct_iterate_destroy, __nf_ct_ext_find, nf_ct_ext_add, nf_ct_ext_bump_genid
+CVE-2026-80744   test    after  other           netfilter: nf_tables_offload: suppress WARN_ON_ONCE for ENOM
+                 functions: nft_flow_rule_offload_abort
+CVE-2026-80837   test    after  use-after-free  netfilter: nf_tables: don't queue packet path object notific
+                 functions: __nft_obj_notify, nf_tables_obj_notify, nft_obj_notify
+CVE-2026-97417   test    after  other           netfilter: nf_conntrack: use get_unaligned_be32() in tcp_sac
+                 functions: tcp_sack
+
+CVEs that could not be mapped to a fix commit (4):
+   CVE-2026-31414   no Fixes: tag and no introducing commit
+   CVE-2026-43116   no Fixes: tag and no introducing commit
+   CVE-2026-43190   no Fixes: tag and no introducing commit
+   CVE-2026-53131   no Fixes: tag and no introducing commit
+
+Changed functions that do not exist in v6.12 (4):
+   CVE-2026-45860   __nf_conncount_gc_list (nf_conncount.c)
+   CVE-2026-64078   xt_unregister_table_pre_exit (x_tables.c)
+   CVE-2026-80634   nft_dev_path_info (nf_flow_table_path.c)
+   CVE-2026-90237   nft_ct_nat_follow_master (nft_ct.c)
+
+Ground-truth functions removed because they are seeds (leakage rule) (34):
+   CVE-2024-56650   led_tg_check
+   CVE-2024-56655   nf_tables_newtable
+   CVE-2025-38639   nfacct_mt_checkentry
+   CVE-2025-38640   nf_hook_run_bpf
+   CVE-2025-39764   ctnetlink_get_expect
+   CVE-2026-23274   idletimer_tg_checkentry
+   CVE-2026-23392   nf_tables_newflowtable
+   CVE-2026-23397   nfnl_osf_add_callback
+   CVE-2026-31681   multiport_mt6_check
+   CVE-2026-31681   multiport_mt_check
+   CVE-2026-43028   cgroup_mt_check_v1
+   CVE-2026-43028   cgroup_mt_check_v2
+   CVE-2026-43028   xt_rateest_mt_checkentry
+   CVE-2026-43451   nfqnl_recv_verdict
+   CVE-2026-45841   nfnl_osf_add_callback
+   CVE-2026-45901   nf_tables_getobj
+   CVE-2026-45901   nf_tables_getobj_reset
+   CVE-2026-45901   nf_tables_getrule
+   CVE-2026-45901   nf_tables_getrule_reset
+   CVE-2026-45901   nf_tables_getsetelem
+   CVE-2026-45901   nf_tables_getsetelem_reset
+   CVE-2026-63858   nf_tables_getchain
+   CVE-2026-63858   nf_tables_getflowtable
+   CVE-2026-64414   u32_mt
+   CVE-2026-72256   xt_cluster_mt
+   CVE-2026-72349   xt_rateest_mt
+   CVE-2026-72350   u32_mt_checkentry
+   CVE-2026-74347   cttimeout_del_timeout
+   CVE-2026-74347   cttimeout_new_timeout
+   CVE-2026-74565   nf_tables_newobj
+   CVE-2026-74565   nf_tables_newtable
+   CVE-2026-74695   nf_flow_offload_ip_hook
+   CVE-2026-74695   nf_flow_offload_ipv6_hook
+   CVE-2026-80664   xt_nat_checkentry

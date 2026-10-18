@@ -4,6 +4,8 @@
 #ifndef __IP_SET_BITMAP_IP_GEN_H
 #define __IP_SET_BITMAP_IP_GEN_H
 
+#include <linux/rcupdate_wait.h>
+
 #define bitmap_port_do_test		IPSET_TOKEN(MTYPE, _do_test)
 #define bitmap_port_gc_test		IPSET_TOKEN(MTYPE, _gc_test)
 #define bitmap_port_is_filled		IPSET_TOKEN(MTYPE, _is_filled)
@@ -28,6 +30,7 @@
 #define bitmap_port_del		IPSET_TOKEN(MTYPE, _del)
 #define bitmap_port_list		IPSET_TOKEN(MTYPE, _list)
 #define bitmap_port_gc		IPSET_TOKEN(MTYPE, _gc)
+#define bitmap_port_cancel_gc		IPSET_TOKEN(MTYPE, _cancel_gc)
 #define bitmap_port			MTYPE
 
 #define get_ext(set, map, id)	((map)->extensions + ((set)->dsize * (id)))
@@ -56,9 +59,6 @@ static void
 bitmap_port_destroy(struct ip_set *set)
 {
 	struct bitmap_port *map = set->data;
-
-	if (SET_WITH_TIMEOUT(set))
-		del_timer_sync(&map->gc);
 
 	if (set->dsize && set->extensions & IPSET_EXT_DESTROY)
 		bitmap_port_ext_cleanup(set);
@@ -288,6 +288,15 @@ bitmap_port_gc(struct timer_list *t)
 	add_timer(&map->gc);
 }
 
+static void
+bitmap_port_cancel_gc(struct ip_set *set)
+{
+	struct bitmap_port *map = set->data;
+
+	if (SET_WITH_TIMEOUT(set))
+		del_timer_sync(&map->gc);
+}
+
 static const struct ip_set_type_variant bitmap_port = {
 	.kadt	= bitmap_port_kadt,
 	.uadt	= bitmap_port_uadt,
@@ -301,6 +310,7 @@ static const struct ip_set_type_variant bitmap_port = {
 	.head	= bitmap_port_head,
 	.list	= bitmap_port_list,
 	.same_set = bitmap_port_same_set,
+	.cancel_gc = bitmap_port_cancel_gc,
 };
 
 #endif /* __IP_SET_BITMAP_IP_GEN_H */

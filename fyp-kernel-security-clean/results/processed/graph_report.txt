@@ -1,0 +1,13 @@
+======================================================================
+CALL GRAPH CHECK: name-only (old) vs typed (new) function pointers
+======================================================================
+Kernel: v6.12 (adc218676eef25575469234709c2d87185ca223a)
+
+Edges        old   9673   new   7687
+Added      167   by: {'api_callback': 167}
+Removed   2153   (name-only links whose struct types do not match)
+Dispatch sites: {'name_fallback': 7, 'typed': 175, 'typed_no_registrations': 8}
+Name-only fallback used for 3.7% of dispatch sites (struct type unknown)
+Functions reachable from a seed: old 3224 / 4552   new 3177 / 4552
+
+(no ground truth yet - run build_cve_set.py, then this check again)

@@ -1,0 +1,40 @@
+# Main project settings: which kernel is analysed and where files go.
+#
+# All paths are RELATIVE TO THE PROJECT FOLDER (fyp-kernel-security-clean),
+# so the project works on any computer. Nothing here is secret.
+#
+# Changing base_tag means re-running the whole pipeline (run_pipeline.py);
+# the tag and its commit hash are written into every output file.
+
+kernel:
+  # Official Linux repository (Linus Torvalds' tree)
+  repo_url: https://github.com/torvalds/linux.git
+  # Where the kernel clone lives. OUTSIDE this git repository on purpose
+  # (it is large). "../../linux-kernel-git" = next to the FYP-sourcecode folder.
+  clone_dir: ../../linux-kernel-git
+  # The one kernel release that is analysed (the "base version").
+  # v6.12 = long-term-support release (Nov 2024), chosen 2026-10-18.
+  base_tag: v6.12
+  # Only these folders are checked out (git sparse checkout), the rest of the
+  # kernel is never downloaded as files.
+  sparse_paths:
+    - net/netfilter
+    - include/net/netfilter
+    - include/linux/netfilter
+    - include/uapi/linux/netfilter
+  # The code whose functions are ranked
+  analysed_path: net/netfilter
+
+# Kernel CVE database (Linux kernel CNA). Not in git (500 MB). Download with:
+#   git clone --depth 1 https://git.kernel.org/pub/scm/linux/security/vulns.git data/vulns
+vulns_db: data/vulns
+
+# Where this version's results go. The earlier Linux 6.1.6 results are kept
+# unchanged in results/legacy_6.1.6/ for comparison.
+results_dir: results
+# Ground truth (CVE set) for this base version
+validation_dir: validation/cve_data_v6.12
+
+# qwen3-coder was released at the end of July 2025. A fix committed on or
+# after this date cannot be in its training data ("after" group).
+model_release_date: 2025-08-01

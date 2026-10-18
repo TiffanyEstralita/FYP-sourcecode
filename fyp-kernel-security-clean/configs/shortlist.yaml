@@ -1,0 +1,36 @@
+# Combined shortlist (analysis/shortlist/build_shortlist.py), after
+# Gajjar et al. 2025 (arXiv 2510.10321): combine several cheap structural
+# signals instead of trusting one. No training.
+#
+# Every function gets a rank on each signal (1 = most suspicious); the
+# ranks are combined with reciprocal rank fusion (RRF):
+#     score = sum over signals of 1 / (rrf_k + rank)
+# A function that is near the top of SEVERAL signals wins.
+
+# Which signals to combine (any subset of the five)
+signals: [pagerank, personalized_pagerank, betweenness_from_seeds, size, risky_operations]
+rrf_k: 60
+# Shortlist size = how many functions the LLM reads
+k: 150
+
+pagerank_alpha: 0.85
+
+# Seeds (entry points) are not ranked. The leakage rule removes them from
+# the ground truth, so ranking them would only use up shortlist places.
+# (They are listed separately in seeds_summary.txt: always worth a review.)
+exclude_seeds: true
+
+# Risky-operation count: how often each pattern occurs in the function body
+# (a regular expression per operation; each match counts 1).
+# Text-based, so approximate; the list is fixed BEFORE looking at results.
+risky_operations:
+  memcpy: '\bmem(?:cpy|move)\s*\('
+  memset: '\bmemset\s*\('
+  copy_from_user: '\bcopy_(?:from|to)_user\s*\(|\b(?:get|put)_user\s*\('
+  kfree: '\bk(?:v|z)?free(?:_rcu|_sensitive)?\s*\(|\bkmem_cache_free\s*\('
+  kmalloc: '\bk(?:v|z)?(?:m|c|re)?alloc(?:_array|_node)?\s*\(|\bkmem_cache_(?:z)?alloc\s*\('
+  nla: '\bnla_\w+\s*\('
+  skb_data: '\bskb_(?:header_pointer|pull|push|put|copy_bits|store_bits|ensure_writable)\s*\(|\b__skb_(?:pull|push|put)\s*\('
+  array_index: '\w\s*\[\s*[^\]\s][^\]]*\]'
+  pointer_arithmetic: '\(\s*(?:const\s+)?(?:u8|char|void|unsigned\s+char|__u8)\s*\*\s*\)\s*[\w>.-]+\s*[+-]|\b(?:data|ptr|buf|head|tail|pos)\s*[+-]=?\s*[\w(]'
+  lock_unlock: '\b(?:spin|mutex|read|write|raw_spin)_(?:un)?lock\w*\s*\(|\brcu_read_(?:un)?lock\w*\s*\('

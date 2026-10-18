@@ -79,6 +79,7 @@ def load_ground_truth(path, verified_only=True):
     """Return ({cve_id: [function nodes]}, {cve_id: split})"""
     with open(path, "r") as f:
         data = json.load(f)
+    data = data.get("cves", data)   # new files: {"kernel": ..., "cves": {...}}
     cves, splits = {}, {}
     for cve_id, cve in data.items():
         nodes = [vf["name"] for vf in cve["vulnerable_functions"]

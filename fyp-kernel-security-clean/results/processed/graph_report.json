@@ -1,0 +1,33 @@
+{
+ "kernel": {
+  "tag": "v6.12",
+  "commit": "adc218676eef25575469234709c2d87185ca223a",
+  "date": "2024-11-17T14:15:08-08:00",
+  "repo_url": "https://github.com/torvalds/linux.git",
+  "sparse_paths": [
+   "net/netfilter",
+   "include/net/netfilter",
+   "include/linux/netfilter",
+   "include/uapi/linux/netfilter"
+  ]
+ },
+ "nodes": 4552,
+ "edges_old": 9673,
+ "edges_new": 7687,
+ "edges_added": 167,
+ "edges_removed": 2153,
+ "added_by_how": {
+  "api_callback": 167
+ },
+ "name_fallback_share_of_dispatch_sites": 0.037,
+ "dispatch_sites": {
+  "name_fallback": 7,
+  "typed": 175,
+  "typed_no_registrations": 8
+ },
+ "reachable_from_seeds_old": 3224,
+ "reachable_from_seeds_new": 3177,
+ "cves_with_path_old": 0,
+ "cves_with_path_new": 0,
+ "per_cve": {}
+}

@@ -19,10 +19,11 @@ Usage from a script in analysis/<folder>/:
 import re
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+from config import PATHS
 
-NETFILTER_PATH = PROJECT_ROOT / "data/kernel/linux-shallow/net/netfilter"
-EXPANDED_PATH = PROJECT_ROOT / "results/raw/expanded_templates"
+# the analysed kernel folder (configs/project.yaml: kernel.analysed_path)
+NETFILTER_PATH = PATHS.analysed
+EXPANDED_PATH = PATHS.raw / "expanded_templates"
 
 TEMPLATE_HEADERS = ("ip_set_bitmap_gen.h", "ip_set_hash_gen.h")
 MTYPE_PATTERN = re.compile(r'^#define\s+MTYPE\s+(\w+)')
@@ -83,7 +84,7 @@ def all_source_files():
 
 
 def find_source(filename):
-    """Path of a source file given just its name (as stored in functions_v2.json)"""
+    """Path of a source file given just its name (as stored in functions.json)"""
     if "@" in filename:
         path = EXPANDED_PATH / filename
         return path if path.exists() else None

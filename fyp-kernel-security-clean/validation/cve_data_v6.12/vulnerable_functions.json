@@ -1,0 +1,1154 @@
+{
+ "kernel": {
+  "tag": "v6.12",
+  "commit": "adc218676eef25575469234709c2d87185ca223a",
+  "date": "2024-11-17T14:15:08-08:00",
+  "repo_url": "https://github.com/torvalds/linux.git",
+  "sparse_paths": [
+   "net/netfilter",
+   "include/net/netfilter",
+   "include/linux/netfilter",
+   "include/uapi/linux/netfilter"
+  ]
+ },
+ "built": "2026-10-18T20:42",
+ "rules": {
+  "target_size": 36,
+  "before_share": 0.25,
+  "max_functions_per_cve": 10,
+  "selection_seed": 2026,
+  "tuning_share": 0.33,
+  "split_file": "configs/cve_split.yaml"
+ },
+ "model_release_date": "2025-08-01",
+ "cves": {
+  "CVE-2024-53141": {
+   "cve_id": "CVE-2024-53141",
+   "subject": "netfilter: ipset: add missing range check in bitmap_ip_uadt",
+   "bug_type": "other",
+   "fix_commit": "35f56c554eb1b56b77b3cf197a6b00922d49033d",
+   "fix_date": "2024-11-14T13:47:26+01:00",
+   "after_model_release": false,
+   "introduced_by": "72205fc68bd13109576aa6c4c12c740962d28a6c",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-53141.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "bitmap_ip_uadt",
+     "function": "bitmap_ip_uadt",
+     "file": "ip_set_bitmap_ip.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2024-53680": {
+   "cve_id": "CVE-2024-53680",
+   "subject": "ipvs: fix UB due to uninitialized stack access in ip_vs_protocol_init()",
+   "bug_type": "null-deref",
+   "fix_commit": "146b6f1112eb30a19776d6c323c994e9d67790db",
+   "fix_date": "2024-11-28T13:14:23+01:00",
+   "after_model_release": false,
+   "introduced_by": "1da177e4c3f41524e886b7f1b8a0c1fc7321cac2",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-53680.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "ip_vs_protocol_init",
+     "function": "ip_vs_protocol_init",
+     "file": "ip_vs_proto.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2024-56638": {
+   "cve_id": "CVE-2024-56638",
+   "subject": "netfilter: nft_inner: incorrect percpu area handling under softirq",
+   "bug_type": "other",
+   "fix_commit": "7b1d83da254be3bf054965c8f3b1ad976f460ae5",
+   "fix_date": "2024-12-03T22:10:58+01:00",
+   "after_model_release": false,
+   "introduced_by": "3a07327d10a09379315c844c63f27941f5081e0a",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2024/CVE-2024-56638.json",
+   "split": "tuning",
+   "vulnerable_functions": [
+    {
+     "name": "nft_inner_eval",
+     "function": "nft_inner_eval",
+     "file": "nft_inner.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nft_inner_parse",
+     "function": "nft_inner_parse",
+     "file": "nft_inner.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nft_inner_parse_needed",
+     "function": "nft_inner_parse_needed",
+     "file": "nft_inner.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2025-21648": {
+   "cve_id": "CVE-2025-21648",
+   "subject": "netfilter: conntrack: clamp maximum hashtable size to INT_MAX",
+   "bug_type": "other",
+   "fix_commit": "b541ba7d1f5a5b7b3e2e22dc9e40e18a7d6dbc13",
+   "fix_date": "2025-01-09T13:29:45+01:00",
+   "after_model_release": false,
+   "introduced_by": "9cc1c73ad66610bffc80b691136ffc1e9a3b1a58",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-21648.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "nf_ct_alloc_hashtable",
+     "function": "nf_ct_alloc_hashtable",
+     "file": "nf_conntrack_core.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2025-21959": {
+   "cve_id": "CVE-2025-21959",
+   "subject": "netfilter: nf_conncount: Fully initialize struct nf_conncount_tuple in insert_tree()",
+   "bug_type": "uninitialized",
+   "fix_commit": "d653bfeb07ebb3499c403404c21ac58a16531607",
+   "fix_date": "2025-03-12T15:28:33+01:00",
+   "after_model_release": false,
+   "introduced_by": "b36e4523d4d56e2595e28f16f6ccf1cd6a9fc452",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-21959.json",
+   "split": "tuning",
+   "vulnerable_functions": [
+    {
+     "name": "insert_tree",
+     "function": "insert_tree",
+     "file": "nf_conncount.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2025-37961": {
+   "cve_id": "CVE-2025-37961",
+   "subject": "ipvs: fix uninit-value for saddr in do_output_route4",
+   "bug_type": "uninitialized",
+   "fix_commit": "e34090d7214e0516eb8722aee295cb2507317c07",
+   "fix_date": "2025-05-07T23:57:24+02:00",
+   "after_model_release": false,
+   "introduced_by": "4754957f04f5f368792a0eb7dab0ae89fb93dcfd",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-37961.json",
+   "split": "tuning",
+   "vulnerable_functions": [
+    {
+     "name": "__ip_vs_get_out_rt",
+     "function": "__ip_vs_get_out_rt",
+     "file": "ip_vs_xmit.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "do_output_route4",
+     "function": "do_output_route4",
+     "file": "ip_vs_xmit.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2025-38120": {
+   "cve_id": "CVE-2025-38120",
+   "subject": "netfilter: nf_set_pipapo_avx2: fix initial map fill",
+   "bug_type": "memory-leak",
+   "fix_commit": "ea77c397bff8b6d59f6d83dae1425b08f465e8b5",
+   "fix_date": "2025-06-05T10:49:58+02:00",
+   "after_model_release": false,
+   "introduced_by": "791a615b7ad2258c560f91852be54b0480837c93",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-38120.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "nft_pipapo_avx2_lookup",
+     "function": "nft_pipapo_avx2_lookup",
+     "file": "nft_set_pipapo_avx2.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2025-38201": {
+   "cve_id": "CVE-2025-38201",
+   "subject": "netfilter: nft_set_pipapo: clamp maximum map bucket size to INT_MAX",
+   "bug_type": "other",
+   "fix_commit": "b85e3367a5716ed3662a4fe266525190d2af76df",
+   "fix_date": "2025-05-05T13:17:32+02:00",
+   "after_model_release": false,
+   "introduced_by": "3c4287f62044a90e73a561aa05fc46e62da173da",
+   "introduced_source": "CVE record (no Fixes: tag)",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-38201.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "pipapo_base_sum",
+     "function": "pipapo_base_sum",
+     "file": "nft_set_pipapo.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "pipapo_clone",
+     "function": "pipapo_clone",
+     "file": "nft_set_pipapo.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "pipapo_realloc_mt",
+     "function": "pipapo_realloc_mt",
+     "file": "nft_set_pipapo.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2025-38472": {
+   "cve_id": "CVE-2025-38472",
+   "subject": "netfilter: nf_conntrack: fix crash due to removal of uninitialised entry",
+   "bug_type": "uninitialized",
+   "fix_commit": "2d72afb340657f03f7261e9243b44457a9228ac7",
+   "fix_date": "2025-07-17T11:23:33+02:00",
+   "after_model_release": false,
+   "introduced_by": "1397af5bfd7d32b0cf2adb70a78c9a9e8f11d912",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2025/CVE-2025-38472.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "__nf_conntrack_confirm",
+     "function": "__nf_conntrack_confirm",
+     "file": "nf_conntrack_core.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_ct_resolve_clash_harder",
+     "function": "nf_ct_resolve_clash_harder",
+     "file": "nf_conntrack_core.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-23278": {
+   "cve_id": "CVE-2026-23278",
+   "subject": "netfilter: nf_tables: always walk all pending catchall elements",
+   "bug_type": "other",
+   "fix_commit": "7cb9a23d7ae40a702577d3d8bacb7026f04ac2a9",
+   "fix_date": "2026-03-10T14:10:42+01:00",
+   "after_model_release": true,
+   "introduced_by": "628bd3e49cba1c066228e23d71a852c23e26da73",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-23278.json",
+   "split": "tuning",
+   "vulnerable_functions": [
+    {
+     "name": "nft_map_catchall_activate",
+     "function": "nft_map_catchall_activate",
+     "file": "nf_tables_api.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nft_map_catchall_deactivate",
+     "function": "nft_map_catchall_deactivate",
+     "file": "nf_tables_api.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-31665": {
+   "cve_id": "CVE-2026-31665",
+   "subject": "netfilter: nft_ct: fix use-after-free in timeout object destroy",
+   "bug_type": "use-after-free",
+   "fix_commit": "f8dca15a1b190787bbd03285304b569631160eda",
+   "fix_date": "2026-04-08T13:34:16+02:00",
+   "after_model_release": true,
+   "introduced_by": "7e0b2b57f01d183e1c84114f1f2287737358d748",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-31665.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "nft_ct_timeout_obj_destroy",
+     "function": "nft_ct_timeout_obj_destroy",
+     "file": "nft_ct.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-43024": {
+   "cve_id": "CVE-2026-43024",
+   "subject": "netfilter: nf_tables: reject immediate NF_QUEUE verdict",
+   "bug_type": "other",
+   "fix_commit": "da107398cbd4bbdb6bffecb2ce86d5c9384f4cec",
+   "fix_date": "2026-04-01T11:55:30+02:00",
+   "after_model_release": true,
+   "introduced_by": "f342de4e2f33e0e39165d8639387aa6c19dff660",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43024.json",
+   "split": "tuning",
+   "vulnerable_functions": [
+    {
+     "name": "nft_verdict_init",
+     "function": "nft_verdict_init",
+     "file": "nf_tables_api.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-43452": {
+   "cve_id": "CVE-2026-43452",
+   "subject": "netfilter: x_tables: guard option walkers against 1-byte tail reads",
+   "bug_type": "other",
+   "fix_commit": "cfe770220ac2dbd3e104c6b45094037455da81d4",
+   "fix_date": "2026-03-10T14:10:42+01:00",
+   "after_model_release": true,
+   "introduced_by": "2e4e6a17af35be359cc8f1c924f8f198fbd478cc",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-43452.json",
+   "split": "tuning",
+   "vulnerable_functions": [
+    {
+     "name": "dccp_find_option",
+     "function": "dccp_find_option",
+     "file": "xt_dccp.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "tcp_find_option",
+     "function": "tcp_find_option",
+     "file": "xt_tcpudp.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-52920": {
+   "cve_id": "CVE-2026-52920",
+   "subject": "netfilter: xt_policy: fix strict mode inbound policy matching",
+   "bug_type": "other",
+   "fix_commit": "4b2b4d7d4e203c92db8966b163edfacb1f0e1e29",
+   "fix_date": "2026-04-24T20:04:56+02:00",
+   "after_model_release": true,
+   "introduced_by": "c4b885139203d37f76662c37ae645fe8e0f4e4e5",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-52920.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "match_policy_in",
+     "function": "match_policy_in",
+     "file": "xt_policy.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-52970": {
+   "cve_id": "CVE-2026-52970",
+   "subject": "netfilter: nft_ct: fix missing expect put in obj eval",
+   "bug_type": "other",
+   "fix_commit": "19f94b6fee75b3ef7fbc06f3745b9a771a8a19a4",
+   "fix_date": "2026-05-08T01:30:17+02:00",
+   "after_model_release": true,
+   "introduced_by": "857b46027d6f91150797295752581b7155b9d0e1",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-52970.json",
+   "split": "tuning",
+   "vulnerable_functions": [
+    {
+     "name": "nft_ct_expect_obj_eval",
+     "function": "nft_ct_expect_obj_eval",
+     "file": "nft_ct.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-53002": {
+   "cve_id": "CVE-2026-53002",
+   "subject": "netfilter: conntrack: remove sprintf usage",
+   "bug_type": "out-of-bounds",
+   "fix_commit": "6e7066bdb481a87fe88c4fa563e348c03b2d373d",
+   "fix_date": "2026-04-20T23:27:46+02:00",
+   "after_model_release": true,
+   "introduced_by": "9fafcd7b203229c3f3893a475741afc27e276306",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53002.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "help [nf_nat_amanda.c]",
+     "function": "help",
+     "file": "nf_nat_amanda.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "mangle_content_len",
+     "function": "mangle_content_len",
+     "file": "nf_nat_sip.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "map_addr",
+     "function": "map_addr",
+     "file": "nf_nat_sip.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_nat_sdp_addr",
+     "function": "nf_nat_sdp_addr",
+     "file": "nf_nat_sip.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_nat_sdp_port",
+     "function": "nf_nat_sdp_port",
+     "file": "nf_nat_sip.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_nat_sdp_session",
+     "function": "nf_nat_sdp_session",
+     "file": "nf_nat_sip.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_nat_sip",
+     "function": "nf_nat_sip",
+     "file": "nf_nat_sip.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_nat_sip_expect",
+     "function": "nf_nat_sip_expect",
+     "file": "nf_nat_sip.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "sip_sprintf_addr",
+     "function": "sip_sprintf_addr",
+     "file": "nf_nat_sip.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "sip_sprintf_addr_port",
+     "function": "sip_sprintf_addr_port",
+     "file": "nf_nat_sip.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-53212": {
+   "cve_id": "CVE-2026-53212",
+   "subject": "netfilter: nft_tunnel: fix use-after-free on object destroy",
+   "bug_type": "use-after-free",
+   "fix_commit": "c32b26aaa2f9216520a38b3f4bfeec846eb3eb8a",
+   "fix_date": "2026-06-01T13:43:53+02:00",
+   "after_model_release": true,
+   "introduced_by": "af308b94a2a4a5a27bec9028354c4df444a7c8ba",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53212.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "nft_tunnel_obj_destroy",
+     "function": "nft_tunnel_obj_destroy",
+     "file": "nft_tunnel.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-53218": {
+   "cve_id": "CVE-2026-53218",
+   "subject": "netfilter: nft_exthdr: fix register tracking for F_PRESENT flag",
+   "bug_type": "out-of-bounds",
+   "fix_commit": "772cecf198da732faebb5dcfc46d66a505be8495",
+   "fix_date": "2026-06-10T18:00:12+02:00",
+   "after_model_release": true,
+   "introduced_by": "c078ca3b0c5bf82c2b31906c446d6e2ad8ea0783",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53218.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "nft_exthdr_init",
+     "function": "nft_exthdr_init",
+     "file": "nft_exthdr.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-53270": {
+   "cve_id": "CVE-2026-53270",
+   "subject": "ipvs: clear the svc scheduler ptr early on edit",
+   "bug_type": "race/locking",
+   "fix_commit": "193989cc6d80dd8e0460fb3992e69fa03bf0ff9b",
+   "fix_date": "2026-06-01T13:43:52+02:00",
+   "after_model_release": true,
+   "introduced_by": "05f00505a89acd21f5d0d20f5797dfbc4cf85243",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53270.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "__ip_vs_del_service",
+     "function": "__ip_vs_del_service",
+     "file": "ip_vs_ctl.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "ip_vs_add_service",
+     "function": "ip_vs_add_service",
+     "file": "ip_vs_ctl.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "ip_vs_edit_service",
+     "function": "ip_vs_edit_service",
+     "file": "ip_vs_ctl.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "ip_vs_unbind_scheduler",
+     "function": "ip_vs_unbind_scheduler",
+     "file": "ip_vs_sched.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-53349": {
+   "cve_id": "CVE-2026-53349",
+   "subject": "netfilter: nf_conntrack: destroy stale expectfn expectations on unregister",
+   "bug_type": "race/locking",
+   "fix_commit": "c3009418f9fa1dcb3eb86f4d8c92583537b5faa3",
+   "fix_date": "2026-06-10T17:58:39+02:00",
+   "after_model_release": true,
+   "introduced_by": "f587de0e2feb9eb9b94f98d0a7b7437e4d6617b4",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-53349.json",
+   "split": "tuning",
+   "vulnerable_functions": [
+    {
+     "name": "nf_nat_cleanup",
+     "function": "nf_nat_cleanup",
+     "file": "nf_nat_core.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_nat_init",
+     "function": "nf_nat_init",
+     "file": "nf_nat_core.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_nat_sip_fini",
+     "function": "nf_nat_sip_fini",
+     "file": "nf_nat_sip.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-64006": {
+   "cve_id": "CVE-2026-64006",
+   "subject": "netfilter: nf_tables: fix dst corruption in same register operation",
+   "bug_type": "other",
+   "fix_commit": "18014147d3ee7831dce53fe65d7fc8d428b02552",
+   "fix_date": "2026-05-22T12:28:46+02:00",
+   "after_model_release": true,
+   "introduced_by": "567d746b55bc66d3800c9ae91d50f0c5deb2fd93",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-64006.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "nft_bitwise_eval_lshift",
+     "function": "nft_bitwise_eval_lshift",
+     "file": "nft_bitwise.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nft_bitwise_eval_rshift",
+     "function": "nft_bitwise_eval_rshift",
+     "file": "nft_bitwise.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nft_bitwise_init",
+     "function": "nft_bitwise_init",
+     "file": "nft_bitwise.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nft_bitwise_init_bool",
+     "function": "nft_bitwise_init_bool",
+     "file": "nft_bitwise.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nft_byteorder_init",
+     "function": "nft_byteorder_init",
+     "file": "nft_byteorder.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-64078": {
+   "cve_id": "CVE-2026-64078",
+   "subject": "netfilter: x_tables: add and use xtables_unregister_table_exit",
+   "bug_type": "other",
+   "fix_commit": "b4597d5fd7d2f8cebfffd40dffb5e003cc78964c",
+   "fix_date": "2026-05-08T01:30:16+02:00",
+   "after_model_release": true,
+   "introduced_by": "fdacd57c79b79a03c7ca88f706ad9fb7b46831c1",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-64078.json",
+   "split": "tuning",
+   "vulnerable_functions": [
+    {
+     "name": "xt_net_exit",
+     "function": "xt_net_exit",
+     "file": "x_tables.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "xt_net_init",
+     "function": "xt_net_init",
+     "file": "x_tables.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "xt_unregister_table",
+     "function": "xt_unregister_table",
+     "file": "x_tables.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-64079": {
+   "cve_id": "CVE-2026-64079",
+   "subject": "netfilter: x_tables: allocate hook ops while under mutex",
+   "bug_type": "null-deref",
+   "fix_commit": "b62eb8dcf2c47d4d676a434efbd57c4f776f7829",
+   "fix_date": "2026-05-08T01:30:16+02:00",
+   "after_model_release": true,
+   "introduced_by": "f9006acc8dfe59e25aa75729728ac57a8d84fc32",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-64079.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "xt_register_table",
+     "function": "xt_register_table",
+     "file": "x_tables.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "xt_replace_table",
+     "function": "xt_replace_table",
+     "file": "x_tables.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-68476": {
+   "cve_id": "CVE-2026-68476",
+   "subject": "ipvs: reload ip header after head reallocation",
+   "bug_type": "other",
+   "fix_commit": "a2f57827bf7c695b8c72dc4511cae8e86582369d",
+   "fix_date": "2026-07-10T16:28:47+02:00",
+   "after_model_release": true,
+   "introduced_by": "8d8e20e2d7bba8c50e64e0eca1cb83956f468e49",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-68476.json",
+   "split": "tuning",
+   "vulnerable_functions": [
+    {
+     "name": "ip_vs_bypass_xmit",
+     "function": "ip_vs_bypass_xmit",
+     "file": "ip_vs_xmit.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-72021": {
+   "cve_id": "CVE-2026-72021",
+   "subject": "ipvs: use parsed transport offset in SCTP state lookup",
+   "bug_type": "other",
+   "fix_commit": "2f75c0faa3361b28e36cc0512b3299e163e25789",
+   "fix_date": "2026-07-08T15:33:44+02:00",
+   "after_model_release": true,
+   "introduced_by": "2906f66a5682e5670a5eefe991843689b8d8563f",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72021.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "sctp_state_transition",
+     "function": "sctp_state_transition",
+     "file": "ip_vs_proto_sctp.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "set_sctp_state",
+     "function": "set_sctp_state",
+     "file": "ip_vs_proto_sctp.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-72419": {
+   "cve_id": "CVE-2026-72419",
+   "subject": "netfilter: nf_nat: avoid invalid nat_net pointer use on failed nf_nat_init()",
+   "bug_type": "out-of-bounds",
+   "fix_commit": "069cfe3de2a5e16069485893cd04665ab769c1d8",
+   "fix_date": "2026-06-23T08:11:21+02:00",
+   "after_model_release": true,
+   "introduced_by": "cbc1dd5b659f5a2c3cba88b197b7443679bb35a0",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-72419.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "nf_nat_register_fn",
+     "function": "nf_nat_register_fn",
+     "file": "nf_nat_core.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-74564": {
+   "cve_id": "CVE-2026-74564",
+   "subject": "netfilter: xt_hashlimit: validate hashtable supports XT_HASHLIMIT_RATE_MATCH",
+   "bug_type": "uninitialized",
+   "fix_commit": "305b63e1402267459fdabb183af4527f6799eebf",
+   "fix_date": "2026-07-23T18:01:25+02:00",
+   "after_model_release": true,
+   "introduced_by": "bea74641e3786d51dcf1175527cc1781420961c9",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74564.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "hashlimit_mt_check_common",
+     "function": "hashlimit_mt_check_common",
+     "file": "xt_hashlimit.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "htable_create",
+     "function": "htable_create",
+     "file": "xt_hashlimit.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-74569": {
+   "cve_id": "CVE-2026-74569",
+   "subject": "netfilter: nf_conntrack_sip: widen NAT rewrite delta to s32 in sip_help_tcp()",
+   "bug_type": "use-after-free",
+   "fix_commit": "db3d0e0e5d4bc5ab4fe445b9f413d1b486508ca5",
+   "fix_date": "2026-07-22T19:47:17+02:00",
+   "after_model_release": true,
+   "introduced_by": "f5b321bd37fbec9188feb1f721ab46a5ac0b35da",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74569.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "sip_help_tcp",
+     "function": "sip_help_tcp",
+     "file": "nf_conntrack_sip.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_nat_sip_seq_adjust",
+     "function": "nf_nat_sip_seq_adjust",
+     "file": "nf_nat_sip.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-74579": {
+   "cve_id": "CVE-2026-74579",
+   "subject": "netfilter: nft_payload: fix mask build for partial field offload",
+   "bug_type": "out-of-bounds",
+   "fix_commit": "39e88f28fb32bf02bd4b525c24c842c9cff5663d",
+   "fix_date": "2026-07-23T18:17:55+02:00",
+   "after_model_release": true,
+   "introduced_by": "a5d45bc0dc50f9dd83703510e9804d813a9cac32",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74579.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "nft_payload_offload_mask",
+     "function": "nft_payload_offload_mask",
+     "file": "nft_payload.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-74624": {
+   "cve_id": "CVE-2026-74624",
+   "subject": "netfilter: nf_conntrack: defer invalid log until after unlock",
+   "bug_type": "race/locking",
+   "fix_commit": "2d19b95c9723001f214f7a47d67b09f46238f200",
+   "fix_date": "2026-08-10T20:25:56+02:00",
+   "after_model_release": true,
+   "introduced_by": "628d694344a02a428846643791e8b26071b76328",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74624.json",
+   "split": "tuning",
+   "vulnerable_functions": [
+    {
+     "name": "nf_ct_l4proto_log_invalid",
+     "function": "nf_ct_l4proto_log_invalid",
+     "file": "nf_conntrack_proto.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_conntrack_sctp_packet",
+     "function": "nf_conntrack_sctp_packet",
+     "file": "nf_conntrack_proto_sctp.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_conntrack_tcp_packet",
+     "function": "nf_conntrack_tcp_packet",
+     "file": "nf_conntrack_proto_tcp.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_tcp_handle_invalid",
+     "function": "nf_tcp_handle_invalid",
+     "file": "nf_conntrack_proto_tcp.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_tcp_log_invalid",
+     "function": "nf_tcp_log_invalid",
+     "file": "nf_conntrack_proto_tcp.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "tcp_in_window",
+     "function": "tcp_in_window",
+     "file": "nf_conntrack_proto_tcp.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-74746": {
+   "cve_id": "CVE-2026-74746",
+   "subject": "netfilter: flowtable: publish GC-visible tuple last",
+   "bug_type": "use-after-free",
+   "fix_commit": "2014ac62df9d45bb9a004a043e85df7be09ed780",
+   "fix_date": "2026-08-10T20:27:50+02:00",
+   "after_model_release": true,
+   "introduced_by": "ac2a66665e231847cab11b8c8e844ce43207dd2e",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74746.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "flow_offload_add",
+     "function": "flow_offload_add",
+     "file": "nf_flow_table_core.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-74747": {
+   "cve_id": "CVE-2026-74747",
+   "subject": "ipvs: revalidate ihl to prevent out-of-bounds access",
+   "bug_type": "out-of-bounds",
+   "fix_commit": "d93660df4dd1d116f608ada4a29a80a5d6f0a6ed",
+   "fix_date": "2026-08-10T20:27:15+02:00",
+   "after_model_release": true,
+   "introduced_by": "1da177e4c3f41524e886b7f1b8a0c1fc7321cac2",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-74747.json",
+   "split": "tuning",
+   "vulnerable_functions": [
+    {
+     "name": "handle_response_icmp",
+     "function": "handle_response_icmp",
+     "file": "ip_vs_core.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "ip_vs_nat_icmp",
+     "function": "ip_vs_nat_icmp",
+     "file": "ip_vs_core.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "ip_vs_icmp_xmit",
+     "function": "ip_vs_icmp_xmit",
+     "file": "ip_vs_xmit.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-80636": {
+   "cve_id": "CVE-2026-80636",
+   "subject": "netfilter: conntrack: revert ct extension genid infrastructure",
+   "bug_type": "other",
+   "fix_commit": "35e21a4dccc5c255ba59ccfbfeb4629ed21da972",
+   "fix_date": "2026-06-05T16:16:44+02:00",
+   "after_model_release": true,
+   "introduced_by": "c56716c69ce1ac320432fb1ea5654196ba24d2f8",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-80636.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "__nf_conntrack_confirm",
+     "function": "__nf_conntrack_confirm",
+     "file": "nf_conntrack_core.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_conntrack_hash_check_insert",
+     "function": "nf_conntrack_hash_check_insert",
+     "file": "nf_conntrack_core.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_ct_ext_valid_post",
+     "function": "nf_ct_ext_valid_post",
+     "file": "nf_conntrack_core.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_ct_ext_valid_pre",
+     "function": "nf_ct_ext_valid_pre",
+     "file": "nf_conntrack_core.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_ct_iterate_destroy",
+     "function": "nf_ct_iterate_destroy",
+     "file": "nf_conntrack_core.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "__nf_ct_ext_find",
+     "function": "__nf_ct_ext_find",
+     "file": "nf_conntrack_extend.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_ct_ext_add",
+     "function": "nf_ct_ext_add",
+     "file": "nf_conntrack_extend.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_ct_ext_bump_genid",
+     "function": "nf_ct_ext_bump_genid",
+     "file": "nf_conntrack_extend.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-80744": {
+   "cve_id": "CVE-2026-80744",
+   "subject": "netfilter: nf_tables_offload: suppress WARN_ON_ONCE for ENOMEM in abort path",
+   "bug_type": "other",
+   "fix_commit": "d02f592064347e0c1e0d84f24941ad338838cc48",
+   "fix_date": "2026-08-10T20:27:29+02:00",
+   "after_model_release": true,
+   "introduced_by": "63b48c73ff567bbab1f940d6e8f3f48607077a13",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-80744.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "nft_flow_rule_offload_abort",
+     "function": "nft_flow_rule_offload_abort",
+     "file": "nf_tables_offload.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-80837": {
+   "cve_id": "CVE-2026-80837",
+   "subject": "netfilter: nf_tables: don't queue packet path object notifications",
+   "bug_type": "use-after-free",
+   "fix_commit": "7904b94768e983bcb2be34a8d6d1f3450f5b838b",
+   "fix_date": "2026-08-18T00:52:48+02:00",
+   "after_model_release": true,
+   "introduced_by": "67cc570edaa02016a8685a06a0ee91f05a6277d9",
+   "introduced_source": "Fixes: tag",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-80837.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "__nft_obj_notify",
+     "function": "__nft_obj_notify",
+     "file": "nf_tables_api.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nf_tables_obj_notify",
+     "function": "nf_tables_obj_notify",
+     "file": "nf_tables_api.c",
+     "verified": true,
+     "how": "changed by the fix"
+    },
+    {
+     "name": "nft_obj_notify",
+     "function": "nft_obj_notify",
+     "file": "nf_tables_api.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  },
+  "CVE-2026-97417": {
+   "cve_id": "CVE-2026-97417",
+   "subject": "netfilter: nf_conntrack: use get_unaligned_be32() in tcp_sack()",
+   "bug_type": "other",
+   "fix_commit": "d3bf9eae486490832bd08fd62ab0ac601f346bd4",
+   "fix_date": "2026-06-07T11:13:47+02:00",
+   "after_model_release": true,
+   "introduced_by": "bb9fc37358ffa9de1cc2b2b6f1a559b926ef50d9",
+   "introduced_source": "CVE record (no Fixes: tag)",
+   "seed_functions_removed": [],
+   "source": "https://git.kernel.org/pub/scm/linux/security/vulns.git/tree/cve/published/2026/CVE-2026-97417.json",
+   "split": "test",
+   "vulnerable_functions": [
+    {
+     "name": "tcp_sack",
+     "function": "tcp_sack",
+     "file": "nf_conntrack_proto_tcp.c",
+     "verified": true,
+     "how": "changed by the fix"
+    }
+   ]
+  }
+ }
+}

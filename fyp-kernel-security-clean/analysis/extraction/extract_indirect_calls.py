@@ -1,44 +1,49 @@
 #!/usr/bin/env python3
 """
-SCRIPT #2b: Extract Indirect Calls (function pointers)
+SCRIPT #2b: Extract Indirect Calls (function pointers) - TYPED version
 Purpose: Add the call-graph edges that extract_function_calls.py cannot see.
 
 Netfilter often calls functions through a "switchboard" instead of by name:
 
-  1. A function is REGISTERED in a struct field ("slot"):
+  1. A function is REGISTERED in a field of a struct:
          static const struct nft_expr_ops nft_payload_ops = {
              .eval = nft_payload_eval,
   2. Other code later DISPATCHES through that field without naming it:
          expr->ops->eval(expr, regs, pkt);
 
-For every function that dispatches through `->eval(`, we add an edge to
-every function registered in an `.eval` slot. This is "field-based"
-resolution: it matches on the field NAME only, not the struct type, so it
-can add some edges that never happen at runtime (an over-approximation),
-but it does not miss real ones.
+Old rule (until v3 of the brief): link `->eval(` to EVERY function in ANY
+`.eval` field - many edges that can never happen.
+New rule: work out the struct type of `expr->ops` (expr is a
+`struct nft_expr *`, its field `ops` is a `struct nft_expr_ops *`) and link
+only to functions registered in `.eval` of a `struct nft_expr_ops`. Only if
+the type cannot be worked out, fall back to the old name-only rule; how
+often that happens is counted and reported.
 
-Registrations are found in four forms:
-  - struct initializer     .eval = nft_payload_eval,
+Registrations are found in these forms:
+  - struct initializer     .eval = nft_payload_eval,   (incl. arrays of
+                           structs and slot tables .adt = { [IPSET_ADD] = f })
   - runtime assignment     ops->eval = nft_payload_eval;
-  - slot table             .adt = { [IPSET_ADD] = bitmap_ip_add, ... }
-                           (dispatched as  set->variant->adt[adt] )
+  - copy between fields    entry->hook = reg->hook;    (the first field gets
+                           everything registered in the second)
   - hand-off via argument  nf_ct_helper_init(..., help, ...)  where
                            nf_ct_helper_init does  helper->help = help;
-A function that directly calls a function pointer it was handed
-(  iter(...)  where iter is a parameter) gets an edge to every function
-passed in that argument position - also when it reaches it through a chain
-of helpers that pass the parameter on.
+A function that calls a function pointer it was handed (iter(...), iter a
+parameter) gets an edge to every function passed in that position.
+Callbacks given to core kernel APIs (nf_register_net_hook, nfnetlink
+callback tables, netlink dump callbacks, timers, work items) are added by
+the rules in configs/callgraph.yaml.
 
-ipset templates (ip_set_*_gen.h, `mtype_add` -> `bitmap_ip_add`) are read
-from the expanded copies made by analysis/sources.py.
+For comparison the old name-only edges are saved too
+(indirect_calls_name_only.json, used by analysis/callgraph/graph_report.py).
 
-Output: results/raw/indirect_calls.json (+ indirect_calls_summary.txt)
+Output: results/raw/indirect_calls.json (+ indirect_calls_summary.txt,
+        indirect_calls_name_only.json)
 """
 
 import json
 import re
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 # Windows terminals use a non-UTF-8 encoding by default and crash on emoji output
@@ -46,359 +51,420 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-FUNCTIONS_FILE = PROJECT_ROOT / "results/raw/functions_v2.json"
-DIRECT_CALLS_FILE = PROJECT_ROOT / "results/raw/function_calls_v2.json"
-OUTPUT_PATH = PROJECT_ROOT / "results/raw"
-
 sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
-from callgraph import FunctionIndex, load_functions, load_call_graph
-from sources import (NETFILTER_PATH, TEMPLATE_HEADERS, all_source_files, compilation_units,
-                     find_source)
+sys.path.insert(0, str(PROJECT_ROOT / "analysis/extraction"))
+from c_types import (Scope, StructTable, body_variables, expression_type, initializer_registrations,
+                     match_forward, operand_before, parameter_variables, return_struct_type,
+                     split_top_level, strip_comments, strip_strings)
+from callgraph import (DIRECT_CALLS_FILE, FUNCTIONS_FILE, INDIRECT_CALLS_FILE, FunctionIndex,
+                       load_call_graph, load_functions)
+from config import CONFIG, PATHS, git, kernel_info, load_yaml, prefetch_objects
+from sources import NETFILTER_PATH, TEMPLATE_HEADERS, all_source_files, compilation_units, find_source
 
-# `.eval = nft_payload_eval,`  (struct initializer, one per line in kernel style)
-INIT_PATTERN = re.compile(r'^\s*\.(\w+)\s*=\s*&?(\w+)\s*,?\s*(?:/[*/].*)?$')
-# `ops->eval = nft_payload_eval;`  (assigned at runtime)
-RUNTIME_PATTERN = re.compile(r'(?:->|\.)(\w+)\s*=\s*&?(\w+)\s*;')
-# `.adt = {`  opens a slot table; `[IPSET_ADD] = bitmap_ip_add,` is one entry
-TABLE_OPEN_PATTERN = re.compile(r'^\s*\.(\w+)\s*=\s*\{\s*$')
-TABLE_ENTRY_PATTERN = re.compile(r'^\s*\[[^\]]+\]\s*=\s*&?(\w+)\s*,?\s*$')
-# `expr->ops->eval(` or `set->variant->adt[`  (use of a slot)
-DISPATCH_PATTERN = re.compile(r'->\s*(\w+)\s*[(\[]')
-# ipset: `set->variant->adt[` - a set type's own code only ever handles sets of
-# its own type, so this means the slot of the caller's own set type
-VARIANT_DISPATCH_PATTERN = re.compile(r'->\s*variant\s*->\s*(\w+)\s*[(\[]')
-CALL_PATTERN = re.compile(r'\b(\w+)\s*\(')
-IDENTIFIER = re.compile(r'^&?\s*(\w+)$')
+OUTPUT_PATH = PATHS.raw
+NAME_ONLY_FILE = OUTPUT_PATH / "indirect_calls_name_only.json"
+HEADER_CACHE = OUTPUT_PATH / "extra_headers"
 
-
-def read_lines(path):
-    return path.read_text(errors="ignore").split("\n")
-
-
-def strip_comment(line):
-    return line.split("//")[0]
+# `->eval(`  `.eval(`  `->adt[`  (use of a field holding a function pointer)
+DISPATCH_PATTERN = re.compile(r"(->|\.)\s*(\w+)\s*([(\[])")
+# `lhs->field = value;`  (runtime assignment or copy between fields)
+ASSIGN_PATTERN = re.compile(r"(->|\.)\s*(\w+)\s*(?:\[[^\]]*\]\s*)?=(?!=)\s*([^;]+);")
+CALL_PATTERN = re.compile(r"\b([A-Za-z_]\w*)\s*\(")
+IDENTIFIER = re.compile(r"^&?\s*([A-Za-z_]\w*)$")
+CHAIN_END = re.compile(r"^(.*?)(->|\.)\s*(\w+)\s*$", flags=re.S)
+# when one caller -> target pair is found in several ways, keep the most precise
+HOW_PRIORITY = ["typed", "handoff", "api_callback", "untyped_registration", "name_fallback"]
 
 
-def registration_files():
-    """.c files, expanded ipset templates, and other netfilter headers"""
-    headers = [p for p in sorted(NETFILTER_PATH.rglob("*.h")) if p.name not in TEMPLATE_HEADERS]
-    return all_source_files() + headers
+def read(path):
+    return path.read_text(errors="ignore")
 
 
-def find_registrations(index):
-    """Return {field: set(node names)} for struct initializers, runtime assignments
-    and slot tables"""
-    field_targets = defaultdict(set)
-
-    for path in registration_files():
-        table_field = None
-        for line in read_lines(path):
-            line = strip_comment(line)
-
-            opened = TABLE_OPEN_PATTERN.match(line)
-            if opened:
-                table_field = opened.group(1)
+def header_files():
+    """Headers from the sparse checkout + the extra ones in configs/callgraph.yaml"""
+    paths = []
+    for folder in CONFIG["kernel"]["sparse_paths"]:
+        paths += sorted((PATHS.kernel / folder).rglob("*.h"))
+    paths = [p for p in paths if p.name not in TEMPLATE_HEADERS]
+    HEADER_CACHE.mkdir(parents=True, exist_ok=True)
+    tag = kernel_info()["tag"]
+    extra = load_yaml("callgraph.yaml").get("extra_headers", [])
+    todo = [rel for rel in extra if not (HEADER_CACHE / rel.replace("/", "__")).exists()]
+    if todo:   # download all missing headers in one request (see config.prefetch_objects)
+        listing = git("ls-tree", tag, "--", *todo).splitlines()
+        prefetch_objects([line.split()[2] for line in listing], "extra headers")
+    for rel in extra:
+        cached = HEADER_CACHE / rel.replace("/", "__")
+        if not cached.exists():
+            try:
+                cached.write_text(git("show", f"{tag}:{rel}"), encoding="utf-8")
+            except RuntimeError as e:
+                print(f"⚠️  extra header {rel} not available: {e}")
                 continue
-
-            matches = []
-            entry = TABLE_ENTRY_PATTERN.match(line)
-            if table_field and entry:
-                matches.append((table_field, entry.group(1)))
-            elif "}" in line:
-                table_field = None
-
-            m = INIT_PATTERN.match(line)
-            if m:
-                matches.append(m.groups())
-            matches.extend(RUNTIME_PATTERN.findall(line))
-
-            for field, target in matches:
-                # `.help = help` in nf_conntrack_ftp.c means THAT file's help()
-                node = index.resolve(target, path.name)
-                if node:
-                    field_targets[field].add(node)
-
-    return field_targets
+        paths.append(cached)
+    return paths
 
 
-def function_body(lines, start_index):
-    """Lines of a function body, found by brace counting (same idea as SCRIPT #2)"""
-    body = []
-    depth = 0
-    opened = False
-    for line in lines[start_index:]:
-        clean = strip_comment(line)
-        depth += clean.count("{") - clean.count("}")
-        if "{" in clean:
-            opened = True
-        if opened:
-            body.append(clean)
-            if depth <= 0:
-                break
-    return body
+class Function:
+    """One function: node name, file, cleaned body text and its variable scope"""
+
+    def __init__(self, node, name, filename, text, file_scope, start_line):
+        self.node, self.name, self.file, self.start_line = node, name, filename, start_line
+        self.text = strip_strings(strip_comments(text))
+        brace = self.text.find("{")
+        self.signature = self.text[:brace] if brace >= 0 else self.text
+        self.param_names = parameter_names(self.signature)
+        variables = parameter_variables(self.signature)
+        variables.update(body_variables(self.text[brace + 1:] if brace >= 0 else ""))
+        self.scope = Scope(variables, file_scope)
 
 
-def split_top_level(text):
-    """Split 'a, f(b, c), d' on commas that are not inside brackets"""
-    parts, depth, current = [], 0, ""
-    for ch in text:
-        if ch in "([{":
-            depth += 1
-        elif ch in ")]}":
-            depth -= 1
-        if ch == "," and depth == 0:
-            parts.append(current)
-            current = ""
-        else:
-            current += ch
-    parts.append(current)
-    return [p.strip() for p in parts]
-
-
-def bracket_contents(text, open_pos):
-    """Text between the '(' at open_pos and its matching ')' (None if unbalanced)"""
-    depth = 0
-    for pos in range(open_pos, len(text)):
-        if text[pos] == "(":
-            depth += 1
-        elif text[pos] == ")":
-            depth -= 1
-            if depth == 0:
-                return text[open_pos + 1:pos]
-    return None
-
-
-def parameter_names(lines, start_index):
-    """Parameter names of the function defined at start_index"""
-    signature = ""
-    for line in lines[start_index:start_index + 12]:
-        signature += " " + strip_comment(line)
-        if "{" in line:
-            break
-    inside = bracket_contents(signature, signature.find("("))
-    if inside is None:
+def parameter_names(signature):
+    open_pos = signature.find("(")
+    if open_pos < 0:
         return []
+    close = match_forward(signature, open_pos)
+    inside = signature[open_pos + 1:close] if close else ""
     names = []
     for param in split_top_level(inside):
-        pointer = re.search(r'\(\s*\*\s*(\w+)\s*\)', param)   # int (*help)(...)
-        words = re.findall(r'\w+', re.sub(r'\[.*?\]', '', param))
+        pointer = re.search(r"\(\s*\*\s*(\w+)\s*\)", param)   # int (*help)(...)
+        words = re.findall(r"\w+", re.sub(r"\[.*?\]", "", param))
         names.append(pointer.group(1) if pointer else (words[-1] if words else ""))
     return names
 
 
-class SourceFunctions:
-    """Body text and parameter names of every extracted function"""
+def call_sites(text):
+    """Yield (called name, [argument texts]) for every call in `text`"""
+    for m in CALL_PATTERN.finditer(text):
+        close = match_forward(text, m.end() - 1)
+        if close is not None:
+            yield m.group(1), split_top_level(text[m.end():close])
 
-    def __init__(self, index):
-        self.items = []   # (node, file, body lines, parameter names)
-        for filename, funcs in index.functions.items():
+
+class Extractor:
+    def __init__(self):
+        self.index = FunctionIndex(load_functions())
+        self.structs = StructTable()
+        self.returns = {}
+        self.functions = []
+        # registrations: (struct or None, field) -> {function node}
+        self.reg = defaultdict(set)
+        self.aliases = defaultdict(set)          # (struct, field) <- {(struct, field)}
+        self.local_inits = []                    # (container node, struct, field, target node)
+        self.stats = Counter()
+
+    # ------------------------------------------------------------ reading
+    def load(self):
+        sources = all_source_files()
+        headers = header_files() + [p for p in sorted(NETFILTER_PATH.rglob("*.h"))
+                                    if p.name not in TEMPLATE_HEADERS]
+        for path in headers + sources:
+            self.structs.add_text(read(path))
+        self.stats["structs_parsed"] = len(self.structs.fields)
+        # functions returning a struct pointer (definitions + static inline in headers)
+        for path in headers:
+            text = strip_comments(read(path))
+            for m in re.finditer(r"\bstruct\s+(\w+)\s*\*+\s*(\w+)\s*\(", text):
+                self.returns.setdefault(m.group(2), m.group(1))
+
+        header_globals = {}
+        for path in headers:
+            header_globals.update(body_variables(re.sub(r"\{[^{}]*\}", ";", strip_comments(read(path)))))
+        for filename, funcs in self.index.functions.items():
             path = find_source(filename)
             if path is None:
                 continue
-            lines = read_lines(path)
+            lines = read(path).split("\n")
+            inside = set()
             for func in funcs:
-                self.items.append((index.node_id(func["name"], filename), filename,
-                                   function_body(lines, func["line"] - 1),
-                                   parameter_names(lines, func["line"] - 1)))
+                inside.update(range(func["line"] - 1, func.get("end_line", func["line"])))
+            outside = "\n".join(l for i, l in enumerate(lines) if i not in inside)
+            file_scope = dict(header_globals)
+            file_scope.update(body_variables(strip_comments(outside)))
+            for func in funcs:
+                text = "\n".join(lines[func["line"] - 1:func.get("end_line", func["line"])])
+                node = self.index.node_id(func["name"], filename)
+                f = Function(node, func["name"], filename, text, file_scope, func["line"])
+                self.functions.append(f)
+                ret = return_struct_type(f.signature, func["name"])
+                if ret:
+                    self.returns.setdefault(func["name"], ret)
+        self.by_node = {f.node: f for f in self.functions}
 
+    def type_of(self, expr, func):
+        return expression_type(expr, func.scope, self.structs, self.returns)
 
-def find_dispatches(functions, field_targets):
-    """
-    Return ({caller node: set(fields)}, set of (caller node, field)) for every
-    `->field(` / `->field[` whose field has registrations. The second value
-    lists the ipset `->variant->field` uses (see VARIANT_DISPATCH_PATTERN).
-    """
-    dispatches = defaultdict(set)
-    variant = set()
-    for node, _, body, _ in functions.items:
-        for line in body:
-            for field in DISPATCH_PATTERN.findall(line):
-                if field in field_targets:
-                    dispatches[node].add(field)
-            for field in VARIANT_DISPATCH_PATTERN.findall(line):
-                variant.add((node, field))
-    return dispatches, variant
-
-
-def dispatch_targets(caller, field, field_targets, variant, unit_of):
-    """Functions a dispatch through `field` inside `caller` may reach"""
-    targets = field_targets[field]
-    if (caller, field) in variant:
-        own = {t for t in targets if unit_of[t] == unit_of[caller]}
-        if own:   # the caller's own set type registers this slot -> only those
-            return own
-    return targets
-
-
-def call_sites(index, functions):
-    """Yield (caller node, callee node, [arguments]) for every call in every body"""
-    for node, filename, body, _ in functions.items:
-        text = "\n".join(body)
-        for m in CALL_PATTERN.finditer(text):
-            callee = index.resolve(m.group(1), filename)
-            if callee is None:
-                continue
-            inside = bracket_contents(text, m.end() - 1)
-            if inside is not None:
-                yield node, filename, callee, split_top_level(inside)
-
-
-def find_handoffs(index, functions):
-    """
-    For functions that take a function pointer as a parameter, record what
-    they do with it:
-        stores[node][i]   = {fields}       parameter i is stored:  x->help = help;
-        calls[node]       = {i, ...}       parameter i is called:  iter(...);
-        forwards[node][i] = {(g, j), ...}  parameter i is passed on as
-                                           argument j of g:  g(..., iter, ...)
-    """
-    stores = defaultdict(lambda: defaultdict(set))
-    calls = defaultdict(set)
-    forwards = defaultdict(lambda: defaultdict(set))
-    params_of = {}
-    for node, _, body, params in functions.items:
-        params_of[node] = params
-        text = "\n".join(body)
-        for i, param in enumerate(params):
-            if not param:
-                continue
-            for field, value in RUNTIME_PATTERN.findall(text):
-                if value == param:
-                    stores[node][i].add(field)
-            if re.search(r'(?<![\w.>])%s\s*\(' % re.escape(param), text):
-                calls[node].add(i)
-
-    for caller, _, callee, args in call_sites(index, functions):
-        params = params_of.get(caller, [])
-        for j, arg in enumerate(args):
-            ident = IDENTIFIER.match(arg)
-            if ident and ident.group(1) in params:
-                forwards[caller][params.index(ident.group(1))].add((callee, j))
-    return stores, calls, forwards
-
-
-def apply_handoffs(index, functions, stores, calls, forwards, field_targets):
-    """
-    At every call site `f(a, b, c)`, if an argument is a function, follow
-    where f sends that parameter (stored, called, or passed on through a
-    chain of helpers) and register the function in the slot (stored) or add
-    an edge from the helper that finally calls it (called).
-    Returns (number of slot registrations added, set of direct-callback edges).
-    """
-    registered = 0
-    callback_edges = set()
-    for _, filename, callee, args in call_sites(index, functions):
-        for i, arg in enumerate(args):
-            ident = IDENTIFIER.match(arg)
-            target = index.resolve(ident.group(1), filename) if ident else None
-            if not target:
-                continue
-            # walk the chain of helpers the argument is passed through
-            todo, seen = [(callee, i)], set()
-            while todo:
-                f, k = todo.pop()
-                if (f, k) in seen:
+    # ------------------------------------------------------------ registrations
+    def find_initializers(self):
+        for path in all_source_files():
+            filename = path.name
+            ranges = [(f.start_line, f.start_line + f.text.count("\n"), f.node)
+                      for f in self.functions if f.file == filename]
+            for struct, field, value, line in initializer_registrations(read(path), self.structs):
+                target = self.index.resolve(value, filename)
+                if not target:
                     continue
-                seen.add((f, k))
-                for field in stores.get(f, {}).get(k, ()):
-                    if target not in field_targets[field]:
-                        field_targets[field].add(target)
-                        registered += 1
-                if k in calls.get(f, ()):
-                    callback_edges.add((f, target))
-                todo.extend(forwards.get(f, {}).get(k, ()))
-    return registered, callback_edges
+                self.reg[(struct, field)].add(target)
+                self.stats["registrations_initializer"] += 1
+                self.stats["registrations_initializer_untyped" if struct is None else
+                           "registrations_initializer_typed"] += 1
+                container = next((n for a, b, n in ranges if a <= line <= b), None)
+                if container:
+                    self.local_inits.append((container, struct, field, target))
+
+    def find_assignments(self):
+        """ops->eval = fn;   entry->hook = reg->hook;   x->help = help (param)"""
+        self.stores = defaultdict(lambda: defaultdict(set))   # node -> param index -> {(struct, field)}
+        for f in self.functions:
+            for m in ASSIGN_PATTERN.finditer(f.text):
+                field, value = m.group(2), m.group(3).strip()
+                struct = self.type_of(operand_before(f.text, m.start()), f)
+                ident = IDENTIFIER.match(value)
+                if ident:
+                    name = ident.group(1)
+                    if name in f.param_names:
+                        self.stores[f.node][f.param_names.index(name)].add((struct, field))
+                    target = self.index.resolve(name, f.file)
+                    if target:
+                        self.reg[(struct, field)].add(target)
+                        self.stats["registrations_runtime"] += 1
+                    continue
+                chain = CHAIN_END.match(value)
+                if chain and struct is not None:
+                    source_struct = self.type_of(chain.group(1), f)
+                    if source_struct is not None:
+                        self.aliases[(struct, field)].add((source_struct, chain.group(3)))
+
+    def find_handoffs(self):
+        """Callbacks passed as arguments: stored (x->help = help) or called (iter(...))"""
+        self.calls = defaultdict(set)        # node -> {param index called directly}
+        self.forwards = defaultdict(lambda: defaultdict(set))   # node -> i -> {(callee, j)}
+        for f in self.functions:
+            for i, param in enumerate(f.param_names):
+                if param and re.search(r"(?<![\w.>])%s\s*\(" % re.escape(param), f.text):
+                    self.calls[f.node].add(i)
+            for name, args in call_sites(f.text):
+                callee = self.index.resolve(name, f.file)
+                if not callee:
+                    continue
+                for j, arg in enumerate(args):
+                    ident = IDENTIFIER.match(arg)
+                    if ident and ident.group(1) in f.param_names:
+                        self.forwards[f.node][f.param_names.index(ident.group(1))].add((callee, j))
+
+        callback_edges = set()
+        for f in self.functions:
+            for name, args in call_sites(f.text):
+                callee = self.index.resolve(name, f.file)
+                if not callee:
+                    continue
+                for i, arg in enumerate(args):
+                    ident = IDENTIFIER.match(arg)
+                    target = self.index.resolve(ident.group(1), f.file) if ident else None
+                    if not target:
+                        continue
+                    todo, seen = [(callee, i)], set()
+                    while todo:
+                        g, k = todo.pop()
+                        if (g, k) in seen:
+                            continue
+                        seen.add((g, k))
+                        for key in self.stores.get(g, {}).get(k, ()):
+                            if target not in self.reg[key]:
+                                self.reg[key].add(target)
+                                self.stats["registrations_handoff"] += 1
+                        if k in self.calls.get(g, ()):
+                            callback_edges.add((g, target))
+                        todo.extend(self.forwards.get(g, {}).get(k, ()))
+        return callback_edges
+
+    def apply_aliases(self):
+        changed = True
+        while changed:
+            changed = False
+            for key, sources in self.aliases.items():
+                for src in sources:
+                    new = self.reg.get(src, set()) - self.reg[key]
+                    if new:
+                        self.reg[key] |= new
+                        changed = True
+        self.stats["field_copies"] = sum(len(s) for s in self.aliases.values())
+
+    def by_field(self):
+        out = defaultdict(set)
+        for (_, field), targets in self.reg.items():
+            out[field] |= targets
+        return out
+
+    # ------------------------------------------------------------ dispatches
+    def find_dispatches(self, units):
+        """Return (typed edges, name-only edges) as {(caller, target): how}"""
+        names = self.by_field()
+        typed, name_only = {}, {}
+        sites = Counter()
+        for f in self.functions:
+            for m in DISPATCH_PATTERN.finditer(f.text):
+                field = m.group(2)
+                if field not in names:
+                    continue
+                if m.group(3) == "[":       # ->adt[i](...) : must be followed by a call
+                    close = match_forward(f.text, m.end() - 1)
+                    if close is None or not f.text[close + 1:].lstrip().startswith("("):
+                        continue
+                prefix = operand_before(f.text, m.start())
+                for target in names[field]:
+                    name_only[(f.node, target)] = "name_only"
+                struct = self.type_of(prefix, f) if prefix else None
+                if struct is not None:
+                    exact = self.reg.get((struct, field), set())
+                    untyped = self.reg.get((None, field), set())
+                    if exact:
+                        sites["typed"] += 1
+                    elif untyped:
+                        sites["typed_only_untyped_registrations"] += 1
+                    else:
+                        sites["typed_no_registrations"] += 1
+                    found = [(t, "typed") for t in exact] + [(t, "untyped_registration") for t in untyped]
+                else:
+                    sites["name_fallback"] += 1
+                    found = [(t, "name_fallback") for t in names[field]]
+                if "variant" in prefix:     # ipset: a set type only handles its own sets
+                    own = [(t, h) for t, h in found if units.get(t) == units.get(f.node)]
+                    found = own or found
+                for target, how in found:
+                    add_edge(typed, f.node, target, how)
+        self.stats.update({f"dispatch_sites_{k}": v for k, v in sites.items()})
+        return typed, name_only
+
+    # ------------------------------------------------------------ API callbacks
+    def api_callbacks(self):
+        rules = load_yaml("callgraph.yaml").get("api_callbacks", {})
+        edges = {}
+        counts = Counter()
+        for rule in rules.get("dispatchers", []):
+            targets = self.reg.get((rule["struct"], rule["field"]), set())
+            for caller in rule["called_by"]:
+                if caller not in self.by_node:
+                    print(f"⚠️  api rule: dispatcher {caller} not found")
+                    continue
+                for t in targets:
+                    add_edge(edges, caller, t, "api_callback")
+                    counts[f"{rule['struct']}.{rule['field']}"] += 1
+        for rule in rules.get("local_structs", []):
+            for container, struct, field, target in self.local_inits:
+                if struct == rule["struct"] and field in rule["fields"]:
+                    add_edge(edges, container, target, "api_callback")
+                    counts[f"{struct} (local)"] += 1
+        arg_rules = {r["function"]: r["arg"] for r in rules.get("call_arguments", [])}
+        for f in self.functions:
+            for name, args in call_sites(f.text):
+                if name in arg_rules and len(args) > arg_rules[name]:
+                    ident = IDENTIFIER.match(args[arg_rules[name]])
+                    target = self.index.resolve(ident.group(1), f.file) if ident else None
+                    if target:
+                        add_edge(edges, f.node, target, "api_callback")
+                        counts[f"{name}()"] += 1
+        return edges, dict(counts)
+
+
+def add_edge(edges, caller, target, how):
+    if caller == target:
+        return
+    old = edges.get((caller, target))
+    if old is None or HOW_PRIORITY.index(how) < HOW_PRIORITY.index(old):
+        edges[(caller, target)] = how
 
 
 def main():
     print("=" * 70)
-    print("🔀 INDIRECT CALL EXTRACTION (function pointers)")
+    print("🔀 INDIRECT CALL EXTRACTION (function pointers, matched by struct type)")
     print("=" * 70)
-
     for required in (FUNCTIONS_FILE, DIRECT_CALLS_FILE):
         if not required.exists():
             print(f"❌ Missing required input: {required}")
             return 1
 
-    index = FunctionIndex(load_functions())
-    functions = SourceFunctions(index)
+    ex = Extractor()
+    ex.load()
+    ex.find_initializers()
+    ex.find_assignments()
+    callback_edges = ex.find_handoffs()
+    ex.apply_aliases()
 
-    field_targets = find_registrations(index)
-    slot_registrations = sum(len(t) for t in field_targets.values())
-    stores, calls, forwards = find_handoffs(index, functions)
-    handoff_registrations, callback_edges = apply_handoffs(index, functions, stores, calls,
-                                                           forwards, field_targets)
-    dispatches, variant = find_dispatches(functions, field_targets)
-    direct_edges = set(load_call_graph(include_indirect=False).edges())
-
-    # node -> the .c file it is compiled in (ipset template copies -> their .c file)
     units = compilation_units()
-    unit_of = {node: units.get(filename, filename) for node, filename, _, _ in functions.items}
+    unit_of = {f.node: units.get(f.file, f.file) for f in ex.functions}
+    typed, name_only = ex.find_dispatches(unit_of)
+    api_edges, api_counts = ex.api_callbacks()
 
-    # caller -> every function registered in a field the caller dispatches through
-    candidate = {(caller, target)
-                 for caller, fields in dispatches.items()
-                 for field in fields
-                 for target in dispatch_targets(caller, field, field_targets, variant, unit_of)}
-    candidate |= callback_edges
-    edges = defaultdict(set)
-    for caller, target in candidate:
-        if caller != target and (caller, target) not in direct_edges:
-            edges[caller].add(target)
+    edges = dict(typed)
+    for (c, t) in callback_edges:
+        add_edge(edges, c, t, "handoff")
+        name_only[(c, t)] = "name_only"      # the old method had hand-offs too
+    for (c, t), how in api_edges.items():
+        add_edge(edges, c, t, how)
 
-    total_edges = sum(len(t) for t in edges.values())
-    registrations = sum(len(t) for t in field_targets.values())
-    biggest = sorted(field_targets.items(), key=lambda x: len(x[1]), reverse=True)[:15]
+    direct = set(load_call_graph(include_indirect=False).edges())
+    edges = {k: v for k, v in edges.items() if k not in direct}
+    name_only = {k: v for k, v in name_only.items() if k not in direct and k[0] != k[1]}
 
+    def nested(pairs):
+        out = defaultdict(dict)
+        for (c, t), how in sorted(pairs.items()):
+            out[c][t] = how
+        return dict(out)
+
+    how_counts = Counter(edges.values())
+    field_targets = {field: sorted(t) for field, t in sorted(ex.by_field().items())}
+    typed_targets = {f"{s}.{field}": sorted(t) for (s, field), t in sorted(
+        ex.reg.items(), key=lambda kv: (str(kv[0][0]), kv[0][1])) if s is not None}
     stats = {
-        "fields_with_registrations": len(field_targets),
-        "registrations": registrations,
-        "registrations_from_slots": slot_registrations,
-        "registrations_from_argument_handoff": handoff_registrations,
-        "callback_edges_from_argument_handoff": len(callback_edges),
-        "functions_with_dispatch": len(dispatches),
-        "new_indirect_edges": total_edges,
-        "direct_edges": len(direct_edges),
-        "largest_fields": [[field, len(t)] for field, t in biggest],
+        **dict(sorted(ex.stats.items())),
+        "edges_total": len(edges),
+        "edges_by_how": dict(how_counts),
+        "api_callback_edges_by_rule": api_counts,
+        "name_only_edges (old method)": len(name_only),
+        "direct_edges": len(direct),
     }
+    dispatch_total = sum(v for k, v in ex.stats.items() if k.startswith("dispatch_sites_"))
+    fallback = ex.stats.get("dispatch_sites_name_fallback", 0)
+    stats["name_fallback_share_of_dispatch_sites"] = round(fallback / dispatch_total, 3) if dispatch_total else 0
 
-    print(f"✅ Registrations:                       {registrations} across {len(field_targets)} fields")
-    print(f"   from slots / slot tables:             {slot_registrations}")
-    print(f"   from hand-off via argument:           {handoff_registrations}")
-    print(f"✅ Callbacks called by the receiver:     {len(callback_edges)}")
-    print(f"✅ Functions that dispatch (->field):    {len(dispatches)}")
-    print(f"✅ NEW indirect edges:                   {total_edges}  (direct edges: {len(direct_edges)})")
+    print(f"✅ Struct types parsed:                 {ex.stats['structs_parsed']}")
+    print(f"✅ Registrations (initializers):        {ex.stats['registrations_initializer']} "
+          f"(typed {ex.stats['registrations_initializer_typed']}, "
+          f"untyped {ex.stats['registrations_initializer_untyped']})")
+    print(f"   runtime / hand-off / field copies:   {ex.stats['registrations_runtime']} / "
+          f"{ex.stats['registrations_handoff']} / {ex.stats['field_copies']}")
+    print(f"✅ Dispatch sites:                      {dispatch_total}")
+    for k, v in sorted(ex.stats.items()):
+        if k.startswith("dispatch_sites_"):
+            print(f"   {k[15:]:36s} {v}")
+    print(f"   -> name-only fallback used for {100 * stats['name_fallback_share_of_dispatch_sites']:.1f}% "
+          f"of dispatch sites (type unknown)")
+    print(f"✅ API callback edges:                  {sum(api_counts.values())}  {api_counts}")
+    print(f"✅ NEW indirect edges:                  {len(edges)}  {dict(how_counts)}")
+    print(f"   old name-only method would give:     {len(name_only)}")
 
     OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
-    out_json = OUTPUT_PATH / "indirect_calls.json"
-    with open(out_json, "w") as f:
-        json.dump({
-            "stats": stats,
-            "edges": {c: sorted(t) for c, t in sorted(edges.items())},
-            "dispatches": {c: sorted(fl) for c, fl in sorted(dispatches.items())},
-            "field_targets": {fl: sorted(t) for fl, t in sorted(field_targets.items())},
-        }, f, indent=2)
-    print(f"\n💾 Saved: {out_json}")
+    with open(INDIRECT_CALLS_FILE, "w") as f:
+        json.dump({"kernel": kernel_info(), "stats": stats, "edges": nested(edges),
+                   "field_targets": field_targets, "typed_targets": typed_targets}, f, indent=1)
+    with open(NAME_ONLY_FILE, "w") as f:
+        json.dump({"kernel": kernel_info(), "edges": nested(name_only)}, f, indent=1)
+    print(f"\n💾 Saved: {INDIRECT_CALLS_FILE}\n💾 Saved: {NAME_ONLY_FILE}")
 
     out_txt = OUTPUT_PATH / "indirect_calls_summary.txt"
-    with open(out_txt, "w") as f:
-        f.write("=" * 70 + "\n")
-        f.write("INDIRECT CALL EXTRACTION (function pointers)\n")
-        f.write("=" * 70 + "\n\n")
-        f.write("Field-based resolution: a use of ->field( or ->field[ is linked to every\n")
-        f.write("function registered in a .field slot (matched on field name only).\n\n")
-        f.write(f"Registrations:                       {registrations} across {len(field_targets)} fields\n")
-        f.write(f"   from slots / slot tables:          {slot_registrations}\n")
-        f.write(f"   from hand-off via argument:        {handoff_registrations}\n")
-        f.write(f"Callbacks called by the receiver:    {len(callback_edges)}\n")
-        f.write(f"Functions that dispatch:             {len(dispatches)}\n")
-        f.write(f"New indirect edges:                  {total_edges}\n")
-        f.write(f"Direct edges (for comparison):       {len(direct_edges)}\n")
-        f.write("\nFields with the most registered functions (biggest fan-out):\n")
-        for field, targets in biggest:
-            f.write(f"   .{field:20s} {len(targets):4d} functions\n")
+    with open(out_txt, "w", encoding="utf-8") as f:
+        f.write("=" * 70 + "\nINDIRECT CALL EXTRACTION (typed function pointers)\n" + "=" * 70 + "\n")
+        f.write(f"Kernel: {kernel_info()['tag']} ({kernel_info()['commit']})\n\n")
+        f.write("A use of ->field( is linked to functions registered in that field of the\n"
+                "SAME struct type; name-only matching is used only when the type is unknown.\n\n")
+        f.write(json.dumps(stats, indent=2) + "\n")
+        biggest = sorted(ex.reg.items(), key=lambda kv: len(kv[1]), reverse=True)[:20]
+        f.write("\nStruct fields with the most registered functions:\n")
+        for (s, field), t in biggest:
+            f.write(f"   {str(s) + '.' + field:45s} {len(t):4d}\n")
     print(f"💾 Saved: {out_txt}")
-
     return 0
 
 

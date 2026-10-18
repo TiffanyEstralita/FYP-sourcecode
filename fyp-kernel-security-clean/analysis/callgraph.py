@@ -11,8 +11,9 @@ separate nodes: "help [nf_conntrack_ftp.c]". Node attributes: name, file, line.
 
 Each edge has a 'kind' attribute:
     'direct'   - a call by name, foo(...)       (extract_function_calls.py)
-    'indirect' - a call through a function pointer, ops->eval(...)
-                                                 (extract_indirect_calls.py)
+    'indirect' - a call through a function pointer, ops->eval(...), or a
+                 callback handed to a kernel API     (extract_indirect_calls.py)
+                 plus 'how': typed / name_fallback / handoff / api_callback
 
 Usage from a script in analysis/<folder>/:
     sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
@@ -25,11 +26,11 @@ from pathlib import Path
 
 import networkx as nx
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+from config import PATHS
 
-FUNCTIONS_FILE = PROJECT_ROOT / "results/raw/functions_v2.json"
-DIRECT_CALLS_FILE = PROJECT_ROOT / "results/raw/function_calls_v2.json"
-INDIRECT_CALLS_FILE = PROJECT_ROOT / "results/raw/indirect_calls.json"
+FUNCTIONS_FILE = PATHS.raw / "functions.json"
+DIRECT_CALLS_FILE = PATHS.raw / "function_calls.json"
+INDIRECT_CALLS_FILE = PATHS.raw / "indirect_calls.json"
 
 
 class FunctionIndex:
@@ -62,8 +63,9 @@ class FunctionIndex:
 
 
 def load_functions():
+    """{file name: [{"name", "file", "line", "end_line", "loc"}]}"""
     with open(FUNCTIONS_FILE, "r") as f:
-        return json.load(f)
+        return json.load(f)["files"]
 
 
 def load_call_graph(include_indirect=True):
@@ -75,10 +77,11 @@ def load_call_graph(include_indirect=True):
     for filename, funcs in functions.items():
         for func in funcs:
             graph.add_node(index.node_id(func["name"], filename),
-                           name=func["name"], file=filename, line=func["line"])
+                           name=func["name"], file=filename, line=func["line"],
+                           end_line=func.get("end_line"), loc=func.get("loc", 0))
 
     with open(DIRECT_CALLS_FILE, "r") as f:
-        direct = json.load(f)
+        direct = json.load(f)["files"]
     for filename, file_calls in direct.items():
         for caller, callees in file_calls.items():
             source = index.resolve(caller, filename)
@@ -94,11 +97,12 @@ def load_call_graph(include_indirect=True):
             )
         with open(INDIRECT_CALLS_FILE, "r") as f:
             indirect = json.load(f)
-        # indirect_calls.json already stores node names (it uses FunctionIndex too)
+        # indirect_calls.json already stores node names (it uses FunctionIndex too).
+        # 'how' says how the edge was found (typed / name_fallback / api_callback / ...)
         for caller, targets in indirect["edges"].items():
-            for target in targets:
+            for target, how in targets.items():
                 if not graph.has_edge(caller, target):
-                    graph.add_edge(caller, target, kind="indirect")
+                    graph.add_edge(caller, target, kind="indirect", how=how)
 
     return graph
 

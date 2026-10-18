@@ -27,7 +27,11 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 PROMPTS_FILE = PROJECT_ROOT / "configs/prompts.yaml"
 OLLAMA_CONFIG_FILE = PROJECT_ROOT / "configs/ollama.yaml"
-CACHE_PATH = PROJECT_ROOT / "results/llm_cache"
+
+sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
+from config import PATHS, load_yaml
+
+CACHE_PATH = PATHS.llm_cache
 
 with open(OLLAMA_CONFIG_FILE, "r") as _f:
     _ollama = yaml.safe_load(_f)
@@ -37,7 +41,6 @@ OLLAMA_URL = f"{OLLAMA_HOST}/api/chat"
 CONTEXT_TOKENS = 16384        # room for long functions + the answer
 MAX_CODE_CHARS = 40000        # ~10k tokens; longer functions are cut (and marked)
 
-sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
 from sources import find_source
 
 
@@ -136,3 +139,54 @@ def ollama_available():
         return any(m["name"] == MODEL for m in tags.get("models", []))
     except requests.RequestException:
         return False
+
+
+# ---------------------------------------------------------------- shared helpers
+# (used by the VulnSC reranker and the resumable job scripts)
+
+def cached_json_answer(kind, prompt, validate_fn, seed=42):
+    """
+    Ask the model for a JSON answer, validated by validate_fn(dict) -> clean
+    dict (raises ValueError when the answer is unusable). Answers are cached
+    in results/llm_cache/<kind>/ by a hash of model + prompt, so asking the
+    same thing again is instant and a stopped job continues where it was.
+    Returns (result dict, was_cached). A failed answer has an "error" key
+    and is NOT cached (it is retried on the next run).
+    """
+    key = hashlib.sha256(f"{MODEL}\n{prompt}".encode()).hexdigest()[:24]
+    cache_file = CACHE_PATH / kind / f"{key}.json"
+    if cache_file.exists():
+        with open(cache_file, "r") as f:
+            return json.load(f), True
+    result, answer = {"model": MODEL}, ""
+    started = time.time()
+    for attempt in range(2):   # one retry on a bad answer
+        try:
+            answer = ask_ollama(prompt, seed=seed + 1000 * attempt)
+            result.update(validate_fn(json.loads(answer)))
+            result.pop("error", None)
+            break
+        except (ValueError, TypeError, AttributeError, json.JSONDecodeError) as e:
+            result["error"] = f"bad answer: {e}"
+            result["raw_answer"] = answer[:500]
+    result["seconds"] = round(time.time() - started, 1)
+    if "error" not in result:
+        cache_file.parent.mkdir(parents=True, exist_ok=True)
+        with open(cache_file, "w") as f:
+            json.dump(result, f, indent=1)
+    return result, False
+
+
+class TimeBudget:
+    """Stops a long job politely after max_hours (configs/llm.yaml); the job
+    saves what it has, and running the same command again continues."""
+
+    def __init__(self, max_hours=None):
+        self.max_hours = max_hours if max_hours is not None else load_yaml("llm.yaml")["max_hours_per_run"]
+        self.started = time.time()
+
+    def hours(self):
+        return (time.time() - self.started) / 3600
+
+    def expired(self):
+        return self.hours() >= self.max_hours

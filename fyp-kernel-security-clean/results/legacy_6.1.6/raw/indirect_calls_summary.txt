@@ -1,0 +1,31 @@
+======================================================================
+INDIRECT CALL EXTRACTION (function pointers)
+======================================================================
+
+Field-based resolution: a use of ->field( or ->field[ is linked to every
+function registered in a .field slot (matched on field name only).
+
+Registrations:                       1490 across 143 fields
+   from slots / slot tables:          1481
+   from hand-off via argument:        9
+Callbacks called by the receiver:    13
+Functions that dispatch:             223
+New indirect edges:                  3905
+Direct edges (for comparison):       5537
+
+Fields with the most registered functions (biggest fan-out):
+   .destroy               120 functions
+   .init                   93 functions
+   .dump                   83 functions
+   .adt                    81 functions
+   .checkentry             81 functions
+   .eval                   74 functions
+   .call                   69 functions
+   .match                  69 functions
+   .target                 48 functions
+   .flush                  32 functions
+   .kadt                   27 functions
+   .uadt                   27 functions
+   .head                   27 functions
+   .list                   27 functions
+   .same_set               27 functions

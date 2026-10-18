@@ -1,4 +1,16 @@
 {
+  "kernel": {
+    "tag": "v6.12",
+    "commit": "adc218676eef25575469234709c2d87185ca223a",
+    "date": "2024-11-17T14:15:08-08:00",
+    "repo_url": "https://github.com/torvalds/linux.git",
+    "sparse_paths": [
+      "net/netfilter",
+      "include/net/netfilter",
+      "include/linux/netfilter",
+      "include/uapi/linux/netfilter"
+    ]
+  },
   "config": "configs\\seeds.yaml",
   "included_disabled_groups": [],
   "groups": {
@@ -12,24 +24,24 @@
         "ip_vs_forward_icmp",
         "ip_vs_in_hook",
         "ip_vs_out_hook",
-        "ipv4_confirm",
         "ipv4_conntrack_in",
         "ipv4_conntrack_local",
         "ipv4_synproxy_hook",
-        "ipv6_confirm",
         "ipv6_conntrack_in",
         "ipv6_conntrack_local",
         "ipv6_synproxy_hook",
+        "nf_confirm",
         "nf_flow_offload_inet_hook",
         "nf_flow_offload_ip_hook",
         "nf_flow_offload_ipv6_hook",
+        "nf_hook_run_bpf",
         "nf_nat_ipv4_local_fn",
         "nf_nat_ipv4_local_in",
         "nf_nat_ipv4_out",
         "nf_nat_ipv4_pre_routing",
-        "nf_nat_ipv6_fn",
         "nf_nat_ipv6_in",
         "nf_nat_ipv6_local_fn",
+        "nf_nat_ipv6_local_in",
         "nf_nat_ipv6_out"
       ]
     },
@@ -56,7 +68,7 @@
       "path": "packet",
       "enabled": true,
       "reason": "iptables/ip6tables/arptables/ebtables matches and targets; called for each packet by the table walker in net/ipv4|ipv6/netfilter, which is outside the analysed code.",
-      "count": 117,
+      "count": 113,
       "functions": [
         "addrtype_mt_v0",
         "addrtype_mt_v1",
@@ -95,14 +107,14 @@
         "helper_mt",
         "hl_mt6",
         "hmark_tg_v4",
-        "hmark_tg_v6",
+        "icmp6_match",
+        "icmp_match",
         "idletimer_tg_target",
         "idletimer_tg_target_v1",
         "iprange_mt4",
         "iprange_mt6",
         "ipvs_mt",
         "l2tp_mt4",
-        "l2tp_mt6",
         "led_tg",
         "length_mt",
         "length_mt6",
@@ -145,21 +157,17 @@
         "set_target_v3",
         "socket_mt4_v0",
         "socket_mt4_v1_v2_v3",
-        "socket_mt6_v1_v2_v3",
         "state_mt",
         "statistic_mt",
         "string_mt",
         "tcp_mt",
         "tcpmss_mt",
         "tcpoptstrip_tg4",
-        "tcpoptstrip_tg6",
         "tee_tg4",
-        "tee_tg6",
         "time_mt",
         "tos_mt",
         "tproxy_tg4_v0",
         "tproxy_tg4_v1",
-        "tproxy_tg6_v1",
         "trace_tg",
         "ttl_mt",
         "u32_mt",
@@ -191,7 +199,7 @@
       "path": "config",
       "enabled": true,
       "reason": "struct nfnl_callback message handlers: one per netlink message type for nf_tables, ipset, conntrack, queue, log, ... Their input is the message sent by a userspace program.",
-      "count": 69,
+      "count": 72,
       "functions": [
         "ctnetlink_del_conntrack",
         "ctnetlink_del_expect",
@@ -235,9 +243,12 @@
         "nf_tables_getflowtable",
         "nf_tables_getgen",
         "nf_tables_getobj",
+        "nf_tables_getobj_reset",
         "nf_tables_getrule",
+        "nf_tables_getrule_reset",
         "nf_tables_getset",
         "nf_tables_getsetelem",
+        "nf_tables_getsetelem_reset",
         "nf_tables_gettable",
         "nf_tables_newchain",
         "nf_tables_newflowtable",
@@ -277,7 +288,7 @@
       "path": "config",
       "enabled": true,
       "reason": "Validates a new iptables rule's match/target options; runs when a program installs rules via setsockopt.",
-      "count": 81,
+      "count": 80,
       "functions": [
         "addrtype_mt_checkentry_v1",
         "audit_tg_check",
@@ -307,11 +318,12 @@
         "hashlimit_mt_check_v2",
         "helper_mt_check",
         "hmark_tg_check",
+        "icmp6_checkentry",
+        "icmp_checkentry",
         "idletimer_tg_checkentry",
         "idletimer_tg_checkentry_v1",
         "ipvs_mt_check",
         "l2tp_mt_check4",
-        "l2tp_mt_check6",
         "led_tg_check",
         "limit_mt_check",
         "log_tg_check",
@@ -341,8 +353,6 @@
         "set_target_v1_checkentry",
         "set_target_v3_checkentry",
         "socket_mt_v1_check",
-        "socket_mt_v2_check",
-        "socket_mt_v3_check",
         "state_mt_check",
         "statistic_mt_check",
         "string_mt_check",
@@ -350,8 +360,8 @@
         "tee_tg_check",
         "time_mt_check",
         "tproxy_tg4_check",
-        "tproxy_tg6_check",
         "trace_tg_check",
+        "u32_mt_checkentry",
         "udp_mt_check",
         "xt_cluster_mt_checkentry",
         "xt_ct_tg_check_v0",
@@ -366,7 +376,7 @@
       "path": "packet",
       "enabled": false,
       "reason": "nf_tables expression evaluators. Already one step below nft_do_chain, so seeding them mainly over-weights nf_tables code.",
-      "count": 74,
+      "count": 73,
       "functions": [
         "nft_bitwise_eval",
         "nft_byteorder_eval",
@@ -377,12 +387,14 @@
         "nft_counter_obj_eval",
         "nft_ct_expect_obj_eval",
         "nft_ct_get_eval",
+        "nft_ct_get_fast_eval",
         "nft_ct_helper_obj_eval",
         "nft_ct_set_eval",
         "nft_ct_set_zone_eval",
         "nft_ct_timeout_obj_eval",
         "nft_dup_netdev_eval",
         "nft_dynset_eval",
+        "nft_exthdr_dccp_eval",
         "nft_exthdr_ipv4_eval",
         "nft_exthdr_ipv6_eval",
         "nft_exthdr_sctp_eval",
@@ -395,6 +407,7 @@
         "nft_fwd_neigh_eval",
         "nft_fwd_netdev_eval",
         "nft_immediate_eval",
+        "nft_inner_eval",
         "nft_jhash_eval",
         "nft_last_eval",
         "nft_limit_bytes_eval",
@@ -403,9 +416,7 @@
         "nft_limit_pkts_eval",
         "nft_log_eval",
         "nft_lookup_eval",
-        "nft_masq_inet_eval",
-        "nft_masq_ipv4_eval",
-        "nft_masq_ipv6_eval",
+        "nft_masq_eval",
         "nft_match_eval",
         "nft_match_large_eval",
         "nft_meta_get_eval",
@@ -425,9 +436,7 @@
         "nft_quota_eval",
         "nft_quota_obj_eval",
         "nft_range_eval",
-        "nft_redir_inet_eval",
-        "nft_redir_ipv4_eval",
-        "nft_redir_ipv6_eval",
+        "nft_redir_eval",
         "nft_reject_inet_eval",
         "nft_reject_netdev_eval",
         "nft_rt_get_eval",
@@ -1137,7 +1146,31 @@
         "xtables_match_target"
       ]
     },
-    "hmark_tg_v6": {
+    "icmp6_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "icmp6_match": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "xtables_match_target"
+      ]
+    },
+    "icmp_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
+      ]
+    },
+    "icmp_match": {
       "paths": [
         "packet"
       ],
@@ -1337,14 +1370,6 @@
         "xtables_match_target"
       ]
     },
-    "ipv4_confirm": {
-      "paths": [
-        "packet"
-      ],
-      "groups": [
-        "netfilter_hooks"
-      ]
-    },
     "ipv4_conntrack_in": {
       "paths": [
         "packet"
@@ -1362,14 +1387,6 @@
       ]
     },
     "ipv4_synproxy_hook": {
-      "paths": [
-        "packet"
-      ],
-      "groups": [
-        "netfilter_hooks"
-      ]
-    },
-    "ipv6_confirm": {
       "paths": [
         "packet"
       ],
@@ -1425,23 +1442,7 @@
         "xtables_match_target"
       ]
     },
-    "l2tp_mt6": {
-      "paths": [
-        "packet"
-      ],
-      "groups": [
-        "xtables_match_target"
-      ]
-    },
     "l2tp_mt_check4": {
-      "paths": [
-        "config"
-      ],
-      "groups": [
-        "xtables_checkentry"
-      ]
-    },
-    "l2tp_mt_check6": {
       "paths": [
         "config"
       ],
@@ -1625,6 +1626,14 @@
         "xtables_checkentry"
       ]
     },
+    "nf_confirm": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
     "nf_flow_offload_inet_hook": {
       "paths": [
         "packet"
@@ -1642,6 +1651,14 @@
       ]
     },
     "nf_flow_offload_ipv6_hook": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "nf_hook_run_bpf": {
       "paths": [
         "packet"
       ],
@@ -1697,14 +1714,6 @@
         "netfilter_hooks"
       ]
     },
-    "nf_nat_ipv6_fn": {
-      "paths": [
-        "packet"
-      ],
-      "groups": [
-        "netfilter_hooks"
-      ]
-    },
     "nf_nat_ipv6_in": {
       "paths": [
         "packet"
@@ -1714,6 +1723,14 @@
       ]
     },
     "nf_nat_ipv6_local_fn": {
+      "paths": [
+        "packet"
+      ],
+      "groups": [
+        "netfilter_hooks"
+      ]
+    },
+    "nf_nat_ipv6_local_in": {
       "paths": [
         "packet"
       ],
@@ -1841,7 +1858,23 @@
         "nfnetlink_handlers"
       ]
     },
+    "nf_tables_getobj_reset": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
     "nf_tables_getrule": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_getrule_reset": {
       "paths": [
         "config"
       ],
@@ -1858,6 +1891,14 @@
       ]
     },
     "nf_tables_getsetelem": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "nfnetlink_handlers"
+      ]
+    },
+    "nf_tables_getsetelem_reset": {
       "paths": [
         "config"
       ],
@@ -2513,31 +2554,7 @@
         "xtables_match_target"
       ]
     },
-    "socket_mt6_v1_v2_v3": {
-      "paths": [
-        "packet"
-      ],
-      "groups": [
-        "xtables_match_target"
-      ]
-    },
     "socket_mt_v1_check": {
-      "paths": [
-        "config"
-      ],
-      "groups": [
-        "xtables_checkentry"
-      ]
-    },
-    "socket_mt_v2_check": {
-      "paths": [
-        "config"
-      ],
-      "groups": [
-        "xtables_checkentry"
-      ]
-    },
-    "socket_mt_v3_check": {
       "paths": [
         "config"
       ],
@@ -2625,23 +2642,7 @@
         "xtables_match_target"
       ]
     },
-    "tcpoptstrip_tg6": {
-      "paths": [
-        "packet"
-      ],
-      "groups": [
-        "xtables_match_target"
-      ]
-    },
     "tee_tg4": {
-      "paths": [
-        "packet"
-      ],
-      "groups": [
-        "xtables_match_target"
-      ]
-    },
-    "tee_tg6": {
       "paths": [
         "packet"
       ],
@@ -2705,22 +2706,6 @@
         "xtables_match_target"
       ]
     },
-    "tproxy_tg6_check": {
-      "paths": [
-        "config"
-      ],
-      "groups": [
-        "xtables_checkentry"
-      ]
-    },
-    "tproxy_tg6_v1": {
-      "paths": [
-        "packet"
-      ],
-      "groups": [
-        "xtables_match_target"
-      ]
-    },
     "trace_tg": {
       "paths": [
         "packet"
@@ -2751,6 +2736,14 @@
       ],
       "groups": [
         "xtables_match_target"
+      ]
+    },
+    "u32_mt_checkentry": {
+      "paths": [
+        "config"
+      ],
+      "groups": [
+        "xtables_checkentry"
       ]
     },
     "udp_mt": {
@@ -2960,6 +2953,8 @@
       "hashlimit_mt_check_v2",
       "helper_mt_check",
       "hmark_tg_check",
+      "icmp6_checkentry",
+      "icmp_checkentry",
       "idletimer_tg_checkentry",
       "idletimer_tg_checkentry_v1",
       "ip_set_byindex",
@@ -2979,7 +2974,6 @@
       "ip_set_utest",
       "ipvs_mt_check",
       "l2tp_mt_check4",
-      "l2tp_mt_check6",
       "led_tg_check",
       "limit_mt_check",
       "log_tg_check",
@@ -3000,9 +2994,12 @@
       "nf_tables_getflowtable",
       "nf_tables_getgen",
       "nf_tables_getobj",
+      "nf_tables_getobj_reset",
       "nf_tables_getrule",
+      "nf_tables_getrule_reset",
       "nf_tables_getset",
       "nf_tables_getsetelem",
+      "nf_tables_getsetelem_reset",
       "nf_tables_gettable",
       "nf_tables_newchain",
       "nf_tables_newflowtable",
@@ -3048,8 +3045,6 @@
       "set_target_v1_checkentry",
       "set_target_v3_checkentry",
       "socket_mt_v1_check",
-      "socket_mt_v2_check",
-      "socket_mt_v3_check",
       "state_mt_check",
       "statistic_mt_check",
       "string_mt_check",
@@ -3057,8 +3052,8 @@
       "tee_tg_check",
       "time_mt_check",
       "tproxy_tg4_check",
-      "tproxy_tg6_check",
       "trace_tg_check",
+      "u32_mt_checkentry",
       "udp_mt_check",
       "xt_cluster_mt_checkentry",
       "xt_ct_tg_check_v0",
@@ -3107,7 +3102,8 @@
       "helper_mt",
       "hl_mt6",
       "hmark_tg_v4",
-      "hmark_tg_v6",
+      "icmp6_match",
+      "icmp_match",
       "idletimer_tg_target",
       "idletimer_tg_target_v1",
       "ip_vs_forward_icmp",
@@ -3115,17 +3111,14 @@
       "ip_vs_out_hook",
       "iprange_mt4",
       "iprange_mt6",
-      "ipv4_confirm",
       "ipv4_conntrack_in",
       "ipv4_conntrack_local",
       "ipv4_synproxy_hook",
-      "ipv6_confirm",
       "ipv6_conntrack_in",
       "ipv6_conntrack_local",
       "ipv6_synproxy_hook",
       "ipvs_mt",
       "l2tp_mt4",
-      "l2tp_mt6",
       "led_tg",
       "length_mt",
       "length_mt6",
@@ -3139,18 +3132,20 @@
       "multiport_mt",
       "netmap_tg4",
       "netmap_tg6",
+      "nf_confirm",
       "nf_flow_offload_inet_hook",
       "nf_flow_offload_ip_hook",
       "nf_flow_offload_ipv6_hook",
+      "nf_hook_run_bpf",
       "nf_hook_slow",
       "nf_hook_slow_list",
       "nf_nat_ipv4_local_fn",
       "nf_nat_ipv4_local_in",
       "nf_nat_ipv4_out",
       "nf_nat_ipv4_pre_routing",
-      "nf_nat_ipv6_fn",
       "nf_nat_ipv6_in",
       "nf_nat_ipv6_local_fn",
+      "nf_nat_ipv6_local_in",
       "nf_nat_ipv6_out",
       "nf_route_table_hook4",
       "nf_route_table_hook6",
@@ -3192,21 +3187,17 @@
       "set_target_v3",
       "socket_mt4_v0",
       "socket_mt4_v1_v2_v3",
-      "socket_mt6_v1_v2_v3",
       "state_mt",
       "statistic_mt",
       "string_mt",
       "tcp_mt",
       "tcpmss_mt",
       "tcpoptstrip_tg4",
-      "tcpoptstrip_tg6",
       "tee_tg4",
-      "tee_tg6",
       "time_mt",
       "tos_mt",
       "tproxy_tg4_v0",
       "tproxy_tg4_v1",
-      "tproxy_tg6_v1",
       "trace_tg",
       "ttl_mt",
       "u32_mt",
@@ -3226,328 +3217,18 @@
   },
   "coverage": {
     "config": {
-      "reachable": 2827,
-      "percent": 64.9
+      "reachable": 2151,
+      "percent": 47.3
     },
     "packet": {
-      "reachable": 2726,
-      "percent": 62.6
+      "reachable": 2050,
+      "percent": 45.0
     },
     "any": {
-      "reachable": 3241,
-      "percent": 74.5
+      "reachable": 3177,
+      "percent": 69.8
     }
   },
-  "vulnerable_functions": {
-    "CVE-2023-0179:nft_payload_copy_vlan": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2023-52620:nf_tables_newset": {
-      "is_seed": true,
-      "reachable_from": [
-        "config"
-      ]
-    },
-    "CVE-2024-35898:__nft_flowtable_type_get": {
-      "is_seed": false,
-      "reachable_from": [
-        "config"
-      ]
-    },
-    "CVE-2024-35898:nft_flowtable_type_get": {
-      "is_seed": false,
-      "reachable_from": [
-        "config"
-      ]
-    },
-    "CVE-2024-41042:nft_chain_validate": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2024-41042:nf_tables_check_loops": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2024-41042:nf_tables_loop_check_setelem": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2024-41042:nft_check_loops": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2024-41042:nft_set_catchall_loops": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2024-41042:nft_validate_register_store": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2024-53141:bitmap_ip_uadt": {
-      "is_seed": false,
-      "reachable_from": [
-        "config"
-      ]
-    },
-    "CVE-2025-71160:nft_validate_state_update": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2025-71160:nft_table_validate": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-23274:idletimer_tg_checkentry": {
-      "is_seed": true,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-43027:nf_conntrack_helper_unregister": {
-      "is_seed": false,
-      "reachable_from": [
-        "config"
-      ]
-    },
-    "CVE-2026-53001:mac_mt_exit": {
-      "is_seed": false,
-      "reachable_from": []
-    },
-    "CVE-2026-53001:mac_mt_init": {
-      "is_seed": false,
-      "reachable_from": []
-    },
-    "CVE-2026-53001:owner_mt_exit": {
-      "is_seed": false,
-      "reachable_from": []
-    },
-    "CVE-2026-53001:owner_mt_init": {
-      "is_seed": false,
-      "reachable_from": []
-    },
-    "CVE-2026-53001:physdev_mt_exit": {
-      "is_seed": false,
-      "reachable_from": []
-    },
-    "CVE-2026-53001:physdev_mt_init": {
-      "is_seed": false,
-      "reachable_from": []
-    },
-    "CVE-2026-53218:nft_exthdr_init": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-64189:ip_set_dump_done": {
-      "is_seed": false,
-      "reachable_from": []
-    },
-    "CVE-2026-64189:ip_set_dump_do": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-72020:ip_vs_conn_new": {
-      "is_seed": false,
-      "reachable_from": [
-        "packet"
-      ]
-    },
-    "CVE-2026-72251:nf_nat_sip": {
-      "is_seed": false,
-      "reachable_from": [
-        "packet"
-      ]
-    },
-    "CVE-2026-72419:nf_nat_register_fn": {
-      "is_seed": false,
-      "reachable_from": [
-        "config"
-      ]
-    },
-    "CVE-2026-74347:nf_conntrack_free": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-74347:untimeout [nf_conntrack_timeout.c]": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-74347:nf_ct_set_timeout": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-74347:nf_ct_destroy_timeout": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-74347:cttimeout_new_timeout": {
-      "is_seed": true,
-      "reachable_from": [
-        "config"
-      ]
-    },
-    "CVE-2026-74347:ctnl_timeout_fill_info": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-74347:ctnl_timeout_try_del": {
-      "is_seed": false,
-      "reachable_from": [
-        "config"
-      ]
-    },
-    "CVE-2026-74347:cttimeout_del_timeout": {
-      "is_seed": true,
-      "reachable_from": [
-        "config"
-      ]
-    },
-    "CVE-2026-74347:ctnl_timeout_find_get": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-74347:ctnl_timeout_put": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-74347:cttimeout_net_exit": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-74347:cttimeout_exit": {
-      "is_seed": false,
-      "reachable_from": []
-    },
-    "CVE-2026-74347:untimeout [nfnetlink_cttimeout.c]": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-74347:nft_ct_timeout_obj_eval": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-74347:nft_ct_timeout_obj_init": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-74579:nft_payload_offload_mask": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-74724:ip_vs_out_icmp": {
-      "is_seed": false,
-      "reachable_from": [
-        "packet"
-      ]
-    },
-    "CVE-2026-74724:ip_vs_in_icmp": {
-      "is_seed": false,
-      "reachable_from": [
-        "packet"
-      ]
-    },
-    "CVE-2026-74748:__ip_set_put": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-74748:__ip_set_put_byindex": {
-      "is_seed": false,
-      "reachable_from": [
-        "config",
-        "packet"
-      ]
-    },
-    "CVE-2026-80744:nft_flow_rule_offload_abort": {
-      "is_seed": false,
-      "reachable_from": [
-        "config"
-      ]
-    },
-    "CVE-2026-90141:ip_vs_ftp_get_addrport": {
-      "is_seed": false,
-      "reachable_from": [
-        "packet"
-      ]
-    }
-  },
-  "warnings": [
-    "NOTE: CVE-2023-52620 vulnerable function nf_tables_newset is itself an entry point (groups: nfnetlink_handlers); it is left out of the non_seed evaluation scope",
-    "NOTE: CVE-2026-23274 vulnerable function idletimer_tg_checkentry is itself an entry point (groups: xtables_checkentry); it is left out of the non_seed evaluation scope",
-    "NOTE: CVE-2026-74347 vulnerable function cttimeout_new_timeout is itself an entry point (groups: nfnetlink_handlers); it is left out of the non_seed evaluation scope",
-    "NOTE: CVE-2026-74347 vulnerable function cttimeout_del_timeout is itself an entry point (groups: nfnetlink_handlers); it is left out of the non_seed evaluation scope"
-  ]
+  "vulnerable_functions": {},
+  "warnings": []
 }

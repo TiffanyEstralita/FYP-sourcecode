@@ -13,18 +13,13 @@ import sys
 # Windows terminals use a non-UTF-8 encoding by default and crash on emoji output
 sys.stdout.reconfigure(encoding="utf-8")
 
-# KERNEL_PATH = Path.home() / "fyp-kernel-security/data/kernel/linux-shallow"
-# NETFILTER_PATH = KERNEL_PATH / "net/netfilter"
-# OUTPUT_PATH = Path.home() / "fyp-kernel-security/results/raw"
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-KERNEL_PATH = PROJECT_ROOT / "data/kernel/linux-shallow"
-NETFILTER_PATH = KERNEL_PATH / "net/netfilter"
-OUTPUT_PATH = PROJECT_ROOT / "results/raw"
-
 sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
-from sources import all_source_files, expand_ipset_templates, template_prefix
+from config import PATHS, kernel_info
+from sources import NETFILTER_PATH, all_source_files, expand_ipset_templates, template_prefix
+
+OUTPUT_PATH = PATHS.raw
 
 def opens_body(joined, lines, end_index):
     """
@@ -80,6 +75,24 @@ BARE_TYPE_PATTERN = re.compile(r'^[\w\s\*]+$')
 #   static int
 #   bitmap_ip_uadt(struct ip_set *set, struct nlattr *tb[],
 BARE_NAME_PATTERN = re.compile(r'^(\w+)\s*\(')
+
+
+def body_end(lines, start):
+    """0-based index of the line with the '}' that closes the function at `start`"""
+    depth, opened = 0, False
+    for i in range(start, len(lines)):
+        clean = lines[i].split('//')[0]
+        depth += clean.count('{') - clean.count('}')
+        opened = opened or '{' in clean
+        if opened and depth <= 0:
+            return i
+    return len(lines) - 1
+
+
+def count_code_lines(body):
+    text = re.sub(r'/\*.*?\*/', '', '\n'.join(body), flags=re.DOTALL)
+    return sum(1 for line in text.split('\n')
+               if line.strip() and not line.strip().startswith('//'))
 
 
 def is_noise_line(line):
@@ -161,10 +174,14 @@ def extract_functions(file_path):
 
         # Must be followed by a body '{' (real definition, not a call or prototype)
         if opens_body(joined, lines, j) and func_name not in seen:
+            end = body_end(lines, sig_line_idx)
             functions.append({
                 'name': func_name,
                 'file': file_path.name,
-                'line': sig_line_idx + 1
+                'line': sig_line_idx + 1,
+                'end_line': end + 1,
+                # lines of code: non-blank lines that are not only a comment
+                'loc': count_code_lines(lines[sig_line_idx:end + 1]),
             })
             seen.add(func_name)
 
@@ -200,9 +217,9 @@ def main():
     
     # Save
     OUTPUT_PATH.mkdir(parents=True, exist_ok=True)
-    output_file = OUTPUT_PATH / "functions_v2.json"
+    output_file = OUTPUT_PATH / "functions.json"
     with open(output_file, 'w') as out:
-        json.dump(all_funcs, out, indent=2)
+        json.dump({"kernel": kernel_info(), "files": all_funcs}, out, indent=1)
     
     print("\n" + "=" * 70)
     print(f"📊 RESULTS (ALL FILES)")
@@ -210,17 +227,8 @@ def main():
     print(f"Files analyzed:  {len(all_funcs)}")
     print(f"Total functions: {total}")
     
-    # Check CVE file
-    print("\n🎯 CVE-2023-0179 FILE:")
-    if 'nf_tables_api.c' in all_funcs:
-        count = len(all_funcs['nf_tables_api.c'])
-        print(f"   ✅ nf_tables_api.c: {count} functions")
-        print(f"\n   First 20 functions (should be REAL functions now):")
-        for i, func in enumerate(all_funcs['nf_tables_api.c'][:20], 1):
-            print(f"      {i:2d}. {func['name']:35s} (line {func['line']})")
-    else:
-        print("   ⚠️  Not in first 50 files")
-    
+    print(f"Kernel:          {kernel_info()['tag']} ({kernel_info()['commit'][:12]})")
+
     print(f"\n💾 Saved to: {output_file}")
     print("=" * 70)
 

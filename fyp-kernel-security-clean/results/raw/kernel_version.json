@@ -1,0 +1,12 @@
+{
+  "tag": "v6.12",
+  "commit": "adc218676eef25575469234709c2d87185ca223a",
+  "date": "2024-11-17T14:15:08-08:00",
+  "repo_url": "https://github.com/torvalds/linux.git",
+  "sparse_paths": [
+    "net/netfilter",
+    "include/net/netfilter",
+    "include/linux/netfilter",
+    "include/uapi/linux/netfilter"
+  ]
+}

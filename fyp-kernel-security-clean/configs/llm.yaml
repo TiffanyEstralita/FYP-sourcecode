@@ -1,0 +1,44 @@
+# Settings for every LLM job (model and Ollama address: configs/ollama.yaml).
+#
+# All LLM jobs are RESUMABLE: every answer is cached the moment it arrives
+# (results/llm_cache/), so stopping and restarting continues where it was.
+# Each run stops by itself after max_hours_per_run; just run it again.
+
+max_hours_per_run: 3
+
+# Phase 5 - LLM check (analysis/llm/llm_check.py):
+# score the buggy functions + N random functions, shuffled, and measure how
+# well the LLM scores separate them (median rank of the buggy ones, AUC).
+llm_check:
+  random_functions: 150
+  seed: 2026
+  # Whose buggy functions to use. "tuning" keeps the test CVEs unseen until
+  # the final evaluation (recommended); "all" / "test" are also possible.
+  split: tuning
+
+# Phase 6 - VulnSC-style reranker (analysis/llm/vulnsc.py), after
+# Wu et al., ISSTA 2025 (inter-procedural semantic completion)
+vulnsc:
+  callee_depth: 2          # callees of callees, no deeper
+  max_callees: 8           # per function under review (DFS order, no repeats)
+  include_indirect_callees: false   # only direct calls (function-pointer targets are too many)
+  severity_points: {high: 3, medium: 2, low: 1}
+  score_cap: 9             # sum of points is capped here, then divided by it (0..1)
+  finding_types:           # the checklist; anything else counts as "other"
+    - out-of-bounds read/write
+    - use-after-free / double free
+    - missing input validation
+    - integer overflow
+    - locking / race
+    - NULL dereference
+    - uninitialised memory
+
+# Final ranking: final = w * shortlist score + (1 - w) * LLM score (both 0..1)
+# w is chosen on the TUNING CVEs by analysis/report/evaluate.py from this grid.
+fusion_weights: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+
+# rough speed on this laptop, only used for the time estimates printed
+seconds_per_call:
+  v3: 15
+  vulnsc_summary: 8
+  vulnsc_review: 20

@@ -1,31 +1,61 @@
 ======================================================================
-INDIRECT CALL EXTRACTION (function pointers)
+INDIRECT CALL EXTRACTION (typed function pointers)
 ======================================================================
+Kernel: v6.12 (adc218676eef25575469234709c2d87185ca223a)
 
-Field-based resolution: a use of ->field( or ->field[ is linked to every
-function registered in a .field slot (matched on field name only).
+A use of ->field( is linked to functions registered in that field of the
+SAME struct type; name-only matching is used only when the type is unknown.
 
-Registrations:                       1490 across 143 fields
-   from slots / slot tables:          1481
-   from hand-off via argument:        9
-Callbacks called by the receiver:    13
-Functions that dispatch:             223
-New indirect edges:                  3905
-Direct edges (for comparison):       5537
+{
+  "dispatch_sites_name_fallback": 7,
+  "dispatch_sites_typed": 175,
+  "dispatch_sites_typed_no_registrations": 8,
+  "field_copies": 380,
+  "registrations_handoff": 9,
+  "registrations_initializer": 1758,
+  "registrations_initializer_typed": 1758,
+  "registrations_runtime": 49,
+  "structs_parsed": 659,
+  "edges_total": 1878,
+  "edges_by_how": {
+    "typed": 1687,
+    "name_fallback": 11,
+    "handoff": 13,
+    "api_callback": 167
+  },
+  "api_callback_edges_by_rule": {
+    "nf_hook_ops.hook": 46,
+    "nfnl_callback.call": 144,
+    "netlink_dump_control (local)": 50,
+    "call_rcu()": 27,
+    "timer_setup()": 9,
+    "INIT_DELAYED_WORK()": 7,
+    "INIT_WORK()": 5,
+    "INIT_DEFERRABLE_WORK()": 25
+  },
+  "name_only_edges (old method)": 3864,
+  "direct_edges": 5809,
+  "name_fallback_share_of_dispatch_sites": 0.037
+}
 
-Fields with the most registered functions (biggest fan-out):
-   .destroy               120 functions
-   .init                   93 functions
-   .dump                   83 functions
-   .adt                    81 functions
-   .checkentry             81 functions
-   .eval                   74 functions
-   .call                   69 functions
-   .match                  69 functions
-   .target                 48 functions
-   .flush                  32 functions
-   .kadt                   27 functions
-   .uadt                   27 functions
-   .head                   27 functions
-   .list                   27 functions
-   .same_set               27 functions
+Struct fields with the most registered functions:
+   ip_set_type_variant.adt                         81
+   nfnl_callback.call                              72
+   xt_match.match                                  69
+   nft_expr_ops.eval                               62
+   nft_expr_ops.init                               58
+   nft_expr_ops.dump                               54
+   xt_match.checkentry                             50
+   xt_target.target                                44
+   xt_target.checkentry                            30
+   nft_expr_ops.destroy                            28
+   ip_set_type_variant.kadt                        27
+   ip_set_type_variant.uadt                        27
+   ip_set_type_variant.destroy                     27
+   ip_set_type_variant.flush                       27
+   ip_set_type_variant.head                        27
+   ip_set_type_variant.list                        27
+   ip_set_type_variant.same_set                    27
+   ip_set_type_variant.cancel_gc                   27
+   xt_match.destroy                                25
+   nf_hook_ops.hook                                23
