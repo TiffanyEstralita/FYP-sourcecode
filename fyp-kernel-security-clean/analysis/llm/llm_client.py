@@ -113,6 +113,7 @@ def score_function(graph, node, version, prompts=None, repeat=0):
             return json.load(f)
 
     result = {"node": node, "version": version, "model": MODEL, "repeat": repeat}
+    answer = ""
     started = time.time()
     for attempt in range(2):   # one retry on a bad answer
         try:

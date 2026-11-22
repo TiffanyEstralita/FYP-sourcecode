@@ -17,6 +17,8 @@ import time
 from datetime import datetime
 from pathlib import Path
 
+import requests
+
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT / "analysis"))
 sys.path.insert(0, str(PROJECT_ROOT / "analysis/llm"))
@@ -90,5 +92,8 @@ def run_job(nodes, scorer, out_file, label, max_hours=None, extra=None):
     except KeyboardInterrupt:
         status = "stopped by user - run the same command again to continue"
         print("\n⏸️  Stopped. Everything so far is saved; run the same command to continue.")
+    except requests.RequestException as e:
+        status = f"stopped: Ollama not reachable ({type(e).__name__}) - start Ollama and run again"
+        print(f"\n⏸️  Ollama error ({e}). Everything so far is saved; run the same command to continue.")
     save(status)
     return results, finished
