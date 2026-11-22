@@ -27,7 +27,1225 @@
  },
  "reachable_from_seeds_old": 3224,
  "reachable_from_seeds_new": 3177,
- "cves_with_path_old": 0,
- "cves_with_path_new": 0,
- "per_cve": {}
+ "cves_with_path_old": 31,
+ "cves_with_path_new": 30,
+ "per_cve": {
+  "CVE-2024-53141": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "bitmap_ip_uadt": {
+     "old": [
+      "ip_set_utest",
+      "bitmap_ip_uadt"
+     ],
+     "new": [
+      "ip_set_utest",
+      "bitmap_ip_uadt"
+     ]
+    }
+   }
+  },
+  "CVE-2024-53680": {
+   "split": "test",
+   "path_old": false,
+   "path_new": false,
+   "functions": {
+    "ip_vs_protocol_init": {
+     "old": null,
+     "new": null
+    }
+   }
+  },
+  "CVE-2024-56638": {
+   "split": "tuning",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "nft_inner_eval": {
+     "old": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_inner_eval"
+     ],
+     "new": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_inner_eval"
+     ]
+    },
+    "nft_inner_parse": {
+     "old": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_inner_eval",
+      "nft_inner_parse"
+     ],
+     "new": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_inner_eval",
+      "nft_inner_parse"
+     ]
+    },
+    "nft_inner_parse_needed": {
+     "old": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_inner_eval",
+      "nft_inner_parse_needed"
+     ],
+     "new": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_inner_eval",
+      "nft_inner_parse_needed"
+     ]
+    }
+   }
+  },
+  "CVE-2025-21648": {
+   "split": "test",
+   "path_old": false,
+   "path_new": false,
+   "functions": {
+    "nf_ct_alloc_hashtable": {
+     "old": null,
+     "new": null
+    }
+   }
+  },
+  "CVE-2025-21959": {
+   "split": "tuning",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "insert_tree": {
+     "old": [
+      "connlimit_mt",
+      "nf_conncount_count",
+      "count_tree",
+      "insert_tree"
+     ],
+     "new": [
+      "connlimit_mt",
+      "nf_conncount_count",
+      "count_tree",
+      "insert_tree"
+     ]
+    }
+   }
+  },
+  "CVE-2025-37961": {
+   "split": "tuning",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "__ip_vs_get_out_rt": {
+     "old": [
+      "ip_vs_in_hook",
+      "ip_vs_bypass_xmit",
+      "__ip_vs_get_out_rt"
+     ],
+     "new": [
+      "ip_vs_in_hook",
+      "ip_vs_bypass_xmit",
+      "__ip_vs_get_out_rt"
+     ]
+    },
+    "do_output_route4": {
+     "old": [
+      "ip_vs_in_hook",
+      "ip_vs_bypass_xmit",
+      "__ip_vs_get_out_rt",
+      "do_output_route4"
+     ],
+     "new": [
+      "ip_vs_in_hook",
+      "ip_vs_bypass_xmit",
+      "__ip_vs_get_out_rt",
+      "do_output_route4"
+     ]
+    }
+   }
+  },
+  "CVE-2025-38120": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "nft_pipapo_avx2_lookup": {
+     "old": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_lookup_eval",
+      "nft_set_do_lookup",
+      "nft_pipapo_avx2_lookup"
+     ],
+     "new": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_lookup_eval",
+      "nft_set_do_lookup",
+      "nft_pipapo_avx2_lookup"
+     ]
+    }
+   }
+  },
+  "CVE-2025-38201": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "pipapo_base_sum": {
+     "old": [
+      "nf_tables_newsetelem",
+      "nft_add_set_elem",
+      "nft_setelem_insert",
+      "nft_pipapo_insert",
+      "pipapo_expand",
+      "pipapo_base_sum"
+     ],
+     "new": [
+      "nf_tables_newsetelem",
+      "nft_add_set_elem",
+      "nft_setelem_insert",
+      "nft_pipapo_insert",
+      "pipapo_expand",
+      "pipapo_base_sum"
+     ]
+    },
+    "pipapo_clone": {
+     "old": [
+      "nf_tables_delsetelem",
+      "nft_set_flush",
+      "nft_pipapo_walk",
+      "pipapo_maybe_clone",
+      "pipapo_clone"
+     ],
+     "new": [
+      "nf_tables_delsetelem",
+      "nft_set_flush",
+      "nft_pipapo_walk",
+      "pipapo_maybe_clone",
+      "pipapo_clone"
+     ]
+    },
+    "pipapo_realloc_mt": {
+     "old": [
+      "nf_tables_newsetelem",
+      "nft_add_set_elem",
+      "nft_setelem_insert",
+      "nft_pipapo_insert",
+      "pipapo_insert",
+      "pipapo_resize",
+      "pipapo_realloc_mt"
+     ],
+     "new": [
+      "nf_tables_newsetelem",
+      "nft_add_set_elem",
+      "nft_setelem_insert",
+      "nft_pipapo_insert",
+      "pipapo_insert",
+      "pipapo_resize",
+      "pipapo_realloc_mt"
+     ]
+    }
+   }
+  },
+  "CVE-2025-38472": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "__nf_conntrack_confirm": {
+     "old": null,
+     "new": null
+    },
+    "nf_ct_resolve_clash_harder": {
+     "old": [
+      "netmap_tg4",
+      "nf_nat_setup_info",
+      "get_unique_tuple",
+      "nf_nat_used_tuple",
+      "nf_conntrack_tuple_taken",
+      "nf_ct_resolve_clash",
+      "nf_ct_resolve_clash_harder"
+     ],
+     "new": [
+      "netmap_tg4",
+      "nf_nat_setup_info",
+      "get_unique_tuple",
+      "nf_nat_used_tuple",
+      "nf_conntrack_tuple_taken",
+      "nf_ct_resolve_clash",
+      "nf_ct_resolve_clash_harder"
+     ]
+    }
+   }
+  },
+  "CVE-2026-23278": {
+   "split": "tuning",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "nft_map_catchall_activate": {
+     "old": [
+      "nfnetlink_rcv",
+      "nfnetlink_rcv_skb_batch",
+      "nfnetlink_rcv_batch",
+      "nf_tables_abort",
+      "__nf_tables_abort",
+      "nft_map_activate",
+      "nft_map_catchall_activate"
+     ],
+     "new": [
+      "nfnetlink_rcv",
+      "nfnetlink_rcv_skb_batch",
+      "nfnetlink_rcv_batch",
+      "nf_tables_abort",
+      "__nf_tables_abort",
+      "nft_map_activate",
+      "nft_map_catchall_activate"
+     ]
+    },
+    "nft_map_catchall_deactivate": {
+     "old": [
+      "nf_tables_delset",
+      "nft_delset",
+      "nft_map_deactivate",
+      "nft_map_catchall_deactivate"
+     ],
+     "new": [
+      "nf_tables_delset",
+      "nft_delset",
+      "nft_map_deactivate",
+      "nft_map_catchall_deactivate"
+     ]
+    }
+   }
+  },
+  "CVE-2026-31665": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "nft_ct_timeout_obj_destroy": {
+     "old": [
+      "ip_set_create",
+      "nft_ct_timeout_obj_destroy"
+     ],
+     "new": [
+      "nf_tables_newobj",
+      "nft_ct_timeout_obj_destroy"
+     ]
+    }
+   }
+  },
+  "CVE-2026-43024": {
+   "split": "tuning",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "nft_verdict_init": {
+     "old": [
+      "nf_tables_newflowtable",
+      "nft_cmp16_fast_init",
+      "nft_data_init",
+      "nft_verdict_init"
+     ],
+     "new": [
+      "nf_tables_delsetelem",
+      "nft_del_setelem",
+      "nft_setelem_parse_key",
+      "nft_data_init",
+      "nft_verdict_init"
+     ]
+    }
+   }
+  },
+  "CVE-2026-43452": {
+   "split": "tuning",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "dccp_find_option": {
+     "old": [
+      "dccp_mt",
+      "match_option",
+      "dccp_find_option"
+     ],
+     "new": [
+      "dccp_mt",
+      "match_option",
+      "dccp_find_option"
+     ]
+    },
+    "tcp_find_option": {
+     "old": [
+      "tcp_mt",
+      "tcp_find_option"
+     ],
+     "new": [
+      "tcp_mt",
+      "tcp_find_option"
+     ]
+    }
+   }
+  },
+  "CVE-2026-52920": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "match_policy_in": {
+     "old": [
+      "policy_mt",
+      "match_policy_in"
+     ],
+     "new": [
+      "policy_mt",
+      "match_policy_in"
+     ]
+    }
+   }
+  },
+  "CVE-2026-52970": {
+   "split": "tuning",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "nft_ct_expect_obj_eval": {
+     "old": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_ct_expect_obj_eval"
+     ],
+     "new": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_objref_eval",
+      "nft_ct_expect_obj_eval"
+     ]
+    }
+   }
+  },
+  "CVE-2026-53002": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "help [nf_nat_amanda.c]": {
+     "old": null,
+     "new": null
+    },
+    "mangle_content_len": {
+     "old": null,
+     "new": null
+    },
+    "map_addr": {
+     "old": [
+      "nf_confirm",
+      "sip_help_tcp",
+      "process_sip_msg",
+      "nf_nat_sip",
+      "map_addr"
+     ],
+     "new": [
+      "nf_confirm",
+      "sip_help_tcp",
+      "process_sip_msg",
+      "nf_nat_sip",
+      "map_addr"
+     ]
+    },
+    "nf_nat_sdp_addr": {
+     "old": null,
+     "new": null
+    },
+    "nf_nat_sdp_port": {
+     "old": null,
+     "new": null
+    },
+    "nf_nat_sdp_session": {
+     "old": null,
+     "new": null
+    },
+    "nf_nat_sip": {
+     "old": [
+      "nf_confirm",
+      "sip_help_tcp",
+      "process_sip_msg",
+      "nf_nat_sip"
+     ],
+     "new": [
+      "nf_confirm",
+      "sip_help_tcp",
+      "process_sip_msg",
+      "nf_nat_sip"
+     ]
+    },
+    "nf_nat_sip_expect": {
+     "old": null,
+     "new": null
+    },
+    "sip_sprintf_addr": {
+     "old": [
+      "nf_confirm",
+      "sip_help_tcp",
+      "process_sip_msg",
+      "nf_nat_sip",
+      "sip_sprintf_addr"
+     ],
+     "new": [
+      "nf_confirm",
+      "sip_help_tcp",
+      "process_sip_msg",
+      "nf_nat_sip",
+      "sip_sprintf_addr"
+     ]
+    },
+    "sip_sprintf_addr_port": {
+     "old": [
+      "nf_confirm",
+      "sip_help_tcp",
+      "process_sip_msg",
+      "nf_nat_sip",
+      "map_addr",
+      "sip_sprintf_addr_port"
+     ],
+     "new": [
+      "nf_confirm",
+      "sip_help_tcp",
+      "process_sip_msg",
+      "nf_nat_sip",
+      "map_addr",
+      "sip_sprintf_addr_port"
+     ]
+    }
+   }
+  },
+  "CVE-2026-53212": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "nft_tunnel_obj_destroy": {
+     "old": [
+      "ip_set_create",
+      "nft_tunnel_obj_destroy"
+     ],
+     "new": [
+      "nf_tables_newobj",
+      "nft_tunnel_obj_destroy"
+     ]
+    }
+   }
+  },
+  "CVE-2026-53218": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "nft_exthdr_init": {
+     "old": [
+      "nf_tables_newflowtable",
+      "nft_exthdr_init"
+     ],
+     "new": [
+      "nf_tables_newrule",
+      "nf_tables_newexpr",
+      "nft_exthdr_init"
+     ]
+    }
+   }
+  },
+  "CVE-2026-53270": {
+   "split": "test",
+   "path_old": false,
+   "path_new": false,
+   "functions": {
+    "__ip_vs_del_service": {
+     "old": null,
+     "new": null
+    },
+    "ip_vs_add_service": {
+     "old": null,
+     "new": null
+    },
+    "ip_vs_edit_service": {
+     "old": null,
+     "new": null
+    },
+    "ip_vs_unbind_scheduler": {
+     "old": null,
+     "new": null
+    }
+   }
+  },
+  "CVE-2026-53349": {
+   "split": "tuning",
+   "path_old": false,
+   "path_new": false,
+   "functions": {
+    "nf_nat_cleanup": {
+     "old": null,
+     "new": null
+    },
+    "nf_nat_init": {
+     "old": null,
+     "new": null
+    },
+    "nf_nat_sip_fini": {
+     "old": null,
+     "new": null
+    }
+   }
+  },
+  "CVE-2026-64006": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "nft_bitwise_eval_lshift": {
+     "old": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_bitwise_eval",
+      "nft_bitwise_eval_lshift"
+     ],
+     "new": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_bitwise_eval",
+      "nft_bitwise_eval_lshift"
+     ]
+    },
+    "nft_bitwise_eval_rshift": {
+     "old": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_bitwise_eval",
+      "nft_bitwise_eval_rshift"
+     ],
+     "new": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_bitwise_eval",
+      "nft_bitwise_eval_rshift"
+     ]
+    },
+    "nft_bitwise_init": {
+     "old": [
+      "nf_tables_newflowtable",
+      "nft_bitwise_init"
+     ],
+     "new": [
+      "nf_tables_newrule",
+      "nf_tables_newexpr",
+      "nft_bitwise_init"
+     ]
+    },
+    "nft_bitwise_init_bool": {
+     "old": [
+      "nf_tables_newflowtable",
+      "nft_bitwise_init",
+      "nft_bitwise_init_bool"
+     ],
+     "new": [
+      "nf_tables_newrule",
+      "nf_tables_newexpr",
+      "nft_bitwise_init",
+      "nft_bitwise_init_bool"
+     ]
+    },
+    "nft_byteorder_init": {
+     "old": [
+      "nf_tables_newflowtable",
+      "nft_byteorder_init"
+     ],
+     "new": [
+      "nf_tables_newrule",
+      "nf_tables_newexpr",
+      "nft_byteorder_init"
+     ]
+    }
+   }
+  },
+  "CVE-2026-64078": {
+   "split": "tuning",
+   "path_old": true,
+   "path_new": false,
+   "functions": {
+    "xt_net_exit": {
+     "old": null,
+     "new": null
+    },
+    "xt_net_init": {
+     "old": [
+      "nf_tables_newflowtable",
+      "xt_net_init"
+     ],
+     "new": null
+    },
+    "xt_unregister_table": {
+     "old": null,
+     "new": null
+    }
+   }
+  },
+  "CVE-2026-64079": {
+   "split": "test",
+   "path_old": false,
+   "path_new": false,
+   "functions": {
+    "xt_register_table": {
+     "old": null,
+     "new": null
+    },
+    "xt_replace_table": {
+     "old": null,
+     "new": null
+    }
+   }
+  },
+  "CVE-2026-68476": {
+   "split": "tuning",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "ip_vs_bypass_xmit": {
+     "old": [
+      "ip_vs_in_hook",
+      "ip_vs_bypass_xmit"
+     ],
+     "new": [
+      "ip_vs_in_hook",
+      "ip_vs_bypass_xmit"
+     ]
+    }
+   }
+  },
+  "CVE-2026-72021": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "sctp_state_transition": {
+     "old": [
+      "ip_vs_in_hook",
+      "ip_vs_set_state",
+      "sctp_state_transition"
+     ],
+     "new": [
+      "ip_vs_in_hook",
+      "ip_vs_set_state",
+      "sctp_state_transition"
+     ]
+    },
+    "set_sctp_state": {
+     "old": [
+      "ip_vs_in_hook",
+      "ip_vs_set_state",
+      "sctp_state_transition",
+      "set_sctp_state"
+     ],
+     "new": [
+      "ip_vs_in_hook",
+      "ip_vs_set_state",
+      "sctp_state_transition",
+      "set_sctp_state"
+     ]
+    }
+   }
+  },
+  "CVE-2026-72419": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "nf_nat_register_fn": {
+     "old": [
+      "nf_tables_newchain",
+      "nf_tables_addchain",
+      "nf_tables_register_hook",
+      "nf_nat_ipv4_register_fn",
+      "nf_nat_register_fn"
+     ],
+     "new": [
+      "nf_tables_newchain",
+      "nf_tables_addchain",
+      "nf_tables_register_hook",
+      "nf_nat_ipv4_register_fn",
+      "nf_nat_register_fn"
+     ]
+    }
+   }
+  },
+  "CVE-2026-74564": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "hashlimit_mt_check_common": {
+     "old": [
+      "hashlimit_mt_check",
+      "hashlimit_mt_check_common"
+     ],
+     "new": [
+      "hashlimit_mt_check",
+      "hashlimit_mt_check_common"
+     ]
+    },
+    "htable_create": {
+     "old": [
+      "hashlimit_mt_check",
+      "hashlimit_mt_check_common",
+      "htable_create"
+     ],
+     "new": [
+      "hashlimit_mt_check",
+      "hashlimit_mt_check_common",
+      "htable_create"
+     ]
+    }
+   }
+  },
+  "CVE-2026-74569": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "sip_help_tcp": {
+     "old": [
+      "nf_confirm",
+      "sip_help_tcp"
+     ],
+     "new": [
+      "nf_confirm",
+      "sip_help_tcp"
+     ]
+    },
+    "nf_nat_sip_seq_adjust": {
+     "old": [
+      "nfqnl_recv_verdict",
+      "nf_nat_sip_seq_adjust"
+     ],
+     "new": [
+      "nf_confirm",
+      "sip_help_tcp",
+      "nf_nat_sip_seq_adjust"
+     ]
+    }
+   }
+  },
+  "CVE-2026-74579": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "nft_payload_offload_mask": {
+     "old": [
+      "nf_tables_newrule",
+      "nft_flow_rule_create",
+      "nft_payload_offload",
+      "nft_payload_offload_ll",
+      "nft_payload_offload_mask"
+     ],
+     "new": [
+      "nf_tables_newrule",
+      "nft_flow_rule_create",
+      "nft_payload_offload",
+      "nft_payload_offload_ll",
+      "nft_payload_offload_mask"
+     ]
+    }
+   }
+  },
+  "CVE-2026-74624": {
+   "split": "tuning",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "nf_ct_l4proto_log_invalid": {
+     "old": [
+      "ipv4_conntrack_in",
+      "nf_conntrack_in",
+      "nf_conntrack_handle_packet",
+      "nf_conntrack_tcp_packet",
+      "nf_ct_l4proto_log_invalid"
+     ],
+     "new": [
+      "ipv4_conntrack_in",
+      "nf_conntrack_in",
+      "nf_conntrack_handle_packet",
+      "nf_conntrack_tcp_packet",
+      "nf_ct_l4proto_log_invalid"
+     ]
+    },
+    "nf_conntrack_sctp_packet": {
+     "old": [
+      "ipv4_conntrack_in",
+      "nf_conntrack_in",
+      "nf_conntrack_handle_packet",
+      "nf_conntrack_sctp_packet"
+     ],
+     "new": [
+      "ipv4_conntrack_in",
+      "nf_conntrack_in",
+      "nf_conntrack_handle_packet",
+      "nf_conntrack_sctp_packet"
+     ]
+    },
+    "nf_conntrack_tcp_packet": {
+     "old": [
+      "ipv4_conntrack_in",
+      "nf_conntrack_in",
+      "nf_conntrack_handle_packet",
+      "nf_conntrack_tcp_packet"
+     ],
+     "new": [
+      "ipv4_conntrack_in",
+      "nf_conntrack_in",
+      "nf_conntrack_handle_packet",
+      "nf_conntrack_tcp_packet"
+     ]
+    },
+    "nf_tcp_handle_invalid": {
+     "old": [
+      "ipv4_conntrack_in",
+      "nf_conntrack_in",
+      "nf_conntrack_handle_packet",
+      "nf_conntrack_tcp_packet",
+      "nf_tcp_handle_invalid"
+     ],
+     "new": [
+      "ipv4_conntrack_in",
+      "nf_conntrack_in",
+      "nf_conntrack_handle_packet",
+      "nf_conntrack_tcp_packet",
+      "nf_tcp_handle_invalid"
+     ]
+    },
+    "nf_tcp_log_invalid": {
+     "old": [
+      "ipv4_conntrack_in",
+      "nf_conntrack_in",
+      "nf_conntrack_handle_packet",
+      "nf_conntrack_tcp_packet",
+      "tcp_in_window",
+      "nf_tcp_log_invalid"
+     ],
+     "new": [
+      "ipv4_conntrack_in",
+      "nf_conntrack_in",
+      "nf_conntrack_handle_packet",
+      "nf_conntrack_tcp_packet",
+      "tcp_in_window",
+      "nf_tcp_log_invalid"
+     ]
+    },
+    "tcp_in_window": {
+     "old": [
+      "ipv4_conntrack_in",
+      "nf_conntrack_in",
+      "nf_conntrack_handle_packet",
+      "nf_conntrack_tcp_packet",
+      "tcp_in_window"
+     ],
+     "new": [
+      "ipv4_conntrack_in",
+      "nf_conntrack_in",
+      "nf_conntrack_handle_packet",
+      "nf_conntrack_tcp_packet",
+      "tcp_in_window"
+     ]
+    }
+   }
+  },
+  "CVE-2026-74746": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "flow_offload_add": {
+     "old": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_flow_offload_eval",
+      "flow_offload_add"
+     ],
+     "new": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_flow_offload_eval",
+      "flow_offload_add"
+     ]
+    }
+   }
+  },
+  "CVE-2026-74747": {
+   "split": "tuning",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "handle_response_icmp": {
+     "old": [
+      "ip_vs_out_hook",
+      "ip_vs_out_icmp_v6",
+      "handle_response_icmp"
+     ],
+     "new": [
+      "ip_vs_out_hook",
+      "ip_vs_out_icmp_v6",
+      "handle_response_icmp"
+     ]
+    },
+    "ip_vs_nat_icmp": {
+     "old": [
+      "ip_vs_forward_icmp",
+      "ip_vs_in_icmp",
+      "ip_vs_icmp_xmit",
+      "ip_vs_nat_icmp"
+     ],
+     "new": [
+      "ip_vs_forward_icmp",
+      "ip_vs_in_icmp",
+      "ip_vs_icmp_xmit",
+      "ip_vs_nat_icmp"
+     ]
+    },
+    "ip_vs_icmp_xmit": {
+     "old": [
+      "ip_vs_forward_icmp",
+      "ip_vs_in_icmp",
+      "ip_vs_icmp_xmit"
+     ],
+     "new": [
+      "ip_vs_forward_icmp",
+      "ip_vs_in_icmp",
+      "ip_vs_icmp_xmit"
+     ]
+    }
+   }
+  },
+  "CVE-2026-80636": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "__nf_conntrack_confirm": {
+     "old": null,
+     "new": null
+    },
+    "nf_conntrack_hash_check_insert": {
+     "old": [
+      "ctnetlink_new_conntrack",
+      "ctnetlink_create_conntrack",
+      "nf_conntrack_hash_check_insert"
+     ],
+     "new": [
+      "ctnetlink_new_conntrack",
+      "ctnetlink_create_conntrack",
+      "nf_conntrack_hash_check_insert"
+     ]
+    },
+    "nf_ct_ext_valid_post": {
+     "old": [
+      "ctnetlink_new_conntrack",
+      "ctnetlink_create_conntrack",
+      "nf_conntrack_hash_check_insert",
+      "nf_ct_ext_valid_post"
+     ],
+     "new": [
+      "ctnetlink_new_conntrack",
+      "ctnetlink_create_conntrack",
+      "nf_conntrack_hash_check_insert",
+      "nf_ct_ext_valid_post"
+     ]
+    },
+    "nf_ct_ext_valid_pre": {
+     "old": [
+      "ctnetlink_new_conntrack",
+      "ctnetlink_create_conntrack",
+      "nf_conntrack_hash_check_insert",
+      "nf_ct_ext_valid_pre"
+     ],
+     "new": [
+      "ctnetlink_new_conntrack",
+      "ctnetlink_create_conntrack",
+      "nf_conntrack_hash_check_insert",
+      "nf_ct_ext_valid_pre"
+     ]
+    },
+    "nf_ct_iterate_destroy": {
+     "old": [
+      "nfnl_cthelper_del",
+      "nf_conntrack_helper_unregister",
+      "nf_ct_iterate_destroy"
+     ],
+     "new": [
+      "nfnl_cthelper_del",
+      "nf_conntrack_helper_unregister",
+      "nf_ct_iterate_destroy"
+     ]
+    },
+    "__nf_ct_ext_find": {
+     "old": null,
+     "new": null
+    },
+    "nf_ct_ext_add": {
+     "old": [
+      "nf_confirm",
+      "conntrack_pptp_help",
+      "nf_ct_ext_add"
+     ],
+     "new": [
+      "nf_confirm",
+      "conntrack_pptp_help",
+      "nf_ct_ext_add"
+     ]
+    },
+    "nf_ct_ext_bump_genid": {
+     "old": [
+      "nfnl_cthelper_del",
+      "nf_conntrack_helper_unregister",
+      "nf_ct_iterate_destroy",
+      "nf_ct_ext_bump_genid"
+     ],
+     "new": [
+      "nfnl_cthelper_del",
+      "nf_conntrack_helper_unregister",
+      "nf_ct_iterate_destroy",
+      "nf_ct_ext_bump_genid"
+     ]
+    }
+   }
+  },
+  "CVE-2026-80744": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "nft_flow_rule_offload_abort": {
+     "old": [
+      "nfnetlink_rcv",
+      "nfnetlink_rcv_skb_batch",
+      "nfnetlink_rcv_batch",
+      "nf_tables_commit",
+      "nft_flow_rule_offload_commit",
+      "nft_flow_rule_offload_abort"
+     ],
+     "new": [
+      "nfnetlink_rcv",
+      "nfnetlink_rcv_skb_batch",
+      "nfnetlink_rcv_batch",
+      "nf_tables_commit",
+      "nft_flow_rule_offload_commit",
+      "nft_flow_rule_offload_abort"
+     ]
+    }
+   }
+  },
+  "CVE-2026-80837": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "__nft_obj_notify": {
+     "old": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_quota_obj_eval",
+      "nft_obj_notify",
+      "__nft_obj_notify"
+     ],
+     "new": [
+      "nfnetlink_rcv",
+      "nfnetlink_rcv_skb_batch",
+      "nfnetlink_rcv_batch",
+      "nf_tables_commit",
+      "nf_tables_obj_notify",
+      "__nft_obj_notify"
+     ]
+    },
+    "nf_tables_obj_notify": {
+     "old": [
+      "nfnetlink_rcv",
+      "nfnetlink_rcv_skb_batch",
+      "nfnetlink_rcv_batch",
+      "nf_tables_commit",
+      "nf_tables_obj_notify"
+     ],
+     "new": [
+      "nfnetlink_rcv",
+      "nfnetlink_rcv_skb_batch",
+      "nfnetlink_rcv_batch",
+      "nf_tables_commit",
+      "nf_tables_obj_notify"
+     ]
+    },
+    "nft_obj_notify": {
+     "old": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_quota_obj_eval",
+      "nft_obj_notify"
+     ],
+     "new": [
+      "nf_route_table_hook4",
+      "nft_do_chain",
+      "expr_call_ops_eval",
+      "nft_objref_eval",
+      "nft_quota_obj_eval",
+      "nft_obj_notify"
+     ]
+    }
+   }
+  },
+  "CVE-2026-97417": {
+   "split": "test",
+   "path_old": true,
+   "path_new": true,
+   "functions": {
+    "tcp_sack": {
+     "old": [
+      "ipv4_conntrack_in",
+      "nf_conntrack_in",
+      "nf_conntrack_handle_packet",
+      "nf_conntrack_tcp_packet",
+      "tcp_in_window",
+      "tcp_sack"
+     ],
+     "new": [
+      "ipv4_conntrack_in",
+      "nf_conntrack_in",
+      "nf_conntrack_handle_packet",
+      "nf_conntrack_tcp_packet",
+      "tcp_in_window",
+      "tcp_sack"
+     ]
+    }
+   }
+  }
+ }
 }

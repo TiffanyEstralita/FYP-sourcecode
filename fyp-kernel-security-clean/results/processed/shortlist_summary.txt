@@ -1,0 +1,54 @@
+======================================================================
+COMBINED SHORTLIST
+======================================================================
+Kernel: v6.12 (adc218676eef25575469234709c2d87185ca223a)
+Signals combined: pagerank, personalized_pagerank, betweenness_from_seeds, size, risky_operations   RRF k=60   shortlist K=150
+Functions ranked: 4250 (302 seeds excluded)
+
+Rank correlation between signals (Spearman, 1 = same order):
+                        pagerank  personalized_pagerank  betweenness_from_seeds  size  risky_operations
+pagerank                    1.00                   0.47                    0.15  0.07              0.01
+personalized_pagerank       0.47                   1.00                    0.49  0.19              0.11
+betweenness_from_seeds      0.15                   0.49                    1.00  0.35              0.18
+size                        0.07                   0.19                    0.35  1.00              0.62
+risky_operations            0.01                   0.11                    0.18  0.62              1.00
+
+How many of the top 150 of each single signal are also in the combined shortlist:
+   pagerank                   49 / 150
+   personalized_pagerank      56 / 150
+   betweenness_from_seeds     56 / 150
+   size                       70 / 150
+   risky_operations           60 / 150
+
+Top 30 of the combined shortlist:
+   #  function                                      pagerank personal betweenn     size risky_op
+   1. nft_do_chain                                        61        2        1      136      987
+   2. __nf_unregister_net_hook                             4        9       15      736      987
+   3. nf_ct_netns_get                                     23        1       13     1278     3228
+   4. nf_ct_netns_do_get                                  63        6       14      141      987
+   5. nft_add_set_elem                                  2480      448       67        2        3
+   6. nf_unregister_net_hooks                              5        5       49     3249     1903
+   7. nf_unregister_net_hook                               3        8       47     2282     3228
+   8. nfqnl_build_packet_message                        2332     2619       42        5       10
+   9. nf_nat_setup_info                                   26        3       50      495      589
+  10. nf_ct_netns_put                                      8        4       55     1999     3228
+  11. nf_ct_netns_do_put                                   9        7       59      797     1347
+  12. nf_conntrack_tcp_packet                           2421      684      142        4        7
+  13. nf_log_packet                                       22       28       33     1147      693
+  14. nfnetlink_rcv_batch                                703      135       28        7      356
+  15. pipapo_base_sum                                   2293     2829      693        1        1
+  16. __build_packet_message                            1632      934       73       33       12
+  17. nf_ct_iterate_cleanup                               37       24       39     2140     1347
+  18. nf_ct_iterate_cleanup_net                           42       17       40     2712     3228
+  19. nfulnl_log_packet                                  204      218       44       78       62
+  20. nf_register_net_hooks                               60       22       32     1856     1903
+  21. nf_conntrack_in                                    195       13       43      244     3228
+  22. nf_nat_inet_fn                                     312       33       11      331     1347
+  23. nft_trace_notify                                   194       71      232      130       47
+  24. ip_set_dump_do                                    2372      368      125       72       16
+  25. ip_set_ad                                          622       38       69      404       79
+  26. ip_set_nfnl_put                                    113       36       26     2282     3228
+  27. nf_conntrack_sctp_packet                          2421      684      224       60       10
+  28. nf_nat_ipv6_fn                                     414       26       18     1036     3228
+  29. nf_nat_ipv4_fn                                     414       26       18     1493     3228
+  30. nfnl_pernet                                         21       11     2860     4086     3228

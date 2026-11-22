@@ -1,0 +1,2142 @@
+{
+ "kernel": {
+  "tag": "v6.12",
+  "commit": "adc218676eef25575469234709c2d87185ca223a",
+  "date": "2024-11-17T14:15:08-08:00",
+  "repo_url": "https://github.com/torvalds/linux.git",
+  "sparse_paths": [
+   "net/netfilter",
+   "include/net/netfilter",
+   "include/linux/netfilter",
+   "include/uapi/linux/netfilter"
+  ]
+ },
+ "settings": {
+  "signals": [
+   "pagerank",
+   "personalized_pagerank",
+   "betweenness_from_seeds",
+   "size",
+   "risky_operations"
+  ],
+  "rrf_k": 60,
+  "k": 150,
+  "pagerank_alpha": 0.85,
+  "exclude_seeds": true
+ },
+ "risky_operations": {
+  "memcpy": "\\bmem(?:cpy|move)\\s*\\(",
+  "memset": "\\bmemset\\s*\\(",
+  "copy_from_user": "\\bcopy_(?:from|to)_user\\s*\\(|\\b(?:get|put)_user\\s*\\(",
+  "kfree": "\\bk(?:v|z)?free(?:_rcu|_sensitive)?\\s*\\(|\\bkmem_cache_free\\s*\\(",
+  "kmalloc": "\\bk(?:v|z)?(?:m|c|re)?alloc(?:_array|_node)?\\s*\\(|\\bkmem_cache_(?:z)?alloc\\s*\\(",
+  "nla": "\\bnla_\\w+\\s*\\(",
+  "skb_data": "\\bskb_(?:header_pointer|pull|push|put|copy_bits|store_bits|ensure_writable)\\s*\\(|\\b__skb_(?:pull|push|put)\\s*\\(",
+  "array_index": "\\w\\s*\\[\\s*[^\\]\\s][^\\]]*\\]",
+  "pointer_arithmetic": "\\(\\s*(?:const\\s+)?(?:u8|char|void|unsigned\\s+char|__u8)\\s*\\*\\s*\\)\\s*[\\w>.-]+\\s*[+-]|\\b(?:data|ptr|buf|head|tail|pos)\\s*[+-]=?\\s*[\\w(]",
+  "lock_unlock": "\\b(?:spin|mutex|read|write|raw_spin)_(?:un)?lock\\w*\\s*\\(|\\brcu_read_(?:un)?lock\\w*\\s*\\("
+ },
+ "k": 150,
+ "shortlist": [
+  {
+   "rank": 1,
+   "node": "nft_do_chain",
+   "combined_score": 0.04684408834489055,
+   "file": "nf_tables_core.c",
+   "line": 252,
+   "ranks": {
+    "pagerank": 61.0,
+    "personalized_pagerank": 2.0,
+    "betweenness_from_seeds": 1.0,
+    "size": 136.0,
+    "risky_operations": 987.0
+   }
+  },
+  {
+   "rank": 2,
+   "node": "__nf_unregister_net_hook",
+   "combined_score": 0.045662478201188246,
+   "file": "core.c",
+   "line": 488,
+   "ranks": {
+    "pagerank": 4.0,
+    "personalized_pagerank": 9.0,
+    "betweenness_from_seeds": 15.0,
+    "size": 736.0,
+    "risky_operations": 987.0
+   }
+  },
+  {
+   "rank": 3,
+   "node": "nf_ct_netns_get",
+   "combined_score": 0.04319150675231086,
+   "file": "nf_conntrack_proto.c",
+   "line": 582,
+   "ranks": {
+    "pagerank": 23.0,
+    "personalized_pagerank": 1.0,
+    "betweenness_from_seeds": 13.0,
+    "size": 1278.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 4,
+   "node": "nf_ct_netns_do_get",
+   "combined_score": 0.042725344181582456,
+   "file": "nf_conntrack_proto.c",
+   "line": 438,
+   "ranks": {
+    "pagerank": 63.0,
+    "personalized_pagerank": 6.0,
+    "betweenness_from_seeds": 14.0,
+    "size": 141.0,
+    "risky_operations": 987.0
+   }
+  },
+  {
+   "rank": 5,
+   "node": "nft_add_set_elem",
+   "combined_score": 0.042240130531365085,
+   "file": "nf_tables_api.c",
+   "line": 6839,
+   "ranks": {
+    "pagerank": 2480.5,
+    "personalized_pagerank": 447.5,
+    "betweenness_from_seeds": 67.0,
+    "size": 2.0,
+    "risky_operations": 3.0
+   }
+  },
+  {
+   "rank": 6,
+   "node": "nf_unregister_net_hooks",
+   "combined_score": 0.04075517315088355,
+   "file": "core.c",
+   "line": 607,
+   "ranks": {
+    "pagerank": 5.0,
+    "personalized_pagerank": 5.0,
+    "betweenness_from_seeds": 49.0,
+    "size": 3249.0,
+    "risky_operations": 1903.0
+   }
+  },
+  {
+   "rank": 7,
+   "node": "nf_unregister_net_hook",
+   "combined_score": 0.04065572321517172,
+   "file": "core.c",
+   "line": 529,
+   "ranks": {
+    "pagerank": 3.0,
+    "personalized_pagerank": 8.0,
+    "betweenness_from_seeds": 47.0,
+    "size": 2282.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 8,
+   "node": "nfqnl_build_packet_message",
+   "combined_score": 0.040265585049181825,
+   "file": "nfnetlink_queue.c",
+   "line": 551,
+   "ranks": {
+    "pagerank": 2332.0,
+    "personalized_pagerank": 2619.0,
+    "betweenness_from_seeds": 42.0,
+    "size": 5.0,
+    "risky_operations": 10.0
+   }
+  },
+  {
+   "rank": 9,
+   "node": "nf_nat_setup_info",
+   "combined_score": 0.039934465791777576,
+   "file": "nf_nat_core.c",
+   "line": 782,
+   "ranks": {
+    "pagerank": 26.0,
+    "personalized_pagerank": 3.0,
+    "betweenness_from_seeds": 50.0,
+    "size": 495.0,
+    "risky_operations": 589.0
+   }
+  },
+  {
+   "rank": 10,
+   "node": "nf_ct_netns_put",
+   "combined_score": 0.039816343436525015,
+   "file": "nf_conntrack_proto.c",
+   "line": 609,
+   "ranks": {
+    "pagerank": 8.0,
+    "personalized_pagerank": 4.0,
+    "betweenness_from_seeds": 55.0,
+    "size": 1999.0,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 11,
+   "node": "nf_ct_netns_do_put",
+   "combined_score": 0.03969908129959414,
+   "file": "nf_conntrack_proto.c",
+   "line": 527,
+   "ranks": {
+    "pagerank": 9.0,
+    "personalized_pagerank": 7.0,
+    "betweenness_from_seeds": 59.0,
+    "size": 797.0,
+    "risky_operations": 1347.0
+   }
+  },
+  {
+   "rank": 12,
+   "node": "nf_conntrack_tcp_packet",
+   "combined_score": 0.03724801748627379,
+   "file": "nf_conntrack_proto_tcp.c",
+   "line": 963,
+   "ranks": {
+    "pagerank": 2421.0,
+    "personalized_pagerank": 684.0,
+    "betweenness_from_seeds": 142.0,
+    "size": 4.0,
+    "risky_operations": 7.0
+   }
+  },
+  {
+   "rank": 13,
+   "node": "nf_log_packet",
+   "combined_score": 0.03646796814948907,
+   "file": "nf_log.c",
+   "line": 211,
+   "ranks": {
+    "pagerank": 22.0,
+    "personalized_pagerank": 28.0,
+    "betweenness_from_seeds": 33.0,
+    "size": 1147.0,
+    "risky_operations": 693.0
+   }
+  },
+  {
+   "rank": 14,
+   "node": "nfnetlink_rcv_batch",
+   "combined_score": 0.03512879099983859,
+   "file": "nfnetlink.c",
+   "line": 371,
+   "ranks": {
+    "pagerank": 703.0,
+    "personalized_pagerank": 135.0,
+    "betweenness_from_seeds": 28.0,
+    "size": 7.0,
+    "risky_operations": 356.5
+   }
+  },
+  {
+   "rank": 15,
+   "node": "pipapo_base_sum",
+   "combined_score": 0.03488603640256366,
+   "file": "nft_set_pipapo.c",
+   "line": 1075,
+   "ranks": {
+    "pagerank": 2293.0,
+    "personalized_pagerank": 2829.0,
+    "betweenness_from_seeds": 693.0,
+    "size": 1.0,
+    "risky_operations": 1.0
+   }
+  },
+  {
+   "rank": 16,
+   "node": "__build_packet_message",
+   "combined_score": 0.03366096097987363,
+   "file": "nfnetlink_log.c",
+   "line": 455,
+   "ranks": {
+    "pagerank": 1632.5,
+    "personalized_pagerank": 934.5,
+    "betweenness_from_seeds": 73.0,
+    "size": 33.0,
+    "risky_operations": 12.5
+   }
+  },
+  {
+   "rank": 17,
+   "node": "nf_ct_iterate_cleanup",
+   "combined_score": 0.03348043119411761,
+   "file": "nf_conntrack_core.c",
+   "line": 2356,
+   "ranks": {
+    "pagerank": 37.0,
+    "personalized_pagerank": 24.0,
+    "betweenness_from_seeds": 39.0,
+    "size": 2139.5,
+    "risky_operations": 1347.0
+   }
+  },
+  {
+   "rank": 18,
+   "node": "nf_ct_iterate_cleanup_net",
+   "combined_score": 0.03345575611075574,
+   "file": "nf_conntrack_core.c",
+   "line": 2375,
+   "ranks": {
+    "pagerank": 42.0,
+    "personalized_pagerank": 17.0,
+    "betweenness_from_seeds": 40.0,
+    "size": 2712.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 19,
+   "node": "nfulnl_log_packet",
+   "combined_score": 0.03245037583686747,
+   "file": "nfnetlink_log.c",
+   "line": 683,
+   "ranks": {
+    "pagerank": 204.5,
+    "personalized_pagerank": 217.5,
+    "betweenness_from_seeds": 44.0,
+    "size": 78.5,
+    "risky_operations": 61.5
+   }
+  },
+  {
+   "rank": 20,
+   "node": "nf_register_net_hooks",
+   "combined_score": 0.03242922935542837,
+   "file": "core.c",
+   "line": 587,
+   "ranks": {
+    "pagerank": 60.0,
+    "personalized_pagerank": 22.0,
+    "betweenness_from_seeds": 32.0,
+    "size": 1856.5,
+    "risky_operations": 1903.0
+   }
+  },
+  {
+   "rank": 21,
+   "node": "nf_conntrack_in",
+   "combined_score": 0.030917145131145803,
+   "file": "nf_conntrack_core.c",
+   "line": 2003,
+   "ranks": {
+    "pagerank": 195.0,
+    "personalized_pagerank": 13.0,
+    "betweenness_from_seeds": 43.0,
+    "size": 244.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 22,
+   "node": "nf_nat_inet_fn",
+   "combined_score": 0.03079364406835617,
+   "file": "nf_nat_core.c",
+   "line": 915,
+   "ranks": {
+    "pagerank": 312.0,
+    "personalized_pagerank": 33.0,
+    "betweenness_from_seeds": 11.0,
+    "size": 331.0,
+    "risky_operations": 1347.0
+   }
+  },
+  {
+   "rank": 23,
+   "node": "nft_trace_notify",
+   "combined_score": 0.029618092441926494,
+   "file": "nf_tables_trace.c",
+   "line": 189,
+   "ranks": {
+    "pagerank": 194.0,
+    "personalized_pagerank": 71.0,
+    "betweenness_from_seeds": 232.0,
+    "size": 129.5,
+    "risky_operations": 47.0
+   }
+  },
+  {
+   "rank": 24,
+   "node": "ip_set_dump_do",
+   "combined_score": 0.028918312930577166,
+   "file": "ip_set_core.c",
+   "line": 1561,
+   "ranks": {
+    "pagerank": 2371.5,
+    "personalized_pagerank": 367.5,
+    "betweenness_from_seeds": 125.0,
+    "size": 71.5,
+    "risky_operations": 16.0
+   }
+  },
+  {
+   "rank": 25,
+   "node": "ip_set_ad",
+   "combined_score": 0.02877403718441815,
+   "file": "ip_set_core.c",
+   "line": 1800,
+   "ranks": {
+    "pagerank": 622.0,
+    "personalized_pagerank": 38.0,
+    "betweenness_from_seeds": 69.0,
+    "size": 403.5,
+    "risky_operations": 79.0
+   }
+  },
+  {
+   "rank": 26,
+   "node": "ip_set_nfnl_put",
+   "combined_score": 0.028555951060911407,
+   "file": "ip_set_core.c",
+   "line": 922,
+   "ranks": {
+    "pagerank": 113.0,
+    "personalized_pagerank": 36.0,
+    "betweenness_from_seeds": 26.0,
+    "size": 2282.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 27,
+   "node": "nf_conntrack_sctp_packet",
+   "combined_score": 0.027887323682051483,
+   "file": "nf_conntrack_proto_sctp.c",
+   "line": 332,
+   "ranks": {
+    "pagerank": 2421.0,
+    "personalized_pagerank": 684.0,
+    "betweenness_from_seeds": 224.0,
+    "size": 60.0,
+    "risky_operations": 10.0
+   }
+  },
+  {
+   "rank": 28,
+   "node": "nf_nat_ipv6_fn",
+   "combined_score": 0.027763653801112585,
+   "file": "nf_nat_proto.c",
+   "line": 940,
+   "ranks": {
+    "pagerank": 413.5,
+    "personalized_pagerank": 25.5,
+    "betweenness_from_seeds": 18.5,
+    "size": 1035.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 29,
+   "node": "nf_nat_ipv4_fn",
+   "combined_score": 0.02749474361035681,
+   "file": "nf_nat_proto.c",
+   "line": 624,
+   "ranks": {
+    "pagerank": 413.5,
+    "personalized_pagerank": 25.5,
+    "betweenness_from_seeds": 18.5,
+    "size": 1493.0,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 30,
+   "node": "nfnl_pernet",
+   "combined_score": 0.027318072137664223,
+   "file": "nfnetlink.c",
+   "line": 91,
+   "ranks": {
+    "pagerank": 21.0,
+    "personalized_pagerank": 11.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 4085.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 31,
+   "node": "nf_ct_delete",
+   "combined_score": 0.02718862359257442,
+   "file": "nf_conntrack_core.c",
+   "line": 644,
+   "ranks": {
+    "pagerank": 62.0,
+    "personalized_pagerank": 62.0,
+    "betweenness_from_seeds": 46.0,
+    "size": 886.0,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 32,
+   "node": "nft_dynset_init",
+   "combined_score": 0.027167148447149996,
+   "file": "nft_dynset.c",
+   "line": 162,
+   "ranks": {
+    "pagerank": 3261.5,
+    "personalized_pagerank": 2295.5,
+    "betweenness_from_seeds": 119.0,
+    "size": 62.0,
+    "risky_operations": 19.0
+   }
+  },
+  {
+   "rank": 33,
+   "node": "xt_ct_tg_check",
+   "combined_score": 0.0264062592451158,
+   "file": "xt_CT.c",
+   "line": 154,
+   "ranks": {
+    "pagerank": 391.0,
+    "personalized_pagerank": 21.0,
+    "betweenness_from_seeds": 80.0,
+    "size": 207.0,
+    "risky_operations": 987.0
+   }
+  },
+  {
+   "rank": 34,
+   "node": "nf_tables_fill_set",
+   "combined_score": 0.026238120223161174,
+   "file": "nf_tables_api.c",
+   "line": 4633,
+   "ranks": {
+    "pagerank": 668.0,
+    "personalized_pagerank": 436.0,
+    "betweenness_from_seeds": 51.0,
+    "size": 133.0,
+    "risky_operations": 55.5
+   }
+  },
+  {
+   "rank": 35,
+   "node": "nf_ct_invert_tuple",
+   "combined_score": 0.026162829946147815,
+   "file": "nf_conntrack_core.c",
+   "line": 434,
+   "ranks": {
+    "pagerank": 57.0,
+    "personalized_pagerank": 16.0,
+    "betweenness_from_seeds": 299.5,
+    "size": 797.0,
+    "risky_operations": 1903.0
+   }
+  },
+  {
+   "rank": 36,
+   "node": "nf_register_net_hook",
+   "combined_score": 0.026113761408457573,
+   "file": "core.c",
+   "line": 557,
+   "ranks": {
+    "pagerank": 123.0,
+    "personalized_pagerank": 69.0,
+    "betweenness_from_seeds": 25.0,
+    "size": 1147.0,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 37,
+   "node": "get_unique_tuple",
+   "combined_score": 0.025912994115944474,
+   "file": "nf_nat_core.c",
+   "line": 706,
+   "ranks": {
+    "pagerank": 146.0,
+    "personalized_pagerank": 32.0,
+    "betweenness_from_seeds": 60.0,
+    "size": 584.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 38,
+   "node": "hash_ipportnet6_add",
+   "combined_score": 0.025499072446965025,
+   "file": "hash_ipportnet6@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2691.5,
+    "personalized_pagerank": 2446.5,
+    "betweenness_from_seeds": 741.5,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 39,
+   "node": "hash_net6_add",
+   "combined_score": 0.025499072446965025,
+   "file": "hash_net6@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2691.5,
+    "personalized_pagerank": 2446.5,
+    "betweenness_from_seeds": 741.5,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 40,
+   "node": "hash_netiface6_add",
+   "combined_score": 0.025499072446965025,
+   "file": "hash_netiface6@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2691.5,
+    "personalized_pagerank": 2446.5,
+    "betweenness_from_seeds": 741.5,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 41,
+   "node": "hash_netnet6_add",
+   "combined_score": 0.025499072446965025,
+   "file": "hash_netnet6@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2691.5,
+    "personalized_pagerank": 2446.5,
+    "betweenness_from_seeds": 741.5,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 42,
+   "node": "hash_netport6_add",
+   "combined_score": 0.025499072446965025,
+   "file": "hash_netport6@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2691.5,
+    "personalized_pagerank": 2446.5,
+    "betweenness_from_seeds": 741.5,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 43,
+   "node": "hash_netportnet6_add",
+   "combined_score": 0.025499072446965025,
+   "file": "hash_netportnet6@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2691.5,
+    "personalized_pagerank": 2446.5,
+    "betweenness_from_seeds": 741.5,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 44,
+   "node": "hash_ip6_add",
+   "combined_score": 0.025417672784536285,
+   "file": "hash_ip6@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2520.5,
+    "personalized_pagerank": 2410.5,
+    "betweenness_from_seeds": 820.0,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 45,
+   "node": "hash_ipmac4_add",
+   "combined_score": 0.025417672784536285,
+   "file": "hash_ipmac4@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2520.5,
+    "personalized_pagerank": 2410.5,
+    "betweenness_from_seeds": 820.0,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 46,
+   "node": "hash_ipmac6_add",
+   "combined_score": 0.025417672784536285,
+   "file": "hash_ipmac6@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2520.5,
+    "personalized_pagerank": 2410.5,
+    "betweenness_from_seeds": 820.0,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 47,
+   "node": "hash_ipmark6_add",
+   "combined_score": 0.025417672784536285,
+   "file": "hash_ipmark6@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2520.5,
+    "personalized_pagerank": 2410.5,
+    "betweenness_from_seeds": 820.0,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 48,
+   "node": "hash_ipport6_add",
+   "combined_score": 0.025417672784536285,
+   "file": "hash_ipport6@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2520.5,
+    "personalized_pagerank": 2410.5,
+    "betweenness_from_seeds": 820.0,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 49,
+   "node": "hash_ipportip6_add",
+   "combined_score": 0.025417672784536285,
+   "file": "hash_ipportip6@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2520.5,
+    "personalized_pagerank": 2410.5,
+    "betweenness_from_seeds": 820.0,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 50,
+   "node": "hash_mac4_add",
+   "combined_score": 0.025417672784536285,
+   "file": "hash_mac4@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2520.5,
+    "personalized_pagerank": 2410.5,
+    "betweenness_from_seeds": 820.0,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 51,
+   "node": "hash_ipportnet4_add",
+   "combined_score": 0.025387775447021733,
+   "file": "hash_ipportnet4@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2691.5,
+    "personalized_pagerank": 2446.5,
+    "betweenness_from_seeds": 820.0,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 52,
+   "node": "hash_net4_add",
+   "combined_score": 0.025387775447021733,
+   "file": "hash_net4@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2691.5,
+    "personalized_pagerank": 2446.5,
+    "betweenness_from_seeds": 820.0,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 53,
+   "node": "hash_netiface4_add",
+   "combined_score": 0.025387775447021733,
+   "file": "hash_netiface4@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2691.5,
+    "personalized_pagerank": 2446.5,
+    "betweenness_from_seeds": 820.0,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 54,
+   "node": "hash_netnet4_add",
+   "combined_score": 0.025387775447021733,
+   "file": "hash_netnet4@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2691.5,
+    "personalized_pagerank": 2446.5,
+    "betweenness_from_seeds": 820.0,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 55,
+   "node": "hash_netport4_add",
+   "combined_score": 0.025387775447021733,
+   "file": "hash_netport4@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2691.5,
+    "personalized_pagerank": 2446.5,
+    "betweenness_from_seeds": 820.0,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 56,
+   "node": "hash_netportnet4_add",
+   "combined_score": 0.025387775447021733,
+   "file": "hash_netportnet4@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2691.5,
+    "personalized_pagerank": 2446.5,
+    "betweenness_from_seeds": 820.0,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 57,
+   "node": "hash_netportnet4_uadt",
+   "combined_score": 0.025328432783189872,
+   "file": "ip_set_hash_netportnet.c",
+   "line": 187,
+   "ranks": {
+    "pagerank": 3188.0,
+    "personalized_pagerank": 972.0,
+    "betweenness_from_seeds": 811.0,
+    "size": 69.0,
+    "risky_operations": 6.0
+   }
+  },
+  {
+   "rank": 58,
+   "node": "hash_ip4_add",
+   "combined_score": 0.0253117058509032,
+   "file": "hash_ip4@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2520.5,
+    "personalized_pagerank": 2410.5,
+    "betweenness_from_seeds": 910.5,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 59,
+   "node": "hash_ipmark4_add",
+   "combined_score": 0.0253117058509032,
+   "file": "hash_ipmark4@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2520.5,
+    "personalized_pagerank": 2410.5,
+    "betweenness_from_seeds": 910.5,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 60,
+   "node": "hash_ipport4_add",
+   "combined_score": 0.0253117058509032,
+   "file": "hash_ipport4@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2520.5,
+    "personalized_pagerank": 2410.5,
+    "betweenness_from_seeds": 910.5,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 61,
+   "node": "hash_ipportip4_add",
+   "combined_score": 0.0253117058509032,
+   "file": "hash_ipportip4@ip_set_hash_gen.h",
+   "line": 838,
+   "ranks": {
+    "pagerank": 2520.5,
+    "personalized_pagerank": 2410.5,
+    "betweenness_from_seeds": 910.5,
+    "size": 20.0,
+    "risky_operations": 31.0
+   }
+  },
+  {
+   "rank": 62,
+   "node": "nft_set_elem_expr_destroy",
+   "combined_score": 0.02482528051687545,
+   "file": "nf_tables_api.c",
+   "line": 6534,
+   "ranks": {
+    "pagerank": 67.0,
+    "personalized_pagerank": 655.0,
+    "betweenness_from_seeds": 7.0,
+    "size": 3034.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 63,
+   "node": "nf_queue_nf_hook_drop",
+   "combined_score": 0.024694465396793805,
+   "file": "nf_queue.c",
+   "line": 115,
+   "ranks": {
+    "pagerank": 106.0,
+    "personalized_pagerank": 156.0,
+    "betweenness_from_seeds": 17.0,
+    "size": 2855.5,
+    "risky_operations": 1347.0
+   }
+  },
+  {
+   "rank": 64,
+   "node": "nf_tables_expr_destroy",
+   "combined_score": 0.024637561010890856,
+   "file": "nf_tables_api.c",
+   "line": 3340,
+   "ranks": {
+    "pagerank": 90.0,
+    "personalized_pagerank": 620.0,
+    "betweenness_from_seeds": 3.0,
+    "size": 3034.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 65,
+   "node": "__nft_set_elem_expr_destroy",
+   "combined_score": 0.02426052193059461,
+   "file": "nf_tables_api.c",
+   "line": 6523,
+   "ranks": {
+    "pagerank": 72.0,
+    "personalized_pagerank": 701.0,
+    "betweenness_from_seeds": 8.0,
+    "size": 2712.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 66,
+   "node": "expr_call_ops_eval",
+   "combined_score": 0.024026880357902788,
+   "file": "nf_tables_core.c",
+   "line": 206,
+   "ranks": {
+    "pagerank": 1129.5,
+    "personalized_pagerank": 120.5,
+    "betweenness_from_seeds": 2.0,
+    "size": 764.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 67,
+   "node": "nfnetlink_unicast",
+   "combined_score": 0.023906716813838918,
+   "file": "nfnetlink.c",
+   "line": 193,
+   "ranks": {
+    "pagerank": 99.0,
+    "personalized_pagerank": 10.0,
+    "betweenness_from_seeds": 312.5,
+    "size": 2855.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 68,
+   "node": "ip_set_get_extensions",
+   "combined_score": 0.023722796795386296,
+   "file": "ip_set_core.c",
+   "line": 461,
+   "ranks": {
+    "pagerank": 52.0,
+    "personalized_pagerank": 255.0,
+    "betweenness_from_seeds": 1113.0,
+    "size": 369.5,
+    "risky_operations": 58.5
+   }
+  },
+  {
+   "rank": 69,
+   "node": "nfqnl_nf_hook_drop",
+   "combined_score": 0.023662203920019127,
+   "file": "nfnetlink_queue.c",
+   "line": 1182,
+   "ranks": {
+    "pagerank": 108.0,
+    "personalized_pagerank": 174.0,
+    "betweenness_from_seeds": 20.0,
+    "size": 2282.5,
+    "risky_operations": 1903.0
+   }
+  },
+  {
+   "rank": 70,
+   "node": "ip_set_pernet",
+   "combined_score": 0.02360938900258774,
+   "file": "ip_set_core.c",
+   "line": 38,
+   "ranks": {
+    "pagerank": 41.0,
+    "personalized_pagerank": 18.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 4085.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 71,
+   "node": "get_port [ip_set_getport.c]",
+   "combined_score": 0.023530117241036277,
+   "file": "ip_set_getport.c",
+   "line": 24,
+   "ranks": {
+    "pagerank": 36.0,
+    "personalized_pagerank": 55.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 304.0,
+    "risky_operations": 693.0
+   }
+  },
+  {
+   "rank": 72,
+   "node": "nft_pipapo_avx2_lookup_4b_32",
+   "combined_score": 0.02347399893318577,
+   "file": "nft_set_pipapo_avx2.c",
+   "line": 540,
+   "ranks": {
+    "pagerank": 3878.0,
+    "personalized_pagerank": 3563.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 94.5,
+    "risky_operations": 2.0
+   }
+  },
+  {
+   "rank": 73,
+   "node": "ip_vs_control_net_init_sysctl",
+   "combined_score": 0.023415634439633664,
+   "file": "ip_vs_ctl.c",
+   "line": 4267,
+   "ranks": {
+    "pagerank": 2461.0,
+    "personalized_pagerank": 3563.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 85.0,
+    "risky_operations": 4.5
+   }
+  },
+  {
+   "rank": 74,
+   "node": "nfnl_lock",
+   "combined_score": 0.023349619728650822,
+   "file": "nfnetlink.c",
+   "line": 96,
+   "ranks": {
+    "pagerank": 6.5,
+    "personalized_pagerank": 82.5,
+    "betweenness_from_seeds": 2859.5,
+    "size": 4085.5,
+    "risky_operations": 1347.0
+   }
+  },
+  {
+   "rank": 75,
+   "node": "nfnl_unlock",
+   "combined_score": 0.023349619728650822,
+   "file": "nfnetlink.c",
+   "line": 102,
+   "ranks": {
+    "pagerank": 6.5,
+    "personalized_pagerank": 82.5,
+    "betweenness_from_seeds": 2859.5,
+    "size": 4085.5,
+    "risky_operations": 1347.0
+   }
+  },
+  {
+   "rank": 76,
+   "node": "ip_set_test",
+   "combined_score": 0.02331876869748221,
+   "file": "ip_set_core.c",
+   "line": 734,
+   "ranks": {
+    "pagerank": 170.0,
+    "personalized_pagerank": 15.0,
+    "betweenness_from_seeds": 164.0,
+    "size": 1090.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 77,
+   "node": "hash_ipportnet4_uadt",
+   "combined_score": 0.02329820802723746,
+   "file": "ip_set_hash_ipportnet.c",
+   "line": 159,
+   "ranks": {
+    "pagerank": 3188.0,
+    "personalized_pagerank": 972.0,
+    "betweenness_from_seeds": 1043.5,
+    "size": 70.0,
+    "risky_operations": 14.5
+   }
+  },
+  {
+   "rank": 78,
+   "node": "help [nf_conntrack_ftp.c]",
+   "combined_score": 0.023280605823730247,
+   "file": "nf_conntrack_ftp.c",
+   "line": 369,
+   "ranks": {
+    "pagerank": 2816.5,
+    "personalized_pagerank": 769.0,
+    "betweenness_from_seeds": 176.0,
+    "size": 67.0,
+    "risky_operations": 44.0
+   }
+  },
+  {
+   "rank": 79,
+   "node": "hash_netnet4_uadt",
+   "combined_score": 0.022858458819964553,
+   "file": "ip_set_hash_netnet.c",
+   "line": 165,
+   "ranks": {
+    "pagerank": 3188.0,
+    "personalized_pagerank": 972.0,
+    "betweenness_from_seeds": 913.0,
+    "size": 111.0,
+    "risky_operations": 8.0
+   }
+  },
+  {
+   "rank": 80,
+   "node": "match_set",
+   "combined_score": 0.02246674432501318,
+   "file": "xt_set.c",
+   "line": 28,
+   "ranks": {
+    "pagerank": 212.0,
+    "personalized_pagerank": 14.0,
+    "betweenness_from_seeds": 156.0,
+    "size": 2855.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 81,
+   "node": "nfqnl_flush",
+   "combined_score": 0.022348086651274475,
+   "file": "nfnetlink_queue.c",
+   "line": 402,
+   "ranks": {
+    "pagerank": 107.0,
+    "personalized_pagerank": 291.0,
+    "betweenness_from_seeds": 21.0,
+    "size": 2139.5,
+    "risky_operations": 1347.0
+   }
+  },
+  {
+   "rank": 82,
+   "node": "conntrack_mt",
+   "combined_score": 0.022192547416044678,
+   "file": "xt_conntrack.c",
+   "line": 161,
+   "ranks": {
+    "pagerank": 390.0,
+    "personalized_pagerank": 19.0,
+    "betweenness_from_seeds": 246.5,
+    "size": 207.0,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 83,
+   "node": "get_next_corpse",
+   "combined_score": 0.021916886854127727,
+   "file": "nf_conntrack_core.c",
+   "line": 2302,
+   "ranks": {
+    "pagerank": 125.0,
+    "personalized_pagerank": 72.0,
+    "betweenness_from_seeds": 95.0,
+    "size": 688.5,
+    "risky_operations": 811.0
+   }
+  },
+  {
+   "rank": 84,
+   "node": "nfqnl_reinject",
+   "combined_score": 0.021651717113708217,
+   "file": "nfnetlink_queue.c",
+   "line": 372,
+   "ranks": {
+    "pagerank": 217.0,
+    "personalized_pagerank": 239.0,
+    "betweenness_from_seeds": 16.0,
+    "size": 1147.0,
+    "risky_operations": 1347.0
+   }
+  },
+  {
+   "rank": 85,
+   "node": "nf_ct_expect_put",
+   "combined_score": 0.021633412883759702,
+   "file": "nf_conntrack_expect.c",
+   "line": 378,
+   "ranks": {
+    "pagerank": 15.0,
+    "personalized_pagerank": 128.0,
+    "betweenness_from_seeds": 354.0,
+    "size": 3766.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 86,
+   "node": "ip_vs_in_icmp",
+   "combined_score": 0.02121169569494337,
+   "file": "ip_vs_core.c",
+   "line": 1580,
+   "ranks": {
+    "pagerank": 1472.5,
+    "personalized_pagerank": 163.5,
+    "betweenness_from_seeds": 179.0,
+    "size": 33.0,
+    "risky_operations": 811.0
+   }
+  },
+  {
+   "rank": 87,
+   "node": "hash_netportnet6_uadt",
+   "combined_score": 0.02120564085518737,
+   "file": "ip_set_hash_netportnet.c",
+   "line": 472,
+   "ranks": {
+    "pagerank": 3188.0,
+    "personalized_pagerank": 972.0,
+    "betweenness_from_seeds": 1060.5,
+    "size": 150.5,
+    "risky_operations": 10.0
+   }
+  },
+  {
+   "rank": 88,
+   "node": "nfnetlink_rcv_skb_batch",
+   "combined_score": 0.02110647179461636,
+   "file": "nfnetlink.c",
+   "line": 612,
+   "ranks": {
+    "pagerank": 1195.5,
+    "personalized_pagerank": 108.0,
+    "betweenness_from_seeds": 27.0,
+    "size": 840.5,
+    "risky_operations": 510.5
+   }
+  },
+  {
+   "rank": 89,
+   "node": "ctnetlink_create_conntrack",
+   "combined_score": 0.02106721112646949,
+   "file": "nf_conntrack_netlink.c",
+   "line": 2231,
+   "ranks": {
+    "pagerank": 2753.0,
+    "personalized_pagerank": 528.0,
+    "betweenness_from_seeds": 202.0,
+    "size": 65.0,
+    "risky_operations": 79.0
+   }
+  },
+  {
+   "rank": 90,
+   "node": "nf_tables_updchain",
+   "combined_score": 0.020983048631620732,
+   "file": "nf_tables_api.c",
+   "line": 2645,
+   "ranks": {
+    "pagerank": 2642.5,
+    "personalized_pagerank": 499.5,
+    "betweenness_from_seeds": 237.0,
+    "size": 61.0,
+    "risky_operations": 79.0
+   }
+  },
+  {
+   "rank": 91,
+   "node": "dump_ipv6_packet",
+   "combined_score": 0.020786065765997334,
+   "file": "nf_log_syslog.c",
+   "line": 532,
+   "ranks": {
+    "pagerank": 1156.5,
+    "personalized_pagerank": 714.5,
+    "betweenness_from_seeds": 437.5,
+    "size": 8.0,
+    "risky_operations": 451.0
+   }
+  },
+  {
+   "rank": 92,
+   "node": "nf_tables_commit",
+   "combined_score": 0.020743263320622877,
+   "file": "nf_tables_api.c",
+   "line": 10300,
+   "ranks": {
+    "pagerank": 3306.5,
+    "personalized_pagerank": 1534.0,
+    "betweenness_from_seeds": 231.0,
+    "size": 3.0,
+    "risky_operations": 1903.0
+   }
+  },
+  {
+   "rank": 93,
+   "node": "nf_ct_netns_inet_get",
+   "combined_score": 0.020641462834875796,
+   "file": "nf_conntrack_proto.c",
+   "line": 562,
+   "ranks": {
+    "pagerank": 120.0,
+    "personalized_pagerank": 12.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 1757.0,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 94,
+   "node": "nft_chain_validate",
+   "combined_score": 0.020304167473089628,
+   "file": "nf_tables_api.c",
+   "line": 3887,
+   "ranks": {
+    "pagerank": 48.0,
+    "personalized_pagerank": 322.0,
+    "betweenness_from_seeds": 75.0,
+    "size": 1337.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 95,
+   "node": "nf_l4proto_log_invalid",
+   "combined_score": 0.02024707082605711,
+   "file": "nf_conntrack_proto.c",
+   "line": 49,
+   "ranks": {
+    "pagerank": 30.0,
+    "personalized_pagerank": 257.0,
+    "betweenness_from_seeds": 136.0,
+    "size": 1678.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 96,
+   "node": "ip_set_free",
+   "combined_score": 0.019992585257923058,
+   "file": "ip_set_core.c",
+   "line": 260,
+   "ranks": {
+    "pagerank": 1.0,
+    "personalized_pagerank": 349.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 3249.0,
+    "risky_operations": 1903.0
+   }
+  },
+  {
+   "rank": 97,
+   "node": "nf_conntrack_lock",
+   "combined_score": 0.019789798564549405,
+   "file": "nf_conntrack_core.c",
+   "line": 104,
+   "ranks": {
+    "pagerank": 31.0,
+    "personalized_pagerank": 150.0,
+    "betweenness_from_seeds": 365.5,
+    "size": 2712.5,
+    "risky_operations": 693.0
+   }
+  },
+  {
+   "rank": 98,
+   "node": "nf_conntrack_find_get",
+   "combined_score": 0.01941526577863225,
+   "file": "nf_conntrack_core.c",
+   "line": 803,
+   "ranks": {
+    "pagerank": 58.0,
+    "personalized_pagerank": 143.0,
+    "betweenness_from_seeds": 153.0,
+    "size": 1582.0,
+    "risky_operations": 1347.0
+   }
+  },
+  {
+   "rank": 99,
+   "node": "hashlimit_mt_common",
+   "combined_score": 0.01940604312853617,
+   "file": "xt_hashlimit.c",
+   "line": 724,
+   "ranks": {
+    "pagerank": 624.5,
+    "personalized_pagerank": 44.5,
+    "betweenness_from_seeds": 165.0,
+    "size": 276.0,
+    "risky_operations": 987.0
+   }
+  },
+  {
+   "rank": 100,
+   "node": "nf_logger_put",
+   "combined_score": 0.019260042637732233,
+   "file": "nf_log.c",
+   "line": 191,
+   "ranks": {
+    "pagerank": 95.0,
+    "personalized_pagerank": 31.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 1856.5,
+    "risky_operations": 987.0
+   }
+  },
+  {
+   "rank": 101,
+   "node": "ip_set_match_extensions",
+   "combined_score": 0.019245165482786052,
+   "file": "ip_set_core.c",
+   "line": 632,
+   "ranks": {
+    "pagerank": 13.0,
+    "personalized_pagerank": 1063.0,
+    "betweenness_from_seeds": 215.0,
+    "size": 1337.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 102,
+   "node": "recent_mt_check",
+   "combined_score": 0.019214459666795986,
+   "file": "xt_recent.c",
+   "line": 332,
+   "ranks": {
+    "pagerank": 634.0,
+    "personalized_pagerank": 46.0,
+    "betweenness_from_seeds": 844.5,
+    "size": 129.5,
+    "risky_operations": 451.0
+   }
+  },
+  {
+   "rank": 103,
+   "node": "nf_conntrack_helper_unregister",
+   "combined_score": 0.01905709992646714,
+   "file": "nf_conntrack_helper.c",
+   "line": 410,
+   "ranks": {
+    "pagerank": 38.0,
+    "personalized_pagerank": 189.5,
+    "betweenness_from_seeds": 205.0,
+    "size": 2712.5,
+    "risky_operations": 1347.0
+   }
+  },
+  {
+   "rank": 104,
+   "node": "tcp_timeout_nlattr_to_obj",
+   "combined_score": 0.01898391266432422,
+   "file": "nf_conntrack_proto_tcp.c",
+   "line": 1469,
+   "ranks": {
+    "pagerank": 3878.0,
+    "personalized_pagerank": 3563.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 323.5,
+    "risky_operations": 4.5
+   }
+  },
+  {
+   "rank": 105,
+   "node": "hash_by_src",
+   "combined_score": 0.018976306823961595,
+   "file": "nf_nat_core.c",
+   "line": 155,
+   "ranks": {
+    "pagerank": 102.0,
+    "personalized_pagerank": 29.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 1337.5,
+    "risky_operations": 1903.0
+   }
+  },
+  {
+   "rank": 106,
+   "node": "nf_ct_expect_free_rcu",
+   "combined_score": 0.018905243146184202,
+   "file": "nf_conntrack_expect.c",
+   "line": 370,
+   "ranks": {
+    "pagerank": 18.0,
+    "personalized_pagerank": 142.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 3482.5,
+    "risky_operations": 1903.0
+   }
+  },
+  {
+   "rank": 107,
+   "node": "nft_rhash_update",
+   "combined_score": 0.018515294573612555,
+   "file": "nft_set_hash.c",
+   "line": 121,
+   "ranks": {
+    "pagerank": 1719.5,
+    "personalized_pagerank": 1722.5,
+    "betweenness_from_seeds": 5.0,
+    "size": 527.0,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 108,
+   "node": "do_ip_vs_get_ctl",
+   "combined_score": 0.018411039227570168,
+   "file": "ip_vs_ctl.c",
+   "line": 3013,
+   "ranks": {
+    "pagerank": 2556.5,
+    "personalized_pagerank": 3563.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 64.0,
+    "risky_operations": 47.0
+   }
+  },
+  {
+   "rank": 109,
+   "node": "nft_dynset_eval",
+   "combined_score": 0.01825666235213464,
+   "file": "nft_dynset.c",
+   "line": 81,
+   "ranks": {
+    "pagerank": 3340.5,
+    "personalized_pagerank": 1340.5,
+    "betweenness_from_seeds": 4.0,
+    "size": 1035.5,
+    "risky_operations": 1347.0
+   }
+  },
+  {
+   "rank": 110,
+   "node": "nf_tables_fill_expr_info",
+   "combined_score": 0.01823207506280782,
+   "file": "nf_tables_api.c",
+   "line": 3184,
+   "ranks": {
+    "pagerank": 148.0,
+    "personalized_pagerank": 571.0,
+    "betweenness_from_seeds": 37.0,
+    "size": 1678.5,
+    "risky_operations": 987.0
+   }
+  },
+  {
+   "rank": 111,
+   "node": "xt_unregister_match",
+   "combined_score": 0.01821883062426511,
+   "file": "x_tables.c",
+   "line": 150,
+   "ranks": {
+    "pagerank": 2.0,
+    "personalized_pagerank": 3563.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 3034.5,
+    "risky_operations": 811.0
+   }
+  },
+  {
+   "rank": 112,
+   "node": "__nf_queue",
+   "combined_score": 0.018204064183785718,
+   "file": "nf_queue.c",
+   "line": 156,
+   "ranks": {
+    "pagerank": 863.0,
+    "personalized_pagerank": 844.0,
+    "betweenness_from_seeds": 24.0,
+    "size": 257.0,
+    "risky_operations": 987.0
+   }
+  },
+  {
+   "rank": 113,
+   "node": "nft_set_elem_destroy",
+   "combined_score": 0.018133947453868145,
+   "file": "nf_tables_api.c",
+   "line": 6545,
+   "ranks": {
+    "pagerank": 680.0,
+    "personalized_pagerank": 1770.0,
+    "betweenness_from_seeds": 6.0,
+    "size": 1678.5,
+    "risky_operations": 1903.0
+   }
+  },
+  {
+   "rank": 114,
+   "node": "hash_netnet6_uadt",
+   "combined_score": 0.01811993349664929,
+   "file": "ip_set_hash_netnet.c",
+   "line": 409,
+   "ranks": {
+    "pagerank": 3188.0,
+    "personalized_pagerank": 972.0,
+    "betweenness_from_seeds": 1060.5,
+    "size": 403.5,
+    "risky_operations": 12.5
+   }
+  },
+  {
+   "rank": 115,
+   "node": "nf_tables_rule_destroy",
+   "combined_score": 0.018071967956102927,
+   "file": "nf_tables_api.c",
+   "line": 3855,
+   "ranks": {
+    "pagerank": 574.0,
+    "personalized_pagerank": 839.0,
+    "betweenness_from_seeds": 9.0,
+    "size": 2570.5,
+    "risky_operations": 1903.0
+   }
+  },
+  {
+   "rank": 116,
+   "node": "ip_set_add",
+   "combined_score": 0.018064331550546587,
+   "file": "ip_set_core.c",
+   "line": 770,
+   "ranks": {
+    "pagerank": 344.5,
+    "personalized_pagerank": 49.5,
+    "betweenness_from_seeds": 117.5,
+    "size": 1856.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 117,
+   "node": "ip_set_del",
+   "combined_score": 0.018064331550546587,
+   "file": "ip_set_core.c",
+   "line": 792,
+   "ranks": {
+    "pagerank": 344.5,
+    "personalized_pagerank": 49.5,
+    "betweenness_from_seeds": 117.5,
+    "size": 1856.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 118,
+   "node": "nf_logger_find_get",
+   "combined_score": 0.018055393092005413,
+   "file": "nf_log.c",
+   "line": 154,
+   "ranks": {
+    "pagerank": 304.0,
+    "personalized_pagerank": 20.0,
+    "betweenness_from_seeds": 1128.5,
+    "size": 928.5,
+    "risky_operations": 987.0
+   }
+  },
+  {
+   "rank": 119,
+   "node": "nf_nat_sip",
+   "combined_score": 0.018019142685029174,
+   "file": "nf_nat_sip.c",
+   "line": 145,
+   "ranks": {
+    "pagerank": 1598.0,
+    "personalized_pagerank": 1164.0,
+    "betweenness_from_seeds": 152.0,
+    "size": 67.0,
+    "risky_operations": 189.5
+   }
+  },
+  {
+   "rank": 120,
+   "node": "__nf_tables_abort",
+   "combined_score": 0.017925627242201477,
+   "file": "nf_tables_api.c",
+   "line": 10703,
+   "ranks": {
+    "pagerank": 2504.5,
+    "personalized_pagerank": 2131.5,
+    "betweenness_from_seeds": 645.0,
+    "size": 6.0,
+    "risky_operations": 1903.0
+   }
+  },
+  {
+   "rank": 121,
+   "node": "nf_ct_ext_add",
+   "combined_score": 0.01758422614815479,
+   "file": "nf_conntrack_extend.c",
+   "line": 92,
+   "ranks": {
+    "pagerank": 82.0,
+    "personalized_pagerank": 109.0,
+    "betweenness_from_seeds": 491.0,
+    "size": 886.0,
+    "risky_operations": 510.5
+   }
+  },
+  {
+   "rank": 122,
+   "node": "nft_chain_parse_hook",
+   "combined_score": 0.017552988139744163,
+   "file": "nf_tables_api.c",
+   "line": 2303,
+   "ranks": {
+    "pagerank": 1886.5,
+    "personalized_pagerank": 850.5,
+    "betweenness_from_seeds": 680.5,
+    "size": 141.0,
+    "risky_operations": 44.0
+   }
+  },
+  {
+   "rank": 123,
+   "node": "nf_reinject",
+   "combined_score": 0.01742147546507443,
+   "file": "nfnetlink_queue.c",
+   "line": 312,
+   "ranks": {
+    "pagerank": 781.5,
+    "personalized_pagerank": 592.5,
+    "betweenness_from_seeds": 22.0,
+    "size": 441.0,
+    "risky_operations": 1903.0
+   }
+  },
+  {
+   "rank": 124,
+   "node": "dump_ipv4_packet",
+   "combined_score": 0.017276884806826216,
+   "file": "nf_log_syslog.c",
+   "line": 298,
+   "ranks": {
+    "pagerank": 1156.5,
+    "personalized_pagerank": 714.5,
+    "betweenness_from_seeds": 437.5,
+    "size": 33.0,
+    "risky_operations": 356.5
+   }
+  },
+  {
+   "rank": 125,
+   "node": "nf_tables_fill_setelem",
+   "combined_score": 0.017271723109713998,
+   "file": "nf_tables_api.c",
+   "line": 5776,
+   "ranks": {
+    "pagerank": 225.0,
+    "personalized_pagerank": 743.0,
+    "betweenness_from_seeds": 88.0,
+    "size": 189.5,
+    "risky_operations": 510.5
+   }
+  },
+  {
+   "rank": 126,
+   "node": "nft_nat_init",
+   "combined_score": 0.017078272058160898,
+   "file": "nft_nat.c",
+   "line": 170,
+   "ranks": {
+    "pagerank": 3261.5,
+    "personalized_pagerank": 2295.5,
+    "betweenness_from_seeds": 229.0,
+    "size": 154.5,
+    "risky_operations": 61.5
+   }
+  },
+  {
+   "rank": 127,
+   "node": "nft_pipapo_avx2_lookup_4b_8",
+   "combined_score": 0.017059772821777244,
+   "file": "nft_set_pipapo_avx2.c",
+   "line": 354,
+   "ranks": {
+    "pagerank": 3878.0,
+    "personalized_pagerank": 3563.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 244.5,
+    "risky_operations": 17.5
+   }
+  },
+  {
+   "rank": 128,
+   "node": "nft_table_lookup",
+   "combined_score": 0.016937964168905945,
+   "file": "nf_tables_api.c",
+   "line": 841,
+   "ranks": {
+    "pagerank": 241.0,
+    "personalized_pagerank": 23.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 1337.5,
+    "risky_operations": 1903.0
+   }
+  },
+  {
+   "rank": 129,
+   "node": "nfnl_acct_pernet",
+   "combined_score": 0.016900957978489856,
+   "file": "nfnetlink_acct.c",
+   "line": 51,
+   "ranks": {
+    "pagerank": 144.0,
+    "personalized_pagerank": 30.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 4085.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 130,
+   "node": "ctnetlink_dump_table",
+   "combined_score": 0.016892660347031352,
+   "file": "nf_conntrack_netlink.c",
+   "line": 1187,
+   "ranks": {
+    "pagerank": 2841.5,
+    "personalized_pagerank": 574.5,
+    "betweenness_from_seeds": 937.0,
+    "size": 145.0,
+    "risky_operations": 50.0
+   }
+  },
+  {
+   "rank": 131,
+   "node": "protocol",
+   "combined_score": 0.016804799014630625,
+   "file": "ip_set_core.c",
+   "line": 943,
+   "ranks": {
+    "pagerank": 189.0,
+    "personalized_pagerank": 27.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 4085.5,
+    "risky_operations": 1347.0
+   }
+  },
+  {
+   "rank": 132,
+   "node": "nft_immediate_destroy",
+   "combined_score": 0.016793253159528215,
+   "file": "nft_immediate.c",
+   "line": 186,
+   "ranks": {
+    "pagerank": 2274.0,
+    "personalized_pagerank": 1868.0,
+    "betweenness_from_seeds": 10.0,
+    "size": 736.0,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 133,
+   "node": "nft_base_seq",
+   "combined_score": 0.016664819903261886,
+   "file": "nf_tables_api.c",
+   "line": 1000,
+   "ranks": {
+    "pagerank": 64.0,
+    "personalized_pagerank": 70.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 3766.5,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 134,
+   "node": "hash_ipportnet6_resize",
+   "combined_score": 0.016616400301755287,
+   "file": "hash_ipportnet6@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 524.5,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  },
+  {
+   "rank": 135,
+   "node": "hash_net6_resize",
+   "combined_score": 0.016616400301755287,
+   "file": "hash_net6@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 524.5,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  },
+  {
+   "rank": 136,
+   "node": "hash_netiface6_resize",
+   "combined_score": 0.016616400301755287,
+   "file": "hash_netiface6@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 524.5,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  },
+  {
+   "rank": 137,
+   "node": "hash_netnet6_resize",
+   "combined_score": 0.016616400301755287,
+   "file": "hash_netnet6@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 524.5,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  },
+  {
+   "rank": 138,
+   "node": "hash_netport6_resize",
+   "combined_score": 0.016616400301755287,
+   "file": "hash_netport6@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 524.5,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  },
+  {
+   "rank": 139,
+   "node": "hash_netportnet6_resize",
+   "combined_score": 0.016616400301755287,
+   "file": "hash_netportnet6@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 524.5,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  },
+  {
+   "rank": 140,
+   "node": "hash_ipportnet4_resize",
+   "combined_score": 0.016530231685060397,
+   "file": "hash_ipportnet4@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 555.5,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  },
+  {
+   "rank": 141,
+   "node": "hash_net4_resize",
+   "combined_score": 0.016530231685060397,
+   "file": "hash_net4@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 555.5,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  },
+  {
+   "rank": 142,
+   "node": "hash_netiface4_resize",
+   "combined_score": 0.016530231685060397,
+   "file": "hash_netiface4@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 555.5,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  },
+  {
+   "rank": 143,
+   "node": "hash_netnet4_resize",
+   "combined_score": 0.016530231685060397,
+   "file": "hash_netnet4@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 555.5,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  },
+  {
+   "rank": 144,
+   "node": "hash_netport4_resize",
+   "combined_score": 0.016530231685060397,
+   "file": "hash_netport4@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 555.5,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  },
+  {
+   "rank": 145,
+   "node": "hash_netportnet4_resize",
+   "combined_score": 0.016530231685060397,
+   "file": "hash_netportnet4@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 555.5,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  },
+  {
+   "rank": 146,
+   "node": "nft_pipapo_avx2_lookup_4b_12",
+   "combined_score": 0.016522953319440502,
+   "file": "nft_set_pipapo_avx2.c",
+   "line": 450,
+   "ranks": {
+    "pagerank": 3878.0,
+    "personalized_pagerank": 3563.0,
+    "betweenness_from_seeds": 2859.5,
+    "size": 304.0,
+    "risky_operations": 17.5
+   }
+  },
+  {
+   "rank": 147,
+   "node": "nf_conntrack_handle_packet",
+   "combined_score": 0.016452309535867553,
+   "file": "nf_conntrack_core.c",
+   "line": 1959,
+   "ranks": {
+    "pagerank": 953.0,
+    "personalized_pagerank": 111.0,
+    "betweenness_from_seeds": 70.0,
+    "size": 557.0,
+    "risky_operations": 3228.0
+   }
+  },
+  {
+   "rank": 148,
+   "node": "hash_ip6_resize",
+   "combined_score": 0.016425293154347972,
+   "file": "hash_ip6@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 598.0,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  },
+  {
+   "rank": 149,
+   "node": "hash_ipmac4_resize",
+   "combined_score": 0.016425293154347972,
+   "file": "hash_ipmac4@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 598.0,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  },
+  {
+   "rank": 150,
+   "node": "hash_ipmac6_resize",
+   "combined_score": 0.016425293154347972,
+   "file": "hash_ipmac6@ip_set_hash_gen.h",
+   "line": 621,
+   "ranks": {
+    "pagerank": 3404.5,
+    "personalized_pagerank": 1797.5,
+    "betweenness_from_seeds": 598.0,
+    "size": 48.0,
+    "risky_operations": 147.5
+   }
+  }
+ ]
+}

@@ -10,4 +10,125 @@ Dispatch sites: {'name_fallback': 7, 'typed': 175, 'typed_no_registrations': 8}
 Name-only fallback used for 3.7% of dispatch sites (struct type unknown)
 Functions reachable from a seed: old 3224 / 4552   new 3177 / 4552
 
-(no ground truth yet - run build_cve_set.py, then this check again)
+CVEs with a path seed -> vulnerable function: old 31 / 36   new 30 / 36
+
+CVE-2024-53141   test    old yes  new yes
+   bitmap_ip_uadt: ip_set_utest -> bitmap_ip_uadt
+CVE-2024-53680   test    old NO   new NO 
+   ip_vs_protocol_init: no path in the new graph
+CVE-2024-56638   tuning  old yes  new yes
+   nft_inner_eval: nf_route_table_hook4 -> nft_do_chain -> expr_call_ops_eval -> nft_inner_eval
+   nft_inner_parse: nf_route_table_hook4 -> nft_do_chain -> expr_call_ops_eval -> nft_inner_eval -> nft_inner_parse
+   nft_inner_parse_needed: nf_route_table_hook4 -> nft_do_chain -> expr_call_ops_eval -> nft_inner_eval -> nft_inner_parse_needed
+CVE-2025-21648   test    old NO   new NO 
+   nf_ct_alloc_hashtable: no path in the new graph
+CVE-2025-21959   tuning  old yes  new yes
+   insert_tree: connlimit_mt -> nf_conncount_count -> count_tree -> insert_tree
+CVE-2025-37961   tuning  old yes  new yes
+   __ip_vs_get_out_rt: ip_vs_in_hook -> ip_vs_bypass_xmit -> __ip_vs_get_out_rt
+   do_output_route4: ip_vs_in_hook -> ip_vs_bypass_xmit -> __ip_vs_get_out_rt -> do_output_route4
+CVE-2025-38120   test    old yes  new yes
+   nft_pipapo_avx2_lookup: nf_route_table_hook4 -> nft_do_chain -> expr_call_ops_eval -> nft_lookup_eval -> nft_set_do_lookup -> nft_pipapo_avx2_lookup
+CVE-2025-38201   test    old yes  new yes
+   pipapo_base_sum: nf_tables_newsetelem -> nft_add_set_elem -> nft_setelem_insert -> nft_pipapo_insert -> pipapo_expand -> pipapo_base_sum
+   pipapo_clone: nf_tables_delsetelem -> nft_set_flush -> nft_pipapo_walk -> pipapo_maybe_clone -> pipapo_clone
+   pipapo_realloc_mt: nf_tables_newsetelem -> nft_add_set_elem -> nft_setelem_insert -> nft_pipapo_insert -> pipapo_insert -> pipapo_resize -> pipapo_realloc_mt
+CVE-2025-38472   test    old yes  new yes
+   __nf_conntrack_confirm: no path in the new graph
+   nf_ct_resolve_clash_harder: netmap_tg4 -> nf_nat_setup_info -> get_unique_tuple -> nf_nat_used_tuple -> nf_conntrack_tuple_taken -> nf_ct_resolve_clash -> nf_ct_resolve_clash_harder
+CVE-2026-23278   tuning  old yes  new yes
+   nft_map_catchall_activate: nfnetlink_rcv -> nfnetlink_rcv_skb_batch -> nfnetlink_rcv_batch -> nf_tables_abort -> __nf_tables_abort -> nft_map_activate -> nft_map_catchall_activate
+   nft_map_catchall_deactivate: nf_tables_delset -> nft_delset -> nft_map_deactivate -> nft_map_catchall_deactivate
+CVE-2026-31665   test    old yes  new yes
+   nft_ct_timeout_obj_destroy: nf_tables_newobj -> nft_ct_timeout_obj_destroy
+CVE-2026-43024   tuning  old yes  new yes
+   nft_verdict_init: nf_tables_delsetelem -> nft_del_setelem -> nft_setelem_parse_key -> nft_data_init -> nft_verdict_init
+CVE-2026-43452   tuning  old yes  new yes
+   dccp_find_option: dccp_mt -> match_option -> dccp_find_option
+   tcp_find_option: tcp_mt -> tcp_find_option
+CVE-2026-52920   test    old yes  new yes
+   match_policy_in: policy_mt -> match_policy_in
+CVE-2026-52970   tuning  old yes  new yes
+   nft_ct_expect_obj_eval: nf_route_table_hook4 -> nft_do_chain -> expr_call_ops_eval -> nft_objref_eval -> nft_ct_expect_obj_eval
+CVE-2026-53002   test    old yes  new yes
+   help [nf_nat_amanda.c]: no path in the new graph
+   mangle_content_len: no path in the new graph
+   map_addr: nf_confirm -> sip_help_tcp -> process_sip_msg -> nf_nat_sip -> map_addr
+   nf_nat_sdp_addr: no path in the new graph
+   nf_nat_sdp_port: no path in the new graph
+   nf_nat_sdp_session: no path in the new graph
+   nf_nat_sip: nf_confirm -> sip_help_tcp -> process_sip_msg -> nf_nat_sip
+   nf_nat_sip_expect: no path in the new graph
+   sip_sprintf_addr: nf_confirm -> sip_help_tcp -> process_sip_msg -> nf_nat_sip -> sip_sprintf_addr
+   sip_sprintf_addr_port: nf_confirm -> sip_help_tcp -> process_sip_msg -> nf_nat_sip -> map_addr -> sip_sprintf_addr_port
+CVE-2026-53212   test    old yes  new yes
+   nft_tunnel_obj_destroy: nf_tables_newobj -> nft_tunnel_obj_destroy
+CVE-2026-53218   test    old yes  new yes
+   nft_exthdr_init: nf_tables_newrule -> nf_tables_newexpr -> nft_exthdr_init
+CVE-2026-53270   test    old NO   new NO 
+   __ip_vs_del_service: no path in the new graph
+   ip_vs_add_service: no path in the new graph
+   ip_vs_edit_service: no path in the new graph
+   ip_vs_unbind_scheduler: no path in the new graph
+CVE-2026-53349   tuning  old NO   new NO 
+   nf_nat_cleanup: no path in the new graph
+   nf_nat_init: no path in the new graph
+   nf_nat_sip_fini: no path in the new graph
+CVE-2026-64006   test    old yes  new yes
+   nft_bitwise_eval_lshift: nf_route_table_hook4 -> nft_do_chain -> expr_call_ops_eval -> nft_bitwise_eval -> nft_bitwise_eval_lshift
+   nft_bitwise_eval_rshift: nf_route_table_hook4 -> nft_do_chain -> expr_call_ops_eval -> nft_bitwise_eval -> nft_bitwise_eval_rshift
+   nft_bitwise_init: nf_tables_newrule -> nf_tables_newexpr -> nft_bitwise_init
+   nft_bitwise_init_bool: nf_tables_newrule -> nf_tables_newexpr -> nft_bitwise_init -> nft_bitwise_init_bool
+   nft_byteorder_init: nf_tables_newrule -> nf_tables_newexpr -> nft_byteorder_init
+CVE-2026-64078   tuning  old yes  new NO 
+   xt_net_exit: no path in the new graph
+   xt_net_init: no path in the new graph
+   xt_unregister_table: no path in the new graph
+CVE-2026-64079   test    old NO   new NO 
+   xt_register_table: no path in the new graph
+   xt_replace_table: no path in the new graph
+CVE-2026-68476   tuning  old yes  new yes
+   ip_vs_bypass_xmit: ip_vs_in_hook -> ip_vs_bypass_xmit
+CVE-2026-72021   test    old yes  new yes
+   sctp_state_transition: ip_vs_in_hook -> ip_vs_set_state -> sctp_state_transition
+   set_sctp_state: ip_vs_in_hook -> ip_vs_set_state -> sctp_state_transition -> set_sctp_state
+CVE-2026-72419   test    old yes  new yes
+   nf_nat_register_fn: nf_tables_newchain -> nf_tables_addchain -> nf_tables_register_hook -> nf_nat_ipv4_register_fn -> nf_nat_register_fn
+CVE-2026-74564   test    old yes  new yes
+   hashlimit_mt_check_common: hashlimit_mt_check -> hashlimit_mt_check_common
+   htable_create: hashlimit_mt_check -> hashlimit_mt_check_common -> htable_create
+CVE-2026-74569   test    old yes  new yes
+   sip_help_tcp: nf_confirm -> sip_help_tcp
+   nf_nat_sip_seq_adjust: nf_confirm -> sip_help_tcp -> nf_nat_sip_seq_adjust
+CVE-2026-74579   test    old yes  new yes
+   nft_payload_offload_mask: nf_tables_newrule -> nft_flow_rule_create -> nft_payload_offload -> nft_payload_offload_ll -> nft_payload_offload_mask
+CVE-2026-74624   tuning  old yes  new yes
+   nf_ct_l4proto_log_invalid: ipv4_conntrack_in -> nf_conntrack_in -> nf_conntrack_handle_packet -> nf_conntrack_tcp_packet -> nf_ct_l4proto_log_invalid
+   nf_conntrack_sctp_packet: ipv4_conntrack_in -> nf_conntrack_in -> nf_conntrack_handle_packet -> nf_conntrack_sctp_packet
+   nf_conntrack_tcp_packet: ipv4_conntrack_in -> nf_conntrack_in -> nf_conntrack_handle_packet -> nf_conntrack_tcp_packet
+   nf_tcp_handle_invalid: ipv4_conntrack_in -> nf_conntrack_in -> nf_conntrack_handle_packet -> nf_conntrack_tcp_packet -> nf_tcp_handle_invalid
+   nf_tcp_log_invalid: ipv4_conntrack_in -> nf_conntrack_in -> nf_conntrack_handle_packet -> nf_conntrack_tcp_packet -> tcp_in_window -> nf_tcp_log_invalid
+   tcp_in_window: ipv4_conntrack_in -> nf_conntrack_in -> nf_conntrack_handle_packet -> nf_conntrack_tcp_packet -> tcp_in_window
+CVE-2026-74746   test    old yes  new yes
+   flow_offload_add: nf_route_table_hook4 -> nft_do_chain -> expr_call_ops_eval -> nft_flow_offload_eval -> flow_offload_add
+CVE-2026-74747   tuning  old yes  new yes
+   handle_response_icmp: ip_vs_out_hook -> ip_vs_out_icmp_v6 -> handle_response_icmp
+   ip_vs_nat_icmp: ip_vs_forward_icmp -> ip_vs_in_icmp -> ip_vs_icmp_xmit -> ip_vs_nat_icmp
+   ip_vs_icmp_xmit: ip_vs_forward_icmp -> ip_vs_in_icmp -> ip_vs_icmp_xmit
+CVE-2026-80636   test    old yes  new yes
+   __nf_conntrack_confirm: no path in the new graph
+   nf_conntrack_hash_check_insert: ctnetlink_new_conntrack -> ctnetlink_create_conntrack -> nf_conntrack_hash_check_insert
+   nf_ct_ext_valid_post: ctnetlink_new_conntrack -> ctnetlink_create_conntrack -> nf_conntrack_hash_check_insert -> nf_ct_ext_valid_post
+   nf_ct_ext_valid_pre: ctnetlink_new_conntrack -> ctnetlink_create_conntrack -> nf_conntrack_hash_check_insert -> nf_ct_ext_valid_pre
+   nf_ct_iterate_destroy: nfnl_cthelper_del -> nf_conntrack_helper_unregister -> nf_ct_iterate_destroy
+   __nf_ct_ext_find: no path in the new graph
+   nf_ct_ext_add: nf_confirm -> conntrack_pptp_help -> nf_ct_ext_add
+   nf_ct_ext_bump_genid: nfnl_cthelper_del -> nf_conntrack_helper_unregister -> nf_ct_iterate_destroy -> nf_ct_ext_bump_genid
+CVE-2026-80744   test    old yes  new yes
+   nft_flow_rule_offload_abort: nfnetlink_rcv -> nfnetlink_rcv_skb_batch -> nfnetlink_rcv_batch -> nf_tables_commit -> nft_flow_rule_offload_commit -> nft_flow_rule_offload_abort
+CVE-2026-80837   test    old yes  new yes
+   __nft_obj_notify: nfnetlink_rcv -> nfnetlink_rcv_skb_batch -> nfnetlink_rcv_batch -> nf_tables_commit -> nf_tables_obj_notify -> __nft_obj_notify
+   nf_tables_obj_notify: nfnetlink_rcv -> nfnetlink_rcv_skb_batch -> nfnetlink_rcv_batch -> nf_tables_commit -> nf_tables_obj_notify
+   nft_obj_notify: nf_route_table_hook4 -> nft_do_chain -> expr_call_ops_eval -> nft_objref_eval -> nft_quota_obj_eval -> nft_obj_notify
+CVE-2026-97417   test    old yes  new yes
+   tcp_sack: ipv4_conntrack_in -> nf_conntrack_in -> nf_conntrack_handle_packet -> nf_conntrack_tcp_packet -> tcp_in_window -> tcp_sack
