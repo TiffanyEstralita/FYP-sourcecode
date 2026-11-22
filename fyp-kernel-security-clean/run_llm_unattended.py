@@ -9,8 +9,9 @@ Run the LLM jobs unattended. Started by double-clicking RUN_LLM_OVERNIGHT.bat, o
 Jobs (in this order):
   check-v3          Phase 5 LLM check with the old prompt v3        (~45 min)
   shortlist-v3      score the top-K shortlist with prompt v3        (~40 min)
-  check-vulnsc      Phase 5 LLM check with the VulnSC reranker      (~2-3.5 h)
-  shortlist-vulnsc  score the top-K shortlist with VulnSC           (~2-3.5 h)
+  check-vulnsc      Phase 5 LLM check with the VulnSC reranker      (~1 h 40 min)
+  shortlist-vulnsc  score the top-K shortlist with VulnSC           (~1 h 50 min)
+  (total ~4.8 h = two runs; see RUN_GUIDE.md)
 
 - ONE run lasts at most max_hours_per_run (configs/llm.yaml, 3 h) in total;
   then it stops by itself. Every answer is cached the moment it arrives, so

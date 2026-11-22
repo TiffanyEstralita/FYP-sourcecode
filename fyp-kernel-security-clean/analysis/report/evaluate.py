@@ -235,7 +235,9 @@ def main():
                  ("combined + prompt v3", "combined shortlist"), ("combined + VulnSC", "combined shortlist"),
                  ("combined + VulnSC", "combined + prompt v3")):
         if a in ranks and b in ranks and test:
-            diffs = [1 / ranks[a][c] - 1 / ranks[b][c] for c in test]
+            def rr(v):
+                return 1 / v if v else 0.0          # not ranked = not found
+            diffs = [rr(ranks[a][c]) - rr(ranks[b][c]) for c in test]
             comparisons[f"{a} vs {b}"] = {
                 "mrr_difference": statistics.fmean(diffs), "ci95": bootstrap_ci(diffs, rng),
                 "better": sum(ranks[a][c] < ranks[b][c] for c in test),
@@ -329,7 +331,7 @@ def write_md(tables, comparisons, per_cve, weights, notes, n_functions):
     md.append(f"## Main result ({test['cves']} test CVEs)\n")
     md += table("test")
     md.append("\nValues are the share of CVEs found within the top N. The random row is the exact "
-              "expected value of a random order. Intervals: bootstrap over CVEs ({BOOTSTRAP} resamples).\n")
+              f"expected value of a random order. Intervals: bootstrap over CVEs ({BOOTSTRAP} resamples).\n")
 
     md.append("## By fix date (test CVEs)\n")
     md.append("Fixes committed after the model release cannot be in its training data.\n")
